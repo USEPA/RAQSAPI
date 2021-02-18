@@ -1,0 +1,132 @@
+#' install_RAQSAPI.R
+#'  This file includes functions to make it easier to deal with building
+#'  RAQSAPI and is targeted at RAQSAPI development.
+
+
+library(devtools)
+library(usethis)
+library(spelling)
+library(goodpractice)
+
+#' @name RAQSAPICLEAN
+#' @description removes Package:RASAPI then removes files created during the
+#'   build phase of RAQSAPI including the NAMESPACE file (if NAMESPACE = TRUE
+#'   [default]), compiled vignettes and intermediate files, Rd files and README
+#'   files.
+#' @param NAMESPACE logical, if TRUE (default) deletes the RAQSAPI
+#'   NAMESPACEFILE. Useful if it is expected that building the package will
+#'   alter the NAMESPACE so that the developer can ensure that a new NAMESPACE
+#'   was created.
+#' @note This will remove older versions of RAQSAPI be sure that you intend on
+#'   removing the older version of RAQSAPI before continuing. It has been
+#'   witnessed that sometimes the NAMESPACE is not updated after rebuilding a
+#'   package. By deleting the NAMESPACE file before rebuilding the developer
+#'   can ensure that they are using the most recent version of the NAMESPACE.
+#' @examples
+#'   # to remove RAQSAPI and clean the project directory of files
+#'   #  created during the package build process.
+#'   \dontrun{
+#'            RAQSAPICLEAN()
+#'           }
+#' @noRd
+RAQSAPICLEAN <- function(NAMESPACE = TRUE)
+{
+  if ("RAQSAPI" %in% installed.packages()) { remove.packages("RAQSAPI") }
+  if (NAMESPACE == TRUE) {unlink("NAMESPACE")}
+  unlink("README.md")
+  unlink("doc", recursive = TRUE)
+  unlink("man", recursive = TRUE)
+  unlink("Meta", recursive = TRUE)
+  unlink("README.html")
+  unlink("README.aux")
+  unlink("README.tex")
+  unlink("README.log")
+  unlink("README.pdf")
+  unlink("./vignettes/AQSAPI-concordance.tex")
+}
+
+
+#' @name buildRAQSAPIbase
+#' @description a helper function, not to be called directly by the user to
+#'   build the base of the RAQSAPI package
+#'
+#' @examples
+#'   # builds the base RAQSAPI package
+#'   \dontrun{buildRAQSAPI()}
+#' @nord
+buildRAQSAPIbase <- function()
+{
+  invisible(usethis::use_lifecycle())
+  roxygen2::roxygenize()
+  devtools::document(quiet = TRUE,
+                     roclets = c("collate", "namespace", "rd", "vignette"))
+  devtools::build_readme()
+}
+
+
+#' @name RAQSAPIBUILD
+#' @description builds the development version RAQSAPI
+#' @note do not use if the intent is to build RAQSAPI for end users, instead
+#'   use @seealso [RAQSAPIINSTALL()] as this build will export objects
+#'   not intended for end use.
+#' @examples
+#'  builds a development build of RAQSAPI
+#'  \dontrun{ RAQSAPIBUILD() }
+#'  @noRd
+RAQSAPIBUILD <- function()
+{
+  buildRAQSAPIbase()
+  devtools::build(binary = TRUE, manual = TRUE, vignettes = TRUE, quiet = TRUE)
+}
+
+
+#' @name RAQSAPIBUILD
+#' @description builds and installs package:RAQSAPI
+#' @note this will build and install a generic version RAQSAPI as if it were
+#'   being installed from CRAN. Package developers might want to consider using
+#'   @seealso [RAQSAPIBUILD()] instead.
+#' @examples
+#'  builds a development build of RAQSAPI
+#'  \dontrun{ RAQSAPIINSTALL() }
+#'  @noRd
+RAQSAPIINSTALL <- function()
+{
+  buildRAQSAPIbase()
+  devtools::build_manual()
+  devtools::install(reload = TRUE, quiet = TRUE, dependencies = TRUE,
+                     upgrade = "always", build_vignettes = TRUE, quick = FALSE)
+}
+
+
+#' @name RAQSAPICHECK
+#' @description A set of basic checks for those developing RAQSAPI before
+#'   pushing code upstream, these check include those provided by spelling,
+#'   testthat and goodpractice libraries.
+#' @note This function may take a few minutes to finish. Some of functions will
+#'   hit the Data Mart API server and that process may take a while to return
+#'   results. CRAN has strict policies about accepting code that produces
+#'   warnings, significant notes or build errors. In addition they implement
+#'   rigid guidelines for code quality, legal requirements and build quality. In
+#'   order to comply with CRAN's code submission policies please use this
+#'   function and remove any errors, warning or notes that your code change has
+#'   introduced. Any new code that produces new error messages, notes or
+#'   warnings will be rejected unless the project maintainers have given prior
+#'   approval. Unfortunately some of the check in groodpracticee duplicate the
+#'   checks in devtools. At some future point in time we will streamline the
+#'   check process so that it is more efficient. Run RAQSAPIBUILD() first.
+#' @examples
+#'   #to check the RAQSAPI package for errors before pushing changes upstream
+#'   \dontrun(RAQSAPICHECK()
+#'   }
+#' @noRd
+RAQSAPICHECK <- function()
+{
+  if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
+  devtools::spell_check(vignettes = TRUE, use_wordlist = TRUE)
+  devtools::check_built(path = ".", cran = TRUE, remote = TRUE,
+                        incoming = TRUE, manual = TRUE, quiet = TRUE,
+                        run_dont_test = TRUE
+                        )
+  if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
+  goodpractice::gp(quiet = TRUE)
+}

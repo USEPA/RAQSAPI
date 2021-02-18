@@ -1,0 +1,18 @@
+---
+title: Troubleshooting RAQSAPI
+author: Clinton Mccrowey physical scientist - US EPA
+output:
+  rmarkdown::html_document: default
+---
+
+# Troubleshooting
+
+In Functions that have the return_header=TRUE option set the returned object is
+an AQSAPI_v2 object, this is a 2 item list where the first object is a tibble
+with the label \$Header the second, a tibble with the label \$Data. sampledata
+functions are limited by the API to one calendar year of data per API call so if
+the user requests multiple years of data the sampledata call will return multiple
+AQSAPI_v2 objects, one for each call to the API. The returned result is a list
+of AQSAPI_v2 objects. In R to access the data in each item in the list the user
+will need to use the "double bracket operator" ("[[", "]]") not the single
+bracket operator ("[", "]").

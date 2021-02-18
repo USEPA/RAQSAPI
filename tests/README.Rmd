@@ -1,0 +1,128 @@
+---
+title: "Introduction to the RAQSAPI package"
+author:
+- affiliation: United States Environmental Protection Agency (USEPA) Region III  -
+    Air and Radiation Division, Air Quality and Analysis Branch
+  name: Clinton Mccrowey Physical scientist
+date: '2020-04-17'
+output:
+  rmarkdown::github_document: default
+  # pdf_document: NULL
+  # rmarkdown::html_document: NULL
+lang: en-US
+abstract: |-
+  RAQSAPI is a package for R that connects the R programming language
+  environment to the United States Environmental Protection Agency's Air Quality
+    System (AQS) Data Mart database for retrieval of ambient air pollution data.
+---
+```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  tidy.ops = list(width.cutoff = 80),
+  tidy = TRUE
+)
+
+# @import RAQSAOI magrittr stringr tibble
+#invisible(library(RAQSAPI, warn.conflicts = FALSE, quietly = TRUE))
+
+```
+|  <span style="color:red"> Warning: Do not share anything in this repository with anyone outside of the US EPA until this package has been approved for release! </span>  |
+  | --- |
+
+|  <span style="color:red"> Warning: US EPA's AQS Data Mart API V2 is currently in beta phase of development, the API interface has not been finalized. This means that certain functionality of the API may change or be removed without notice. As a result, this package is also currently marked as beta and may also change to reflect any changes made to the Data Mart API or in respect to improvements in the design, functionality, quality and documentation of this package. The authors assume no liability for any problems that may occur as a result of using this package, the Data Mart service, any software, service, hardware, or user accounts that may utilize this package. </span>  |
+  | --- |
+
+The RAQSAPI package for the R programming environment allows a R programming
+  environment to connect and retrieve data from the US EPA AQS Data Mart API v2
+  interface directly. This package enables the data user to omit legacy
+  challenges including coercing data from a JSON object to a usable R object,
+  formatting requests, retrieving results, handling credentials, and rate
+  limiting data requests. All the basic functionality of the API have been
+  implemented including a few extra meta functions. The API connects to AQS Data
+  Mart API via Hypertext Transfer Protocol (HTTP) so there is no need to
+  install external ODBC drivers, configure ODBC connections or deal with
+  the security vulnerabilities associated with them. All functions return
+  a R NULL object, or a R AQS_Data Mart_APIv2 S3 object which
+  is a two item named list. The first item (\$Header) in the AQS_Data Mart_APIv2
+  object is a tibble ^[see (https://tibble.tidyverse.org) for more information
+  about tibbles.]
+  which contains the header information. The Header contains status information
+  regarding the request (success/fail), any applicable error messages returned
+  from the API if they exist, the URL used in the request, a date and time stamp
+  noting when request was received and other useful information. The second item
+  of the AQS_Data Mart_APIv2 object (\$Data) is a tibble which contains the
+  actual data being requested. After each call to the API a two second stall is
+  invoked to help prevent overloading the Data Mart API server.
+
+To begin using RAQSAPI first install RAQSAPI with all required dependencies,
+  then load the package using
+
+> library(RAQSAPI)
+
+If you have not already done so you will need to sign up with AQS Data Mart
+  using AQS_API_sign_up ^[Use "?AQS_API_sign_up" after the RAQSAPI library has
+  been loaded to see the full usage description of the AQS_API_sign_up
+  function.] function, this function takes one input, "email", a character R
+  character object, which represents the email address that you want to use to
+  utilize the AQS Data Mart service. After a successful call to
+  AQS_API_sign_up an email message will be sent to the email address provided
+  with a new Data Mart key which will be used as a credential to access the
+  Data Mart API. The AQS_API_sign_up function can also be used to generate a
+  new key for existing users, to generate a new key simply call the
+  AQS_API_sign_up function with the parameter "email" set to an existing
+  account. A new key will be e-mailed to the account given.
+
+The credentials used to access the Data Mart API service are stored in an R
+  environment variable that needs to be set every time the RAQSAPI library is
+  attached or the key is changed. This is done with a call to
+  AQS_API_credentials().   Without valid credentials, the Data Mart server will
+  reject any request sent to it.   The key used with Data Mart is a key and is
+  not a password, so the RAQSAPI library   does not treat the key as a password;
+  this means that the key is stored in plain     text and there are no attempts
+  to encrypt Data Mart credentials as would be done     for a username and
+  password combination. The key that is supplied to use with Data   Mart is not
+  intended for authentication but only account monitoring.
+
+| <span style="color:blue"> Information: AQS Data Mart API restricts the maximum amount of monitoring data to one full year of data per API call.</span> |
+| -- |
+
+The functions are named according to the service and filter variables that are
+available by the Data Mart
+API.^[See (https://aqs.epa.gov/aqsweb/documents/data_api.html) for the full 
+details of the Data Mart API]
+
+## Data Mart aggregate functions
+
+These functions retrieve aggregated data from the Data Mart API and are grouped
+by how each function aggregates the data. There are 5 different families of
+related aggregate functions in which the Data Mart API groups data, _by_site,
+_by_county, _by_state, _by\_\<latitude/longitude bounding box\> (_by_box) and
+_by\_\<core based statistical area\> (_by_cbsa). Within each family of
+aggregated data functions there are functions that call on the 10 different
+services that the Data Mart API provides. ALL Aggregate functions return an
+AQS_Data Mart_APIv2 S3 object.
+
+
+* **These ten services are**:
+1. **Monitors** (*monitors_by_*): 
+2. **Sample Data** (*sampledata_by_*):
+3. **Daily Summary Data** (*dailydata_by_*): 
+4. **Annual Summary Data** (*annualdata_by_*): 
+5. **Quality Assurance - Blanks Data** (*qa_blanks_by_*): 
+6. **Quality Assurance - Collocated Assessments**
+    (*qa_collocated_assessments_by_*):
+7. **Quality Assurance - Flow Rate verifications**
+    (*qa_flowrateverification_by_*):
+8. **Quality Assurance - Flow Rate Audits** (*aqs_qa_flowrateaudit_by_*):
+9. **Quality Assurance - One Point Quality Control Raw Data**
+    (*qa_one_point_qc_by_*):
+10. **Quality Assurance - PEP Audits** (*qa_pep_audit_by_*):
+
+
+Aggregate functions are named AQS_API\<service\>\_\<aggregation\>() where
+\<service\> is one of the 10 services listed above and \<aggregation\> is
+either "_by_site", "_by_county", "_by_state", "_by_box", "_by_cbsa".
+
+### See the RAQSAPI vignette for more details
+> RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
