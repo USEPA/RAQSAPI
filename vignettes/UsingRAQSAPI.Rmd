@@ -1,9 +1,15 @@
 ---
-title: "Using RAQSAPI"
+title: "RAQSAPI - Using RAQSAPI"
 author: "Clinton Mccrowey physical scientist - US EPA"
 date: "June 11, 2020"
 output:
   rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - Using RAQSAPI}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 # Using The RAQSAPI library

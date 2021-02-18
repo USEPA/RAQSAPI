@@ -2,17 +2,17 @@ Introduction to the RAQSAPI package
 ================
 Clinton Mccrowey, physical scientist - US EPA
 
-  - [EPA Disclaimer](#epa-disclaimer)
-  - [Introduction](#introduction)
-  - [Installing RAQSAPI](#installing-raqsapi)
-      - [Installing the development version of
+-   [EPA Disclaimer](#epa-disclaimer)
+-   [Introduction](#introduction)
+-   [Installing RAQSAPI](#installing-raqsapi)
+    -   [Installing the development version of
         RAQSAPI](#installing-the-development-version-of-raqsapi)
-  - [Using The RAQSAPI library](#using-the-raqsapi-library)
-      - [Load RAQSAPI](#load-raqsapi)
-      - [Sign up and setting up user credentials with the RAQSAPI
+-   [Using The RAQSAPI library](#using-the-raqsapi-library)
+    -   [Load RAQSAPI](#load-raqsapi)
+    -   [Sign up and setting up user credentials with the RAQSAPI
         library](#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library)
-      - [Data Mart aggregate functions](#data-mart-aggregate-functions)
-          - [See the RAQSAPI vignette for more
+    -   [Data Mart aggregate functions](#data-mart-aggregate-functions)
+        -   [See the RAQSAPI vignette for more
             details](#see-the-raqsapi-vignette-for-more-details)
 
 # EPA Disclaimer
@@ -71,7 +71,7 @@ the user decides to set return\_header to TRUE, then that function will
 return a R AQS\_DATAMART\_APIv2 S3 object which is a two item named
 list.  
 The first item, ($Header) in the AQS\_DATAMART\_APIv2 object is a tibble
-\[1\] which contains the header information. The Header contains status
+[1] which contains the header information. The Header contains status
 information regarding the request (success/fail), any applicable error
 messages returned from the API, if any exist, the URL used in the
 request, a date and time stamp noting when request was received and
@@ -81,16 +81,14 @@ requested. For functions with the return\_header option set to FALSE
 (default) a simple tibble is returned with just the $Data portion of the
 request. After each call to the API a five second stall is invoked to
 help prevent overloading the Data Mart API server and to serve as a
-simple rate limit. \[2\]
+simple rate limit. [2]
 
 # Installing RAQSAPI
 
+<!-- #uncomment if/hen the package has been accepted by CRAN -->
 <!-- ## Installing the stable version from CRAN -->
-
 <!-- > install.packages(pkgs = "RAQSAPI", -->
-
 <!--                    dependencies = TRUE -->
-
 <!--                    ) -->
 
 ## Installing the development version of RAQSAPI
@@ -104,9 +102,9 @@ remotes::install_github(repo = "USEPA/raqsapi",
                         dependencies = TRUE,
                         upgrade = "always",
                         build = TRUE,
-                        #optional if you want the manual
+                        #optional, if you want the manual
                         build_manual = TRUE,
-                        #optional if you want the vignette
+                        #optional, if you want the vignette
                         build_vignettes = TRUE 
                         )
 ```
@@ -123,7 +121,7 @@ library:
 ## Sign up and setting up user credentials with the RAQSAPI library
 
 If you have not already done so you will need to sign up with AQS Data
-Mart using aqs\_sign\_up function, \[3\] this function takes one input,
+Mart using aqs\_sign\_up function, [3] this function takes one input,
 “email”, which is a R character object, that represents the email
 address that you want to use as a user credential to the AQS Data Mart
 service. After a successful call to aqs\_sign\_up an email message will
@@ -144,8 +142,8 @@ in plain text and there are no attempts to encrypt Data Mart credentials
 as would be done for a username and password combination. The key that
 is supplied to use with Data Mart is not intended for authentication but
 only account monitoring. Each time RAQSAPI is loaded and before using
-any of it’s functions use the aqs\_credentials \[4\] function to enter
-in the user credentials so that RAQSAPI can access the AQS Data Mart
+any of it’s functions use the aqs\_credentials [4] function to enter in
+the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
 <table>
@@ -180,7 +178,7 @@ call.</span></th>
 </table>
 
 RAQSAPI functions are named according to the service and filter
-variables that are available by the Data Mart API.\[5\]
+variables that are available by the Data Mart API.[5]
 
 ## Data Mart aggregate functions
 
@@ -188,14 +186,12 @@ These functions retrieve aggregated data from the Data Mart API and are
 grouped by how each function aggregates the data. There are 5 different
 families of related aggregate functions in which the Data Mart API
 groups data, \_by\_site, \_by\_county, \_by\_state,
-\_by\_\<latitude/longitude bounding box\> (\_by\_box) and \_by\_\<core
-based statistical area\> (\_by\_cbsa). Within each family of aggregated
-data functions there are functions that call on the 10 different
-aggregate services that the Data Mart API provides.
+\_by\_&lt;latitude/longitude bounding box&gt; (\_by\_box) and
+\_by\_&lt;core based statistical area&gt; (\_by\_cbsa). Within each
+family of aggregated data functions there are functions that call on the
+10 different aggregate services that the Data Mart API provides.
 
-  - **These eleven services are**:
-
-<!-- end list -->
+-   **These eleven services are**:
 
 1.  **Monitors** (*monitors\_by\_*):
 2.  **Sample Data** (*sampledata\_by\_*):
@@ -232,29 +228,29 @@ will take to return the results.</span></th>
 </tbody>
 </table>
 
-Aggregate functions are named AQS\_API\<service\>\_\<aggregation\>()
-where \<service\> is one of the 11 services listed above and
-\<aggregation\> is either
+Aggregate functions are named
+AQS\_API&lt;service&gt;\_&lt;aggregation&gt;() where &lt;service&gt; is
+one of the 11 services listed above and &lt;aggregation&gt; is either
 "\_by\_site“,”\_by\_county“,”\_by\_state“,”\_by\_box“,”\_by\_cbsa".
 
 ### See the RAQSAPI vignette for more details
 
-(RAQSAPI must be installed first) \> RShowDoc(what=“RAQSAPIvignette”,
+(RAQSAPI must be installed first) &gt; RShowDoc(what=“RAQSAPIvignette”,
 type=“html”, package=“RAQSAPI”)
 
-1.  see (<https://tibble.tidyverse.org>) for more information about
-    tibbles.
+[1] see (<https://tibble.tidyverse.org>) for more information about
+tibbles.
 
-2.  RAQSAPI’s rate limit does not guarantee that the user will not go
-    over the rate limit and does not guarantee that API calls do not
-    overload the AQS Data Mart system, each user should monitor their
-    requests independently.
+[2] RAQSAPI’s rate limit does not guarantee that the user will not go
+over the rate limit and does not guarantee that API calls do not
+overload the AQS Data Mart system, each user should monitor their
+requests independently.
 
-3.  Use “?aqs\_sign\_up” after the RAQSAPI library has been loaded to
-    see the full usage description of the aqs\_sign\_up function.
+[3] Use “?aqs\_sign\_up” after the RAQSAPI library has been loaded to
+see the full usage description of the aqs\_sign\_up function.
 
-4.  Use “?aqs\_credentials” after the RAQSAPI library has been loaded to
-    see the full usage description of the aqs\_credentials function.
+[4] Use “?aqs\_credentials” after the RAQSAPI library has been loaded to
+see the full usage description of the aqs\_credentials function.
 
-5.  See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
-    full details of the Data Mart API
+[5] See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
+full details of the Data Mart API

@@ -1,9 +1,14 @@
 ---
-title: Introduction to RAQSAPI
+title: RAQSAPI - Introduction to RAQSAPI
 author: Clinton Mccrowey physical scientist - US EPA
 output:
-  rmarkdown::html_document: default
-<!-- bibliography: AQSAPI.bib # not used footnotes were used instead -->
+  rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - Introduction to RAQSAPI}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 | <span style="color:red"> Warning: US EPA's AQS Data Mart API V2 is currently \

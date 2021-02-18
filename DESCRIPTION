@@ -36,7 +36,7 @@ MAINTAINER: person(given="Clinton", family="Mccrowey",
             email="mccrowey.clinton@epa.gov", 
             role=c("cre", "aut")
             )
-URL: https://github.com/orgs/USEPA/teams/raqsapi
+URL: https://github.com/orgs/USEPA/RAQSAPI
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 3.6.0)
 Imports: 

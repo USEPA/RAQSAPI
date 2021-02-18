@@ -8,7 +8,13 @@ author:
         Air Quality and Analysis Branch
   name: Clinton Mccrowey
 output:
-  rmarkdown::html_document: default
+  rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - EPA Disclaimer}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 # EPA Disclaimer

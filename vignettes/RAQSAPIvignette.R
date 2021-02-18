@@ -1,4 +1,4 @@
-## ----SETUP, echo = FALSE, message = FALSE, warning = FALSE------------------------------------------------------------------------------------------------------------
+## ----SETUP, echo = FALSE, message = FALSE, warning = FALSE--------------------------------------------------------------
 invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 
 #usethisurl <- "https://usethis.r-lib.org"
@@ -7,7 +7,7 @@ invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 
 #patsetuplink <- glue::glue("{usethisurl}{usethissetup}{usethispatsection}")
 
-## ----RAQSAPIfun_all, echo = FALSE, comment = NA-----------------------------------------------------------------------------------------------------------------------
+## ----RAQSAPIfun_all, echo = FALSE, comment = NA-------------------------------------------------------------------------
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>" )
 invisible(library(magrittr, warn.conflicts = FALSE, quietly = TRUE))
 invisible(library(stringr, warn.conflicts = FALSE, quietly = TRUE))
@@ -99,13 +99,13 @@ RAQSAPI_functions <- c(
 RAQSAPI_functions %>%
   cat(sep = "  \n")
 
-## ----SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA-----------------------------------------------------------------------------------------------------------------
+## ----SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA-------------------------------------------------------------------
 signupandcredentials <- paste(".sign_up", ".credentials", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
   cat(sep = "  \n")
 
-## ----METADATAFUNCTIONS, echo = FALSE, comment = NA--------------------------------------------------------------------------------------------------------------------
+## ----METADATAFUNCTIONS, echo = FALSE, comment = NA----------------------------------------------------------------------
 metadatafunctions <- paste(".available",
                            ".field_by_service",
                            ".knownissues", sep = '|')
@@ -113,7 +113,7 @@ metadatafunctions <- paste(".available",
 str_subset(string = RAQSAPI_functions, pattern = metadatafunctions) %>%
   cat(sep = "  \n")
 
-## ----LISTFUNCTIONS, echo = FALSE, comment = NA------------------------------------------------------------------------------------------------------------------------
+## ----LISTFUNCTIONS, echo = FALSE, comment = NA--------------------------------------------------------------------------
 listfunctions <- paste(".states",
                        ".counties_by_state",
                        ".sites_by_county",
@@ -127,49 +127,49 @@ listfunctions <- paste(".states",
 str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
   cat(sep = "  \n")
 
-## ----_by_Sitefunctions, echo = FALSE, comment = NA--------------------------------------------------------------------------------------------------------------------
+## ----_by_Sitefunctions, echo = FALSE, comment = NA----------------------------------------------------------------------
 by_sitefunctions <- paste("_by_site", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_sitefunctions) %>%
   cat(sep = "  \n")
 
-## ----_by_countyfuncions, echo = FALSE, comment = NA-------------------------------------------------------------------------------------------------------------------
+## ----_by_countyfuncions, echo = FALSE, comment = NA---------------------------------------------------------------------
 by_countyfunctions <- paste("._by_county", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_countyfunctions) %>%
   cat(sep = "  \n")
 
-## ----_by_MAfunctions, echo = FALSE, comment = NA----------------------------------------------------------------------------------------------------------------------
+## ----_by_MAfunctions, echo = FALSE, comment = NA------------------------------------------------------------------------
 by_MAfunctions <- paste("._by_MA", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_MAfunctions) %>%
   cat(sep = "  \n")
 
-## ----bycbsafunctions, echo = FALSE, comment = NA----------------------------------------------------------------------------------------------------------------------
+## ----bycbsafunctions, echo = FALSE, comment = NA------------------------------------------------------------------------
 by_cbsafunctions <- paste("._by_cbsa", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_cbsafunctions) %>%
   cat(sep = "  \n")
 
-## ----_by_pqaofunctions, echo = FALSE, comment = NA--------------------------------------------------------------------------------------------------------------------
+## ----_by_pqaofunctions, echo = FALSE, comment = NA----------------------------------------------------------------------
 by_pqaofunctions <- paste("._by_pqao", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_pqaofunctions) %>%
   cat(sep = "  \n")
 
-## ----_by_BOXfunctions, echo = FALSE, comment = NA---------------------------------------------------------------------------------------------------------------------
+## ----_by_BOXfunctions, echo = FALSE, comment = NA-----------------------------------------------------------------------
 by_BOXfunctions <- paste("._by_box", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_BOXfunctions) %>%
   cat(sep = "  \n")
 
-## ----_by_STATEfunctions, echo = FALSE, comment = NA-------------------------------------------------------------------------------------------------------------------
+## ----_by_STATEfunctions, echo = FALSE, comment = NA---------------------------------------------------------------------
 by_STATEfunctions <- paste("._by_state", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = by_STATEfunctions) %>%
   cat(sep = "  \n")
 
-## ----misc, echo = FALSE, comment = NA---------------------------------------------------------------------------------------------------------------------------------
+## ----misc, echo = FALSE, comment = NA-----------------------------------------------------------------------------------
 misc_functions <- paste("aqsremoveheader", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = misc_functions) %>%

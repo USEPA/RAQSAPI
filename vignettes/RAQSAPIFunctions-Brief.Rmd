@@ -1,8 +1,14 @@
 ---
-title: A Brief introduction into RAQSAPI functions
+title: RAQSAPI - A Brief introduction into RAQSAPI functions
 author: Clinton Mccrowey physical scientist - US EPA
 output:
-  rmarkdown::html_document: default
+  rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - A Brief introduction into RAQSAPI functions}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Objectives of the RAQSAPI package"
+title: "RAQSAPI - Objectives of the RAQSAPI package"
 author:
 - affiliation: |-
     "United States Environmental Protection Agency (US EPA),
@@ -17,6 +17,12 @@ abstract: RAQSAPI is an add-on package for the R programming language and
   environment (hereafter referred to as simply "R") that connects R to a U.S.
   EPA database for the retrieval of ambient air pollution data. This document
   is intended to state the purpose of creating RAQSAPI.
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - Objectives of the RAQSAPI package}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r setup, include = FALSE}

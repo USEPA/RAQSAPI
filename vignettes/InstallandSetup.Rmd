@@ -9,6 +9,12 @@ author:
   name: Clinton Mccrowey
 output:
   rmarkdown::html_document: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - Install and Setup}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 # Installing RAQSAPI
@@ -22,8 +28,7 @@ output:
 ## Installing the development version of RAQSAPI
 
 to install the development version of RAQSAPI, first If not already installed,
-install the remotes package and its dependencies. Then run the following in an
-R environment.
+install the remotes package and its dependencies. Then run the following in an R environment.
 
 ```R
 remotes::install_github(repo = "USEPA/raqsapi",

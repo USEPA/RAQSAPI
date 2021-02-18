@@ -1,8 +1,14 @@
 ---
-title: RAQSAPI Functions - Long version
+title: RAQSAPI - RAQSAPI functions Long version
 author: Clinton Mccrowey physical scientist - US EPA
 output:
   rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - RAQSAPI functions Long version}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 # RAQSAPI functions
 The RAQSAPI library exports the following functions (in alphabetical order):
