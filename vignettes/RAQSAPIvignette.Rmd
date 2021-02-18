@@ -54,7 +54,7 @@ invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 ```{r child = "UsingRAQSAPI.Rmd", echo = FALSE}
 ```
 
-```{r child = "RAQSAPIusageTipsandPrecautions.Rmd", echo = FALSE}
+```{r child = "RAQSAPIusagetipsandprecautions.Rmd", echo = FALSE}
 ```
 
 ```{r child = "RAQSAPIFunctions-Long.Rmd", echo = FALSE}
