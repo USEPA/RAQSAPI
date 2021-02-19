@@ -1,42 +1,37 @@
 Type: Package
 Package: RAQSAPI
 Version: 2.0.0
-Title: A R Interface to The United States Environmental Protection
+Title: RAQSAPI - A R Interface to The United States Environmental Protection
         Agency's Air Quality System Data Mart API server
+Description: A R Interface to The United States Environmental Protection
+              Agency's Air Quality System Data Mart API server.
 Encoding: UTF-8
-Authors@R: personList(person(given="Clinton", family="Mccrowey",
-                             email="mccrowey.clintn@epa.gov",
-                             role=c("cre", "aut"),
-                             comment="United States Enviornmental Protection
-                                      Agency
-                                      Region 3 Air and Radiation Division"),
-                      person(given="Timothy", family="Sharac", role=c("ctb",
-                                                                      "rev"),
-                             email=NULL,
-                             comment="United States Enviornmental Protection
-                                      Agency"),
-                      person(given="Nick", family="Mangus", email=NULL,
-                             role=c("rev"),
-                             comment="United States Enviornmental Protection
-                                      Agency"),
-                      person(given="Doug", family="Jager",
-                             email=NULL, role=c("ctb", "rev"),
-                             comment="United States Enviornmental Protection
-                                      Agency"),
-                      person(given="Brown", family="Ryan",
-                             email=NULL, role=c("ctb", "rev"),
-                             comment="United States Enviornmental Protection
-                                      Agency"),
-                      person(given="Daniel", family="Garver",
-                             email=NULL, role=c("ctb", "rev"),
-                             comment="United States Enviornmental Protection
-                                      Agency")
-                             )
-MAINTAINER: person(given="Clinton", family="Mccrowey",
-            email="mccrowey.clinton@epa.gov", 
-            role=c("cre", "aut")
-            )
-URL: https://github.com/orgs/USEPA/RAQSAPI
+Authors@R: c(person(given="Clinton", family="Mccrowey",
+                    email="mccrowey.clintn@epa.gov",
+                    role=c("cre", "aut"),
+                    comment="United States Enviornmental Protection
+                             Agency Region 3 Air and Radiation Division"),
+             person(given="Timothy", family="Sharac", role=c("ctb","rev"),
+                    email=NULL,
+                    comment="United States Enviornmental Protection Agency"),
+             person(given="Nick", family="Mangus", email=NULL,
+                    role=c("rev"),
+                    comment="United States Enviornmental Protection
+                             Agency"),
+             person(given="Doug", family="Jager",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection
+                             Agency"),
+             person(given="Brown", family="Ryan",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection
+                            Agency"),
+             person(given="Daniel", family="Garver",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection
+                            Agency")
+             )
+URL: https://github.com/USEPA/RAQSAPI
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 3.6.0)
 Imports: 
@@ -64,8 +59,7 @@ Suggests:
     testthat (>= 2.1.0),
     usethis,
     covr
-Description: A R Interface to The United States Environmental Protection
-              Agency's Air Quality System Data Mart API server.
+SystemRequirements: package vignettes require pandoc (>= 1.14) http://pandoc.org
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 BuildVignettes: true

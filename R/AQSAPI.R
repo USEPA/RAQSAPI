@@ -3001,7 +3001,7 @@ aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code,
 #'         overloading the API server. This operation has a linear run time of
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_state functions
-#' @inheritParams aqs_services_by_state
+#' @inheritParams aqs_services_by_MA
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned

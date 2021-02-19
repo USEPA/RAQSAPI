@@ -23,7 +23,11 @@ pollutant related to the data being requested.}
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents that end date of the data
-selection. Only data on or before this date will be returned.}
+selection. Only data on or before this date will be
+returned.}
+
+\item{MA_code}{a R character object which represents the 4 digit AQS
+Monitoring Agency code (with leading zeroes).}
 
 \item{cbdate}{a R date object which represents a "beginning
 date of last change" that indicates when the data was last
