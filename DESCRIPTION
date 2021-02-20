@@ -59,7 +59,7 @@ Suggests:
     testthat (>= 2.1.0),
     usethis,
     covr
-SystemRequirements: package vignettes require pandoc (>= 1.14) http://pandoc.org
+SystemRequirements: package manual require pandoc (>= 1.14) http://pandoc.org
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 BuildVignettes: true

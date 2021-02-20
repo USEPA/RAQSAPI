@@ -1,12 +1,3 @@
-## ----SETUP, echo = FALSE, message = FALSE, warning = FALSE-------
-invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
-
-#usethisurl <- "https://usethis.r-lib.org"
-#usethissetup <- "/articles/articles/usethis-setup.html"
-#usethispatsection <- "#get-and-store-a-github-personal-access-token"
-
-#patsetuplink <- glue::glue("{usethisurl}{usethissetup}{usethispatsection}")
-
 ## ----RAQSAPIfun_all, echo = FALSE, comment = NA------------------
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>" )
 invisible(library(magrittr, warn.conflicts = FALSE, quietly = TRUE))

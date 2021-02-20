@@ -104,8 +104,7 @@ remotes::install_github(repo = "USEPA/raqsapi",
                         build = TRUE,
                         #optional, if you want the manual, requires pandoc
                         build_manual = FALSE,
-                        #optional, if you want the vignette, requires pandoc
-                        build_vignettes = FALSE 
+                        build_vignettes = TRUE 
                         )
 ```
 
