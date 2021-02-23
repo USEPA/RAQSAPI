@@ -1,7 +1,12 @@
-^.*\.Rproj$
+^.Rproj$
+^.Rproj.user
+^.gitignore
+^.RData
+^.git
+^/inst/.lintr
 ^doc$
 ^Meta$
-^.*\.git$
+^.git$
 ^.RData$
 ^.gitignore$
 ^.Rhistory$
@@ -27,5 +32,8 @@
 #vignettes/RAQSAPIusagetipsandprecautions.Rmd
 #vignettes/Troubleshooting.Rmd
 #vignettes/UsingRAQSAPI.Rmd
-^\.Rproj\.user$
+^/.Rproj/.user$
 dev/install_RAQSAPI.R
+^.*/.Rproj$
+^.*\.Rproj$
+^\.Rproj\.user$

@@ -1,3 +1,4 @@
+#nocov start
 .onLoad <- function(libname, pkgname) {
   utils::globalVariables(names = "env.RAQSAPI", package = "RAQSAPI")
   env.RAQSAPI <- Sys.getenv()
@@ -13,3 +14,4 @@
 packageStartupMessage(".Onload Note* use the function
                       RAQSAPI::aqs_credentials(username, key)
                       before using other RAQSAPI functions")
+#nocov end
