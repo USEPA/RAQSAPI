@@ -63,6 +63,8 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #' @note The '@' character needs to be escaped with the '/' character.
 #' @importFrom glue glue
 #' @importFrom magrittr `%>%`
+#' @importFrom httr GET
+#' @importFrom glue glue
 #' @return None
 #' @examples # to register a new user or generate a new key with the email
 #'           #  address "John.Doe/@myemail.com"
@@ -73,7 +75,11 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 aqs_sign_up <- function(email)
 { #nocov start
 
-  aqs(service = "signup", variables = list(email = email))
+  url <- glue("https://aqs.epa.gov/data/api/signup?email={email}")
+  httr::GET(url)
+
+  #can not use aqs() if the user has not registered yet.
+  #aqs(service = "signup", variables = list(email = email))
   glue("A verification email has been sent to {email}  \n") %>%
     message()
 } #nocov end
