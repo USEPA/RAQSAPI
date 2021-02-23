@@ -138,7 +138,6 @@ aqs_ratelimit <- function(waittime=5L)
 aqs <- function(service, filter= NA, user = NA,
                     user_key = NA, variables = NULL)
 {
-  browser()
   user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
     httr::user_agent()
 
