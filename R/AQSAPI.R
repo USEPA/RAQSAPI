@@ -113,7 +113,7 @@ aqs_isavailable <- function(return_header = FALSE)
           user =  getOption("aqs_username"),
           user_key =  getOption("aqs_key")
           )$Header %>%
-    return
+    return()
   } else
   {
     aqs(service = "metaData",
@@ -148,7 +148,7 @@ aqs_isavailable <- function(return_header = FALSE)
 aqs_knownissues <- function(return_header = FALSE)
 {
   issues <- aqs_metadata_service(filter = "issues", service = NULL)
-   if (!return_header) issues %<>% aqsremoveheader
+   if (!return_header) issues %<>% aqs_removeheader
   return(issues)
 
 }
@@ -185,7 +185,7 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
                       variables = list(state = stateFIPS)
                   )
      counties %<>% renameaqsvariables("county_code", "county_name")
-     if (!return_header) counties %<>% aqsremoveheader
+     if (!return_header) counties %<>% aqs_removeheader
      return(counties)
 
 }
@@ -221,7 +221,7 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
                                     )
                 )
   sites %<>% renameaqsvariables(name1 = "site_number", name2 = "site_name")
-  if (!return_header) sites %<>% aqsremoveheader
+  if (!return_header) sites %<>% aqs_removeheader
   return(sites)
 
 }
@@ -254,7 +254,7 @@ aqs_classes <- function(return_header = FALSE)
                  variables = NULL
                  )
 
-  if (!return_header) classes %<>% aqsremoveheader
+  if (!return_header) classes %<>% aqs_removeheader
   return(classes)
 }
 
@@ -287,7 +287,7 @@ aqs_parameters_by_class <- function(class, return_header = FALSE)
                     user_key =  getOption("aqs_key"),
                     variables = list(pc = class)
                    )
-  if (!return_header) parameters %<>% aqsremoveheader
+  if (!return_header) parameters %<>% aqs_removeheader
   return(parameters)
 }
 
@@ -317,7 +317,7 @@ aqs_mas <- function(return_header = FALSE)
                  variables = NULL
   )
   mas %<>% renameaqsvariables(name1 = "MA_code", name2 = "MonitoringAgency")
-  if (!return_header) mas %<>% aqsremoveheader
+  if (!return_header) mas %<>% aqs_removeheader
   return(mas)
 }
 
@@ -347,7 +347,7 @@ aqs_pqaos <- function(return_header = FALSE)
                    variables = NULL
   )
   pqaos %<>% renameaqsvariables(name1 = "PQAO_code", name2 = "PQAO")
-  if (!return_header) pqaos %<>% aqsremoveheader
+  if (!return_header) pqaos %<>% aqs_removeheader
   return(pqaos)
 }
 
@@ -377,7 +377,7 @@ aqs_cbsas <- function(return_header = FALSE)
   )
 
   cbsas %<>% renameaqsvariables(name1 = "CBSA_code", name2 = "CBSA_name")
-  if (!return_header) cbsas %<>% aqsremoveheader
+  if (!return_header) cbsas %<>% aqs_removeheader
   return(cbsas)
 }
 
@@ -407,7 +407,7 @@ aqs_states <- function(return_header = FALSE)
                 variables = NULL
                 )
   states %<>% renameaqsvariables(name1 = "stateFIPS", name2 = "state")
-  if (!return_header) states %<>% aqsremoveheader
+  if (!return_header) states %<>% aqs_removeheader
   return(states)
 }
 
@@ -472,7 +472,7 @@ aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS,
      dplyr::select_if(function(x) {!all(is.na(x))})
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) monitors %<>% aqsremoveheader
+  if (!return_header) monitors %<>% aqs_removeheader
   return(monitors)
 }
 
@@ -534,7 +534,7 @@ aqs_qa_flowrateaudit_by_site <- function(parameter, bdate, edate,
                                )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) fra %<>% aqsremoveheader
+  if (!return_header) fra %<>% aqs_removeheader
   return(fra)
 }
 
@@ -596,7 +596,7 @@ aqs_qa_one_point_qc_by_site <- function(parameter, bdate, edate,
                                )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) opqcc %<>% aqsremoveheader
+  if (!return_header) opqcc %<>% aqs_removeheader
   return(opqcc)
 }
 
@@ -656,7 +656,7 @@ aqs_qa_pep_audit_by_site <- function(parameter, bdate, edate,
                                  )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) pepaudit %<>% aqsremoveheader
+  if (!return_header) pepaudit %<>% aqs_removeheader
   return(pepaudit)
 }
 
@@ -737,7 +737,7 @@ aqs_sampledata_by_site <- function(parameter, bdate, edate, stateFIPS,
                               )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) sampledata %<>% aqsremoveheader
+  if (!return_header) sampledata %<>% aqs_removeheader
   return(sampledata)
 }
 
@@ -809,7 +809,7 @@ aqs_annualsummary_by_site <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   annualdata <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) annualdata %<>% aqsremoveheader
+  if (!return_header) annualdata %<>% aqs_removeheader
   return(annualdata)
 }
 
@@ -878,7 +878,7 @@ aqs_qa_blanks_by_site <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) blanks %<>% aqsremoveheader
+  if (!return_header) blanks %<>% aqs_removeheader
   return(blanks)
 }
 
@@ -948,7 +948,7 @@ aqs_dailysummary_by_site <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) dailysummary %<>% aqsremoveheader
+  if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
 }
 
@@ -1012,7 +1012,7 @@ aqs_qa_collocated_assessments_by_site <- function(parameter, bdate, edate,
                                )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) colocatedsummary %<>% aqsremoveheader
+  if (!return_header) colocatedsummary %<>% aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -1075,7 +1075,7 @@ aqs_qa_flowrateverification_by_site <- function(parameter, bdate, edate,
                                )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) frv %<>% aqsremoveheader
+  if (!return_header) frv %<>% aqs_removeheader
   return(frv)
 }
 
@@ -1138,7 +1138,7 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
                                )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_site)
-  if (!return_header) transactionsample %<>% aqsremoveheader
+  if (!return_header) transactionsample %<>% aqs_removeheader
   return(transactionsample)
 }
 
@@ -1184,7 +1184,7 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
      dplyr::select_if(function(x) {!all(is.na(x))})
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) monitors %<>% aqsremoveheader
+  if (!return_header) monitors %<>% aqs_removeheader
   return(monitors)
 }
 
@@ -1253,7 +1253,7 @@ aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
                               )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) sampledata %<>% aqsremoveheader
+  if (!return_header) sampledata %<>% aqs_removeheader
   return(sampledata)
 }
 
@@ -1311,7 +1311,7 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) dailysummary %<>% aqsremoveheader
+  if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
 }
 
@@ -1368,7 +1368,7 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) blanks %<>% aqsremoveheader
+  if (!return_header) blanks %<>% aqs_removeheader
   return(blanks)
 }
 
@@ -1423,7 +1423,7 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) dailysummary %<>% aqsremoveheader
+  if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
 }
 
@@ -1483,7 +1483,7 @@ aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate,
                                )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) colocatedsummary %<>% aqsremoveheader
+  if (!return_header) colocatedsummary %<>% aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -1544,7 +1544,7 @@ aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate,
                                   )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) frv %<>% aqsremoveheader
+  if (!return_header) frv %<>% aqs_removeheader
   return(frv)
 }
 
@@ -1601,7 +1601,7 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) fra %<>% aqsremoveheader
+  if (!return_header) fra %<>% aqs_removeheader
   return(fra)
 }
 
@@ -1660,7 +1660,7 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) opqcc %<>% aqsremoveheader
+  if (!return_header) opqcc %<>% aqs_removeheader
   return(opqcc)
 }
 
@@ -1720,7 +1720,7 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) pepaudit %<>% aqsremoveheader
+  if (!return_header) pepaudit %<>% aqs_removeheader
   return(pepaudit)
 }
 
@@ -1780,7 +1780,7 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
                                )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) transactionsample %<>% aqsremoveheader
+  if (!return_header) transactionsample %<>% aqs_removeheader
   return(transactionsample)
 }
 
@@ -1829,7 +1829,7 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS,
      dplyr::select_if(function(x) {!all(is.na(x))})
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) monitors %<>% aqsremoveheader
+  if (!return_header) monitors %<>% aqs_removeheader
   return(monitors)
 }
 
@@ -1897,7 +1897,7 @@ params <- aqsmultiyearparams(parameter = parameter,
                               )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) sampledata %<>% aqsremoveheader
+  if (!return_header) sampledata %<>% aqs_removeheader
   return(sampledata)
 }
 
@@ -1954,7 +1954,7 @@ aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) annualsummary %<>% aqsremoveheader
+  if (!return_header) annualsummary %<>% aqs_removeheader
   return(annualsummary)
 }
 
@@ -2009,7 +2009,7 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) blanks %<>% aqsremoveheader
+  if (!return_header) blanks %<>% aqs_removeheader
   return(blanks)
 }
 
@@ -2065,7 +2065,7 @@ aqs_dailysummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) dailysummary %<>% aqsremoveheader
+  if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
 }
 
@@ -2123,7 +2123,7 @@ aqs_qa_collocated_assessments_by_state <- function(parameter, bdate, edate,
                                )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) colocatedsummary %<>% aqsremoveheader
+  if (!return_header) colocatedsummary %<>% aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -2181,7 +2181,7 @@ aqs_qa_flowrateverification_by_state <- function(parameter, bdate, edate,
                                )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) frv %<>% aqsremoveheader
+  if (!return_header) frv %<>% aqs_removeheader
   return(frv)
 }
 
@@ -2238,7 +2238,7 @@ aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) fra %<>% aqsremoveheader
+  if (!return_header) fra %<>% aqs_removeheader
   return(fra)
 }
 
@@ -2295,7 +2295,7 @@ aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) opqcc %<>% aqsremoveheader
+  if (!return_header) opqcc %<>% aqs_removeheader
   return(opqcc)
 }
 
@@ -2349,7 +2349,7 @@ aqs_qa_pep_audit_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) pepaudit %<>% aqsremoveheader
+  if (!return_header) pepaudit %<>% aqs_removeheader
   return(pepaudit)
 }
 
@@ -2406,7 +2406,7 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS,
                                )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_state)
-  if (!return_header) transactionsample %<>% aqsremoveheader
+  if (!return_header) transactionsample %<>% aqs_removeheader
   return(transactionsample)
 }
 
@@ -2456,7 +2456,7 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
      dplyr::select_if(function(x) {!all(is.na(x))})
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) monitors %<>% aqsremoveheader
+  if (!return_header) monitors %<>% aqs_removeheader
   return(monitors)
 }
 
@@ -2524,7 +2524,7 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                               )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) sampledata %<>% aqsremoveheader
+  if (!return_header) sampledata %<>% aqs_removeheader
   return(sampledata)
 }
 
@@ -2581,7 +2581,7 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) annualsummary %<>% aqsremoveheader
+  if (!return_header) annualsummary %<>% aqs_removeheader
   return(annualsummary)
 
 }
@@ -2639,7 +2639,7 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) dailysummary %<>% aqsremoveheader
+  if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
 }
 
@@ -2697,7 +2697,7 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code,
                                )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) blanks %<>% aqsremoveheader
+  if (!return_header) blanks %<>% aqs_removeheader
   return(blanks)
 }
 
@@ -2757,7 +2757,7 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate,
                                )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) colocatedsummary %<>% aqsremoveheader
+  if (!return_header) colocatedsummary %<>% aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -2815,7 +2815,7 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate,
                                )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) frv %<>% aqsremoveheader
+  if (!return_header) frv %<>% aqs_removeheader
   return(frv)
 }
 
@@ -2871,7 +2871,7 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
                                )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) fra %<>% aqsremoveheader
+  if (!return_header) fra %<>% aqs_removeheader
   return(fra)
 }
 
@@ -2927,7 +2927,7 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code,
                                )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) opqcc %<>% aqsremoveheader
+  if (!return_header) opqcc %<>% aqs_removeheader
   return(opqcc)
 }
 
@@ -2982,7 +2982,7 @@ aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code,
                                )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) pepaudit %<>% aqsremoveheader
+  if (!return_header) pepaudit %<>% aqs_removeheader
   return(pepaudit)
 }
 
@@ -3044,7 +3044,7 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code,
                                )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_MA)
-  if (!return_header) transactionsample %<>% aqsremoveheader
+  if (!return_header) transactionsample %<>% aqs_removeheader
   return(transactionsample)
 }
 
@@ -3101,7 +3101,7 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) blanks %<>% aqsremoveheader
+  if (!return_header) blanks %<>% aqs_removeheader
   return(blanks)
 }
 
@@ -3158,7 +3158,7 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate,
                                )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) colocatedsummary %<>% aqsremoveheader
+  if (!return_header) colocatedsummary %<>% aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -3221,7 +3221,7 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate,
                                )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) frv %<>% aqsremoveheader
+  if (!return_header) frv %<>% aqs_removeheader
   return(frv)
 }
 
@@ -3277,7 +3277,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) fra %<>% aqsremoveheader
+  if (!return_header) fra %<>% aqs_removeheader
   return(fra)
 }
 
@@ -3333,7 +3333,7 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) opqcc %<>% aqsremoveheader
+  if (!return_header) opqcc %<>% aqs_removeheader
   return(opqcc)
 }
 
@@ -3391,7 +3391,7 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) pepaudit %<>% aqsremoveheader
+  if (!return_header) pepaudit %<>% aqs_removeheader
   return(pepaudit)
 }
 
@@ -3444,7 +3444,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
      dplyr::select_if(function(x) {!all(is.na(x))})
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) monitors %<>% aqsremoveheader
+  if (!return_header) monitors %<>% aqs_removeheader
   return(monitors)
 }
 
@@ -3517,7 +3517,7 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) sampledata %<>% aqsremoveheader
+  if (!return_header) sampledata %<>% aqs_removeheader
   return(sampledata)
 }
 
@@ -3580,7 +3580,7 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                )
 browser()
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) annualsummary %<>% aqsremoveheader
+  if (!return_header) annualsummary %<>% aqs_removeheader
   return(annualsummary)
 
 }
@@ -3644,11 +3644,11 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                  )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) dailysummary %<>% aqsremoveheader
+  if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
 }
 
-#' @title aqsremoveheader
+#' @title aqs_removeheader
 #' @description \lifecycle{stable}
 #'                This function is used to convert a single RAQSAPI_v2 object or
 #'                a list of RAQSAPI_v2 objects into a single tibble object.
@@ -3663,9 +3663,9 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @param AQSobject An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.
 #' @importFrom dplyr bind_rows
 #' @examples
-#'           \dontrun{ AQSobject <- aqsremoveheader(AQSobject)}
+#'           \dontrun{ AQSobject <- aqs_removeheader(AQSobject)}
 #' @export
-aqsremoveheader <- function(AQSobject)
+aqs_removeheader <- function(AQSobject)
 {
   if (is.null(AQSobject))
     {
@@ -3710,7 +3710,7 @@ aqs_revisionhistory <- function(return_header = FALSE)
                  user_key =  getOption("aqs_key"),
                  variables = NULL
                 )
-   if (!return_header) history %<>% aqsremoveheader
+   if (!return_header) history %<>% aqs_removeheader
   return(history)
 }
 
@@ -3740,6 +3740,6 @@ aqs_revisionhistory <- function(return_header = FALSE)
 aqs_fields_by_service <- function(service, return_header = FALSE)
 {
   fields <- aqs_metadata_service(filter = "fieldsByService", service = service)
-   if (!return_header) fields %<>% aqsremoveheader
+   if (!return_header) fields %<>% aqs_removeheader
   return(fields)
 }

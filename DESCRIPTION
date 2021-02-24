@@ -1,10 +1,10 @@
 Type: Package
 Package: RAQSAPI
 Version: 2.0.0
-Title: A R Interface to The United States Environmental Protection
-        Agency's Air Quality System Data Mart API server
-Description: A R Interface to The United States Environmental Protection
-              Agency's Air Quality System Data Mart API server.
+Title: A R Interface to the United States Environmental Protection Agency's Air
+         Quality System Data Mart API Server
+Description: A R Interface to the United States Environmental Protection
+               Agency's Air Quality System Data Mart API Server.
 Encoding: UTF-8
 Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email="mccrowey.clinton@epa.gov",

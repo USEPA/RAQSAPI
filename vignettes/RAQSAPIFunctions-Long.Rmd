@@ -85,7 +85,8 @@ RAQSAPI_functions <- c(
 "aqs_qa_pep_audit_by_MA",  
 "aqs_qa_pep_audit_by_pqao",  
 "aqs_qa_pep_audit_by_site",  
-"aqs_qa_pep_audit_by_state",  
+"aqs_qa_pep_audit_by_state",
+"aqs_removeheader",
 "aqs_revisionhistory",  
 "aqs_sampledata_by_box",  
 "aqs_sampledata_by_cbsa",  
@@ -98,8 +99,7 @@ RAQSAPI_functions <- c(
 "aqs_transactionsample_by_county",
 "aqs_transactionsample_by_site",
 "aqs_transactionsample_by_state",
-"aqs_transactionsample_by_MA",
-"aqsremoveheader"
+"aqs_transactionsample_by_MA"
 )
 
 RAQSAPI_functions %>%
@@ -586,14 +586,14 @@ functions in this family of functions aggregate data at the state level.
 
 ### RAQSAPI Miscellaneous functions
 ```{r misc, echo = FALSE, comment = NA}
-misc_functions <- paste("aqsremoveheader", sep = '|')
+misc_functions <- paste("aqs_removeheader", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = misc_functions) %>%
   cat(sep = "  \n")
 ```
 These are miscellaneous functions exported by RAQSAPI.
 
-RAQSAPI::aqsremoveheader is the function that the RAQSAPI library
+RAQSAPI::aqs_removeheader is the function that the RAQSAPI library
 uses internally to coerce an AQS_DATAMART_APIv2 S3 object into a tibble.
 This is useful if the user has saves the output from another RAQSAPI function
 with return_header = TRUE set but later decides that they want just a
