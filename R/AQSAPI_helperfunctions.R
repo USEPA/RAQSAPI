@@ -160,7 +160,6 @@ aqs <- function(service, filter= NA, user = NA,
     path <- glue::glue("/data/api/{service}/{filter}")
   }
 
-  browser()
   query <- c(email = I(user),
              key = I(user_key),
              variables,
@@ -169,7 +168,6 @@ aqs <- function(service, filter= NA, user = NA,
   #modify_url interprets NA's as literals therefore will need to remove all NA
   # values before continuing
   query <- query[!is.na(query)]
-
   url <- httr::modify_url(scheme = "https",
                           hostname = aqs_DOMAIN,
                           url = path,
