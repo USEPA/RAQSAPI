@@ -114,7 +114,7 @@ aqs_ratelimit <- function(waittime=5L)
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
-#' @importFrom magrittr `%>%` `%<>%`
+#' @importFrom magrittr `%<>%` `%>%`
 #' @importFrom dplyr mutate select arrange
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
@@ -159,6 +159,8 @@ aqs <- function(service, filter= NA, user = NA,
   }else {
     path <- glue::glue("/data/api/{service}/{filter}")
   }
+
+  browser()
   query <- c(email = I(user),
              key = I(user_key),
              variables,
