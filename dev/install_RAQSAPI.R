@@ -123,9 +123,20 @@ RAQSAPICHECK <- function()
 {
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   devtools::spell_check(vignettes = TRUE, use_wordlist = TRUE)
-  devtools::check_built(path = ".", cran = TRUE, remote = TRUE,
-                        incoming = TRUE, manual = TRUE, quiet = TRUE,
-                        run_dont_test = TRUE
+  spell_check_files(path = "./dev/contributing.Rmd",
+                    ignore = read.csv(file = "./inst/WORDLIST",
+                                      header = FALSE)$V1
+                                      )
+  devtools::check_built(path = paste0("../RAQSAPI_",
+                                      desc::desc_get_field(key = "Version"),
+                                      ".tar.gz"),
+                        cran = TRUE,
+                        remote = TRUE,
+                        incoming = FALSE,
+                        manual = TRUE,
+                        quiet = FALSE,
+                        run_dont_test = TRUE,
+                        error_on ="note"
                         )
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)

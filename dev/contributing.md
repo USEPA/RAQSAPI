@@ -1,11 +1,10 @@
 Contributing TO R AQSAPI
 ================
 Clinton Mccrowey
-June 1, 2020
-
+February 25, 2021
 
 | <span style="color:red"> This project is very early in it’s development stage. Please watch this document for important changes in the future. </span> |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 # Introduction to Contributing to RAQSAPI
 
@@ -17,11 +16,11 @@ code to this project should follow to avoid your submission from being
 rejected.
 
 As of now Only members of the US Environmental Protection Agency’s (EPA)
-AQS Data Analytics workgroup have write permissions to the repository.
-Anyone outside of this workgroup will not be granted write permissions to
-the RAQSAPI repository, thus they will not be able to contribte code. We
-are working toward allowing outside code in the future. If you are a
-current EPA employee who would like to be added to the AQS Data
+AQS Data Analytics workgroup has write permissions to the repository.
+Anyone outside of this workgroup will not be granted write permissions
+to the RAQSAPI repository, thus they will not be able to contribute
+code. We are working toward allowing outside code in the future. If you
+are a current EPA employee who would like to be added to the AQS Data
 Analytics workgroup please contact one of the repository’s
 administrators.
 
@@ -36,17 +35,17 @@ accepting outside submissions in the future.
 If this is your first time contributing code to the RAQSAPI project it
 is highly recommended that you first familiarize yourself with how R
 packages work and to create and maintain them. Hadley Wickham has a free
-online book entitled *R packages* (1)(2), print copies are published by
-O’Reily Media Inc.. The online version is freely available on the
-internet. The current edition as of the writing of this document was
-published in 2015 for the hard copy, online version 2017.
+online book entitled *R packages* (<sup>1</sup>)(<sup>2</sup>), print
+copies are published by O’Reily Media Inc.. The online version is freely
+available on the internet. The current edition as of the writing of this
+document was published in 2015 for the hard copy, online version 2017.
 
 For a more detailed reference see [R Manuals - Writing R
-exensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)
-(3). It is not necessary to read the entire *Writing R Exensions* Manual
-but it is recommended that you keep this reference handy for more
-complicated issues, especially dealing with roxygen2 and DESCRIPTION
-file metadata issues.
+extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)
+(<sup>3</sup>). It is not necessary to read the entire *Writing R
+Extensions* Manual but it is recommended that you keep this reference
+handy for more complicated issues, especially dealing with roxygen2 and
+DESCRIPTION file metadata issues.
 
 # Making changes to RAQSAPI
 
@@ -55,66 +54,67 @@ file metadata issues.
 Before starting, if necessary submit a issue on the issue tracker to
 communicate to the rest of the team what changes you intend on making.
 This also allows us to document and track what changes are being made
-and when they happend. This is especially important if the changes will
+and when they happened. This is especially important if the changes will
 affect the RAQSAPI functional interface.
 
 ## Keep your local repository in sync with the remote repository
 
-Pull the latest version of RAQSAPI code from the bitbucket repository
+Pull the latest version of RAQSAPI code from the RAQSAPI repository
 before you begin making changes, keep your local repository in sync with
-the bitbucket remote repository to prevent merge conflicts later on. Do
+the RAQSAPI remote repository to prevent merge conflicts later on. Do
 this at least once per day and more often if others have pushed code to
-the bitbucket remote repository.
+the RAQSAPI remote repository.
 
 ## Code style
 
-This project follows the sytle guide as documented in the [Tidyverse
-style guide](https://style.tidyverse.org/)(4) with a few notible
-changes. Please adhere strictly to these rules.
+This project follows the style guide as documented in the [Tidyverse
+style guide](https://style.tidyverse.org/)(<sup>4</sup>) with a few
+notable changes. Please adhere strictly to these rules.
 
 1.  Section 2.4.1 I prefer that curly braces start on their own line and
-    end on thier own line with the begining and ending braces aligned
+    end on their own line with the beginning and ending braces aligned
     horizontally. This is makes it a lot easier to pinpoint the
     beginning and ending of large code blocks than just space alignment
-    alone. Especally when working on a small laptop screen.
+    alone. Especially when working on a small laptop screen.
 2.  Section 2.8.2 In addition to typing out the entire word “TRUE” and
-    “FALSE” for logical variables RAQSAPI includes code to check for
-    the usage of “T” or “F” and will throw an error if either is used.
+    “FALSE” for logical variables RAQSAPI includes code to check for the
+    usage of “T” or “F” and will throw an error if either is used.
 3.  Section 3.2 as a former C/C++ programmer I prefer explicit return
-    calls over implict returns especally for large or complex functions.
-    Although this may slow down the execution of code, the slowdown
-    penalty is very minor especally on moden day computers and the
-    implictit return call makes it obvious to others reading your code
-    of what you intend on doing. For short functions that are a few
+    calls over implicit returns especially for large or complex
+    functions. Although this may slow down the execution of code, the
+    slowdown penalty is very minor especially on modern day computers
+    and the implicit return call makes it obvious to others reading your
+    code of what you intend on doing. For short functions that are a few
     simple lines long where it it obvious what should be returned you
     may omit the return statement.
 4.  Chapter 4 Use the magrittr pipe and the modifier in place pipe
-    (‘%\>%’ and ‘%\<\>%’ respectively) were appropriate to minimize
-    the introduction of unnecissary intermediate or temporary objects.
+    (‘%&gt;%’ and ‘%&lt;&gt;%’ respectively) were appropriate to
+    minimize the introduction of unnecessary intermediate or temporary
+    objects.
     1.  Section 4.6 i. As opposed to Wickham’s suggestion, Please feel
-        free to use the modifier in place pipe (‘%\<\>%’) from magrittr.
-        It is slick, makes code cleaner, it avoids having to create
-        temporary variables and avoid using the right side assignment
-        operator. ii. To keep my sanity please do not use the right side
-        assignment operator (‘-\>’). it makes the code much more
-        unreadable. This is the most ugly, unholy and evil operator in
-        all of R. Use the modifier in place operator
-        instead\!\!\!\!\!\!\!\!\!\!\!1111111
+        free to use the modifier in place pipe (‘%&lt;&gt;%’) from
+        magrittr. It is slick, makes code cleaner, it avoids having to
+        create temporary variables and avoid using the right side
+        assignment operator. ii. To keep my sanity please do not use the
+        right side assignment operator (‘-&gt;’). it makes the code much
+        more unreadable. This is the most ugly, unholy and evil operator
+        in all of R. Use the modifier in place operator
+        instead!!!!!!!!!!!1111111
 5.  Although Wickham states in certain places to avoid being implicit in
     specific situations(i.e. section 2.4.3 - avoiding implicit type
     coercion) I am going to take this one step further and suggest that
-    you should avoid being implict everywhere where it is feasible to do
-    so and to be explict where possible. Other people might have to
+    you should avoid being implicit everywhere where it is feasible to
+    do so and to be explicit where possible. Other people might have to
     review your code and it is not fun trying to figure out what another
     programmer is trying to do. There are certain instances where it is
     ok to be implicit what your code is doing, especially if doing so
     gives a meaningful increase to processing efficiency or produces a
-    tangible improvement to code layout or readability. But please if you
-    must include code where the result is not obvious include comments
-    so that others can quickly and easily understand what your code is
-    attempting to do. This includes using named variables in function
-    calls, and in declaring vectors, list dataframe, tables, and
-    matrices and using the col\_types variables during import of
+    tangible improvement to code layout or readability. But please if
+    you must include code where the result is not obvious include
+    comments so that others can quickly and easily understand what your
+    code is attempting to do. This includes using named variables in
+    function calls, and in declaring vectors, list dataframe, tables,
+    and matrices and using the col\_types variables during import of
     external data; do not allow imported functions to guess the data
     type. Also, as stated earlier, please do explicitly use the return
     command to make it plainly obvious to others reviewing your code
@@ -130,23 +130,23 @@ tidyverse style guidelines so legacy spacing style issues still lurk in
 the code.
 
 If your code addresses an issue that has been issued a issue key include
-that issue key in the commit messgae so that JIRA can automatically
-track the status of that issue.
+that issue key in the commit message so that the gitHub issue tracker
+can automatically track the status of that issue.
 
 ## Workflow
 
 Before editing RAQSAPI it is suggested that you update all of your
 installed R packages each day that you intend on writing or testing code
 for this project, this is not a required step but can make the process
-easier for you To develope RAQSAPI code. If you don’t the R enviornment
+easier for you To develop RAQSAPI code. If you don’t the R environment
 will ask you to update dependencies of RAQSAPI during the build process.
 The maintainers will attempt to ensure that the code in this library
 works with the latest versions of all of it’s dependencies (within
 reason) so it is important that any one contributing code to this
 project use the latest version of it’s dependencies to test any new
 code. Dependencies are updated frequently so it is suggested that
-contributers check for package updates frequently to ensure
-compatibilty.
+contributors check for package updates frequently to ensure
+compatibility.
 
 first open the RAQSAPI.proj that is located in the root RAQSAPI folder,
 this will cause your R environment to set the working directory to the
@@ -154,19 +154,19 @@ path where the code is located. Next call the function
 
 > devtools::load\_all()
 
-this will attach all the nessiary RAQSAPI dependencies listed in the
+this will attach all the necessary RAQSAPI dependencies listed in the
 DESCRIPTION file and collate the attachment of files needed to run
 RAQSAPI. You can then run and edit the source files as needed.
 
 ## Build and run automated test on your code
 
-CRAN has strict policies (5) about accepting code that produces
-warnings, significant notes or build errors. In addition they implement
-rigid guidelines for code quality, legal requirements and build qulity.
-In order to comply with CRAN’s code summission policies please source
-the install\_RAQSAPI.R file located in the dev subfolder of the package
-root directory and run these functions after writing any new code in an
-environment with the project file open:
+CRAN has strict policies (<sup>5</sup>) about accepting code that
+produces warnings, significant notes or build errors. In addition they
+implement rigid guidelines for code quality, legal requirements and
+build quality. In order to comply with CRAN’s code submission policies
+please source the install\_RAQSAPI.R file located in the dev subfolder
+of the package root directory and run these functions after writing any
+new code in an environment with the project file open:
 
 > RAQSAPICLEAN()  
 > RAQSAPIBUILD()  
@@ -184,14 +184,14 @@ to the repository.
 # How can I contribute
 
 Even if you are not an experienced R programmer there are plenty of
-oppertunities for you to contribute. Most of the people involved in this
+opportunities for you to contribute. Most of the people involved in this
 project contribute to it outside of their primary EPA duties so
 resources are limited so any assistance with this project is very much
-apprechiated. Some areas where help is needed include:
+appreciated. Some areas where help is needed include:
 
-  - Documentation: This is a major time-consuming aspect of any
-    progamming project. The README, RAQSAPIvignettes, ROxygen2 notes,
-    the reference manual and changelogs are importnt tools used to
+-   Documentation: This is a major time-consuming aspect of any
+    programming project. The README, RAQSAPIvignettes, ROxygen2 notes,
+    the reference manual and changelogs are important tools used to
     communicate to end users how to setup, use and contribute to the
     RAQSAPI project. Since the aim of the project is to create a easy to
     use library for users who may not be experts in using the R
@@ -199,17 +199,17 @@ apprechiated. Some areas where help is needed include:
     pollution monitoring data or statistical software is it imperative
     that the project’s documentation is relatively easy to understand.
     Therefore it is imperative that the project’s documentation is kept
-    up-to-date, and free from spelling or gramatical errors. If you spot
-    issues or areas in the documentation that could be improved please
-    submit a push request or a issue report at
-    <https://jira.epa.gov/projects/AQDA/>.
-  - Suggest improvements: If you have a suggestion on
+    up-to-date, and free from spelling or grammatical errors. If you
+    spot issues or areas in the documentation that could be improved
+    please submit a push request or a issue report at
+    <https://github.com/USEPA/RAQSAPI/issues>.
+-   Suggest improvements: If you have a suggestion on
     improving/refactoring the code to make it easier for the end user,
     improving code quality or adding new features we.
-  - Testing: an important aspect for producing a quality software
+-   Testing: an important aspect for producing a quality software
     product requires having robust automated unit tests and people
     willing to QA the software.
-  - coding: If you do have experience programming, have experience using
+-   coding: If you do have experience programming, have experience using
     R or want to learn feel free to join us.
 
 If you would like to contribute in any way please contact the project’s
@@ -217,37 +217,44 @@ maintainers.
 
 # References
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body">
 
-<div id="ref-book:RPackages">
+<div id="ref-book:RPackages" class="csl-entry">
 
-(1) Wckham, H. *R Packages*; O’Reilly Media Inc., 2015.
-
-</div>
-
-<div id="ref-website:RPackages">
-
-(2) Wckham, H. R Packages, 2017.
+<span class="csl-left-margin">(1) </span><span
+class="csl-right-inline">Wckham, H. *R Packages*; O’Reilly Media Inc.,
+2015.</span>
 
 </div>
 
-<div id="ref-WritingRexensions">
+<div id="ref-website:RPackages" class="csl-entry">
 
-(3) Team, R. D. C. *Writing R Extensions*; Comprehensive R Archive
-Network, 2019.
-
-</div>
-
-<div id="ref-Tidyversestyleguide">
-
-(4) Wckham, H. *Tidyverse Style Guide*; 2020.
+<span class="csl-left-margin">(2) </span><span
+class="csl-right-inline">Wckham, H. R Packages, 2017.</span>
 
 </div>
 
-<div id="ref-CRANRepoPolicy">
+<div id="ref-WritingRexensions" class="csl-entry">
 
-(5) Maintainers, C. R. *CRAN Repository Policy*; The Comprehensive R
-Archive Network.
+<span class="csl-left-margin">(3) </span><span
+class="csl-right-inline">Team, R. D. C. *Writing r Extensions*;
+Comprehensive R Archive Network, 2019.</span>
+
+</div>
+
+<div id="ref-Tidyversestyleguide" class="csl-entry">
+
+<span class="csl-left-margin">(4) </span><span
+class="csl-right-inline">Wckham, H. *Tidyverse Style Guide*;
+2020.</span>
+
+</div>
+
+<div id="ref-CRANRepoPolicy" class="csl-entry">
+
+<span class="csl-left-margin">(5) </span><span
+class="csl-right-inline">Maintainers, C. R. *CRAN Repository Policy*;
+The Comprehensive R Archive Network.</span>
 
 </div>
 
