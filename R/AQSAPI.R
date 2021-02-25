@@ -3667,13 +3667,14 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @export
 aqs_removeheader <- function(AQSobject)
 {
+  #browser()
   if (is.null(AQSobject))
     {
     return(AQSobject)
     } else if (class(AQSobject) == "AQS_Data Mart_APIv2")
              {
                 AQSobject <- AQSobject$Data
-              } else if (class(AQSobject[[1]]) == "AQS_Data Mart_APIv2"
+              } else if (class(AQSobject[[1]]) == "AQS_DATAMART_APIv2"
                          && is.list(AQSobject))
                        {
                           AQSobject %<>% lapply("[[", "Data") %>%

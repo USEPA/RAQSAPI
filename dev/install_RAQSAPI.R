@@ -76,7 +76,7 @@ buildRAQSAPIbase <- function()
 RAQSAPIBUILD <- function()
 {
   buildRAQSAPIbase()
-  devtools::build(binary = TRUE, manual = TRUE, vignettes = TRUE, quiet = TRUE)
+  devtools::build(binary = FALSE, manual = TRUE, vignettes = TRUE, quiet = TRUE)
 }
 
 
