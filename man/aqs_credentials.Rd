@@ -18,12 +18,12 @@ None
 }
 \description{
 \lifecycle{questioning}
-This function is used to send user credentials to the AQS
-API. This function needs to be called once and only once
-every time this library is re-loaded. Users must have
-a valid username and key which can be obtained through the
-use of the aqs_sign_up function, @seealso \code{\link[=aqs_sign_up]{aqs_sign_up()}}
-to sign up for AQS data mart credentials.
+Sets the user credentials for the AQS API. This function
+needs to be called once and only once every time this library
+is re-loaded. Users must have a valid username and key which
+can be obtained through the use of the aqs_sign_up function,
+@seealso \code{\link[=aqs_sign_up]{aqs_sign_up()}} to sign up for AQS data mart
+credentials.
 }
 \section{RAQSAPI setup functions}{
 NA

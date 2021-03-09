@@ -20,9 +20,9 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object with the parameters
-associated with the class requested. NULL is returned for classes
-not found.
+a tibble or an AQS_Data Mart_APIv2 S3 object containing the
+parameters associated with the class requested. NULL is returned
+for classes not found.
 }
 \description{
 \lifecycle{stable}

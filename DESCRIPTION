@@ -1,10 +1,11 @@
 Type: Package
 Package: RAQSAPI
 Version: 2.0.0
-Title: A R Interface to the United States Environmental Protection Agency's Air
-         Quality System Data Mart API Server
-Description: A R Interface to the United States Environmental Protection
-               Agency's Air Quality System Data Mart API Server.
+Title: A R Interface to the US EPA Air Quality System Data Mart API
+Description: Retrieve air monitoring data and associated metadata from the US
+  Environmental Protection Agency's Air Quality System service using functions.
+  See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about
+  the US EPA Data Mart API.
 Encoding: UTF-8
 Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email="mccrowey.clinton@epa.gov",
@@ -30,7 +31,8 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email=NULL, role=c("ctb", "rev"),
                     comment="United States Enviornmental Protection Agency")
              )
-URL: https://github.com/USEPA/RAQSAPI
+URL: <https://github.com/USEPA/RAQSAPI>,
+     <https://aqs.epa.gov/aqsweb/documents/data_api.html>
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 3.6.0)
 Imports: 
@@ -55,7 +57,7 @@ Suggests:
     lintr,
     roxygen2,
     rmarkdown,
-    testthat (>= 2.1.0),
+    testthat (>= 3.0.0),
     usethis,
     covr
 SystemRequirements: package manual require pandoc (>= 1.14) http://pandoc.org
@@ -76,3 +78,4 @@ Collate:
 Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
 Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3

@@ -20,7 +20,7 @@ of the AQS API (The status information is located in the header)
 \description{
 \lifecycle{stable}
 returns a tibble or an AQS_Data Mart_APIv2 S3 object
-explaining the status of the AQS API
+explaining the status of the AQS API.
 }
 \section{list functions}{
 NA

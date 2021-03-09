@@ -53,9 +53,6 @@ purposes in addition to the data requested.}
 Returns a table of collocated assessment data aggregated by
 matching input parameter, and monitoring agency (MA) code
 provided for bdate - edate time frame.
-A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing collocated assessment data aggregated by monitoring
-agency (MA) number.
 }
 \note{
 The AQS API only allows for a single year of collocated assessments to

@@ -69,16 +69,3 @@ aggregations by county then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
-\examples{
- #returns a AQS_DATAMART_APIv2 S3 object of all SO2 monitors in
- #   Hawaii County, HI that were operating on May 01, 2015.
- \dontrun{
-          aqs_services_by_county(parameter = "42401",
-                                bdate = as.Date("20150501", format="\%Y\%m\%d"),
-                                edate = as.Date("20150502", format="\%Y\%m\%d"),
-                                  stateFIPS = "15",
-                                  countycode = "001",
-                                  service = "monitors"
-                                 )
-         }
-}

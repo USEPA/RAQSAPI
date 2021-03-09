@@ -11,7 +11,7 @@ aqs_removeheader(AQSobject)
 }
 \description{
 \lifecycle{stable}
-This function is used to convert a single RAQSAPI_v2 object or
+Coerces a single RAQSAPI_v2 object or
 a list of RAQSAPI_v2 objects into a single tibble object.
 This function decouples the $Data from the AQSAPI_v2 object
 and returns only the $Data portion as a tibble. If the input

@@ -7,6 +7,7 @@ library(devtools)
 library(usethis)
 library(spelling)
 library(goodpractice)
+library(knitr)
 
 #' @name RAQSAPICLEAN
 #' @description removes Package:RASAPI then removes files created during the
@@ -61,6 +62,7 @@ buildRAQSAPIbase <- function()
   devtools::document(quiet = TRUE,
                      roclets = c("collate", "namespace", "rd", "vignette"))
   devtools::build_readme()
+  knitr::knit(input = "./dev/contributing.Rmd", output = "./dev/contibuting.md")
 }
 
 
@@ -123,7 +125,7 @@ RAQSAPICHECK <- function()
 {
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   devtools::spell_check(vignettes = TRUE, use_wordlist = TRUE)
-  spell_check_files(path = "./dev/contributing.Rmd",
+  spelling::spell_check_files(path = "./dev/contributing.Rmd",
                     ignore = read.csv(file = "./inst/WORDLIST",
                                       header = FALSE)$V1
                                       )
@@ -136,7 +138,7 @@ RAQSAPICHECK <- function()
                         manual = TRUE,
                         quiet = FALSE,
                         run_dont_test = TRUE,
-                        error_on ="note"
+                        error_on = "note"
                         )
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)

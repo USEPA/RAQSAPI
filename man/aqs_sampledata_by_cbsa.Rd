@@ -49,11 +49,17 @@ list that contains header information returned from
 the API server mostly used for debugging purposes in
 addition to the data requested.}
 }
+\value{
+a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+for all monitors matching cbsa_code for the given parameter. An
+AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+/(/$Header/) is a tibble of header information from the AQS API and
+the second item /(/$Data/) is a tibble of the data returned.
+}
 \description{
 \lifecycle{stable}
-This is a testing version of aqs_sampledata_by_cbsa
-that returns multiple years of data where sample data is
-aggregated at the cbsa level. If return_header is
+Returns sample data where the data is aggregated at the Core
+Based Statistical Area (cbsa) level. If return_header is
 FALSE (default) this function returns a single dataframe with
 the requested data. If return_header is TRUE returns a list
 of AQSAPI_v2 objects where each index of the list is an

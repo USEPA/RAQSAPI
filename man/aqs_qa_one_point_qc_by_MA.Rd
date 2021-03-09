@@ -48,11 +48,18 @@ returns a AQSAPI_v2 object which is a two item list that contains header
 information returned from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
+\value{
+a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+qc data for a single monitoring agency. A AQS_Data_Mart_APIv2
+object is a 2 item named list in which the first item (\$Header)
+is a tibble of header information from the AQS API and the second
+item (\$Data) is a tibble of the data returned.
+}
 \description{
 \lifecycle{stable}
-A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing Quality assurance data - collocated assessment raw data
-aggregated by monitoring agency code (_by_MA).
+Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
+assurance data - collocated assessment raw data aggregated by monitoring
+agency code (_by_MA).
 }
 \note{
 The AQS API only allows for a single year of one point qc data to

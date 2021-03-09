@@ -21,8 +21,7 @@ returned.
 }
 \description{
 \lifecycle{stable}
-A function used to query Data Mart for the change history to
-the API.
+Returns the change history  to the AQS Data Mart API.
 }
 \examples{
  # read the Data Mart API revision history

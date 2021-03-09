@@ -65,11 +65,11 @@ purposes, in case the user wishes to see the header
 information from each api call.}
 }
 \value{
-a AQS_Data Mart_APIv2 S3 object that is the return value from the
-AQS API. A AQS_Data Mart_APIv2 is a 2 item named list in which the
-first item /(/$Header/) is a tibble of header information from the
-AQS API and the second item /(/$Data/) is a tibble of the data
-returned.
+a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+for a single site with the input parameter. An AQS_Data Mart_APIv2
+is a 2 item named list in which the first item /(/$Header/) is a
+tibble of header information from the AQS API and the second item
+/(/$Data/) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}

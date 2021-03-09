@@ -64,4 +64,5 @@ either "_by_site", "_by_county", "_by_state", "_by_box", "_by_cbsa".
 
 ### See the RAQSAPI vignette for more details
 (RAQSAPI must be installed first)
+
 > RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")

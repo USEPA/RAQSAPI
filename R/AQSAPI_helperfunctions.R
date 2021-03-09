@@ -127,13 +127,6 @@ aqs_ratelimit <- function(waittime=5L)
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#' @examples
-#'  #check if the AQS API is up, running and available for use.
-#'  \dontrun{
-#'           aqs(service = "metaData", filter = "isAvailable",
-#'               user = "John.dough/@myemail.com" ,user_key = "userkey"
-#'              )
-#'          }
 #' @noRd
 aqs <- function(service, filter= NA, user = NA,
                     user_key = NA, variables = NULL)
@@ -235,19 +228,6 @@ aqs <- function(service, filter= NA, user = NA,
 #'
 #'
 #' @return Boolean
-#'
-#' @examples
-#'  #check for valid email addresses
-#'   \dontrun{
-#'             x <- list("test",
-#'                        "",
-#'                        "myemail@mydomain.com",
-#'                        "jonny.appleseed@",
-#'                        "@mydomain.com"
-#'                       )
-#'             isValidEmail(x)
-#'             [1] FALSE FALSE  TRUE FALSE FALSE
-#'            }
 #' @noRd
 isValidEmail <- function(email) {
   grepl("\\<[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\>",
@@ -313,22 +293,6 @@ isValidEmail <- function(email) {
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #To receive an AQS_DATAMART_APIv2 S3 object of the SO2 monitors at Hawaii
-#'  #   Volcanoes NP site (#0007) in Hawaii County, HI that were operating on
-#'  #   May 1 , 2015. (Note, all monitors that operated between the bdate and
-#'  #   edate will be returned)
-#'  \dontrun{
-#'           aqs_services_by_site(parameter = "42401",
-#'                                 bdate = as.Date("20150501", format="%Y%m%d"),
-#'                                 edate = as.Date("20150502", format="%Y%m%d"),
-#'                                 stateFIPS = "15",
-#'                                 countycode = "001",
-#'                                 sitenum = "0007",
-#'                                 service = "monitors"
-#'                                  )
-#'            }
 aqs_services_by_site <- function(parameter, bdate, edate,
                                 stateFIPS, countycode, sitenum, service,
                                 cbdate = NA_Date_, cedate = NA_Date_)
@@ -401,19 +365,6 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #returns a AQS_DATAMART_APIv2 S3 object of all SO2 monitors in
-#'  #   Hawaii County, HI that were operating on May 01, 2015.
-#'  \dontrun{
-#'           aqs_services_by_county(parameter = "42401",
-#'                                 bdate = as.Date("20150501", format="%Y%m%d"),
-#'                                 edate = as.Date("20150502", format="%Y%m%d"),
-#'                                   stateFIPS = "15",
-#'                                   countycode = "001",
-#'                                   service = "monitors"
-#'                                  )
-#'          }
 aqs_services_by_county <- function(parameter, bdate, edate,
                                   stateFIPS, countycode, service,
                                   cbdate = NA_Date_, cedate = NA_Date_)
@@ -480,18 +431,6 @@ aqs_services_by_county <- function(parameter, bdate, edate,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #returns a AQS_DATAMART_APIv2 S3 object of all SO2 monitors in Hawaii
-#'  #   that were operating on May 01, 2015.
-#'  \dontrun{
-#'           aqs_services_by_state(parameter = "42401",
-#'                                 bdate = as.Date("20150501", format="%Y%m%d"),
-#'                                 edate = as.Date("20150502", format="%Y%m%d"),
-#'                                  stateFIPS = "15",
-#'                                  service = "monitors"
-#'                                  )
-#'          }
 aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS, service,
                                  cbdate = NA_Date_, cedate = NA_Date_)
 {
@@ -571,21 +510,6 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS, service,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #returns a AQS_DATAMART_APIv2 S3 object of all all ozone monitors in the
-#'  #   vicinity of central Alabama that operated in 1995
-#'  \dontrun{
-#'           aqs_services_by_box(parameter = "44201",
-#'                                bdate = as.Date("19950101", format="%Y%m%d"),
-#'                                edate = as.Date("19951231", format="%Y%m%d"),
-#'                                minlat = "33.3",
-#'                                maxlat = "33.6",
-#'                                minlon = "-87.0",
-#'                                maxlon = "-86.7"
-#'                                service = "monitors"
-#'                                )
-#'          }
 aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                minlon, maxlon, service,
                                cbdate = NA_Date_, cedate = NA_Date_)
@@ -652,19 +576,6 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #returns a AQS_DATAMART_APIv2 S3 object of NO2 monitors for the
-#'  #   Charlotte-Concord-Gastonia, NC-SC cbsa that were operating on
-#'  #   January 01, 2017
-#'  \dontrun{
-#'           aqs_services_by_cbsa(parameter = "42602",
-#'                                 bdate = as.Date("20170101", format="%Y%m%d"),
-#'                                 edate = as.Date("20170102", format="%Y%m%d"),
-#'                                 cbsa_code = "16740",
-#'                                 service = "monitors"
-#'                                 )
-#'           }
 aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                 service, cbdate = NA_Date_, cedate = NA_Date_)
 {
@@ -728,19 +639,6 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #returns a AQS_DATAMART_APIv2 S3 object of returns PM2.5 blank data for
-#'  #   January 2018 where the pqao is the Alabama Department of Environmental
-#'  #   Management (agency 0013).
-#'  \dontrun{
-#'           aqs_services_by_pqao(parameter = "88101",
-#'                                 bdate = as.Date("20180101", format="%Y%m%d"),
-#'                                 edate = as.Date("20180131", format="%Y%m%d"),
-#'                                 pqao_code = "0013",
-#'                                 service = "qaBlanks"
-#'                                )
-#'          }
 aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                 service, cbdate = NA_Date_, cedate = NA_Date_)
 {
@@ -804,18 +702,6 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#'
-#' @examples
-#'  #returns PM2.5 blank data for January 2018 where the Monitoring Agency is
-#'  #   the Alabama Department of Environmental Management (agency 0013):
-#'  \dontrun{
-#'           aqs_services_by_MA(parameter = "88101",
-#'                               bdate = as.Date("20180101", format="%Y%m%d"),
-#'                               edate = as.Date("20180131", format="%Y%m%d"),
-#'                               MA_code = "0013",
-#'                               service = "qaBlanks"
-#'                              )
-#'            }
 aqs_services_by_MA <- function(parameter, bdate, edate, MA_code,
                               service, cbdate = NA_Date_, cedate = NA_Date_)
 {
@@ -843,7 +729,6 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-#' @example \dontrun{ #hi }
 #' @noRd
 aqs_metadata_service <- function(filter, service = NA_character_)
 {

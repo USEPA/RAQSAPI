@@ -61,10 +61,18 @@ item list that contains header information returned
 from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
+\value{
+a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+assurance PEP audit data within a site. A AQS_Data_Mart_APIv2
+object is a 2 item named list in which the first item (\$Header) is
+a tibble of header information from the AQS API and the second item
+(\$Data) is a tibble of the data returned.
+}
 \description{
 \lifecycle{stable}
-Returns a table of PEP audit data aggregated by
-parameter code, stateFIPS, countycode and site number.
+Returns a table of Performance Evaluation Program (PEP) audit
+data aggregated by parameter code, stateFIPS, countycode and
+site number for the time frame between bdate and edate.
 }
 \note{
 The AQS API only allows for a single year of one point pep audit data

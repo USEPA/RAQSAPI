@@ -73,22 +73,6 @@ aggregations by site then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
-\examples{
- #To receive an AQS_DATAMART_APIv2 S3 object of the SO2 monitors at Hawaii
- #   Volcanoes NP site (#0007) in Hawaii County, HI that were operating on
- #   May 1 , 2015. (Note, all monitors that operated between the bdate and
- #   edate will be returned)
- \dontrun{
-          aqs_services_by_site(parameter = "42401",
-                                bdate = as.Date("20150501", format="\%Y\%m\%d"),
-                                edate = as.Date("20150502", format="\%Y\%m\%d"),
-                                stateFIPS = "15",
-                                countycode = "001",
-                                sitenum = "0007",
-                                service = "monitors"
-                                 )
-           }
-}
 \seealso{
 Other Aggregate _by_site functions: 
 \code{\link{aqs_annualsummary_by_site}()},

@@ -62,16 +62,3 @@ then calls the aqs and returns the result.
 This helper function is not meant to be called directly from
 external functions.
 }
-\examples{
- #returns a AQS_DATAMART_APIv2 S3 object of returns PM2.5 blank data for
- #   January 2018 where the pqao is the Alabama Department of Environmental
- #   Management (agency 0013).
- \dontrun{
-          aqs_services_by_pqao(parameter = "88101",
-                                bdate = as.Date("20180101", format="\%Y\%m\%d"),
-                                edate = as.Date("20180131", format="\%Y\%m\%d"),
-                                pqao_code = "0013",
-                                service = "qaBlanks"
-                               )
-         }
-}

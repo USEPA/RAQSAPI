@@ -3,18 +3,18 @@
 
 #' @title aqs_credentials
 #' @description \lifecycle{questioning}
-#'                 This function is used to send user credentials to the AQS
-#'                 API. This function needs to be called once and only once
-#'                 every time this library is re-loaded. Users must have
-#'                 a valid username and key which can be obtained through the
-#'                 use of the aqs_sign_up function, @seealso [aqs_sign_up()]
-#'                 to sign up for AQS data mart credentials.
+#'                 Sets the user credentials for the AQS API. This function
+#'                 needs to be called once and only once every time this library
+#'                 is re-loaded. Users must have a valid username and key which
+#'                 can be obtained through the use of the aqs_sign_up function,
+#'                 @seealso [aqs_sign_up()] to sign up for AQS data mart
+#'                 credentials.
+#' @importFrom rlang is_character
 #' @param username a R character object which represents the email account that
 #'                    will be used to connect to the AQS API.
 #' @param key the key used in conjunction with the username given to connect to
 #'              AQS Data Mart.
 #' @return None
-#' @importFrom rlang is_character
 #' @examples
 #'  #to authenticate an existing user the email address
 #'  # "John.Doe@myemail.com" and key = "MyKey"
@@ -65,12 +65,12 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #' @importFrom magrittr `%>%`
 #' @importFrom httr GET
 #' @importFrom glue glue
-#' @return None
 #' @examples # to register a new user or generate a new key with the email
 #'           #  address "John.Doe/@myemail.com"
 #'           \dontrun{aqs_sign_up(email = "John.Doe/@myemail.com")}
 #'           #  after calling this function please follow the instructions that
 #'           #  are sent in the verification e-mail before proceeding.
+#' @return None
 #' @export
 aqs_sign_up <- function(email)
 { #nocov start
@@ -91,7 +91,8 @@ aqs_sign_up <- function(email)
 #' @title aqs_isavailable
 #' @description \lifecycle{stable}
 #'                returns a tibble or an AQS_Data Mart_APIv2 S3 object
-#'                explaining the status of the AQS API
+#'                explaining the status of the AQS API.
+#' @importFrom magrittr `%>%`
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -99,7 +100,6 @@ aqs_sign_up <- function(email)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object which details the status
 #'             of the AQS API (The status information is located in the header)
-#' @importFrom magrittr `%>%`
 #' @examples
 #'   #check if the AQS API is up, running and accepting requests.
 #'   \dontrun{ aqs_isAvailable() }
@@ -158,6 +158,7 @@ aqs_knownissues <- function(return_header = FALSE)
 #' @description \lifecycle{stable}
 #'                 Returns a table of all counties in within the
 #'                 stateFIPS provided.
+#' @importFrom magrittr `%<>%`
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zeros) for the state being
 #'                   requested. @seealso [aqs_states()] for the list of
@@ -169,7 +170,6 @@ aqs_knownissues <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of all counties in the
 #'            requested state.
-#' @importFrom magrittr `%<>%`
 #' @examples
 #'           #returns an tibble all the counties
 #'           #   in North Carolina the county FIPS codes (county codes) for
@@ -273,9 +273,9 @@ aqs_classes <- function(return_header = FALSE)
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object with the parameters
-#'            associated with the class requested. NULL is returned for classes
-#'            not found.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing the
+#'            parameters associated with the class requested. NULL is returned
+#'            for classes not found.
 #' @examples # Returns a tibble of AQS parameters in the criteria class
 #'           \dontrun{ aqs_parameters_by_class(class = "CRITERIA") }
 #' @export
@@ -387,6 +387,7 @@ aqs_cbsas <- function(return_header = FALSE)
 #'                 Returns a table of US states, US territories, and the
 #'                 district or Columbia with their respective FIPS codes used
 #'                 for constructing other requests
+#' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns an AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -394,7 +395,6 @@ aqs_cbsas <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of states and their
 #'            FIPS codes used for constructing other requests.
-#' @importFrom magrittr `%<>%`
 #' @examples #returns a tibble of states and their FIPS codes
 #'           \dontrun{aqs_states()}
 #' @export
@@ -482,6 +482,8 @@ aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                Returns a table containing flow rate audit
 #'                data aggregated by parameter code, stateFIPS, countycode and
 #'                site number for bdate - edate time frame.
+#' @inheritParams aqs_services_by_site
+#' @importFrom magrittr `%<>%`
 #' @note The AQS API only allows for a single year of flow rate audit data to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -499,8 +501,12 @@ aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @inheritParams aqs_services_by_site
-#' @importFrom magrittr `%<>%`
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#'           audit data for the requested sitenum, countycode and stateFIPS. An
+#'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
+#'           first item (\$Header) is a tibble of header information from the
+#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           returned.
 #' @examples # returns a tibble of flow rate audit data
 #'           #  for the Wylam site (#2003) in Jefferson County, AL
 #'           #  for January 2018:
@@ -563,6 +569,11 @@ aqs_qa_flowrateaudit_by_site <- function(parameter, bdate, edate,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#'            qc data for the requested site. A AQS_Data_Mart_APIv2 object is a
+#'            2 item named list in which the first item (\$Header) is a tibble
+#'            of header information from the AQS API and the second item
+#'            (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibbble of One Point QC data for
 #'           #  ozone at the Truro National Seashore site (\#0002) in
 #'           #  Barnstable County, MA for January 2018:
@@ -603,8 +614,9 @@ aqs_qa_one_point_qc_by_site <- function(parameter, bdate, edate,
 
 #' @title aqs_qa_pep_audit_by_site
 #' @description \lifecycle{stable}
-#'                Returns a table of PEP audit data aggregated by
-#'                parameter code, stateFIPS, countycode and site number.
+#'                Returns a table of Performance Evaluation Program (PEP) audit
+#'                data aggregated by parameter code, stateFIPS, countycode and
+#'                site number for the time frame between bdate and edate.
 #' @note The AQS API only allows for a single year of one point pep audit data
 #'         to be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -624,6 +636,11 @@ aqs_qa_one_point_qc_by_site <- function(parameter, bdate, edate,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance PEP audit data within a site. A AQS_Data_Mart_APIv2
+#'           object is a 2 item named list in which the first item (\$Header) is
+#'           a tibble of header information from the AQS API and the second item
+#'           (\$Data) is a tibble of the data returned.
 #' @examples # returns a aqs_v2 S3 object of pep Audit data for FRM PM2.5
 #'           #  at the Huntsville Old Airport site (\#0014) in Madison County,
 #'           #  AL for 2017
@@ -699,11 +716,11 @@ aqs_qa_pep_audit_by_site <- function(parameter, bdate, edate,
 #'                        information from each api call.
 #' @importFrom magrittr `%>%` `%<>%`
 #' @importFrom purrr pmap
-#' @return a AQS_Data Mart_APIv2 S3 object that is the return value from the
-#'            AQS API. A AQS_Data Mart_APIv2 is a 2 item named list in which the
-#'            first item /(/$Header/) is a tibble of header information from the
-#'            AQS API and the second item /(/$Data/) is a tibble of the data
-#'            returned.
+#' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+#'           for a single site with the input parameter. An AQS_Data Mart_APIv2
+#'           is a 2 item named list in which the first item /(/$Header/) is a
+#'           tibble of header information from the AQS API and the second item
+#'           /(/$Data/) is a tibble of the data returned.
 #' @examples #Returns a AQS_Data Mart_APIv2 S3 object of ozone monitoring
 #'           #  data for the Millbrook School site (/#0014) in
 #'           #  Wake County, NC for June 18, 2017.
@@ -749,7 +766,9 @@ aqs_sampledata_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                 matching the input parameter, stateFIPS, county_code, and
 #'                 sitenum provided for bdate - edate time frame. The data
 #'                 returned is summarized at the annual level. Variables
-#'                 returned include mean value, maxima, percentiles, and etc.
+#'                 returned include mean value, maxima, percentiles, and etc. If
+#'                 return_header is FALSE (default) the object returned is a
+#'                 tibble, if TRUE an AQS_API_v2 object.
 #' @note The AQS API only allows for a single year of annualsummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -770,11 +789,11 @@ aqs_sampledata_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                        information returned from the API server mostly used
 #'                        for debugging purposes in addition to the data
 #'                        requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
-#'            from the AQS API. A AQS_Data Mart_APIv2 is a 2 item named list in
-#'            which the first item (\$Header) is a tibble of header information
-#'            from the AQS API and the second item (\$Data) is a tibble of the
-#'            data returned.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+#'           summary data for the Sitenum, countycode and stateFIPS requested.
+#'           A AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item (\$Header) is a tibble of header information from the AQS API
+#'           and the second item (\$Data) is a tibble of the data returned.
 #' @examples # Returns a tibble of annual summary ozone
 #'           #  data for the Millbrook School site (\#0014) in Wake County,
 #'           #  NC for 2017 (Note, for annual data, only the
@@ -911,11 +930,11 @@ aqs_qa_blanks_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that is the return
-#'            value from the AQS API. A AQS_Data Mart_APIv2 is a 2 item named
-#'            list in which the first item (\$Header) is a tibble of header
-#'            information from the AQS API and the second item (\$Data) is a
-#'            tibble of the data returned.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for a single site. An
+#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           (\$Header) is a tibble of header information from the AQS API and
+#'           the second item (\$Data) is a tibble of the data returned.
 #' @examples #Returns a tibble of daily summary ozone
 #'           #  data for the Millbrook School site (\#0014) in Wake County,
 #'           #  NC for June 18, 2017.
@@ -977,6 +996,11 @@ aqs_dailysummary_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance collocated assessment data for monitors within a site.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples #returns a tibble of collocated assessment data
 #'           #  for FRM PM2.5 at the Huntsville Old Airport site (\#0014)
 #'           #  in Madison County, AL for January 2013:
@@ -1042,6 +1066,11 @@ aqs_qa_collocated_assessments_by_site <- function(parameter, bdate, edate,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance flow rate verification data for monitors at a site.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification
 #'           #  data for the Muscle Shoals site (#0014) in Colbert County, AL
 #'           #  for January 2018:
@@ -1145,8 +1174,8 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
 
 #' @title aqs_monitors_by_county
 #' @description \lifecycle{stable}
-#'  A function that returns a table of monitors at a site with the provided
-#'    parameternum, stateFIPS and county_code for bdate - edate time frame.
+#'    Returns a table of monitors at a site with the provided parameternum,
+#'      stateFIPS and county_code for bdate - edate time frame.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -1155,6 +1184,8 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+#'           selected county
 #' @examples # returns an aqs_v2 S3 object containing all SO2 monitors in
 #'           #  Hawaii County, HI that were operating on May 01, 2015.
 #'  \dontrun{aqs_monitors_by_county(parameter="42401",
@@ -1191,11 +1222,8 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_sampledata_by_county
 #' @description \lifecycle{stable}
-#'                 This is a testing version of aqs_sampledata_by_county
-#'                 that returns multiple years of data where sample data is
-#'                 aggregated at the county level. If return_header is
-#'                 FALSE (default) this function returns a single dataframe with
-#'                 the requested data. If return_header is TRUE returns a list
+#'                 Returns a single tibble with the requested data. If
+#'                 return_header is TRUE returns a list
 #'                 of AQSAPI_v2 objects where each index of the list is an
 #'                 individual RAQSAPI_v2 object returned from each successive
 #'                 call to the AQS API. RAQSAPI_v2 objects are two item list
@@ -1225,6 +1253,12 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
 #' @importFrom purrr pmap
+#' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+#'           for all monitors matching stateFIPS and county_code for the given
+#'           parameter. An AQS_Data Mart_APIv2 is a 2 item named list in which
+#'           the first item /(/$Header/) is a tibble of header information from
+#'           the AQS API and the second item /(/$Data/) is a tibble of the data
+#'           returned.
 #' @examples # returns all FRM/FEM PM2.5 data for Wake County, NC between
 #'           #  January 1, 2015 - February 28, 2016
 #'  \dontrun{aqs_sampledata_by_county(parameter = "88101",
@@ -1260,9 +1294,14 @@ aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_annualsummary_by_county
 #' @description \lifecycle{stable}
-#'                 This is a testing version of
-#'                 aqs_annualsummary_by_county_multiyear that aggregates
-#'                 multiple years of annual data by county code level.
+#'                 Returns multiple years of data where annual data is
+#'                 aggregated at the county level. Returned is an annual summary
+#'                 matching the input parameter, stateFIPS, and county_code
+#'                 provided for bdate - edate time frame. The data
+#'                 returned is summarized at the annual level. Variables
+#'                 returned include mean value, maxima, percentiles, and etc. If
+#'                 return_header is FALSE (default) the object returned is a
+#'                 tibble, if TRUE an AQS_API_v2 object.
 #' @note The AQS API only allows for a single year of annualsummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -1282,6 +1321,11 @@ aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+#'           summary data for the countycode and stateFIPS requested.
+#'           A AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item (\$Header) is a tibble of header information from the AQS API
+#'           and the second item (\$Data) is a tibble of the data returned.
 #' @examples # returns an aqs S3 object with annual summary FRM/FEM
 #'           #  PM2.5 data for Wake County, NC between January
 #'           #  and February 2016
@@ -1318,7 +1362,7 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_blanks_by_county
 #' @description \lifecycle{stable}
-#'                a function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object containing blank sample data aggregated by
 #'                county number.
 #' @note The AQS API only allows for a single year of qa_blank data to be
@@ -1340,6 +1384,11 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance blank data for monitors within a county. An
+#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           ($Header) is a tibble of header information from the AQS API and
+#'           the second item ($Data) is a tibble of the data returned.
 #' @examples # returns an tibble with PM2.5 blank data for
 #'           #  Colbert County, AL for January 2018
 #'    \dontrun{aqs_qa_blanks_by_county(parameter = "88101",
@@ -1375,7 +1424,7 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_dailysummary_by_county
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object of daily summary data aggregated by county number.
 #' @note The AQS API only allows for a single year of dailysummary to be
 #'         retrieved at a time. This function conveniently extracts date
@@ -1396,6 +1445,12 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for a single countycode
+#'           and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
+#'           list in which the first item (\$Header) is a tibble of header
+#'           information from the AQS API and the second item (\$Data) is a
+#'           tibble of the data returned.
 #' @examples # returns an aqs S3 object of daily summary FRM/FEM PM2.5 data
 #'           #  for Wake County, NC between January and February 2016
 #'  \dontrun{aqs_dailysummary_by_county(parameter = "88101",
@@ -1452,6 +1507,11 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance collocated assessment data for monitors within a county.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble with collocated assessment data
 #'           #  for FRM PM2.5 in Madison County, AL for January 2013
 #'  \dontrun{aqs_qa_collocated_assessments_by_county(parameter = "88101",
@@ -1512,6 +1572,11 @@ aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance flow rate verification data for monitors within a county.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification data for
 #'           #  Colbert County, AL for January 2018
 #'   \dontrun{aqs_qa_flowrateverification_by_county(parameter = "88101",
@@ -1573,6 +1638,12 @@ aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#'           audit data for the requested countycode and stateFIPS. An
+#'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
+#'           first item (\$Header) is a tibble of header information from the
+#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           returned.
 #' @examples #Returns a tibble of flow rate audit data for
 #'           #  Jefferson County, AL for January 2018
 #'    \dontrun{aqs_qa_flowrateaudit_by_county(parameter = "88101",
@@ -1608,9 +1679,8 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_one_point_qc_by_county_
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing one point QC check data aggregated by
-#'                county code.
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+#'                containing one point QC check data aggregated by county_code.
 #' @note The AQS API only allows for a single year of one point qc data to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -1630,9 +1700,13 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#'            qc data within a county. A AQS_Data_Mart_APIv2 object is a
+#'            2 item named list in which the first item (\$Header) is a tibble
+#'            of header information from the AQS API and the second item
+#'            (\$Data) is a tibble of the data returned.
 #' @examples #returns a tibble of One Point QC data for ozone
 #'           #  in Barnstable County, MA for January 2018
-#'
 #'   \dontrun{aqs_qa_one_point_qc_by_county(parameter= "44201",
 #'                                          bdate = as.Date("20170101",
 #'                                                        format = "%Y%m%d"),
@@ -1667,10 +1741,9 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_pep_audit_by_county
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing Quality assurance data - performance
-#'                evaluation program (PEP) audits data aggregated by county
-#'                code.
+#'                Returns a table of Performance Evaluation Program (PEP) audit
+#'                data aggregated by parameter code, stateFIPS and countycode
+#'                for the time frame between bdate and edate.
 #' @note The AQS API only allows for a single year of one point pep audit data
 #'         to be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -1690,6 +1763,11 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
 #' @inheritParams aqs_services_by_county
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance PEP audit data within a county. A AQS_Data_Mart_APIv2
+#'           object is a 2 item named list in which the first item (\$Header) is
+#'           a tibble of header information from the AQS API and the second item
+#'           (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble with PEP Audit data for FRM
 #'           #  PM2.5 in Madison County, AL for 2017
 #'  \dontrun{aqs_qa_pep_audit_by_county_multiyear(parameter = "88101",
@@ -1800,6 +1878,8 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+#'           selected state
 #' @examples # returns a tibble of SO2 monitors in Hawaii
 #'           #  that were operating on May 01, 2015
 #'  \dontrun{aqs_monitors_by_state(parameter="88101",
@@ -1836,20 +1916,18 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_sampledata_by_state
 #' @description \lifecycle{stable}
-#'                 This is a testing version of aqs_sampledata_by_state
-#'                 that returns multiple years of data where sample data is
-#'                 aggregated at the state level. If return_header is
-#'                 FALSE (default) this function returns a single dataframe with
-#'                 the requested data. If return_header is TRUE returns a list
-#'                 of AQSAPI_v2 objects where each index of the list is an
-#'                 individual RAQSAPI_v2 object returned from each successive
-#'                 call to the AQS API. RAQSAPI_v2 objects are two item list
-#'                 where the $Data portion contains data that contains
-#'                 sample air monitoring data at a site with the input
-#'                 parameter and stateFIPS provided for
-#'                 bdate - edate time frame. The $Header is a tibble of
-#'                 header information from the API call /(useful for
-#'                 debugging/). This function returns NULL is bdate > edate.
+#'                 Returns sample data where the data is aggregated at the state
+#'                 level. If return_header is FALSE (default) this function
+#'                 returns a single dataframe with the requested data. If
+#'                 return_header is TRUE returns a list of AQSAPI_v2 objects
+#'                 where each index of the list is an individual RAQSAPI_v2
+#'                 object returned from each successive call to the AQS API.
+#'                 RAQSAPI_v2 objects are two item list where the $Data portion
+#'                 contains data that contains sample air monitoring data at a
+#'                 site with the input parameter and stateFIPS provided for
+#'                 bdate - edate time frame. The $Header is a tibble of header
+#'                 information from the API call /(useful for debugging/). This
+#'                 function returns NULL is bdate > edate.
 #' @note The AQS API only allows for a single year of sampledata to be retrieved
 #'         at a time. This function conveniently extracts date information from
 #'         the bdate and edate parameters then makes repeated calls to the
@@ -1870,6 +1948,12 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+#'           for all monitors matching stateFIPS for the given parameter.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item /(/$Header/) is a tibble of header information from the
+#'           AQS API and the second item /(/$Data/) is a tibble of the data
+#'           returned.
 #' @examples # returns an aqs_v2 S3 object with all benzene samples from
 #'           #  North Carolina collected from May 15th, 1995 - May 15, 1999
 #'           \dontrun{aqs_sampledata_by_state(parameter = "45201",
@@ -1904,9 +1988,14 @@ params <- aqsmultiyearparams(parameter = parameter,
 
 #' @title aqs_annualsummary_by_state
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing annual summary data aggregated by state
-#'                FIPS.
+#'                 Returns multiple years of data where annual data is
+#'                 aggregated at the state level. Returned is an annual summary
+#'                 matching the input parameter and stateFIPS
+#'                 provided for bdate - edate time frame. The data
+#'                 returned is summarized at the annual level. Variables
+#'                 returned include mean value, maxima, percentiles, and etc. If
+#'                 return_header is FALSE (default) the object returned is a
+#'                 tibble, if TRUE an AQS_API_v2 object.
 #' @note The AQS API only allows for a single year of annualsummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -1926,6 +2015,11 @@ params <- aqsmultiyearparams(parameter = parameter,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+#'           summary data for the stateFIPS requested. A AQS_Data Mart_APIv2 is
+#'           a 2 item named list in which the first item (\$Header) is a tibble
+#'           of header information from the AQS API and the second item (\$Data
+#'           is a tibble of the data returned.
 #' @examples # returns a tibble of all benzene annualy
 #'           #  summaries from North Carolina collected for 1995
 #'           \dontrun{aqs_annualsummary_by_state(parameter = "45201",
@@ -1961,7 +2055,7 @@ aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_blanks_by_state
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object containing Quality assurance blank sample data
 #'                aggregated by state FIPS.
 #' @note The AQS API only allows for a single year of qa_blank data to be
@@ -1983,6 +2077,11 @@ aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance blank data for monitors within a state. An
+#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           ($Header) is a tibble of header information from the AQS API and
+#'           the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a aqs_v2 object which contains PM2.5 blank data
 #'           #  for Alabama for January 2018
 #'           \dontrun{aqs_qa_blanks_by_state(parameter = "88101",
@@ -2016,7 +2115,7 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_dailysummary_by_state
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object containing sample data data aggregated by state FIPS.
 #' @note The AQS API only allows for a single year of dailysummary to be
 #'         retrieved at a time. This function conveniently extracts date
@@ -2037,6 +2136,11 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for a single stateFIPS
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item (\$Header) is a tibble of header information from the AQS API
+#'           and the second item (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble of all benzene daily
 #'           #  summaries from North Carolina collected on May 15th, 1995
 #'           \dontrun{aqs_dailysummary_by_state(parameter = "45201",
@@ -2094,6 +2198,11 @@ aqs_dailysummary_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance collocated assessment data for monitors within a state.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble  of collocated
 #'           #  assessment data fofr FRM2.5 for January 2013
 #'           \dontrun{aqs_qa_collocated_assessments_by_state(parameter="88101",
@@ -2152,6 +2261,11 @@ aqs_qa_collocated_assessments_by_state <- function(parameter, bdate, edate,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance flow rate verification data for monitors within a state.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification
 #'           #  data for Alabama 2018
 #'           \dontrun{aqs_qa_flowrateverification_by_state(parameter = "88101",
@@ -2210,6 +2324,12 @@ aqs_qa_flowrateverification_by_state <- function(parameter, bdate, edate,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#'           audit data for the requested stateFIPS. An
+#'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
+#'           first item (\$Header) is a tibble of header information from the
+#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           returned.
 #' @examples # returns a tibble of flow rate audit
 #'           #  data for Alabama in January 2018
 #'           \dontrun{aqs_qa_flowrateaudit_by_state(parameter = "88101",
@@ -2245,7 +2365,7 @@ aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_one_point_qc_by_state
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object containing Quality assurance data - flow rate audit
 #'                raw data aggregated by state FIPS.
 #' @note The AQS API only allows for a single year of one point qc data to
@@ -2267,6 +2387,11 @@ aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#'            qc data within a state. A AQS_Data_Mart_APIv2 object is a
+#'            2 item named list in which the first item (\$Header) is a tibble
+#'            of header information from the AQS API and the second item
+#'            (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble of one point QC check
 #'           #  data for ozone in Massachusettes in January 2018
 #'           \dontrun{aqs_qa_one_point_qc_by_state(parameter = "44201",
@@ -2302,9 +2427,9 @@ aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_pep_audit_by_state
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an an AQS_Data Mart_APIv2
-#'                S3 object containing Quality assurance data - performance
-#'                evaluation program (PEP) audits data aggregated by stateFIPS.
+#'                Returns a table of Performance Evaluation Program (PEP) audit
+#'                data aggregated by parameter code, and stateFIPS for the time
+#'                frame between bdate and edate.
 #' @note The AQS API only allows for a single year of one point pep audit data
 #'         to be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -2324,6 +2449,11 @@ aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance PEP audit data within a state. A AQS_Data_Mart_APIv2
+#'           object is a 2 item named list in which the first item (\$Header) is
+#'           a tibble of header information from the AQS API and the second item
+#'           (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble of PEP audit data for PM2.5 in Alabama 2017
 #'           \dontrun{aqs_qa_pep_audit_by_state_multiyear(parameter="88101",
 #'                                              bdate=as.Date("20160101",
@@ -2438,6 +2568,11 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                                                cbsa_code="16740"
 #'                                                    )
 #'                    }
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
+#'            from the AQS API. A AQS_Data Mart_APIv2 object is a 2 item named
+#'            list in which the first item (\$Header) is a tibble of header
+#'            information from the AQS API and the second item (\$Data) is a
+#'            tibble of the data returned.
 #' @export
 aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                     cbdate = NA_Date_, cedate = NA_Date_,
@@ -2463,9 +2598,8 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 
 #' @title aqs_sampledata_by_cbsa
 #' @description \lifecycle{stable}
-#'                 This is a testing version of aqs_sampledata_by_cbsa
-#'                 that returns multiple years of data where sample data is
-#'                 aggregated at the cbsa level. If return_header is
+#'                 Returns sample data where the data is aggregated at the Core
+#'                 Based Statistical Area (cbsa) level. If return_header is
 #'                 FALSE (default) this function returns a single dataframe with
 #'                 the requested data. If return_header is TRUE returns a list
 #'                 of AQSAPI_v2 objects where each index of the list is an
@@ -2497,6 +2631,11 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+#'           for all monitors matching cbsa_code for the given parameter. An
+#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           /(/$Header/) is a tibble of header information from the AQS API and
+#'           the second item /(/$Data/) is a tibble of the data returned.
 #' @examples # returns an aqs_v2 s3 object which contains NO2 data
 #'           #  for Charlotte-Concord-Gastonia, NC cbsa for
 #'           #  Janurary 1, 2015 - Janurary 01, 2017
@@ -2531,9 +2670,15 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 
 #' @title aqs_annualsummary_by_cbsa
 #' @description \lifecycle{stable}
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing annual summary data aggregated by cbsa (Core Based
-#'   Statistical Area) code.
+#'                 Returns multiple years of data where annual data is
+#'                 aggregated at the Core Based Statistical Area (CBSA) level.
+#'                 Returned is an annual summary
+#'                 matching the input parameter, and cbsa_code
+#'                 provided for bdate - edate time frame. The data
+#'                 returned is summarized at the annual level. Variables
+#'                 returned include mean value, maxima, percentiles, and etc. If
+#'                 return_header is FALSE (default) the object returned is a
+#'                 tibble, if TRUE an AQS_API_v2 object.
 #' @note The AQS API only allows for a single year of annualsummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -2552,6 +2697,11 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+#'           summary data for the cbsa_code requested. A AQS_Data Mart_APIv2 is
+#'           a 2 item named list in which the first item (\$Header) is a tibble
+#'           of header information from the AQS API and the second item (\$Data)
+#'           is a tibble of the data returned.
 #' @examples # returns a tibble of annual sunnary NO2
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa for
 #'           #  Janurary 01, 2017
@@ -2589,7 +2739,7 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 
 #' @title aqs_dailysummary_by_cbsa
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object containing daily summary data aggregated by cbsa
 #'                (Core Based Statistical Area) code.
 #' @note The AQS API only allows for a single year of dailysummary to be
@@ -2610,6 +2760,11 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for a single cbsa_code.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item (\$Header) is a tibble of header information from the AQS API
+#'           and the second item (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble of daily sunnary NO2
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa for
 #'           #  Janurary 01, 2017
@@ -2649,7 +2804,7 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 
 #' @title aqs_qa_blanks_by_MA
 #' @description \lifecycle{stable}
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'   Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'   object containing Quality assurance - blanks sample data aggregated by
 #'   monitoring agency code (_by_MA).
 #' @note The AQS API only allows for a single year of qa_blank data to be
@@ -2707,9 +2862,6 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code,
 #'                Returns a table of collocated assessment data aggregated by
 #'                 matching input parameter, and monitoring agency (MA) code
 #'                 provided for bdate - edate time frame.
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing collocated assessment data aggregated by monitoring
-#'   agency (MA) number.
 #' @note The AQS API only allows for a single year of collocated assessments to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -2786,6 +2938,12 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance flow rate verification data for monitors within a
+#'           Monitoring agency. An AQS_Data Mart_APIv2 is a 2 item named list in
+#'           which the first item ($Header) is a tibble of header information
+#'           from the AQS API and the second item ($Data) is a tibble of the
+#'           data returned.
 #' @examples # returns a tibble containing collocated assessment
 #'   #  data for FRM PM2.5 January 2013 where the Monitoring Agency is
 #'   #  the Alabama Department of Environmental Management (agency 0013)
@@ -2843,6 +3001,12 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#'           audit data for the requested MA_code. An
+#'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
+#'           first item (\$Header) is a tibble of header information from the
+#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           returned.
 #' @examples # returns a tibble of flow rate audit data
 #'  #  for FRM PM2.5 January 2016 - Januray 2018 where the Monitoring Agency is
 #'  #  the Jefferson County, AL  Department of Health (agency 0550)
@@ -2878,9 +3042,9 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
 
 #' @title aqs_qa_one_point_qc_by_MA
 #' @description \lifecycle{stable}
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing Quality assurance data - collocated assessment raw data
-#'   aggregated by monitoring agency code (_by_MA).
+#'   Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
+#'   assurance data - collocated assessment raw data aggregated by monitoring
+#'   agency code (_by_MA).
 #' @note The AQS API only allows for a single year of one point qc data to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -2899,6 +3063,11 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#'            qc data for a single monitoring agency. A AQS_Data_Mart_APIv2
+#'            object is a 2 item named list in which the first item (\$Header)
+#'            is a tibble of header information from the AQS API and the second
+#'            item (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble of ozone One Point QC data
 #'           #  for January 2018 where the Monitoring Agency is the
 #'           #  Massachusetts Department of Environmental Protection
@@ -2934,10 +3103,9 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code,
 
 #' @title aqs_qa_pep_audit_by_MA
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing Quality assurance data - performance
-#'                evaluation program (PEP) audit data aggregated by
-#'                monitoring agency code (_by_MA).
+#'                Returns a table of Performance Evaluation Program (PEP) audit
+#'                data aggregated by monitoring agency code (_by_MA) for the
+#'                time frame between bdate and edate.
 #' @note The AQS API only allows for a single year of one point pep audit data
 #'         to be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -2956,6 +3124,12 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance PEP audit data for a monitoring agency. A
+#'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
+#'           first item (\$Header) is a tibble of header information from the
+#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           returned.
 #' @examples # returns a tibble of PEP audit data for
 #'           #  June 2017 where the Monitoring Agency is the Alabama Department
 #'           #  of Environmental Management (agency 0013)
@@ -3053,7 +3227,7 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code,
 
 #' @title aqs_qa_blanks_by_pqao
 #' @description \lifecycle{stable}
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'   Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'   object containing Quality assurance data - blanks sample data aggregated
 #'   by Primary Quality Assurance Organization (PQAO) code.
 #' @note The AQS API only allows for a single year of qa_blank data to be
@@ -3074,6 +3248,11 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance blank data for monitors within a pqao. An
+#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           ($Header) is a tibble of header information from the AQS API and
+#'           the second item ($Data) is a tibble of the data returned.
 #' @examples # returns tibble of PM2.5 blank data for
 #'           #  January 2018 where the PQAO is the Alabama Department of
 #'           #  Environmental Management (agency 0013)
@@ -3130,6 +3309,11 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance collocated assessment data for monitors within a pqao.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of collocated assessment
 #'           #  data for FRM PM2.5 January 2013 where the PQAO is the Alabama
 #'           #  Department of Environmental Management (agency 0013)
@@ -3169,9 +3353,6 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate,
 #'                parameter code aggregated by matching input parameter, and
 #'                Primary Quality Assurance Organization (PQAO) code provided
 #'                for bdate - edate time.
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing Quality assurance data - flow rate verification data
-#'   aggregated by Primary Quality Assurance Organization (PQAO) code.
 #' @note The AQS API only allows for a single year of flow rate verifications to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -3190,6 +3371,11 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance flow rate verification data for monitors within a pqao.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification
 #'   #  data for January 2018 where the PQAO is the Alabama Department
 #'   #  of Environmental Management (agency 0013)
@@ -3250,6 +3436,12 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#'           audit data  for the requested pqao_code. An
+#'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
+#'           first item (\$Header) is a tibble of header information from the
+#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           returned.
 #' @examples # returns a tibble of flow rate audit data for January
 #'   #  2018 where the PQAO is the Jefferson County, AL Department Of
 #'   #  Health (agency 0550).
@@ -3284,9 +3476,9 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 
 #' @title aqs_qa_one_point_qc_by_pqao
 #' @description \lifecycle{stable}
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing Quality assurance data - collocated assessment raw data
-#'   aggregated by Primary Quality Assurance Organization (PQAO) code.
+#'   Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
+#'     assurance data - collocated assessment raw data aggregated by Primary
+#'     Quality Assurance Organization (PQAO) code.
 #' @note The AQS API only allows for a single year of one point qc data to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -3340,10 +3532,9 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
 
 #' @title aqs_qa_pep_audit_by_pqao
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing Quality assurance data - one point quality
-#'                control check raw data aggregated by
-#'                Primary Quality Assurance Organization (PQAO) code.
+#'                Returns a table of Performance Evaluation Program (PEP) audit
+#'                data aggregated by Primary Quality Assurance Organization
+#'                (PQAO) code for the time frame between bdate and edate.
 #' @note The AQS API only allows for a single year of one point pep audit data
 #'         to be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -3362,6 +3553,12 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#'           assurance PEP audit data for a Primary Quality Assurance
+#'           Organization. A AQS_Data_Mart_APIv2 object is a 2 item named list
+#'           in which the first item (\$Header) is a tibble of header
+#'           information from the AQS API and the second item (\$Data) is a
+#'           tibble of the data returned.
 #' @examples # returns a tibble of PEP audit data for
 #'   #  June 2017 where the pqao is the Alabama Department of
 #'   #  Environmental Management (agency 0013)
@@ -3411,6 +3608,8 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+#'           latitude/longitude bounding box (_by_box).
 #' @examples #  returns a tibble of all ozone
 #'           #  monitors in the vicinity of central Alabama that operated in
 #'           #  1995
@@ -3451,9 +3650,8 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 
 #' @title aqs_sampledata_by_box
 #' @description \lifecycle{stable}
-#'                 This is a testing version of aqs_sampledata_by_box
-#'                 that returns multiple years of data where sample data is
-#'                 aggregated by latitude/longitude bounding box (_by_box).
+#'                 Returns sample data where the data is aggregated by
+#'                 latitude/longitude bounding box (_by_box).
 #'                 If return_header is FALSE (default) this function returns a
 #'                 single dataframe with the requested data. If return_header
 #'                 is TRUE returns a list of AQSAPI_v2 objects where each index
@@ -3461,10 +3659,10 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                 each successive call to the AQS API. RAQSAPI_v2 objects are
 #'                 two item list where the $Data portion contains data that
 #'                 contains sample air monitoring data at a site with the input
-#'                 parameter and cbsa_code provided for
-#'                 bdate - edate time frame. The $Header is a tibble of
-#'                 header information from the API call /(useful for
-#'                 debugging/). This function returns NULL is bdate > edate.
+#'                 parameter and cbsa_code provided for bdate - edate time
+#'                 frame. The $Header is a tibble of header information from the
+#'                 API call /(useful for debugging/). This function returns NULL
+#'                 is bdate > edate.
 #' @note The AQS API only allows for a single year of sampledata to be retrieved
 #'         at a time. This function conveniently extracts date information from
 #'         the bdate and edate parameters then makes repeated calls to the
@@ -3485,6 +3683,12 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
+#'           for all monitors within the input latitude/longitude bounding box
+#'           for a single parameter. An AQS_Data Mart_APIv2 is a 2 item named
+#'           list in which the first item /(/$Header/) is a tibble of header
+#'           information from the AQS API and the second item /(/$Data/) is a
+#'           tibble of the data returned.
 #' @examples # returns a aqs_v2 S3 object containing all ozone samples
 #'              #  in the vicinity of central Alabama for
 #'              #  May 1, 2015 - May 2, 2017
@@ -3524,9 +3728,14 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 
 #' @title aqs_annualsummary_by_box
 #' @description \lifecycle{stable}
-#'   A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing annual monitoring data aggregated by latitude/longitude
-#'   bounding box (_by_box).
+#'                 Returns multiple years of data where annual data is
+#'                 aggregated at the bounding box level. Returned is an annual
+#'                 summary within the input parameter, latitude/longitude
+#'                 bounding box provided for bdate - edate time frame. The data
+#'                 returned is summarized at the annual level Variables returned
+#'                 include mean value, maxima, percentiles, and etc. If
+#'                 return_header is FALSE (default) the object returned is a
+#'                 tibble, if TRUE an AQS_API_v2 object.
 #' @note The AQS API only allows for a single year of annualsummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -3545,6 +3754,11 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+#'           summary data for the box (area) requested. A AQS_Data Mart_APIv2
+#'           is a 2 item named list in which the first item (\$Header) is a
+#'           tibble of header information from the AQS API and the second item
+#'           (\$Data) is a tibble of the data returned.
 #' @examples # returns a tibble containing ozone annual summaries
 #'           #  in the vicinity of central Alabama for the first two days
 #'           #  in May, 2015
@@ -3588,8 +3802,9 @@ browser()
 
 #' @title aqs_dailysummary_by_box
 #' @description \lifecycle{stable}
-#'                A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing sample data data aggregated by state FIPS.
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                object containing sample data bounded within a
+#'                latitude/longitude bounding box
 #' @note The AQS API only allows for a single year of dailysummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -3609,6 +3824,12 @@ browser()
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for an area bounded
+#'           within a latitude/longitude bounding box. An AQS_Data Mart_APIv2 is
+#'           a 2 item named list in which the first item (\$Header) is a tibble
+#'           of header information from the AQS API and the second item (\$Data)
+#'           is a tibble of the data returned.
 #' @examples #returns a tibble of ozone daily summaries in the vicinity of
 #'          #  central Alabama for the first two days in May 2015
 #'
@@ -3650,7 +3871,7 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 
 #' @title aqs_removeheader
 #' @description \lifecycle{stable}
-#'                This function is used to convert a single RAQSAPI_v2 object or
+#'                Coerces a single RAQSAPI_v2 object or
 #'                a list of RAQSAPI_v2 objects into a single tibble object.
 #'                This function decouples the $Data from the AQSAPI_v2 object
 #'                and returns only the $Data portion as a tibble. If the input
@@ -3687,8 +3908,7 @@ aqs_removeheader <- function(AQSobject)
 #' @title aqs_revisionhistory
 #'
 #' @description \lifecycle{stable}
-#'                 A function used to query Data Mart for the change history to
-#'                 the API.
+#'                 Returns the change history  to the AQS Data Mart API.
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
@@ -3718,7 +3938,7 @@ aqs_revisionhistory <- function(return_header = FALSE)
 
 #' @title aqs_fieldsbyservice
 #' @description \lifecycle{stable}
-#'                a function that returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
 #'                object with the list and definitions of fields in the
 #'                service requested.
 #' @importFrom magrittr `%<>%`

@@ -56,8 +56,8 @@ service, hardware, or user accounts that may utilize this package. </span></th>
 The RAQSAPI package for the R programming environment allows a R
 programming environment to connect to and retrieve data from the United
 States Environmental Protection Agency’s (US EPA) Air Quality System
-(AQS) Data Mart API v2 interface directly. This package enables the data
-user to omit legacy challenges including coercing data from a JSON
+(AQS) Data Mart API v2 [1] interface directly. This package enables the
+data user to omit legacy challenges including coercing data from a JSON
 object to a usable R object, retrieving multiple years of data,
 formatting API requests, retrieving results, handling credentials,
 requesting multiple pollutant data and rate limiting data requests. All
@@ -71,7 +71,7 @@ the user decides to set return\_header to TRUE, then that function will
 return a R AQS\_DATAMART\_APIv2 S3 object which is a two item named
 list.  
 The first item, ($Header) in the AQS\_DATAMART\_APIv2 object is a tibble
-[1] which contains the header information. The Header contains status
+[2] which contains the header information. The Header contains status
 information regarding the request (success/fail), any applicable error
 messages returned from the API, if any exist, the URL used in the
 request, a date and time stamp noting when request was received and
@@ -81,7 +81,7 @@ requested. For functions with the return\_header option set to FALSE
 (default) a simple tibble is returned with just the $Data portion of the
 request. After each call to the API a five second stall is invoked to
 help prevent overloading the Data Mart API server and to serve as a
-simple rate limit. [2]
+simple rate limit. [3]
 
 # Installing RAQSAPI
 
@@ -120,7 +120,7 @@ library:
 ## Sign up and setting up user credentials with the RAQSAPI library
 
 If you have not already done so you will need to sign up with AQS Data
-Mart using aqs\_sign\_up function, [3] this function takes one input,
+Mart using aqs\_sign\_up function, [4] this function takes one input,
 “email”, which is a R character object, that represents the email
 address that you want to use as a user credential to the AQS Data Mart
 service. After a successful call to aqs\_sign\_up an email message will
@@ -141,7 +141,7 @@ in plain text and there are no attempts to encrypt Data Mart credentials
 as would be done for a username and password combination. The key that
 is supplied to use with Data Mart is not intended for authentication but
 only account monitoring. Each time RAQSAPI is loaded and before using
-any of it’s functions use the aqs\_credentials [4] function to enter in
+any of it’s functions use the aqs\_credentials [5] function to enter in
 the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
@@ -177,7 +177,7 @@ call.</span></th>
 </table>
 
 RAQSAPI functions are named according to the service and filter
-variables that are available by the Data Mart API.[5]
+variables that are available by the Data Mart API.[6]
 
 ## Data Mart aggregate functions
 
@@ -234,22 +234,26 @@ one of the 11 services listed above and &lt;aggregation&gt; is either
 
 ### See the RAQSAPI vignette for more details
 
-(RAQSAPI must be installed first) &gt; RShowDoc(what=“RAQSAPIvignette”,
-type=“html”, package=“RAQSAPI”)
+(RAQSAPI must be installed first)
 
-[1] see (<https://tibble.tidyverse.org>) for more information about
+> RShowDoc(what=“RAQSAPIvignette”, type=“html”, package=“RAQSAPI”)
+
+[1] [Air Quality System (AQS)
+API](https://aqs.epa.gov/aqsweb/documents/data_api.html)
+
+[2] see (<https://tibble.tidyverse.org>) for more information about
 tibbles.
 
-[2] RAQSAPI’s rate limit does not guarantee that the user will not go
+[3] RAQSAPI’s rate limit does not guarantee that the user will not go
 over the rate limit and does not guarantee that API calls do not
 overload the AQS Data Mart system, each user should monitor their
 requests independently.
 
-[3] Use “?aqs\_sign\_up” after the RAQSAPI library has been loaded to
+[4] Use “?aqs\_sign\_up” after the RAQSAPI library has been loaded to
 see the full usage description of the aqs\_sign\_up function.
 
-[4] Use “?aqs\_credentials” after the RAQSAPI library has been loaded to
+[5] Use “?aqs\_credentials” after the RAQSAPI library has been loaded to
 see the full usage description of the aqs\_credentials function.
 
-[5] See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
+[6] See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
 full details of the Data Mart API

@@ -50,9 +50,9 @@ purposes in addition to the data requested.}
 }
 \description{
 \lifecycle{stable}
-A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing Quality assurance data - collocated assessment raw data
-aggregated by Primary Quality Assurance Organization (PQAO) code.
+Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
+assurance data - collocated assessment raw data aggregated by Primary
+Quality Assurance Organization (PQAO) code.
 }
 \note{
 The AQS API only allows for a single year of one point qc data to

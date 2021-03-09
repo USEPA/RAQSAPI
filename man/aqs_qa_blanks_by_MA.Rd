@@ -50,7 +50,7 @@ purposes in addition to the data requested.}
 }
 \description{
 \lifecycle{stable}
-A function that returns a tibble or an AQS_Data Mart_APIv2 S3
+Returns a tibble or an AQS_Data Mart_APIv2 S3
 object containing Quality assurance - blanks sample data aggregated by
 monitoring agency code (_by_MA).
 }

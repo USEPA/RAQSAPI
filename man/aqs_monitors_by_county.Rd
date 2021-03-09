@@ -57,10 +57,14 @@ list that contains header information returned from
 the API server mostly used for debugging purposes in
 addition to the data requested.}
 }
+\value{
+a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+selected county
+}
 \description{
 \lifecycle{stable}
-A function that returns a table of monitors at a site with the provided
-parameternum, stateFIPS and county_code for bdate - edate time frame.
+Returns a table of monitors at a site with the provided parameternum,
+stateFIPS and county_code for bdate - edate time frame.
 }
 \examples{
 # returns an aqs_v2 S3 object containing all SO2 monitors in

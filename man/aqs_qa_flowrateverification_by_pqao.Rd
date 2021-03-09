@@ -48,15 +48,19 @@ returns a AQSAPI_v2 object which is a two item list that contains header
 information returned from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
+\value{
+a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+assurance flow rate verification data for monitors within a pqao.
+An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+item ($Header) is a tibble of header information from the AQS API
+and the second item ($Data) is a tibble of the data returned.
+}
 \description{
 \lifecycle{stable}
 Returns a table containing flow rate Verification data for a
 parameter code aggregated by matching input parameter, and
 Primary Quality Assurance Organization (PQAO) code provided
 for bdate - edate time.
-A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing Quality assurance data - flow rate verification data
-aggregated by Primary Quality Assurance Organization (PQAO) code.
 }
 \note{
 The AQS API only allows for a single year of flow rate verifications to

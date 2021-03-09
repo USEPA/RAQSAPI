@@ -61,16 +61,3 @@ aggregations by cbsa then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
-\examples{
- #returns a AQS_DATAMART_APIv2 S3 object of NO2 monitors for the
- #   Charlotte-Concord-Gastonia, NC-SC cbsa that were operating on
- #   January 01, 2017
- \dontrun{
-          aqs_services_by_cbsa(parameter = "42602",
-                                bdate = as.Date("20170101", format="\%Y\%m\%d"),
-                                edate = as.Date("20170102", format="\%Y\%m\%d"),
-                                cbsa_code = "16740",
-                                service = "monitors"
-                                )
-          }
-}

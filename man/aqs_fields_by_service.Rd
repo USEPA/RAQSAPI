@@ -24,7 +24,7 @@ and definitions of fields requested service
 }
 \description{
 \lifecycle{stable}
-a function that returns a tibble or an AQS_Data Mart_APIv2 S3
+Returns a tibble or an AQS_Data Mart_APIv2 S3
 object with the list and definitions of fields in the
 service requested.
 }

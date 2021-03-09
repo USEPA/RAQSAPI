@@ -63,11 +63,11 @@ for debugging purposes in addition to the data
 requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
-from the AQS API. A AQS_Data Mart_APIv2 is a 2 item named list in
-which the first item (\$Header) is a tibble of header information
-from the AQS API and the second item (\$Data) is a tibble of the
-data returned.
+a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+summary data for the Sitenum, countycode and stateFIPS requested.
+A AQS_Data Mart_APIv2 is a 2 item named list in which the first
+item (\$Header) is a tibble of header information from the AQS API
+and the second item (\$Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
@@ -76,7 +76,9 @@ aggregated at the site level. Returned is an annual summary
 matching the input parameter, stateFIPS, county_code, and
 sitenum provided for bdate - edate time frame. The data
 returned is summarized at the annual level. Variables
-returned include mean value, maxima, percentiles, and etc.
+returned include mean value, maxima, percentiles, and etc. If
+return_header is FALSE (default) the object returned is a
+tibble, if TRUE an AQS_API_v2 object.
 }
 \note{
 The AQS API only allows for a single year of annualsummary to be

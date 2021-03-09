@@ -57,11 +57,17 @@ list that contains header information returned from
 the API server mostly used for debugging purposes in
 addition to the data requested.}
 }
+\value{
+a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+qc data within a county. A AQS_Data_Mart_APIv2 object is a
+2 item named list in which the first item (\$Header) is a tibble
+of header information from the AQS API and the second item
+(\$Data) is a tibble of the data returned.
+}
 \description{
 \lifecycle{stable}
-A function that returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing one point QC check data aggregated by
-county code.
+Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+containing one point QC check data aggregated by county_code.
 }
 \note{
 The AQS API only allows for a single year of one point qc data to
@@ -79,7 +85,6 @@ API server. This operation has a linear run time of
 \examples{
 #returns a tibble of One Point QC data for ozone
           #  in Barnstable County, MA for January 2018
-
   \dontrun{aqs_qa_one_point_qc_by_county(parameter= "44201",
                                          bdate = as.Date("20170101",
                                                        format = "\%Y\%m\%d"),
