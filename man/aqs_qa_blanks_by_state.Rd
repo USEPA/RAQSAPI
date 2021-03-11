@@ -51,11 +51,12 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
-assurance blank data for monitors within a state. An
-AQS_Data Mart_APIv2 is a 2 item named list in which the first item
-($Header) is a tibble of header information from the AQS API and
-the second item ($Data) is a tibble of the data returned.
+a tibble or an AQS_Data_Mart_APIv2 S3 object that contains quality
+assurance blank sample data for all monitors within the input
+stateFIPS. An AQS_Data_Mart_APIv2 is a 2 item named
+list in which the first item ($Header) is a tibble of header
+information from the AQS API and the second item ($Data) is a
+tibble of the data returned.
 }
 \description{
 \lifecycle{stable}

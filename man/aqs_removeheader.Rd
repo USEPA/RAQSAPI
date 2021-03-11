@@ -9,14 +9,19 @@ aqs_removeheader(AQSobject)
 \arguments{
 \item{AQSobject}{An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.}
 }
+\value{
+a tibble of the combined $data portions of the input
+AQS_Data_Mart_APIv2 S3 object with the $Header portion discrded.
+}
 \description{
 \lifecycle{stable}
-Coerces a single RAQSAPI_v2 object or
-a list of RAQSAPI_v2 objects into a single tibble object.
-This function decouples the $Data from the AQSAPI_v2 object
-and returns only the $Data portion as a tibble. If the input
-is a list of AQSAPI_v2 objects combines the $Data portion of
-each AQSAPI_v2 object into a single tibble. Else returns the
+Coerces a single AQS_Data_Mart_APIv2 S3 object or
+a list of AQS_Data_Mart_APIv2 S3 objects into a single tibble
+object. This function decouples the $Data from the AQSAPI_v2
+object and returns only the $Data portion as a tibble. If the
+input is a list of AQSAPI_v2 objects combines the $Data
+portion of each AQS_Data_Mart_APIv2 S3 object into a single
+tibble with $Header information discarded. Else returns the
 input with no changes.
 }
 \note{
