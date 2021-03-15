@@ -3903,7 +3903,7 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @param AQSobject An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.
 #' @importFrom dplyr bind_rows
 #' @return a tibble of the combined $data portions of the input
-#'           AQS_Data_Mart_APIv2 S3 object with the $Header portion discrded.
+#'           AQS_Data_Mart_APIv2 S3 object with the $Header portion discarded.
 #' @examples
 #'           \dontrun{ AQSobject <- aqs_removeheader(AQSobject)}
 #' @export

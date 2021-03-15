@@ -11,7 +11,7 @@ aqs_removeheader(AQSobject)
 }
 \value{
 a tibble of the combined $data portions of the input
-AQS_Data_Mart_APIv2 S3 object with the $Header portion discrded.
+AQS_Data_Mart_APIv2 S3 object with the $Header portion discarded.
 }
 \description{
 \lifecycle{stable}

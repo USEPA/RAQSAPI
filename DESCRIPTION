@@ -60,7 +60,7 @@ Suggests:
     testthat (>= 3.0.0),
     usethis,
     covr
-SystemRequirements: package manual require pandoc (>= 1.14) http://pandoc.org
+SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 BuildVignettes: true

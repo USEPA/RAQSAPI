@@ -5,8 +5,10 @@ Clinton Mccrowey, physical scientist - US EPA
 -   [EPA Disclaimer](#epa-disclaimer)
 -   [Introduction](#introduction)
 -   [Installing RAQSAPI](#installing-raqsapi)
-    -   [Installing the development version of
-        RAQSAPI](#installing-the-development-version-of-raqsapi)
+    -   [Option 1: Installing the stable version from
+        CRAN](#option-1-installing-the-stable-version-from-cran)
+    -   [Option 2: Installing the development version of
+        RAQSAPI](#option-2-installing-the-development-version-of-raqsapi)
 -   [Using The RAQSAPI library](#using-the-raqsapi-library)
     -   [Load RAQSAPI](#load-raqsapi)
     -   [Sign up and setting up user credentials with the RAQSAPI
@@ -85,13 +87,16 @@ simple rate limit. [3]
 
 # Installing RAQSAPI
 
-<!-- #uncomment if/hen the package has been accepted by CRAN -->
-<!-- ## Installing the stable version from CRAN -->
-<!-- > install.packages(pkgs = "RAQSAPI", -->
-<!--                    dependencies = TRUE -->
-<!--                    ) -->
+Either install the stable version from CRAN or install the latest
+development version from GitHub.
 
-## Installing the development version of RAQSAPI
+## Option 1: Installing the stable version from CRAN
+
+``` r
+install.packages(pkgs="RAQSAPI", dependencies = TRUE )
+```
+
+## Option 2: Installing the development version of RAQSAPI
 
 to install the development version of RAQSAPI, first If not already
 installed, install the remotes package and its dependencies. Then run
