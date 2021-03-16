@@ -38,3 +38,4 @@ dev/install_RAQSAPI.R
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^codecov\.yml$
+^\.github$

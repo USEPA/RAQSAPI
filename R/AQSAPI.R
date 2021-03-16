@@ -2,7 +2,7 @@
 
 
 #' @title aqs_credentials
-#' @description \lifecycle{questioning}
+#' @description \lifecycle{stable}
 #'                 Sets the user credentials for the AQS API. This function
 #'                 needs to be called once and only once every time this library
 #'                 is re-loaded. Users must have a valid username and key which
@@ -44,7 +44,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 
 
 #' @title aqs_sign_up
-#' @description \lifecycle{questioning}
+#' @description \lifecycle{stable}
 #'              Use this service to register as a new user or to reset an
 #'              existing user's key. A verification email will be sent to the
 #'              email account specified. To reset a password: If the request is

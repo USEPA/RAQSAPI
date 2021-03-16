@@ -52,7 +52,6 @@ Suggests:
     desc,
     devtools,
     goodpractice,
-    keyring,
     knitr,
     lintr,
     roxygen2,

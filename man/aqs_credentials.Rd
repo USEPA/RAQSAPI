@@ -17,7 +17,7 @@ AQS Data Mart.}
 None
 }
 \description{
-\lifecycle{questioning}
+\lifecycle{stable}
 Sets the user credentials for the AQS API. This function
 needs to be called once and only once every time this library
 is re-loaded. Users must have a valid username and key which

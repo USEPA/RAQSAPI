@@ -20,7 +20,7 @@ other functions in this library.}
 None
 }
 \description{
-\lifecycle{questioning}
+\lifecycle{stable}
 Use this service to register as a new user or to reset an
 existing user's key. A verification email will be sent to the
 email account specified. To reset a password: If the request is

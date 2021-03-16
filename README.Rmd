@@ -23,6 +23,12 @@ knitr::opts_chunk$set(
 ```{r child = "./vignettes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
 
+ <!-- badges: start -->
+  [![R-CMD-check](
+  https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](
+  https://github.com/USEPA/RAQSAPI/actions)
+  <!-- badges: end -->
+
 ```{r child = "./vignettes/Intro.Rmd"}
 ```
 

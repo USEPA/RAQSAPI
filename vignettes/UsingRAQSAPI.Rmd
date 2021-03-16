@@ -17,7 +17,9 @@ vignette: >
 ## Load RAQSAPI                           
   after successfully installing the RAQSAPI package, load the RAQSAPI library: 
 
-> library(RAQSAPI)
+```R
+library(RAQSAPI)
+```
 
 ## Sign up and setting up user credentials with the RAQSAPI library
 
