@@ -58,7 +58,7 @@ RAQSAPICLEAN <- function(NAMESPACE = TRUE)
 buildRAQSAPIbase <- function()
 {
   invisible(usethis::use_lifecycle())
-  roxygen2::roxygenize()
+  #roxygen2::roxygenize()
   devtools::document(quiet = TRUE,
                      roclets = c("collate", "namespace", "rd", "vignette"))
   devtools::build_readme()
@@ -94,7 +94,7 @@ RAQSAPIBUILD <- function()
 RAQSAPIINSTALL <- function()
 {
   buildRAQSAPIbase()
-  devtools::build_manual()
+  #devtools::build_manual()
   devtools::install(reload = TRUE, quiet = TRUE, dependencies = TRUE,
                      upgrade = "always", build_vignettes = TRUE, quick = FALSE)
 }
@@ -125,10 +125,10 @@ RAQSAPICHECK <- function()
 {
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   devtools::spell_check(vignettes = TRUE, use_wordlist = TRUE)
-  spelling::spell_check_files(path = "./dev/contributing.Rmd",
-                    ignore = read.csv(file = "./inst/WORDLIST",
-                                      header = FALSE)$V1
-                                      )
+  # spelling::spell_check_files(path = "./dev/contributing.Rmd",
+  #                   ignore = read.csv(file = "./inst/WORDLIST",
+  #                                     header = FALSE)$V1
+  #                                     )
   devtools::check_built(path = paste0("../RAQSAPI_",
                                       desc::desc_get_field(key = "Version"),
                                       ".tar.gz"),

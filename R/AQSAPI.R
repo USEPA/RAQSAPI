@@ -3810,7 +3810,7 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                cbdate = cbdate,
                                cedate = cedate
                                )
-browser()
+
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
   if (!return_header) annualsummary %<>% aqs_removeheader
   return(annualsummary)
@@ -3909,7 +3909,6 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @export
 aqs_removeheader <- function(AQSobject)
 {
-  #browser()
   if (is.null(AQSobject))
     {
     return(AQSobject)

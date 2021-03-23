@@ -2,7 +2,7 @@ testthat::skip_on_cran()
 testthat::skip_if_offline()
 library("magrittr")
 
-context("RAQSAPI bybox functions")
+#context("RAQSAPI bybox functions") #deprecated
 test_that("bybox functions", {
 server <- "AQSDatamartAPI"
 datamartAPI_user <- "test@aqs.api"
@@ -16,40 +16,40 @@ datamartAPI_user <- "test@aqs.api"
                fixed = FALSE
                )
 
-  aqs_sampledata_by_box(parameter="44201",
-                        bdate=as.Date("20150501", format="%Y%m%d"),
-                        edate=as.Date("20150502", format="%Y%m%d"),
-                        minlat="33.3",
-                        maxlat="33.6",
-                        minlon="-87.0",
-                        maxlon="-86.7",
+  aqs_sampledata_by_box(parameter = "44201",
+                        bdate = as.Date("20150501", format = "%Y%m%d"),
+                        edate = as.Date("20150502", format = "%Y%m%d"),
+                        minlat = "33.3",
+                        maxlat = "33.6",
+                        minlon = "-87.0",
+                        maxlon = "-86.7",
                         return_header = TRUE
                        )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
-  aqs_monitors_by_box(parameter="44201",
-                      bdate=as.Date("19950101", format="%Y%m%d"),
-                      edate=as.Date("19951231", format="%Y%m%d"),
-                      minlat="33.3", maxlat="33.6", minlon="-87.0",
-                      maxlon="-86.7", return_header = TRUE
+  aqs_monitors_by_box(parameter = "44201",
+                      bdate = as.Date("19950101", format = "%Y%m%d"),
+                      edate = as.Date("19951231", format = "%Y%m%d"),
+                      minlat = "33.3", maxlat = "33.6", minlon = "-87.0",
+                      maxlon = "-86.7", return_header = TRUE
                       )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
-  aqs_annualsummary_by_box(parameter="44201",
-                           bdate=as.Date("20150501", format="%Y%m%d"),
-                           edate=as.Date("20150502", format="%Y%m%d"),
-                           minlat="33.3",
-                           maxlat="33.6",
-                           minlon="-87.0",
-                           maxlon="-86.7",
+  aqs_annualsummary_by_box(parameter = "44201",
+                           bdate = as.Date("20150501", format = "%Y%m%d"),
+                           edate = as.Date("20150502", format = "%Y%m%d"),
+                           minlat = "33.3",
+                           maxlat = "33.6",
+                           minlon = "-87.0",
+                           maxlon = "-86.7",
                            return_header = TRUE
                           )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
-  aqs_dailysummary_by_box(parameter="44201",
-                          bdate=as.Date("20150501", format="%Y%m%d"),
-                          edate=as.Date("20150502", format="%Y%m%d"),
-                          minlat ="33.3",
+  aqs_dailysummary_by_box(parameter = "44201",
+                          bdate = as.Date("20150501", format = "%Y%m%d"),
+                          edate = as.Date("20150502", format = "%Y%m%d"),
+                          minlat = "33.3",
                           maxlat = "33.6",
                           minlon = "-87.0",
                           maxlon = "-86.7",
