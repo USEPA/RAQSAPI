@@ -1,8 +1,9 @@
 testthat::skip_if_offline()
 testthat::skip_on_cran()
-library("magrittr")
+#library("magrittr")
 
-context("RAQSAPI list functions")
+#context("RAQSAPI list functions")
+#' @importFrom magrittr `%>%`()
 test_that("list functions", {
 server <- "AQSDatamartAPI"
 datamartAPI_user <- "test@aqs.api"
@@ -50,4 +51,4 @@ aqs_parameters_by_class(class = "CRITERIA",
 
 })
 
-devtools::unload(package = "magrittr")
+#devtools::unload(package = "magrittr")
