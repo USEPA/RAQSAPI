@@ -17,6 +17,15 @@ Clinton Mccrowey, physical scientist - US EPA
         -   [See the RAQSAPI vignette for more
             details](#see-the-raqsapi-vignette-for-more-details)
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](https://github.com/USEPA/RAQSAPI/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.org/package=RAQSAPI)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+<!-- badges: end -->
+
 # EPA Disclaimer
 
 This software/application was developed by the U.S. Environmental
@@ -31,16 +40,6 @@ or imply their endorsement, recommendation or favoring by the USEPA. The
 USEPA seal and logo shall not be used in any manner to imply endorsement
 of any commercial product or activity by the USEPA or the United States
 Government.
-
-<!-- badges: start -->
-[![R-CMD-check](https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](https://github.com/USEPA/RAQSAPI/actions)
-
-[![CRAN
-status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.org/package=RAQSAPI)
-
-[![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-<!-- badges: end -->
 
 <table>
 <colgroup>
