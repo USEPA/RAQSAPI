@@ -198,32 +198,44 @@ variables that are available by the Data Mart API.[6]
 ## Data Mart aggregate functions
 
 These functions retrieve aggregated data from the Data Mart API and are
-grouped by how each function aggregates the data. There are 5 different
-families of related aggregate functions in which the Data Mart API
-groups data, \_by\_site, \_by\_county, \_by\_state,
-\_by\_&lt;latitude/longitude bounding box&gt; (\_by\_box) and
-\_by\_&lt;core based statistical area&gt; (\_by\_cbsa). Within each
-family of aggregated data functions there are functions that call on the
-10 different aggregate services that the Data Mart API provides.
+grouped by how each function aggregates the data. There are 7 different
+families of related aggregate functions in which the AQS Data Mart API
+groups data.
 
--   **These eleven services are**:
+**These seven families are**:
 
-1.  **Monitors** (*monitors\_by\_*):
-2.  **Sample Data** (*sampledata\_by\_*):
-3.  **Daily Summary Data** (*dailydata\_by\_*):
-4.  **Annual Summary Data** (*annualdata\_by\_*):
-5.  **Quality Assurance - Blanks Data** (*qa\_blanks\_by\_*):
+1.  **\_by\_site**
+2.  **\_by\_county**
+3.  **\_by\_state**
+4.  **\_by\_&lt;latitude/longitude bounding box&gt;** (\_by\_box)
+5.  **\_by\_&lt;monitoring agency&gt;** (\_by\_MA)
+6.  **\_by\_&lt;Primary Quality Assurance Organization&gt;**
+    (\_by\_pqao)
+7.  **\_by\_&lt;core based statistical area&gt;** (\_by\_cbsa).
+
+Within these families of aggregated data functions there are functions
+that call on the 11 different aggregate services that the Data Mart API
+provides. **Note that not all aggregations are available for each
+service.**
+
+**These eleven services are**:
+
+1.  **Monitors** (*monitors\_by\_*)
+2.  **Sample Data** (*sampledata\_by\_*)
+3.  **Daily Summary Data** (*dailydata\_by\_*)
+4.  **Annual Summary Data** (*annualdata\_by\_*)
+5.  **Quality Assurance - Blanks Data** (*qa\_blanks\_by\_*)
 6.  **Quality Assurance - Collocated Assessments**
-    (*qa\_collocated\_assessments\_by\_*):
+    (*qa\_collocated\_assessments\_by\_*)
 7.  **Quality Assurance - Flow Rate verifications**
-    (*qa\_flowrateverification\_by\_*):
+    (*qa\_flowrateverification\_by\_*)
 8.  **Quality Assurance - Flow Rate Audits**
-    (*aqs\_qa\_flowrateaudit\_by\_*):
+    (*aqs\_qa\_flowrateaudit\_by\_*)
 9.  **Quality Assurance - One Point Quality Control Raw Data**
-    (*qa\_one\_point\_qc\_by\_*):
-10. **Quality Assurance - PEP Audits** (*qa\_pep\_audit\_by\_*):
+    (*qa\_one\_point\_qc\_by\_*)
+10. **Quality Assurance - PEP Audits** (*qa\_pep\_audit\_by\_*)
 11. **Transaction Sample - AQS Submission data in transaction Format
-    (RD)** (*aqs\_transactionsample\_by\_*):
+    (RD)** (*aqs\_transactionsample\_by\_*)
 
 <table>
 <colgroup>

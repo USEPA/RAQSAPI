@@ -25,30 +25,41 @@ details of the Data Mart API]
 ## Data Mart aggregate functions
 
 These functions retrieve aggregated data from the Data Mart API and are grouped
-by how each function aggregates the data. There are 5 different families of
-related aggregate functions in which the Data Mart API groups data, _by_site,
-_by_county, _by_state, _by\_\<latitude/longitude bounding box\> (_by_box) and
-_by\_\<core based statistical area\> (_by_cbsa). Within each family of
-aggregated data functions there are functions that call on the 10 different
-aggregate services that the Data Mart API provides.
+by how each function aggregates the data. There are 7 different families of
+related aggregate functions in which the AQS Data Mart API groups data.
+
+**These seven families are**:
+
+ 1. **\_by_site**
+ 2. **\_by_county**
+ 3. **\_by_state**
+ 4. **\_by\_\<latitude/longitude bounding box\>** (_by_box)
+ 5. **\_by\_\<monitoring agency\>** (_by_MA)
+ 6. **\_by\_\<Primary Quality Assurance Organization\>** (_by_pqao)
+ 7. **\_by\_\<core based statistical area\>** (_by_cbsa).
+
+Within these families of aggregated data functions there are functions that call
+on the 11 different aggregate services that the Data Mart API provides.
+**Note that not all aggregations are available for each service.**
 
 
-* **These eleven services are**:
-1. **Monitors** (*monitors_by_*): 
-2. **Sample Data** (*sampledata_by_*):
-3. **Daily Summary Data** (*dailydata_by_*): 
-4. **Annual Summary Data** (*annualdata_by_*): 
-5. **Quality Assurance - Blanks Data** (*qa_blanks_by_*): 
-6. **Quality Assurance - Collocated Assessments**
-    (*qa_collocated_assessments_by_*):
-7. **Quality Assurance - Flow Rate verifications**
-    (*qa_flowrateverification_by_*):
-8. **Quality Assurance - Flow Rate Audits** (*aqs_qa_flowrateaudit_by_*):
-9. **Quality Assurance - One Point Quality Control Raw Data**
-    (*qa_one_point_qc_by_*):
-10. **Quality Assurance - PEP Audits** (*qa_pep_audit_by_*):
-11. **Transaction Sample - AQS Submission data in transaction Format (RD)**
-     (*aqs_transactionsample_by_*):
+**These eleven services are**:
+
+ 1. **Monitors** (*monitors_by_*) 
+ 2. **Sample Data** (*sampledata_by_*)
+ 3. **Daily Summary Data** (*dailydata_by_*) 
+ 4. **Annual Summary Data** (*annualdata_by_*) 
+ 5. **Quality Assurance - Blanks Data** (*qa_blanks_by_*) 
+ 6. **Quality Assurance - Collocated Assessments**
+    (*qa_collocated_assessments_by_*)
+ 7. **Quality Assurance - Flow Rate verifications**
+    (*qa_flowrateverification_by_*)
+ 8. **Quality Assurance - Flow Rate Audits** (*aqs_qa_flowrateaudit_by_*)
+ 9. **Quality Assurance - One Point Quality Control Raw Data**
+    (*qa_one_point_qc_by_*)
+ 10. **Quality Assurance - PEP Audits** (*qa_pep_audit_by_*)
+ 11. **Transaction Sample - AQS Submission data in transaction Format (RD)**
+     (*aqs_transactionsample_by_*)
      
 | <span style="color:blue"> Information: AQS Data Mart API restricts the \
 maximum amount of monitoring data to one full year of data per \
