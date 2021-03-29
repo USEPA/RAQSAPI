@@ -1,10 +1,7 @@
-testthat::skip_on_cran()
-testthat::skip_if_offline()
-#library("magrittr")
-
-#context("RAQSAPI bybox functions") #deprecated
 #' @importFrom magrittr `%>%`()
 test_that("bybox functions", {
+testthat::skip_on_cran()
+testthat::skip_if_offline()
 server <- "AQSDatamartAPI"
 datamartAPI_user <- "test@aqs.api"
 
@@ -58,5 +55,3 @@ datamartAPI_user <- "test@aqs.api"
                           )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 })
-
-#devtools::unload(package = "magrittr")

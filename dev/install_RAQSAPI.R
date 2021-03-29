@@ -134,11 +134,11 @@ RAQSAPICHECK <- function()
                                       ".tar.gz"),
                         cran = TRUE,
                         remote = TRUE,
-                        incoming = FALSE,
                         manual = TRUE,
                         quiet = FALSE,
                         run_dont_test = TRUE,
-                        error_on = "note"
+                        error_on = "error",
+                        force_suggests = TRUE
                         )
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)

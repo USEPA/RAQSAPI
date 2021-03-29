@@ -71,7 +71,15 @@ License_restricts_use: no
 Language: en-US
 Collate:
     'AQSAPI_helperfunctions.R'
-    'AQSAPI.R'
+    'bysite.R'
+    'bycounty.R'
+    'bystate.R'
+    'byma.R'
+    'bypqao.R'
+    'bycbsa.R'
+    'bybox.R'
+    'RAQSAPIlistfunctions.R'
+    'setupfunctions.R'
     'zzz.R'
     'RAQSAPI-package.R'
 Copyright: United States Environmental Protection Agency
