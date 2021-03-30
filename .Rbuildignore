@@ -40,3 +40,5 @@ dev/install_RAQSAPI.R
 ^codecov\.yml$
 ^\.github$
 ^cran-comments\.md$
+^cran-comments\.Rmd$
+^revdep$

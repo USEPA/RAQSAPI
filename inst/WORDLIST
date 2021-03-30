@@ -20,7 +20,9 @@ cbsas
 cedate
 CFR
 changelogs
+clintonmccrowey
 CMD
+codecov
 countycode
 CRAN
 CRAN's
@@ -37,11 +39,13 @@ flowrate
 flowrateaudit
 flowrateverification
 geospatial
+gh
 GitHub
 Hadley
 https
 lifecycle
 Lifecycle
+io
 isavailable
 JSON
 knownissues
@@ -88,6 +92,7 @@ sitenum
 stateFIPS
 subfolder
 submittal
+svg
 tibble
 tibbles
 tidyverse

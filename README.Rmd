@@ -30,6 +30,9 @@ knitr::opts_chunk$set(
   https://www.tidyverse.org/lifecycle/#maturing)
   [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](
   https://choosealicense.com/)
+  [![codecov](https://codecov.io/gh/clintonmccrowey-EPA/USEPA/RAQSAPI/branch/\
+  main/graph/badge.svg)](
+  https://codecov.io/gh/clintonmccrowey-EPA/USEPA/RAQSAPI)
   <!-- badges: end -->
 
 ```{r child = "./vignettes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}

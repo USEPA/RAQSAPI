@@ -24,6 +24,7 @@ Clinton Mccrowey, physical scientist - US EPA
 status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
+[![codecov](https://codecov.io/gh/clintonmccrowey-EPA/USEPA/RAQSAPI/branch/%20main/graph/badge.svg)](https://codecov.io/gh/clintonmccrowey-EPA/USEPA/RAQSAPI)
 <!-- badges: end -->
 
 # EPA Disclaimer

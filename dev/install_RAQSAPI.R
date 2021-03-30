@@ -62,7 +62,8 @@ buildRAQSAPIbase <- function()
   devtools::document(quiet = TRUE,
                      roclets = c("collate", "namespace", "rd", "vignette"))
   devtools::build_readme()
-  knitr::knit(input = "./dev/contributing.Rmd", output = "./dev/contibuting.md")
+  knitr::knit(input = "./dev/contributing.Rmd", output = "./dev/contributing.md")
+  knitr::knit(input = "./cran-comments.Rmd", output = "./cran-comments.md")
 }
 
 
@@ -142,4 +143,5 @@ RAQSAPICHECK <- function()
                         )
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)
+  devtools::revdep()
 }
