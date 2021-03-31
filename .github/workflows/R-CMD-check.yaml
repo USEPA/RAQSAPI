@@ -33,5 +33,5 @@ jobs:
         # provided binary builds of gert for macOS X yet
         # Taken from the R-CMD-check.yaml klmr/box github repository on github
         #on March 30, 2021.
-        if: runner.os == 'macOS'
+        if: runner.os == 'macOS-latest'
         run: brew install libgit2
