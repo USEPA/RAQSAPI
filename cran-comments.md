@@ -26,6 +26,9 @@ output: md_document
 * ubuntu-20.04 (release) (on Github_actions), R 4.0.4
 * ubuntu-20.04 (devel) (on Github_actions), R 4.0.4
 
+## remote R CMD Check results (github actions)
+* Check runs successfully on all environments.
+
 ### Local R CMD check results
 
 0 errors | 50+ warnings | 0 notes
@@ -53,7 +56,7 @@ The above URIs work as expected, Not sure why this warning appears. Maybe
 ## RAQSAPI 2.0.0
   * Initial RAQSAPI release on CRAN and github
   
-  0 errors | 50 warnings | 0 notes
+  0 errors | 50 warnings | 1 notes
 
 Found the following (possibly) invalid URLs:
   URL: https://aqs.epa.gov/aqsweb/documents/data_api.html>
@@ -65,7 +68,7 @@ Found the following (possibly) invalid URLs:
     Status: 404
     Message: Not Found
     
-* The above URIs work as expected, Not sure why this warning appears. Maybe
+* The above URIs work as expected, Not sure why this note appears. Maybe
   because it is a https address.
   
 Warning messages:
