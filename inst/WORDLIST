@@ -8,6 +8,7 @@ aqs
 AQS
 AQSAPI
 AQS_DATAMART_APIv2
+AQSDatamart
 aqsremoveheader
 AQSobject
 aqsweb
@@ -24,9 +25,11 @@ clintonmccrowey
 CMD
 codecov
 countycode
+cran
 CRAN
 CRAN's
 DATAMART
+datamartAPI
 dailydata
 dailydataby
 dailysummary
@@ -43,6 +46,8 @@ gh
 GitHub
 Hadley
 https
+keyring
+Keyring
 lifecycle
 Lifecycle
 io
@@ -81,6 +86,7 @@ revisionhistory
 removeheader
 RShowDoc
 roxygen
+Rmd
 Roxygen
 Roxygen2
 sampledata
@@ -93,6 +99,7 @@ stateFIPS
 subfolder
 submittal
 svg
+testthat
 tibble
 tibbles
 tidyverse
@@ -105,3 +112,4 @@ Verifications
 Wickham
 Wickham's
 workgroup
+WORDLIST

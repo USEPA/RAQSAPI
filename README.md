@@ -197,15 +197,15 @@ proceeding.
 
 > keyring::has\_keyring\_support()
 
-then set the keyring used to access AQS datamart (make sure to replace
+then set the keyring used to access AQS Data Mart (make sure to replace
 the text in the angled brackets with your specific user information):
 
 > library(“keyring”) keyring::key\_set(service = “AQSDatamart”, username
 > = “<user email account>”)
 
 a popup window will appear for the user to input their keyring
-information. Enter the AQS Datamart credential key associated with the
-AQS user name provided, then hit enter. Now the AQS Datamart user
+information. Enter the AQS Data mart credential key associated with the
+AQS user name provided, then hit enter. Now the AQS Data Mart user
 credential is set using keyring.
 
 To retrieve the keyring to use with RAQSAPI load the keyring package and
