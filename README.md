@@ -13,6 +13,8 @@ Clinton Mccrowey, physical scientist - US EPA
     -   [Load RAQSAPI](#load-raqsapi)
     -   [Sign up and setting up user credentials with the RAQSAPI
         library](#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library)
+    -   [(optional) Use the keyring package to manage
+        credentials](#optional-use-the-keyring-package-to-manage-credentials)
     -   [Data Mart aggregate functions](#data-mart-aggregate-functions)
         -   [See the RAQSAPI vignette for more
             details](#see-the-raqsapi-vignette-for-more-details)
@@ -177,6 +179,58 @@ not have access to the AQS Data Mart will need to create new credentials<br />
 </tbody>
 </table>
 
+## (optional) Use the keyring package to manage credentials
+
+It is highly suggested that users use a keyring manager to store and
+retrieve their credentials while using RAQSAPI. One such credential
+manager is provided by the keyring package [6]. Keyring uses the
+credential manager available for most popular Operating systems to store
+and manage user credentials. This will help avoid hard coding credential
+information into R scripts.
+
+To use the keyring package with RAQSAPI first install keyring:
+
+> install.package(“keyring”)
+
+Ensure that your system is supported by the keyring package before
+proceeding.
+
+> keyring::has\_keyring\_support()
+
+then set the keyring used to access AQS datamart (make sure to replace
+the text in the angled brackets with your specific user information):
+
+> library(“keyring”) keyring::key\_set(service = “AQSDatamart”, username
+> = “<user email account>”)
+
+a popup window will appear for the user to input their keyring
+information. Enter the AQS Datamart credential key associated with the
+AQS user name provided, then hit enter. Now the AQS Datamart user
+credential is set using keyring.
+
+To retrieve the keyring to use with RAQSAPI load the keyring package and
+use the function key\_get to return the user credential to RAQSAPI:
+
+> library(RAQSAPI) library(keyring) datamartAPI\_user &lt;-
+> <user email account> server &lt;- “AQSDatamart”
+
+then pass these variables to the aqs\_credentials function when using
+RAQSAPI:
+
+> aqs\_credentials(username = datamartAPI\_user, key = key\_get(service
+> = server, username = datamartAPI\_user) )
+
+to change the keyring stored with the keyring package repeat the steps
+above to call the keyring::key\_set function again with the new
+credential information.
+
+to retrieve a list of all keyrings managed with the keyring package use
+the function: &gt; keyring::key\_list()
+
+Refer the the [keyring package
+documentation](https://cran.r-project.org/web/packages/keyring/readme/README.html)
+for an in depth explanation on using the keyring package.
+
 <table>
 <colgroup>
 <col style="width: 100%" />
@@ -193,7 +247,7 @@ call.</span></th>
 </table>
 
 RAQSAPI functions are named according to the service and filter
-variables that are available by the Data Mart API.[6]
+variables that are available by the Data Mart API.[7]
 
 ## Data Mart aggregate functions
 
@@ -283,5 +337,8 @@ see the full usage description of the aqs\_sign\_up function.
 [5] Use “?aqs\_credentials” after the RAQSAPI library has been loaded to
 see the full usage description of the aqs\_credentials function.
 
-[6] See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
+[6] [R Keyring
+package](https://cran.r-project.org/web/packages/keyring/index.html)
+
+[7] See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
 full details of the Data Mart API
