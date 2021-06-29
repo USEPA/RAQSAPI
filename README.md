@@ -24,8 +24,11 @@ Clinton Mccrowey, physical scientist - US EPA
 [![R-CMD-check](https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](https://github.com/USEPA/RAQSAPI/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.org/package=RAQSAPI)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
+
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -118,7 +121,8 @@ remotes::install_github(repo = "USEPA/raqsapi",
                         dependencies = TRUE,
                         upgrade = "always",
                         build = TRUE,
-                        #optional, if you want the manual, requires pandoc
+                        #optional, set TRUE if the manual is desired,
+                        #requires pandoc
                         build_manual = FALSE,
                         build_vignettes = TRUE 
                         )
@@ -228,7 +232,7 @@ to retrieve a list of all keyrings managed with the keyring package use
 the function: &gt; keyring::key\_list()
 
 Refer the the [keyring package
-documentation](https://cran.r-project.org/web/packages/keyring/readme/README.html)
+documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the keyring package.
 
 <table>
@@ -337,8 +341,7 @@ see the full usage description of the aqs\_sign\_up function.
 [5] Use “?aqs\_credentials” after the RAQSAPI library has been loaded to
 see the full usage description of the aqs\_credentials function.
 
-[6] [R Keyring
-package](https://cran.r-project.org/web/packages/keyring/index.html)
+[6] \[R Keyring package\]<https://cran.r-project.org/package=keyring>)
 
 [7] See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
 full details of the Data Mart API

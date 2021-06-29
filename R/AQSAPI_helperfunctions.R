@@ -128,17 +128,18 @@ aqs_ratelimit <- function(waittime=5L)
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 #' @noRd
-aqs <- function(service, filter= NA, user = NA,
+aqs <- function(service, filter = NA, user = NA,
                     user_key = NA, variables = NULL)
 {
+  if (is.null(getOption("aqs_username")) |
+      is.null(getOption("aqs_key")))
+  {stop("please enter user credentials before using RAQSAPI functions, please
+        refer to \'?aqs_credentials()\' for useage infomation \n")}
+
   user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
     httr::user_agent()
 
   server <- "AQSDatamartAPI"
-
-  if (is.null(getOption("aqs_username")) |
-      is.null(getOption("aqs_key")))
-  {stop("please use the aqs_credentials() function before continuing  \n")}
 
    if (gtools::invalid(service) & gtools::invalid(filter))
   {

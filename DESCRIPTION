@@ -55,6 +55,7 @@ Suggests:
     keyring,
     knitr,
     lintr,
+    markdown,
     roxygen2,
     rmarkdown,
     testthat (>= 3.0.0),

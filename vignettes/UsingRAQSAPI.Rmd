@@ -59,7 +59,7 @@ not have access to the AQS Data Mart will need to create new credentials \
 
 
 ## (optional) Use the keyring package to manage credentials
-It is highly suggested that users use a keyring manager to store and retrieve their credentials while using RAQSAPI. One such credential manager is provided by the keyring package ^[[R Keyring package](https://cran.r-project.org/web/packages/keyring/index.html)]. Keyring uses the credential manager available for most popular Operating systems to store and manage user credentials. This will help avoid hard coding credential information into R scripts.
+It is highly suggested that users use a keyring manager to store and retrieve their credentials while using RAQSAPI. One such credential manager is provided by the keyring package ^[[R Keyring package]https://cran.r-project.org/package=keyring)]. Keyring uses the credential manager available for most popular Operating systems to store and manage user credentials. This will help avoid hard coding credential information into R scripts.
 
 To use the keyring package with RAQSAPI first install keyring:
 
@@ -95,4 +95,4 @@ to change the keyring stored with the keyring package repeat the steps above to 
 to retrieve a list of all keyrings managed with the keyring package use the function:
 > keyring::key_list()
 
-Refer the the [keyring package documentation]( https://cran.r-project.org/web/packages/keyring/readme/README.html) for an in depth explanation on using the keyring package.
+Refer the the [keyring package documentation]( https://cran.r-project.org/package=keyring/readme/README.html) for an in depth explanation on using the keyring package.

@@ -1,3 +1,9 @@
+% News.md for RAQSAPI
+% Clinton Mccrowey Physical Scientist  
+ EPA Region III  
+ Air and Radiation Division  
+ Air Quality Analysis Branch 
+
 # RAQSAPI 2.0.1 (2021-03-30)
 
 * add reverse dependency check, add cran-comments.Rmd, update README, prepare to

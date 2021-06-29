@@ -11,7 +11,9 @@
   invisible()
 }
 
-packageStartupMessage(".Onload Note* use the function
+.onAttach <- function(libname, pkgname) {
+packageStartupMessage("Use the function
                       RAQSAPI::aqs_credentials(username, key)
                       before using other RAQSAPI functions")
+}
 #nocov end

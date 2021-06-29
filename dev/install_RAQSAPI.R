@@ -58,10 +58,10 @@ RAQSAPICLEAN <- function(NAMESPACE = TRUE)
 buildRAQSAPIbase <- function()
 {
   invisible(usethis::use_lifecycle())
-  #roxygen2::roxygenize()
+  roxygen2::roxygenize()
   devtools::document(quiet = TRUE,
                      roclets = c("collate", "namespace", "rd", "vignette"))
-  devtools::build_readme()
+  #devtools::build_readme()
   knitr::knit(input = "./dev/contributing.Rmd", output = "./dev/contributing.md")
   knitr::knit(input = "./cran-comments.Rmd", output = "./cran-comments.md")
 }
@@ -125,6 +125,8 @@ RAQSAPIINSTALL <- function()
 RAQSAPICHECK <- function()
 {
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
+  if(!file.exists("NAMESPACE")) {stop("NAMESPACE fille missing!")}
+  if(!file.exists("README.md")) {stop("README.md fille missing!")}
   devtools::spell_check(vignettes = TRUE, use_wordlist = TRUE)
   # spelling::spell_check_files(path = "./dev/contributing.Rmd",
   #                   ignore = read.csv(file = "./inst/WORDLIST",
