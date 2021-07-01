@@ -720,7 +720,7 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code,
   )
 }
 
-#' @title aqs_services_by_MA
+#' @title aqs_metadata_service
 #' @description A helper function for functions which use the metaData service
 #'                from the AQS API. This function is not intended to be called
 #'                directly by the end user

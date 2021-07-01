@@ -95,7 +95,7 @@ c3978703d8f40f2679795335715e98f4 *man/figures/lifecycle-experimental.svg
 18243069a67e5dd712a382ba394b8405 *man/RAQSAPI.Rd
 e3653f58ab50253672320fd30df9606d *NAMESPACE
 f8798c64c9f7c6b3fcc6bb651672d4f4 *NEWS.md
-f4cc20f4273ecef92143b88295c06f03 *R/AQSAPI_helperfunctions.R
+8af38e7f4374290be6255307f291b847 *R/AQSAPI_helperfunctions.R
 38d84f692eb53e62582ada9a520d79ba *R/bybox.R
 b1cc723463a1c156351971cc4d414fa4 *R/bycbsa.R
 b1aafabde20f696ff4f03806ce0c8e72 *R/bycounty.R
@@ -111,7 +111,6 @@ a69de5455537022556f014579766be59 *RAQSAPI.Rproj
 db1394dd6fcfcc73c30d80feb2dfbc37 *README.md
 dfcf4277597e10f50e646a79f34d3fca *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
-e49e36b43936fac0b59579fdbd5c9960 *tests/README.Rmd
 846f989b5f8b7a32fa520e52b4675635 *tests/test-RAQSAPI.R.blob
 84732d71bac50c96565c4894a24ecc59 *tests/testthat.R
 67ac7c1a383ece36b7941451e7e32c4e *tests/testthat/test-bybox.R
