@@ -31,6 +31,6 @@ service requested.
 \examples{
 # Returns a tibble containing a list and definitions
          #  of fields in the Sample Data service
-         \dontrun{fields_by_service(service = "list")}
+         \dontrun{fields_by_service(service = "sampleData")}
 
 }

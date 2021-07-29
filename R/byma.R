@@ -253,9 +253,10 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
 
 #' @title aqs_qa_one_point_qc_by_MA
 #' @description \lifecycle{stable}
-#'   Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
-#'   assurance data - collocated assessment raw data aggregated by monitoring
-#'   agency code (_by_MA).
+#' @description \lifecycle{stable}
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+#'                containing one point QC check data aggregated by monitoring
+#'                agency code (_by_MA).
 #' @note The AQS API only allows for a single year of one point qc data to
 #'         be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated

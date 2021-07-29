@@ -29,7 +29,10 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     comment="United States Enviornmental Protection Agency"),
              person(given = "Benjamin", family = "Wells",
                     email=NULL, role=c("ctb", "rev"),
-                    comment="United States Enviornmental Protection Agency")
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Hayley", family= "Brittingham",
+                    email = NULL, role=c("crr", "ctr"),
+                    comment="Neptune and Company")
              )
 URL: <https://github.com/USEPA/RAQSAPI>,
      <https://aqs.epa.gov/aqsweb/documents/data_api.html>

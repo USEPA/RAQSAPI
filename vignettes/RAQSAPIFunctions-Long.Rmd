@@ -112,8 +112,8 @@ are available by the AQS Data Mart API.^[See
 Data Mart API] 
 
 # Variable descriptions and usage.
-These are all the available variables that can be used with functions exported
-from the RAQSAPI library listed alphabetically.
+These are all the available variables that can be used with various functions exported from the RAQSAPI library listed alphabetically. Not all of these variables are used with every function, and not all of these parameters are required. See the [RAQSAPI families of functions](#RAQSAPI families of functions) section to see which parameters are used with each function.
+
 * AQSobject: a object that is an AQS_DATAMART_APIv2 S3 object.
 
 * bdate: a R date object which represents the begin date of the data selection.
@@ -188,6 +188,8 @@ from the RAQSAPI library listed alphabetically.
 
 * username: a R character object which represents the email account that will
                be used to connect to the AQS API.
+
+<a name="RAQSAPI families of functions"> </a>
 
 # RAQSAPI families of functions
 ## Sign up and credentials

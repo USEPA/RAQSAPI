@@ -57,8 +57,10 @@ item (\$Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
-assurance data - collocated assessment raw data aggregated by monitoring
+
+\lifecycle{stable}
+Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+containing one point QC check data aggregated by monitoring
 agency code (_by_MA).
 }
 \note{

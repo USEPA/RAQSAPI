@@ -74,6 +74,6 @@ Aggregate functions are named AQS_API\<service\>\_\<aggregation\>() where
 either "_by_site", "_by_county", "_by_state", "_by_box", "_by_cbsa".
 
 ### See the RAQSAPI vignette for more details
-(RAQSAPI must be installed first)
+(RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)
 
 > RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
