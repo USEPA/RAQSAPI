@@ -3,8 +3,8 @@
 
 #' @title aqs_monitors_by_state
 #' @description \lifecycle{stable}
-#'  Returns a table of monitors at all sites with the provided parameternum,
-#'    stateFIPS and county_code for bdate - edate time frame.
+#'  Returns a table of monitors and related metadata at sites with the
+#'    provided parameternum, and stateFIPS for bdate - edate time frame.
 #' @family Aggregate_by_state functions
 #' @inheritParams aqs_services_by_state
 #' @importFrom magrittr `%<>%`

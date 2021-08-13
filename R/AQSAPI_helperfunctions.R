@@ -121,7 +121,7 @@ aqs_ratelimit <- function(waittime=5L)
 #' @importFrom rlang .data
 #' @importFrom tibble as_tibble
 #' @importFrom httr GET http_type content http_error status_code modify_url
-#'               user_agent
+#'               user_agent message_for_status
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -184,14 +184,12 @@ aqs <- function(service, filter = NA, user = NA,
 
   if (httr::http_error(AQSresult))
     {
-     stop(
-       sprintf("AQS API request failed with error code [%s]\n%s\n<%s>",
-               httr::status_code(AQSresult),
-               out$Header$error,
-               out$Header$url
-              ),
-       call. = FALSE
-         )
+       print("RAQSAPI has encountered an error")
+
+       stop(httr::message_for_status(AQSresult),
+            call. = FALSE
+           )
+       browser()
      }
   out <- structure(.Data = out, class = "AQS_DATAMART_APIv2")
 

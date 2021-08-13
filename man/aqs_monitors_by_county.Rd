@@ -63,8 +63,9 @@ selected county
 }
 \description{
 \lifecycle{stable}
-Returns a table of monitors at a site with the provided parameternum,
-stateFIPS and county_code for bdate - edate time frame.
+Returns a table of monitors and related metadata at sites with the
+provided parameternum, stateFIPS and county_code for
+bdate - edate time frame.
 }
 \section{by_county aggregate functions}{
 NA

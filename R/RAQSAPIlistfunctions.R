@@ -411,7 +411,7 @@ aqs_revisionhistory <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @examples # Returns a tibble containing a list and definitions
 #'          #  of fields in the Sample Data service
-#'          \dontrun{fields_by_service(service = "sampleData")}
+#'          \dontrun{aqs_fieldsbyservice(service = "sampleData")}
 #'
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object with containing the list
 #'   and definitions of fields requested service

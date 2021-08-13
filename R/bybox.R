@@ -3,7 +3,7 @@
 
 #' @title aqs_monitors_by_box
 #' @description \lifecycle{stable}
-#'  Returns a table of monitors at all sites with the provided
+#'  Returns a table of monitors and related metadata sites with the provided
 #'    parameternum, aggregated by latitude/longitude bounding box (_by_box) for
 #'    bdate - edate time frame.
 #' @family Aggregate _by_box functions

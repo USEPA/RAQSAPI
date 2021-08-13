@@ -67,8 +67,9 @@ selected site
 }
 \description{
 \lifecycle{stable}
-Returns a table of monitors at all sites with the provided parameternum,
-stateFIPS, county_code, and sitenum for bdate - edate time frame.
+Returns a table of monitors and related metadata at sites with the
+provided parameternum, stateFIPS, county_code, and sitenum for
+bdate - edate time frame.
 }
 \note{
 all monitors that operated between the bdate and edate will be returned
