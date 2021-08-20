@@ -36,7 +36,8 @@ related aggregate functions in which the AQS Data Mart API groups data.
  4. **\_by\_\<latitude/longitude bounding box\>** (_by_box)
  5. **\_by\_\<monitoring agency\>** (_by_MA)
  6. **\_by\_\<Primary Quality Assurance Organization\>** (_by_pqao)
- 7. **\_by\_\<core based statistical area\>** (_by_cbsa).
+ 7. **\_by\_\<core based statistical area (as defined by the
+       US census Bureau)\>** (_by_cbsa).
 
 Within these families of aggregated data functions there are functions that call
 on the 11 different aggregate services that the Data Mart API provides.

@@ -45,7 +45,7 @@ aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS,
                                       return_header = FALSE)
 {
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
-  #  monitors API call accepts multiple years of data on the server, purrr::map
+  #  monitors API call accepts multiple years of data on the server, purrr::pmap
   #  is used so that the output is consistent with other RAQSAPI functions.
   params <- tibble(parameter = parameter,
                    bdate = bdate,
@@ -164,7 +164,7 @@ aqs_qa_flowrateaudit_by_site <- function(parameter, bdate, edate,
 #' @examples # returns a tibbble of One Point QC data for
 #'           #  ozone at the Truro National Seashore site (\#0002) in
 #'           #  Barnstable County, MA for January 2018:
-#'  \dontrun{aqs_qa_one_point_qc_by_site_multiyear(parameter = "44201",
+#'  \dontrun{aqs_qa_one_point_qc_by_site(parameter = "44201",
 #'                                     bdate = as.Date("20180101",
 #'                                                    format = "%Y%m%d"),
 #'                                     edate = as.Date("20180131",

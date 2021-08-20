@@ -269,7 +269,8 @@ groups data.
 5.  **\_by\_&lt;monitoring agency&gt;** (\_by\_MA)
 6.  **\_by\_&lt;Primary Quality Assurance Organization&gt;**
     (\_by\_pqao)
-7.  **\_by\_&lt;core based statistical area&gt;** (\_by\_cbsa).
+7.  **\_by\_&lt;core based statistical area (as defined by the US census
+    Bureau)&gt;** (\_by\_cbsa).
 
 Within these families of aggregated data functions there are functions
 that call on the 11 different aggregate services that the Data Mart API

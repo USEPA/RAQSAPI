@@ -505,7 +505,8 @@ str_subset(string = RAQSAPI_functions, pattern = by_cbsafunctions) %>%
   cat(sep = "  \n")
 ```
 functions in this family of functions aggregate data at the Core Based
-  Statistical Area (cbsa) level. All functions accept the following variables:
+  Statistical Area (cbsa, as defined by the US Census Bureau) level.
+  All functions accept the following variables:
 
 * parameter:
 * bdate:

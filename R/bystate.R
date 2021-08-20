@@ -31,8 +31,8 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS,
                                     cbdate = NA_Date_, cedate = NA_Date_,
                                     return_header = FALSE)
 {
-   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
-  #  monitors API call accepts multiple years of data on the server, purrr::map
+  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
+  #  monitors API call accepts multiple years of data on the server, purrr::pmap
   #  is used so that the output is consistent with other RAQSAPI functions.
   params <- tibble(parameter = parameter,
                    bdate = bdate,

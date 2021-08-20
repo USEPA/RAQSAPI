@@ -1,4 +1,5 @@
-#' @section by_cbsa aggregate functions
+#' @section by_cbsa (By Core Based Statistical Area, as defined by the US
+#'             Census Bureau) aggregate functions
 
 
 #' @title aqs_monitors_by_cbsa
@@ -36,7 +37,7 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                     return_header = FALSE)
 {
  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
-  #  monitors API call accepts multiple years of data on the server, purrr::map
+  #  monitors API call accepts multiple years of data on the server, purrr::pmap
   #  is used so that the output is consistent with other RAQSAPI functions.
   params <- tibble(parameter = parameter,
                    bdate = bdate,
