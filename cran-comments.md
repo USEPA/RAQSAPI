@@ -7,6 +7,20 @@ output: md_document
 
 # cran-comments for RAQSAPI
 
+## RAQSAPI 2.0.2
+* This is a new release
+
+### Reason/Significant changes
+* Adds MD5
+* Correctly throws an error if a RAQSAPI function is used without
+    providing credentials (issue 5)
+* Updated documentation (Thanks Hayley Brittingham)
+* a lot of code cleanup
+* RAQSAPI functions now checks parameters before sending calls to API (issue 6)
+* renamed non-exported functions containing dots to names with underscores.
+* added CITATION file
+
+
 ## RAQSAPI 2.0.1
 * This is a new release.
 

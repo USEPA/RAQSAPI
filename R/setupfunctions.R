@@ -77,9 +77,6 @@ aqs_sign_up <- function(email)
 
   url <- glue("https://aqs.epa.gov/data/api/signup?email={email}")
   httr::GET(url)
-
-  #can not use aqs() if the user has not registered yet.
-  #aqs(service = "signup", variables = list(email = email))
-  glue("A verification email has been sent to {email}  \n") %>%
+  glue("A verification email will been sent to {email}  \n") %>%
     message()
 } #nocov end

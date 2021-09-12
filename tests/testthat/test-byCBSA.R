@@ -13,8 +13,8 @@ datamartAPI_user <- "test@aqs.api"
     expect_match(regexp = "Success")
 
   aqs_monitors_by_cbsa(parameter = "42602",
-                       bdate = as.Date("20170101",format = "%Y%m%d"),
-                       edate = as.Date("20170102",format = "%Y%m%d"),
+                       bdate = as.Date("20170101", format = "%Y%m%d"),
+                       edate = as.Date("20170102", format = "%Y%m%d"),
                        cbsa_code = "16740",
                        return_header = TRUE
                        )[[1]]$Header$status %>%
@@ -29,8 +29,8 @@ datamartAPI_user <- "test@aqs.api"
     expect_match(regexp = "Success")
 
   aqs_dailysummary_by_cbsa(parameter = "42602",
-                           bdate = as.Date("20170101",format = "%Y%m%d"),
-                           edate = as.Date("20170101",format = "%Y%m%d"),
+                           bdate = as.Date("20170101", format = "%Y%m%d"),
+                           edate = as.Date("20170101", format = "%Y%m%d"),
                            cbsa_code = "16740",
                            return_header = TRUE
                            )[[1]]$Header$status %>%

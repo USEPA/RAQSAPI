@@ -99,7 +99,7 @@ RAQSAPIINSTALL <- function()
   buildRAQSAPIbase()
   #devtools::build_manual()
   devtools::install(reload = TRUE, quiet = TRUE, dependencies = TRUE,
-                     upgrade = "always", build_vignettes = TRUE, quick = FALSE)
+                    upgrade = "always", build_vignettes = TRUE, quick = FALSE)
 }
 
 
