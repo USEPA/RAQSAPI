@@ -1,0 +1,79 @@
+Type: Package
+Package: RAQSAPI
+Version: 2.0.1
+Title: A R Interface to the US EPA Air Quality System Data Mart API
+Description: Retrieve air monitoring data and associated metadata from the US
+  Environmental Protection Agency's Air Quality System service using functions.
+  See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about
+  the US EPA Data Mart API.
+Encoding: UTF-8
+Authors@R: c(person(given="Clinton", family="Mccrowey",
+                    email="mccrowey.clinton@epa.gov",
+                    role=c("cre", "aut"),
+                    comment="United States Enviornmental Protection
+                             Agency Region 3 Air and Radiation Division"),
+             person(given="Timothy", family="Sharac", role=c("ctb","rev"),
+                    email=NULL,
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Nick", family = "Mangus", email = NULL,
+                    role=c("rev"),
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Doug", family = "Jager",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Ryan",family = "Brown",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Daniel", family = "Garver",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Benjamin", family = "Wells",
+                    email=NULL, role=c("ctb", "rev"),
+                    comment="United States Enviornmental Protection Agency"),
+             person(given = "Hayley", family= "Brittingham",
+                    email = NULL, role=c("crr", "ctr"),
+                    comment="Neptune and Company")
+             )
+URL: <https://github.com/USEPA/RAQSAPI>,
+        <https://aqs.epa.gov/aqsweb/documents/data_api.html>
+BugReports: https://github.com/USEPA/RAQSAPI/issues
+Depends: R (>= 3.6.0)
+Imports: dplyr, glue, gtools, httr, jsonlite, lubridate, magrittr,
+        purrr, stringr, tibble, rlang, lifecycle
+Suggests: desc, devtools, goodpractice, keyring, knitr, lintr,
+        markdown, roxygen2, rmarkdown, testthat (>= 3.0.0), usethis,
+        covr
+SystemRequirements: package manual requires pandoc (>= 1.14)
+        http://pandoc.org
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr
+BuildVignettes: true
+ByteCompile: true
+License: CC0
+License_is_FOSS: yes
+NeedsCompilation: no
+License_restricts_use: no
+Language: en-US
+Collate: 'AQSAPI_helperfunctions.R' 'bysite.R' 'bycounty.R' 'bystate.R'
+        'byma.R' 'bypqao.R' 'bycbsa.R' 'bybox.R'
+        'RAQSAPIlistfunctions.R' 'setupfunctions.R' 'zzz.R'
+        'RAQSAPI-package.R'
+Copyright: United States Environmental Protection Agency
+RdMacros: lifecycle
+Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3
+Packaged: 2021-08-31 17:11:54 UTC; CMcCrowe
+Author: Clinton Mccrowey [cre, aut] (United States Enviornmental Protection
+    Agency Region 3 Air and Radiation Division),
+  Timothy Sharac [ctb, rev] (United States Enviornmental Protection
+    Agency),
+  Nick Mangus [rev] (United States Enviornmental Protection Agency),
+  Doug Jager [ctb, rev] (United States Enviornmental Protection Agency),
+  Ryan Brown [ctb, rev] (United States Enviornmental Protection Agency),
+  Daniel Garver [ctb, rev] (United States Enviornmental Protection
+    Agency),
+  Benjamin Wells [ctb, rev] (United States Enviornmental Protection
+    Agency),
+  Hayley Brittingham [crr, ctr] (Neptune and Company)
+Maintainer: Clinton Mccrowey <mccrowey.clinton@epa.gov>
+Built: R 4.1.1; ; 2021-09-13 14:01:49 UTC; windows

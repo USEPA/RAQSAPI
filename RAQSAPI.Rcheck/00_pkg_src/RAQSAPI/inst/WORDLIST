@@ -20,7 +20,6 @@ cbsa
 cbsas
 cedate
 CFR
-changedate
 changelogs
 clintonmccrowey
 CMD
@@ -59,9 +58,7 @@ magrittr
 MAs
 maxlat
 maxlon
-md
 metacran
-metaData
 minlat
 minlon
 newValue

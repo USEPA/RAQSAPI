@@ -1,0 +1,605 @@
+---
+title: RAQSAPI - RAQSAPI functions Long version
+author: Clinton Mccrowey physical scientist - US EPA
+output:
+  rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - RAQSAPI functions Long version}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+# RAQSAPI functions
+The RAQSAPI library exports the following functions (in alphabetical order):
+
+```{r RAQSAPIfun_all, echo = FALSE, comment = NA}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>" )
+invisible(library(magrittr, warn.conflicts = FALSE, quietly = TRUE))
+invisible(library(stringr, warn.conflicts = FALSE, quietly = TRUE))
+invisible(library(tibble, warn.conflicts = FALSE, quietly = TRUE))
+invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
+
+#AQAD-33, using list.files works when knitting the vignette but does
+#not seem to work when the vignette is knitted as part of a package.
+#Instead function names need to be hard coded.
+# RAQSAPI_functions <- list.files(path = "./man/", pattern = ".Rd$") %>%
+# stringr::str_remove_all(pattern = ".Rd") %>%
+# str_replace("ni_infix_operator", replacement = NA_character_) %>%
+# str_replace("RAQSAPI", replacement = NA_character_) %>%
+# str_replace_all("_services_", replacement = NA_character_) %>%
+# na.omit() %>%
+# as.character()
+RAQSAPI_functions <- c(
+"aqs_annualsummary_by_box",  
+"aqs_annualsummary_by_cbsa",  
+"aqs_annualsummary_by_county",  
+"aqs_annualsummary_by_site",
+"aqs_annualsummary_by_state",  
+"aqs_cbsas",  
+"aqs_classes",  
+"aqs_counties_by_state",  
+"aqs_credentials",  
+"aqs_dailysummary_by_box",  
+"aqs_dailysummary_by_cbsa",  
+"aqs_dailysummary_by_county",  
+"aqs_dailysummary_by_site",  
+"aqs_dailysummary_by_state",  
+"aqs_fields_by_service",  
+"aqs_isavailable",  
+"aqs_knownissues",  
+"aqs_mas",  
+"aqs_monitors_by_box",  
+"aqs_monitors_by_cbsa",  
+"aqs_monitors_by_county",  
+"aqs_monitors_by_site",  
+"aqs_monitors_by_state",  
+"aqs_parameters_by_class",  
+"aqs_pqaos",  
+"aqs_qa_blanks_by_county",  
+"aqs_qa_blanks_by_MA",  
+"aqs_qa_blanks_by_pqao",  
+"aqs_qa_blanks_by_site",  
+"aqs_qa_blanks_by_state",  
+"aqs_qa_collocated_assessments_by_county",  
+"aqs_qa_collocated_assessments_by_MA",  
+"aqs_qa_collocated_assessments_by_pqao",  
+"aqs_qa_collocated_assessments_by_site",  
+"aqs_qa_collocated_assessments_by_state",  
+"aqs_qa_flowrateaudit_by_county",  
+"aqs_qa_flowrateaudit_by_MA",  
+"aqs_qa_flowrateaudit_by_pqao",  
+"aqs_qa_flowrateaudit_by_site",  
+"aqs_qa_flowrateaudit_by_state",  
+"aqs_qa_flowrateverification_by_county",  
+"aqs_qa_flowrateverification_by_MA",  
+"aqs_qa_flowrateverification_by_pqao",  
+"aqs_qa_flowrateverification_by_site",  
+"aqs_qa_flowrateverification_by_state",  
+"aqs_qa_one_point_qc_by_county",  
+"aqs_qa_one_point_qc_by_MA",  
+"aqs_qa_one_point_qc_by_pqao",  
+"aqs_qa_one_point_qc_by_site",  
+"aqs_qa_one_point_qc_by_state",  
+"aqs_qa_pep_audit_by_county",  
+"aqs_qa_pep_audit_by_MA",  
+"aqs_qa_pep_audit_by_pqao",  
+"aqs_qa_pep_audit_by_site",  
+"aqs_qa_pep_audit_by_state",
+"aqs_removeheader",
+"aqs_revisionhistory",  
+"aqs_sampledata_by_box",  
+"aqs_sampledata_by_cbsa",  
+"aqs_sampledata_by_county",  
+"aqs_sampledata_by_site",  
+"aqs_sampledata_by_state",  
+"aqs_sign_up",  
+"aqs_sites_by_county",  
+"aqs_states",
+"aqs_transactionsample_by_county",
+"aqs_transactionsample_by_site",
+"aqs_transactionsample_by_state",
+"aqs_transactionsample_by_MA"
+)
+
+RAQSAPI_functions %>%
+  cat(sep = "  \n")
+```
+
+RAQSAPI functions are named according to the service and filter variables that
+are available by the AQS Data Mart API.^[See
+(https://aqs.epa.gov/aqsweb/documents/data_api.html) for full details of the
+Data Mart API] 
+
+# Variable descriptions and usage.
+These are all the available variables that can be used with various functions exported from the RAQSAPI library listed alphabetically. Not all of these variables are used with every function, and not all of these parameters are required. See the [RAQSAPI families of functions](#RAQSAPI families of functions) section to see which parameters are used with each function.
+
+* AQSobject: a object that is an AQS_DATAMART_APIv2 S3 object.
+
+* bdate: a R date object which represents the begin date of the data selection.
+           Only data on or after this date will be returned.
+
+* cbdate (optional): a R date object which represents the "beginning date of
+                       last change" that indicates when the data was last
+                       updated. cbdate is used to filter data based on the
+                       change date. Only data that changed on or after this date
+                       will be returned. This is an optional variable which
+                       defaults to NA. 
+
+* cedate (optional): a R date object which represents the "end date of last
+                       change" that indicates when the data was last updated.
+                       cedate is used to filter data based on the change date.
+                       Only data that changed on or before this date will be
+                       returned. This is an optional variable which defaults to
+                       NA.
+
+* countycode: a R character object which represents the 3 digit state FIPS code
+                for the county being requested (with leading zero(s)). Refer to
+                [aqs_counties_by_state()] for the list of available county
+                codes for each state.
+
+* edate: a R date object which represents the end date of the data selection.
+           Only data on or before this date will be returned.
+
+* email: a R character object which represents the email account that will be
+           used to register with the AQS API or change an existing user's key. A
+           verification email will be sent to the account specified.
+
+* key: the key used in conjunction with the username given to connect to AQS
+         Data Mart.
+
+* MA_code: a R character object which represents the 4 digit AQS Monitoring
+             Agency code (with leading zeroes).
+* maxlat: a R character object which represents the maximum latitude of a
+            geographic box. Decimal latitude with north begin positive. Only
+            data south of this latitude will be returned.
+            
+* maxlon: a R character object which represents the maximum longitude of a
+            geographic box. Decimal longitude with east being positive. Only
+            data west of this longitude will be returned. Note that -80 is less
+            than -70.
+
+* minlat: a R character object which represents the minimum latitude of a
+            geographic box. Decimal latitude with north being positive.
+            Only data north of this latitude will be returned.
+            
+* minlon: a R character object which represents the minimum longitude of a
+            geographic box. Decimal longitude with east begin positive. Only
+            data east of this longitude will be returned.
+
+* parameter: a R character list or single character object which represents
+               the parameter code of the air pollutant related to the data
+               being requested.
+               
+* return_header If FALSE (default) only returns data requested. If TRUE
+                  returns a AQSAPI_v2 object which is a two item list that
+                  contains header information returned from the API server
+                  mostly used for debugging purposes in addition to the
+                  data requested.               
+
+* sitenum: a R character object which represents the 4 digit site number (with
+             leading zeros) within the county and state being requested.
+
+* stateFIPS: a R character object which represents the 2 digit state FIPS code
+               (with leading zero) for the state being requested.
+            
+* pqao_code: a R character object which represents the 4 digit AQS Primary
+               Quality Assurance Organization code (with leading zeroes).
+
+* username: a R character object which represents the email account that will
+               be used to connect to the AQS API.
+
+<a name="RAQSAPI families of functions"> </a>
+
+# RAQSAPI families of functions
+## Sign up and credentials
+The functions included in this family of functions are:
+
+```{r SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA}
+signupandcredentials <- paste(".sign_up", ".credentials", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
+  cat(sep = "  \n")
+```
+These functions are used to sign up with Data Mart and to store credential
+    information to use with RAQSAPI. The RAQSAPI::aqs_signup function takes
+    one parameter:
+
+* email:
+
+The RAQSAPI::aqs_credentials function takes two parameters:
+
+* username:
+* key:
+
+## Data Mart API metadata functions
+```{r METADATAFUNCTIONS, echo = FALSE, comment = NA}
+metadatafunctions <- paste(".available",
+                           ".field_by_service",
+                           ".knownissues", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = metadatafunctions) %>%
+  cat(sep = "  \n")
+```
+These functions return Data Mart meta data
+
+The RAQSAPI::aqs_isavailable function takes no parameters and returns a
+    table which details the status of the AQS API.
+
+The RAQSAPI::aqs_field_by_Service function takes one parameter, service,
+    which is a R character object which represents the services provided by
+    the AQS API. For a list of available services see
+    [Air Quality System (AQS) API - Services Overview](
+    https://aqs.epa.gov/aqsweb/documents/data_api.html#services)
+    
+The RAQSAPI::aqs_knownissues function takes no parameters and Returns a
+    table of any known issues with system functionality or the data. These are
+    usually issues that have been identified internally and will require some
+    time to correct in Data Mart or the API. This function implements a direct
+    API call to Data Mart and returns data directly from the API. Issues
+    returned via this function do not include any issues from the RAQSAPI R
+    package.
+    
+The RAQSAPI::aqs_revisionhistory function is used to query Data Mart for the
+    change history to the API.
+
+## Data Mart API list functions
+```{r LISTFUNCTIONS, echo = FALSE, comment = NA}
+listfunctions <- paste(".states",
+                       ".counties_by_state",
+                       ".sites_by_county",
+                       ".cbsas",
+                       ".classes",
+                       ".pqaos",
+                       ".mas",
+                       sep = '|'
+                       )
+
+str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
+  cat(sep = "  \n")
+```
+List functions return options or groupings that can be used in conjunction with
+    other API calls. By default each function in this category returns results
+    as a tibble. If return_header parameter is set to TRUE a AQSAPI_v2 object is
+    returned instead.
+
+RAQSAPI::aqs_cbsas returns a table of all available Core Based Statistical
+    Areas (cbsas) and their respective cbsa codes.
+
+RAQSAPI::aqs_states takes no arguments and returns a table of the available
+    states and their respective state FIPS codes.
+
+RAQSAPI::aqs_classes takes no arguments and returns a table of parameter
+    classes (groups of parameters, i.e. "criteria" or "all"). The information
+    from this function can be used as input to other API calls.
+
+RAQSAPI::aqs_counties_by_state takes one parameter, stateFIPS, which is a two
+    digit state FIPS code for the state being requested represented as a
+    R character object and returns a table of counties and their
+    respective FIPS code for the state requested. Use RAQSAPI::aqs_states to
+    receive a table of valid state FIPS codes.
+
+RAQSAPI::aqs_sites_by_county takes two parameters, stateFIPS, which is a
+    two digit state FIPS code for the state being requested and county_code
+    which is a three digit county FIPS code for the county being requested,
+    both stateFIPS and county_code should be encoded as a R character object
+    This function returns a table of all air monitoring sites with the
+    requested state and county FIPS code combination.
+
+RAQSAPI::aqs_pqaos takes no parameters and returns an AQS_DATAMART_APIv2
+    S3 object containing a table of primary quality assurance
+    organizations (pqaos).
+
+RAQSAPI::aqs_mas takes no parameters and returns an AQS_DATAMART_APIv2 S3
+    object containing a table of monitoring agencies (MA).
+
+## Data Mart aggregate functions
+
+| <span style="color:blue"> Information: AQS Data Mart API restricts the \
+maximum amount of monitoring data to one full year of data per \
+API call. These functions are able to return multiple years of data by \
+making repeated calls to the API.  Each call to the Data Mart API will take \
+time to complete. The more years of data being requested the longer RAQSAPI \
+will take to return the results.</span> |
+| -- |
+
+These functions retrieve aggregated data from the Data Mart API and are
+    grouped by how each function aggregates the data. There are 5 different
+    families of related aggregate functions. These families are arranged by how
+    the Data Mart API groups the returned data, _by_site, _by_county, _by_state,
+    _by_<latitude/longitude bounding box> (_by_box) and
+    _by_<core based statistical area> (_by_cbsa). Within each family
+    of aggregated data functions there are functions that call on the 10
+    different services that the Data Mart API provides. All Aggregate
+    functions return a tibble by default. If the return_Header parameter is
+    set to TRUE an AQS_DATAMART_APIv2 S3 object is returned instead.
+
+* **These ten services are**:
+1. **Monitors**: Returns operational information about the samplers (monitors)
+                  used to collect the data. Includes identifying information,
+                  operational dates, operating organizations, etc. Functions
+                  using this service contain *\*monitors_by_*\* in the function 
+                  name.
+2. **Sample Data**: Returns sample data - the most fine grain data reported to
+                      EPA. Usually hourly, sometimes 5-minute, 12-hour, etc.
+                      This service is available in several geographic selections
+                      based on geography: site, county, state, cbsa (core based
+                      statistical area, a grouping of counties), or
+                      by latitude/longitude bounding box. Functions using this
+                      service contain *\*sampledata_by_*\* in the function name.
+                      All Sample Data functions accept two additional, optional
+                      parameters; cbdate and cedate:
+      + cbdate: a R date object which represents a "beginning date of last 
+                      change" that indicates when the data was last updated.
+                      cbdate is used to filter data based on the change date.
+                      Only data that changed on or after this date will be
+                      returned. This is an optional variable which defaults to
+                      NA_Date_.
+      + cedate: a R date object which represents an "end date of last change"
+                      that indicates when the data was last updated. cedate is
+                      used to filter data based on the change date. Only data
+                      that changed on or before this date will be returned. This
+                      is an optional variable which defaults to NA_Date_.
+3. **Daily Summary Data**: Returns data summarized at the daily level. All daily
+                            summaries are calculated on midnight to midnight
+                            basis in local time. Variables returned include
+                            date, mean value, maximum value, etc. Functions
+                            using this service contain *\*dailydata_by_*\* in
+                            the function name. All Daily Summary Data functions
+                            accept two additional parameters; cbdate and cedate:
+      + cbdate: a R date object which represents a "beginning date of last
+                    change" that indicates when the data was last updated.
+                    cbdate is used to filter data based on the change date. Only
+                    data that changed on or after this date will be returned.
+                    This is an optional variable which defaults to NA_Date_.
+      + cedate: a R date object which represents an "end date of last change"
+                    that indicates when the data was last updated. cedate is
+                    used to filter data based on the change date. Only data that
+                    changed on or before this date will be returned. This is an
+                    optional variable which defaults to NA_Date_.
+4. **Annual Summary Data**: Returns data summarized at the yearly level.
+                              Variables include mean value, maxima, percentiles,
+                              etc. Functions using this service contain
+                              *\*annualdata_by_*\* in the function name. All
+                              Annual Summary Data functions accept two
+                              additional parameters; cbdate and cedate:
+      + cbdate: a R date object which represents a "beginning date of last
+                  change" that indicates when the data was last updated. cbdate
+                  is used to filter data based on the change date. Only data
+                  that changed on or after this date will be returned. This is
+                  an optional variable which defaults to  NA_Date_.
+      + cedate: a R date object which represents an "end date of last change"
+                  that indicates when the data was last updated. cedate is used
+                  to filter data based on the change date. Only data that
+                  changed on or before this date will be returned. This is an
+                  optional variable which defaults to NA_Date_.
+5. **Quality Assurance - Blanks Data**:
+                            Quality assurance data - blanks samples.
+                              Blanks are unexposed sample collection devices
+                              (e.g., filters) that are transported with the
+                              exposed sample devices to assess if contamination
+                              is occurring during the transport or handling of
+                              the samples. Functions using this service contain
+                              *\*qa\_blanks_by_*\* in the function name.                     
+6. **Quality Assurance - Collocated Assessments**:
+                          Quality assurance data - collocated assessments.
+                            Collocated assessments are pairs of samples
+                            collected by different samplers at the same time and
+                            place. (These are "operational" samplers,
+                            assessments with independently calibrated samplers
+                            are called "audits".). Functions using this service
+                            contain *\*qa_collocated_assessments_by_*\* in the
+                            function name.
+7. **Quality Assurance - Flow Rate Verifications**:
+                        Quality assurance data - flow rate verifications.
+                          Several times per year, each PM monitor must have it's
+                          (fixed) flow rate verified by an operator taking a
+                          measurement of the flow rate. Functions using this
+                          service contain *\*qa_flowrateverification_by_*\* in
+                          the function name. 
+8. **Quality Assurance - Flow Rate Audits**:
+                      Quality assurance data - flow rate audits. At least twice
+                        year, each PM monitor must have it's flow rate
+                        measurement audited by an expert using a different
+                        method than is used for flow rate verifications.
+                        Functions using this service contain
+                        *\*qa_flowrateaudit_by_*\* in the function name. 
+9. **Quality Assurance - One Point Quality Control Raw Data**:
+                      Quality assurance data - one point quality control check
+                      raw data. At least every two weeks, certain gaseous
+                      monitors must be challenged with a known concentration to
+                      determine monitor performance. Functions using this
+                      service contain *\*qa_one_point_qc_by_*\* in the function
+                      name.  
+10. **Quality Assurance - pep Audits**:
+                      Quality assurance data - performance evaluation program
+                      (pep) audits. pep audits are independent assessments used
+                      to estimate total measurement system bias with a primary
+                      quality assurance organization.  Functions using this
+                      service contain *\*qa_pep_audit_by_*\* in the function
+                      name.
+                      
+11. **Transaction Sample - AQS Submission data in transaction Format (RD)**:
+                     Transaction sample data - The raw transaction sample data
+                     uploaded to AQS by the agency responsible for data
+                     submissions in RD format. Functions using this
+                     service contain *\*transactionsample_by_*\* in the
+                     function name. Transaction sample data is only available
+                     aggregated by site, county, state or monitoring agency.
+
+
+### Data Mart aggregate functions _by_site
+```{r _by_Sitefunctions, echo = FALSE, comment = NA}
+by_sitefunctions <- paste("_by_site", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_sitefunctions) %>%
+  cat(sep = "  \n")
+```
+functions in this family of functions aggregate data at the site level. All
+  \*_by_site functions accept the following variables:
+
+* parameter: 
+* bdate: 
+* edate: 
+* stateFIPS: 
+* countycode:
+* sitenum:
+* cbdate (optional): (This parameter is only used in conjunction with 
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* cedate (optional): (This parameter is only used in conjunction with
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* return_header (optional): set to FALSE by default.
+
+### Data Mart aggregate functions _by_county
+```{r _by_countyfuncions, echo = FALSE, comment = NA}
+by_countyfunctions <- paste("._by_county", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_countyfunctions) %>%
+  cat(sep = "  \n")
+```
+functions in this family of functions aggregate data at the county level.
+  All functions accept the following variables:
+
+* parameter: 
+* bdate: 
+* edate:
+* stateFIPS: 
+* countycode:
+* cbdate (optional): (This parameter is only used in conjunction with 
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* cedate (optional): (This parameter is only used in conjunction with
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* return_header (optional): set to FALSE by default.
+
+### Data Mart aggregate functions by Monitoring agency (MA)
+```{r _by_MAfunctions, echo = FALSE, comment = NA}
+by_MAfunctions <- paste("._by_MA", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_MAfunctions) %>%
+  cat(sep = "  \n")
+```
+functions in this family of functions aggregate data at the Monitoring Agency
+  (MA) level. All functions accept the following variables:
+
+* parameter:
+* bdate:
+* edate:
+* MA_code:
+* cbdate (optional): (This parameter is only used in conjunction with 
+                        *\*sampledataby*\*, *\*dailydataby*\*,
+                        *\*annualdataby*\* functions).
+* cedate (optional): (This parameter is only used in conjunction with
+                        *\*sampledataby*\*, *\*dailydataby*\*,
+                        *\*annualdataby*\* functions).
+* return_header (optional): set to FALSE by default.
+
+### Data Mart aggregate functions by Core Based Statistical Area (cbsa)
+```{r bycbsafunctions, echo = FALSE, comment = NA}
+by_cbsafunctions <- paste("._by_cbsa", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_cbsafunctions) %>%
+  cat(sep = "  \n")
+```
+functions in this family of functions aggregate data at the Core Based
+  Statistical Area (cbsa, as defined by the US Census Bureau) level.
+  All functions accept the following variables:
+
+* parameter:
+* bdate:
+* edate:
+* cbsa_code:
+* cbdate (optional): (This parameter is only used in conjunction with 
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* cedate (optional): (This parameter is only used in conjunction with
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* return_header (optional): set to FALSE by default.
+
+
+### Data Mart aggregate functions by Primary Quality Assurance Organization
+  (pqao)
+```{r _by_pqaofunctions, echo = FALSE, comment = NA}
+by_pqaofunctions <- paste("._by_pqao", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_pqaofunctions) %>%
+  cat(sep = "  \n")
+```
+functions in this family of functions aggregate data at the Primary Quality
+  Assurance Organization (pqao) level. All functions accept the following
+  variables:
+
+* parameter:
+* bdate:
+* edate:
+* pqao_code:
+* return_header (optional): set to FALSE by default.
+
+### Data Mart aggregate functions by latitude/longitude bounding box (_by_box)
+```{r _by_BOXfunctions, echo = FALSE, comment = NA}
+by_BOXfunctions <- paste("._by_box", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_BOXfunctions) %>%
+  cat(sep = "  \n")
+```
+Functions in this family of functions aggregate data by a
+  latitude/longitude bounding box (_by_box) level. All functions accept the
+  following variables:
+
+* parameter:
+* bdate:
+* edate:
+* minlat:
+* minlon:
+* maxlon:
+* maxlat:
+* cbdate (optional): (This parameter is only used in conjunction with 
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* cedate (optional): (This parameter is only used in conjunction with
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* return_header (optional): set to FALSE by default.
+
+### Data Mart aggregate functions _by_state
+```{r _by_STATEfunctions, echo = FALSE, comment = NA}
+by_STATEfunctions <- paste("._by_state", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = by_STATEfunctions) %>%
+  cat(sep = "  \n")
+```
+functions in this family of functions aggregate data at the state level.
+  All functions accept the following variables:
+
+* parameter:
+* bdate:
+* edate:
+* stateFIPS:
+* cbdate (optional): (This parameter is only used in conjunction with 
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* cedate (optional): (This parameter is only used in conjunction with
+                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*annualdata_by_*\* functions).
+* return_header (optional): set to FALSE by default.
+
+### RAQSAPI Miscellaneous functions
+```{r misc, echo = FALSE, comment = NA}
+misc_functions <- paste("aqs_removeheader", sep = '|')
+
+str_subset(string = RAQSAPI_functions, pattern = misc_functions) %>%
+  cat(sep = "  \n")
+```
+These are miscellaneous functions exported by RAQSAPI.
+
+RAQSAPI::aqs_removeheader is the function that the RAQSAPI library
+uses internally to coerce an AQS_DATAMART_APIv2 S3 object into a tibble.
+This is useful if the user has saves the output from another RAQSAPI function
+with return_header = TRUE set but later decides that they want just a
+simple tibble object. This function takes only one variable:
+
+* AQSobject:

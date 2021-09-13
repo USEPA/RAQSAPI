@@ -1,0 +1,64 @@
+---
+title: Introduction to the RAQSAPI package
+author:
+- affiliation: |-
+    United States Environmental Protection Agency (US EPA),  
+        Region III,  
+        Air and Radiation Division,  
+        Air Quality and Analysis Branch
+  name: Clinton Mccrowey
+abstract: RAQSAPI is a package for R that connects the R programming language
+  environment to the United States Environmental Protection Agency's (US EPA)
+  Air Quality System (AQS) Data Mart database API for retrieval of ambient
+  air pollution data.
+output:
+  rmarkdown::html_vignette: default
+vignette: >
+  %\VignetteIndexEntry{Introduction to the RAQSAPI package}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteKeyword{R}
+  %\VignetteKeyword{AQS}
+  %\VignetteKeyword{EPA}
+  %\VignetteKeyword{Data Mart}
+  %\VignetteKeyword{API}
+  %\VignetteDepends{magrittr}
+  %\VignetteDepends{stringr}
+  %\VignetteDepends{tibble}
+  %\VignetteDepends{purrr}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteDepends{RAQSAPI}
+  %\VignetteEngine{knitr::rmarkdown}
+<!-- bibliography: AQSAPI.bib # not used footnotes were used instead -->
+---
+
+```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
+invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
+
+#usethisurl <- "https://usethis.r-lib.org"
+#usethissetup <- "/articles/articles/usethis-setup.html"
+#usethispatsection <- "#get-and-store-a-github-personal-access-token"
+
+#patsetuplink <- glue::glue("{usethisurl}{usethissetup}{usethispatsection}")
+```
+
+```{r child = "EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
+```
+
+```{r child = "Intro.Rmd", echo = FALSE, comment = NA}
+```
+
+```{r child = "InstallandSetup.Rmd", echo = FALSE}
+```
+
+```{r child = "UsingRAQSAPI.Rmd", echo = FALSE}
+```
+
+```{r child = "RAQSAPIusagetipsandprecautions.Rmd", echo = FALSE}
+```
+
+```{r child = "RAQSAPIFunctions-Long.Rmd", echo = FALSE}
+```
+
+```{r child = "Troubleshooting.Rmd", echo = FALSE}
+```
