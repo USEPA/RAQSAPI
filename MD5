@@ -7,7 +7,7 @@ cafea4738fd09ecd40b99c7ae075cc42 *DESCRIPTION
 367939d55ecf25face949c6eff878c4e *dev/install_RAQSAPI.R
 ede750dbc81413b0322161e5a7588fe1 *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
-f4877156b49cade20ffca15fc09a5788 *inst/WORDLIST
+7960cede689c4db3b3e0a45cbd51f2eb *inst/WORDLIST
 a83b0b7a418e2ae199aa6eafbedbac6b *LICENSE.md
 03503f00fabb41e0cda75a22bc714421 *man/aqs_annualsummary_by_box.Rd
 db2bcaaa61df132d746b20f892851406 *man/aqs_annualsummary_by_cbsa.Rd
@@ -336,8 +336,8 @@ bb85a7d385bc0f85b2bc8b3ee185f939 *RAQSAPI.Rcheck/tests/testthat/test-bypqao.R
 3d92a228bd8111e658da11dd36b1f95b *RAQSAPI.Rcheck/tests/testthat/test-bystate.R
 b56c20f35ba469fb5097371a5f30fe09 *RAQSAPI.Rcheck/tests/testthat/test-RAQSAPlistfunctions.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-f9deaebce07d5ca91490ad58a0f6053c *README.md
-dee1e40f80cf6df41f93bb9b5841c122 *README.Rmd
+4a0eeae696a9e2aba21404f08fc32854 *README.md
+5f8a07eeace17c092365e21e286e88a2 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 846f989b5f8b7a32fa520e52b4675635 *tests/test-RAQSAPI.R.blob
 84732d71bac50c96565c4894a24ecc59 *tests/testthat.R
