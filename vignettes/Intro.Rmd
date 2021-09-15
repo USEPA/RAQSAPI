@@ -26,23 +26,24 @@ service, hardware, or user accounts that may utilize this package. </span> |
 The RAQSAPI package for the R programming environment allows a R programming
   environment to connect to and retrieve data from the United States
   Environmental Protection Agency's (US EPA) Air Quality System (AQS) Data Mart
-  API v2 ^[[Air Quality System (AQS) API](
-  https://aqs.epa.gov/aqsweb/documents/data_api.html)] interface directly. This
-  package enables the data user to omit legacy challenges including coercing
-  data from a JSON object to a usable R object, retrieving multiple years of
-  data, formatting API requests, retrieving results, handling credentials,
-  requesting multiple pollutant data and rate limiting data requests. All the
-  basic functionality of the API have been implemented that are available from
-  the AQS API Data Mart server. The library connects to AQS Data Mart API via
-  Hypertext Transfer Protocol (HTTP) so there is no need to install external
-  ODBC drivers, configure ODBC connections or deal with the security
-  vulnerabilities associated with them. Most functions have a parameter,
-  return_header which by default is set to FALSE. If the user
+  API v2 (Air Quality System)[@AQSDataMartWelcome]
+  <!-- ^[[Air Quality System (AQS) API](https://aqs.epa.gov/aqsweb/documents/data_api.html)] -->
+  interface directly. This package enables the data user to omit legacy
+  challenges including coercing data from a JSON object to a usable R object,
+  retrieving multiple years of data, formatting API requests, retrieving
+  results, handling credentials, requesting multiple pollutant data and rate
+  limiting data requests. All the basic functionality of the API have been
+  implemented that are available from the AQS API Data Mart server. The library
+  connects to AQS Data Mart API via Hypertext Transfer Protocol (HTTP) so there
+  is no need to install external ODBC drivers, configure ODBC connections or
+  deal with the security vulnerabilities associated with them. Most functions
+  have a parameter, return_header which by default is set to FALSE. If the user
   decides to set return_header to TRUE, then that function will return a R
   AQS_DATAMART_APIv2 S3 object which is a two item named list.  
   The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
-  tibble ^[see (https://tibble.tidyverse.org) for more information about
-  tibbles.] which contains the header information. The Header contains status
+  (tibble)[@website:tibble] 
+  <!-- ^[see (https://tibble.tidyverse.org)for more information about tibbles.] -->
+  which contains the header information. The Header contains status
   information regarding the request (success/fail), any applicable error
   messages returned from the API, if any exist, the URL used in the request, a
   date and time stamp noting when request was received and other useful

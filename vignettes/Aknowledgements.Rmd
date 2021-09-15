@@ -1,0 +1,28 @@
+---
+title: RAQSAPI - Aknowledgements
+author: Clinton Mccrowey physical scientist - US EPA
+output:
+  rmarkdown::html_vignette: default
+lang: en-US
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - Aknowledgements}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+# Aknowledgements
+
+  The RAQSAPI package borrows upon functions and code provided by sources not
+mentioned in the DESCRIPTION file. Here we attempt to acknowledge those sources
+with them RAQSAPI would not be possible.
+
+* README badges are provided by R package badgecreator[@package:badgecreatr].
+* The R package usethis[@package:usethis] was used to generate github actions
+    for Continuous integration (CI).
+* Code cleanup was assisted by the R package lintr[@package:lintr]
+* the function *install.packages* are provided by the R package utils[@RBase]
+* the function *install_github* are provided by the R package remotes[
+    @package:remotes]
+

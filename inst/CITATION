@@ -1,6 +1,6 @@
 citHeader("To cite RAQSAPI in publications use:")
 
-citEntry(entry = "Misc",
+citEntry(entry = "Manual",
   title        = "A R Interface to the US EPA Air Quality System Data Mart API",
   author       = personList(person(given="Clinton", family="Mccrowey",
                                    email="mccrowey.clinton@epa.gov",
@@ -37,7 +37,7 @@ citEntry(entry = "Misc",
                                    comment="Neptune and Company")
                             ),
   year         = "2021",
-  howpublished  = c("https://cran.r-project.org/package=RAQSAPI",
+  url          = c("https://cran.r-project.org/package=RAQSAPI",
                    "https://github.com/USEPA/RAQSAPI",
                    "https://aqs.epa.gov/aqsweb/documents/data_api.html"),
   textVersion = "A R Interface to the US EPA Air Quality System Data Mart API"

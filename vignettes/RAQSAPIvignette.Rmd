@@ -29,7 +29,8 @@ vignette: >
   %\VignetteDepends{rmarkdown}
   %\VignetteDepends{RAQSAPI}
   %\VignetteEngine{knitr::rmarkdown}
-<!-- bibliography: AQSAPI.bib # not used footnotes were used instead -->
+bibliography: AQSAPI.bib
+csl: acs-nano.csl
 ---
 
 ```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
@@ -62,3 +63,8 @@ invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 
 ```{r child = "Troubleshooting.Rmd", echo = FALSE}
 ```
+
+```{r child = "Aknowledgements.Rmd", echo = FALSE}
+```
+
+# References

@@ -9,6 +9,8 @@ output:
     toc: true
   rmarkdown::html_document: null
 lang: en-US
+bibliography: ./vignettes/AQSAPI.bib
+csl: ./vignettes/acs-nano.csl
 ---
 ```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
 knitr::opts_chunk$set(
@@ -54,3 +56,8 @@ knitr::opts_chunk$set(
 
 ```{r child = "./vignettes/RAQSAPIFunctions-Brief.Rmd"}
 ```
+
+```{r child = "./vignettes/Aknowledgements.Rmd"}
+```
+
+# References
