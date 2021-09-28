@@ -75,6 +75,8 @@ overloading the API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_state functions: 
+\code{\link{aqs_qa_annualpeferomanceeval_by_state}()},
+\code{\link{aqs_qa_annualperformanceevaltransaction_by_state}()},
 \code{\link{aqs_transactionsample_by_MA}()}
 }
 \concept{Aggregate _by_state functions}

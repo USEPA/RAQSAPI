@@ -2,7 +2,7 @@
 #https://github.com/github/gitignore/blob/master/R.gitignore
 
 # R environment
-/*.Rcheck/ # Output files from R CMD check
+.Rcheck$ # Output files from R CMD check
 .Rproj.user
 .Renviron
 .Rproj.user

@@ -57,7 +57,7 @@ knitr::opts_chunk$set(
 ```{r child = "./vignettes/RAQSAPIFunctions-Brief.Rmd"}
 ```
 
-```{r child = "./vignettes/Aknowledgements.Rmd"}
+```{r child = "./vignettes/Acknowledgements.Rmd"}
 ```
 
 # References

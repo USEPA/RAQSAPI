@@ -13,7 +13,9 @@
 
 .onAttach <- function(libname, pkgname) {
 packageStartupMessage("Use the function
-                      RAQSAPI::aqs_credentials(username, key)
-                      before using other RAQSAPI functions")
+                       RAQSAPI::aqs_credentials(username, key)
+                       before using other RAQSAPI functions
+                       See ?RAQSAPI::aqs_credentials for
+                       more information")
 }
 #nocov end

@@ -36,7 +36,7 @@ If you have not already done so you will need to sign up with AQS Data Mart
   aqs_sign_up function with the parameter "email" set to an existing
   account. A new key will be e-mailed to the account given.
 
-The credentials used to access the Data Mart API service are stored in an R
+The credentials used to access the Data Mart API service are stored in a R
   environment variable that needs to be set every time the RAQSAPI library is
   attached or the key is changed. Without valid credentials, the Data Mart
   server will reject any request sent to it. The key used with Data Mart is a

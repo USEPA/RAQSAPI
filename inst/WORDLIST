@@ -1,7 +1,10 @@
 annualdata
 annualdataby
+annualpeferomanceeval
+annualperformanceevaltransaction
 annualsummary
 Analytics
+Angly
 api
 APIv
 aqs
@@ -13,6 +16,7 @@ aqsremoveheader
 AQSobject
 aqsweb
 Atlassian
+Badgecreatr
 bdate
 bitbucket
 cbdate
@@ -25,10 +29,12 @@ changelogs
 clintonmccrowey
 CMD
 codecov
+Codecov
 countycode
 cran
 CRAN
 CRAN's
+Csárdi
 DATAMART
 datamartAPI
 dailydata
@@ -46,11 +52,14 @@ geospatial
 gh
 GitHub
 Hadley
+Hogervorst
 https
 keyring
 Keyring
+Kirill
 lifecycle
 Lifecycle
+Linter
 io
 isavailable
 JSON
@@ -64,6 +73,7 @@ metacran
 metaData
 minlat
 minlon
+Müller
 newValue
 ni
 ODBC
@@ -77,6 +87,7 @@ pkgs
 pqao
 pqaos
 qa
+qaAnnualPerformanceEvaluations
 qc
 RAQSAPI
 RAQSAPI's
@@ -90,6 +101,7 @@ revisionhistory
 removeheader
 RShowDoc
 roxygen
+Repostatus
 Rmd
 Roxygen
 Roxygen2
@@ -103,6 +115,7 @@ stateFIPS
 subfolder
 submittal
 svg
+Tenenbaum
 testthat
 tibble
 tibbles
@@ -110,6 +123,7 @@ tidyverse
 transactiondata
 transactionsample
 USEPA
+usethis
 vectorized
 verifications
 Verifications

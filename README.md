@@ -18,7 +18,7 @@ Clinton Mccrowey, physical scientist - US EPA
     -   [Data Mart aggregate functions](#data-mart-aggregate-functions)
         -   [See the RAQSAPI vignette for more
             details](#see-the-raqsapi-vignette-for-more-details)
--   [Aknowledgements](#aknowledgements)
+-   [Acknowledgements](#acknowledgements)
 -   [References](#references)
 
 <!-- badges: start -->
@@ -34,7 +34,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--09--16-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--09--28-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -78,15 +78,14 @@ service, hardware, or user accounts that may utilize this package. </span></th>
 The RAQSAPI package for the R programming environment allows a R
 programming environment to connect to and retrieve data from the United
 States Environmental Protection Agency’s (US EPA) Air Quality System
-(AQS) Data Mart API v2 (Air Quality System)<sup>1</sup>
-<!-- ^[[Air Quality System (AQS) API](https://aqs.epa.gov/aqsweb/documents/data_api.html)] -->
-interface directly. This package enables the data user to omit legacy
-challenges including coercing data from a JSON object to a usable R
-object, retrieving multiple years of data, formatting API requests,
-retrieving results, handling credentials, requesting multiple pollutant
-data and rate limiting data requests. All the basic functionality of the
-API have been implemented that are available from the AQS API Data Mart
-server. The library connects to AQS Data Mart API via Hypertext Transfer
+(AQS) Data Mart API v2 (Air Quality System)<sup>1</sup> interface
+directly. This package enables the data user to omit legacy challenges
+including coercing data from a JSON object to a usable R object,
+retrieving multiple years of data, formatting API requests, retrieving
+results, handling credentials, requesting multiple pollutant data and
+rate limiting data requests. All the basic functionality of the API have
+been implemented that are available from the AQS API Data Mart server.
+The library connects to AQS Data Mart API via Hypertext Transfer
 Protocol (HTTP) so there is no need to install external ODBC drivers,
 configure ODBC connections or deal with the security vulnerabilities
 associated with them. Most functions have a parameter, return\_header
@@ -94,19 +93,17 @@ which by default is set to FALSE. If the user decides to set
 return\_header to TRUE, then that function will return a R
 AQS\_DATAMART\_APIv2 S3 object which is a two item named list.  
 The first item, ($Header) in the AQS\_DATAMART\_APIv2 object is a
-(tibble)<sup>2</sup>
-<!-- ^[see (https://tibble.tidyverse.org)for more information about tibbles.] -->
-which contains the header information. The Header contains status
-information regarding the request (success/fail), any applicable error
-messages returned from the API, if any exist, the URL used in the
-request, a date and time stamp noting when request was received and
-other useful information. The second item of the AQS\_DATAMART\_APIv2
-object ($Data) is a tibble which contains the actual data being
-requested. For functions with the return\_header option set to FALSE
-(default) a simple tibble is returned with just the $Data portion of the
-request. After each call to the API a five second stall is invoked to
-help prevent overloading the Data Mart API server and to serve as a
-simple rate limit.[1]
+(tibble)<sup>2</sup> which contains the header information. The Header
+contains status information regarding the request (success/fail), any
+applicable error messages returned from the API, if any exist, the URL
+used in the request, a date and time stamp noting when request was
+received and other useful information. The second item of the
+AQS\_DATAMART\_APIv2 object ($Data) is a tibble which contains the
+actual data being requested. For functions with the return\_header
+option set to FALSE (default) a simple tibble is returned with just the
+$Data portion of the request. After each call to the API a five second
+stall is invoked to help prevent overloading the Data Mart API server
+and to serve as a simple rate limit.[1]
 
 # Installing RAQSAPI
 
@@ -123,7 +120,7 @@ install.packages(pkgs="RAQSAPI", dependencies = TRUE )
 
 to install the development version of RAQSAPI, first If not already
 installed, install the remotes package and its dependencies. Then run
-the following in an R environment.
+the following in a R environment.
 
 ``` r
 remotes::install_github(repo = "USEPA/raqsapi",
@@ -162,8 +159,8 @@ existing user, to generate a new key simply call the aqs\_sign\_up
 function with the parameter “email” set to an existing account. A new
 key will be e-mailed to the account given.
 
-The credentials used to access the Data Mart API service are stored in
-an R environment variable that needs to be set every time the RAQSAPI
+The credentials used to access the Data Mart API service are stored in a
+R environment variable that needs to be set every time the RAQSAPI
 library is attached or the key is changed. Without valid credentials,
 the Data Mart server will reject any request sent to it. The key used
 with Data Mart is a key and is not a password, so the RAQSAPI library
@@ -282,11 +279,11 @@ groups data.
     Bureau)&gt;** (\_by\_cbsa).
 
 Within these families of aggregated data functions there are functions
-that call on the 11 different aggregate services that the Data Mart API
+that call on the 13 different aggregate services that the Data Mart API
 provides. **Note that not all aggregations are available for each
 service.**
 
-**These eleven services are**:
+**These thirteen services are**:
 
 1.  **Monitors** (*monitors\_by\_*)
 2.  **Sample Data** (*sampledata\_by\_*)
@@ -295,7 +292,7 @@ service.**
 5.  **Quality Assurance - Blanks Data** (*qa\_blanks\_by\_*)
 6.  **Quality Assurance - Collocated Assessments**
     (*qa\_collocated\_assessments\_by\_*)
-7.  **Quality Assurance - Flow Rate verifications**
+7.  **Quality Assurance - Flow Rate Verifications**
     (*qa\_flowrateverification\_by\_*)
 8.  **Quality Assurance - Flow Rate Audits**
     (*aqs\_qa\_flowrateaudit\_by\_*)
@@ -304,6 +301,11 @@ service.**
 10. **Quality Assurance - PEP Audits** (*qa\_pep\_audit\_by\_*)
 11. **Transaction Sample - AQS Submission data in transaction Format
     (RD)** (*aqs\_transactionsample\_by\_*)
+12. **Quality Assurance - Annual Performance Evaluations**
+    (aqs\_qa\_annualPeferomanceeval\_by\_\*)
+13. **Quality Assurance - Annual Performance Evaluations in the AQS  
+    Submission transaction format (RD)**
+    (*aqs\_qa\_annualpeferomanceevaltransaction\_by\_*)
 
 <table>
 <colgroup>
@@ -325,7 +327,7 @@ will take to return the results.</span></th>
 
 Aggregate functions are named
 AQS\_API&lt;service&gt;\_&lt;aggregation&gt;() where &lt;service&gt; is
-one of the 11 services listed above and &lt;aggregation&gt; is either
+one of the 13 services listed above and &lt;aggregation&gt; is either
 "\_by\_site“,”\_by\_county“,”\_by\_state“,”\_by\_box“,”\_by\_cbsa".
 
 ### See the RAQSAPI vignette for more details
@@ -334,7 +336,7 @@ one of the 11 services listed above and &lt;aggregation&gt; is either
 
 > RShowDoc(what=“RAQSAPIvignette,” type=“html,” package=“RAQSAPI”)
 
-# Aknowledgements
+# Acknowledgements
 
 The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge

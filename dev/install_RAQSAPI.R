@@ -147,6 +147,6 @@ RAQSAPICHECK <- function()
                         )
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)
-  devtools::revdep()
-  tools::checkMD5sums(dir=".")
-}
+  devtools::revdep(pkg = "RAQSAPI", recursive = TRUE)
+  if (!tools::checkMD5sums(dir = ".")) { warning("checkMD5sums, failed") }
+  }

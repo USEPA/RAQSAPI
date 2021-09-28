@@ -92,6 +92,8 @@ API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_MA functions: 
+\code{\link{aqs_qa_annualpeferomanceeval_by_MA}()},
+\code{\link{aqs_qa_annualperformanceevaltransaction_by_MA}()},
 \code{\link{aqs_qa_blanks_by_MA}()},
 \code{\link{aqs_qa_collocated_assessments_by_MA}()},
 \code{\link{aqs_qa_flowrateaudit_by_MA}()},

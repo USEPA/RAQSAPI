@@ -11,15 +11,26 @@ output: md_document
 * This is a new release
 
 ### Reason/Significant changes
-* Adds MD5
+* Add MD5
 * Correctly throws an error if a RAQSAPI function is used without
     providing credentials (issue 5)
 * Updated documentation (Thanks Hayley Brittingham)
 * a lot of code cleanup
+* minor issues in documentation fixed
 * RAQSAPI functions now checks parameters before sending calls to API (issue 6)
-* renamed non-exported functions containing dots to names with underscores.
-* added CITATION file
-
+* renamed non-exported functions containing dots in names with underscores.
+* added CITATION entry
+* 10 new functions
+    - aqs_qa_annualperformanceeval_by_county,
+    - aqs_qa_annualperformanceeval_by_MA,
+    - aqs_qa_annualperformanceeval_by_pqao
+    - aqs_qa_annualperformanceeval_by_site,
+    - aqs_qa_annualperformanceeval_by_state,
+    - aqs_qa_annualperformanceevaltransaction_by_county,
+    - aqs_qa_annualperformanceevaltransaction_by_MA
+    - aqs_qa_annualperformanceevaltransaction_by_pqao,
+    - aqs_qa_annualperformanceevaltransaction_by_site,
+    - aqs_qa_annualperformanceevaltransaction_by_state
 
 ## RAQSAPI 2.0.1
 * This is a new release.
@@ -31,6 +42,11 @@ output: md_document
 * separate AQSAPI.R into smaller more manageable files.
 * devtools::package_coverage() now works
 * lifecycle(maturing)
+* 4 new functions
+    - aqs_transactionsample_by_county
+    - aqs_transactionsample_by_MA
+    - aqs_transactionsample_by_site
+    - aqs_transactionsample_by_state
 
 ### Test environments
 * local R installation, Windows 10 R 4.0.3

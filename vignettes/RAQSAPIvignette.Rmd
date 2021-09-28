@@ -64,7 +64,7 @@ invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 ```{r child = "Troubleshooting.Rmd", echo = FALSE}
 ```
 
-```{r child = "Aknowledgements.Rmd", echo = FALSE}
+```{r child = "Acknowledgements.Rmd", echo = FALSE}
 ```
 
 # References

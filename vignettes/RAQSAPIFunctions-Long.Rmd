@@ -55,7 +55,17 @@ RAQSAPI_functions <- c(
 "aqs_monitors_by_site",  
 "aqs_monitors_by_state",  
 "aqs_parameters_by_class",  
-"aqs_pqaos",  
+"aqs_pqaos",
+"aqs_qa_annualPeferomanceeval_by_county",
+"aqs_qa_annualPeferomanceeval_by_MA",
+"aqs_qa_annualPeferomanceeval_by_pqao",
+"aqs_qa_annualPeferomanceeval_by_site",
+"aqs_qa_annualPeferomanceeval_by_state",
+"aqs_qa_annualPeferomanceevaltransaction_by_county",
+"aqs_qa_annualPeferomanceevaltransaction_by_MA",
+"aqs_qa_annualPeferomanceevaltransaction_by_pqao",
+"aqs_qa_annualPeferomanceevaltransaction_by_site",
+"aqs_qa_annualPeferomanceevaltransaction_by_state",
 "aqs_qa_blanks_by_county",  
 "aqs_qa_blanks_by_MA",  
 "aqs_qa_blanks_by_pqao",  
@@ -112,9 +122,18 @@ are available by the AQS Data Mart API.^[See
 Data Mart API] 
 
 # Variable descriptions and usage.
-These are all the available variables that can be used with various functions exported from the RAQSAPI library listed alphabetically. Not all of these variables are used with every function, and not all of these parameters are required. See the [RAQSAPI families of functions](#RAQSAPI families of functions) section to see which parameters are used with each function.
+These are all the available variables that can be used with various functions
+exported from the RAQSAPI library listed alphabetically. Not all of these
+variables are used with every function, and not all of these parameters are
+required. See the
+[RAQSAPI families of functions](#RAQSAPI families of functions) section to see
+which parameters are used with each function.
 
-* AQSobject: a object that is an AQS_DATAMART_APIv2 S3 object.
+* AQSobject: a R S3 object that is returned from RAQSAPI aggregate functions
+               where return_header is TRUE. An AQS_Data_Mart_APIv2 is a 2 item
+               named list in which the first item ($Header) is a tibble of
+               header information from the AQS API and the second item ($Data)
+               is a tibble of the data returned.
 
 * bdate: a R date object which represents the begin date of the data selection.
            Only data on or after this date will be returned.
@@ -314,7 +333,7 @@ These functions retrieve aggregated data from the Data Mart API and are
     functions return a tibble by default. If the return_Header parameter is
     set to TRUE an AQS_DATAMART_APIv2 S3 object is returned instead.
 
-* **These ten services are**:
+* **These thirteen services are**:
 1. **Monitors**: Returns operational information about the samplers (monitors)
                   used to collect the data. Includes identifying information,
                   operational dates, operating organizations, etc. Functions
@@ -426,6 +445,18 @@ These functions retrieve aggregated data from the Data Mart API and are
                      service contain *\*transactionsample_by_*\* in the
                      function name. Transaction sample data is only available
                      aggregated by site, county, state or monitoring agency.
+                     
+12. **Quality Assurance - Annual Performance Evaluations**:
+                     Quality assurance data  - annual performance evaluations.
+                     A performance evaluation must be conducted on each primary
+                     monitor once per year. The percent differences between
+                     known and measured concentrations  at several levels are
+                     used to assess the quality of the monitoring data.
+                     Functions using this service contain
+                     *\*aqs_qa_annualPeferomanceeval_by_*\* in the function
+                     name.
+
+13. **
 
 
 ### Data Mart aggregate functions _by_site
@@ -598,7 +629,7 @@ These are miscellaneous functions exported by RAQSAPI.
 
 RAQSAPI::aqs_removeheader is the function that the RAQSAPI library
 uses internally to coerce an AQS_DATAMART_APIv2 S3 object into a tibble.
-This is useful if the user has saves the output from another RAQSAPI function
+This is useful if the user saves the output from another RAQSAPI function
 with return_header = TRUE set but later decides that they want just a
 simple tibble object. This function takes only one variable:
 

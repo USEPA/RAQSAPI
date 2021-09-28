@@ -63,7 +63,7 @@ monitoring agency (MA) code provided for bdate - edate time
 frame. Includes data both in submitted and standard units
 }
 \note{
-The AQS API only allows for a single year of transactiondata to be
+The AQS API only allows for a single year of transaction data to be
 retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of
@@ -92,6 +92,8 @@ overloading the API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_state functions: 
+\code{\link{aqs_qa_annualpeferomanceeval_by_state}()},
+\code{\link{aqs_qa_annualperformanceevaltransaction_by_state}()},
 \code{\link{aqs_transactionsample_by_state}()}
 }
 \concept{Aggregate _by_state functions}

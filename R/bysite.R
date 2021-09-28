@@ -384,8 +384,8 @@ aqs_sampledata_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                        information returned from the API server mostly used
 #'                        for debugging purposes in addition to the data
 #'                        requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
-#'           summary data for the Sitenum, countycode and stateFIPS requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing annual
+#'           summary data for the sitenum, countycode and stateFIPS requested.
 #'           A AQS_Data Mart_APIv2 is a 2 item named list in which the first
 #'           item (\$Header) is a tibble of header information from the AQS API
 #'           and the second item (\$Data) is a tibble of the data returned.
@@ -430,13 +430,11 @@ aqs_annualsummary_by_site <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_blanks_by_site
 #' @description \lifecycle{stable}
-#'                 Aggregates multiple years of qa blank data where the blank
-#'                 data is aggregated at the site level and returns table
-#'                 with a tibble of Quality assurance data - blanks samples.
-#'                 Blanks are unexposed sample collection devices (e.g.,
-#'                 filters) that are transported with the exposed sample devices
-#'                 to assess if contamination is occurring during the transport
-#'                 or handling of the samples.
+#'        Returns a table of blank quality assurance data.
+#'        Blanks are unexposed sample collection devices (e.g.,
+#'        filters) that are transported with the exposed sample devices
+#'        to assess if contamination is occurring during the transport
+#'        or handling of the samples. Data is aggregated at the site level.
 #' @note The AQS API only allows for a single year of qa_blank data to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -457,10 +455,12 @@ aqs_annualsummary_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object that contains quality
-#'           assurance blank sample data for single monitoring site. An
-#'           AQS_Data_Mart_APIv2 is a 2 item named list in which the first item
-#'           ($Header) is a tibble of header information from the AQS API and
-#'           the second item ($Data) is a tibble of the data returned.
+#'           assurance blank sample data for single monitoring site for the
+#'           sitenum, countycode and stateFIPS requested for the time frame
+#'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
+#'           list in which the first item ($Header) is a tibble of header
+#'           information from the AQS API and the second item ($Data) is a
+#'           tibble of the data returned.
 #' @examples #Returns a tibble of PM2.5 blank
 #'           #  data for the Muscle Shoals site (#0014) in Colbert County, AL
 #'           #  for January 2018
@@ -764,4 +764,138 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_site)
   if (!return_header) transactionsample %<>% aqs_removeheader
   return(transactionsample)
+}
+
+
+#' @title aqs_qa_annualpeferomanceeval_by_site
+#' @description \lifecycle{stable}
+#'        Returns quality assurance performance evaluation data - aggregated by
+#'          site for a parameter code aggregated by matching input
+#'          parameter, sitenum, countycode and stateFIPS provided for
+#'          bdate - edate time frame.
+#' @note The AQS API only allows for a single year of quality assurance
+#'         Annual Performance Evaluation data to be retrieved at a time. This
+#'         function conveniently extracts date information from the bdate
+#'         and edate parameters then makes repeated calls to the AQSAPI
+#'         retrieving a maximum of one calendar year of data at a time. Each
+#'         calendar year of data requires a separate API call so multiple years
+#'         of data will require multiple API calls. As the number of years of
+#'         data being requested increases so does the length of time that it
+#'         will take to retrieve results. There is also a 5 second wait time
+#'         inserted between successive API calls to prevent overloading the API
+#'         server. This operation has a linear run time of
+#'         /(Big O notation: O/(n + 5 seconds/)/).
+#' @family Aggregate _by_site functions
+#' @inheritParams aqs_services_by_site
+#' @param return_header If FALSE (default) only returns data requested.
+#'                        If TRUE returns a AQSAPI_v2 object which is a two
+#'                        item list that contains header information returned
+#'                        from the API server mostly used for debugging
+#'                        purposes in addition to the data requested.
+#' @importFrom magrittr `%<>%`
+#' @examples #Returns an AQS_Data Mart_APIv2 S3 object or a tibble
+#'           #   containing annual performance evaluation data for ozone at the
+#'           #    Fairhope site in Baldwin County, AL for 2017
+#'  \dontrun{  aqs_qa_annualpeferomanceeval_by_site(parameter = "44201",
+#'                                                  bdate = as.Date("20170101",
+#'                                                          format = "%Y%m%d"),
+#'                                                  edate = as.Date("20171231",
+#'                                                           format = "%Y%m%d"),
+#'                                                  stateFIPS = "01",
+#'                                                  countycode = "003",
+#'                                                  sitenum = "0010"
+#'                                                  )
+#'                  }
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#'           performance evaluation data. for single monitoring site for the
+#'           sitenum, countycode and stateFIPS requested for the time frame
+#'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
+#'           list in which the first item ($Header) is a tibble of header
+#'           information from the AQS API and the second item ($Data) is a
+#'           tibble of the data returned.
+#' @export
+aqs_qa_annualpeferomanceeval_by_site <- function(parameter, bdate, edate,
+                                                 stateFIPS, countycode, sitenum,
+                                                 return_header = FALSE)
+{
+  params <- aqsmultiyearparams(parameter = parameter,
+                               bdate = bdate,
+                               edate = edate,
+                               stateFIPS = stateFIPS,
+                               countycode = countycode,
+                               sitenum = sitenum,
+                               service = "qaAnnualPerformanceEvaluations"
+                               )
+
+  qaape <- purrr::pmap(.l = params, .f = aqs_services_by_site)
+  if (!return_header) qaape %<>% aqs_removeheader
+  return(qaape)
+}
+
+
+#' @title aqs_qa_annualperformanceevaltransaction_by_site
+#' @description \lifecycle{stable}
+#'        Returns AQS submissions transaction format (RD) of the annual
+#'          performance evaluation data (raw). Includes data pairs for
+#'          QA - aggregated by site for a parameter code aggregated by matching
+#'          input parameter, sitenum, countycode and stateFIPS provided for
+#'          bdate - edate time frame.
+#' @note The AQS API only allows for a single year of quality assurance
+#'         Annual Performance Evaluations data to be retrieved at a time. This
+#'         function conveniently extracts date information from the bdate
+#'         and edate parameters then makes repeated calls to the AQSAPI
+#'         retrieving a maximum of one calendar year of data at a time. Each
+#'         calendar year of data requires a separate API call so multiple years
+#'         of data will require multiple API calls. As the number of years of
+#'         data being requested increases so does the length of time that it
+#'         will take to retrieve results. There is also a 5 second wait time
+#'         inserted between successive API calls to prevent overloading the API
+#'         server. This operation has a linear run time of
+#'         /(Big O notation: O/(n + 5 seconds/)/).
+#' @family Aggregate _by_site functions
+#' @inheritParams aqs_services_by_site
+#' @param return_header If FALSE (default) only returns data requested.
+#'                        If TRUE returns a AQSAPI_v2 object which is a two
+#'                        item list that contains header information returned
+#'                        from the API server mostly used for debugging
+#'                        purposes in addition to the data requested.
+#' @importFrom magrittr `%<>%`
+#' @examples #Returns an AQS_Data Mart_APIv2 S3 object or a tibble
+#'           #   containing annual performance evaluation data (raw) for ozone
+#'           # at the Fairhope site in Baldwin County, AL for 2017 in RD format.
+#'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_site(parameter = "44201",
+#'                                                   bdate = as.Date("20170101",
+#'                                                           format = "%Y%m%d"),
+#'                                                   edate = as.Date("20171231",
+#'                                                           format = "%Y%m%d"),
+#'                                                             stateFIPS = "01",
+#'                                                           countycode = "003",
+#'                                                              sitenum = "0010"
+#'                                                                )
+#'                  }
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#'           annual performance evaluation data in the RD format for a single
+#'           monitoring site for the sitenum, countycode and stateFIPS requested
+#'           for the time frame between bdate and edate in the AQS. An
+#'           AQS_Data_Mart_APIv2 is a 2 item named list in which the first item
+#'           ($Header) is a tibble of header information from the AQS API and
+#'           the second item ($Data) is a tibble of the data returned.
+#' @export
+aqs_qa_annualperformanceevaltransaction_by_site <- function(parameter, bdate,
+                                                            edate, stateFIPS,
+                                                            countycode, sitenum,
+                                                          return_header = FALSE)
+{
+  params <- aqsmultiyearparams(parameter = parameter,
+                               bdate = bdate,
+                               edate = edate,
+                               stateFIPS = stateFIPS,
+                               countycode = countycode,
+                               sitenum = sitenum,
+                               service = "transactionsQaAnnualPerformanceEvaluations"
+                               )
+
+  tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_site)
+  if (!return_header) tqaape %<>% aqs_removeheader
+  return(tqaape)
 }
