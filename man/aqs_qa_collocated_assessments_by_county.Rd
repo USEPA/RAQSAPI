@@ -103,7 +103,7 @@ Other Aggregate _by_county functions:
 \code{\link{aqs_annualsummary_by_county}()},
 \code{\link{aqs_dailysummary_by_county}()},
 \code{\link{aqs_monitors_by_county}()},
-\code{\link{aqs_qa_annualperformanceevaltransaction_by_county}()},
+\code{\link{aqs_qa_annualperformanceeval_by_county}()},
 \code{\link{aqs_qa_blanks_by_county}()},
 \code{\link{aqs_qa_flowrateaudit_by_county}()},
 \code{\link{aqs_qa_flowrateverification_by_county}()},

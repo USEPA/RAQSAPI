@@ -47,6 +47,9 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code,
                                 return_header = FALSE
                                 )
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -110,6 +113,9 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate,
                                                 return_header = FALSE
                                                 )
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -175,6 +181,9 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate,
                                               cedate = NA_Date_,
                                               return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -237,7 +246,9 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
                                        return_header = FALSE
                                        )
 {
- params <- aqsmultiyearparams(parameter = parameter,
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+  params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
                                MA_code = MA_code,
@@ -299,6 +310,9 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code,
                                       return_header = FALSE
                                       )
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -359,6 +373,9 @@ aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code,
                                    cbdate = NA_Date_, cedate = NA_Date_,
                                    return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -423,6 +440,9 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code,
                                 return_header = FALSE
                                 )
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -487,6 +507,8 @@ aqs_qa_annualpeferomanceeval_by_MA <- function(parameter, bdate, edate,
                                                MA_code,
                                                return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -552,6 +574,8 @@ aqs_qa_annualperformanceevaltransaction_by_MA <- function(parameter,
                                                                 MA_code,
                                                           return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, MA_code, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,

@@ -31,6 +31,9 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS,
                                     cbdate = NA_Date_, cedate = NA_Date_,
                                     return_header = FALSE)
 {
+    checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                   return_header)
+
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
   #  monitors API call accepts multiple years of data on the server, purrr::pmap
   #  is used so that the output is consistent with other RAQSAPI functions.
@@ -106,6 +109,9 @@ aqs_sampledata_by_state <- function(parameter, bdate, edate, stateFIPS,
                                     return_header = FALSE
                                     )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
 params <- aqsmultiyearparams(parameter = parameter,
                                    bdate = bdate,
                                    edate = edate,
@@ -173,6 +179,9 @@ aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                        return_header = FALSE
                                        )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -234,6 +243,9 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS,
                                      cbdate = NA_Date_, cedate = NA_Date_,
                                      return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -295,6 +307,9 @@ aqs_dailysummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                       return_header = FALSE
                                       )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -358,6 +373,9 @@ aqs_qa_collocated_assessments_by_state <- function(parameter, bdate, edate,
                                                    return_header = FALSE
                                                    )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -421,6 +439,9 @@ aqs_qa_flowrateverification_by_state <- function(parameter, bdate, edate,
                                                  return_header = FALSE
                                                  )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -484,6 +505,9 @@ aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
                                           return_header = FALSE
                                           )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -546,6 +570,9 @@ aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
                                          return_header = FALSE
                                          )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -605,6 +632,9 @@ aqs_qa_pep_audit_by_state <- function(parameter, bdate, edate, stateFIPS,
                                       return_header = FALSE
                                       )
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -664,6 +694,8 @@ aqs_qa_pep_audit_by_state <- function(parameter, bdate, edate, stateFIPS,
 aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS,
                                           return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -725,6 +757,8 @@ aqs_qa_annualpeferomanceeval_by_state <- function(parameter, bdate, edate,
                                                    stateFIPS,
                                                    return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -788,6 +822,8 @@ aqs_qa_annualperformanceevaltransaction_by_state <- function(parameter, bdate,
                                                              edate, stateFIPS,
                                                           return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,

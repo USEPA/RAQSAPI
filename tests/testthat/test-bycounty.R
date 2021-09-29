@@ -113,18 +113,18 @@ aqs_transactionsample_by_county(parameter = "88101",
                                 )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
-aqs_qa_annualPeferomanceeval_by_county(parameter = "44201",
-                                       bdate = as.Date("20170101",
-                                                       format = "%Y%m%d"),
-                                       edate = as.Date("20171231",
-                                                       format = "%Y%m%d"),
-                                       stateFIPS = "01",
-                                       countycode = "003",
-                                       return_header = TRUE
-                                       )[[1]]$Header$status %>%
-    expect_match(regexp = "Success")
+aqs_qa_annualperformanceeval_by_county(parameter = "44201",
+                                                   bdate = as.Date("20170101",
+                                                           format = "%Y%m%d"),
+                                                   edate = as.Date("20171231",
+                                                            format = "%Y%m%d"),
+                                                   stateFIPS = "01",
+                                                   countycode = "003",
+                                                   return_header = TRUE
+                                                )[[1]]$Header$status %>%
+      expect_match(regexp = "Success")
 
-aqs_qa_annualperformanceevaltransaction_by_site(parameter = "44201",
+aqs_qa_annualperformanceevaltransaction_by_county(parameter = "44201",
                                                 bdate = as.Date("20170101",
                                                              format = "%Y%m%d"),
                                                 edate = as.Date("20171231",

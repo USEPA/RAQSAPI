@@ -33,7 +33,10 @@
 aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                     minlon, maxlon, return_header = FALSE)
 {
-   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
+                 return_header)
+
+  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
   #  monitors API call accepts multiple years of data on the server, purrr::map
   #  is used so that the output is consistent with other RAQSAPI functions.
   params <- tibble(parameter = parameter,
@@ -113,6 +116,9 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                   minlon, maxlon, cbdate = NA_Date_,
                                   cedate = NA_Date_, return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -186,6 +192,9 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                      return_header = FALSE
                                      )
 {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -257,6 +266,9 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                     cedate = NA_Date_, return_header = FALSE
                                     )
 {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
+                 return_header)
+
     params <- aqsmultiyearparams(parameter = parameter,
                                  bdate = bdate,
                                  edate = edate,

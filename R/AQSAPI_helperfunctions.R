@@ -7,7 +7,7 @@ AQS_domain <- "aqs.epa.gov"
 #' @description \lifecycle{experimental}
 #'              a helper function used to check the validity of parameters being
 #'                sent to the API
-#' @param variables ... variables to be checked. Must be one of the parameters
+#' @param  ... variables to be checked. Must be one of the parameters
 #'                         being exported RAQSAPI functions. All other
 #'                         variables will be ignored.
 #' @note  this function will only check the variables exported by RAQSAPI meant

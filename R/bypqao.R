@@ -45,6 +45,9 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                   return_header = FALSE
                                   )
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -107,6 +110,9 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate,
                                                   return_header = FALSE
                                                   )
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -172,6 +178,9 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate,
                                                 return_header = FALSE
                                                 )
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -234,6 +243,9 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                          return_header = FALSE
                                          )
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -294,6 +306,9 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                         return_header = FALSE
                                         )
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -357,6 +372,9 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                      return_header = FALSE
                                      )
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
+                 return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -422,6 +440,8 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function(parameter, bdate, edate,
                                                   pqao_code,
                                                   return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,
@@ -487,6 +507,8 @@ aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter,
                                                             pqao_code,
                                                           return_header = FALSE)
 {
+  checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
+
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
                                edate = edate,

@@ -51,7 +51,8 @@ Imports:
     tibble,
     rlang,
     lifecycle
-Suggests: 
+Suggests:
+    spelling, 
     desc,
     devtools,
     goodpractice,
