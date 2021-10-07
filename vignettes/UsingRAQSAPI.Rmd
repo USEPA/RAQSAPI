@@ -15,7 +15,7 @@ vignette: >
 # Using The RAQSAPI library
 
 ## Load RAQSAPI                           
-  after successfully installing the RAQSAPI package, load the RAQSAPI library: 
+  after successfully installing the `RAQSAPI` package, load the RAQSAPI library: 
 
 ```R
 library(RAQSAPI)

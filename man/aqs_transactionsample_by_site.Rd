@@ -52,7 +52,7 @@ corresponding to the inputs provided.
 }
 \description{
 \lifecycle{stable}
-Returns transactionsample data - aggregated by site
+Returns transactionsample data aggregated by site
 in the AQS Submission Transaction Format (RD) sample (raw) data for
 a parameter code aggregated by matching input parameter, sitenum,
 countycode and stateFIPS provided for bdate - edate time frame.

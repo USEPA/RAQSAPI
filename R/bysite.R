@@ -726,7 +726,7 @@ aqs_qa_flowrateverification_by_site <- function(parameter, bdate, edate,
 
 #' @title aqs_transactionsample_by_site
 #' @description \lifecycle{stable}
-#'        Returns transactionsample data - aggregated by site
+#'        Returns transactionsample data aggregated by site
 #'          in the AQS Submission Transaction Format (RD) sample (raw) data for
 #'          a parameter code aggregated by matching input parameter, sitenum,
 #'          countycode and stateFIPS provided for bdate - edate time frame.

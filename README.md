@@ -34,7 +34,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--09--29-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--10--07-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -118,8 +118,8 @@ install.packages(pkgs="RAQSAPI", dependencies = TRUE )
 
 ## Option 2: Installing the development version of RAQSAPI
 
-to install the development version of RAQSAPI, first If not already
-installed, install the remotes package and its dependencies. Then run
+To install the development version of `RAQSAPI`, first if not already
+installed, install the `remotes` package and its dependencies. Then run
 the following in a R environment.
 
 ``` r
@@ -138,7 +138,7 @@ remotes::install_github(repo = "USEPA/raqsapi",
 
 ## Load RAQSAPI
 
-after successfully installing the RAQSAPI package, load the RAQSAPI
+after successfully installing the `RAQSAPI` package, load the RAQSAPI
 library:
 
 ``` r
@@ -268,14 +268,14 @@ groups data.
 
 **These seven families are**:
 
-1.  **\_by\_site**
-2.  **\_by\_county**
-3.  **\_by\_state**
-4.  **\_by\_&lt;latitude/longitude bounding box&gt;** (\_by\_box)
-5.  **\_by\_&lt;monitoring agency&gt;** (\_by\_MA)
-6.  **\_by\_&lt;Primary Quality Assurance Organization&gt;**
+-   **\_by\_site**
+-   **\_by\_county**
+-   **\_by\_state**
+-   **\_by\_&lt;latitude/longitude bounding box&gt;** (\_by\_box)
+-   **\_by\_&lt;monitoring agency&gt;** (\_by\_MA)
+-   **\_by\_&lt;Primary Quality Assurance Organization&gt;**
     (\_by\_pqao)
-7.  **\_by\_&lt;core based statistical area (as defined by the US census
+-   **\_by\_&lt;core based statistical area (as defined by the US census
     Bureau)&gt;** (\_by\_cbsa).
 
 Within these families of aggregated data functions there are functions
@@ -285,27 +285,27 @@ service.**
 
 **These thirteen services are**:
 
-1.  **Monitors** (*monitors\_by\_*)
-2.  **Sample Data** (*sampledata\_by\_*)
-3.  **Daily Summary Data** (*dailydata\_by\_*)
-4.  **Annual Summary Data** (*annualdata\_by\_*)
-5.  **Quality Assurance - Blanks Data** (*qa\_blanks\_by\_*)
-6.  **Quality Assurance - Collocated Assessments**
-    (*qa\_collocated\_assessments\_by\_*)
-7.  **Quality Assurance - Flow Rate Verifications**
-    (*qa\_flowrateverification\_by\_*)
-8.  **Quality Assurance - Flow Rate Audits**
-    (*aqs\_qa\_flowrateaudit\_by\_*)
-9.  **Quality Assurance - One Point Quality Control Raw Data**
-    (*qa\_one\_point\_qc\_by\_*)
-10. **Quality Assurance - PEP Audits** (*qa\_pep\_audit\_by\_*)
-11. **Transaction Sample - AQS Submission data in transaction Format
-    (RD)** (*aqs\_transactionsample\_by\_*)
-12. **Quality Assurance - Annual Performance Evaluations**
+-   **Monitors** (monitors\_by\_\*)
+-   **Sample Data** (sampledata\_by\_\*)
+-   **Daily Summary Data** (dailydata\_by\_\*)
+-   **Annual Summary Data** (annualdata\_by\_\*)
+-   **Quality Assurance - Blanks Data** (qa\_blanks\_by\_\*)
+-   **Quality Assurance - Collocated Assessments**
+    (qa\_collocated\_assessments\_by\_\*)
+-   **Quality Assurance - Flow Rate Verifications**
+    (qa\_flowrateverification\_by\_\*)
+-   **Quality Assurance - Flow Rate Audits**
+    (aqs\_qa\_flowrateaudit\_by\_\*)
+-   **Quality Assurance - One Point Quality Control Raw Data**
+    (qa\_one\_point\_qc\_by\_\*)
+-   **Quality Assurance - PEP Audits** (qa\_pep\_audit\_by\_\*)
+-   **Transaction Sample - AQS Submission data in transaction Format
+    (RD)** (aqs\_transactionsample\_by\_\*)
+-   **Quality Assurance - Annual Performance Evaluations**  
     (aqs\_qa\_annualPeferomanceeval\_by\_\*)
-13. **Quality Assurance - Annual Performance Evaluations in the AQS  
+-   **Quality Assurance - Annual Performance Evaluations in the AQS  
     Submission transaction format (RD)**
-    (*aqs\_qa\_annualpeferomanceevaltransaction\_by\_*)
+    (aqs\_qa\_annualpeferomanceevaltransaction\_by\_\*)
 
 <table>
 <colgroup>
