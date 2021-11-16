@@ -21,7 +21,8 @@ Clinton Mccrowey, physical scientist - US EPA
 -   [Acknowledgements](#acknowledgements)
 -   [References](#references)
 
-<!-- ![RAQSAPI hexsticker](./vignettes/figures/RAQSAPIhexsticker.png){width=20%} -->
+<img src="./vignettes/figures/RAQSAPIhexsticker.png" style="width:20.0%" />
+
 <!-- badges: start -->
 
 [![Project Status: Active – The project has reached a stable, usable
@@ -35,7 +36,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--11--15-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--11--16-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
