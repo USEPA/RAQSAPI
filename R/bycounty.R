@@ -3,7 +3,7 @@
 #' @title aqs_monitors_by_county
 #' @description \lifecycle{stable}
 #'  Returns a table of monitors and related metadata at sites with the
-#'    provided parameternum, stateFIPS and county_code for
+#'    provided parameter, stateFIPS and county_code for
 #'    bdate - edate time frame.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
@@ -104,17 +104,21 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'          }
 #' @export
 aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                     countycode, cbdate = NA_Date_,
-                                     cedate = NA_Date_, return_header = FALSE)
+                                     countycode,
+                                     duration = NA_character_,
+                                     cbdate = NA_Date_, cedate = NA_Date_,
+                                     return_header = FALSE
+                                     )
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+                 duration, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter,
                                    bdate = bdate,
                                    edate = edate,
                                    stateFIPS = stateFIPS,
                                    countycode = countycode,
+                                   duration = duration,
                                    service = "sampleData",
                                    cbdate = cbdate,
                                    cedate = cedate
@@ -131,8 +135,7 @@ aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                 Returns multiple years of data where annual data is
 #'                 aggregated at the county level. Returned is an annual summary
 #'                 matching the input parameter, stateFIPS, and county_code
-#'                 provided for bdate - edate time frame. The data
-#'                 returned is summarized at the annual level. Variables
+#'                 provided for bdate - edate time frame. Variables
 #'                 returned include mean value, maxima, percentiles, and etc. If
 #'                 return_header is FALSE (default) the object returned is a
 #'                 tibble, if TRUE an AQS_API_v2 object.
@@ -199,9 +202,11 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_blanks_by_county
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing blank sample data aggregated by
-#'                county number.
+#'        Returns a table of blank quality assurance data.
+#'        Blanks are unexposed sample collection devices (e.g.,
+#'        filters) that are transported with the exposed sample devices
+#'        to assess if contamination is occurring during the transport
+#'        or handling of the samples. Data is aggregated at the county level.
 #' @note The AQS API only allows for a single year of qa_blank data to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -265,8 +270,11 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_dailysummary_by_county
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object of daily summary data aggregated by county number.
+#'        Returns multiple years of data where daily data is
+#'        aggregated at the site level. Returned is a daily summary
+#'        matching the input parameter, stateFIPS and county_code
+#'        provided for bdate - edate time frame. Variables returned include
+#'        mean value, maxima, percentiles, and etc.
 #' @note The AQS API only allows for a single year of dailysummary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -857,4 +865,72 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_county)
   if (!return_header) tqaape %<>% aqs_removeheader
   return(tqaape)
+}
+
+
+#' @title aqs_quarterlysummary_by_county
+#' @description \lifecycle{stable}
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                object of quarterly summary data aggregated by cbsa
+#'                (Core Based Statistical Area) code.
+#' @note The AQS API only allows for a single year of quarterly summary to be
+#'         retrieved at a time. This function conveniently extracts date
+#'         information from the bdate and edate parameters then makes repeated
+#'         calls to the AQSAPI retrieving a maximum of one calendar year of data
+#'         at a time. Each calendar year of data requires a separate API call so
+#'         multiple years of data will require multiple API calls. As the number
+#'         of years of data being requested increases so does the length of time
+#'         that it will take to retrieve results. There is also a 5 second wait
+#'         time inserted between successive API calls to prevent overloading the
+#'         API server. This operation has a linear run time of
+#'         /(Big O notation: O/(n + 5 seconds/)/).
+#' @family Aggregate _by_county functions
+#' @inheritParams aqs_services_by_county
+#' @importFrom magrittr `%<>%`
+#' @param return_header If FALSE (default) only returns data requested.
+#'                        If TRUE returns a AQSAPI_v2 object which is a two
+#'                        item list that contains header information returned
+#'                        from the API server mostly used for debugging
+#'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for a single countycode
+#'           and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
+#'           list in which the first item (\$Header) is a tibble of header
+#'           information from the AQS API and the second item (\$Data) is a
+#'           tibble of the data returned.
+#' @examples # returns a tibble containing quarterly summaries for
+#'           #  FRM/FEM PM2.5 data for Wake County, NC between January
+#'           #  and February 2016
+#'  \dontrun{aqs_quarterlysummary_by_county(parameter = "88101",
+#'                                          bdate = as.Date("20160101",
+#'                                                           format = "%Y%m%d"),
+#'                                          edate = as.Date("20170228",
+#'                                                           format = "%Y%m%d"),
+#'                                          stateFIPS = "37",
+#'                                          countycode = "183"
+#'                                         )
+#'          }
+#' @export
+aqs_quarterlysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
+                                       countycode, cbdate = NA_Date_,
+                                       cedate = NA_Date_, return_header = FALSE)
+{
+  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
+                 cbdate, cedate, return_header)
+
+  params <- aqsmultiyearparams(parameter = parameter,
+                               bdate = bdate,
+                               edate = edate,
+                               stateFIPS = stateFIPS,
+                               countycode = countycode,
+                               service = "quarterlyData",
+                               cbdate = cbdate,
+                               cedate = cedate,
+                               AQS_domain = AQS_domain
+                               )
+
+  quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
+  if (!return_header) quarterlysummary %<>% aqs_removeheader
+  return(quarterlysummary)
 }

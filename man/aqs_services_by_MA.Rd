@@ -11,7 +11,8 @@ aqs_services_by_MA(
   MA_code,
   service,
   cbdate = NA_Date_,
-  cedate = NA_Date_
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
 )
 }
 \arguments{
@@ -46,6 +47,9 @@ updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
+
+\item{AQS_domain}{a R string object containing the domain that should be
+used in constructing the API call.}
 }
 \value{
 a AQS_DATAMART_APIv2 S3 object that is the return value from the

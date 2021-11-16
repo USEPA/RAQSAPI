@@ -79,9 +79,8 @@ tibble of header information from the AQS API and the second item
 Returns multiple years of data where annual data is
 aggregated at the bounding box level. Returned is an annual
 summary within the input parameter, latitude/longitude
-bounding box provided for bdate - edate time frame. The data
-returned is summarized at the annual level Variables returned
-include mean value, maxima, percentiles, and etc. If
+bounding box provided for bdate - edate time frame. Variables
+returned include mean value, maxima, percentiles, and etc. If
 return_header is FALSE (default) the object returned is a
 tibble, if TRUE an AQS_API_v2 object.
 }

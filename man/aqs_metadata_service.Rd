@@ -4,12 +4,19 @@
 \alias{aqs_metadata_service}
 \title{aqs_metadata_service}
 \usage{
-aqs_metadata_service(filter, service = NA_character_)
+aqs_metadata_service(
+  filter,
+  service = NA_character_,
+  AQS_domain = "aqs.epa.gov"
+)
 }
 \arguments{
 \item{filter}{a character string representing the filter being applied}
 
 \item{service}{a character string representing the service}
+
+\item{AQS_domain}{a R string object containing the domain that should be
+used in constructing the API call.}
 }
 \value{
 a AQS_DATAMART_APIv2 S3 object that is the return value from the

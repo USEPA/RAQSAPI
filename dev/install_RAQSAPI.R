@@ -32,6 +32,7 @@ library(knitr)
 #' @noRd
 RAQSAPICLEAN <- function(NAMESPACE = TRUE)
 {
+  if ("RAQSAPI" %in% loaded_packages()$package) { unload("RAQSAPI") }
   if ("RAQSAPI" %in% installed.packages()) { remove.packages("RAQSAPI") }
   if (NAMESPACE == TRUE) {unlink("NAMESPACE")}
   unlink("README.md")
@@ -58,8 +59,8 @@ RAQSAPICLEAN <- function(NAMESPACE = TRUE)
 #' @nord
 buildRAQSAPIbase <- function()
 {
+  if ("RAQSAPI" %in% loaded_packages()$package) { unload("RAQSAPI") }
   invisible(usethis::use_lifecycle())
-  roxygen2::roxygenize()
   devtools::document(quiet = TRUE,
                      roclets = c("collate", "namespace", "rd", "vignette"))
   devtools::build_readme()
@@ -81,11 +82,11 @@ buildRAQSAPIbase <- function()
 RAQSAPIBUILD <- function()
 {
   buildRAQSAPIbase()
-  devtools::build(binary = FALSE, manual = TRUE, vignettes = TRUE, quiet = TRUE)
+  devtools::build(binary = TRUE, quiet = TRUE)
 }
 
 
-#' @name RAQSAPIBUILD
+#' @name RAQSAPIINSTALL
 #' @description builds and installs package:RAQSAPI
 #' @note this will build and install a generic version RAQSAPI as if it were
 #'   being installed from CRAN. Package developers might want to consider using
@@ -97,7 +98,6 @@ RAQSAPIBUILD <- function()
 RAQSAPIINSTALL <- function()
 {
   buildRAQSAPIbase()
-  #devtools::build_manual()
   devtools::install(reload = TRUE, quiet = TRUE, dependencies = TRUE,
                     upgrade = "always", build_vignettes = TRUE, quick = FALSE)
 }
@@ -127,8 +127,8 @@ RAQSAPIINSTALL <- function()
 RAQSAPICHECK <- function()
 {
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
-  if(!file.exists("NAMESPACE")) {stop("NAMESPACE fille missing!")}
-  if(!file.exists("README.md")) {stop("README.md fille missing!")}
+  if (!file.exists("NAMESPACE")) {stop("NAMESPACE fille missing!")}
+  if (!file.exists("README.md")) {stop("README.md fille missing!")}
   devtools::spell_check(vignettes = TRUE, use_wordlist = TRUE)
   # spelling::spell_check_files(path = "./dev/contributing.Rmd",
   #                   ignore = read.csv(file = "./inst/WORDLIST",

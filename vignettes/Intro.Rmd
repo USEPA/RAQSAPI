@@ -23,7 +23,8 @@ service, hardware, or user accounts that may utilize this package. </span> |
 | -- |
 
 # Introduction
-The RAQSAPI package for the R programming environment allows a R programming
+
+The `RAQSAPI` package for the R programming environment allows a R programming
   environment to connect to and retrieve data from the United States
   Environmental Protection Agency's (US EPA) Air Quality System (AQS) Data Mart
   API v2 (Air Quality System)[@AQSDataMartWelcome]

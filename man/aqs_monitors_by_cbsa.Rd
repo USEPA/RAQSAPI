@@ -59,7 +59,7 @@ tibble of the data returned.
 \description{
 \lifecycle{stable}
 Returns a table of monitors at all sites with the provided
-parameternum, aggregated by Core Based Statistical Area (CBSA) for
+parameter, aggregated by Core Based Statistical Area (CBSA) for
 bdate - edate time frame.
 }
 \section{by_cbsa (By Core Based Statistical Area, as defined by the US Census Bureau) aggregate functions}{

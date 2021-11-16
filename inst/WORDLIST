@@ -1,7 +1,8 @@
+Acknowledgements
 annualdata
 annualdataby
 annualpeferomanceeval
-annualpeferomanceevaltransaction
+annualperformanceevaltransaction
 annualsummary
 Analytics
 Angly
@@ -16,6 +17,7 @@ aqsremoveheader
 AQSobject
 aqsweb
 Atlassian
+badgecreator
 Badgecreatr
 bdate
 bitbucket
@@ -50,7 +52,11 @@ flowrateaudit
 flowrateverification
 geospatial
 gh
+github
+Github
 GitHub
+gitignore
+quarterlysummary
 Hadley
 Hogervorst
 https
@@ -60,6 +66,9 @@ Kirill
 lifecycle
 Lifecycle
 Linter
+lintr
+Lintr
+img
 io
 isavailable
 JSON
@@ -95,7 +104,9 @@ RAQSAPIBUILD
 RAQSAPICHECK
 RAQSAPICLEAN
 RAQSAPIvignette
+Readme
 README
+Repostatus
 RESTful
 revisionhistory
 removeheader
@@ -122,6 +133,7 @@ tibbles
 tidyverse
 transactiondata
 transactionsample
+Travis
 USEPA
 usethis
 vectorized

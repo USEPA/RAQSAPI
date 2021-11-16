@@ -58,7 +58,7 @@ latitude/longitude bounding box (_by_box).
 \description{
 \lifecycle{stable}
 Returns a table of monitors and related metadata sites with the provided
-parameternum, aggregated by latitude/longitude bounding box (_by_box) for
+parameter, aggregated by latitude/longitude bounding box (_by_box) for
 bdate - edate time frame.
 }
 \section{by_box aggregate functions}{

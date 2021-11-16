@@ -67,8 +67,11 @@ tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3
-object of daily summary data aggregated by county number.
+Returns multiple years of data where daily data is
+aggregated at the site level. Returned is a daily summary
+matching the input parameter, stateFIPS and county_code
+provided for bdate - edate time frame. Variables returned include
+mean value, maxima, percentiles, and etc.
 }
 \note{
 The AQS API only allows for a single year of dailysummary to be
@@ -107,6 +110,8 @@ Other Aggregate _by_county functions:
 \code{\link{aqs_qa_flowrateverification_by_county}()},
 \code{\link{aqs_qa_one_point_qc_by_county}()},
 \code{\link{aqs_qa_pep_audit_by_county}()},
+\code{\link{aqs_quarterlysummary_by_county}()},
+\code{\link{aqs_quarterlysummary_by_site}()},
 \code{\link{aqs_sampledata_by_county}()},
 \code{\link{aqs_transactionsample_by_county}()}
 }

@@ -148,5 +148,14 @@ aqs_qa_annualperformanceevaltransaction_by_site(parameter = "44201",
                                                 )[[1]]$Header$status %>%
   expect_match(regexp = "Success")
 
+aqs_quarterlysummary_by_site(parameter = "88101",
+                             bdate = as.Date("20160101", format = "%Y%m%d"),
+                             edate = as.Date("20170228", format = "%Y%m%d"),
+                             stateFIPS = "37",
+                             countycode = "183",
+                             sitenum = "0014",
+                             return_header = TRUE
+                             )[[1]]$Header$status %>%
+    expect_match(regexp = "Success")
 
 })

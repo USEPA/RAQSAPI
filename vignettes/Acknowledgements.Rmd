@@ -19,10 +19,10 @@ mentioned in the DESCRIPTION file. Here we attempt to acknowledge those sources
 with them RAQSAPI would not be possible.
 
 * README badges are provided by R package badgecreator[@package:badgecreatr].
-* The R package usethis[@package:usethis] was used to generate github actions
+* The R package usethis[@package:usethis] was used to generate GitHub actions
     for Continuous integration (CI).
 * Code cleanup was assisted by the R package lintr[@package:lintr]
 * the function *install.packages* are provided by the R package utils[@RBase]
 * the function *install_github* are provided by the R package remotes[
     @package:remotes]
-
+* .gitignore file borrowed examples from https://github.com/github/gitignore/blob/master/R.gitignore

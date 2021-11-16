@@ -11,6 +11,7 @@ aqs_sampledata_by_site(
   stateFIPS,
   countycode,
   sitenum,
+  duration = NA_character_,
   cbdate = NA_Date_,
   cedate = NA_Date_,
   return_header = FALSE
@@ -40,6 +41,17 @@ list of available county codes for each state.}
 \item{sitenum}{a R character object which represents the 4 digit site number
 (with leading zeros) within the county and state being
 requested.}
+
+\item{duration}{an optional R character string that represents the
+parameter duration code that limits returned data
+to a specific sample duration. The default value of
+NA_character_ results in no filtering based on
+duration code.Valid durations include actual sample
+durations and not calculated durations such as 8
+hour CO or $O_3$ rolling averages, 3/6 day PM
+averages or Pb 3 month rolling averages.
+@seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
+available duration codes.}
 
 \item{cbdate}{a R date object which represents a "beginning
 date of last change" that indicates when the data was last

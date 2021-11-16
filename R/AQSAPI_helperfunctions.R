@@ -1,6 +1,6 @@
 user_agent <- "RAQSAPI library for R"
 server <- "AQSDatamartAPI"
-AQS_domain <- "aqs.epa.gov"
+#AQS_domain <- "aqs.epa.gov"
 
 
 #' @title checkaqsparams
@@ -15,7 +15,7 @@ AQS_domain <- "aqs.epa.gov"
 #'           called directly by the end user or to be called outside of RAQSAPI.
 #'          variables will remain unchanged.
 #' @importFrom lubridate is.Date
-#' @importFrom rlang abort call_frame
+#' @importFrom rlang abort call_frame format_error_bullets
 #' @importFrom dplyr between
 #' @importFrom glue glue
 #' @importFrom magrittr `%<>%`
@@ -23,10 +23,12 @@ AQS_domain <- "aqs.epa.gov"
 #' @noRd
 checkaqsparams <- function(...)
 {
-  message <- ""
+  #Note: the variable errmessage does not follow this project's style guidelines,
+  #  This is to ensure that the output string format looks nice.
+  errmessage <- vector()
   error <- FALSE
   ellipsis_args <- list(...)
-  names(ellipsis_args) <- match.call(expand.dots = FALSE)$...
+  names(ellipsis_args) <- names(match.call(expand.dots = FALSE)$...)
 
   if ("stateFIPS" %in% names(ellipsis_args))
   {
@@ -35,169 +37,204 @@ checkaqsparams <- function(...)
         )
     {
       error <- TRUE
-      message %<>% glue("stateFIPS must be a two digit number (represented as a
-                       character string), please pad stateFIPS less than 2
-                       digits with leading zeros\n")
+      errmessage %<>% c('x' =
+      "stateFIPS must be a two digit number (represented as a character string),
+       please pad stateFIPS less than 2 digits with leading zeros"
+                        )
     }
   }
 
-  if ("countycode" %in% ellipsis_args)
+  if ("countycode" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$countycode) != 3 |
         !is.character(ellipsis_args$countycode))
     {
       error <- TRUE
-      message %<>% glue("countycode must be a three digit number
-            (represented as a character string),
-            please pad countycode
-            less than three digits with leading zeros")
+      errmessage %<>% c('x' =
+      "countycode must be a three digit number (represented as a character
+      string), please pad countycode less than three digits with leading zeros"
+                        )
     }
   }
 
-  if ("sitenum" %in% ellipsis_args)
+  if ("sitenum" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$sitenum) != 4 |
         !is.character(ellipsis_args$sitenum))
     {
       error <- TRUE
-      message %<>% glue("sitenum must be a four digit number
-            (represented as a character string),
-             please pad sitenum less than four digits with leading zeros")
-    }
+      errmessage %<>% c('x' =
+      "sitenum must be a four digit number (represented as a character string),
+       please pad sitenum less than four digits with leading zeros"
+                       )
+          }
   }
 
-  if ("MA_code" %in% ellipsis_args)
+  if ("MA_code" %in% names(ellipsis_args))
   {
     if ((nchar(ellipsis_args$MA_code) != 4 |
          nchar(ellipsis_args$MA_code) != 3) |
         !is.character(ellipsis_args$MA_code))
     {
       error <- TRUE
-      message %<>% glue("MA_code must be a three or four digit number
-            (represented as a character string),
-             please pad MA_code less than three or four digits with
-             leading zeros")
+      errmessage %<>% c('x' =
+      "MA_code must be a three or four digit number (represented as a character
+       string), please pad MA_code less than three or four digits with
+       leading zeros"
+                        )
     }
   }
 
-  if ("pqao_code" %in% ellipsis_args)
+  if ("pqao_code" %in% names(ellipsis_args))
   {
     if ((nchar(ellipsis_args$pqao_code) != 4 |
          nchar(ellipsis_args$pqao_code) != 3) |
         !is.character(ellipsis_args$pqao_code))
     {
-      message %<>% glue("pqao_code must be a three or four digit number
-            (represented as a character string),
-             please pad pqao_code less than three or four digits with
-             leading zeros")
+      errmessage %<>% c('x' =
+      "pqao_code must be a three or four digit number (represented as a
+      character string), please pad pqao_code less than three or four digits
+      with leading zeros"
+                        )
     }
   }
-  if ("cbsa_code" %in% ellipsis_args)
+  if ("cbsa_code" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$cbsa_code) != 5 |
         !is.character(ellipsis_args$cbsa_code))
     {
-      message %<>% glue("cbsa_code must be a five digit number
-            (represented as a character string),
-             please pad cbsa_code less than five digits with leading zeros")
+      errmessage %<>% c('x' =
+      "cbsa_code must be a five digit number (represented as a character string),
+      please pad cbsa_code less than five digits with leading zeros"
+                        )
     }
   }
-  if ("POC" %in% ellipsis_args)
+  if ("POC" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$POC) != 1 |
         !is.character(ellipsis_args$POC))
     {
       error <- TRUE
-      message %<>% glue("POC must be a single digit number
-            (represented as a character string)")
+      errmessage %<>% c('x' =
+      "POC must be a single digit number (represented as a character string)"
+                       )
     }
   }
-  if ("bdate" %in% ellipsis_args)
+  if ("bdate" %in% names(ellipsis_args))
   {
     if (!is.Date(ellipsis_args$bdate))
     {
-      message %<>% glue("bdate must be an R date object")
-    }
+      error <- TRUE
+      errmessage %<>% c('x' = "bdate must be an R date object")
+        }
   }
-  if ("edate" %in% ellipsis_args)
+  if ("edate" %in% names(ellipsis_args))
   {
     if (!is.Date(ellipsis_args$edate))
     {
-      message %<>% glue("edate must be an R date object")
+      error <- TRUE
+      errmessage %<>% c('x' = "edate must be an R date object")
     }
   }
-  if ("cbdate" %in% ellipsis_args)
+  if ("cbdate" %in% names(ellipsis_args))
   {
     if (!is.Date(ellipsis_args$cbdate) & !is.null(ellipsis_args$cbdate))
     {
-      message %<>% glue("cbdate must be an R date object")
+      error <- TRUE
+      errmessage %<>% c('x' = "cbdate must be an R date object")
     }
   }
-  if ("cedate" %in% ellipsis_args)
+  if ("cedate" %in% names(ellipsis_args))
   {
     if (!is.Date(ellipsis_args$cedate) & !is.null(ellipsis_args$cedate))
     {
       error <- TRUE
-      message %<>% glue("cedate must be an R date object")
+      errmessage %<>% c('x' = "cedate must be an R date object")
     }
   }
-  if ("email" %in% ellipsis_args)
+  if ("email" %in% names(ellipsis_args))
   {
     if (!isValidEmail(ellipsis_args$email))
     {
       error <- TRUE
-      message %<>% glue("invalid email address entered")
+      errmessage %<>% c('x' = "invalid email address entered")
     }
   }
-  if ("minlat" %in% ellipsis_args)
+  if ("minlat" %in% names(ellipsis_args))
   {
     if ((!between(as.double(ellipsis_args$minlat), -90, 90)) |
-        !is.character(ellipsis_args$minlat)
-       )
+        !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
-      message %<>% glue("minlat must be a numeric (expressed as a string)
-                       between -90 and 90")
+      errmessage %<>% c('x' =
+      "minlat must be a numeric (expressed as a string) between -90 and 90"
+                       )
     }
   }
-  if ("maxlat" %in% ellipsis_args)
+  if ("maxlat" %in% names(ellipsis_args))
   {
     if ((!between(as.double(ellipsis_args$maxlat), -90, 90)) |
-        !is.character(ellipsis_args$minlat)
-       )
+        !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
-      message %<>% glue("maxlat must be a numeric (expressed as a string)
-                       between -90 and 90")
+      errmessage %<>% c('x' =
+      "maxlat must be a numeric (expressed as a string) between -90 and 90"
+                        )
     }
   }
-  if ("minlon" %in% ellipsis_args)
+  if ("minlon" %in% names(ellipsis_args))
   {
     if ((!between(as.double(ellipsis_args$minlon), -180, 180)) |
         !is.character(ellipsis_args$minlon)
        )
     {
       error <- TRUE
-      message %<>% glue("minlon must be a numeric (expressed as a string)
-                       between -180 and 180")
+      errmessage %<>% c('x' =
+      "minlon must be a numeric (expressed as a string) between -180 and 180"
+                        )
     }
   }
-    if ("maxlon" %in% ellipsis_args)
+    if ("maxlon" %in% names(ellipsis_args))
   {
     if ((!between(as.double(ellipsis_args$maxlon), -180, 180)) |
         !is.character(ellipsis_args$maxlon)
        )
     {
       error <- TRUE
-      message %<>% glue("maxlon must be a numeric (expressed as a string)
-                       between -180 and 180")
+      errmessage %<>% c('x' =
+      "maxlon must be a numeric (expressed as a string) between -180 and 180"
+                        )
     }
+  }
+  if ("duration" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$duration) != 1 |
+        !is.character(ellipsis_args$duration) &
+        ellipsis_args$duration %in% 1:9 |
+        ellipsis_args$duration %in% LETTERS[1:26]
+        )
+    {
+      error <- TRUE
+      errmessage %<>% c('x' =
+      "duration must be a character from '1' to '9' or 'A' to 'Z'
+       (represented as a character string)"
+                        )
+    }
+  }
+  if ("return_header" %in% names(ellipsis_args))
+    {
+      if (!is.logical(ellipsis_args$return_header))
+        {
+          error <- TRUE
+          errmessage %<>% c('x' = "return_header must be of type logical")
+        }
   }
   if (error)
     {
       callingfunction <- rlang::call_frame(n = 2)$fn_name
-      message %<>% glue("error in {callingfunction}\n {.}")
-      abort(message = message)
+      if (is.null(callingfunction)) callingfunction <- "Unknown Environment"
+      callingfunction <- glue(" in: {callingfunction}")
+      c('i' = callingfunction, errmessage) %>% abort
     }
 }
 
@@ -209,12 +246,10 @@ checkaqsparams <- function(...)
 #'                 sending parameters to AQS RESTFUL API calls,
 #'                 All NA and NULL values will be removed. This
 #'                 function is not intended for use by end users.
-#'
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
 #' @param separator a string that should be used to separate variables
 #'                   in the return value
-#'
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr `%>%`
@@ -236,7 +271,6 @@ format_variables_for_api <- function(x, separator="&")
 
 
 #' @title format_multiple_params_for_api
-#'
 #' @description a helper function that accepts a list of parameters
 #'                 and returns a string vector of separator separated variables
 #'                 for use in sending parameters to AQS RESTFUL API calls, All
@@ -245,12 +279,10 @@ format_variables_for_api <- function(x, separator="&")
 #'                 for use with API code with multiple pollution codes for other
 #'                 use cases use the generic form of this function use the
 #'                 helper function @seealso format_variables_for_api.
-#'
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
 #' @param separator a string that should be used to separate variables
-#'                   in the return value
-#'
+#'                   in the return value.
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @noRd
@@ -270,14 +302,11 @@ format_multiple_params_for_api <- function(x, separator=",")
 
 
 #' @title aqs_ratelimit
-#'
 #' @description a helper function that should not be called externally, used
 #'                 as a primitive rate limit function for aqs.
-#'
 #' @param waittime the number of seconds, encoded as a numeric, that the API
 #'                     should wait after performing a API query
 #'                     (defaults to 5 seconds, as recommended by the AQS team).
-#'
 #' @return NULL
 #' @noRd
 aqs_ratelimit <- function(waittime=5L)
@@ -312,6 +341,8 @@ aqs_ratelimit <- function(waittime=5L)
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @importFrom magrittr `%<>%` `%>%`
 #' @importFrom dplyr mutate select arrange
 #' @importFrom lubridate ymd_hm
@@ -327,12 +358,12 @@ aqs_ratelimit <- function(waittime=5L)
 #'            returned.
 #' @noRd
 aqs <- function(service, filter = NA, user = NA,
-                    user_key = NA, variables = NULL)
+                    user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
 {
   if (is.null(getOption("aqs_username")) |
       is.null(getOption("aqs_key")))
-  {stop("please enter user credentials before using RAQSAPI functions, please
-        refer to \'?aqs_credentials()\' for useage infomation \n")}
+  {stop("please enter user credentials before using RAQSAPI functions,\n
+         please refer to \'?aqs_credentials()\' for useage infomation \n")}
 
   user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
     httr::user_agent()
@@ -363,7 +394,6 @@ aqs <- function(service, filter = NA, user = NA,
                           url = path,
                           query = query
                          )
-
     AQSresult <- httr::GET(url,
                            user_agent
                            )
@@ -407,20 +437,15 @@ aqs <- function(service, filter = NA, user = NA,
 }
 
 #' @title isValidEmail
-#'
 #' @description a helper function that checks the input string has the form
 #'                \<character\>\<AT\>\<character\>.\<character\> with length
 #'                of at least 2 can be used to check if the input has the form
 #'                of a valid e-mail address.
-#'
 #' @param email a string which represents the parameter code of the air
 #'                   pollutant related to the data being requested.
-#'
 #' @note since this code relies on using regex the implementation is not perfect
 #'         and may not work as expected all the time but overall generally works
 #'         as expected.
-#'
-#'
 #' @return Boolean
 #' @noRd
 isValidEmail <- function(email) {
@@ -431,65 +456,67 @@ isValidEmail <- function(email) {
 
 
 #' @title aqs_services_by_site
-#'
 #' @description a helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by site then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#'
 #' @family Aggregate _by_site functions
-#'
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'               selection. Only data on or before this date will be returned.
-#'
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zero) for the state being
 #'                   requested. @seealso [aqs_states()] for the list of
 #'                   available FIPS codes.
-#'
 #' @param countycode a R character object which represents the 3 digit state
 #'                       FIPS code for the county being requested (with leading
 #'                       zero(s)). @seealso [aqs_counties_by_state()] for the
 #'                       list of available county codes for each state.
-#'
 #' @param sitenum a R character object which represents the 4 digit site number
 #'                 (with leading zeros) within the county and state being
 #'                 requested.
-#'
+#' @param duration an optional R character string that represents the
+#'                           parameter duration code that limits returned data
+#'                           to a specific sample duration. The default value of
+#'                           NA_character_ results in no filtering based on
+#'                           duration code.Valid durations include actual sample
+#'                           durations and not calculated durations such as 8
+#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
+#'                           averages or Pb 3 month rolling averages.
+#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS
 #'                    API. For a list of available services @seealso
 #'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
 #' @param cbdate a R date object which represents a "beginning
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
 #'                   date. Only data that changed on or after this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
 #' @param cedate a R date object which represents an "end
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cedate is used to filter data based on the change
 #'                   date. Only data that changed on or before this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 aqs_services_by_site <- function(parameter, bdate, edate,
-                                stateFIPS, countycode, sitenum, service,
-                                cbdate = NA_Date_, cedate = NA_Date_)
+                                 stateFIPS, countycode, sitenum,
+                                 duration = NA_character_, service,
+                                 cbdate = NA_Date_, cedate = NA_Date_,
+                                 AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
       filter = "bySite",
@@ -501,67 +528,73 @@ aqs_services_by_site <- function(parameter, bdate, edate,
                        state = stateFIPS,
                        county = countycode,
                        site = sitenum,
+                       duration = duration,
                        cbdate = cbdate,
                        cedate = cedate
-                      )
+                      ),
+      AQS_domain = AQS_domain
       )
 }
 
 #' @title aqs_services_by_county
-#'
 #' @description a helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by county then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#'
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'                  selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'                  selection. Only data on or before this date will be
 #'                  returned.
-#'
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                      FIPS code (with leading zero) for the state being
 #'                      requested. @seealso [aqs_states()] for the list of
 #'                      available FIPS codes.
-#'
 #' @param countycode a R character object which represents the 3 digit state
 #'                       FIPS code for the county being requested (with leading
 #'                       zero(s)). @seealso [aqs_counties_by_state()] for the
 #'                       list of available county codes for each state.
-#'
+#' @param duration an optional R character string that represents the
+#'                           parameter duration code that limits returned data
+#'                           to a specific sample duration. The default value of
+#'                           NA_character_ results in no filtering based on
+#'                           duration code.Valid durations include actual sample
+#'                           durations and not calculated durations such as 8
+#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
+#'                           averages or Pb 3 month rolling averages.
+#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS API
 #'                    For a list of available services @seealso
 #'             \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
 #' @param cbdate a R date object which represents a "beginning
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
 #'                   date. Only data that changed on or after this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
 #' @param cedate a R date object which represents an "end
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cedate is used to filter data based on the change
 #'                   date. Only data that changed on or before this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 aqs_services_by_county <- function(parameter, bdate, edate,
-                                  stateFIPS, countycode, service,
-                                  cbdate = NA_Date_, cedate = NA_Date_)
+                                   stateFIPS, countycode, service,
+                                   duration = NA_character_,
+                                   cbdate = NA_Date_, cedate = NA_Date_,
+                                   AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
           filter = "byCounty",
@@ -572,61 +605,68 @@ aqs_services_by_county <- function(parameter, bdate, edate,
                            edate = format(edate, format = "%Y%m%d"),
                            state = stateFIPS,
                            county = countycode,
+                           duration = duration,
                            cbdate = cbdate,
                            cedate = cedate
-          )
+          ),
+      AQS_domain = AQS_domain
   )
 }
 
 
 #' @title aqs_services_by_state
-#'
 #' @description a helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by State then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#'
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'               selection. Only data on or before this date will be returned.
-#'
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                      FIPS code (with leading zero) for the state being
 #'                      requested. @seealso [aqs_states()] for the list of
 #'                      available FIPS codes.
-#'
+#' @param duration an optional R character string that represents the
+#'                           parameter duration code that limits returned data
+#'                           to a specific sample duration. The default value of
+#'                           NA_character_ results in no filtering based on
+#'                           duration code.Valid durations include actual sample
+#'                           durations and not calculated durations such as 8
+#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
+#'                           averages or Pb 3 month rolling averages.
+#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           available duration codes.
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
 #'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
 #' @param cbdate a R date object which represents a "beginning
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
 #'                   date. Only data that changed on or after this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
 #' @param cedate a R date object which represents an "end
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cedate is used to filter data based on the change
 #'                   date. Only data that changed on or before this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS, service,
-                                 cbdate = NA_Date_, cedate = NA_Date_)
+aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
+                                  duration = NA_character_, service,
+                                  cbdate = NA_Date_, cedate = NA_Date_,
+                                  AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
           filter = "byState",
@@ -636,77 +676,80 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS, service,
                            bdate = format(bdate, format = "%Y%m%d"),
                            edate = format(edate, format = "%Y%m%d"),
                            state = stateFIPS,
+                           duration = duration,
                            cbdate = cbdate,
                            cedate = cedate
-          )
+          ),
+      AQS_domain = AQS_domain
   )
 }
 
 #' @title aqs_services_by_box
-#'
 #' @description a helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by a box formed by minimum/maximum
 #'                 latitude/longitude coordinates then calls the aqs
 #'                 and returns the result. This helper function is not meant
 #'                 to be called directly from external functions.
-#'
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'               selection. Only data on or before this date will be returned.
-#'
 #' @param minlat a R character object which represents the minimum latitude of
 #'                   a geographic box.  Decimal latitude with north begin
 #'                   positive. Only data north of this latitude will be
 #'                   returned.
-#'
 #' @param maxlat a R character object which represents the maximum latitude of
 #'                   a geographic box. Decimal latitude with north begin
 #'                   positive. Only data south of this latitude will be
 #'                   returned.
-#'
 #' @param minlon a R character object which represents the minimum longitude
 #'                   of a geographic box. Decimal longitude with east begin
 #'                   positive. Only data east of this longitude will be
 #'                   returned.
-#'
 #' @param maxlon a R character object which represents the maximum longitude
 #'                   of a geographic box. Decimal longitude with east begin
 #'                   positive. Only data west of this longitude will be
 #'                   returned. Note that -80 is less than -70.
-#'
+#' @param duration an optional R character string that represents the
+#'                           parameter duration code that limits returned data
+#'                           to a specific sample duration. The default value of
+#'                           NA_character_ results in no filtering based on
+#'                           duration code.Valid durations include actual sample
+#'                           durations and not calculated durations such as 8
+#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
+#'                           averages or Pb 3 month rolling averages.
+#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           available duration codes.
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
 #'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
 #' @param cbdate a R date object which represents a "beginning date of last
 #'                   change" that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
 #'                   date. Only data that changed on or after this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
 #' @param cedate a R date object which represents an "end
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cedate is used to filter data based on the change
 #'                   date. Only data that changed on or before this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                               minlon, maxlon, service,
-                               cbdate = NA_Date_, cedate = NA_Date_)
+                                minlon, maxlon, duration = NA_character_,
+                                service, cbdate = NA_Date_, cedate = NA_Date_,
+                                AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
           filter = "byBox",
@@ -719,59 +762,66 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                            maxlon = maxlon,
                            minlat = minlat,
                            maxlat = maxlat,
+                           duration = duration,
                            cbdate = cbdate,
                            cedate = cedate
-          )
+          ),
+      AQS_domain = AQS_domain
   )
 }
 
 #' @title aqs_services_by_cbsa
-#'
 #' @description a helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by cbsa then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#'
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'               selection. Only data on or before this date will be returned.
-#'
 #' @param cbsa_code a R character object which represents the 5 digit AQS Core
 #'                   Based Statistical Area code (the same as the census code,
 #'                   with leading zeros)
-#'
+#' @param duration an optional R character string that represents the
+#'                           parameter duration code that limits returned data
+#'                           to a specific sample duration. The default value of
+#'                           NA_character_ results in no filtering based on
+#'                           duration code.Valid durations include actual sample
+#'                           durations and not calculated durations such as 8
+#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
+#'                           averages or Pb 3 month rolling averages.
+#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS
 #'                    API For a list of available services @seealso
 #'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
 #' @param cbdate a R date object which represents a "beginning
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
 #'                   date. Only data that changed on or after this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
 #' @param cedate a R date object which represents an "end
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cedate is used to filter data based on the change
 #'                   date. Only data that changed on or before this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                service, cbdate = NA_Date_, cedate = NA_Date_)
+                                 duration = NA_character_, service,
+                                 cbdate = NA_Date_, cedate = NA_Date_,
+                                 AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
           filter = "byCBSA",
@@ -781,9 +831,11 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                            bdate = format(bdate, format = "%Y%m%d"),
                            edate = format(edate, format = "%Y%m%d"),
                            cbsa = cbsa_code,
+                           duration = duration,
                            cbdate = cbdate,
                            cedate = cedate
-                           )
+                           ),
+      AQS_domain = AQS_domain
       )
 }
 
@@ -828,88 +880,88 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
 #'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
+#'
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                service, cbdate = NA_Date_, cedate = NA_Date_)
+                                 service, cbdate = NA_Date_, cedate = NA_Date_,
+                                 AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
-          filter = "byPQAO",
-          user =  getOption("aqs_username"),
-          user_key =  getOption("aqs_key"),
-          variables = list(param = format_multiple_params_for_api(parameter),
-                           bdate = format(bdate, format = "%Y%m%d"),
-                           edate = format(edate, format = "%Y%m%d"),
-                           pqao = pqao_code,
-                           cbdate = cbdate,
-                           cedate = cedate
-          )
+      filter = "byPQAO",
+      user =  getOption("aqs_username"),
+      user_key =  getOption("aqs_key"),
+      variables = list(param = format_multiple_params_for_api(parameter),
+                       bdate = format(bdate, format = "%Y%m%d"),
+                       edate = format(edate, format = "%Y%m%d"),
+                       pqao = pqao_code,
+                       cbdate = cbdate,
+                       cedate = cedate
+          ),
+      AQS_domain = AQS_domain
   )
 }
 
 #' @title aqs_services_by_MA
-#'
 #' @description a helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by Monitoring Agency (MA)
 #'                 then calls the aqs and returns the result.
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
-#'
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'                  selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'                  selection. Only data on or before this date will be
 #'                  returned.
-#'
 #' @param MA_code a R character object which represents the 4 digit AQS
 #'                    Monitoring Agency code (with leading zeroes).
-#'
 #' @param service a string which represents the services provided by the AQS API
 #'                    For a list of available services @seealso
 #'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
 #' @param cbdate a R date object which represents a "beginning
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
 #'                   date. Only data that changed on or after this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
 #' @param cedate a R date object which represents an "end
 #'                   date of last change" that indicates when the data was last
 #'                   updated. cedate is used to filter data based on the change
 #'                   date. Only data that changed on or before this date will be
 #'                   returned. This is an optional variable which defaults
 #'                   to NA_Date_.
-#'
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-aqs_services_by_MA <- function(parameter, bdate, edate, MA_code,
-                              service, cbdate = NA_Date_, cedate = NA_Date_)
+aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
+                               cbdate = NA_Date_, cedate = NA_Date_,
+                               AQS_domain = "aqs.epa.gov")
 {
   aqs(service = service,
-          filter = "byMA",
-          user =  getOption("aqs_username"),
-          user_key =  getOption("aqs_key"),
-          variables = list(param = format_multiple_params_for_api(parameter),
-                           bdate = format(bdate, format = "%Y%m%d"),
-                           edate = format(edate, format = "%Y%m%d"),
-                           agency = MA_code,
-                           cbdate = cbdate,
-                           cedate = cedate
-          )
+      filter = "byMA",
+      user =  getOption("aqs_username"),
+      user_key =  getOption("aqs_key"),
+      variables = list(param = format_multiple_params_for_api(parameter),
+                       bdate = format(bdate, format = "%Y%m%d"),
+                       edate = format(edate, format = "%Y%m%d"),
+                       agency = MA_code,
+                       cbdate = cbdate,
+                       cedate = cedate
+          ),
+      AQS_domain = AQS_domain
   )
 }
 
@@ -919,18 +971,22 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code,
 #'                directly by the end user
 #' @param filter a character string representing the filter being applied
 #' @param service a character string representing the service
+#' @param AQS_domain a R string object containing the domain that should be
+#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
-aqs_metadata_service <- function(filter, service = NA_character_)
+aqs_metadata_service <- function(filter, service = NA_character_,
+                                 AQS_domain = "aqs.epa.gov")
 {
   aqs(service = "metaData",
-          filter = filter,
-          user =  getOption("aqs_username"),
-          user_key =  getOption("aqs_key"),
-          variables = list(service = service)
+      filter = filter,
+      user =  getOption("aqs_username"),
+      user_key =  getOption("aqs_key"),
+      variables = list(service = service),
+      AQS_domain = AQS_domain
   )
 }
 
@@ -980,22 +1036,10 @@ if (is.null(aqsobject))
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#'
 #' @param bdate a R date object which represents that begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#'
 #' @param edate a R date object which represents that end date of the data
 #'               selection. Only data on or before this date will be returned.
-#'
-#' @param stateFIPS a R character object which represents the 2 digit state
-#'                   FIPS code (with leading zero) for the state being
-#'                   requested. @seealso [aqs_states()] for the list of
-#'                   available FIPS codes.
-#'
-#' @param countycode a R character object which represents the 3 digit state
-#'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). @seealso [aqs_counties_by_state()] for the
-#'                       list of available county codes for each state.
 #' @param ... Other parameters returned to the calling function.
 #' @importFrom rlang abort
 #' @importFrom utils tail
@@ -1056,9 +1100,9 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
                     cbsa_code = ellipsis_args$cbsa_code,
                     pqao_code = ellipsis_args$pqao_code,
                     MA_code = ellipsis_args$MA_code,
-                    filter = ellipsis_args$filter
+                    filter = ellipsis_args$filter,
+                    AQS_domain = ellipsis_args$AQS_domain
                    )
-
   params %>%
     #remove all columns that have all NA values
     dplyr::select_if(function(x) {!all(is.na(x))}) %>%

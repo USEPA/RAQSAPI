@@ -57,9 +57,12 @@ the second item ($Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing Quality assurance data - blanks sample data aggregated
-by Primary Quality Assurance Organization (PQAO) code.
+Returns a table of blank quality assurance data.
+Blanks are unexposed sample collection devices (e.g.,
+filters) that are transported with the exposed sample devices
+to assess if contamination is occurring during the transport
+or handling of the samples. Data is aggregated by
+Primary Quality Assurance Organization (PQAO).
 }
 \note{
 The AQS API only allows for a single year of qa_blank data to be

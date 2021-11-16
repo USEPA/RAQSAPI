@@ -45,5 +45,4 @@ aqs_sites_by_county(stateFIPS = "15",
 aqs_parameters_by_class(class = "CRITERIA",
                         return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
-
 })

@@ -76,9 +76,9 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a tibble of flow rate audit data
- #  for FRM PM2.5 January 2016 - Januray 2018 where the Monitoring Agency is
- #  the Jefferson County, AL  Department of Health (agency 0550)
+ # returns a tibble of flow rate audit data
+ #   for FRM PM2.5 January 2016 - Januray 2018 where the Monitoring Agency is
+ #   the Jefferson County, AL  Department of Health (agency 0550)
  \dontrun{aqs_qa_flowrateaudit_by_MA(parameter = "88101",
                                      bdate = as.Date("20160101",
                                                   format = "\%Y\%m\%d"),

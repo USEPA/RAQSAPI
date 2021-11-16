@@ -58,9 +58,12 @@ tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing Quality assurance - blanks sample data aggregated by
-monitoring agency code (_by_MA).
+Returns a table of blank quality assurance data.
+Blanks are unexposed sample collection devices (e.g.,
+filters) that are transported with the exposed sample devices
+to assess if contamination is occurring during the transport
+or handling of the samples. Data is aggregated by monitoring agency
+code (MA_code).
 }
 \note{
 The AQS API only allows for a single year of qa_blank data to be
@@ -81,8 +84,8 @@ NA
 
 \examples{
 # returns a tibble containing PM2.5 blank data for
-           #  January 2018 where the Monitoring Agency is the Alabama
-           #  Department of Environmental Management (agency 0013)
+          #  January 2018 where the Monitoring Agency is the Alabama
+          #  Department of Environmental Management (agency 0013)
           \dontrun{aqs_qa_blanks_by_MA(parameter = "88101",
                                        bdate = as.Date("20170101",
                                                        format = "\%Y\%m\%d"),

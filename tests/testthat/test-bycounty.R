@@ -28,14 +28,14 @@ datamartAPI_user <- "test@aqs.api"
     expect_match(regexp = "Success")
 
   aqs_sampledata_by_county(parameter = "88101",
-                                     bdate = as.Date("20160101",
-                                                     format = "%Y%m%d"),
-                                     edate = as.Date("20160101",
-                                                     format = "%Y%m%d"),
-                                     stateFIPS = "37",
-                                     countycode = "183",
-                                     return_header = TRUE
-                                     )[[1]]$Header$status %>%
+                           bdate = as.Date("20160101",
+                                           format = "%Y%m%d"),
+                           edate = as.Date("20160101",
+                                           format = "%Y%m%d"),
+                           stateFIPS = "37",
+                           countycode = "183",
+                           return_header = TRUE
+                           )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
 aqs_monitors_by_county(parameter = "42401",
@@ -76,14 +76,14 @@ aqs_qa_flowrateaudit_by_county(parameter = "88101",
     expect_match(regexp = "Success")
 
 aqs_qa_flowrateverification_by_county(parameter = "88101",
-                                                   bdate = as.Date("20180101",
-                                                           format = "%Y%m%d"),
-                                                   edate = as.Date("20180131",
-                                                           format = "%Y%m%d"),
-                                                   stateFIPS = "01",
-                                                   countycode = "033",
-                                                   return_header = TRUE
-                                                   )[[1]]$Header$status %>%
+                                      bdate = as.Date("20180101",
+                                                      format = "%Y%m%d"),
+                                      edate = as.Date("20180131",
+                                                      format = "%Y%m%d"),
+                                      stateFIPS = "01",
+                                      countycode = "033",
+                                      return_header = TRUE
+                                      )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
 aqs_qa_one_point_qc_by_county(parameter = "44201",
@@ -114,24 +114,33 @@ aqs_transactionsample_by_county(parameter = "88101",
     expect_match(regexp = "Success")
 
 aqs_qa_annualperformanceeval_by_county(parameter = "44201",
-                                                   bdate = as.Date("20170101",
-                                                           format = "%Y%m%d"),
-                                                   edate = as.Date("20171231",
-                                                            format = "%Y%m%d"),
-                                                   stateFIPS = "01",
-                                                   countycode = "003",
-                                                   return_header = TRUE
-                                                )[[1]]$Header$status %>%
+                                       bdate = as.Date("20170101",
+                                                       format = "%Y%m%d"),
+                                       edate = as.Date("20171231",
+                                                       format = "%Y%m%d"),
+                                       stateFIPS = "01",
+                                       countycode = "003",
+                                       return_header = TRUE
+                                       )[[1]]$Header$status %>%
       expect_match(regexp = "Success")
 
 aqs_qa_annualperformanceevaltransaction_by_county(parameter = "44201",
-                                                bdate = as.Date("20170101",
+                                                  bdate = as.Date("20170101",
                                                              format = "%Y%m%d"),
-                                                edate = as.Date("20171231",
+                                                  edate = as.Date("20171231",
                                                              format = "%Y%m%d"),
-                                                stateFIPS = "01",
-                                                countycode = "003",
-                                                return_header = TRUE
-                                                )[[1]]$Header$status %>%
+                                                  stateFIPS = "01",
+                                                  countycode = "003",
+                                                  return_header = TRUE
+                                                 )[[1]]$Header$status %>%
       expect_match(regexp = "Success")
+
+aqs_quarterlysummary_by_county(parameter = "88101",
+                               bdate = as.Date("20160101", format = "%Y%m%d"),
+                               edate = as.Date("20170228", format = "%Y%m%d"),
+                               stateFIPS = "37",
+                               countycode = "183",
+                               return_header = TRUE
+                              )[[1]]$Header$status %>%
+    expect_match(regexp = "Success")
 })

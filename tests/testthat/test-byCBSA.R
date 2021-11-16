@@ -51,4 +51,15 @@ datamartAPI_user <- "test@aqs.api"
                            return_header = TRUE
                            )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
+
+  aqs_quarterlysummary_by_cbsa(parameter = "42602",
+                               bdate = as.Date("20170101", format = "%Y%m%d"),
+                               edate = as.Date("20190101", format = "%Y%m%d"),
+                               cbsa_code = "16740",
+                               return_header = TRUE
+                               )[[1]]$Header$status %>%
+    expect_match(regexp = "Success")
+
+aqs_sampledurations(return_header = TRUE)$Header$status %>%
+    expect_match(regexp = "Success")
 })

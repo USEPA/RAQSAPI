@@ -64,7 +64,7 @@ selected county
 \description{
 \lifecycle{stable}
 Returns a table of monitors and related metadata at sites with the
-provided parameternum, stateFIPS and county_code for
+provided parameter, stateFIPS and county_code for
 bdate - edate time frame.
 }
 \section{by_county aggregate functions}{
@@ -93,6 +93,8 @@ Other Aggregate _by_county functions:
 \code{\link{aqs_qa_flowrateverification_by_county}()},
 \code{\link{aqs_qa_one_point_qc_by_county}()},
 \code{\link{aqs_qa_pep_audit_by_county}()},
+\code{\link{aqs_quarterlysummary_by_county}()},
+\code{\link{aqs_quarterlysummary_by_site}()},
 \code{\link{aqs_sampledata_by_county}()},
 \code{\link{aqs_transactionsample_by_county}()}
 }

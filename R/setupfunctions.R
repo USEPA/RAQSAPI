@@ -77,6 +77,6 @@ aqs_sign_up <- function(email)
 
   url <- glue("https://aqs.epa.gov/data/api/signup?email={email}")
   httr::GET(url)
-  glue("A verification email will been sent to {email}  \n") %>%
+  glue("A verification email will be sent to {email}  \n") %>%
     message()
 } #nocov end

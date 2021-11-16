@@ -67,9 +67,11 @@ tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3
-object containing blank sample data aggregated by
-county number.
+Returns a table of blank quality assurance data.
+Blanks are unexposed sample collection devices (e.g.,
+filters) that are transported with the exposed sample devices
+to assess if contamination is occurring during the transport
+or handling of the samples. Data is aggregated at the county level.
 }
 \note{
 The AQS API only allows for a single year of qa_blank data to be
@@ -108,6 +110,8 @@ Other Aggregate _by_county functions:
 \code{\link{aqs_qa_flowrateverification_by_county}()},
 \code{\link{aqs_qa_one_point_qc_by_county}()},
 \code{\link{aqs_qa_pep_audit_by_county}()},
+\code{\link{aqs_quarterlysummary_by_county}()},
+\code{\link{aqs_quarterlysummary_by_site}()},
 \code{\link{aqs_sampledata_by_county}()},
 \code{\link{aqs_transactionsample_by_county}()}
 }

@@ -3,9 +3,12 @@
 
 #' @title aqs_qa_blanks_by_MA
 #' @description \lifecycle{stable}
-#'   Returns a tibble or an AQS_Data Mart_APIv2 S3
-#'   object containing Quality assurance - blanks sample data aggregated by
-#'   monitoring agency code (_by_MA).
+#'        Returns a table of blank quality assurance data.
+#'        Blanks are unexposed sample collection devices (e.g.,
+#'        filters) that are transported with the exposed sample devices
+#'        to assess if contamination is occurring during the transport
+#'        or handling of the samples. Data is aggregated by monitoring agency
+#'        code (MA_code).
 #' @note The AQS API only allows for a single year of qa_blank data to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -31,8 +34,8 @@
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @examples # returns a tibble containing PM2.5 blank data for
-#'            #  January 2018 where the Monitoring Agency is the Alabama
-#'            #  Department of Environmental Management (agency 0013)
+#'           #  January 2018 where the Monitoring Agency is the Alabama
+#'           #  Department of Environmental Management (agency 0013)
 #'           \dontrun{aqs_qa_blanks_by_MA(parameter = "88101",
 #'                                        bdate = as.Date("20170101",
 #'                                                        format = "%Y%m%d"),
@@ -164,7 +167,7 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate,
 #' @examples
 #'   # returns a tibble containing collocated assessment
 #'   #   data for FRM PM2.5 January 2013 where the Monitoring Agency is
-#'   #  the Alabama Department of Environmental Management (agency 0013)
+#'   #   the Alabama Department of Environmental Management (agency 0013)
 #'   \dontrun{aqs_qa_flowrateverification_by_MA(parameter = "88101",
 #'                                              bdate = as.Date("20130101",
 #'                                                             format = "%Y%m%d"
@@ -228,9 +231,10 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate,
 #'           first item (\$Header) is a tibble of header information from the
 #'           AQS API and the second item (\$Data) is a tibble of the data
 #'           returned.
-#' @examples # returns a tibble of flow rate audit data
-#'  #  for FRM PM2.5 January 2016 - Januray 2018 where the Monitoring Agency is
-#'  #  the Jefferson County, AL  Department of Health (agency 0550)
+#' @examples
+#'  # returns a tibble of flow rate audit data
+#'  #   for FRM PM2.5 January 2016 - Januray 2018 where the Monitoring Agency is
+#'  #   the Jefferson County, AL  Department of Health (agency 0550)
 #'  \dontrun{aqs_qa_flowrateaudit_by_MA(parameter = "88101",
 #'                                      bdate = as.Date("20160101",
 #'                                                   format = "%Y%m%d"),

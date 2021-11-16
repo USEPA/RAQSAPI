@@ -10,6 +10,7 @@ aqs_sampledata_by_county(
   edate,
   stateFIPS,
   countycode,
+  duration = NA_character_,
   cbdate = NA_Date_,
   cedate = NA_Date_,
   return_header = FALSE
@@ -36,6 +37,17 @@ available FIPS codes.}
 FIPS code for the county being requested (with leading
 zero(s)). @seealso \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}} for the
 list of available county codes for each state.}
+
+\item{duration}{an optional R character string that represents the
+parameter duration code that limits returned data
+to a specific sample duration. The default value of
+NA_character_ results in no filtering based on
+duration code.Valid durations include actual sample
+durations and not calculated durations such as 8
+hour CO or $O_3$ rolling averages, 3/6 day PM
+averages or Pb 3 month rolling averages.
+@seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
+available duration codes.}
 
 \item{cbdate}{a R date object which represents a "beginning
 date of last change" that indicates when the data was last
@@ -117,6 +129,8 @@ Other Aggregate _by_county functions:
 \code{\link{aqs_qa_flowrateverification_by_county}()},
 \code{\link{aqs_qa_one_point_qc_by_county}()},
 \code{\link{aqs_qa_pep_audit_by_county}()},
+\code{\link{aqs_quarterlysummary_by_county}()},
+\code{\link{aqs_quarterlysummary_by_site}()},
 \code{\link{aqs_transactionsample_by_county}()}
 }
 \concept{Aggregate _by_county functions}

@@ -12,9 +12,11 @@ aqs_services_by_box(
   maxlat,
   minlon,
   maxlon,
+  duration = NA_character_,
   service,
   cbdate = NA_Date_,
-  cedate = NA_Date_
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
 )
 }
 \arguments{
@@ -48,6 +50,17 @@ of a geographic box. Decimal longitude with east begin
 positive. Only data west of this longitude will be
 returned. Note that -80 is less than -70.}
 
+\item{duration}{an optional R character string that represents the
+parameter duration code that limits returned data
+to a specific sample duration. The default value of
+NA_character_ results in no filtering based on
+duration code.Valid durations include actual sample
+durations and not calculated durations such as 8
+hour CO or $O_3$ rolling averages, 3/6 day PM
+averages or Pb 3 month rolling averages.
+@seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
+available duration codes.}
+
 \item{service}{a string which represents the services provided by the
 AQS API. For a list of available services @seealso
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
@@ -65,6 +78,9 @@ updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
+
+\item{AQS_domain}{a R string object containing the domain that should be
+used in constructing the API call.}
 }
 \value{
 a AQS_DATAMART_APIv2 S3 object that is the return value from the

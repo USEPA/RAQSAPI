@@ -9,6 +9,7 @@ aqs_sampledata_by_cbsa(
   bdate,
   edate,
   cbsa_code,
+  duration = NA_character_,
   cbdate = NA_Date_,
   cedate = NA_Date_,
   return_header = FALSE
@@ -28,6 +29,17 @@ selection. Only data on or before this date will be returned.}
 \item{cbsa_code}{a R character object which represents the 5 digit AQS Core
 Based Statistical Area code (the same as the census code,
 with leading zeros)}
+
+\item{duration}{an optional R character string that represents the
+parameter duration code that limits returned data
+to a specific sample duration. The default value of
+NA_character_ results in no filtering based on
+duration code.Valid durations include actual sample
+durations and not calculated durations such as 8
+hour CO or $O_3$ rolling averages, 3/6 day PM
+averages or Pb 3 month rolling averages.
+@seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
+available duration codes.}
 
 \item{cbdate}{a R date object which represents a "beginning
 date of last change" that indicates when the data was last

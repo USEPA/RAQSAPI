@@ -57,7 +57,7 @@ selected state
 \description{
 \lifecycle{stable}
 Returns a table of monitors and related metadata at sites with the
-provided parameternum, and stateFIPS for bdate - edate time frame.
+provided parameter, and stateFIPS for bdate - edate time frame.
 }
 \section{by_state aggregate functions}{
 NA

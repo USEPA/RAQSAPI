@@ -11,6 +11,8 @@ aqs_qa_annualpeferomanceeval_by_site(
   stateFIPS,
   countycode,
   sitenum,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
   return_header = FALSE
 )
 }
@@ -38,6 +40,20 @@ list of available county codes for each state.}
 \item{sitenum}{a R character object which represents the 4 digit site number
 (with leading zeros) within the county and state being
 requested.}
+
+\item{cbdate}{a R date object which represents a "beginning
+date of last change" that indicates when the data was last
+updated. cbdate is used to filter data based on the change
+date. Only data that changed on or after this date will be
+returned. This is an optional variable which defaults
+to NA_Date_.}
+
+\item{cedate}{a R date object which represents an "end
+date of last change" that indicates when the data was last
+updated. cedate is used to filter data based on the change
+date. Only data that changed on or before this date will be
+returned. This is an optional variable which defaults
+to NA_Date_.}
 
 \item{return_header}{If FALSE (default) only returns data requested.
 If TRUE returns a AQSAPI_v2 object which is a two

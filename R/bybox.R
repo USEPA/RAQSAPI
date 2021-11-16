@@ -4,7 +4,7 @@
 #' @title aqs_monitors_by_box
 #' @description \lifecycle{stable}
 #'  Returns a table of monitors and related metadata sites with the provided
-#'    parameternum, aggregated by latitude/longitude bounding box (_by_box) for
+#'    parameter, aggregated by latitude/longitude bounding box (_by_box) for
 #'    bdate - edate time frame.
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
@@ -113,11 +113,14 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                    }
 #' @export
 aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                  minlon, maxlon, cbdate = NA_Date_,
-                                  cedate = NA_Date_, return_header = FALSE)
+                                  minlon, maxlon,
+                                  duration = NA_character_,
+                                  cbdate = NA_Date_, cedate = NA_Date_,
+                                  return_header = FALSE
+                                  )
 {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                 return_header)
+                 duration, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter,
                                bdate = bdate,
@@ -126,6 +129,7 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                maxlat = maxlat,
                                minlon = minlon,
                                maxlon = maxlon,
+                               duration = duration,
                                service = "sampleData",
                                cbdate = cbdate,
                                cedate = cedate
@@ -142,9 +146,8 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                 Returns multiple years of data where annual data is
 #'                 aggregated at the bounding box level. Returned is an annual
 #'                 summary within the input parameter, latitude/longitude
-#'                 bounding box provided for bdate - edate time frame. The data
-#'                 returned is summarized at the annual level Variables returned
-#'                 include mean value, maxima, percentiles, and etc. If
+#'                 bounding box provided for bdate - edate time frame. Variables
+#'                 returned include mean value, maxima, percentiles, and etc. If
 #'                 return_header is FALSE (default) the object returned is a
 #'                 tibble, if TRUE an AQS_API_v2 object.
 #' @note The AQS API only allows for a single year of annualsummary to be
@@ -217,7 +220,7 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @title aqs_dailysummary_by_box
 #' @description \lifecycle{stable}
 #'                Returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object containing sample data bounded within a
+#'                object containing daily summary data bounded within a
 #'                latitude/longitude bounding box
 #' @note The AQS API only allows for a single year of dailysummary to be
 #'         retrieved at a time. This function conveniently extracts date
@@ -284,4 +287,75 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
   if (!return_header) dailysummary %<>% aqs_removeheader
   return(dailysummary)
+}
+
+
+#' @title aqs_quarterlysummary_by_box
+#' @description \lifecycle{stable}
+#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                object of quarterly summary data aggregated by stateFIPS.
+#' @note The AQS API only allows for a single year of quarterly summary to be
+#'         retrieved at a time. This function conveniently extracts date
+#'         information from the bdate and edate parameters then makes repeated
+#'         calls to the AQSAPI retrieving a maximum of one calendar year of data
+#'         at a time. Each calendar year of data requires a separate API call so
+#'         multiple years of data will require multiple API calls. As the number
+#'         of years of data being requested increases so does the length of time
+#'         that it will take to retrieve results. There is also a 5 second wait
+#'         time inserted between successive API calls to prevent overloading the
+#'         API server. This operation has a linear run time of
+#'         /(Big O notation: O/(n + 5 seconds/)/).
+#' @family Aggregate _by_state functions
+#' @inheritParams aqs_services_by_box
+#' @importFrom magrittr `%<>%`
+#' @param return_header If FALSE (default) only returns data requested.
+#'                        If TRUE returns a AQSAPI_v2 object which is a two
+#'                        item list that contains header information returned
+#'                        from the API server mostly used for debugging
+#'                        purposes in addition to the data requested.
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#'           summary statistics for the given parameter for a stateFIPS.
+#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           item (\$Header) is a tibble of header information from the AQS API
+#'           and the second item (\$Data) is a tibble of the data returned.
+#' @examples # returns a tibble containing ozone quarterly summaries
+#'           #  in the vicinity of central Alabama for the first two days
+#'           #  in May, 2015
+#'           \dontrun{aqs_quarterlysummary_by_box(parameter = "44201",
+#'                                                bdate = as.Date("20150501",
+#'                                                           format = "%Y%m%d"),
+#'                                                edate = as.Date("20170502",
+#'                                                           format = "%Y%m%d"),
+#'                                                minlat = "33.3",
+#'                                                maxlat = "33.6",
+#'                                                minlon = "-87.0",
+#'                                                maxlon = "-86.7"
+#'                                               )
+#'                    }
+#' @export
+aqs_quarterlysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
+                                        minlon, maxlon, cbdate = NA_Date_,
+                                        cedate = NA_Date_, return_header = FALSE
+                                       )
+{
+  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat,
+                 minlon, maxlon, cbdate, cedate, return_header)
+
+  params <- aqsmultiyearparams(parameter = parameter,
+                               bdate = bdate,
+                               edate = edate,
+                               minlat = minlat,
+                               maxlat = maxlat,
+                               minlon = minlon,
+                               maxlon = maxlon,
+                               service = "quarterlyData",
+                               cbdate = cbdate,
+                               cedate = cedate,
+                               AQS_domain = AQS_domain
+                               )
+
+  quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
+  if (!return_header) quarterlysummary %<>% aqs_removeheader
+  return(quarterlysummary)
 }

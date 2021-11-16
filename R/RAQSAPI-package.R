@@ -43,6 +43,7 @@ NULL
 
 
 ## usethis namespace: start
-##' importFrom lifecycle deprecate_soft badge
 #' @importFrom lifecycle deprecate_soft
+#' @importFrom lifecycle deprecated
+##' importFrom lifecycle deprecate_soft badge
 ## usethis namespace: end

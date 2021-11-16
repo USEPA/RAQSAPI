@@ -63,12 +63,12 @@ purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
-selected site
+selected stateFIPS, county, and sitenum combination.
 }
 \description{
 \lifecycle{stable}
 Returns a table of monitors and related metadata at sites with the
-provided parameternum, stateFIPS, county_code, and sitenum for
+provided parameter, stateFIPS, county_code, and sitenum for
 bdate - edate time frame.
 }
 \note{
