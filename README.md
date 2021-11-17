@@ -21,7 +21,9 @@ Clinton Mccrowey, physical scientist - US EPA
 -   [Acknowledgements](#acknowledgements)
 -   [References](#references)
 
-<img src="./vignettes/figures/RAQSAPIhexsticker.png" style="width:20.0%" />
+<!-- ![](./vignettes/figures/RAQSAPIhexsticker.png){width=20%} -->
+
+<img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
 <!-- badges: start -->
 
@@ -354,6 +356,8 @@ those sources with them RAQSAPI would not be possible.
     remotes<sup>7</sup>
 -   .gitignore file borrowed examples from
     <https://github.com/github/gitignore/blob/master/R.gitignore>
+-   The RAQSAPI hexsticker was created using the `hexSticker` package
+    for R
 
 # References
 

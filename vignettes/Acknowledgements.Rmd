@@ -26,3 +26,4 @@ with them RAQSAPI would not be possible.
 * the function *install_github* are provided by the R package remotes[
     @package:remotes]
 * .gitignore file borrowed examples from https://github.com/github/gitignore/blob/master/R.gitignore
+* The RAQSAPI hexsticker was created using the `hexSticker` package for R
