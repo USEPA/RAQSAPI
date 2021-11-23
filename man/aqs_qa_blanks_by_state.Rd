@@ -60,7 +60,7 @@ tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns a table of blank quality assurance data.
+Returns a table of blank quality assurance data .
 Blanks are unexposed sample collection devices (e.g.,
 filters) that are transported with the exposed sample devices
 to assess if contamination is occurring during the transport

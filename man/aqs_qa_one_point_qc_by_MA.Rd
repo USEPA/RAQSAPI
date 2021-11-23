@@ -57,8 +57,6 @@ item (\$Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-
-\lifecycle{stable}
 Returns a tibble or an AQS_Data Mart_APIv2 S3 object
 containing one point QC check data aggregated by monitoring
 agency code (_by_MA).

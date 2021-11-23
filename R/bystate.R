@@ -13,7 +13,7 @@
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from the
 #'           selected state
 #' @examples # returns a tibble of SO2 monitors in Hawaii
 #'           #  that were operating on May 01, 2015
@@ -201,7 +201,7 @@ aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS,
 
 #' @title aqs_qa_blanks_by_state
 #' @description \lifecycle{stable}
-#'        Returns a table of blank quality assurance data.
+#'        Returns a table of blank quality assurance data .
 #'        Blanks are unexposed sample collection devices (e.g.,
 #'        filters) that are transported with the exposed sample devices
 #'        to assess if contamination is occurring during the transport
@@ -292,7 +292,7 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
-#'           summary statistics for the given parameter for a single stateFIPS
+#'           summary statistics for the given parameter for a single stateFIPS.
 #'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
 #'           item (\$Header) is a tibble of header information from the AQS API
 #'           and the second item (\$Data) is a tibble of the data returned.

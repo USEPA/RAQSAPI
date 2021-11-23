@@ -1,6 +1,6 @@
 2f5b4b0197039723cea681917c5e120d *cran-comments.md
 2f5b4b0197039723cea681917c5e120d *cran-comments.Rmd
-0fa5edd3d313db06fd1308fb4f47df4c *DESCRIPTION
+bc60968fab98750f6146c82f7e655394 *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
 74e297a0dc0b508ed18e3821264958d0 *dev/countlinesofcode.R
@@ -15,7 +15,7 @@ a83b0b7a418e2ae199aa6eafbedbac6b *LICENSE.md
 72edd4e96465446934b32df53320ac5a *man/aqs_annualsummary_by_county.Rd
 93cd89c9f1fa1f45780d624290c5ad01 *man/aqs_annualsummary_by_site.Rd
 95bdfd05f7cc5ca52f6612721acf897c *man/aqs_annualsummary_by_state.Rd
-5ebdc2d22b5446587511a7d6256d9880 *man/aqs_cbsas.Rd
+37deb1d710e2cb6ba230bb02b2675472 *man/aqs_cbsas.Rd
 6217d85fad950ec9e64c4f8c0d7162c9 *man/aqs_classes.Rd
 8c6c4fdab6d6fe00efa67ad01313ee69 *man/aqs_counties_by_state.Rd
 4b3dd7deb7e2ec50610ad52be38142eb *man/aqs_credentials.Rd
@@ -23,7 +23,7 @@ fe12d220c66085aa3473bd81c74d52b4 *man/aqs_dailysummary_by_box.Rd
 95a0b572838dd3b109a2fad555d83d0f *man/aqs_dailysummary_by_cbsa.Rd
 9907f7c263fde87c6afb57e10038d32b *man/aqs_dailysummary_by_county.Rd
 bf1bc7e60298b488d1d35a71cf6c0593 *man/aqs_dailysummary_by_site.Rd
-663b36fefc342e2ac941a8c565629039 *man/aqs_dailysummary_by_state.Rd
+5ba74c6da46fdc064025058ad5398e20 *man/aqs_dailysummary_by_state.Rd
 047ec115a1f170016233fed784733c54 *man/aqs_fields_by_service.Rd
 af6b0d11899cf5785207f49e2c9f74b8 *man/aqs_isavailable.Rd
 1e814aff39fb994dd762dcac9f6e13cc *man/aqs_knownissues.Rd
@@ -33,8 +33,8 @@ af6b0d11899cf5785207f49e2c9f74b8 *man/aqs_isavailable.Rd
 0e20ca4cd9e54d91b582a01eea53e1fb *man/aqs_monitors_by_cbsa.Rd
 974ddd54bd77327ff4a2c0f0a148f1f2 *man/aqs_monitors_by_county.Rd
 9102f92d8f43e73a152d35bbd11fc618 *man/aqs_monitors_by_site.Rd
-6fee6d85cafd6597fa0f7710f9ecb5d7 *man/aqs_monitors_by_state.Rd
-214c40a10c16857aeff30d9c2eb03609 *man/aqs_parameters_by_class.Rd
+42928aa2d54e621122cf4347a1a20eed *man/aqs_monitors_by_state.Rd
+1ecd0336719cce3614a394608f0c0bfa *man/aqs_parameters_by_class.Rd
 1118554a6262bd0d66bbca6d9d25f72c *man/aqs_pqaos.Rd
 8f11edf7569ee3f1e61a93748f92eb91 *man/aqs_qa_annualpeferomanceeval_by_MA.Rd
 208861822882440ac4cd00389ff113e6 *man/aqs_qa_annualpeferomanceeval_by_pqao.Rd
@@ -50,7 +50,7 @@ b03a30ba2af81233daf8f2d28cc87eb2 *man/aqs_qa_annualperformanceevaltransaction_by
 aef05672309b1f1bed0fadd5de01c845 *man/aqs_qa_blanks_by_MA.Rd
 2aca341c7e46ae8a5e2151fef001759b *man/aqs_qa_blanks_by_pqao.Rd
 fb050708435f36f90c2f18700d065f79 *man/aqs_qa_blanks_by_site.Rd
-95344e9482545a91eea0227728fb1d73 *man/aqs_qa_blanks_by_state.Rd
+b54eb1d20a790301ac98b2a5a6af2138 *man/aqs_qa_blanks_by_state.Rd
 d1f97360c556d4d92ca182377b7a43b6 *man/aqs_qa_collocated_assessments_by_county.Rd
 b5251653d718477f371ff271996e9be7 *man/aqs_qa_collocated_assessments_by_MA.Rd
 1037e20821939888aacd00b20ca456c8 *man/aqs_qa_collocated_assessments_by_pqao.Rd
@@ -67,7 +67,7 @@ c33bb91929884ab35bb75d4ac003b311 *man/aqs_qa_flowrateaudit_by_state.Rd
 811be986f20cd6a293550516923b9704 *man/aqs_qa_flowrateverification_by_site.Rd
 1a1c41ab7a1c016f42216619085cdcbc *man/aqs_qa_flowrateverification_by_state.Rd
 24f4e155738c960e973208a07e407359 *man/aqs_qa_one_point_qc_by_county.Rd
-8d2fd606327943459bffed8582711902 *man/aqs_qa_one_point_qc_by_MA.Rd
+24509a95840fabaea473de74d3e404b6 *man/aqs_qa_one_point_qc_by_MA.Rd
 79af686544c4382fbbb2332a4d3aeb06 *man/aqs_qa_one_point_qc_by_pqao.Rd
 7c5f80f0aa68fe02a3fd30403c49b57c *man/aqs_qa_one_point_qc_by_site.Rd
 c49081452071f3a5880c7f9cd526300d *man/aqs_qa_one_point_qc_by_state.Rd
@@ -88,7 +88,7 @@ d8b705e6fb5b1993d7e7e6eeabefa000 *man/aqs_revisionhistory.Rd
 15d5740441bb0a64dd89e7723900fbe7 *man/aqs_sampledata_by_county.Rd
 b915e8439a5e18a7f4e9510fcde0fae2 *man/aqs_sampledata_by_site.Rd
 b3749b7bc6b5ec163db0409b0af1a961 *man/aqs_sampledata_by_state.Rd
-88d1623fa215bee0f326ddb9f24585e2 *man/aqs_sampledurations.Rd
+56da20483a46a423bac2835fd565c513 *man/aqs_sampledurations.Rd
 f9d84d9671e9c011e40dcf3567f3aa47 *man/aqs_services_by_box.Rd
 9291322a3bd3a17248904a0bfcf32d2f *man/aqs_services_by_cbsa.Rd
 9ca1f01ed3c413b5c8cd1f9f2bec9f3d *man/aqs_services_by_county.Rd
@@ -98,7 +98,7 @@ f99fa2322ca6d48c7c126d4c685b2260 *man/aqs_services_by_pqao.Rd
 3b6f5bc57a3f587696d19b0e268a4ad1 *man/aqs_services_by_state.Rd
 1faf1e2766b558ae00467fb39da83362 *man/aqs_sign_up.Rd
 c874eed07791f6d6a565a7b06ccb8863 *man/aqs_sites_by_county.Rd
-1086da5425c88fba711fd95ad49d3c36 *man/aqs_states.Rd
+2ad12da7c948fdb1e183be147315e126 *man/aqs_states.Rd
 793b17361dc818bff6418af5be6cc2da *man/aqs_transactionsample_by_county.Rd
 b5a13f23bc43730dc4067838c16f61a2 *man/aqs_transactionsample_by_MA.Rd
 464e51c6abf510f4a27546fb2eda7302 *man/aqs_transactionsample_by_site.Rd
@@ -118,16 +118,16 @@ a247dbcfedf96ab44861459895362f7d *R/AQSAPI_helperfunctions.R
 f3eb4dfd00edae1036133f775e3062fc *R/bybox.R
 f0db569242b87fd159f7d79f7bac64f2 *R/bycbsa.R
 2847e9bbce88ca397ba5e3924f71245a *R/bycounty.R
-35b888b939ae5763efda67f80d9b83dd *R/byma.R
+b5530339805edf468db4acc18ac9368c *R/byma.R
 22cca955312e40732ece53cbd1ed3098 *R/bypqao.R
 ed4a2d4f24eee64e98c4338f4e3fa981 *R/bysite.R
-fc1ab63f5f58d2be85166aad8b16edb4 *R/bystate.R
+5b1e2a32bc0456ed79486a667471234f *R/bystate.R
 b965ba52e0a9b9f12cb0d5cff9b78355 *R/RAQSAPI-package.R
-79905e3d1b8bde515b7a8024bbecc500 *R/RAQSAPIlistfunctions.R
+29c801f674ab22ebbe009d5c4ba4fe43 *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-c33db0f8a31b19eeaeb7ef9a418c4b78 *README.md
+cd33a8d52ed3ba5091522ae06ce4c5b0 *README.md
 201526debb59c4f79c28fd34fd8f30c1 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 332173f20d20942c02019350ea4dcadc *tests/spelling.R
@@ -141,6 +141,7 @@ f512d04635ce70a76c82fe237c92c4c7 *tests/testthat/test-byCBSA.R
 8201db112d2397a4e01ef2f21b1f2223 *tests/testthat/test-bysite.R
 83e5695ad314bbe2898448c2f7f0541c *tests/testthat/test-bystate.R
 e4fd5d9b86f8620421b54d8759dc2978 *tests/testthat/test-helperfunctions.R
+a675cf8edbbbc56dfa8c4934abbae204 *tests/testthat/test-RAQSAPIlistfunctions.R
 1297dfdb3192970d4437e5ecf8f90202 *tests/testthat/test-RAQSAPlistfunctions.R
 8e814c1a4b8e8547c5dd0da4f1608422 *vignettes/Acknowledgements.html
 34518335694d92be6153b2f242e09fa4 *vignettes/Acknowledgements.Rmd
@@ -157,9 +158,9 @@ a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 6c346684566cab0cc241628ed91ad724 *vignettes/Intro.Rmd
 33661b9e4f809dc25071537234c3fd74 *vignettes/RAQSAPIFunctions-Brief.html
 53a24312a7cb7bc84d2ef75bc803e7ef *vignettes/RAQSAPIFunctions-Brief.Rmd
-b47a10d54ee3cc487cd67f8cb3002a8d *vignettes/RAQSAPIFunctions-Long.html
-a9e7a328225ca868093cb800782da3cc *vignettes/RAQSAPIFunctions-Long.R
-3d16204c7a6fcda1b3308212810c895c *vignettes/RAQSAPIFunctions-Long.Rmd
+e3edb4709323f42fa610ce9ceb4c127d *vignettes/RAQSAPIFunctions-Long.html
+f6d8246fa2a4b1912fe759b21c0ec5ee *vignettes/RAQSAPIFunctions-Long.R
+ac5d29bab0f9a1d4fdc06054a0a96b2d *vignettes/RAQSAPIFunctions-Long.Rmd
 f6a1f578b9267b1182c4c3845fc68fb0 *vignettes/RAQSAPIPurpose.html
 b676d49a421ed0b581e2b3269bac31e0 *vignettes/RAQSAPIPurpose.Rmd
 c0099b9c0fa4d49121ad8d61078d13a7 *vignettes/RAQSAPIusagetipsandprecautions.html

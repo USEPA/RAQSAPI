@@ -11,7 +11,8 @@ aqs_parameters_by_class(class, return_header = FALSE)
 @seealso \code{\link[=aqs_classes]{aqs_classes()}} for retrieving
 available classes.  The class R character object must be a
 valid class as returned from aqs_classes(). The class must
-be an exact match to what is returned from aqs_classes().}
+be an exact match to what is returned from aqs_classes()
+(case sensitive).}
 
 \item{return_header}{If FALSE (default) only returns data requested.
 If TRUE returns a AQSAPI_v2 object which is a two

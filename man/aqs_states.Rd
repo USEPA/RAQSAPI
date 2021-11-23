@@ -15,13 +15,12 @@ purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_Data Mart_APIv2 S3 object of states and their
-FIPS codes used for constructing other requests.
+associated FIPS codes.
 }
 \description{
 \lifecycle{stable}
 Returns a table of US states, US territories, and the
-district or Columbia with their respective FIPS codes used
-for constructing other requests
+district or Columbia with their respective FIPS codes.
 }
 \examples{
 #returns a tibble of states and their FIPS codes

@@ -269,7 +269,6 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
 
 #' @title aqs_qa_one_point_qc_by_MA
 #' @description \lifecycle{stable}
-#' @description \lifecycle{stable}
 #'                Returns a tibble or an AQS_Data Mart_APIv2 S3 object
 #'                containing one point QC check data aggregated by monitoring
 #'                agency code (_by_MA).

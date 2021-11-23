@@ -312,11 +312,10 @@ RAQSAPI::aqs_states takes no arguments and returns a table of the available
     states and their respective state FIPS codes.
     
 RAQSAPI::aqs_sampledurations takes no arguments and returns a table of the
-    available sample duration codes.
+    available sample duration code used to construct other requests.
 
 RAQSAPI::aqs_classes takes no arguments and returns a table of parameter
-    classes (groups of parameters, i.e. "criteria" or "all"). The information
-    from this function can be used as input to other API calls.
+    classes (groups of parameters, i.e. "criteria" or "all").
 
 RAQSAPI::aqs_counties_by_state takes one parameter, stateFIPS, which is a two
     digit state FIPS code for the state being requested represented as a

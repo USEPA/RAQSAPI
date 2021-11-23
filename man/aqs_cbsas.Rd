@@ -14,12 +14,15 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2  S3 object of all cbsas and
-their cbsa codes for constructing other requests.
+a tibble or an AQS_Data Mart_APIv2  S3 object of all Core Based
+Statistical Areas (cbsa) and their cbsa_codes for constructing
+other requests.
 }
 \description{
 \lifecycle{stable}
-Returns a table of all cbsas and their cbsa codes.
+Returns a table of all Core Based Statistical Areas (cbsa)
+and their associated cbsa_codes. for constructing other
+requests.
 }
 \examples{
 #returns a tibble or an AQS_Data Mart_APIv2 S3 object of cbsas

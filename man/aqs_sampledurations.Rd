@@ -14,12 +14,16 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of Parameter classes
+a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
+their associated duration codes
 (groups of parameters, i.e. "criteria" or "all").
 }
 \description{
 \lifecycle{stable}
-Returns a table of
+Returns a table of sample durations and their
+associated duration codes. Returned values are not calculated
+durations such as 8 hour CO or O${_3}$ rolling averages, 3/6
+day PM averages or Pb 3 month rolling averages.
 }
 \examples{
 #returns a tibble or an AQS_Data Mart_APIv2 S3 object of

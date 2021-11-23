@@ -37,7 +37,7 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
 URL: <https://github.com/USEPA/RAQSAPI>,
      <https://aqs.epa.gov/aqsweb/documents/data_api.html>
 BugReports: https://github.com/USEPA/RAQSAPI/issues
-Depends: R (>= 4.1.0)
+Depends: R (>= 4.0.5)
 Imports: 
     dplyr,
     glue,
