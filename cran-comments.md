@@ -11,6 +11,7 @@ output: md_document
 * This is a new release
 
 ### Reason/Significant changes
+* new hexsticker!
 * Add MD5
 * Correctly throws an error if a RAQSAPI function is used without
     providing credentials (issue 5)
@@ -43,6 +44,15 @@ output: md_document
     to filter results by duration code
 * New list function aqs_sample_duration to retrieve a table of valid sample
     durations.
+    
+### Test environments
+* local R installation, Windows 10 (Windows 10 Version 20H2 OS Build 19042.1348),
+ R 4.1.1
+* Windows-latest (Microsoft Windows Server 2019
+  10.0.17763) (release) (via Github_actions), R 4.1.2
+* macOS-latest (Mac OS X 10.15.7) (release) (via Github_actions), R 4.1.2
+* ubuntu-latest (Ubuntu 20.04.3 LTS) (release) (via Github_actions), R 4.1.2
+* ubuntu-20.04 (Ubuntu 20.04.3 LTS) (oldrel1) (via Github_actions), R 4.0.5
 
 ## RAQSAPI 2.0.1
 * This is a new release.

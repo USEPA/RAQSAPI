@@ -312,7 +312,7 @@ aqs_quarterlysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                          cbdate = NA_Date_, cedate = NA_Date_,
                                          return_header = FALSE)
 {
-  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
+  AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate,
                  return_header)
 
