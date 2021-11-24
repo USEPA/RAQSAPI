@@ -450,7 +450,7 @@ aqs_sampledurations <- function(return_header = FALSE)
   AQS_domain <- "aqs.epa.gov"
 
     durations <- aqs(service = "list",
-                 filter = "durations",
+                 filter = "duration",
                  user =  getOption("aqs_username"),
                  user_key =  getOption("aqs_key"),
                  variables = NULL,

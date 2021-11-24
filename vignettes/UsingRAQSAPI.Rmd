@@ -53,8 +53,8 @@ The credentials used to access the Data Mart API service are stored in a R
   server.
 
 | <span style="color:red"> Note: The credentials used to access AQS Data Mart \
-API are not the same as the credentials used to access AQS. AQS users who do \
-not have access to the AQS Data Mart will need to create new credentials \
+API is not the same as the credentials used to access AQS. AQS users who do \
+not have access to the AQS Data Mart will need to create new credentials. \
 </span> |
 | -- |
 
