@@ -888,7 +888,7 @@ aqs_quarterlysummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                           cbdate = NA_Date_, cedate = NA_Date_,
                                           return_header = FALSE)
 {
-  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
+  AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, stateFIPS,
                  cbdate, cedate, return_header)
 

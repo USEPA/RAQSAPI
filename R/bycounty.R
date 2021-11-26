@@ -915,7 +915,6 @@ aqs_quarterlysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
                                        countycode, cbdate = NA_Date_,
                                        cedate = NA_Date_, return_header = FALSE)
 {
-  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
                  cbdate, cedate, return_header)
 
@@ -926,8 +925,7 @@ aqs_quarterlysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
                                countycode = countycode,
                                service = "quarterlyData",
                                cbdate = cbdate,
-                               cedate = cedate,
-                               AQS_domain = AQS_domain
+                               cedate = cedate
                                )
 
   quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)

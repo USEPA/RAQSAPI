@@ -30,6 +30,20 @@ checkaqsparams <- function(...)
   ellipsis_args <- list(...)
   names(ellipsis_args) <- names(match.call(expand.dots = FALSE)$...)
 
+  if ("parameter" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$parameter) != 5 |
+        !is.character(ellipsis_args$parameter) |
+        !str_detect(ellipsis_args$parameter, "^[:digit:]+$")
+        )
+    {
+      error <- TRUE
+      errmessage %<>% c('x' =
+      "parameter must be a 5 digit number (represented as a character string)"
+                        )
+    }
+  }
+
   if ("stateFIPS" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$stateFIPS) != 2 |
@@ -91,6 +105,7 @@ checkaqsparams <- function(...)
          nchar(ellipsis_args$pqao_code) != 3) |
         !is.character(ellipsis_args$pqao_code))
     {
+      error <- TRUE
       errmessage %<>% c('x' =
       "pqao_code must be a three or four digit number (represented as a
       character string), please pad pqao_code less than three or four digits
@@ -103,6 +118,7 @@ checkaqsparams <- function(...)
     if (nchar(ellipsis_args$cbsa_code) != 5 |
         !is.character(ellipsis_args$cbsa_code))
     {
+      error <- TRUE
       errmessage %<>% c('x' =
       "cbsa_code must be a five digit number (represented as a character string),
       please pad cbsa_code less than five digits with leading zeros"

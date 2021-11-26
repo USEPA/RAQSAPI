@@ -995,7 +995,7 @@ aqs_quarterlysummary_by_site <- function(parameter, bdate, edate, stateFIPS,
                                          cedate = NA_Date_,
                                          return_header = FALSE)
 {
-  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
+  AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                  cbdate, cedate, return_header)
 

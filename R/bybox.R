@@ -338,7 +338,7 @@ aqs_quarterlysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                         cedate = NA_Date_, return_header = FALSE
                                        )
 {
-  AQS_domain <- "aqsapistg.rtpnc.epa.gov"
+  AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, minlat, maxlat,
                  minlon, maxlon, cbdate, cedate, return_header)
 

@@ -48,6 +48,7 @@ output: md_document
 ### Test environments
 * local R installation, Windows 10 (Windows 10 Version 20H2 OS Build 19042.1348),
  R 4.1.1
+* local R installation, Gentoo GNU/Linux R 4.1.0
 * Windows-latest (Microsoft Windows Server 2019
   10.0.17763) (release) (via Github_actions), R 4.1.2
 * macOS-latest (Mac OS X 10.15.7) (release) (via Github_actions), R 4.1.2

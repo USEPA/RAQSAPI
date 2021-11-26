@@ -34,3 +34,6 @@ dev/install_RAQSAPI.R
 ^cran-comments\.md$
 ^cran-comments\.Rmd$
 ^revdep$
+^\.github$
+^\.github/workflows/R-CMD-check\.yaml$
+^.Rprofile$

@@ -37,6 +37,7 @@ cran
 CRAN
 CRAN's
 Csárdi
+Datamart
 DATAMART
 datamartAPI
 dailydata
@@ -44,6 +45,7 @@ dailydataby
 dailysummary
 dev
 devtools
+durations
 edate
 epa
 fieldsbyservice
@@ -58,6 +60,7 @@ GitHub
 gitignore
 quarterlysummary
 Hadley
+hexsticker
 Hogervorst
 https
 keyring
@@ -98,6 +101,7 @@ pqaos
 qa
 qaAnnualPerformanceEvaluations
 qc
+quarterlydata
 RAQSAPI
 RAQSAPI's
 RAQSAPIBUILD
@@ -118,6 +122,7 @@ Roxygen
 Roxygen2
 sampledata
 sampledataby
+sampledurations
 seealso
 setwd
 signup

@@ -82,7 +82,8 @@ buildRAQSAPIbase <- function()
 RAQSAPIBUILD <- function()
 {
   buildRAQSAPIbase()
-  devtools::build(binary = TRUE, quiet = TRUE)
+  build_manual()
+  devtools::build(binary = TRUE, quiet = TRUE, manual = TRUE)
 }
 
 
@@ -134,6 +135,7 @@ RAQSAPICHECK <- function()
   #                   ignore = read.csv(file = "./inst/WORDLIST",
   #                                     header = FALSE)$V1
   #                                     )
+  devtools::test()
   devtools::check_built(path = paste0("../RAQSAPI_",
                                       desc::desc_get_field(key = "Version"),
                                       ".tar.gz"),

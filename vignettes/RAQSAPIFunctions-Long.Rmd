@@ -392,7 +392,7 @@ These functions retrieve aggregated data from the Data Mart API and are
                             durations and not calculated durations such as 8 hour
                             CO or $O_3$ rolling averages, 3/6 day PM averages or
                             Pb 3 month rolling averages. Refer to 
-                            [aqs_sampleduations()] for a list of all available
+                            [aqs_sampledurations()] for a list of all available
                             duration codes.
 3. **Daily Summary Data**: Returns data summarized at the daily level. All daily
                             summaries are calculated on midnight to midnight
