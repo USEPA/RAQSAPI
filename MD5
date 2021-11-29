@@ -127,7 +127,7 @@ c325fd8eb2346bd402e665de97f35c5c *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-06217bf35112a959bb34b6a65de52860 *README.md
+1ec40a7dcaa9e337b5b9ced86ed3743b *README.md
 201526debb59c4f79c28fd34fd8f30c1 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 332173f20d20942c02019350ea4dcadc *tests/spelling.R
@@ -142,8 +142,8 @@ f512d04635ce70a76c82fe237c92c4c7 *tests/testthat/test-byCBSA.R
 83e5695ad314bbe2898448c2f7f0541c *tests/testthat/test-bystate.R
 ced8e7ef1890a4f75a3e290487482ffa *tests/testthat/test-helperfunctions.R
 a675cf8edbbbc56dfa8c4934abbae204 *tests/testthat/test-RAQSAPIlistfunctions.R
-8e814c1a4b8e8547c5dd0da4f1608422 *vignettes/Acknowledgements.html
-34518335694d92be6153b2f242e09fa4 *vignettes/Acknowledgements.Rmd
+f3c327342f8399e441a50cb3786cceb8 *vignettes/Acknowledgements.html
+858c234882703faf5d58b196d3b91b61 *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl
 0ec78b946a45069323acf54a24c77566 *vignettes/american-chemical-society.csl
 c70d85ee02aa851bc77cd2a52c59b593 *vignettes/AQSAPI.bib

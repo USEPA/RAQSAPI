@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--11--27-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--11--29-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -341,6 +341,9 @@ either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
 > RShowDoc(what=“RAQSAPIvignette,” type=“html,” package=“RAQSAPI”)
 
 # Acknowledgements
+
+RAQSAPI was included in the Rblogger’s March 2021: “Top 40” [New CRAN
+Packages](https://www.r-bloggers.com/2021/04/march-2021-top-40-new-cran-packages/).
 
 The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
