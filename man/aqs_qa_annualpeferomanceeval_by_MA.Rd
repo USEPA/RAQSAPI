@@ -73,8 +73,8 @@ server. This operation has a linear run time of
                                                           format = "\%Y\%m\%d"),
                                                   edate = as.Date("20171231",
                                                           format = "\%Y\%m\%d"),
-                                                        MA_code = "0013"
-                                                )
+                                                          MA_code = "0013"
+                                                        )
                   }
 }
 \seealso{

@@ -495,8 +495,8 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code,
 #'                                                           format = "%Y%m%d"),
 #'                                                   edate = as.Date("20171231",
 #'                                                           format = "%Y%m%d"),
-#'                                                         MA_code = "0013"
-#'                                                 )
+#'                                                           MA_code = "0013"
+#'                                                         )
 #'                   }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for single monitoring site for the
@@ -533,8 +533,8 @@ aqs_qa_annualpeferomanceeval_by_MA <- function(parameter, bdate, edate,
 #'             for a parameter code aggregated by matching input parameter and
 #'             MA_code provided for bdate - edate time frame.
 #' @note The AQS API only allows for a single year of quality assurance Annual
-#'         Performance Evaluation transaction data to be retrieved at a time. This
-#'         function conveniently extracts date information from the bdate
+#'         Performance Evaluation transaction data to be retrieved at a time.
+#'         This function conveniently extracts date information from the bdate
 #'         and edate parameters then makes repeated calls to the AQSAPI
 #'         retrieving a maximum of one calendar year of data at a time. Each
 #'         calendar year of data requires a separate API call so multiple years

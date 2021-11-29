@@ -19,6 +19,7 @@ server <- "AQSDatamartAPI"
 #' @importFrom dplyr between
 #' @importFrom glue glue
 #' @importFrom magrittr `%<>%`
+#' @importFrom stringr str_detect
 #' @return NULL
 #' @noRd
 checkaqsparams <- function(...)
@@ -120,8 +121,8 @@ checkaqsparams <- function(...)
     {
       error <- TRUE
       errmessage %<>% c('x' =
-      "cbsa_code must be a five digit number (represented as a character string),
-      please pad cbsa_code less than five digits with leading zeros"
+      "cbsa_code must be a five digit number (represented as a character
+      string), please pad cbsa_code less than five digits with leading zeros"
                         )
     }
   }

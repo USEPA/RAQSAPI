@@ -83,7 +83,7 @@ RAQSAPIBUILD <- function()
 {
   buildRAQSAPIbase()
   build_manual()
-  devtools::build(binary = TRUE, quiet = TRUE, manual = TRUE)
+  devtools::build(binary = FALSE, quiet = TRUE, manual = TRUE)
 }
 
 
@@ -150,5 +150,5 @@ RAQSAPICHECK <- function()
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)
   devtools::revdep(pkg = "RAQSAPI", recursive = TRUE)
-  if (!tools::checkMD5sums(dir = ".")) { warning("checkMD5sums, failed") }
+  if (!tools::checkMD5sums(dir = ".")) { warning("checkMD5sums failed") }
   }

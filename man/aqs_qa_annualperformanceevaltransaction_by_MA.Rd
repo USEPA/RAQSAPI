@@ -52,8 +52,8 @@ MA_code provided for bdate - edate time frame.
 }
 \note{
 The AQS API only allows for a single year of quality assurance Annual
-Performance Evaluation transaction data to be retrieved at a time. This
-function conveniently extracts date information from the bdate
+Performance Evaluation transaction data to be retrieved at a time.
+This function conveniently extracts date information from the bdate
 and edate parameters then makes repeated calls to the AQSAPI
 retrieving a maximum of one calendar year of data at a time. Each
 calendar year of data requires a separate API call so multiple years
