@@ -5,33 +5,53 @@ testthat::skip_if_offline()
 testthat::skip_on_cran()
 server <- "AQSDatamartAPI"
 
-RAQSAPI::checkaqsparams(parameter = "abcdefg") %>%
+RAQSAPI:::checkaqsparams(parameter = "abcdefg") %>%
   expect_error()
-RAQSAPI::checkaqsparams(bdate = 1995) %>%
+RAQSAPI:::checkaqsparams(bdate = "notadate") %>%
   expect_error()
-RAQSAPI::checkaqsparams(edate = 1995) %>%
+RAQSAPI:::checkaqsparams(edate = "notadate") %>%
   expect_error()
-RAQSAPI::checkaqsparams(stateFIPS = "90210") %>%
+RAQSAPI:::checkaqsparams(cbdate = "notadate") %>%
   expect_error()
-RAQSAPI::checkaqsparams(countycode = "341478") %>%
+RAQSAPI:::checkaqsparams(cedate = "notadate") %>%
   expect_error()
-RAQSAPI::checkaqsparams(sitenum = "1") %>%
+RAQSAPI:::checkaqsparams(stateFIPS = "90210") %>%
   expect_error()
-RAQSAPI::checkaqsparams(cbsa_code = "something") %>%
+RAQSAPI:::checkaqsparams(countycode = "341478") %>%
   expect_error()
-RAQSAPI::checkaqsparams(pqao_code = "99999") %>%
+RAQSAPI:::checkaqsparams(sitenum = "1") %>%
   expect_error()
-RAQSAPI::checkaqsparams(minlat = "3245253") %>%
+RAQSAPI:::checkaqsparams(cbsa_code = "something") %>%
   expect_error()
-RAQSAPI::checkaqsparams(maxlat = "647352") %>%
+RAQSAPI:::checkaqsparams(pqao_code = "99999") %>%
   expect_error()
-RAQSAPI::checkaqsparams(minlon = 45425252) %>%
+RAQSAPI:::checkaqsparams(minlat = "3245253") %>%
   expect_error()
-RAQSAPI::checkaqsparams(maxlon = 463753415) %>%
+RAQSAPI:::checkaqsparams(maxlat = "647352") %>%
   expect_error()
-RAQSAPI::checkaqsparams(MA_code = "MA") %>%
+RAQSAPI:::checkaqsparams(minlon = 45425252) %>%
   expect_error()
-RAQSAPI::checkaqsparams(return_header = 1) %>%
+RAQSAPI:::checkaqsparams(maxlon = 463753415) %>%
   expect_error()
-
+RAQSAPI:::checkaqsparams(MA_code = "MA") %>%
+  expect_error()
+RAQSAPI:::checkaqsparams(return_header = 1) %>%
+  expect_error()
+RAQSAPI:::checkaqsparams(POC = "POC") %>%
+  expect_error()
+RAQSAPI:::checkaqsparams(email = "not a valid email") %>%
+  expect_error()
+RAQSAPI:::checkaqsparams(duration = "not a valid duration") %>%
+  expect_error()
+RAQSAPI:::format_variables_for_api(x = list()) %>%
+  expect_equal("")
+RAQSAPI:::format_multiple_params_for_api(x = list()) %>%
+  expect_equal("")
+RAQSAPI:::aqsmultiyearparams(parameter = "99999",
+                             bdate = as.Date("2000-01-01", format = "%Y-%m-%d"),
+                             edate = as.Date("1999-01-01", format = "%Y-%m-%d"),
+                             service = "not a service"
+                             ) %>%
+  expect_error()
+RAQSAPI:::format_variables_for_api(x = list()) %>% expect_equal("")
 })

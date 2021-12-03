@@ -68,7 +68,7 @@ server. This operation has a linear run time of
           #  containing annual performance evaluation data for ozone where
           #  the monitoring agency is the Alabama Department of
           #  Environmental Management (MA_code 0013).
-          \dontrun{aqs_qa_annualpeferomanceeval_by_pqao(parameter = "44201",
+          \dontrun{aqs_qa_annualpeferomanceeval_by_MA(parameter = "44201",
                                                   bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),
                                                   edate = as.Date("20171231",

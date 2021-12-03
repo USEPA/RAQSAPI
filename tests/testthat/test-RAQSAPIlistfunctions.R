@@ -55,4 +55,8 @@ datamartAPI_user <- "test@aqs.api"
 
   aqs_sampledurations(return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
+
+  aqs_sampledurations(return_header = TRUE) %>%
+    aqs_removeheader() %>%
+    expect_s3_class(class = "data.frame")
 })

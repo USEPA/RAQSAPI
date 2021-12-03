@@ -239,11 +239,11 @@ aqs_qa_one_point_qc_by_site <- function(parameter, bdate, edate,
 #'           (\$Data) is a tibble of the data returned.
 #' @examples # returns a aqs_v2 S3 object of pep Audit data for FRM PM2.5
 #'           #  at the Huntsville Old Airport site (\#0014) in Madison County,
-#'           #  AL for 2017
+#'           #  AL for 2017 - 2019.
 #'  \dontrun{aqs_qa_pep_audit_by_site(parameter = "88101",
-#'                                    bdate = as.Date("20150101",
+#'                                    bdate = as.Date("20170101",
 #'                                                    format = "%Y%m%d"),
-#'                                    edate = as.Date("20171231",
+#'                                    edate = as.Date("20191231",
 #'                                                      format = "%Y%m%d"),
 #'                                    stateFIPS = "01",
 #'                                    countycode = "089",

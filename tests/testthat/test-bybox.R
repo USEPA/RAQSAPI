@@ -54,4 +54,15 @@ datamartapi_user <- "test@aqs.api"
                           return_header = TRUE
                           )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
+
+  aqs_quarterlysummary_by_box(parameter = "44201",
+                              bdate = as.Date("20150501", format = "%Y%m%d"),
+                              edate = as.Date("20170502", format = "%Y%m%d"),
+                              minlat = "33.3",
+                              maxlat = "33.6",
+                              minlon = "-87.0",
+                              maxlon = "-86.7",
+                              return_header = TRUE
+                             )[[1]]$Header$status %>%
+    expect_match(regexp = "Success")
 })

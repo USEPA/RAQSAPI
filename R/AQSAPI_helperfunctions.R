@@ -411,6 +411,7 @@ aqs <- function(service, filter = NA, user = NA,
                           url = path,
                           query = query
                          )
+
     AQSresult <- httr::GET(url,
                            user_agent
                            )

@@ -100,7 +100,7 @@ RAQSAPIINSTALL <- function()
 {
   buildRAQSAPIbase()
   devtools::install(reload = TRUE, quiet = TRUE, dependencies = TRUE,
-                    upgrade = "always", build_vignettes = TRUE, quick = FALSE)
+                    upgrade = "never", build_vignettes = TRUE, quick = FALSE)
 }
 
 
@@ -151,4 +151,28 @@ RAQSAPICHECK <- function()
   goodpractice::gp(quiet = TRUE)
   devtools::revdep(pkg = "RAQSAPI", recursive = TRUE)
   if (!tools::checkMD5sums(dir = ".")) { warning("checkMD5sums failed") }
-  }
+}
+
+
+#' @name RAQSAPITESTCOVERAGE
+#' @description generates a package unit test coverage report
+#' @note dueto the fact that the unit test for RAQSAPI calls RAQSAPI calls
+#' testthat::skip_on_cran covr typically reports incorrect results. This
+#' function implements the suggestions given by the package maintainers
+#' (https://issueexplorer.com/issue/r-lib/covr/466) to correctly report package
+#' coverage
+#' @importFrom devtools test_coverage()
+#' @examples
+#'   #to check the RAQSAPI package for errors before pushing changes upstream
+#'   \dontrun(RAQSAPITESTCOVERAGE()
+#'   }
+#' @noRd
+RAQSAPITESTCOVERAGE <- function()
+{
+  #save the NOT_CRAN environment variable to a temporary variable
+  NOT_CRAN <- Sys.getenv(x = "NOT_CRAN")
+  Sys.setenv(NOT_CRAN = "true")
+  test_coverage()
+  #restore the NOT_CRAN environment variable to it's former state
+  Sys.setenv(NOT_CRAN = NOT_CRAN)
+}

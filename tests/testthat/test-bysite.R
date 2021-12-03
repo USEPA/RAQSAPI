@@ -158,4 +158,14 @@ aqs_quarterlysummary_by_site(parameter = "88101",
                              )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
+aqs_qa_pep_audit_by_site(parameter = "88101",
+                         bdate = as.Date("20170101", format = "%Y%m%d"),
+                         edate = as.Date("20191231", format = "%Y%m%d"),
+                         stateFIPS = "01",
+                         countycode = "089",
+                         sitenum = "0014",
+                         return_header = TRUE
+                         )[[1]]$Header$status %>%
+  expect_match(regexp = "Success")
+
 })
