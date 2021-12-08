@@ -42,7 +42,7 @@ output: md_document
     - aqs_quarterlysummary_by_box
 * aqs_monitors_by_\* functions now include a new optional duration parameter
     to filter results by duration code
-* New list function aqs_sample_duration to retrieve a table of valid sample
+* New list function aqs_sampledurations to retrieve a table of valid sample
     durations.
     
 ### Test environments

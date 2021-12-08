@@ -41,7 +41,7 @@ The `RAQSAPI` package for the R programming environment allows a R programming
   decides to set return_header to TRUE, then that function will return a R
   AQS_DATAMART_APIv2 S3 object which is a two item named list.  
   The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
-  (tibble)[@website:tibble] 
+  (tibble)[@package:tibble] 
   which contains the header information. The Header contains status
   information regarding the request (success/fail), any applicable error
   messages returned from the API, if any exist, the URL used in the request, a

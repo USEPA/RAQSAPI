@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--12--03-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--12--08-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -349,18 +349,18 @@ The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
 those sources with them RAQSAPI would not be possible.
 
--   README badges are provided by R package badgecreator<sup>3</sup>.
--   The R package usethis<sup>4</sup> was used to generate GitHub
+-   README badges are provided by R package `badgecreator`<sup>3</sup>.
+-   The R package `usethis`<sup>4</sup> was used to generate GitHub
     actions for Continuous integration (CI).
--   Code cleanup was assisted by the R package lintr<sup>5</sup>
+-   Code cleanup was assisted by the R package `lintr`<sup>5</sup>
 -   the function *install.packages* are provided by the R package
-    utils<sup>6</sup>
+    `utils`<sup>6</sup>
 -   the function *install_github* are provided by the R package
-    remotes<sup>7</sup>
+    `remotes`<sup>7</sup>
 -   .gitignore file borrowed examples from
     <https://github.com/github/gitignore/blob/master/R.gitignore>
--   The RAQSAPI hexsticker was created using the `hexSticker` package
-    for R
+-   The RAQSAPI hexsticker was created using the
+    `hexSticker`<sup>8</sup> package for R
 
 # References
 
@@ -374,11 +374,11 @@ class="csl-right-inline">AQS data mart welcome
 
 </div>
 
-<div id="ref-website:tibble" class="csl-entry">
+<div id="ref-package:tibble" class="csl-entry">
 
 <span class="csl-left-margin">(2) </span><span
-class="csl-right-inline">Müller, H., Kirill; Wickham. Tibble Part of the
-Tidyverse, 2019.</span>
+class="csl-right-inline">Müller, K.; Wickham, H. *Tibble: Simple Data
+Frames*; 2021.</span>
 
 </div>
 
@@ -394,8 +394,8 @@ for ’Travis’, ’Repostatus’ ’Codecov.io’ Etc in Github Readme*;
 <div id="ref-package:usethis" class="csl-entry">
 
 <span class="csl-left-margin">(4) </span><span
-class="csl-right-inline">Wickham, H.; Bryan, J. *Usethis: Automate
-Package and Project Setup*; 2021.</span>
+class="csl-right-inline">Wickham, H.; Bryan, J.; Barrett, M. *Usethis:
+Automate Package and Project Setup*; 2021.</span>
 
 </div>
 
@@ -419,9 +419,17 @@ Austria, 2019.</span>
 <div id="ref-package:remotes" class="csl-entry">
 
 <span class="csl-left-margin">(7) </span><span
-class="csl-right-inline">Hester, J.; Csárdi, G.; Wickham, H.; Chang, W.;
+class="csl-right-inline">Csárdi, G.; Hester, J.; Wickham, H.; Chang, W.;
 Morgan, M.; Tenenbaum, D. *Remotes: R Package Installation from Remote
 Repositories, Including ’GitHub’*; 2021.</span>
+
+</div>
+
+<div id="ref-package:hexsticker" class="csl-entry">
+
+<span class="csl-left-margin">(8) </span><span
+class="csl-right-inline">Yu, G. *hexSticker: Create Hexagon Sticker in
+r*; 2020.</span>
 
 </div>
 
