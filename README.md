@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202021--12--08-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--01--10-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -288,21 +288,21 @@ service.**
 
 **These fourteen services are**:
 
--   **Monitors** (monitors_by\_\*)
--   **Sample Data** (sampledata_by\_\*)
--   **Daily Summary Data** (dailydata_by\_\*)
--   **Annual Summary Data** (annualdata_by\_\*)
--   **Quarterly Summary Data** (q
--   **Quality Assurance - Blanks Data** (qa_blanks_by\_\*)
+-   **Monitors** (aqs_monitors_by\_\*)
+-   **Sample Data** (aqs_sampledata_by\_\*)
+-   **Daily Summary Data** (aqs_dailydata_by\_\*)
+-   **Annual Summary Data** (aqs_annualdata_by\_\*)
+-   **Quarterly Summary Data** (aqs_quarterlysummary_by\_\*)
+-   **Quality Assurance - Blanks Data** (aqs_qa_blanks_by\_\*)
 -   **Quality Assurance - Collocated Assessments**
-    (qa_collocated_assessments_by\_\*)
+    (aqs_qa_collocated_assessments_by\_\*)
 -   **Quality Assurance - Flow Rate Verifications**
-    (qa_flowrateverification_by\_\*)
+    (aqs_qa_flowrateverification_by\_\*)
 -   **Quality Assurance - Flow Rate Audits**
     (aqs_qa_flowrateaudit_by\_\*)
 -   **Quality Assurance - One Point Quality Control Raw Data**
-    (qa_one_point_qc_by\_\*)
--   **Quality Assurance - PEP Audits** (qa_pep_audit_by\_\*)
+    (aqs_qa_one_point_qc_by\_\*)
+-   **Quality Assurance - PEP Audits** (aqs_qa_pep_audit_by\_\*)
 -   **Transaction Sample - AQS Submission data in transaction Format
     (RD)** (aqs_transactionsample_by\_\*)
 -   **Quality Assurance - Annual Performance Evaluations**  

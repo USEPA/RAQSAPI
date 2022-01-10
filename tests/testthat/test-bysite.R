@@ -81,24 +81,24 @@ datamartAPI_user <- "test@aqs.api"
   aqs_qa_flowrateaudit_by_site(parameter = "88101",
                                           bdate = as.Date("20180101",
                                                           format = "%Y%m%d"),
-                                           edate = as.Date("20180131",
-                                                           format = "%Y%m%d"),
-                                           stateFIPS = "01",
-                                           countycode = "073",
-                                           sitenum = "2003",
-                                           return_header = TRUE
+                                          edate = as.Date("20180131",
+                                                          format = "%Y%m%d"),
+                                          stateFIPS = "01",
+                                          countycode = "073",
+                                          sitenum = "2003",
+                                          return_header = TRUE
                               )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
   aqs_qa_one_point_qc_by_site(parameter = "44201",
-                                    bdate = as.Date("20180101",
-                                                    format = "%Y%m%d"),
-                                    edate = as.Date("20180131",
-                                                    format = "%Y%m%d"),
-                                    stateFIPS = "25",
-                                    countycode = "001",
-                                    sitenum = "0002",
-                                    return_header = TRUE
+                              bdate = as.Date("20180101",
+                                              format = "%Y%m%d"),
+                              edate = as.Date("20180131",
+                                              format = "%Y%m%d"),
+                              stateFIPS = "25",
+                              countycode = "001",
+                              sitenum = "0002",
+                              return_header = TRUE
                               )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
