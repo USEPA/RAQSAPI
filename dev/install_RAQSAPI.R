@@ -149,7 +149,7 @@ RAQSAPICHECK <- function()
                         )
   if ("RAQSAPI" %in% .packages()) {detach("package:RAQSAPI", unload = TRUE)}
   goodpractice::gp(quiet = TRUE)
-  devtools::revdep(pkg = "RAQSAPI", recursive = TRUE)
+  devtools::revdep(pkg = "RAQSAPI", recursive = TRUE, bioconductor = TRUE)
   if (!tools::checkMD5sums(dir = ".")) { warning("checkMD5sums failed") }
 }
 
@@ -170,9 +170,9 @@ RAQSAPICHECK <- function()
 RAQSAPITESTCOVERAGE <- function()
 {
   #save the NOT_CRAN environment variable to a temporary variable
-  NOT_CRAN <- Sys.getenv(x = "NOT_CRAN")
+  NOT_CRAN_TEMP <- Sys.getenv(x = "NOT_CRAN")
   Sys.setenv(NOT_CRAN = "true")
   test_coverage()
   #restore the NOT_CRAN environment variable to it's former state
-  Sys.setenv(NOT_CRAN = NOT_CRAN)
+  Sys.setenv(NOT_CRAN = NOT_CRAN_TEMP)
 }

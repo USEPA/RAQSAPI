@@ -95,7 +95,7 @@ API server. This operation has a linear run time of
  \dontrun{aqs_quarterlysummary_by_site(parameter = "88101",
                                        bdate = as.Date("20160101",
                                                        format = "\%Y\%m\%d"),
-                                       edate = as.Date("20170228",
+                                       edate = as.Date("20160331",
                                                        format = "\%Y\%m\%d"),
                                        stateFIPS = "37",
                                        countycode = "183",

@@ -6,6 +6,8 @@ output: md_document
 ---
 
 # cran-comments for RAQSAPI
+## RAQSAPI 2.0.3
+* Remove dependency on package:gtools.
 
 ## RAQSAPI 2.0.2
 * This is a new release

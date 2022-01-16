@@ -41,7 +41,6 @@ Depends: R (>= 4.0.0)
 Imports: 
     dplyr,
     glue,
-    gtools,
     httr,
     jsonlite,
     lubridate,

@@ -1,14 +1,6 @@
-# @importFrom rlang env
-# @importFrom magrittr '%<>%' %>%'
-# @importFrom jsonlite fromJSON
 #' @importFrom lubridate today year mdy '%within%' NA_Date_
 #' @importFrom lifecycle deprecate_soft badge
-# @importFrom purrr map_chr
-# @importFrom gtools invalid
-# @importFrom utils globalVariables
-# @import httr glue rprojroot devtools stringr tibble kableExtra rlang httr
-# @include RAQSAPI.R zzz.R generalfunctions.R AQSAPI_helperfunctions.R
-#             AQS_API.R
+
 
 #' @title RAQSAPI: A R Interface to The United States Environmental Protection
 #' Agency's Air Quality System Data Mart RESTful API server.

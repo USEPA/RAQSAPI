@@ -293,7 +293,8 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @title aqs_quarterlysummary_by_box
 #' @description \lifecycle{stable}
 #'                Returns a tibble or an AQS_Data Mart_APIv2 S3
-#'                object of quarterly summary data aggregated by stateFIPS.
+#'                object of quarterly summary data aggregated by and area within
+#'                a latitude/longitude bounding box.
 #' @note The AQS API only allows for a single year of quarterly summary to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
@@ -314,10 +315,11 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
-#'           summary statistics for the given parameter for a stateFIPS.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
-#'           item (\$Header) is a tibble of header information from the AQS API
-#'           and the second item (\$Data) is a tibble of the data returned.
+#'           summary statistics for an area within a latitude/longitude
+#'           bounding box. An AQS_Data Mart_APIv2 is a 2 item named list in
+#'           which the first item (\$Header) is a tibble of header information
+#'           from the AQS API and the second item (\$Data) is a tibble of the
+#'           data returned.
 #' @examples # returns a tibble containing ozone quarterly summaries
 #'           #  in the vicinity of central Alabama for the first two days
 #'           #  in May, 2015

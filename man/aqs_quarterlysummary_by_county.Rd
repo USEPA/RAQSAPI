@@ -58,7 +58,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object that contains quartery
+a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
 summary statistics for the given parameter for a single countycode
 and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
 list in which the first item (\$Header) is a tibble of header

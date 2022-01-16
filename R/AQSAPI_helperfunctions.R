@@ -364,7 +364,7 @@ aqs_ratelimit <- function(waittime=5L)
 #' @importFrom dplyr mutate select arrange
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
-#' @importFrom rlang .data
+#' @importFrom rlang .data is_empty
 #' @importFrom tibble as_tibble
 #' @importFrom httr GET http_type content http_error status_code modify_url
 #'               user_agent message_for_status
@@ -385,13 +385,13 @@ aqs <- function(service, filter = NA, user = NA,
   user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
     httr::user_agent()
 
-   if (gtools::invalid(service) & gtools::invalid(filter))
+   if (rlang::is_empty(service) & rlang::is_empty(filter))
   {
     path <- glue::glue("/data/api/")
-  }else if (gtools::invalid(service))
+  }else if (rlang::is_empty(service))
   {
     path <- glue::glue("/data/api/")
-  }else if (gtools::invalid(filter))
+  }else if (rlang::is_empty(filter))
   {
     path <- glue::glue("/data/api/{service}")
   }else {

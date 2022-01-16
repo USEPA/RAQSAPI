@@ -433,7 +433,7 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for single monitoring site for the
-#'           sitenum, countycode and stateFIPS requested for the time frame
+#'           pqao_code requested for the time frame
 #'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
 #'           list in which the first item ($Header) is a tibble of header
 #'           information from the AQS API and the second item ($Data) is a
@@ -516,7 +516,7 @@ aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter,
                                bdate = bdate,
                                edate = edate,
                                pqao_code = pqao_code,
-                               service = "qaAnnualPerformanceEvaluations"
+                               service = "transactionsQaAnnualPerformanceEvaluations"
                                )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
