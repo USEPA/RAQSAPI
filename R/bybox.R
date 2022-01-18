@@ -19,15 +19,15 @@
 #'           #  monitors in the vicinity of central Alabama that operated in
 #'           #  1995
 #'           \dontrun{aqs_monitors_by_box(parameter="44201",
-#'                                                bdate=as.Date("19950101",
-#'                                                            format="%Y%m%d"),
-#'                                                edate=as.Date("19951231",
-#'                                                             format="%Y%m%d"),
-#'                                                minlat="33.3",
-#'                                                maxlat="33.6",
-#'                                                minlon="-87.0",
-#'                                                maxlon="-86.7"
-#'                                                    )
+#'                                        bdate=as.Date("19950101",
+#'                                                      format="%Y%m%d"),
+#'                                        edate=as.Date("19951231",
+#'                                                      format="%Y%m%d"),
+#'                                        minlat="33.3",
+#'                                        maxlat="33.6",
+#'                                        minlon="-87.0",
+#'                                        maxlon="-86.7"
+#'                                        )
 #'                    }
 #' @export
 aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,

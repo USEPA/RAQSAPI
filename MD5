@@ -29,7 +29,7 @@ af6b0d11899cf5785207f49e2c9f74b8 *man/aqs_isavailable.Rd
 1e814aff39fb994dd762dcac9f6e13cc *man/aqs_knownissues.Rd
 45c84844fd8ed0efed3c7248db82aa45 *man/aqs_mas.Rd
 00d78eddaff8c09ba0cd62d664781831 *man/aqs_metadata_service.Rd
-5160237c719a01b5decb0027b873a4c8 *man/aqs_monitors_by_box.Rd
+2d6d7b02acd5d4ba368deea2e05f778d *man/aqs_monitors_by_box.Rd
 0e20ca4cd9e54d91b582a01eea53e1fb *man/aqs_monitors_by_cbsa.Rd
 974ddd54bd77327ff4a2c0f0a148f1f2 *man/aqs_monitors_by_county.Rd
 9102f92d8f43e73a152d35bbd11fc618 *man/aqs_monitors_by_site.Rd
@@ -112,10 +112,10 @@ c3978703d8f40f2679795335715e98f4 *man/figures/lifecycle-experimental.svg
 53b3f893324260b737b3c46ed2a0e643 *man/figures/lifecycle-stable.svg
 1c1fe7a759b86dc6dbcbe7797ab8246c *man/figures/lifecycle-superseded.svg
 18243069a67e5dd712a382ba394b8405 *man/RAQSAPI.Rd
-00f4059a75267292ef23424213cf02fa *NAMESPACE
+4e641a71d4c910c7aca2778ecaacea36 *NAMESPACE
 bd3e694dd41b71c72eae576547f1e935 *NEWS.md
-6c0f361b3b1a20fa577c333264b16cae *R/AQSAPI_helperfunctions.R
-0121801eef671485ac694932fe1fc4c3 *R/bybox.R
+c90acd26a47e33d71e56ee4607c26ab4 *R/AQSAPI_helperfunctions.R
+2b6e01cf2d4053214a4dd88d0ce573ec *R/bybox.R
 5ec4386c152726cc1b3615557f693ec2 *R/bycbsa.R
 11f04f413abbf6dc9f05055eedf1e4fd *R/bycounty.R
 ca28dbfbb88b0c80e13e5b86a9170789 *R/byma.R
@@ -127,7 +127,7 @@ d9c460c915feccac35ad3dc9ad4d7a7f *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-f4c25bcecf291ce4cf396dd906e3dff0 *README.md
+fab06175632bc6192b231ee53b78e955 *README.md
 201526debb59c4f79c28fd34fd8f30c1 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 332173f20d20942c02019350ea4dcadc *tests/spelling.R

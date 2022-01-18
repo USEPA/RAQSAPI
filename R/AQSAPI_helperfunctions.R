@@ -15,7 +15,7 @@ server <- "AQSDatamartAPI"
 #'           called directly by the end user or to be called outside of RAQSAPI.
 #'          variables will remain unchanged.
 #' @importFrom lubridate is.Date
-#' @importFrom rlang abort call_frame format_error_bullets
+#' @importFrom rlang abort call_frame format_error_bullets call_name
 #' @importFrom dplyr between
 #' @importFrom glue glue
 #' @importFrom magrittr `%<>%`
@@ -248,7 +248,8 @@ checkaqsparams <- function(...)
   }
   if (error)
     {
-      callingfunction <- rlang::call_frame(n = 2)$fn_name
+      callingfunction <- rlang::call_name(sys.call(sys.parent(2)))
+      #callingfunction <- rlang::call_frame(n = 2)$fn_name
       if (is.null(callingfunction)) callingfunction <- "Unknown Environment"
       callingfunction <- glue(" in: {callingfunction}")
       c('i' = callingfunction, errmessage) %>% abort
