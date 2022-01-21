@@ -21,7 +21,6 @@ knitr::opts_chunk$set(
 )
 
 ```
-<!-- ![](./vignettes/figures/RAQSAPIhexsticker.png){width=20%} -->
 <img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
 <!-- badges: start -->
@@ -48,6 +47,9 @@ knitr::opts_chunk$set(
 ```
 
 ```{r child = "./vignettes/Intro.Rmd"}
+```
+
+```{r child = "./vignettes/TimelinessofAQSData.Rmd"}
 ```
 
 ```{r child = "./vignettes/InstallandSetup.Rmd", echo = FALSE, comment = NA}

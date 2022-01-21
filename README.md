@@ -4,6 +4,8 @@ Clinton Mccrowey, physical scientist - US EPA
 
 -   [EPA Disclaimer](#epa-disclaimer)
 -   [Introduction](#introduction)
+-   [About the timeliness of AQS
+    Data](#about-the-timeliness-of-aqs-data)
 -   [Installing RAQSAPI](#installing-raqsapi)
     -   [Option 1: Installing the stable version from
         CRAN](#option-1-installing-the-stable-version-from-cran)
@@ -21,8 +23,6 @@ Clinton Mccrowey, physical scientist - US EPA
 -   [Acknowledgements](#acknowledgements)
 -   [References](#references)
 
-<!-- ![](./vignettes/figures/RAQSAPIhexsticker.png){width=20%} -->
-
 <img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
 <!-- badges: start -->
@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--01--18-blue.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--01--21-blue.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -108,6 +108,15 @@ FALSE (default) a simple tibble is returned with just the $Data portion
 of the request. After each call to the API a five second stall is
 invoked to help prevent overloading the Data Mart API server and to
 serve as a simple rate limit.[1]
+
+# About the timeliness of AQS Data
+
+EPA’s AQS Datamart API, the service that RAQSAPI retrieves data from,
+does not host real time data (data collected today). If real time data
+is needed, please use the AirNow API and direct all questions toward
+real time data there. RAQSAPI does not work with AirNow and cannot
+retrieve real time data. For more details see section 7.1 of the (About
+AQS Data page)<sup>3</sup>.
 
 # Installing RAQSAPI
 
@@ -349,18 +358,18 @@ The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
 those sources with them RAQSAPI would not be possible.
 
--   README badges are provided by R package `badgecreator`<sup>3</sup>.
--   The R package `usethis`<sup>4</sup> was used to generate GitHub
+-   README badges are provided by R package `badgecreator`<sup>4</sup>.
+-   The R package `usethis`<sup>5</sup> was used to generate GitHub
     actions for Continuous integration (CI).
--   Code cleanup was assisted by the R package `lintr`<sup>5</sup>
+-   Code cleanup was assisted by the R package `lintr`<sup>6</sup>
 -   the function *install.packages* are provided by the R package
-    `utils`<sup>6</sup>
+    `utils`<sup>7</sup>
 -   the function *install_github* are provided by the R package
-    `remotes`<sup>7</sup>
+    `remotes`<sup>8</sup>
 -   .gitignore file borrowed examples from
     <https://github.com/github/gitignore/blob/master/R.gitignore>
 -   The RAQSAPI hexsticker was created using the
-    `hexSticker`<sup>8</sup> package for R
+    `hexSticker`<sup>9</sup> package for R
 
 # References
 
@@ -382,9 +391,17 @@ Frames*; 2021.</span>
 
 </div>
 
-<div id="ref-package:badgecreatr" class="csl-entry">
+<div id="ref-AboutAQSdata" class="csl-entry">
 
 <span class="csl-left-margin">(3) </span><span
+class="csl-right-inline">About AQS data
+<https://aqs.epa.gov/aqsweb/documents/about_aqs_data.html>.</span>
+
+</div>
+
+<div id="ref-package:badgecreatr" class="csl-entry">
+
+<span class="csl-left-margin">(4) </span><span
 class="csl-right-inline">Hogervorst, R. M. *Badgecreatr: Create Badges
 for ’Travis’, ’Repostatus’ ’Codecov.io’ Etc in Github Readme*;
 2019.</span>
@@ -393,7 +410,7 @@ for ’Travis’, ’Repostatus’ ’Codecov.io’ Etc in Github Readme*;
 
 <div id="ref-package:usethis" class="csl-entry">
 
-<span class="csl-left-margin">(4) </span><span
+<span class="csl-left-margin">(5) </span><span
 class="csl-right-inline">Wickham, H.; Bryan, J.; Barrett, M. *Usethis:
 Automate Package and Project Setup*; 2021.</span>
 
@@ -401,7 +418,7 @@ Automate Package and Project Setup*; 2021.</span>
 
 <div id="ref-package:lintr" class="csl-entry">
 
-<span class="csl-left-margin">(5) </span><span
+<span class="csl-left-margin">(6) </span><span
 class="csl-right-inline">Hester, J.; Angly, F.; Hyde, R. *Lintr: A
 ’Linter’ for r Code*; 2020.</span>
 
@@ -409,7 +426,7 @@ class="csl-right-inline">Hester, J.; Angly, F.; Hyde, R. *Lintr: A
 
 <div id="ref-RBase" class="csl-entry">
 
-<span class="csl-left-margin">(6) </span><span
+<span class="csl-left-margin">(7) </span><span
 class="csl-right-inline">Team, R. C. *R: A Language and Environment for
 Statistical Computing*; R Foundation for Statistical Computing: Vienna,
 Austria, 2019.</span>
@@ -418,7 +435,7 @@ Austria, 2019.</span>
 
 <div id="ref-package:remotes" class="csl-entry">
 
-<span class="csl-left-margin">(7) </span><span
+<span class="csl-left-margin">(8) </span><span
 class="csl-right-inline">Csárdi, G.; Hester, J.; Wickham, H.; Chang, W.;
 Morgan, M.; Tenenbaum, D. *Remotes: R Package Installation from Remote
 Repositories, Including ’GitHub’*; 2021.</span>
@@ -427,7 +444,7 @@ Repositories, Including ’GitHub’*; 2021.</span>
 
 <div id="ref-package:hexsticker" class="csl-entry">
 
-<span class="csl-left-margin">(8) </span><span
+<span class="csl-left-margin">(9) </span><span
 class="csl-right-inline">Yu, G. *hexSticker: Create Hexagon Sticker in
 r*; 2020.</span>
 

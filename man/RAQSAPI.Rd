@@ -18,7 +18,7 @@ There are two things that you must do before using this package.
 must be called before continuing.
 }
 
-please use vignette(RAQSAPI) for more details  about this package.
+please use vignette(RAQSAPI) for more details about this package.
 
 EPA Disclaimer:
 This software/application was developed by the U.S. Environmental Protection

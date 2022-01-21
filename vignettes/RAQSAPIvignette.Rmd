@@ -42,11 +42,15 @@ invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 
 #patsetuplink <- glue::glue("{usethisurl}{usethissetup}{usethispatsection}")
 ```
+<img src="./figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
 ```{r child = "EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
 
 ```{r child = "Intro.Rmd", echo = FALSE, comment = NA}
+```
+
+```{r child = "TimelinessofAQSData.Rmd"}
 ```
 
 ```{r child = "InstallandSetup.Rmd", echo = FALSE}

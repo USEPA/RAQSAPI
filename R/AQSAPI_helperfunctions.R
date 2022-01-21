@@ -15,7 +15,7 @@ server <- "AQSDatamartAPI"
 #'           called directly by the end user or to be called outside of RAQSAPI.
 #'          variables will remain unchanged.
 #' @importFrom lubridate is.Date
-#' @importFrom rlang abort call_frame format_error_bullets call_name
+#' @importFrom rlang abort format_error_bullets call_name
 #' @importFrom dplyr between
 #' @importFrom glue glue
 #' @importFrom magrittr `%<>%`
