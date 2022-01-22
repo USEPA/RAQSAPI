@@ -82,7 +82,7 @@ service, hardware, or user accounts that may utilize this package. </span></th>
 The `RAQSAPI` package for the R programming environment allows a R
 programming environment to connect to and retrieve data from the United
 States Environmental Protection Agency’s (US EPA) Air Quality System
-(AQS) Data Mart API v2 (Air Quality System)<sup>1</sup> interface
+(AQS) Data Mart API v2 Air Quality System<sup>1</sup> interface
 directly. This package enables the data user to omit legacy challenges
 including coercing data from a JSON object to a usable R object,
 retrieving multiple years of data, formatting API requests, retrieving
@@ -97,7 +97,7 @@ which by default is set to FALSE. If the user decides to set
 return_header to TRUE, then that function will return a R
 AQS_DATAMART_APIv2 S3 object which is a two item named list.  
 The first item, ($Header) in the AQS_DATAMART_APIv2 object is a
-(tibble)<sup>2</sup> which contains the header information. The Header
+tibble<sup>2</sup> which contains the header information. The Header
 contains status information regarding the request (success/fail), any
 applicable error messages returned from the API, if any exist, the URL
 used in the request, a date and time stamp noting when request was
@@ -112,11 +112,11 @@ serve as a simple rate limit.[1]
 # About the timeliness of AQS Data
 
 EPA’s AQS Datamart API, the service that RAQSAPI retrieves data from,
-does not host real time data (data collected today). If real time data
-is needed, please use the AirNow API and direct all questions toward
-real time data there. RAQSAPI does not work with AirNow and cannot
-retrieve real time data. For more details see section 7.1 of the (About
-AQS Data page)<sup>3</sup>.
+does not host real time (collected now/today) data. If real time data is
+needed, please use the AirNow API and direct all questions toward real
+time data there. RAQSAPI does not work with AirNow and cannot retrieve
+real time data. For more details see section 7.1 of the About AQS Data
+page<sup>3</sup>.
 
 # Installing RAQSAPI
 

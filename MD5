@@ -127,7 +127,7 @@ d9c460c915feccac35ad3dc9ad4d7a7f *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-2c31017f36cc461f1f3e9cb4aea664b2 *README.md
+a8fcaf2935e778f7070e4c40620bc280 *README.md
 61bb5e5c80964c754dead38df08bf48b *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 332173f20d20942c02019350ea4dcadc *tests/spelling.R
@@ -153,8 +153,8 @@ a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 3e50a3dc6b00b7861afe3dd8f8ede7c5 *vignettes/figures/RAQSAPIhexsticker.png
 44aa30dce806516fb33882e14edf4d80 *vignettes/InstallandSetup.html
 69224454907b49f3de5fcf3527a3ad3f *vignettes/InstallandSetup.Rmd
-c2f4aa965fb20b5f3d40b671259dcd5b *vignettes/Intro.html
-71f555d43c78035c8f5e1c56393cc5d8 *vignettes/Intro.Rmd
+aaebea417e69f7f1fa559709ba5cbce8 *vignettes/Intro.html
+a629c5720b68a384451709002c95a499 *vignettes/Intro.Rmd
 86f2514a193ffef933d1e682edef04d4 *vignettes/RAQSAPIFunctions-Brief.html
 c801e7c5c4837e9d6abb41e28dcff999 *vignettes/RAQSAPIFunctions-Brief.Rmd
 51a032f00ac4bc42ea6553434107d10f *vignettes/RAQSAPIFunctions-Long.html
@@ -167,8 +167,8 @@ c0099b9c0fa4d49121ad8d61078d13a7 *vignettes/RAQSAPIusagetipsandprecautions.html
 ddee30d7df25285648d9979febbe2192 *vignettes/RAQSAPIvignette.html
 5f614b6e23d520d2260f9f7224fe648d *vignettes/RAQSAPIvignette.R
 cc873a7101715766a6057c2cbb59609d *vignettes/RAQSAPIvignette.Rmd
-66127aa546810c162aff78bff14fb963 *vignettes/TimelinessofAQSData.html
-e4c27c7706ec401441fc93afeaa39a75 *vignettes/TimelinessofAQSData.Rmd
+3f74dfc92a4d9d85a467f20a1907fd87 *vignettes/TimelinessofAQSData.html
+5d3445414bf02629a8a10b6dc05c47e7 *vignettes/TimelinessofAQSData.Rmd
 c138294b7907f80a3230cfa7dafc9acc *vignettes/Troubleshooting.html
 5373641f3b58a3b050b503a91700df95 *vignettes/Troubleshooting.Rmd
 341b0518685dcd50be661d59a08f9653 *vignettes/UsingRAQSAPI.html
