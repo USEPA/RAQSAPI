@@ -7,10 +7,13 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.3
+* this is a minor release
 * Remove dependency on package:gtools.
+* removes calls to depreciated functions imported from package:rlang
+* updates documentation to include a note about the timeliness of data
 
 ## RAQSAPI 2.0.2
-* This is a new release
+* This is a major release
 
 ### Reason/Significant changes
 * new hexsticker!

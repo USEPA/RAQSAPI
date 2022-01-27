@@ -1,6 +1,6 @@
-3adff34d9e397e8b7b5e55eed4a0d840 *cran-comments.md
-3adff34d9e397e8b7b5e55eed4a0d840 *cran-comments.Rmd
-df341b070dd752ef89e375106eaf406f *DESCRIPTION
+83b45f944d0b069400ca4c675fb44996 *cran-comments.md
+83b45f944d0b069400ca4c675fb44996 *cran-comments.Rmd
+c6af3ae3d251bbd2b4d89fe4e309abfa *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
 74e297a0dc0b508ed18e3821264958d0 *dev/countlinesofcode.R
@@ -113,7 +113,7 @@ c3978703d8f40f2679795335715e98f4 *man/figures/lifecycle-experimental.svg
 1c1fe7a759b86dc6dbcbe7797ab8246c *man/figures/lifecycle-superseded.svg
 1712fd8700cfeefca91608232051619e *man/RAQSAPI.Rd
 be82b10ddb5e6789ad27087be0d584a4 *NAMESPACE
-87d40f7e48a0af97c34751be5409958e *NEWS.md
+23c2d5c08f0c870318200dba3c484a30 *NEWS.md
 45b6d89b160e289ac3f92a0a3f7efeec *R/AQSAPI_helperfunctions.R
 2b6e01cf2d4053214a4dd88d0ce573ec *R/bybox.R
 5ec4386c152726cc1b3615557f693ec2 *R/bycbsa.R
@@ -127,7 +127,7 @@ d9c460c915feccac35ad3dc9ad4d7a7f *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-a8fcaf2935e778f7070e4c40620bc280 *README.md
+dd5fbd37f10393a82d9ee2034ce2bc0a *README.md
 61bb5e5c80964c754dead38df08bf48b *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 332173f20d20942c02019350ea4dcadc *tests/spelling.R

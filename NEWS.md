@@ -5,6 +5,12 @@
  Air Quality Analysis Branch
  
  
+#RAQSAPI 2.0.3 (2022-01-27)
+* this is a minor release
+* Remove dependency on package:gtools.
+* removes calls to depreciated functions imported from package:rlang
+* updates documentation to include a note about the timeliness of data
+ 
 #RAQSAPI 2.0.2 (2021-11-29)
 
 * new hexsticker!
