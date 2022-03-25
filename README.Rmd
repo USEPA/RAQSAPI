@@ -39,8 +39,8 @@ knitr::opts_chunk$set(
   https://www.tidyverse.org/lifecycle/#maturing)
   [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](
   https://choosealicense.com/)
-  [![Last-changedate](https://img.shields.io/badge/last%20change-\
-  `r gsub('-', '--', Sys.Date())`-blue.svg)](/commits/master)
+  "[![Last-changedate](https://img.shields.io/badge/last%20change-
+  `r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)"
   <!-- badges: end -->
 
 ```{r child = "./vignettes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}

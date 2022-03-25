@@ -1013,13 +1013,15 @@ aqs_metadata_service <- function(filter, service = NA_character_,
 #' @title renameaqsvariables
 #' @description \lifecycle{experimental}
 #'                This is a helper function not intended to be called directly
-#'                by the end user.renames the two columns returned in the $Data
+#'                by the end user. Renames the two columns returned in the $Data
 #'                portion of a RAQSAPI_v2 object from "value"and
 #'                "value_represented" to name1 and name2 respectively.
 #' @importFrom dplyr rename rename_at vars
 #' @importFrom rlang `:=` `!!`
 #' @param aqsobject A RAQSAPI_v2 object
 #' @param name1 a character string representing the new name of the first
+#'                column of the $Data portion of the RAQSAPI_v2 object.
+#' @param name2 a character string representing the new name of the second
 #'                column of the $Data portion of the RAQSAPI_v2 object.
 #' @noRd
 renameaqsvariables <- function(aqsobject, name1, name2)

@@ -97,7 +97,7 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
                       user_key =  getOption("aqs_key"),
                       variables = list(state = stateFIPS)
                   )
-     counties %<>% renameaqsvariables("county_code", "county_name")
+     counties %<>% renameaqsvariables(name1="county_code", name2="county_name")
      if (!return_header) counties %<>% aqs_removeheader
      return(counties)
 
@@ -369,7 +369,7 @@ aqs_removeheader <- function(AQSobject)
 #' @title aqs_revisionhistory
 #'
 #' @description \lifecycle{stable}
-#'                 Returns the change history  to the AQS Data Mart API.
+#'                 Returns the change history to the AQS Data Mart API.
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
