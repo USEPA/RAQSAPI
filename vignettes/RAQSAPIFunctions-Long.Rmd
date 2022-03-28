@@ -56,16 +56,16 @@ RAQSAPI_functions <- c(
 "aqs_monitors_by_state",  
 "aqs_parameters_by_class",  
 "aqs_pqaos",
-"aqs_qa_annualPeferomanceeval_by_county",
-"aqs_qa_annualPeferomanceeval_by_MA",
-"aqs_qa_annualPeferomanceeval_by_pqao",
-"aqs_qa_annualPeferomanceeval_by_site",
-"aqs_qa_annualPeferomanceeval_by_state",
-"aqs_qa_annualPeferomanceevaltransaction_by_county",
-"aqs_qa_annualPeferomanceevaltransaction_by_MA",
-"aqs_qa_annualPeferomanceevaltransaction_by_pqao",
-"aqs_qa_annualPeferomanceevaltransaction_by_site",
-"aqs_qa_annualPeferomanceevaltransaction_by_state",
+"aqs_qa_annualperformanceeeval_by_county",
+"aqs_qa_annualperformanceeval_by_MA",
+"aqs_qa_annualperformanceeval_by_pqao",
+"aqs_qa_annualperformanceeval_by_site",
+"aqs_qa_annualperformanceeval_by_state",
+"aqs_qa_annualperformanceevaltransaction_by_county",
+"aqs_qa_annualperformanceevaltransaction_by_MA",
+"aqs_qa_annualperformanceevaltransaction_by_pqao",
+"aqs_qa_annualperformanceevaltransaction_by_site",
+"aqs_qa_annualperformanceevaltransaction_by_state",
 "aqs_qa_blanks_by_county",  
 "aqs_qa_blanks_by_MA",  
 "aqs_qa_blanks_by_pqao",  
@@ -504,7 +504,7 @@ These functions retrieve aggregated data from the Data Mart API and are
                      known and measured concentrations  at several levels are
                      used to assess the quality of the monitoring data.
                      Functions using this service contain
-                     *\*aqs_qa_annualpeferomanceeval_by_*\* in the function
+                     *\*aqs_qa_annualperformanceeval_by_*\* in the function
                      name. Annual performance in transaction format are
                     only available aggregated by site, county, state,
                     monitoring agency, and primary quality assurance

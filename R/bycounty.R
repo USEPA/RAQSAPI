@@ -732,7 +732,7 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 }
 
 
-#' @title aqs_qa_annualpeferomanceeval_by_county
+#' @title aqs_qa_annualperformanceeval_by_county
 #' @description \lifecycle{stable}
 #'          Returns AQS submissions transaction format (RD) of the annual
 #'             performance evaluation data (raw). Includes data pairs for

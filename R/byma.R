@@ -524,7 +524,7 @@ aqs_qa_annualpeferomanceeval_by_MA <- function(parameter, bdate, edate,
 }
 
 
-#' @title aqs_qa_annualperformanceevaltransaction_by_site
+#' @title aqs_qa_annualperformanceevaltransaction_by_MA
 #' @description \lifecycle{stable}
 #'          Returns AQS submissions transaction format (RD) of the annual
 #'             performance evaluation data (raw). Includes data pairs for
@@ -556,12 +556,12 @@ aqs_qa_annualpeferomanceeval_by_MA <- function(parameter, bdate, edate,
 #'           #   where the MA is the Alabama Department of Environmental
 #'           #   Management (MA_code 0013) for 2017 in RD format.
 #'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_MA(parameter = "44201",
-#'                                               bdate = as.Date("20170101",
+#'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
-#'                                               edate = as.Date("20171231",
+#'                                                   edate = as.Date("20171231",
 #'                                                           format = "%Y%m%d"),
-#'                                               MA_code = "0013"
-#'                                              )
+#'                                                   MA_code = "0013"
+#'                                                         )
 #'          }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
 #'           performance evaluation data in the AQS submissions transaction

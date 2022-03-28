@@ -715,7 +715,7 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS,
   return(transactionsample)
 }
 
-#' @title aqs_qa_annualpeferomanceeval_by_state
+#' @title aqs_qa_annualperformanceeval_by_state
 #' @description \lifecycle{stable}
 #'        Returns quality assurance performance evaluation data - aggregated by
 #'          state for a parameter code aggregated by matching input
@@ -744,7 +744,7 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS,
 #' @examples #Returns an AQS_Data Mart_APIv2 S3 object or a tibble
 #'           #   containing annual performance evaluation data for ozone in
 #'           #   Alabamba for 2017.
-#'  \dontrun{ aqs_qa_annualpeferomanceeval_by_state(parameter = "44201",
+#'  \dontrun{ aqs_qa_annualperformanceeval_by_state(parameter = "44201",
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
 #'                                                   edate = as.Date("20171231",
@@ -760,7 +760,7 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualpeferomanceeval_by_state <- function(parameter, bdate, edate,
+aqs_qa_annualperformanceeval_by_state <- function(parameter, bdate, edate,
                                                    stateFIPS,
                                                    return_header = FALSE)
 {
@@ -811,11 +811,11 @@ aqs_qa_annualpeferomanceeval_by_state <- function(parameter, bdate, edate,
 #'           #   Alabmba for 2017 in RD format.
 #' \dontrun{
 #'         aqs_qa_annualperformanceevaltransaction_by_state(parameter = "44201",
-#'                                                  bdate = as.Date("20170101",
+#'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
-#'                                                  edate = as.Date("20171231",
+#'                                                   edate = as.Date("20171231",
 #'                                                            format = "%Y%m%d")
-#'                                                  stateFIPS = "01"
+#'                                                          stateFIPS = "01"
 #'                                                          )
 #'          }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance

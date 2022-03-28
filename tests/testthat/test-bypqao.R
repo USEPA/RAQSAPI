@@ -76,7 +76,7 @@ datamartAPI_user <- "test@aqs.api"
                                         )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
-  aqs_qa_annualpeferomanceeval_by_pqao(parameter = "44201",
+  aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
                                        bdate = as.Date("20170101",
                                                        format = "%Y%m%d"),
                                        edate = as.Date("20171231",

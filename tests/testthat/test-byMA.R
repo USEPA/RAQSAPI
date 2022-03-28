@@ -11,9 +11,6 @@ datamartAPI_user <- "test@aqs.api"
                            key = "test"
                            )
 
-  aqs_mas(return_header = TRUE)$Header$status %>%
-    expect_match(regexp = "Success")
-
   aqs_qa_blanks_by_MA(parameter = "88101",
                       bdate = as.Date("20180101", format = "%Y%m%d"),
                       edate = as.Date("20180131", format = "%Y%m%d"),
@@ -56,14 +53,6 @@ datamartAPI_user <- "test@aqs.api"
                                     MA_code = "0013",
                                     return_header = TRUE
                                     )[[1]]$Header$status %>%
-    expect_match(regexp = "Success")
-
-  aqs_qa_one_point_qc_by_MA(parameter = "44201",
-                            bdate = as.Date("20180101", format = "%Y%m%d"),
-                            edate = as.Date("20180131", format = "%Y%m%d"),
-                            MA_code = "0660",
-                            return_header = TRUE
-                            )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
   aqs_qa_pep_audit_by_MA(parameter = "88101",

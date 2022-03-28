@@ -6,6 +6,12 @@ output: md_document
 ---
 
 # cran-comments for RAQSAPI
+## RAQSAPI 2.0.4
+*Important API change
+  - aqs_qa_annualperformanceeval* and aqs_qa_annualperformanceevaltransaction*
+    functions have been renamed with more appropriate spelling. This may effect
+    external code that depends on these functions.
+
 ## RAQSAPI 2.0.3
 * this is a minor release
 * Remove dependency on package:gtools.

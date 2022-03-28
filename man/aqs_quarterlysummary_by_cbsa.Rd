@@ -89,7 +89,7 @@ API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_state functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_state}()},
+\code{\link{aqs_qa_annualperformanceeval_by_state}()},
 \code{\link{aqs_qa_annualperformanceevaltransaction_by_state}()},
 \code{\link{aqs_quarterlysummary_by_box}()},
 \code{\link{aqs_quarterlysummary_by_state}()},

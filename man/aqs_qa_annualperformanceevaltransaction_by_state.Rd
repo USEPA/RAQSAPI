@@ -71,17 +71,17 @@ server. This operation has a linear run time of
           #   Alabmba for 2017 in RD format.
 \dontrun{
         aqs_qa_annualperformanceevaltransaction_by_state(parameter = "44201",
-                                                 bdate = as.Date("20170101",
+                                                  bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),
-                                                 edate = as.Date("20171231",
+                                                  edate = as.Date("20171231",
                                                            format = "\%Y\%m\%d")
-                                                 stateFIPS = "01"
+                                                         stateFIPS = "01"
                                                          )
          }
 }
 \seealso{
 Other Aggregate _by_state functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_state}()},
+\code{\link{aqs_qa_annualperformanceeval_by_state}()},
 \code{\link{aqs_quarterlysummary_by_box}()},
 \code{\link{aqs_quarterlysummary_by_cbsa}()},
 \code{\link{aqs_quarterlysummary_by_state}()},

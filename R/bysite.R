@@ -844,7 +844,7 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualpeferomanceeval_by_site <- function(parameter, bdate, edate,
+aqs_qa_annualperformanceeval_by_site <- function(parameter, bdate, edate,
                                                  stateFIPS, countycode, sitenum,
                                                  cbdate = NA_Date_,
                                                  cedate = NA_Date_,

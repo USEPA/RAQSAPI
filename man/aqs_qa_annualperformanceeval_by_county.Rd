@@ -2,7 +2,7 @@
 % Please edit documentation in R/bycounty.R
 \name{aqs_qa_annualperformanceeval_by_county}
 \alias{aqs_qa_annualperformanceeval_by_county}
-\title{aqs_qa_annualpeferomanceeval_by_county}
+\title{aqs_qa_annualperformanceeval_by_county}
 \usage{
 aqs_qa_annualperformanceeval_by_county(
   parameter,

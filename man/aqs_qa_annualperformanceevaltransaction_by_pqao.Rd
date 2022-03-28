@@ -52,7 +52,7 @@ pqao_code provided for bdate - edate time frame.
 }
 \note{
 The AQS API only allows for a single year of
-qaAnnualPerformanceEvaluations to be retrieved at a time. This
+qaAnnualperformanceEvaluations to be retrieved at a time. This
 function conveniently extracts date information from the bdate
 and edate parameters then makes repeated calls to the AQSAPI
 retrieving a maximum of one calendar year of data at a time. Each
@@ -80,7 +80,7 @@ server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_pqao functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_pqao}()},
+\code{\link{aqs_qa_annualperformanceeval_by_pqao}()},
 \code{\link{aqs_qa_blanks_by_pqao}()},
 \code{\link{aqs_qa_collocated_assessments_by_pqao}()},
 \code{\link{aqs_qa_flowrateaudit_by_pqao}()},

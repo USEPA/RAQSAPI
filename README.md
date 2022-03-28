@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--03--25-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--03--28-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -316,7 +316,7 @@ service.**
 -   **Transaction Sample - AQS Submission data in transaction Format
     (RD)** (aqs\_transactionsample\_by\_\*)
 -   **Quality Assurance - Annual Performance Evaluations**  
-    (aqs\_qa\_annualpeferomanceeval\_by\_\*)
+    (aqs\_qa\_annualperformanceeval\_by\_\*)
 -   **Quality Assurance - Annual Performance Evaluations in the AQS**  
     **Submission transaction format (RD)**
     (aqs\_qa\_annualperformanceevaltransaction\_by\_\*)

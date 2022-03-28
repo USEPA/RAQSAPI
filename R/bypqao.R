@@ -393,14 +393,14 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 }
 
 
-#' @title aqs_qa_annualpeferomanceeval_by_pqao
+#' @title aqs_qa_annualperformanceeval_by_pqao
 #' @description \lifecycle{stable}
 #'        Returns quality assurance performance evaluation data - aggregated by
 #'          Primary Quality Assurance Organization (PQAO) for a parameter
 #'          code aggregated by matching input parameter and pqao_code for the
 #'          time frame between bdate and edate.
 #' @note The AQS API only allows for a single year of
-#'         qaAnnualPerformanceEvaluations to be retrieved at a time. This
+#'         qa_annual_performanceeval to be retrieved at a time. This
 #'         function conveniently extracts date information from the bdate
 #'         and edate parameters then makes repeated calls to the AQSAPI
 #'         retrieving a maximum of one calendar year of data at a time. Each
@@ -423,7 +423,7 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'           #   containing annual performance evaluation data for ozone where
 #'           #   the PQAO is the Alabamaba Department of Environmental
 #'           #   Management (pqao_code 0013).
-#'  \dontrun{ aqs_qa_annualpeferomanceeval_by_pqao(parameter = "44201",
+#'  \dontrun{ aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
 #'                                                 bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
 #'                                                 edate = as.Date("20171231",
@@ -439,9 +439,9 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualpeferomanceeval_by_pqao <- function(parameter, bdate, edate,
-                                                  pqao_code,
-                                                  return_header = FALSE)
+aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate,
+                                                 pqao_code,
+                                                 return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
 
@@ -466,7 +466,7 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function(parameter, bdate, edate,
 #'             for a parameter code aggregated by matching input parameter and
 #'             pqao_code provided for bdate - edate time frame.
 #' @note The AQS API only allows for a single year of
-#'         qaAnnualPerformanceEvaluations to be retrieved at a time. This
+#'         qaAnnualperformanceEvaluations to be retrieved at a time. This
 #'         function conveniently extracts date information from the bdate
 #'         and edate parameters then makes repeated calls to the AQSAPI
 #'         retrieving a maximum of one calendar year of data at a time. Each

@@ -2,7 +2,7 @@
 % Please edit documentation in R/byma.R
 \name{aqs_qa_annualperformanceevaltransaction_by_MA}
 \alias{aqs_qa_annualperformanceevaltransaction_by_MA}
-\title{aqs_qa_annualperformanceevaltransaction_by_site}
+\title{aqs_qa_annualperformanceevaltransaction_by_MA}
 \usage{
 aqs_qa_annualperformanceevaltransaction_by_MA(
   parameter,
@@ -70,12 +70,12 @@ server. This operation has a linear run time of
           #   where the MA is the Alabama Department of Environmental
           #   Management (MA_code 0013) for 2017 in RD format.
  \dontrun{aqs_qa_annualperformanceevaltransaction_by_MA(parameter = "44201",
-                                              bdate = as.Date("20170101",
+                                                  bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),
-                                              edate = as.Date("20171231",
+                                                  edate = as.Date("20171231",
                                                           format = "\%Y\%m\%d"),
-                                              MA_code = "0013"
-                                             )
+                                                  MA_code = "0013"
+                                                        )
          }
 }
 \seealso{

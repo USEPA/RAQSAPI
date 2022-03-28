@@ -92,7 +92,7 @@ API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_pqao functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_pqao}()},
+\code{\link{aqs_qa_annualperformanceeval_by_pqao}()},
 \code{\link{aqs_qa_annualperformanceevaltransaction_by_pqao}()},
 \code{\link{aqs_qa_blanks_by_pqao}()},
 \code{\link{aqs_qa_collocated_assessments_by_pqao}()},
