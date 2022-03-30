@@ -32,7 +32,13 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     comment="United States Enviornmental Protection Agency"),
              person(given = "Hayley", family= "Brittingham",
                     email = NULL, role=c("crr", "ctr"),
-                    comment="Neptune and Company")
+                    comment="Neptune and Company"),
+             person(given = "Jeffrey", family = "Hollister",
+                    email = "hollister.jeff@epa.gov", role = c("rev"),
+                    comment = c("United States Enviornmental Protection Agency",
+                                ORCID = "0000-0002-9254-9740"
+                                )
+                    )
              )
 URL: <https://github.com/USEPA/RAQSAPI>,
      <https://aqs.epa.gov/aqsweb/documents/data_api.html>
