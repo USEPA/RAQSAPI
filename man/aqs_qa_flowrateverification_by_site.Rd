@@ -90,7 +90,7 @@ API server. This operation has a linear run time of
 }
 \examples{
 # returns a tibble of flow rate verification
-          #  data for the Muscle Shoals site (#0014) in Colbert County, AL
+          #  data for the Muscle Shoals site (#1002) in Colbert County, AL
           #  for January 2018:
  \dontrun{aqs_qa_flowrateverification_by_site(parameter = "88101",
                                               bdate = as.Date("20170101",

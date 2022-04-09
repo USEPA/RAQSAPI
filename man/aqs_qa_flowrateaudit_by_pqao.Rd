@@ -77,8 +77,8 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a tibble of flow rate audit data for January
-  #  2018 where the PQAO is the Jefferson County, AL Department Of
+# Returns a tibble of flow rate audit data for January
+  #  2018 where the PQAO is the Jefferson County, AL Department of
   #  Health (agency 0550).
   \dontrun{aqs_qa_flowrateaudit_by_pqao(parameter = "88101",
                                         bdate = as.Date("20170101",

@@ -30,7 +30,7 @@ service requested.
 }
 \examples{
 # Returns a tibble containing a list and definitions
-         #  of fields in the Sample Data service
+          #  of fields in the Sample Data service
          \dontrun{aqs_fieldsbyservice(service = "sampleData")}
 
 }

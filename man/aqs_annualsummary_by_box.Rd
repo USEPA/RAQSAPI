@@ -98,9 +98,9 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a tibble containing ozone annual summaries
+# Returns a tibble containing ozone annual summaries
           #  in the vicinity of central Alabama for the first two days
-          #  in May, 2015
+          # of May, 2015
           \dontrun{aqs_annualsummary_by_box(parameter = "44201",
                                             bdate = as.Date("20150501",
                                                           format = "\%Y\%m\%d"),

@@ -83,7 +83,7 @@ NA
 }
 
 \examples{
-# returns a tibble containing PM2.5 blank data for
+# Returns a tibble containing PM2.5 blank data in
           #  January 2018 where the Monitoring Agency is the Alabama
           #  Department of Environmental Management (agency 0013)
           \dontrun{aqs_qa_blanks_by_MA(parameter = "88101",
@@ -97,7 +97,7 @@ NA
 }
 \seealso{
 Other Aggregate _by_MA functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_MA}()},
+\code{\link{aqs_qa_annualperformanceeval_by_MA}()},
 \code{\link{aqs_qa_annualperformanceevaltransaction_by_MA}()},
 \code{\link{aqs_qa_collocated_assessments_by_MA}()},
 \code{\link{aqs_qa_flowrateaudit_by_MA}()},

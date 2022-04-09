@@ -55,7 +55,7 @@ stateFIPS and countycode provided for bdate - edate time frame.
 Includes data both in submitted and standard units
 }
 \note{
-The AQS API only allows for a single year of transactiondata to be
+The AQS API only allows for a single year of transaction data to be
 retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of
@@ -68,9 +68,8 @@ overloading the API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-#Returns a AQS_Data Mart_APIv2 S3 object of the returns
-         \dontrun{ #   returns all FRM/FEM transaction data for
-                   #   Wake County, NC between January and February 2016
+         \dontrun{ #   Returns all FRM/FEM transaction data for
+                   #   Wake County, NC between on Feb 28, 2016.
                    aqs_transactionsample_by_county(parameter = "88101",
                                                  bdate = as.Date("20160228",
                                                          format = "\%Y\%m\%d"),

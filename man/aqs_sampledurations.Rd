@@ -26,7 +26,6 @@ durations such as 8 hour CO or O${_3}$ rolling averages, 3/6
 day PM averages or Pb 3 month rolling averages.
 }
 \examples{
-#returns a tibble or an AQS_Data Mart_APIv2 S3 object of
-          #
+# Returns a tibble or an AQS_Data Mart_APIv2 S3 object of
          \dontrun{ aqs_sampledurations() }
 }

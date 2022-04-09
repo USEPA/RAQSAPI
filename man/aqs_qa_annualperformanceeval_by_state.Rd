@@ -65,9 +65,8 @@ server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-#Returns an AQS_Data Mart_APIv2 S3 object or a tibble
-          #   containing annual performance evaluation data for ozone in
-          #   Alabamba for 2017.
+# Returns a tibble containing annual performance evaluation
+          # data for ozone in Alabamba for 2017.
  \dontrun{ aqs_qa_annualperformanceeval_by_state(parameter = "44201",
                                                   bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),

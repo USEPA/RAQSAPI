@@ -59,8 +59,8 @@ datamartapi_user <- "test@aqs.api"
     expect_match(regexp = "Success")
 
   aqs_quarterlysummary_by_box(parameter = "44201",
-                              bdate = as.Date("20150501", format = "%Y%m%d"),
-                              edate = as.Date("20170502", format = "%Y%m%d"),
+                              bdate = as.Date("20150101", format = "%Y%m%d"),
+                              edate = as.Date("20171231", format = "%Y%m%d"),
                               minlat = "33.3",
                               maxlat = "33.6",
                               minlon = "-87.0",

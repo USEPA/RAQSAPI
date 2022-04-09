@@ -65,8 +65,8 @@ or handling of the samples. Data is aggregated by
 Primary Quality Assurance Organization (PQAO).
 }
 \note{
-The AQS API only allows for a single year of qa_blank data to be
-retrieved at a time. This function conveniently extracts date
+The AQS API only allows for a single year of flow rate audit data to
+be retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of data
 at a time. Each calendar year of data requires a separate API call so
@@ -82,7 +82,7 @@ NA
 }
 
 \examples{
-# returns tibble of PM2.5 blank data for
+# Returns tibble of PM2.5 blank data in
           #  January 2018 where the PQAO is the Alabama Department of
           #  Environmental Management (agency 0013)
           \dontrun{aqs_qa_blanks_by_pqao(parameter = "88101",

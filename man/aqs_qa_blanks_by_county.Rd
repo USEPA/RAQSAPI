@@ -87,7 +87,7 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns an tibble with PM2.5 blank data for
+# returns a tibble with PM2.5 blank data for
           #  Colbert County, AL for January 2018
    \dontrun{aqs_qa_blanks_by_county(parameter = "88101",
                                     bdate = as.Date("20170101",

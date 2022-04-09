@@ -59,6 +59,9 @@ selected state
 Returns a table of monitors and related metadata at sites with the
 provided parameter, and stateFIPS for bdate - edate time frame.
 }
+\note{
+All monitors that operated between the bdate and edate will be returned
+}
 \section{by_state aggregate functions}{
 NA
 }

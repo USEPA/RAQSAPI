@@ -72,7 +72,7 @@ provided parameter, stateFIPS, county_code, and sitenum for
 bdate - edate time frame.
 }
 \note{
-all monitors that operated between the bdate and edate will be returned
+All monitors that operated between the bdate and edate will be returned
 }
 \section{by_site aggregate functions}{
 NA
@@ -80,14 +80,14 @@ NA
 
 \examples{
  #Returns a tibble of the SO2 monitors at Hawaii
- #  Volcanoes NP site (\#0007) in Hawaii County, HI that were operating on
- #  May 1 , 2015. (Note, all monitors that operated between the bdate and
- #  edate will be returned)
+ #  Volcanoes NP site (\#0007) in Hawaii County, HI that were operating
+ # between May 1 , 2015-2019. (Note, all monitors that operated between the
+ # bdate and edate will be returned).
  \dontrun{
            aqs_monitors_by_site(parameter = "42401",
                                   bdate = as.Date("20150501",
                                                      format="\%Y\%m\%d"),
-                                  edate = as.Date("20150502",
+                                  edate = as.Date("20190501",
                                                      format="\%Y\%m\%d"),
                                   stateFIPS = "15",
                                   countycode = "001",

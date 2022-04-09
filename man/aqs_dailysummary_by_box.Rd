@@ -96,8 +96,8 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-#returns a tibble of ozone daily summaries in the vicinity of
-         #  central Alabama for the first two days in May 2015
+#Returns a tibble of ozone daily summaries in the vicinity of
+          #  central Alabama for the first two days of May 2015
 
           \dontrun{aqs_dailysummary_by_box(parameter = "44201",
                                            bdate = as.Date("20140501",

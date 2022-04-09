@@ -38,11 +38,10 @@ Usethis
 Verifications
 WORDLIST
 Wickham
+yellowgreen
 Yu
 annualdata
 annualdataby
-annualperformanceeval
-annualperformanceevaltransaction
 annualsummary
 api
 aqs
@@ -93,10 +92,10 @@ parameternum
 pqao
 pqaos
 qa
-qaAnnualPerformanceEvaluations
 qc
 quarterlydata
 quarterlysummary
+rdname
 removeheader
 revisionhistory
 rlang
@@ -119,3 +118,6 @@ verifications
 ’Linter’
 ’Repostatus’
 ’Travis’
+importFrom
+annualperformanceeval
+annualperformanceevaltransaction

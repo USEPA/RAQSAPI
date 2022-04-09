@@ -75,8 +75,8 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a tibble of daily summary NO2
-          #  data the for Charlotte-Concord-Gastonia, NC cbsa for
+# Returns a tibble of $NO_{2}$ daily summary
+          #  data the for Charlotte-Concord-Gastonia, NC cbsa on
           #  Janurary 01, 2017
           \dontrun{aqs_dailysummary_by_cbsa(parameter = "42602",
                                                bdate = as.Date("20170101",

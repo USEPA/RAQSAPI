@@ -98,7 +98,7 @@ API server. Fortunately this operation has a linear run time
 /(Big O notation: O/(n + 5 seconds/)/)
 }
 \examples{
-# returns an aqs_v2 s3 object which contains NO2 data
+# returns tibble which contains $NO_{2}$ data
           #  for Charlotte-Concord-Gastonia, NC cbsa for
           #  Janurary 1, 2015 - Janurary 01, 2017
           \dontrun{aqs_sampledata_by_cbsa(parameter = "42602",

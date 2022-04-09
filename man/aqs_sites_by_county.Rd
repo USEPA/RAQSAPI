@@ -33,7 +33,7 @@ Returns data containing a table of all air monitoring sites
 with the input state and county FIPS code combination.
 }
 \examples{
-#returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
+# Returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
           #  in Hawaii County, HI
           \dontrun{aqs_sites_by_county(stateFIPS = "15",
                                            countycode = "001")

@@ -9,10 +9,6 @@ datamartAPI_user <- "test@aqs.api"
                            key = "test"
                            )
 
-  RAQSAPI::aqs_isavailable(return_header = TRUE)$Header$status %>%
-  expect_match(regexp = "API service is up and running healthy",
-               fixed = FALSE
-               )
 
   RAQSAPI::aqs_sampledata_by_site(parameter = "44201",
                                   bdate = as.Date("20170618",
@@ -58,7 +54,7 @@ datamartAPI_user <- "test@aqs.api"
 
   aqs_monitors_by_site(parameter = "42401",
                        bdate = as.Date("20150501", format = "%Y%m%d"),
-                       edate = as.Date("20150502", format = "%Y%m%d"),
+                       edate = as.Date("20190501", format = "%Y%m%d"),
                        stateFIPS = "15",
                        countycode = "001",
                        sitenum = "0007",

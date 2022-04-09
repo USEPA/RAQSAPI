@@ -6,6 +6,7 @@
 #'  Returns a table of monitors and related metadata sites with the provided
 #'    parameter, aggregated by latitude/longitude bounding box (_by_box) for
 #'    bdate - edate time frame.
+#' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
@@ -15,7 +16,7 @@
 #'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
 #'           latitude/longitude bounding box (_by_box).
-#' @examples #  returns a tibble of all ozone
+#' @examples #  Returns a tibble of all ozone
 #'           #  monitors in the vicinity of central Alabama that operated in
 #'           #  1995
 #'           \dontrun{aqs_monitors_by_box(parameter="44201",
@@ -80,7 +81,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'         of data being requested increases so does the length of time that it
 #'         will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
-#'         API server. Fortunately this operation has a linear run time
+#'         API server. This operation has a linear run time of
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
@@ -97,8 +98,8 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'           list in which the first item /(/$Header/) is a tibble of header
 #'           information from the AQS API and the second item /(/$Data/) is a
 #'           tibble of the data returned.
-#' @examples # returns a aqs_v2 S3 object containing all ozone samples
-#'              #  in the vicinity of central Alabama for
+#' @examples # Returns a tibble containing all ozone samples
+#'              #  in the vicinity of central Alabama between
 #'              #  May 1, 2015 - May 2, 2017
 #'           \dontrun{aqs_sampledata_by_box(parameter = "44201",
 #'                                          bdate = as.Date("20150501",
@@ -173,9 +174,9 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'           is a 2 item named list in which the first item (\$Header) is a
 #'           tibble of header information from the AQS API and the second item
 #'           (\$Data) is a tibble of the data returned.
-#' @examples # returns a tibble containing ozone annual summaries
+#' @examples # Returns a tibble containing ozone annual summaries
 #'           #  in the vicinity of central Alabama for the first two days
-#'           #  in May, 2015
+#'           # of May, 2015
 #'           \dontrun{aqs_annualsummary_by_box(parameter = "44201",
 #'                                             bdate = as.Date("20150501",
 #'                                                           format = "%Y%m%d"),
@@ -247,8 +248,8 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'           a 2 item named list in which the first item (\$Header) is a tibble
 #'           of header information from the AQS API and the second item (\$Data)
 #'           is a tibble of the data returned.
-#' @examples #returns a tibble of ozone daily summaries in the vicinity of
-#'          #  central Alabama for the first two days in May 2015
+#' @examples #Returns a tibble of ozone daily summaries in the vicinity of
+#'           #  central Alabama for the first two days of May 2015
 #'
 #'           \dontrun{aqs_dailysummary_by_box(parameter = "44201",
 #'                                            bdate = as.Date("20140501",
@@ -306,6 +307,9 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
 #'         /(Big O notation: O/(n + 5 seconds/)/).
+#'
+#'         Also Note that for quarterly data, only the year portion of the bdate
+#'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
@@ -320,13 +324,13 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'           which the first item (\$Header) is a tibble of header information
 #'           from the AQS API and the second item (\$Data) is a tibble of the
 #'           data returned.
-#' @examples # returns a tibble containing ozone quarterly summaries
-#'           #  in the vicinity of central Alabama for the first two days
-#'           #  in May, 2015
+#' @examples # Returns a tibble containing ozone quarterly summaries
+#'           #  in the vicinity of central Alabama for each quarter in
+#'           #  between 2015 - 2017
 #'           \dontrun{aqs_quarterlysummary_by_box(parameter = "44201",
-#'                                                bdate = as.Date("20150501",
+#'                                                bdate = as.Date("20150101",
 #'                                                           format = "%Y%m%d"),
-#'                                                edate = as.Date("20170502",
+#'                                                edate = as.Date("20171231",
 #'                                                           format = "%Y%m%d"),
 #'                                                minlat = "33.3",
 #'                                                maxlat = "33.6",

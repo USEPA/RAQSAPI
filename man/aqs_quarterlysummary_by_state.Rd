@@ -73,16 +73,17 @@ of years of data being requested increases so does the length of time
 that it will take to retrieve results. There is also a 5 second wait
 time inserted between successive API calls to prevent overloading the
 API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).
+/(Big O notation: O/(n + 5 seconds/)/).\preformatted{    Also Note that for quarterly data, only the year portion of the bdate
+    and edate are used and all 4 quarters in the year are returned.
+}
 }
 \examples{
-# returns an aqs S3 object containing quarterly summaries for
-          #  FRM/FEM PM2.5 data for North Carolina between January
-          #  and February 2016
+# Returns an aqs S3 object containing quarterly summaries for
+          #  FRM/FEM PM2.5 data for North Carolina for each quater of  2016
  \dontrun{aqs_quarterlysummary_by_state(parameter = "88101",
                                         bdate = as.Date("20160101",
                                                         format = "\%Y\%m\%d"),
-                                        edate = as.Date("20170228",
+                                        edate = as.Date("20171231",
                                                         format = "\%Y\%m\%d"),
                                         stateFIPS = "37"
                                        )

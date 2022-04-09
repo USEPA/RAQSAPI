@@ -5,6 +5,7 @@
 #'  Returns a table of monitors and related metadata at sites with the
 #'    provided parameter, stateFIPS and county_code for
 #'    bdate - edate time frame.
+#' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -16,7 +17,7 @@
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
 #'           selected county
 #' @examples # returns an aqs_v2 S3 object containing all SO2 monitors in
-#'           #  Hawaii County, HI that were operating on May 01, 2015.
+#'           #  Hawaii County, HI that were operating between May 01-02, 2015.
 #'  \dontrun{aqs_monitors_by_county(parameter="42401",
 #'                                  bdate=as.Date("20150501", format="%Y%m%d"),
 #'                                  edate=as.Date("20150502", format="%Y%m%d"),
@@ -74,7 +75,7 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'         of data being requested increases so does the length of time that it
 #'         will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
-#'         API server. Fortunately this operation has a linear run time
+#'         API server. This operation has a linear run time of
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_county functions
 #' @param return_header If FALSE (default) only returns data requested.
@@ -232,7 +233,7 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           list in which the first item ($Header) is a tibble of header
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
-#' @examples # returns an tibble with PM2.5 blank data for
+#' @examples # returns a tibble with PM2.5 blank data for
 #'           #  Colbert County, AL for January 2018
 #'    \dontrun{aqs_qa_blanks_by_county(parameter = "88101",
 #'                                     bdate = as.Date("20170101",
@@ -340,17 +341,17 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                Returns a table of collocated assessment data aggregated by
 #'                matching input parameter, stateFIPS and county_code provided
 #'                for bdate - edate time frame.
-#' @note The AQS API only allows for a single year of collocated assessments to
-#'         be retrieved at a time. This function conveniently extracts date
-#'         information from the bdate and edate parameters then makes repeated
-#'         calls to the AQSAPI retrieving a maximum of one calendar year of data
-#'         at a time. Each calendar year of data requires a separate API call so
-#'         multiple years of data will require multiple API calls. As the number
-#'         of years of data being requested increases so does the length of time
-#'         that it will take to retrieve results. There is also a 5 second wait
-#'         time inserted between successive API calls to prevent overloading the
-#'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#' @note The AQS API only allows for a single year of collocated assessments
+#'         data to be retrieved at a time. This function conveniently extracts
+#'         date information from the bdate and edate parameters then makes
+#'         repeated calls to the AQSAPI retrieving a maximum of one calendar
+#'         year of data at a time. Each calendar year of data requires a
+#'         separate API call so multiple years of data will require multiple API
+#'         calls. As the number of years of data being requested increases so
+#'         does the length of time that it will take to retrieve results. There
+#'         is also a 5 second wait time inserted between successive API calls to
+#'         prevent overloading the API server. This operation has a linear run
+#'         time of /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -364,7 +365,7 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
-#' @examples # returns a tibble with collocated assessment data
+#' @examples # Returns a tibble with collocated assessment data
 #'           #  for FRM PM2.5 in Madison County, AL for January 2013
 #'  \dontrun{aqs_qa_collocated_assessments_by_county(parameter = "88101",
 #'                                                   bdate = as.Date("20130101",
@@ -608,7 +609,7 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                Returns a table of Performance Evaluation Program (PEP) audit
 #'                data aggregated by parameter code, stateFIPS and countycode
 #'                for the time frame between bdate and edate.
-#' @note The AQS API only allows for a single year of one point pep audit data
+#' @note The AQS API only allows for a single year of pep audit data
 #'         to be retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
 #'         calls to the AQSAPI retrieving a maximum of one calendar year of data
@@ -677,7 +678,7 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'            for a parameter code aggregated by matching input parameter,
 #'            stateFIPS and countycode provided for bdate - edate time frame.
 #'            Includes data both in submitted and standard units
-#' @note The AQS API only allows for a single year of transactiondata to be
+#' @note The AQS API only allows for a single year of transaction data to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
 #'         calls to the AQSAPI retrieving a maximum of one calendar year of
@@ -696,9 +697,9 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr `%<>%`
-#' @examples #Returns a AQS_Data Mart_APIv2 S3 object of the returns
-#'          \dontrun{ #   returns all FRM/FEM transaction data for
-#'                    #   Wake County, NC between January and February 2016
+#' @examples
+#'          \dontrun{ #   Returns all FRM/FEM transaction data for
+#'                    #   Wake County, NC between on Feb 28, 2016.
 #'                    aqs_transactionsample_by_county(parameter = "88101",
 #'                                                  bdate = as.Date("20160228",
 #'                                                          format = "%Y%m%d"),
@@ -759,9 +760,8 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr `%<>%`
-#' @examples #Returns an AQS_Data Mart_APIv2 S3 object or a tibble
-#'           #   containing annual performance evaluation data (raw) for ozone
-#'           # in Baldwin County, AL for 2017 in RD format.
+#' @examples # Returns a tibble containing annual performance evaluation data
+#'           # (raw) for ozone in Baldwin County, AL for 2017 in RD format.
 #'  \dontrun{ aqs_qa_annualperformanceeval_by_county(parameter = "44201",
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
@@ -808,9 +808,9 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate,
 #'          input parameter, countycode and stateFIPS provided for
 #'          bdate - edate time frame.
 #' @note The AQS API only allows for a single year of quality assurance
-#'         Annual Performance Evaluations data to be retrieved at a time. This
-#'         function conveniently extracts date information from the bdate
-#'         and edate parameters then makes repeated calls to the AQSAPI
+#'         Annual Performance Evaluations transaction data to be retrieved at a
+#'         time. This function conveniently extracts date information from the
+#'         bdate and edate parameters then makes repeated calls to the AQSAPI
 #'         retrieving a maximum of one calendar year of data at a time. Each
 #'         calendar year of data requires a separate API call so multiple years
 #'         of data will require multiple API calls. As the number of years of
@@ -827,9 +827,8 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate,
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr `%<>%`
-#' @examples #Returns an AQS_Data Mart_APIv2 S3 object or a tibble
-#'           #   containing annual performance evaluation data (raw) for ozone
-#'           #   in Baldwin County, AL for 2017 in RD format.
+#' @examples # Returns a tibble containing annual performance evaluation data
+#'           # (raw) for ozone in Baldwin County, AL for 2017 in RD format.
 #'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_county(parameter = "44201",
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
@@ -884,6 +883,9 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
 #'         /(Big O notation: O/(n + 5 seconds/)/).
+#'
+#'         Also Note that for quarterly data, only the year portion of the bdate
+#'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -899,8 +901,7 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
 #'           information from the AQS API and the second item (\$Data) is a
 #'           tibble of the data returned.
 #' @examples # returns a tibble containing quarterly summaries for
-#'           #  FRM/FEM PM2.5 data for Wake County, NC between January
-#'           #  and February 2016
+#'           #  FRM/FEM PM2.5 data for Wake County, NC for each quarter of 2016
 #'  \dontrun{aqs_quarterlysummary_by_county(parameter = "88101",
 #'                                          bdate = as.Date("20160101",
 #'                                                           format = "%Y%m%d"),

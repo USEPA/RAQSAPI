@@ -11,6 +11,8 @@ output: md_document
   - aqs_qa_annualperformanceeval* and aqs_qa_annualperformanceevaltransaction*
     functions have been renamed with more appropriate spelling. This may effect
     external code that depends on these functions.
+  - many update to the reference documentation to improve consistency and
+    fix issues.
 
 ## RAQSAPI 2.0.3
 * this is a minor release

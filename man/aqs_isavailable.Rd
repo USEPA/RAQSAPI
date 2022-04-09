@@ -27,6 +27,6 @@ NA
 }
 
 \examples{
-  #check if the AQS API is up, running and accepting requests.
+  # Check if the AQS API is up, running and accepting requests.
   \dontrun{ aqs_isAvailable() }
 }

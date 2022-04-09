@@ -24,8 +24,7 @@ i.e. "criteria" or "all"). The information from this function
 can be used as input to other API calls.
 }
 \examples{
-#returns a tibble or an AQS_Data Mart_APIv2 S3 object of
-          #  parameter classes (groups of parameters, i.e. "criteria" or
-          #  all")
+# Returns a tibble of parameter classes (groups of parameters, i.e.
+          # "criteria" or all")
          \dontrun{ aqs_classes() }
 }

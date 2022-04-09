@@ -80,7 +80,7 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a aqs_v2 object which contains PM2.5 blank data
+# returns a tibble which contains PM2.5 blank data
           #  for Alabama for January 2018
           \dontrun{aqs_qa_blanks_by_state(parameter = "88101",
                                           bdate = as.Date("20180101",

@@ -27,6 +27,6 @@ Issues returned via this function do not include any issues
 from the RAQSAPI R package.
 }
 \examples{
-      #retrieve the list of known issues directly from the AQS data mart API
+      # Retrieve a tibble of known issues directly from the AQS data mart API
        \dontrun{aqs_knownissues()}
 }

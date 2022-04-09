@@ -63,7 +63,7 @@ data aggregated by Primary Quality Assurance Organization
 (PQAO) code for the time frame between bdate and edate.
 }
 \note{
-The AQS API only allows for a single year of one point pep audit data
+The AQS API only allows for a single year of pep audit data
 to be retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of data
@@ -77,8 +77,8 @@ API server. This operation has a linear run time of
 }
 \examples{
 # returns a tibble of PEP audit data for
-  #  June 2017 where the pqao is the Alabama Department of
-  #  Environmental Management (agency 0013)
+          #  June 2017 where the pqao is the Alabama Department of
+          #  Environmental Management (agency 0013)
   \dontrun{aqs_qa_pep_audit_by_pqao(parameter = "88101",
                                     bdate = as.Date("20170601",
                                                     format = "\%Y\%m\%d"

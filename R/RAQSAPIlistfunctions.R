@@ -14,7 +14,7 @@
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object which details the status
 #'             of the AQS API (The status information is located in the header)
 #' @examples
-#'   #check if the AQS API is up, running and accepting requests.
+#'   # Check if the AQS API is up, running and accepting requests.
 #'   \dontrun{ aqs_isAvailable() }
 #' @export
 aqs_isavailable <- function(return_header = FALSE)
@@ -55,7 +55,7 @@ aqs_isavailable <- function(return_header = FALSE)
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains
 #'   information involving known issues with the Data Mart API.
 #' @examples
-#'       #retrieve the list of known issues directly from the AQS data mart API
+#'       # Retrieve a tibble of known issues directly from the AQS data mart API
 #'        \dontrun{aqs_knownissues()}
 #' @export
 aqs_knownissues <- function(return_header = FALSE)
@@ -84,7 +84,7 @@ aqs_knownissues <- function(return_header = FALSE)
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of all counties in the
 #'            requested state.
 #' @examples
-#'           #returns a tibble all the counties
+#'           # Returns a tibble all the counties
 #'           #   in North Carolina the county FIPS codes (county codes) for
 #'           #   each.
 #'           \dontrun{aqs_counties_by_state(stateFIPS = "37")}
@@ -117,7 +117,7 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of all air monitoring
 #'            sites with the requested state and county FIPS codes.
-#' @examples #returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
+#' @examples # Returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
 #'           #  in Hawaii County, HI
 #'           \dontrun{aqs_sites_by_county(stateFIPS = "15",
 #'                                            countycode = "001")
@@ -153,9 +153,8 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of Parameter classes
 #'                 (groups of parameters, i.e. "criteria" or "all").
-#' @examples #returns a tibble or an AQS_Data Mart_APIv2 S3 object of
-#'           #  parameter classes (groups of parameters, i.e. "criteria" or
-#'           #  all")
+#' @examples # Returns a tibble of parameter classes (groups of parameters, i.e.
+#'           # "criteria" or all")
 #'          \dontrun{ aqs_classes() }
 #' @export
 aqs_classes <- function(return_header = FALSE)
@@ -217,9 +216,9 @@ aqs_parameters_by_class <- function(class, return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitoring agencies
 #'              and their associated agency code.
-#' @examples #returns a tibble or an AQS_Data Mart_APIv2 S3 object
-#'           #   of monitoring agencies and their respective
-#'           #   monitoring agency codes.
+#' @examples # Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+#'           # of monitoring agencies and their respective
+#'           # monitoring agency codes.
 #'           \dontrun{aqs_mas()}
 #' @export
 aqs_mas <- function(return_header = FALSE)
@@ -248,9 +247,9 @@ aqs_mas <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of pqaos and
 #'            their associated pqao code.
-#' @examples #To retrieve a tibble of primary quality assurance
-#'           #  organizations (pqaos)
-#'            \dontrun{ pqaos <- aqs_pqaos() }
+#' @examples # Returns a tibble of primary quality assurance
+#'           # organizations (pqaos)
+#'            \dontrun{ aqs_pqaos() }
 #' @export
 aqs_pqaos <- function(return_header = FALSE)
 {
@@ -280,8 +279,8 @@ aqs_pqaos <- function(return_header = FALSE)
 #' @return a tibble or an AQS_Data Mart_APIv2  S3 object of all Core Based
 #'         Statistical Areas (cbsa) and their cbsa_codes for constructing
 #'         other requests.
-#' @examples #returns a tibble or an AQS_Data Mart_APIv2 S3 object of cbsas
-#'           #  and their respective cbsa codes
+#' @examples # Returns a tibble of Core Based Statistical Areas (cbsas)
+#'           # and their respective cbsa codes
 #'           \dontrun{ aqs_cbsas() }
 #' @export
 aqs_cbsas <- function(return_header = FALSE)
@@ -311,7 +310,7 @@ aqs_cbsas <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of states and their
 #'            associated FIPS codes.
-#' @examples #returns a tibble of states and their FIPS codes
+#' @examples # Returns a tibble of states and their FIPS codes
 #'           \dontrun{aqs_states()}
 #' @export
 aqs_states <- function(return_header = FALSE)
@@ -381,7 +380,7 @@ aqs_removeheader <- function(AQSobject)
 #'   and the second item ($Data) is a tibble of the data
 #'            returned.
 #' @examples
-#'  # read the Data Mart API revision history
+#'  # Returns a DataFrame of the EPA AQS Data Mart API revision history
 #'  #  \dontrun{aqs_revisionHistory()}
 #' @export
 aqs_revisionhistory <- function(return_header = FALSE)
@@ -412,7 +411,7 @@ aqs_revisionhistory <- function(return_header = FALSE)
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @examples # Returns a tibble containing a list and definitions
-#'          #  of fields in the Sample Data service
+#'           #  of fields in the Sample Data service
 #'          \dontrun{aqs_fieldsbyservice(service = "sampleData")}
 #'
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object with containing the list
@@ -441,8 +440,7 @@ aqs_fields_by_service <- function(service, return_header = FALSE)
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
 #'         their associated duration codes
 #'                 (groups of parameters, i.e. "criteria" or "all").
-#' @examples #returns a tibble or an AQS_Data Mart_APIv2 S3 object of
-#'           #
+#' @examples # Returns a tibble or an AQS_Data Mart_APIv2 S3 object of
 #'          \dontrun{ aqs_sampledurations() }
 #' @export
 aqs_sampledurations <- function(return_header = FALSE)

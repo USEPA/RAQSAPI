@@ -77,8 +77,8 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a tibble of flow rate verification
-          #  data for Alabama 2018
+# Returns a tibble of flow rate verification data for the state of
+          # Alabama for 2017-2019
           \dontrun{aqs_qa_flowrateverification_by_state(parameter = "88101",
                                                   bdate = as.Date("20170101",
                                                             format = "\%Y\%m\%d"

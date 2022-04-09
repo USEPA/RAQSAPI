@@ -67,13 +67,16 @@ Returns a table of monitors and related metadata at sites with the
 provided parameter, stateFIPS and county_code for
 bdate - edate time frame.
 }
+\note{
+All monitors that operated between the bdate and edate will be returned
+}
 \section{by_county aggregate functions}{
 NA
 }
 
 \examples{
 # returns an aqs_v2 S3 object containing all SO2 monitors in
-          #  Hawaii County, HI that were operating on May 01, 2015.
+          #  Hawaii County, HI that were operating between May 01-02, 2015.
  \dontrun{aqs_monitors_by_county(parameter="42401",
                                  bdate=as.Date("20150501", format="\%Y\%m\%d"),
                                  edate=as.Date("20150502", format="\%Y\%m\%d"),

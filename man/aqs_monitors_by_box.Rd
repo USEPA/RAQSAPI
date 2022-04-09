@@ -61,12 +61,15 @@ Returns a table of monitors and related metadata sites with the provided
 parameter, aggregated by latitude/longitude bounding box (_by_box) for
 bdate - edate time frame.
 }
+\note{
+All monitors that operated between the bdate and edate will be returned
+}
 \section{by_box aggregate functions}{
 NA
 }
 
 \examples{
-#  returns a tibble of all ozone
+#  Returns a tibble of all ozone
           #  monitors in the vicinity of central Alabama that operated in
           #  1995
           \dontrun{aqs_monitors_by_box(parameter="44201",

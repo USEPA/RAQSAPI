@@ -11,9 +11,6 @@ datamartAPI_user <- "test@aqs.api"
                            key = "test"
                            )
 
-  aqs_pqaos(return_header = TRUE)$Header$status %>%
-    expect_match(regexp = "Success")
-
   aqs_qa_blanks_by_pqao(parameter = "88101",
                         bdate = as.Date("20180101", format = "%Y%m%d"),
                         edate = as.Date("20180131", format = "%Y%m%d"),

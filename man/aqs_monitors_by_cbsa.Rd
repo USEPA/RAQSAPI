@@ -62,12 +62,15 @@ Returns a table of monitors at all sites with the provided
 parameter, aggregated by Core Based Statistical Area (CBSA) for
 bdate - edate time frame.
 }
+\note{
+All monitors that operated between the bdate and edate will be returned
+}
 \section{by_cbsa (By Core Based Statistical Area, as defined by the US Census Bureau) aggregate functions}{
 NA
 }
 
 \examples{
-# returns a tibble of NO2 monitors
+# returns a tibble of $NO_{2}$ monitors
           #  for Charlotte-Concord-Gastonia, NC cbsa that were operating
           #  on Janurary 01, 2017
           \dontrun{aqs_monitors_by_cbsa(parameter="42602",

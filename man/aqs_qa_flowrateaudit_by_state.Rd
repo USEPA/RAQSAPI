@@ -81,12 +81,10 @@ API server. This operation has a linear run time of
 # returns a tibble of flow rate audit
           #  data for Alabama in January 2018
           \dontrun{aqs_qa_flowrateaudit_by_state(parameter = "88101",
-                                                 b date = as.Date("20170101",
-                                                            format = "\%Y\%m\%d"
-                                                                ),
-                                                  edate = as.Date("20180131",
-                                                            format = "\%Y\%m\%d"
-                                                                ),
+                                                 bdate = as.Date("20170101",
+                                                          format = "\%Y\%m\%d"),
+                                                 edate = as.Date("20180131",
+                                                          format = "\%Y\%m\%d"),
                                                  stateFIPS = "01"
                                                  )
                    }

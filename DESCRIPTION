@@ -92,6 +92,7 @@ Collate:
     'setupfunctions.R'
     'zzz.R'
     'RAQSAPI-package.R'
+    'deprecated.R'
 Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
 Roxygen: list(markdown = TRUE)

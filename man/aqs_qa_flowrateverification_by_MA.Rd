@@ -77,7 +77,7 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-  # returns a tibble containing collocated assessment
+  # Returns a tibble containing collocated assessment
   #   data for FRM PM2.5 January 2013 where the Monitoring Agency is
   #   the Alabama Department of Environmental Management (agency 0013)
   \dontrun{aqs_qa_flowrateverification_by_MA(parameter = "88101",
@@ -93,7 +93,7 @@ API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_MA functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_MA}()},
+\code{\link{aqs_qa_annualperformanceeval_by_MA}()},
 \code{\link{aqs_qa_annualperformanceevaltransaction_by_MA}()},
 \code{\link{aqs_qa_blanks_by_MA}()},
 \code{\link{aqs_qa_collocated_assessments_by_MA}()},

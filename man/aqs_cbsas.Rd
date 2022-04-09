@@ -25,7 +25,7 @@ and their associated cbsa_codes. for constructing other
 requests.
 }
 \examples{
-#returns a tibble or an AQS_Data Mart_APIv2 S3 object of cbsas
-          #  and their respective cbsa codes
+# Returns a tibble of Core Based Statistical Areas (cbsas)
+          # and their respective cbsa codes
           \dontrun{ aqs_cbsas() }
 }

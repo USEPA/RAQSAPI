@@ -22,8 +22,8 @@ and their associated agency code.
 Returns a table of monitoring agencies (MA).
 }
 \examples{
-#returns a tibble or an AQS_Data Mart_APIv2 S3 object
-          #   of monitoring agencies and their respective
-          #   monitoring agency codes.
+# Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+          # of monitoring agencies and their respective
+          # monitoring agency codes.
           \dontrun{aqs_mas()}
 }

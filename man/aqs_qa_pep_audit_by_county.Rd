@@ -71,7 +71,7 @@ data aggregated by parameter code, stateFIPS and countycode
 for the time frame between bdate and edate.
 }
 \note{
-The AQS API only allows for a single year of one point pep audit data
+The AQS API only allows for a single year of pep audit data
 to be retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of data

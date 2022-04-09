@@ -34,16 +34,22 @@ datamartAPI_user <- "test@aqs.api"
                         )$Header$status %>%
     expect_match(regexp = "Success")
 
+  aqs_pqaos(return_header = TRUE)$Header$status %>%
+    expect_match(regexp = "Success")
+
+  aqs_cbsas(return_header = TRUE)$Header$status %>%
+    expect_match(regexp = "Success")
+
   aqs_classes(return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
 
-aqs_sites_by_county(stateFIPS = "15",
+  aqs_sites_by_county(stateFIPS = "15",
                     countycode = "001",
                     return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
 
-aqs_parameters_by_class(class = "CRITERIA",
-                        return_header = TRUE)$Header$status %>%
+  aqs_parameters_by_class(class = "CRITERIA",
+                          return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
 
 })

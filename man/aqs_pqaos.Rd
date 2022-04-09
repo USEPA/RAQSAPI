@@ -23,7 +23,7 @@ Returns a table of primary quality assurance
 organizations (pqaos).
 }
 \examples{
-#To retrieve a tibble of primary quality assurance
-          #  organizations (pqaos)
-           \dontrun{ pqaos <- aqs_pqaos() }
+# Returns a tibble of primary quality assurance
+          # organizations (pqaos)
+           \dontrun{ aqs_pqaos() }
 }

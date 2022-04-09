@@ -70,7 +70,7 @@ the second item (\$Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns multiple years of data where daily data is
+Returns multiple years of data where dailysummary data is
 aggregated at the site level. Returned is a daily summary
 matching the input parameter stateFIPS, countycode, and sitenum
 provided for bdate - edate time frame. Data is aggregated at the

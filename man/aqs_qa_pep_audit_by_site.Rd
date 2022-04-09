@@ -75,7 +75,7 @@ data aggregated by parameter code, stateFIPS, countycode and
 site number for the time frame between bdate and edate.
 }
 \note{
-The AQS API only allows for a single year of one point pep audit data
+The AQS API only allows for a single year of pep audit data
 to be retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of data
@@ -88,18 +88,18 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a aqs_v2 S3 object of pep Audit data for FRM PM2.5
+# returns a tibble of pep Audit data for FRM PM2.5
           #  at the Huntsville Old Airport site (\#0014) in Madison County,
           #  AL for 2017 - 2019.
  \dontrun{aqs_qa_pep_audit_by_site(parameter = "88101",
                                    bdate = as.Date("20170101",
                                                    format = "\%Y\%m\%d"),
                                    edate = as.Date("20191231",
-                                                     format = "\%Y\%m\%d"),
+                                                   format = "\%Y\%m\%d"),
                                    stateFIPS = "01",
                                    countycode = "089",
                                    sitenum = "0014"
-                                       )
+                                   )
            }
 }
 \seealso{

@@ -113,9 +113,8 @@ API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-#Returns a AQS_Data Mart_APIv2 S3 object of ozone monitoring
-          #  data for the Millbrook School site (/#0014) in
-          #  Wake County, NC for June 18, 2017.
+#Returns a table of ozone monitoring data for the Millbrook School
+          # site (/#0014) in Wake County, NC for June 18, 2017.
  \dontrun{
             aqs_sampledata_by_site(parameter = "44201",
                                    bdate = as.Date("20170618",

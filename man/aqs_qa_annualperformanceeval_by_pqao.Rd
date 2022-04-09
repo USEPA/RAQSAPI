@@ -50,8 +50,8 @@ code aggregated by matching input parameter and pqao_code for the
 time frame between bdate and edate.
 }
 \note{
-The AQS API only allows for a single year of
-qa_annual_performanceeval to be retrieved at a time. This
+The AQS API only allows for a single year of quality assurance
+Annual Performance Evaluation data to be retrieved at a time. This
 function conveniently extracts date information from the bdate
 and edate parameters then makes repeated calls to the AQSAPI
 retrieving a maximum of one calendar year of data at a time. Each
@@ -64,10 +64,9 @@ server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-#Returns an AQS_Data Mart_APIv2 S3 object or a tibble
-          #   containing annual performance evaluation data for ozone where
-          #   the PQAO is the Alabamaba Department of Environmental
-          #   Management (pqao_code 0013).
+# Returns a tibble containing annual performance evaluation data
+          # for ozone where the PQAO is the Alabamaba Department of
+          # Environmental Management (pqao_code 0013).
  \dontrun{ aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
                                                 bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),

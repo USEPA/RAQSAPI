@@ -64,21 +64,21 @@ matching input parameter and stateFIPS provided for bdate -
 edate time frame.
 }
 \note{
-The AQS API only allows for a single year of collocated assessments to
-be retrieved at a time. This function conveniently extracts date
-information from the bdate and edate parameters then makes repeated
-calls to the AQSAPI retrieving a maximum of one calendar year of data
-at a time. Each calendar year of data requires a separate API call so
-multiple years of data will require multiple API calls. As the number
-of years of data being requested increases so does the length of time
-that it will take to retrieve results. There is also a 5 second wait
-time inserted between successive API calls to prevent overloading the
-API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).
+The AQS API only allows for a single year of collocated assessments
+data to be retrieved at a time. This function conveniently extracts
+date information from the bdate and edate parameters then makes
+repeated calls to the AQSAPI retrieving a maximum of one calendar
+year of data at a time. Each calendar year of data requires a
+separate API call so multiple years of data will require multiple API
+calls. As the number of years of data being requested increases so
+does the length of time that it will take to retrieve results. There
+is also a 5 second wait time inserted between successive API calls to
+prevent overloading the API server. This operation has a linear run
+time of /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
 # returns a tibble  of collocated
-          #  assessment data fofr FRM2.5 for January 2013
+          #  assessment data for FRM2.5 for January 2013
           \dontrun{aqs_qa_collocated_assessments_by_state(parameter="88101",
                                                   bdate = as.Date("20130101",
                                                             format = "\%Y\%m\%d"

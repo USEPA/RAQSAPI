@@ -63,20 +63,20 @@ matching input parameter, and monitoring agency (MA) code
 provided for bdate - edate time frame.
 }
 \note{
-The AQS API only allows for a single year of collocated assessments to
-be retrieved at a time. This function conveniently extracts date
-information from the bdate and edate parameters then makes repeated
-calls to the AQSAPI retrieving a maximum of one calendar year of data
-at a time. Each calendar year of data requires a separate API call so
-multiple years of data will require multiple API calls. As the number
-of years of data being requested increases so does the length of time
-that it will take to retrieve results. There is also a 5 second wait
-time inserted between successive API calls to prevent overloading the
-API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).
+The AQS API only allows for a single year of collocated assessments
+data to be retrieved at a time. This function conveniently extracts
+date information from the bdate and edate parameters then makes
+repeated calls to the AQSAPI retrieving a maximum of one calendar
+year of data at a time. Each calendar year of data requires a
+separate API call so multiple years of data will require multiple API
+calls. As the number of years of data being requested increases so
+does the length of time that it will take to retrieve results. There
+is also a 5 second wait time inserted between successive API calls to
+prevent overloading the API server. This operation has a linear run
+time of /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a tibble containing collocated assessment
+# Returns a tibble containing collocated assessment
           #   data for FRM PM2.5 January 2013 where the Monitoring Agency is
           #   the Alabama Department of Environmental Management (agency 0013)
           \dontrun{aqs_qa_collocated_assessments_by_MA(parameter="88101",
@@ -90,7 +90,7 @@ API server. This operation has a linear run time of
 }
 \seealso{
 Other Aggregate _by_MA functions: 
-\code{\link{aqs_qa_annualpeferomanceeval_by_MA}()},
+\code{\link{aqs_qa_annualperformanceeval_by_MA}()},
 \code{\link{aqs_qa_annualperformanceevaltransaction_by_MA}()},
 \code{\link{aqs_qa_blanks_by_MA}()},
 \code{\link{aqs_qa_flowrateaudit_by_MA}()},

@@ -71,14 +71,14 @@ datamartAPI_user <- "test@aqs.api"
                               )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
-  aqs_qa_annualpeferomanceeval_by_MA(parameter = "44201",
-                                       bdate = as.Date("20170101",
-                                                       format = "%Y%m%d"),
-                                       edate = as.Date("20171231",
-                                                       format = "%Y%m%d"),
-                                       MA_code = "0013",
-                                       return_header = TRUE
-                                       )[[1]]$Header$status %>%
+  aqs_qa_annualperformanceeval_by_MA(parameter = "44201",
+                                     bdate = as.Date("20170101",
+                                                    format = "%Y%m%d"),
+                                    edate = as.Date("20171231",
+                                                    format = "%Y%m%d"),
+                                    MA_code = "0013",
+                                    return_header = TRUE
+                                    )[[1]]$Header$status %>%
     expect_match(regexp = "Success")
 
   aqs_qa_annualperformanceevaltransaction_by_MA(parameter = "44201",

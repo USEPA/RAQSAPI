@@ -23,6 +23,6 @@ Returns a table of US states, US territories, and the
 district or Columbia with their respective FIPS codes.
 }
 \examples{
-#returns a tibble of states and their FIPS codes
+# Returns a tibble of states and their FIPS codes
           \dontrun{aqs_states()}
 }

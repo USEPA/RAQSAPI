@@ -114,12 +114,12 @@ years of data will require multiple API calls. As the number of years
 of data being requested increases so does the length of time that it
 will take to retrieve results. There is also a 5 second wait
 time inserted between successive API calls to prevent overloading the
-API server. Fortunately this operation has a linear run time
+API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-# returns a aqs_v2 S3 object containing all ozone samples
-             #  in the vicinity of central Alabama for
+# Returns a tibble containing all ozone samples
+             #  in the vicinity of central Alabama between
              #  May 1, 2015 - May 2, 2017
           \dontrun{aqs_sampledata_by_box(parameter = "44201",
                                          bdate = as.Date("20150501",

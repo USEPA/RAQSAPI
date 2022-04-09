@@ -24,7 +24,7 @@ library(knitr)
 #'   package. By deleting the NAMESPACE file before rebuilding the developer
 #'   can ensure that they are using the most recent version of the NAMESPACE.
 #' @examples
-#'   # to remove RAQSAPI and clean the project directory of files
+#'   # To remove RAQSAPI and clean the project directory of files
 #'   #  created during the package build process.
 #'   \dontrun{
 #'            RAQSAPICLEAN()
@@ -54,7 +54,7 @@ RAQSAPICLEAN <- function(NAMESPACE = TRUE)
 #'   build the base of the RAQSAPI package
 #'
 #' @examples
-#'   # builds the base RAQSAPI package
+#'   # Builds the base RAQSAPI package
 #'   \dontrun{buildRAQSAPI()}
 #' @nord
 buildRAQSAPIbase <- function()
@@ -162,7 +162,7 @@ RAQSAPICHECK <- function()
 #' coverage
 #' @importFrom devtools test_coverage()
 #' @examples
-#'   #to check the RAQSAPI package for errors before pushing changes upstream
+#'   #To check the RAQSAPI package for errors before pushing changes upstream
 #'   \dontrun(RAQSAPITESTCOVERAGE()
 #'   }
 #' @noRd
