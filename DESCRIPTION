@@ -38,7 +38,12 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     comment = c("United States Enviornmental Protection Agency",
                                 ORCID = "0000-0002-9254-9740"
                                 )
-                    )
+                    ),
+            person(given = "Edward", family = "Andrews",
+                    email = "edward.s.andrews@wv.gov",
+                    role = c("rev", "ctb"),
+                    comment = "West Virgina Department of Environmental Protection, Division of Air Quality"
+                  )
              )
 URL: <https://github.com/USEPA/RAQSAPI>,
      <https://aqs.epa.gov/aqsweb/documents/data_api.html>

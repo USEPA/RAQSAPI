@@ -20,7 +20,7 @@ expect them.
 
 In Functions that have the return_header=TRUE option set the returned object is
 an AQSAPI_v2 object, this is a 2 item list where the first object is a tibble
-with the label \$Header the second, a tibble with the label \$Data. sampledata
+with the label \$Header, the second, a tibble with the label \$Data. sampledata
 functions are limited by the API to one calendar year of data per API call so if
 the user requests multiple years of data the sampledata call will return multiple
 AQSAPI_v2 objects, one for each call to the API. The returned result is a list

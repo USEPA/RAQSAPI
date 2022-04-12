@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--04--09-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--04--12-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -213,18 +213,25 @@ credential information into R scripts.
 
 To use the `keyring` package with `RAQSAPI` first install `keyring`:
 
-> install.package(“keyring”)
+``` r
+install.package("keyring")
+```
 
 Ensure that your system is supported by the `keyring` package before
 proceeding.
 
-> keyring::has\_keyring\_support()
+``` r
+  keyring::has_keyring_support()
+```
 
 then set the keyring used to access AQS Data Mart (make sure to replace
 the text in the angled brackets with your specific user information):
 
-> library(“keyring”) keyring::key\_set(service = “AQSDatamart,” username
-> = “&lt;user email account&gt;”)
+``` r
+  library("keyring")  
+  keyring::key_set(service = "AQSDatamart",
+                   username = "\<user email account\>")
+```
 
 a popup window will appear for the user to input their keyring
 information. Enter the AQS Data mart credential key associated with the
@@ -234,14 +241,23 @@ credential is set using `keyring`.
 To retrieve the keyring to use with `RAQSAPI` load the `keyring` package
 and use the function key\_get to return the user credential to RAQSAPI:
 
-> library(RAQSAPI) library(keyring) datamartAPI\_user &lt;- &lt;user
-> email account&gt; server &lt;- “AQSDatamart”
+``` r
+  library(RAQSAPI)  
+  library(keyring)  
+  datamartAPI_user <- \<user email account\>  
+  server <- "AQSDatamart"
+```
 
 then pass these variables to the aqs\_credentials function when using
 RAQSAPI:
 
-> aqs\_credentials(username = datamartAPI\_user, key = key\_get(service
-> = server, username = datamartAPI\_user ) )
+``` r
+  aqs_credentials(username = datamartAPI_user,
+                  key = key_get(service = server,
+                                username = datamartAPI_user
+                                )
+                  )
+```
 
 To change the keyring stored with the `keyring` package repeat the steps
 above to call the keyring::key\_set function again with the new
@@ -348,7 +364,9 @@ one of the 13 services listed above and &lt;aggregation&gt; is either
 
 (RAQSAPI must be installed and built with BUILD\_MANUAL = TRUE enabled)
 
-> RShowDoc(what=“RAQSAPIvignette,” type=“html,” package=“RAQSAPI”)
+``` r
+  RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
+```
 
 # Acknowledgements
 

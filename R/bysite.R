@@ -796,7 +796,7 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
 }
 
 
-#' @title aqs_qa_annualpeferomanceeval_by_site
+#' @title aqs_qa_annualperformanceeval_by_site
 #' @description \lifecycle{stable}
 #'        Returns quality assurance performance evaluation data - aggregated by
 #'          site for a parameter code aggregated by matching input
@@ -824,7 +824,7 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate,
 #' @importFrom magrittr `%<>%`
 #' @examples #Returns a tibble containing annual performance evaluation data for
 #'           # ozone at the Fairhope site in Baldwin County, AL for 2017
-#'  \dontrun{  aqs_qa_annualpeferomanceeval_by_site(parameter = "44201",
+#'  \dontrun{  aqs_qa_annualperformanceeval_by_site(parameter = "44201",
 #'                                                  bdate = as.Date("20170101",
 #'                                                          format = "%Y%m%d"),
 #'                                                  edate = as.Date("20171231",

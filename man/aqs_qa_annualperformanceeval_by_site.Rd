@@ -2,7 +2,7 @@
 % Please edit documentation in R/bysite.R
 \name{aqs_qa_annualperformanceeval_by_site}
 \alias{aqs_qa_annualperformanceeval_by_site}
-\title{aqs_qa_annualpeferomanceeval_by_site}
+\title{aqs_qa_annualperformanceeval_by_site}
 \usage{
 aqs_qa_annualperformanceeval_by_site(
   parameter,
@@ -94,7 +94,7 @@ server. This operation has a linear run time of
 \examples{
 #Returns a tibble containing annual performance evaluation data for
           # ozone at the Fairhope site in Baldwin County, AL for 2017
- \dontrun{  aqs_qa_annualpeferomanceeval_by_site(parameter = "44201",
+ \dontrun{  aqs_qa_annualperformanceeval_by_site(parameter = "44201",
                                                  bdate = as.Date("20170101",
                                                          format = "\%Y\%m\%d"),
                                                  edate = as.Date("20171231",

@@ -13,6 +13,7 @@ output: md_document
     external code that depends on these functions.
   - many update to the reference documentation to improve consistency and
     fix issues.
+  - Minor updates to the README.
 
 ## RAQSAPI 2.0.3
 * this is a minor release
