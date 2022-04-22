@@ -78,7 +78,8 @@ will take to return the results.</span> |
 
 Aggregate functions are named AQS_API\<service\>\_\<aggregation\>() where
 \<service\> is one of the 13 services listed above and \<aggregation\> is
-either "_by_site", "_by_county", "_by_state", "_by_box", "_by_cbsa".
+either "\_by\_site", "\_by\_county", "\_by\_state", "\_by\_box", "\_by\_cbsa",
+"\_by\_ma", or "\_by\_pqao".
 
 ### See the RAQSAPI vignette for more details
 (RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)

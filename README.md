@@ -38,7 +38,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--04--12-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--04--22-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -358,7 +358,8 @@ will take to return the results.</span></th>
 Aggregate functions are named
 AQS\_API&lt;service&gt;\_&lt;aggregation&gt;() where &lt;service&gt; is
 one of the 13 services listed above and &lt;aggregation&gt; is either
-"\_by\_site“,”\_by\_county“,”\_by\_state“,”\_by\_box“,”\_by\_cbsa".
+“\_by\_site,” “\_by\_county,” “\_by\_state,” “\_by\_box,” “\_by\_cbsa,”
+“\_by\_ma,” or “\_by\_pqao.”
 
 ### See the RAQSAPI vignette for more details
 

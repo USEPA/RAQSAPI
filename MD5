@@ -129,7 +129,7 @@ c0988c156096bd89e00a994413d2906b *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-09cd175946105dfa5332aa12a3d3a0cf *README.md
+f728830f6df6524c57d81a2248edbe5f *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 332173f20d20942c02019350ea4dcadc *tests/spelling.R
@@ -157,8 +157,8 @@ a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 69224454907b49f3de5fcf3527a3ad3f *vignettes/InstallandSetup.Rmd
 aaebea417e69f7f1fa559709ba5cbce8 *vignettes/Intro.html
 a629c5720b68a384451709002c95a499 *vignettes/Intro.Rmd
-0b73d1e99630f30a638be9569779a29e *vignettes/RAQSAPIFunctions-Brief.html
-e1e3b1d25fa8932a486a1f6e8d12f18d *vignettes/RAQSAPIFunctions-Brief.Rmd
+d71ff8295dcd105d703224d225cf5137 *vignettes/RAQSAPIFunctions-Brief.html
+4c86c7e54b53413376bcc5c0c20d0a34 *vignettes/RAQSAPIFunctions-Brief.Rmd
 e4f900121a2bd5dac089695fd64db4d6 *vignettes/RAQSAPIFunctions-Long.html
 9ed6d165ef4d5fda27edcb033ea5d7a1 *vignettes/RAQSAPIFunctions-Long.R
 0693f1a8606169becd2ba4faa4b487ff *vignettes/RAQSAPIFunctions-Long.Rmd
