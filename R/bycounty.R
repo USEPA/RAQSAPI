@@ -714,7 +714,7 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           corresponding to the inputs provided.
 #' @export
 aqs_transactionsample_by_county <- function(parameter, bdate, edate,
-                                            stateFIPS,countycode,
+                                            stateFIPS, countycode,
                                             return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)

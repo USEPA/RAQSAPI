@@ -97,7 +97,8 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
                       user_key =  getOption("aqs_key"),
                       variables = list(state = stateFIPS)
                   )
-     counties %<>% renameaqsvariables(name1="county_code", name2="county_name")
+     counties %<>% renameaqsvariables(name1 = "county_code",
+                                      name2 = "county_name")
      if (!return_header) counties %<>% aqs_removeheader
      return(counties)
 

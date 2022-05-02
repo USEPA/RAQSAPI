@@ -487,7 +487,8 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate,
 #' @examples #Returns a tibble containing annual performance evaluation data for
 #'           # ozone in where the PQAO is the Alabama Department of
 #'           # Environmental Management (pqao_code 0013) for 2017 in RD format.
-#'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_pqao(parameter = "44201",
+#'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_pqao(parameter =
+#'                                                                      "44201",
 #'                                                 bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
 #'                                                 edate = as.Date("20171231",

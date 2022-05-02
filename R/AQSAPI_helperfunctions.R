@@ -1,6 +1,5 @@
 user_agent <- "RAQSAPI library for R"
 server <- "AQSDatamartAPI"
-#AQS_domain <- "aqs.epa.gov"
 
 
 #' @title checkaqsparams
@@ -24,7 +23,7 @@ server <- "AQSDatamartAPI"
 #' @noRd
 checkaqsparams <- function(...)
 {
-  #Note: the variable errmessage does not follow this project's style guidelines,
+  #Note: the variable errmessage does not follow this project's style
   #  This is to ensure that the output string format looks nice.
   errmessage <- vector()
   error <- FALSE
@@ -39,7 +38,7 @@ checkaqsparams <- function(...)
         )
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "parameter must be a 5 digit number (represented as a character string)"
                         )
     }
@@ -52,7 +51,7 @@ checkaqsparams <- function(...)
         )
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "stateFIPS must be a two digit number (represented as a character string),
        please pad stateFIPS less than 2 digits with leading zeros"
                         )
@@ -65,7 +64,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$countycode))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "countycode must be a three digit number (represented as a character
       string), please pad countycode less than three digits with leading zeros"
                         )
@@ -78,7 +77,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$sitenum))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "sitenum must be a four digit number (represented as a character string),
        please pad sitenum less than four digits with leading zeros"
                        )
@@ -92,7 +91,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$MA_code))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "MA_code must be a three or four digit number (represented as a character
        string), please pad MA_code less than three or four digits with
        leading zeros"
@@ -107,7 +106,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$pqao_code))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "pqao_code must be a three or four digit number (represented as a
       character string), please pad pqao_code less than three or four digits
       with leading zeros"
@@ -120,7 +119,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$cbsa_code))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "cbsa_code must be a five digit number (represented as a character
       string), please pad cbsa_code less than five digits with leading zeros"
                         )
@@ -132,7 +131,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$POC))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "POC must be a single digit number (represented as a character string)"
                        )
     }
@@ -142,7 +141,7 @@ checkaqsparams <- function(...)
     if (!is.Date(ellipsis_args$bdate))
     {
       error <- TRUE
-      errmessage %<>% c('x' = "bdate must be an R date object")
+      errmessage %<>% c("x" = "bdate must be an R date object")
         }
   }
   if ("edate" %in% names(ellipsis_args))
@@ -150,7 +149,7 @@ checkaqsparams <- function(...)
     if (!is.Date(ellipsis_args$edate))
     {
       error <- TRUE
-      errmessage %<>% c('x' = "edate must be an R date object")
+      errmessage %<>% c("x" = "edate must be an R date object")
     }
   }
   if ("cbdate" %in% names(ellipsis_args))
@@ -158,7 +157,7 @@ checkaqsparams <- function(...)
     if (!is.Date(ellipsis_args$cbdate) & !is.null(ellipsis_args$cbdate))
     {
       error <- TRUE
-      errmessage %<>% c('x' = "cbdate must be an R date object")
+      errmessage %<>% c("x" = "cbdate must be an R date object")
     }
   }
   if ("cedate" %in% names(ellipsis_args))
@@ -166,7 +165,7 @@ checkaqsparams <- function(...)
     if (!is.Date(ellipsis_args$cedate) & !is.null(ellipsis_args$cedate))
     {
       error <- TRUE
-      errmessage %<>% c('x' = "cedate must be an R date object")
+      errmessage %<>% c("x" = "cedate must be an R date object")
     }
   }
   if ("email" %in% names(ellipsis_args))
@@ -174,7 +173,7 @@ checkaqsparams <- function(...)
     if (!isValidEmail(ellipsis_args$email))
     {
       error <- TRUE
-      errmessage %<>% c('x' = "invalid email address entered")
+      errmessage %<>% c("x" = "invalid email address entered")
     }
   }
   if ("minlat" %in% names(ellipsis_args))
@@ -183,7 +182,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "minlat must be a numeric (expressed as a string) between -90 and 90"
                        )
     }
@@ -194,7 +193,7 @@ checkaqsparams <- function(...)
         !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "maxlat must be a numeric (expressed as a string) between -90 and 90"
                         )
     }
@@ -206,7 +205,7 @@ checkaqsparams <- function(...)
        )
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "minlon must be a numeric (expressed as a string) between -180 and 180"
                         )
     }
@@ -218,7 +217,7 @@ checkaqsparams <- function(...)
        )
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "maxlon must be a numeric (expressed as a string) between -180 and 180"
                         )
     }
@@ -232,7 +231,7 @@ checkaqsparams <- function(...)
         )
     {
       error <- TRUE
-      errmessage %<>% c('x' =
+      errmessage %<>% c("x" =
       "duration must be a character from '1' to '9' or 'A' to 'Z'
        (represented as a character string)"
                         )
@@ -243,16 +242,15 @@ checkaqsparams <- function(...)
       if (!is.logical(ellipsis_args$return_header))
         {
           error <- TRUE
-          errmessage %<>% c('x' = "return_header must be of type logical")
+          errmessage %<>% c("x" = "return_header must be of type logical")
         }
   }
   if (error)
     {
       callingfunction <- rlang::call_name(sys.call(sys.parent(2)))
-      #callingfunction <- rlang::call_frame(n = 2)$fn_name
       if (is.null(callingfunction)) callingfunction <- "Unknown Environment"
       callingfunction <- glue(" in: {callingfunction}")
-      c('i' = callingfunction, errmessage) %>% abort
+      c("i" = callingfunction, errmessage) %>% abort
     }
 }
 
@@ -325,6 +323,12 @@ format_multiple_params_for_api <- function(x, separator=",")
 #' @param waittime the number of seconds, encoded as a numeric, that the API
 #'                     should wait after performing a API query
 #'                     (defaults to 5 seconds, as recommended by the AQS team).
+#' @note  Although this function is designed to prevent users from exceeding
+#'        allowed data limits, it can not garuntee that the user exceed rate
+#'        limits. Users are advised to monitor their own usage to ensure that
+#'        data limits are not exceeded. Use of this package is at the users own
+#'        risk. The maintainers of this code assume no responsibility due to
+#'        anything that may happen as a result of using this code.
 #' @return NULL
 #' @noRd
 aqs_ratelimit <- function(waittime=5L)

@@ -112,7 +112,7 @@ aqs_qa_flowrateverification_by_site(parameter =  "88101",
 
 aqs_transactionsample_by_site(parameter = "44201",
                               bdate = as.Date("20170618", format = "%Y%m%d"),
-                              edate = as.Date("20170618",format = "%Y%m%d"),
+                              edate = as.Date("20170618", format = "%Y%m%d"),
                               stateFIPS = "37",
                               countycode = "183",
                               sitenum = "0014",

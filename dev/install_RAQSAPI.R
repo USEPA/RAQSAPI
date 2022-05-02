@@ -63,7 +63,7 @@ buildRAQSAPIbase <- function()
   invisible(usethis::use_lifecycle())
   devtools::document(quiet = TRUE,
                      roclets = c("collate", "namespace", "rd", "vignette"))
-  #devtools::build_readme()
+  devtools::build_readme()
   knitr::knit(input = "./dev/contributing.Rmd", output = "./dev/contributing.md")
   knitr::knit(input = "./cran-comments.Rmd", output = "./cran-comments.md")
   tools:::.installMD5sums(pkgDir = ".")

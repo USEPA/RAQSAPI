@@ -99,7 +99,8 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code,
 #'           data returned.
 #' @examples # Returns a tibble containing collocated assessment
 #'           #   data for FRM PM2.5 January 2013 where the Monitoring Agency is
-#'           #   the Alabama Department of Environmental Management (agency 0013)
+#'           #   the Alabama Department of Environmental Management
+#'           # (agency 0013)
 #'           \dontrun{aqs_qa_collocated_assessments_by_MA(parameter="88101",
 #'                                                   bdate = as.Date("20130101",
 #'                                                           format = "%Y%m%d"),
@@ -484,9 +485,9 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code,
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr `%<>%`
 #' @examples
-#'           # Returns a tibble containing annual performance evaluation data for
-#'           #  ozone where the monitoring agency is the Alabama Department of
-#'           #  Environmental Management (MA_code 0013).
+#'           # Returns a tibble containing annual performance evaluation data
+#'           #  for ozone where the monitoring agency is the Alabama Department
+#'           #  of Environmental Management (MA_code 0013).
 #'           \dontrun{aqs_qa_annualperformanceeval_by_MA(parameter = "44201",
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
@@ -548,9 +549,9 @@ aqs_qa_annualperformanceeval_by_MA <- function(parameter, bdate, edate,
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr `%<>%`
-#' @examples # Returns a tibble containing annual performance evaluation data for
-#'           #  ozone in where the MA is the Alabama Department of Environmental
-#'           #  Management (MA_code 0013) for 2017 in RD format.
+#' @examples # Returns a tibble containing annual performance evaluation data
+#'           #  for ozone in where the MA is the Alabama Department of
+#'           #  Environmental Management (MA_code 0013) for 2017 in RD format.
 #'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_MA(parameter = "44201",
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
@@ -577,7 +578,8 @@ aqs_qa_annualperformanceevaltransaction_by_MA <- function(parameter, bdate,
                                bdate = bdate,
                                edate = edate,
                                MA_code = MA_code,
-                               service = "transactionsQaAnnualPerformanceEvaluations"
+                               service =
+                                 "transactionsQaAnnualPerformanceEvaluations"
                                )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_MA)

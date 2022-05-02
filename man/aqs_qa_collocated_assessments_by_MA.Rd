@@ -78,7 +78,8 @@ time of /(Big O notation: O/(n + 5 seconds/)/).
 \examples{
 # Returns a tibble containing collocated assessment
           #   data for FRM PM2.5 January 2013 where the Monitoring Agency is
-          #   the Alabama Department of Environmental Management (agency 0013)
+          #   the Alabama Department of Environmental Management
+          # (agency 0013)
           \dontrun{aqs_qa_collocated_assessments_by_MA(parameter="88101",
                                                   bdate = as.Date("20130101",
                                                           format = "\%Y\%m\%d"),
