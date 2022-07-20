@@ -72,9 +72,11 @@ of years of data being requested increases so does the length of time
 that it will take to retrieve results. There is also a 5 second wait
 time inserted between successive API calls to prevent overloading the
 API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).\preformatted{    Also Note that for quarterly data, only the year portion of the bdate
+/(Big O notation: O/(n + 5 seconds/)/).
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{    Also Note that for quarterly data, only the year portion of the bdate
     and edate are used and all 4 quarters in the year are returned.
-}
+}\if{html}{\out{</div>}}
 }
 \examples{
 # Returns a tibble of $NO_{2}$ quartyerly summary

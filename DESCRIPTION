@@ -75,7 +75,7 @@ Suggests:
     usethis,
     covr
 SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
