@@ -76,11 +76,11 @@ e9a4022de378d7e245f6fba78633eb46 *man/aqs_qa_pep_audit_by_county.Rd
 6ed5b63ddc48b5260eedc870ad40830f *man/aqs_qa_pep_audit_by_pqao.Rd
 05f8fa8324b878ad879225328063e81a *man/aqs_qa_pep_audit_by_site.Rd
 61c2f7721df9936016faa39a78363933 *man/aqs_qa_pep_audit_by_state.Rd
-59a3bb28b146bca102f8ef2af98173af *man/aqs_quarterlysummary_by_box.Rd
-0f3cb9d684e9eea563e291653b91dc59 *man/aqs_quarterlysummary_by_cbsa.Rd
-60ce4b0c03ace6ac384b56f18ac1f4fc *man/aqs_quarterlysummary_by_county.Rd
-9994849852a450dda3258073ef29b43d *man/aqs_quarterlysummary_by_site.Rd
-6754c3ea3cb42f6b9a06c52d5c5e4ee0 *man/aqs_quarterlysummary_by_state.Rd
+f0bbcf5e9c799613f8e98d0757a90019 *man/aqs_quarterlysummary_by_box.Rd
+9aac190c44e41c76f6fcaa120c32d9f3 *man/aqs_quarterlysummary_by_cbsa.Rd
+49f48f67f9787dbe0f88ae293c963809 *man/aqs_quarterlysummary_by_county.Rd
+ee3d5399583ab251b23920b879e64212 *man/aqs_quarterlysummary_by_site.Rd
+3d8d4ec7159c9739c5cb6f71e07a9fdf *man/aqs_quarterlysummary_by_state.Rd
 8bbf27840089e37f4768e36e9ec5d91a *man/aqs_removeheader.Rd
 5c5244d7dedaf9a8203054cb717f4d1b *man/aqs_revisionhistory.Rd
 0a418711482e7c9acb0435b40adf878e *man/aqs_sampledata_by_box.Rd
@@ -103,7 +103,7 @@ fb79be8f8717990d152ad5b23751a339 *man/aqs_states.Rd
 47b7cbe49d382aac8348ee5cca982de6 *man/aqs_transactionsample_by_MA.Rd
 d2237cdfe2355d3365ffb7628e121a3d *man/aqs_transactionsample_by_site.Rd
 320d2b475c628672e8fcb2db6c39d512 *man/aqs_transactionsample_by_state.Rd
-34bc825920e9617d287d3b0f3726aca5 *man/deprecated.Rd.Rd
+f15ba2d7370da25a949470e01c852436 *man/deprecated.Rd.Rd
 cb1e46f469cfbbbde29c8b5113e1d789 *man/figures/lifecycle-archived.svg
 c0d2e5a54f1fa4ff02bf9533079dd1f7 *man/figures/lifecycle-defunct.svg
 a1b8c987c676c16af790f563f96cbb1f *man/figures/lifecycle-deprecated.svg
@@ -115,7 +115,7 @@ c3978703d8f40f2679795335715e98f4 *man/figures/lifecycle-experimental.svg
 1712fd8700cfeefca91608232051619e *man/RAQSAPI.Rd
 5773dad0c82523ed2c391b9d50c3f5f8 *NAMESPACE
 23c2d5c08f0c870318200dba3c484a30 *NEWS.md
-15ae77e877197a78a57c18656c3a15ba *R/AQSAPI_helperfunctions.R
+5bdcd98386e8e571b39e1320057b0d0b *R/AQSAPI_helperfunctions.R
 344a723a45d0284a1362d26bbb3b31ab *R/bybox.R
 b37607fbf67771c44d52534548000343 *R/bycbsa.R
 77aa3ea8d2861584394d186cc5286d2e *R/bycounty.R
@@ -129,7 +129,7 @@ b0c57f7a6929bb364a9e5fdc10a6c0fc *R/RAQSAPI-package.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-6e8872e10216cdf5047fb30ec20fd3f2 *README.md
+2aa32f068609e1e2e2c13e965156da7d *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R

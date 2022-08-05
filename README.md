@@ -2,26 +2,37 @@ Introduction to the RAQSAPI package
 ================
 Clinton Mccrowey, physical scientist - US EPA
 
--   [EPA Disclaimer](#epa-disclaimer)
--   [Introduction](#introduction)
--   [About the timeliness of AQS
-    Data](#about-the-timeliness-of-aqs-data)
--   [Installing RAQSAPI](#installing-raqsapi)
-    -   [Option 1: Installing the stable version from
-        CRAN](#option-1-installing-the-stable-version-from-cran)
-    -   [Option 2: Installing the development version of
-        RAQSAPI](#option-2-installing-the-development-version-of-raqsapi)
--   [Using The RAQSAPI library](#using-the-raqsapi-library)
-    -   [Load RAQSAPI](#load-raqsapi)
-    -   [Sign up and setting up user credentials with the RAQSAPI
-        library](#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library)
-    -   [(suggested) Use the `keyring` package to manage
-        credentials](#suggested-use-the-keyring-package-to-manage-credentials)
-    -   [Data Mart aggregate functions](#data-mart-aggregate-functions)
-        -   [See the RAQSAPI vignette for more
-            details](#see-the-raqsapi-vignette-for-more-details)
--   [Acknowledgements](#acknowledgements)
--   [References](#references)
+-   <a href="#epa-disclaimer" id="toc-epa-disclaimer">EPA Disclaimer</a>
+-   <a href="#introduction" id="toc-introduction">Introduction</a>
+-   <a href="#about-the-timeliness-of-aqs-data"
+    id="toc-about-the-timeliness-of-aqs-data">About the timeliness of AQS
+    Data</a>
+-   <a href="#installing-raqsapi" id="toc-installing-raqsapi">Installing
+    RAQSAPI</a>
+    -   <a href="#option-1-installing-the-stable-version-from-cran"
+        id="toc-option-1-installing-the-stable-version-from-cran">Option 1:
+        Installing the stable version from CRAN</a>
+    -   <a href="#option-2-installing-the-development-version-of-raqsapi"
+        id="toc-option-2-installing-the-development-version-of-raqsapi">Option
+        2: Installing the development version of RAQSAPI</a>
+-   <a href="#using-the-raqsapi-library"
+    id="toc-using-the-raqsapi-library">Using The RAQSAPI library</a>
+    -   <a href="#load-raqsapi" id="toc-load-raqsapi">Load RAQSAPI</a>
+    -   <a
+        href="#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library"
+        id="toc-sign-up-and-setting-up-user-credentials-with-the-raqsapi-library">Sign
+        up and setting up user credentials with the RAQSAPI library</a>
+    -   <a href="#suggested-use-the-keyring-package-to-manage-credentials"
+        id="toc-suggested-use-the-keyring-package-to-manage-credentials">(suggested)
+        Use the <code>keyring</code> package to manage credentials</a>
+    -   <a href="#data-mart-aggregate-functions"
+        id="toc-data-mart-aggregate-functions">Data Mart aggregate functions</a>
+        -   <a href="#see-the-raqsapi-vignette-for-more-details"
+            id="toc-see-the-raqsapi-vignette-for-more-details">See the RAQSAPI
+            vignette for more details</a>
+-   <a href="#acknowledgements"
+    id="toc-acknowledgements">Acknowledgements</a>
+-   <a href="#references" id="toc-references">References</a>
 
 <img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
@@ -38,7 +49,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--07--20-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--08--05-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer

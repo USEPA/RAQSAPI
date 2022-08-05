@@ -9,10 +9,14 @@ server <- "AQSDatamartAPI"
 #' @param  ... variables to be checked. Must be one of the parameters
 #'                         being exported RAQSAPI functions. All other
 #'                         variables will be ignored.
-#' @note  this function will only check the variables exported by RAQSAPI meant
+#' @note  This function will only check the variables exported by RAQSAPI meant
 #'           to be used in RAQSAPI functions. This function is not meant to be
 #'           called directly by the end user or to be called outside of RAQSAPI.
-#'          variables will remain unchanged.
+#'           variables will remain unchanged.
+#'        Escaping of variables is provided by the AQS DataMart API, this
+#'          function is provided to assist users from receiving confusing
+#'          results from incorrect parameters but should not be used to verify
+#'          that parameters are properly escaped.
 #' @importFrom lubridate is.Date
 #' @importFrom rlang abort format_error_bullets call_name
 #' @importFrom dplyr between
