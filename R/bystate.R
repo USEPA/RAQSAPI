@@ -17,7 +17,7 @@
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from the
 #'           selected state
 #' @examples # returns a tibble of SO2 monitors in Hawaii
-#'           #  that were operating on May 01, 2015
+#'           #  that were operating on May 01, 2017
 #'  \dontrun{aqs_monitors_by_state(parameter="88101",
 #'                                   bdate=as.Date("20170101",
 #'                                                  format="%Y%m%d"),

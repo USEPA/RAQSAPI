@@ -6,6 +6,12 @@ output: md_document
 ---
 
 # cran-comments for RAQSAPI
+## RAQSAPI 2.0.5
+  *RAQSAPI 2.0.4 was not published on CRAN. This release only reflects very
+    minor changes since 2.0.4 was pushed to github.
+  - a note Rd tag was added to the checkaqsparams function
+  - minor correction to the documentation of the aqs_monitors_by_state function 
+
 ## RAQSAPI 2.0.4
 *Important API change
   - aqs_qa_annualperformanceeval* and aqs_qa_annualperformanceevaltransaction*
@@ -15,6 +21,7 @@ output: md_document
     fix issues.
   - Minor updates to the README.
   - Minor improvements to code.
+  - This version was not published on CRAN but builds are availble on github.
 
 ## RAQSAPI 2.0.3
 * this is a minor release

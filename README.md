@@ -49,7 +49,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--08--05-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--09--07-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -116,15 +116,15 @@ associated with them. Most functions have a parameter, return_header
 which by default is set to FALSE. If the user decides to set
 return_header to TRUE, then that function will return a R
 AQS_DATAMART_APIv2 S3 object which is a two item named list.  
-The first item, ($Header) in the AQS_DATAMART_APIv2 object is a
+The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
 tibble<sup>2</sup> which contains the header information. The Header
 contains status information regarding the request (success/fail), any
 applicable error messages returned from the API, if any exist, the URL
 used in the request, a date and time stamp noting when request was
 received and other useful information. The second item of the
-AQS_DATAMART_APIv2 object ($Data) is a tibble which contains the actual
+AQS_DATAMART_APIv2 object (\$Data) is a tibble which contains the actual
 data being requested. For functions with the return_header option set to
-FALSE (default) a simple tibble is returned with just the $Data portion
+FALSE (default) a simple tibble is returned with just the \$Data portion
 of the request. After each call to the API a five second stall is
 invoked to help prevent overloading the Data Mart API server and to
 serve as a simple rate limit. [^1]

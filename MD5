@@ -1,6 +1,6 @@
-b46183fd263e97e4537fbb7a1bc5bf9e *cran-comments.md
-b46183fd263e97e4537fbb7a1bc5bf9e *cran-comments.Rmd
-e59b6fc8a10d8f72be68e40fc53d1fa3 *DESCRIPTION
+462e8912a3424942daa9a83251d0cae3 *cran-comments.md
+462e8912a3424942daa9a83251d0cae3 *cran-comments.Rmd
+dd3e9e994ffce8d6c80dfd40eafa9a89 *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
 74e297a0dc0b508ed18e3821264958d0 *dev/countlinesofcode.R
@@ -33,7 +33,7 @@ aaf0a25e0b1a43bf07df1c57e78a36e3 *man/aqs_isavailable.Rd
 7dd9559a0e5783baf686a946218b92ff *man/aqs_monitors_by_cbsa.Rd
 42e13a18ba98f78df21b47698117b338 *man/aqs_monitors_by_county.Rd
 3868da2ae126ed9862f0a66b701b752e *man/aqs_monitors_by_site.Rd
-90b893a47894bf66097193758e8280fc *man/aqs_monitors_by_state.Rd
+6faa52b3edd385fcfe588440739c5b3f *man/aqs_monitors_by_state.Rd
 1ecd0336719cce3614a394608f0c0bfa *man/aqs_parameters_by_class.Rd
 c33c642397a22d9ff53acd14f68655a5 *man/aqs_pqaos.Rd
 bdb4d31a1e02787236d2f8da50134710 *man/aqs_qa_annualperformanceeval_by_county.Rd
@@ -122,14 +122,14 @@ b37607fbf67771c44d52534548000343 *R/bycbsa.R
 1b3f26f19fbf9a8bf3b2540c93db96ea *R/byma.R
 562bf0d978748df2773631c13aa83357 *R/bypqao.R
 f517e158cea199abd85cd4222c060371 *R/bysite.R
-4aad9a3ca176efacd014fc6f4b4c93e5 *R/bystate.R
+588a42bb91f3a8db01718df1771df050 *R/bystate.R
 68447c7bedcb05e2eef6c423401662bf *R/deprecated.R
 b0c57f7a6929bb364a9e5fdc10a6c0fc *R/RAQSAPI-package.R
 37760261f8c081148edfac1282d4c791 *R/RAQSAPIlistfunctions.R
 4c1d32f0972205697bec23f1873ceed0 *R/setupfunctions.R
 735b109c7a7497e7e4000c520b5ba37f *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-2aa32f068609e1e2e2c13e965156da7d *README.md
+1f675ff86527b64acc527132215b7285 *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R

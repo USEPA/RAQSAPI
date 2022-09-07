@@ -1,6 +1,6 @@
 Type: Package
 Package: RAQSAPI
-Version: 2.0.4
+Version: 2.0.5
 Title: A Simple Interface to the US EPA Air Quality System Data Mart API
 Description: Retrieve air monitoring data and associated metadata from the US
   Environmental Protection Agency's Air Quality System service using functions.
