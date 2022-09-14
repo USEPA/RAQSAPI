@@ -10,7 +10,17 @@ output: md_document
   *RAQSAPI 2.0.4 was not published on CRAN. This release only reflects very
     minor changes since 2.0.4 was pushed to github.
   - a note Rd tag was added to the checkaqsparams function
-  - minor correction to the documentation of the aqs_monitors_by_state function 
+  - minor correction to the documentation of the aqs_monitors_by_state function
+  - Updates github actions to the new workflow available through package:usethis
+    2.1.6
+  
+### Test environments
+* local R installation, Windows 10 R 4.0.3
+* local R installation, Gentoo GNU/Linux R 4.0.4
+* Windows-latest (release) (on Github_actions), R 4.0.4
+* macOS-latest (release) (on Github_actions), R 4.0.4
+* ubuntu-20.04 (release) (on Github_actions), R 4.0.4
+* ubuntu-20.04 (devel) (on Github_actions), R 4.0.4
 
 ## RAQSAPI 2.0.4
 *Important API change

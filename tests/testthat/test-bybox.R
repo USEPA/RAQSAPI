@@ -1,12 +1,16 @@
 #' @importFrom magrittr `%>%`()
+#' @import testthat
 test_that("bybox functions", {
 testthat::skip_on_cran()
 testthat::skip_if_offline()
-server <- "AQSDatamartAPI"
-datamartapi_user <- "test@aqs.api"
 
-  RAQSAPI::aqs_credentials(username = datamartapi_user,
-                           key = "test"
+if(file.exists("./tests/testthat/local.R")) { source("./tests/testthat/local.R") }
+
+datamartAPI_user <- Sys.getenv(x = "RAQSAPIUSERNAME")
+datamartAPI_key <- Sys.getenv(x = "RAQSAPIKEY")
+
+  RAQSAPI::aqs_credentials(username = datamartAPI_user,
+                           key = datamartAPI_key
                            )
 
   RAQSAPI::aqs_isavailable(return_header = TRUE)$Header$status %>%

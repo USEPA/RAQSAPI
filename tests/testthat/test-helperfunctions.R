@@ -1,5 +1,6 @@
 #' @importFrom magrittr `%>%`()
 #' @importFrom stringr str_detect
+#' @import testthat
 test_that("helperfunctions (checkaqsparams()) functions", {
 testthat::skip_if_offline()
 testthat::skip_on_cran()

@@ -37,3 +37,5 @@ dev/install_RAQSAPI.R
 ^\.github$
 ^\.github/workflows/R-CMD-check\.yaml$
 ^.Rprofile$
+#Set up hte loocal environment for unit tests
+./dev/tests/testthat/local.R

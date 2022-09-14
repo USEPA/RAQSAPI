@@ -43,3 +43,5 @@ vignettes/*.docx
 #package, or feature request should be submitted to the issue tracker.
 ./dev/contributing.md
 ./dev/contributing.Rmd
+#Set up hte loocal environment for unit tests
+./dev/tests/testthat/local.R
