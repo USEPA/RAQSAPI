@@ -1037,13 +1037,13 @@ renameaqsvariables <- function(aqsobject, name1, name2)
 if (is.null(aqsobject))
     {
     return(aqsobject)
-    } else if (class(aqsobject) == "AQS_DATAMART_APIv2")
+    } else if(inherits(x = aqsobject, what = "AQS_DATAMART_APIv2")) #(class(aqsobject) == "AQS_DATAMART_APIv2")
              {
                   #using tidyevaluation and substitute operator
                   aqsobject$Data %<>%  dplyr::rename(!!name1 := 1)
                   aqsobject$Data %<>%  dplyr::rename(!!name2 := 2)
 
-              } else if (all(class(aqsobject[[1]]) == "AQS_DATAMART_APIv2"))
+              } else if (all(inherits(x = aqsobject[[1]], what = "AQS_DATAMART_APIv2")))   #(class(aqsobject) == "AQS_DATAMART_APIv2")                              #class(aqsobject[[1]]) == "AQS_DATAMART_APIv2"))
                        {
                           #using tidyevaluation and substitute operator
                           aqsobject %<>%  lapply("[[", "Data") %>%
