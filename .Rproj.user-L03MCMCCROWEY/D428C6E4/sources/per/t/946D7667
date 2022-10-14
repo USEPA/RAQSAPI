@@ -1,0 +1,26 @@
+{
+    "id": "946D7667",
+    "path": "~/R/RAQSAPI/.github/workflows/R-CMD-check.yaml",
+    "project_path": ".github/workflows/R-CMD-check.yaml",
+    "type": "yaml",
+    "hash": "870315997",
+    "contents": "",
+    "dirty": false,
+    "created": 1661890942032.0,
+    "source_on_save": false,
+    "relative_order": 8,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "29,21",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1663074235,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1663074235080,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,26 @@
+{
+    "id": "CCD61EC6",
+    "path": "~/R/RAQSAPI/dev/install_RAQSAPI.R",
+    "project_path": "dev/install_RAQSAPI.R",
+    "type": "r_source",
+    "hash": "1614380861",
+    "contents": "",
+    "dirty": false,
+    "created": 1663357355509.0,
+    "source_on_save": false,
+    "relative_order": 22,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "13,77",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1658321270,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1658321270,
+    "read_only": false,
+    "read_only_alternatives": []
+}

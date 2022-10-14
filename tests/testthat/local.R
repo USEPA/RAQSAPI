@@ -1,8 +1,12 @@
 library(keyring)
 library(magrittr)
+library(withr)
 
-Sys.setenv("RAQSAPIUSERNAME" = "aqsdatamart_packages@epa.gov")
+RAQSAPItestsetup_local <- function()
+  {
+    AQSusername <- "mccrowey.clinton@epa.gov"
+    AQSkey <- key_get(service = "AQSDatamartAPI",
+                       username = "mccrowey.clinton@epa.gov")
 
-key_get(service = "AQSDatamartAPI",
-        username = "aqsdatamart_packages@epa.gov") %>%
-  Sys.setenv("RAQSAPIKEY" = .)
+    return(list(AQSusername = AQSusername , AQSkey = AQSkey))
+  }

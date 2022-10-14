@@ -10,6 +10,7 @@
 #'                 @seealso [aqs_sign_up()] to sign up for AQS data mart
 #'                 credentials.
 #' @importFrom rlang is_character
+#' @importFrom withr with_envvar
 #' @param username a R character object which represents the email account that
 #'                    will be used to connect to the AQS API.
 #' @param key the key used in conjunction with the username given to connect to
@@ -28,7 +29,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 {
   # nocov
   #The code simply stores the credentials as a R global variable since the
-  #Data Mart server only issues "key" and not "passwords" we don't need to
+  #Data Mart server only issues a "key" and not "passwords" we don't need to
   #worry about securing the credentials with complicated code such as involving
   #salt and hashes and etc.
    if (!is.na(username) ||
@@ -37,8 +38,13 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
        !is_character(key)
        )
    {
-    options(aqs_username = username)
-    options(aqs_key = key)
+    #options(aqs_username = username)
+    #options(aqs_key = key)
+    #credentials <- options(list(aqs_username = username, aqs_key = key))
+    #with_envvar(c(aqs_username = username), code = Sys.getenv(AQSusername))
+    with_envvar(c(aqs_username = username), code = Sys.getenv(aqs_username))
+    with_envvar(c(aqs_key = key), code = Sys.getenv(aqs_key))
+    #on.exit(options(credentials), add = TRUE)
   } else {cat("Please enter a valid username and key  \n") }
 } #no cov end
 

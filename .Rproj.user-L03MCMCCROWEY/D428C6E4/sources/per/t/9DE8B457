@@ -1,0 +1,26 @@
+{
+    "id": "9DE8B457",
+    "path": "~/R/RAQSAPI/tests/testthat/test-bycounty.R",
+    "project_path": "tests/testthat/test-bycounty.R",
+    "type": "r_source",
+    "hash": "1766526856",
+    "contents": "",
+    "dirty": false,
+    "created": 1663074196569.0,
+    "source_on_save": false,
+    "relative_order": 16,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "21,50",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1663168921,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1663168921973,
+    "read_only": false,
+    "read_only_alternatives": []
+}

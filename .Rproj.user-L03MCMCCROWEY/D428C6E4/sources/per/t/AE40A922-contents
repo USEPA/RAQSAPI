@@ -1,0 +1,93 @@
+library(readr)
+library(tibble)
+library(stringr)
+library(data.table) #needed for fread()
+library(dplyr)
+library(magrittr)
+library(purrr)
+library(sets)
+library(stringr)
+library(glue)
+library(iterators)
+#the next two packages allow parellel execution of for loops,
+#this executes faster than sequentually running loops
+
+##I would like to use the foreach package but unfortunately you cannot use out of
+##scope varables with foreach.
+#library(foreach)
+#library(doParallel)
+##sets the number of cpu cores on the machine where code is executed,
+##assumes the computer has at least 4 cpu cores, change if necessary
+#registerDoParallel(cores=4)
+
+#set the directory where the data is located
+#use of relative paths are preferred
+filepath <- "./FSL/"
+
+#a list of all relative path names in the <filepath> subdirectory with
+# the *.txt file extension
+filelistpath <- list.files(path = filepath, pattern ="*.txt", full.names=TRUE )
+#list of files without the path
+filelist <- str_replace_all(string = filelistpath,
+                            pattern = filepath, replacement = "")
+
+readweatherdatafile <- function(filepath = NA_character_)
+{
+  if(!is.na(filepath))
+  {
+    #fread is able to read in fixed width data with
+    #missing data fairly easily with the
+    #fill=TRUE parameter
+    dat <- fread(file=filepath,
+                 fill=TRUE,
+                 stringsAsFactors=FALSE)
+    setattr(dat, "class", c("tbl", "tbl_df", "data.frame"))
+    #for some reason dplyr::rename() is acting funky, usiing base r to rename instead
+    #dat %<>% rename("LINETYP" = "V1")
+    names(dat)[names(dat) == "V1"] <- "LINETYP"
+    start1 <- which(dat$LINETYP == 254)
+    end1 <- as.integer(c(tail(which(dat$LINETYP == 254) - 1, n=-1), nrow(dat) - 1))
+    #dat2 <- split.data.frame(x=dat, drop=FALSE, f=which(dat$LINETYP == 254))
+    soundingscount <- length(which(dat$LINETYP == 254))
+    soundings <- which(dat$LINETYP == 254)
+    #browser()
+    dat2 <- vector(mode = "list", length = 1000 ) #%>%
+    # vec_cast(to=tibble::as_tibble())
+    #dat2 %<>% walk(.f="tibble::as_tibble()")
+    count = 0
+    #foreach(i = icount(soundingscount - 1), .packages=c("dplyr", "sets", "glue"), .inorder = FALSE, .combine='c') %dopar% {
+    for( i in 1:(soundingscount - 1)) {
+      if(i < soundingscount) 
+        { 
+          #browser()
+          # dat2[[i]] <- tuple(slice(dat, soundings[i]), slice(dat, soundings[i]:soundings[i+1]))
+          # names(dat2[[i]]) <- c("HEADER", "BODY")
+          # names(dat2[[i]]$HEADER)[names(dat2[[i]]$HEADER) == "V3"] <- "DAY"
+          # names(dat2[[i]]$HEADER)[names(dat2[[i]]$HEADER) == "V4"] <- "MONTH"
+          # names(dat2[[i]]$HEADER)[names(dat2[[i]]$HEADER) == "V5"] <- "YEAR"
+          # names(dat2)[i] <- glue("{dat2[[i]]$HEADER$DAY} {dat2[[i]]$HEADER$MONTH} {dat2[[i]]$HEADER$YEAR}")
+          tempvar <- tuple(slice(dat, soundings[i]), slice(dat, soundings[i]:soundings[i+1]))
+          names(tempvar) <- c("HEADER", "BODY")
+          names(tempvar$HEADER)[names(tempvar$HEADER) == "V3"] <- "DAY"
+          names(tempvar$HEADER)[names(tempvar$HEADER) == "V4"] <- "MONTH"
+          names(tempvar$HEADER)[names(tempvar$HEADER) == "V5"] <- "YEAR"
+          dat2[[i]] <- tempvar
+          names(dat2)[i] <- glue("{dat2[[i]]$HEADER$DAY} {dat2[[i]]$HEADER$MONTH} {dat2[[i]]$HEADER$YEAR}")
+         }
+    }
+  }
+  #browser()
+  return(dat2)
+}
+
+#a container to store the data read in by the script
+#data <- vector(mode = "list", length = length(filelist))
+dat <- vector(mode="list", length = length(filelist))
+
+#set the names of each item in the list to be the
+#full path name of the file that is represented
+names(dat) <- filelistpath
+
+#todo change this to a loop and remove the hardcoded number
+#also check that the function does not overwrite the list of filenames
+dat <- readweatherdatafile(file = filelistpath[[1]])

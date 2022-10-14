@@ -168,10 +168,11 @@ RAQSAPICHECK <- function()
 #' @noRd
 RAQSAPITESTCOVERAGE <- function()
 {
+  withr::with_envvar(new=c(NOT_CRAN=TRUE), code = Sys.getenv("NOT_CRAN"))
   #save the NOT_CRAN environment variable to a temporary variable
-  NOT_CRAN_TEMP <- Sys.getenv(x = "NOT_CRAN")
-  Sys.setenv(NOT_CRAN = "true")
+  #NOT_CRAN_TEMP <- Sys.getenv(x = "NOT_CRAN")
+  #Sys.setenv(NOT_CRAN = "true")
   test_coverage()
   #restore the NOT_CRAN environment variable to it's former state
-  Sys.setenv(NOT_CRAN = NOT_CRAN_TEMP)
+  #Sys.setenv(NOT_CRAN = NOT_CRAN_TEMP)
 }

@@ -1,0 +1,28 @@
+{
+    "id": "BB5E028A",
+    "path": "~/R/RAQSAPI/R/AQSAPI_helperfunctions.R",
+    "project_path": "R/AQSAPI_helperfunctions.R",
+    "type": "r_source",
+    "hash": "369444833",
+    "contents": "",
+    "dirty": false,
+    "created": 1657549827325.0,
+    "source_on_save": false,
+    "relative_order": 4,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "cursorPosition": "1060,74",
+        "scrollLine": "0",
+        "rmdVisualCollapsedChunks": ""
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1663191090,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1663191090775,
+    "read_only": false,
+    "read_only_alternatives": []
+}

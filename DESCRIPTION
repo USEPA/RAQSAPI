@@ -54,15 +54,16 @@ Imports:
     glue,
     httr,
     jsonlite,
+    lifecycle,
     lubridate,
     magrittr,
     purrr,
+    rlang,
     stringr,
     tibble,
-    rlang,
-    lifecycle
+    withr
 Suggests:
-    spelling, 
+    covr,
     desc,
     devtools,
     goodpractice,
@@ -71,9 +72,9 @@ Suggests:
     markdown,
     roxygen2,
     rmarkdown,
+    spelling,
     testthat (>= 3.0.0),
-    usethis,
-    covr
+    usethis
 SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
 RoxygenNote: 7.2.1
 VignetteBuilder: knitr
