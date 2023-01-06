@@ -455,10 +455,14 @@ aqs <- function(service, filter = NA, user = NA,
   #  variable. Lastly the temporary variable is removed.
   if (all(c("date_local", "time_local") %in% colnames(out$Data)))
     {
-      out$Data %<>% dplyr::mutate(datetime = glue("{date_local} {time_local}"))
-      out$Data %<>% dplyr::mutate(datetime = ymd_hm(.data$`datetime`))
-      out$Data %<>% dplyr::arrange(.data$datetime)
-      out$Data %<>% dplyr::select(-.data$datetime)
+      #out$Data %<>% dplyr::mutate(datetime = glue("{date_local} {time_local}"))
+      #out$Data %<>% dplyr::mutate(datetime = ymd_hm(.data$`datetime`))
+      #out$Data %<>% dplyr::arrange(.data$datetime)
+      #out$Data %<>% dplyr::select(-.data$datetime)
+      out$Data %<>% dplyr::mutate(datetime = glue("{.$date_local} {.$time_local}")) %>%
+      dplyr::mutate(datetime = ymd_hm(datetime)) %>%
+      dplyr::arrange(datetime) %>%
+      dplyr::select(-datetime)
     }
   return(out)
 }
@@ -1037,13 +1041,13 @@ renameaqsvariables <- function(aqsobject, name1, name2)
 if (is.null(aqsobject))
     {
     return(aqsobject)
-    } else if(inherits(x = aqsobject, what = "AQS_DATAMART_APIv2")) #(class(aqsobject) == "AQS_DATAMART_APIv2")
+    } else if(inherits(x = aqsobject, what = "AQS_DATAMART_APIv2"))
              {
                   #using tidyevaluation and substitute operator
                   aqsobject$Data %<>%  dplyr::rename(!!name1 := 1)
                   aqsobject$Data %<>%  dplyr::rename(!!name2 := 2)
 
-              } else if (all(inherits(x = aqsobject[[1]], what = "AQS_DATAMART_APIv2")))   #(class(aqsobject) == "AQS_DATAMART_APIv2")                              #class(aqsobject[[1]]) == "AQS_DATAMART_APIv2"))
+              } else if (all(inherits(x = aqsobject[[1]], what = "AQS_DATAMART_APIv2")))
                        {
                           #using tidyevaluation and substitute operator
                           aqsobject %<>%  lapply("[[", "Data") %>%

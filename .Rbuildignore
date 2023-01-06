@@ -39,3 +39,5 @@ dev/install_RAQSAPI.R
 ^.Rprofile$
 #Set up hte loocal environment for unit tests
 ./tests/testthat/local.R
+^LICENSE\.md$
+./dev

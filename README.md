@@ -2,37 +2,37 @@ Introduction to the RAQSAPI package
 ================
 Clinton Mccrowey, physical scientist - US EPA
 
--   <a href="#epa-disclaimer" id="toc-epa-disclaimer">EPA Disclaimer</a>
--   <a href="#introduction" id="toc-introduction">Introduction</a>
--   <a href="#about-the-timeliness-of-aqs-data"
-    id="toc-about-the-timeliness-of-aqs-data">About the timeliness of AQS
-    Data</a>
--   <a href="#installing-raqsapi" id="toc-installing-raqsapi">Installing
-    RAQSAPI</a>
-    -   <a href="#option-1-installing-the-stable-version-from-cran"
-        id="toc-option-1-installing-the-stable-version-from-cran">Option 1:
-        Installing the stable version from CRAN</a>
-    -   <a href="#option-2-installing-the-development-version-of-raqsapi"
-        id="toc-option-2-installing-the-development-version-of-raqsapi">Option
-        2: Installing the development version of RAQSAPI</a>
--   <a href="#using-the-raqsapi-library"
-    id="toc-using-the-raqsapi-library">Using The RAQSAPI library</a>
-    -   <a href="#load-raqsapi" id="toc-load-raqsapi">Load RAQSAPI</a>
-    -   <a
-        href="#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library"
-        id="toc-sign-up-and-setting-up-user-credentials-with-the-raqsapi-library">Sign
-        up and setting up user credentials with the RAQSAPI library</a>
-    -   <a href="#suggested-use-the-keyring-package-to-manage-credentials"
-        id="toc-suggested-use-the-keyring-package-to-manage-credentials">(suggested)
-        Use the <code>keyring</code> package to manage credentials</a>
-    -   <a href="#data-mart-aggregate-functions"
-        id="toc-data-mart-aggregate-functions">Data Mart aggregate functions</a>
-        -   <a href="#see-the-raqsapi-vignette-for-more-details"
-            id="toc-see-the-raqsapi-vignette-for-more-details">See the RAQSAPI
-            vignette for more details</a>
--   <a href="#acknowledgements"
-    id="toc-acknowledgements">Acknowledgements</a>
--   <a href="#references" id="toc-references">References</a>
+- <a href="#epa-disclaimer" id="toc-epa-disclaimer">EPA Disclaimer</a>
+- <a href="#introduction" id="toc-introduction">Introduction</a>
+- <a href="#about-the-timeliness-of-aqs-data"
+  id="toc-about-the-timeliness-of-aqs-data">About the timeliness of AQS
+  Data</a>
+- <a href="#installing-raqsapi" id="toc-installing-raqsapi">Installing
+  RAQSAPI</a>
+  - <a href="#option-1-installing-the-stable-version-from-cran"
+    id="toc-option-1-installing-the-stable-version-from-cran">Option 1:
+    Installing the stable version from CRAN</a>
+  - <a href="#option-2-installing-the-development-version-of-raqsapi"
+    id="toc-option-2-installing-the-development-version-of-raqsapi">Option
+    2: Installing the development version of RAQSAPI</a>
+- <a href="#using-the-raqsapi-library"
+  id="toc-using-the-raqsapi-library">Using The RAQSAPI library</a>
+  - <a href="#load-raqsapi" id="toc-load-raqsapi">Load RAQSAPI</a>
+  - <a
+    href="#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library"
+    id="toc-sign-up-and-setting-up-user-credentials-with-the-raqsapi-library">Sign
+    up and setting up user credentials with the RAQSAPI library</a>
+  - <a href="#suggested-use-the-keyring-package-to-manage-credentials"
+    id="toc-suggested-use-the-keyring-package-to-manage-credentials">(suggested)
+    Use the <code>keyring</code> package to manage credentials</a>
+  - <a href="#data-mart-aggregate-functions"
+    id="toc-data-mart-aggregate-functions">Data Mart aggregate functions</a>
+    - <a href="#see-the-raqsapi-vignette-for-more-details"
+      id="toc-see-the-raqsapi-vignette-for-more-details">See the RAQSAPI
+      vignette for more details</a>
+- <a href="#acknowledgements"
+  id="toc-acknowledgements">Acknowledgements</a>
+- <a href="#references" id="toc-references">References</a>
 
 <img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
@@ -49,7 +49,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202022--09--30-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--01--06-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -321,14 +321,14 @@ groups data.
 
 **These seven families are**:
 
--   **\_by_site**
--   **\_by_county**
--   **\_by_state**
--   **\_by\_\<latitude/longitude bounding box\>** (\_by_box)
--   **\_by\_\<monitoring agency\>** (\_by_MA)
--   **\_by\_\<Primary Quality Assurance Organization\>** (\_by_pqao)
--   **\_by\_\<core based statistical area (as defined by the**  
-    **US census Bureau)\>** (\_by_cbsa).
+- **\_by_site**
+- **\_by_county**
+- **\_by_state**
+- **\_by\_\<latitude/longitude bounding box\>** (\_by_box)
+- **\_by\_\<monitoring agency\>** (\_by_MA)
+- **\_by\_\<Primary Quality Assurance Organization\>** (\_by_pqao)
+- **\_by\_\<core based statistical area (as defined by the**  
+  **US census Bureau)\>** (\_by_cbsa).
 
 Within these families of aggregated data functions there are functions
 that call on the 13 different aggregate services that the Data Mart API
@@ -337,28 +337,27 @@ service.**
 
 **These fourteen services are**:
 
--   **Monitors** (aqs_monitors_by\_\*)
--   **Sample Data** (aqs_sampledata_by\_\*)
--   **Daily Summary Data** (aqs_dailydata_by\_\*)
--   **Annual Summary Data** (aqs_annualdata_by\_\*)
--   **Quarterly Summary Data** (aqs_quarterlysummary_by\_\*)
--   **Quality Assurance - Blanks Data** (aqs_qa_blanks_by\_\*)
--   **Quality Assurance - Collocated Assessments**
-    (aqs_qa_collocated_assessments_by\_\*)
--   **Quality Assurance - Flow Rate Verifications**
-    (aqs_qa_flowrateverification_by\_\*)
--   **Quality Assurance - Flow Rate Audits**
-    (aqs_qa_flowrateaudit_by\_\*)
--   **Quality Assurance - One Point Quality Control Raw Data**
-    (aqs_qa_one_point_qc_by\_\*)
--   **Quality Assurance - PEP Audits** (aqs_qa_pep_audit_by\_\*)
--   **Transaction Sample - AQS Submission data in transaction Format
-    (RD)** (aqs_transactionsample_by\_\*)
--   **Quality Assurance - Annual Performance Evaluations**  
-    (aqs_qa_annualperformanceeval_by\_\*)
--   **Quality Assurance - Annual Performance Evaluations in the AQS**  
-    **Submission transaction format (RD)**
-    (aqs_qa_annualperformanceevaltransaction_by\_\*)
+- **Monitors** (aqs_monitors_by\_\*)
+- **Sample Data** (aqs_sampledata_by\_\*)
+- **Daily Summary Data** (aqs_dailydata_by\_\*)
+- **Annual Summary Data** (aqs_annualdata_by\_\*)
+- **Quarterly Summary Data** (aqs_quarterlysummary_by\_\*)
+- **Quality Assurance - Blanks Data** (aqs_qa_blanks_by\_\*)
+- **Quality Assurance - Collocated Assessments**
+  (aqs_qa_collocated_assessments_by\_\*)
+- **Quality Assurance - Flow Rate Verifications**
+  (aqs_qa_flowrateverification_by\_\*)
+- **Quality Assurance - Flow Rate Audits** (aqs_qa_flowrateaudit_by\_\*)
+- **Quality Assurance - One Point Quality Control Raw Data**
+  (aqs_qa_one_point_qc_by\_\*)
+- **Quality Assurance - PEP Audits** (aqs_qa_pep_audit_by\_\*)
+- **Transaction Sample - AQS Submission data in transaction Format
+  (RD)** (aqs_transactionsample_by\_\*)
+- **Quality Assurance - Annual Performance Evaluations**  
+  (aqs_qa_annualperformanceeval_by\_\*)
+- **Quality Assurance - Annual Performance Evaluations in the AQS**  
+  **Submission transaction format (RD)**
+  (aqs_qa_annualperformanceevaltransaction_by\_\*)
 
 <table>
 <colgroup>
@@ -404,18 +403,18 @@ The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
 those sources with them RAQSAPI would not be possible.
 
--   README badges are provided by R package `badgecreator`<sup>4</sup>.
--   The R package `usethis`<sup>5</sup> was used to generate GitHub
-    actions for Continuous integration (CI).
--   Code cleanup was assisted by the R package `lintr`<sup>6</sup>
--   the function *install.packages* are provided by the R package
-    `utils`<sup>7</sup>
--   the function *install_github* are provided by the R package
-    `remotes`<sup>8</sup>
--   .gitignore file borrowed examples from
-    <https://github.com/github/gitignore/blob/master/R.gitignore>
--   The RAQSAPI hexsticker was created using the
-    `hexSticker`<sup>9</sup> package for R
+- README badges are provided by R package `badgecreator`<sup>4</sup>.
+- The R package `usethis`<sup>5</sup> was used to generate GitHub
+  actions for Continuous integration (CI).
+- Code cleanup was assisted by the R package `lintr`<sup>6</sup>
+- the function *install.packages* are provided by the R package
+  `utils`<sup>7</sup>
+- the function *install_github* are provided by the R package
+  `remotes`<sup>8</sup>
+- .gitignore file borrowed examples from
+  <https://github.com/github/gitignore/blob/master/R.gitignore>
+- The RAQSAPI hexsticker was created using the `hexSticker`<sup>9</sup>
+  package for R
 
 # References
 

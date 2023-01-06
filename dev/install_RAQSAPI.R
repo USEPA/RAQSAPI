@@ -161,6 +161,7 @@ RAQSAPICHECK <- function()
 #' (https://issueexplorer.com/issue/r-lib/covr/466) to correctly report package
 #' coverage
 #' @importFrom devtools test_coverage()
+#' @importFrom withr with_envvar()
 #' @examples
 #'   #To check the RAQSAPI package for errors before pushing changes upstream
 #'   \dontrun(RAQSAPITESTCOVERAGE()
@@ -175,4 +176,12 @@ RAQSAPITESTCOVERAGE <- function()
   test_coverage()
   #restore the NOT_CRAN environment variable to it's former state
   #Sys.setenv(NOT_CRAN = NOT_CRAN_TEMP)
+}
+
+RAQSAPINEWINSTALL <- function()
+{
+RAQSAPICLEAN(NAMESPACE = TRUE)
+RAQSAPIBUILD()
+RAQSAPIINSTALL()
+RAQSAPICHECK()
 }

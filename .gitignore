@@ -3,7 +3,7 @@
 
 # R environment
 .Rcheck$ # Output files from R CMD check
-.Rproj.user
+.Rproj.user*
 .Renviron
 .Rproj.user
 .Rhistory
@@ -45,3 +45,4 @@ vignettes/*.docx
 ./dev/contributing.Rmd
 #Set up hte loocal environment for unit tests
 ./tests/testthat/local.R
+./dev/.experimental.R

@@ -60,8 +60,7 @@ Imports:
     purrr,
     rlang,
     stringr,
-    tibble,
-    withr
+    tibble
 Suggests:
     covr,
     desc,
@@ -76,11 +75,11 @@ Suggests:
     testthat (>= 3.0.0),
     usethis
 SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
-License: CC0
+License: MIT
 License_is_FOSS: yes
 NeedsCompilation: no
 License_restricts_use: no

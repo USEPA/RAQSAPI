@@ -4,14 +4,14 @@ test_that("bybox functions", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
 
-  if(file.exists("./tests/testthat/local.R")) { source("./tests/testthat/local.R") }
-
-  datamartAPI_user <- Sys.getenv(x = "RAQSAPIUSERNAME")
-  datamartAPI_key <- Sys.getenv(x = "RAQSAPIKEY")
-
-  RAQSAPI::aqs_credentials(username = datamartAPI_user,
-                           key = datamartAPI_key
-  )
+  # if(file.exists("./tests/testthat/local.R")) { source("./tests/testthat/local.R") }
+  #
+  # datamartAPI_user <- Sys.getenv(x = "RAQSAPIUSERNAME")
+  # datamartAPI_key <- Sys.getenv(x = "RAQSAPIKEY")
+  #
+  # RAQSAPI::aqs_credentials(username = datamartAPI_user,
+  #                          key = datamartAPI_key
+  # )
 
   aqs_isavailable(return_header = TRUE)$Header$status %>%
   expect_match(regexp = "API service is up and running healthy",

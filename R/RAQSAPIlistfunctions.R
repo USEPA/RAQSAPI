@@ -353,11 +353,11 @@ aqs_removeheader <- function(AQSobject)
   if (is.null(AQSobject))
     {
     return(AQSobject)
-    } else if (class(AQSobject) %in% "AQS_DATAMART_APIv2")
+    } else if (isa(x = AQSObject, what = "AQS_DATAMART_APIv2")) #if (class(AQSobject) %in% "AQS_DATAMART_APIv2")
              {
                 AQSobject <- AQSobject$Data
-              } else if (class(AQSobject[[1]]) == "AQS_DATAMART_APIv2"
-                         && is.list(AQSobject))
+              } else if (isa(x = AQSobject, what = "AQS_DATAMART_APIv2") && is.list(AQSobject))
+                #(class(AQSobject[[1]]) == "AQS_DATAMART_APIv2" && is.list(AQSobject))
                        {
                           AQSobject %<>% lapply("[[", "Data") %>%
                             dplyr::bind_rows()
