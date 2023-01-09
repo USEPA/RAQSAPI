@@ -1,6 +1,5 @@
 library(keyring)
 library(magrittr)
-library(withr)
 
 RAQSAPItestsetup_local <- function()
   {

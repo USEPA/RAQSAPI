@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RAQSAPIKEY: ${{ secrets.RAQSAPIKEY }}
+      RAQSAPIUSERNAME: ${{ secrets.RAQSAPIUSERNAME }}
 
     steps:
       - uses: actions/checkout@v3

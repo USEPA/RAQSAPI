@@ -11,9 +11,9 @@ testthat::skip_if_offline()
       datamartAPI_user <- AQScredentials$AQSusername
       datamartAPI_key <- AQScredentials$AQSkey
   } else {
-      datamartAPI_user <- Sys.getenv("AQSKEY", names = TRUE)
-      datamartAPI_key <- Sys.getenv("AQSUSER", names = TRUE)
-    }
+           datamartAPI_user <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+           datamartAPI_key <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+          }
   RAQSAPI::aqs_credentials(username = datamartAPI_user,
                            key = datamartAPI_key
   )

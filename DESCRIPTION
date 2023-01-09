@@ -73,7 +73,8 @@ Suggests:
     rmarkdown,
     spelling,
     testthat (>= 3.0.0),
-    usethis
+    usethis,
+    withr
 SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
