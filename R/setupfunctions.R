@@ -41,7 +41,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
     options(aqs_key = key)
     #credentials <- options(list(aqs_username = username, aqs_key = key))
     #on.exit(options(credentials), add = TRUE)
-  } else {cat("Please enter a valid username and key  \n") }
+  } else {warning("Please enter a valid username and key  \n") }
 } #no cov end
 
 

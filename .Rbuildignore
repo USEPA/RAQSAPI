@@ -30,7 +30,6 @@ dev/install_RAQSAPI.R
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^codecov\.yml$
-^\.github$
 ^cran-comments\.md$
 ^cran-comments\.Rmd$
 ^revdep$
@@ -38,6 +37,6 @@ dev/install_RAQSAPI.R
 ^\.github/workflows/R-CMD-check\.yaml$
 ^.Rprofile$
 #Set up hte loocal environment for unit tests
-./tests/testthat/local.R
+/tests/testthat/local.R
 ^LICENSE\.md$
-./dev
+/dev/*
