@@ -15,7 +15,7 @@ Meta
 
 # knitr and R markdown default cache directories
 *_cache/
-/cache/
+^cache/*
 
 # Temporary files created by knitr and R markdown
 *.utf8.md
@@ -36,13 +36,13 @@ vignettes/*.docx
 
 #other files
 #not needed
-/dev/countlinesofcode.R
+dev/countlinesofcode.R
 #this file is not needed on github use the remotes package instead
-/dev/install_RAQSAPI.R
+dev/install_RAQSAPI.R
 # this project is not taking contributions at this time, any issues with this
 #package, or feature request should be submitted to the issue tracker.
-/dev/contributing.md
-/dev/contributing.Rmd
+dev/contributing.md
+dev/contributing.Rmd
 #Set up hte loocal environment for unit tests
-/tests/testthat/local.R
-/dev/.experimental.R
+tests/testthat/local.R
+dev/.experimental.R

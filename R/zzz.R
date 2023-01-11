@@ -1,7 +1,8 @@
 #nocov start
 .onLoad <- function(libname, pkgname)
   {
-  utils::globalVariables(names = "env.RAQSAPI", package = "RAQSAPI")
+  utils::globalVariables(names = c("env.RAQSAPI", "AQSObject", "datetime"),
+                         package = "RAQSAPI")
   env.RAQSAPI <- Sys.getenv()
   Sys.setenv("_R_CHECK_LENGTH_1_CONDITION_" = "TRUE")
   invisible()

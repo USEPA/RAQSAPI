@@ -447,7 +447,7 @@ aqs <- function(service, filter = NA, user = NA,
 
   out$Data %<>% as_tibble
   out$Header %<>% as_tibble
-  out$Data$datetime <- NULL
+  out$Data$datetime <- NA_character_ #create a new column in the Data dataframe
 
   #arrange $Data portion by date_local, time_local if present.
   #  this is done by creating a temporary variable named datetime
@@ -459,10 +459,16 @@ aqs <- function(service, filter = NA, user = NA,
       #out$Data %<>% dplyr::mutate(datetime = ymd_hm(.data$`datetime`))
       #out$Data %<>% dplyr::arrange(.data$datetime)
       #out$Data %<>% dplyr::select(-.data$datetime)
-      out$Data %<>% dplyr::mutate(datetime = glue("{.$date_local} {.$time_local}")) %>%
-      dplyr::mutate(datetime = ymd_hm(datetime)) %>%
-      dplyr::arrange(datetime) %>%
-      dplyr::select(-datetime)
+
+      #Needed to get rid of that pesky check note "no visible binding for
+      # global variable 'datetime'
+      out$Data$datetime <- NA_character_
+
+      out$Data %<>% dplyr::mutate(datetime = glue("{.data$date_local}
+                                                  {.data$time_local}")) %>%
+        dplyr::mutate(datetime = ymd_hm(.data$datetime)) %>%
+        dplyr::arrange(.data$datetime) %>%
+        dplyr::select(- datetime)
     }
   return(out)
 }
