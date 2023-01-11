@@ -353,7 +353,7 @@ aqs_removeheader <- function(AQSobject)
   if (is.null(AQSobject))
     {
     return(AQSobject)
-    } else if (isa(x = AQSObject, what = "AQS_DATAMART_APIv2"))
+    } else if (isa(x = AQSobject, what = "AQS_DATAMART_APIv2"))
       #if (class(AQSobject) %in% "AQS_DATAMART_APIv2")
              {
                 AQSobject <- AQSobject$Data

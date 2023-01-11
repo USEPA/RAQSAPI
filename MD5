@@ -8,7 +8,7 @@ a103ec972fc35503b1d056f4422c691e *cran-comments.Rmd
 4fffa1dec318c9131c8378dee87a484f *dev/install_RAQSAPI.R
 5f3c708ae9a7e3610961d99f3375e60f *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
-0ef4ba9869df0c5f64b568722e48cd5b *inst/WORDLIST
+f65fa4ccb3712504149c9101dd906cb9 *inst/WORDLIST
 e5b82cf7f3c21891bc0643f662a3f1ba *LICENSE
 e148809ad19f6cf4c6028a97c1faab14 *LICENSE.md
 1443b1932e51a78fcd9097d6e8fdbb40 *man/aqs_annualsummary_by_box.Rd
@@ -126,11 +126,11 @@ f517e158cea199abd85cd4222c060371 *R/bysite.R
 588a42bb91f3a8db01718df1771df050 *R/bystate.R
 68447c7bedcb05e2eef6c423401662bf *R/deprecated.R
 b0c57f7a6929bb364a9e5fdc10a6c0fc *R/RAQSAPI-package.R
-d54b9c3b66753a437544df3da5a591e8 *R/RAQSAPIlistfunctions.R
+411828cbfff4181a9f6830bc7e56a541 *R/RAQSAPIlistfunctions.R
 f66af88ed4824e485b770cb54ec6d3a9 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-c245950d8a26121ba13183279d96f684 *README.md
+8effc1a8109874a2fd05469ae91a5f6d *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R
