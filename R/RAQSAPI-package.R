@@ -31,6 +31,8 @@
 #' activity by the USEPA or the United States Government.
 #' @docType package
 #' @name RAQSAPI
+#' @keywords internal
+"_PACKAGE"
 NULL
 
 

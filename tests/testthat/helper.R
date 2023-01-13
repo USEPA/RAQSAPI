@@ -1,19 +1,17 @@
-RAQSAPItestsetup_local <- function()
+RAQSAPItestsetup_helper <- function()
 {
-  if(file.exists("local.R"))
+  path <- NA
+  if(file.exists("local.R")) {path <-  "./"}
+  else if(file.exists("tests/testthat/local.R")) {path <- "tests/testthat/"}
+
+  if(!is.na(path))
   {
-    message("test")
-    cat("current working directory")
-    cat(getwd())
-    cat("list.files() \n
-        ------------------------------------")
-    cat(list.files(), sep = "\n")
+    source(paste0(path, "local.R"))
     AQScredentials <- RAQSAPItestsetup_local()
     datamartAPI_user <- AQScredentials$AQSusername
     datamartAPI_key <- AQScredentials$AQSkey
     AQScredentials <- list(datamartAPI_user = datamartAPI_user,
                            datamartAPI_key = datamartAPI_key)
-
     return(AQScredentials)
-  }
+  } else {print("did not go into if satement")} #debug
 }

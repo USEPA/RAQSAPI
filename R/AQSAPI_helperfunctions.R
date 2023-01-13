@@ -437,8 +437,8 @@ aqs <- function(service, filter = NA, user = NA,
 
   if (httr::http_error(AQSresult))
     {
-       print("RAQSAPI has encountered an error")
-
+       message("RAQSAPI has encountered an error")
+       message(paste("RAQSAPI failed on url: ", out$Header$url, sep=" "))
        stop(httr::message_for_status(AQSresult),
             call. = FALSE
            )

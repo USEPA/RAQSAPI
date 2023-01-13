@@ -5,12 +5,12 @@ test_that("bybox functions", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
 
-  if(file.exists("tests/testthat/local.R"))
+  if(file.exists("local.R"))
   {
-    source("tests/testthat/local.R")
-    AQScredentials <- RAQSAPItestsetup_local()
-    datamartAPI_user <- AQScredentials$AQSusername
-    datamartAPI_key <- AQScredentials$AQSkey
+    source("helper.R")
+    AQScredentials <- RAQSAPItestsetup_helper()
+    datamartAPI_user <- AQScredentials$datamartAPI_user
+    datamartAPI_key <- AQScredentials$datamartAPI_key
   } else {
     datamartAPI_user <- Sys.getenv("RAQSAPIKEY", names = TRUE)
     datamartAPI_key <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
