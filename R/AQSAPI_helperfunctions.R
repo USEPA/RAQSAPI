@@ -444,9 +444,6 @@ aqs <- function(service, filter = NA, user = NA,
            )
      }
   out <- structure(.Data = out, class = "AQS_DATAMART_APIv2")
-
-  out$Data %<>% as_tibble
-  out$Header %<>% as_tibble
   out$Data$datetime <- NA_character_ #create a new column in the Data dataframe
 
   #arrange $Data portion by date_local, time_local if present.
