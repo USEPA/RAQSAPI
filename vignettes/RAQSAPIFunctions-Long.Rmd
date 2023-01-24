@@ -398,7 +398,7 @@ These functions retrieve aggregated data from the Data Mart API and are
                             summaries are calculated on midnight to midnight
                             basis in local time. Variables returned include
                             date, mean value, maximum value, etc. Functions
-                            using this service contain *\*dailydata_by_*\* in
+                            using this service contain *\*dailysummary_by_*\* in
                             the function name. All Daily Summary Data functions
                             accept two additional parameters; cbdate and cedate:
       + cbdate: a R date object which represents a "beginning date of last
@@ -542,11 +542,11 @@ functions in this family of functions aggregate data at the site level. All
 * countycode:
 * sitenum:
 * cbdate (optional): (This parameter is only used in conjunction with 
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* functions and
                         *\*quarterlysummary_by_*\* functions).
 * cedate (optional): (This parameter is only used in conjunction with
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* functions and
                         *\*quarterlysummary_by_*\* functions).
 * return_header (optional): set to FALSE by default.
@@ -569,11 +569,11 @@ functions in this family of functions aggregate data at the county level.
 * stateFIPS: 
 * countycode:
 * cbdate (optional): (This parameter is only used in conjunction with 
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * cedate (optional): (This parameter is only used in conjunction with
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * return_header (optional): set to FALSE by default.
@@ -596,11 +596,11 @@ functions in this family of functions aggregate data at the state level.
 * edate:
 * stateFIPS:
 * cbdate (optional): (This parameter is only used in conjunction with 
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* functions and
                         *\*quarterlysummary_by_*\* functions).
 * cedate (optional): (This parameter is only used in conjunction with
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * return_header (optional): set to FALSE by default.
@@ -621,11 +621,11 @@ functions in this family of functions aggregate data at the Monitoring Agency
 * edate:
 * MA_code:
 * cbdate (optional): (This parameter is only used in conjunction with 
-                        *\*sampledataby*\*, *\*dailydataby*\*,
+                        *\*sampledataby*\*, *\*dailysummaryby*\*,
                         *\*annualdataby*\* and
                         *\*quarterlysummary_by_*\* functions).
 * cedate (optional): (This parameter is only used in conjunction with
-                        *\*sampledataby*\*, *\*dailydataby*\*,
+                        *\*sampledataby*\*, *\*dailysummaryby*\*,
                         *\*annualdataby*\* and
                         *\*quarterlysummary_by_*\* functions).
 * return_header (optional): set to FALSE by default.
@@ -648,11 +648,11 @@ functions in this family of functions aggregate data at the Core Based
 * edate:
 * cbsa_code:
 * cbdate (optional): (This parameter is only used in conjunction with 
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * cedate (optional): (This parameter is only used in conjunction with
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * return_header (optional): set to FALSE by default.
@@ -696,11 +696,11 @@ Functions in this family of functions aggregate data by a
 * maxlon:
 * maxlat:
 * cbdate (optional): (This parameter is only used in conjunction with 
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * cedate (optional): (This parameter is only used in conjunction with
-                        *\*sampledata_by_*\*, *\*dailydata_by_*\*,
+                        *\*sampledata_by_*\*, *\*dailysummary_by_*\*,
                         *\*annualdata_by_*\* and
                         *\*quarterlysummary_by_*\* functions).
 * return_header (optional): set to FALSE by default.

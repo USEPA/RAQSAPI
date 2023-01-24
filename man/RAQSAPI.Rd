@@ -44,19 +44,19 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Clinton Mccrowey \email{mccrowey.clinton@epa.gov} (United States Enviornmental Protection Agency Region 3 Air and Radiation Division)
+\strong{Maintainer}: Clinton Mccrowey \email{mccrowey.clinton@epa.gov} (United States Environmental Protection Agency Region 3 Air and Radiation Division)
 
 Other contributors:
 \itemize{
-  \item Timothy Sharac (United States Enviornmental Protection Agency) [contributor, reviewer]
-  \item Nick Mangus (United States Enviornmental Protection Agency) [reviewer]
-  \item Doug Jager (United States Enviornmental Protection Agency) [contributor, reviewer]
-  \item Ryan Brown (United States Enviornmental Protection Agency) [contributor, reviewer]
-  \item Daniel Garver (United States Enviornmental Protection Agency) [contributor, reviewer]
-  \item Benjamin Wells (United States Enviornmental Protection Agency) [contributor, reviewer]
+  \item Timothy Sharac (United States Environmental Protection Agency) [contributor, reviewer]
+  \item Nick Mangus (United States Environmental Protection Agency) [reviewer]
+  \item Doug Jager (United States Environmental Protection Agency) [contributor, reviewer]
+  \item Ryan Brown (United States Environmental Protection Agency) [contributor, reviewer]
+  \item Daniel Garver (United States Environmental Protection Agency) [contributor, reviewer]
+  \item Benjamin Wells (United States Environmental Protection Agency) [contributor, reviewer]
   \item Hayley Brittingham (Neptune and Company) [corrector, contractor]
-  \item Jeffrey Hollister \email{hollister.jeff@epa.gov} (\href{https://orcid.org/0000-0002-9254-9740}{ORCID}) (United States Enviornmental Protection Agency) [reviewer]
-  \item Edward Andrews \email{edward.s.andrews@wv.gov} (West Virgina Department of Environmental Protection, Division of Air Quality) [reviewer, contributor]
+  \item Jeffrey Hollister \email{hollister.jeff@epa.gov} (\href{https://orcid.org/0000-0002-9254-9740}{ORCID}) (United States Environmental Protection Agency) [reviewer]
+  \item Edward Andrews \email{edward.s.andrews@wv.gov} (West Virginia Department of Environmental Protection, Division of Air Quality) [reviewer, contributor]
 }
 
 }

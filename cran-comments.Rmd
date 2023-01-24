@@ -8,6 +8,8 @@ output: md_document
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
   *RAQSAPI 2.0.4 was not published on CRAN.
+  - Package documentation referenced \*dailydata\* functions incorrectly,
+    functions should be called \*dailysummary\* 
   - Switched license from CC0 to MIT, RAQSAPI will use MIT going forward.
   - a note Rd tag was added to the checkaqsparams function
   - minor correction to the documentation of the aqs_monitors_by_state function

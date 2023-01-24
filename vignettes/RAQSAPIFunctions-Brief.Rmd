@@ -48,8 +48,8 @@ on the 13 different aggregate services that the Data Mart API provides.
 
  - **Monitors** (aqs_monitors_by_*) 
  - **Sample Data** (aqs_sampledata_by_*)
- - **Daily Summary Data** (aqs_dailydata_by_*) 
- - **Annual Summary Data** (aqs_annualdata_by_*)
+ - **Daily Summary Data** (aqs_dailysummary_by_*) 
+ - **Annual Summary Data** (aqs_annualsummary_by_*)
  - **Quarterly Summary Data** (aqs_quarterlysummary_by_*)
  - **Quality Assurance - Blanks Data** (aqs_qa_blanks_by_*) 
  - **Quality Assurance - Collocated Assessments**

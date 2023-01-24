@@ -10,39 +10,39 @@ Encoding: UTF-8
 Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email="mccrowey.clinton@epa.gov",
                     role=c("cre", "aut"),
-                    comment="United States Enviornmental Protection
+                    comment="United States Environmental Protection
                              Agency Region 3 Air and Radiation Division"),
              person(given="Timothy", family="Sharac", role=c("ctb","rev"),
                     email=NULL,
-                    comment="United States Enviornmental Protection Agency"),
+                    comment="United States Environmental Protection Agency"),
              person(given = "Nick", family = "Mangus", email = NULL,
                     role=c("rev"),
-                    comment="United States Enviornmental Protection Agency"),
+                    comment="United States Environmental Protection Agency"),
              person(given = "Doug", family = "Jager",
                     email=NULL, role=c("ctb", "rev"),
-                    comment="United States Enviornmental Protection Agency"),
+                    comment="United States Environmental Protection Agency"),
              person(given = "Ryan",family = "Brown",
                     email=NULL, role=c("ctb", "rev"),
-                    comment="United States Enviornmental Protection Agency"),
+                    comment="United States Environmental Protection Agency"),
              person(given = "Daniel", family = "Garver",
                     email=NULL, role=c("ctb", "rev"),
-                    comment="United States Enviornmental Protection Agency"),
+                    comment="United States Environmental Protection Agency"),
              person(given = "Benjamin", family = "Wells",
                     email=NULL, role=c("ctb", "rev"),
-                    comment="United States Enviornmental Protection Agency"),
+                    comment="United States Environmental Protection Agency"),
              person(given = "Hayley", family= "Brittingham",
                     email = NULL, role=c("crr", "ctr"),
                     comment="Neptune and Company"),
              person(given = "Jeffrey", family = "Hollister",
                     email = "hollister.jeff@epa.gov", role = c("rev"),
-                    comment = c("United States Enviornmental Protection Agency",
+                    comment = c("United States Environmental Protection Agency",
                                 ORCID = "0000-0002-9254-9740"
                                 )
                     ),
             person(given = "Edward", family = "Andrews",
                     email = "edward.s.andrews@wv.gov",
                     role = c("rev", "ctb"),
-                    comment = "West Virgina Department of Environmental Protection, Division of Air Quality"
+                    comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
                   )
              )
 URL: <https://github.com/USEPA/RAQSAPI>,

@@ -49,7 +49,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--01--17-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--01--24-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -339,8 +339,8 @@ service.**
 
 - **Monitors** (aqs_monitors_by\_\*)
 - **Sample Data** (aqs_sampledata_by\_\*)
-- **Daily Summary Data** (aqs_dailydata_by\_\*)
-- **Annual Summary Data** (aqs_annualdata_by\_\*)
+- **Daily Summary Data** (aqs_dailysummary_by\_\*)
+- **Annual Summary Data** (aqs_annualsummary_by\_\*)
 - **Quarterly Summary Data** (aqs_quarterlysummary_by\_\*)
 - **Quality Assurance - Blanks Data** (aqs_qa_blanks_by\_\*)
 - **Quality Assurance - Collocated Assessments**

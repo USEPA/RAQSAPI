@@ -1,6 +1,6 @@
-a103ec972fc35503b1d056f4422c691e *cran-comments.md
-a103ec972fc35503b1d056f4422c691e *cran-comments.Rmd
-7235c6a3de03217c91f20fdfbe9f8fc2 *DESCRIPTION
+a9f33f42b60dd2b1b29cd9d24575e152 *cran-comments.md
+a9f33f42b60dd2b1b29cd9d24575e152 *cran-comments.Rmd
+f2b77d4918ef1ec4a4f1418b90241159 *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
 74e297a0dc0b508ed18e3821264958d0 *dev/countlinesofcode.R
@@ -8,7 +8,7 @@ a103ec972fc35503b1d056f4422c691e *cran-comments.Rmd
 4fffa1dec318c9131c8378dee87a484f *dev/install_RAQSAPI.R
 5f3c708ae9a7e3610961d99f3375e60f *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
-f65fa4ccb3712504149c9101dd906cb9 *inst/WORDLIST
+44650d3802ce6c4eccbbfc02684e51a2 *inst/WORDLIST
 e5b82cf7f3c21891bc0643f662a3f1ba *LICENSE
 e148809ad19f6cf4c6028a97c1faab14 *LICENSE.md
 1443b1932e51a78fcd9097d6e8fdbb40 *man/aqs_annualsummary_by_box.Rd
@@ -113,7 +113,7 @@ c3978703d8f40f2679795335715e98f4 *man/figures/lifecycle-experimental.svg
 27b879bf3677ea76e3991d56ab324081 *man/figures/lifecycle-questioning.svg
 53b3f893324260b737b3c46ed2a0e643 *man/figures/lifecycle-stable.svg
 1c1fe7a759b86dc6dbcbe7797ab8246c *man/figures/lifecycle-superseded.svg
-a18e9c00726774f6069efe296becd113 *man/RAQSAPI.Rd
+7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
 5773dad0c82523ed2c391b9d50c3f5f8 *NAMESPACE
 94c65e3824d4fd9ffa90ec73fed63596 *NEWS.md
 886292bd7524f02559606bad53d8ba39 *R/AQSAPI_helperfunctions.R
@@ -130,7 +130,7 @@ d7ceafa78f5ba2098f567b9c9150da20 *R/RAQSAPI-package.R
 f66af88ed4824e485b770cb54ec6d3a9 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-8663ea384fafa0c88f9151873fb6a133 *README.md
+2ce33972697de5ec8c40df0bdcee5715 *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R
@@ -160,11 +160,11 @@ a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 69224454907b49f3de5fcf3527a3ad3f *vignettes/InstallandSetup.Rmd
 aaebea417e69f7f1fa559709ba5cbce8 *vignettes/Intro.html
 a629c5720b68a384451709002c95a499 *vignettes/Intro.Rmd
-6c79f620a5b2250dcc8748207ec66d9c *vignettes/RAQSAPIFunctions-Brief.html
-4c86c7e54b53413376bcc5c0c20d0a34 *vignettes/RAQSAPIFunctions-Brief.Rmd
-bc0b1e84df2965e8e203a081ef681802 *vignettes/RAQSAPIFunctions-Long.html
-9ed6d165ef4d5fda27edcb033ea5d7a1 *vignettes/RAQSAPIFunctions-Long.R
-0693f1a8606169becd2ba4faa4b487ff *vignettes/RAQSAPIFunctions-Long.Rmd
+bce644f7c50a618fee8429b3655e5fb9 *vignettes/RAQSAPIFunctions-Brief.html
+1dbae57a3f574ccd77b4d2af2c76e831 *vignettes/RAQSAPIFunctions-Brief.Rmd
+cc0f370ba9e854f2f15d0ad4711559fe *vignettes/RAQSAPIFunctions-Long.html
+9b05ed18481e653f90cb98ee206be369 *vignettes/RAQSAPIFunctions-Long.R
+85c580fbdeb29023fb03126654384923 *vignettes/RAQSAPIFunctions-Long.Rmd
 f6a1f578b9267b1182c4c3845fc68fb0 *vignettes/RAQSAPIPurpose.html
 b676d49a421ed0b581e2b3269bac31e0 *vignettes/RAQSAPIPurpose.Rmd
 c0099b9c0fa4d49121ad8d61078d13a7 *vignettes/RAQSAPIusagetipsandprecautions.html

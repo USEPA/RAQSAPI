@@ -57,9 +57,9 @@ changedate
 codecov
 countycode
 cran
-dailydata
 dailydataby
 dailysummary
+dailysummaryby
 datamartAPI
 devtools
 durations
@@ -90,6 +90,7 @@ metaData
 metacran
 minlat
 minlon
+ORCID
 parameternum
 pqao
 pqaos
