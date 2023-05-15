@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2023 United State Environmental Protection Agency
+Copyright (c) 2023 United States Environmental Protection Agency
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

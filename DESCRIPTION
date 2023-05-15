@@ -80,7 +80,7 @@ RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
-License: MIT + file LICENSE
+License: MIT
 License_is_FOSS: yes
 NeedsCompilation: no
 License_restricts_use: no
@@ -103,3 +103,4 @@ Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
+X-schema.org-keywords:

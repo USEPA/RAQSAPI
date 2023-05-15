@@ -702,6 +702,7 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
                                   cbdate = NA_Date_, cedate = NA_Date_,
                                   AQS_domain = "aqs.epa.gov")
 {
+
   aqs(service = service,
           filter = "byState",
           user =  getOption("aqs_username"),
