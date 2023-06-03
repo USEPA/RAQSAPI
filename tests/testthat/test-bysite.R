@@ -1,6 +1,6 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
-test_that("bybox functions", {
+test_that("bysite functions", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
 
