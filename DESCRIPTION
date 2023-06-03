@@ -103,4 +103,6 @@ Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
-X-schema.org-keywords:
+X-schema.org-keywords: United State Environmental Protection Agency,
+                       Environmental-data-retrieval, Air-Quality-System,
+                       AQS-Datamart, Air-monitoring, Environmental-monitoring

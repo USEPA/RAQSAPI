@@ -1,44 +1,46 @@
 citHeader("To cite RAQSAPI in publications use:")
 
 citEntry(entry = "Manual",
-  title        = "A R Interface to the US EPA Air Quality System Data Mart API",
-  author       = personList(person(given="Clinton", family="Mccrowey",
-                                   email="mccrowey.clinton@epa.gov",
-                                   role=c("cre", "aut"),
-                                   comment="United States Enviornmental
-                                            Protection Agency Region 3 Air and
-                                            Radiation Division"),
-                            person(given="Timothy", family="Sharac",
-                                   role=c("ctb","rev"), email=NULL,
-                                   comment="United States Enviornmental
-                                            Protection Agency"),
-                            person(given = "Nick", family = "Mangus",
-                                   email = NULL, role=c("rev"),
-                                   comment="United States Enviornmental
-                                            Protection Agency"),
-                            person(given = "Doug", family = "Jager",
-                                            email=NULL, role=c("ctb", "rev"),
-                                            comment="United States Enviornmental
-                                                     Protection Agency"),
-                            person(given = "Ryan",family = "Brown",
-                                   email=NULL, role=c("ctb", "rev"),
-                                   comment="United States Enviornmental
-                                            Protection Agency"),
-                            person(given = "Daniel", family = "Garver",
-                                   email=NULL, role=c("ctb", "rev"),
-                                   comment="United States Enviornmental
-                                            Protection Agency"),
-                            person(given = "Benjamin", family = "Wells",
-                                   email=NULL, role=c("ctb", "rev"),
-                                   comment="United States Enviornmental
-                                            Protection Agency"),
-                            person(given = "Hayley", family= "Brittingham",
-                                   email = NULL, role=c("crr", "ctr"),
-                                   comment="Neptune and Company")
-                            ),
-  year         = "2021",
-  url          = c("https://cran.r-project.org/package=RAQSAPI",
-                   "https://github.com/USEPA/RAQSAPI",
-                   "https://aqs.epa.gov/aqsweb/documents/data_api.html"),
-  textVersion = "A R Interface to the US EPA Air Quality System Data Mart API"
-)
+         title = "A R Interface to the US EPA Air Quality System
+                  Data Mart API",
+         author = c(person(given = "Clinton", family = "Mccrowey",
+                           email = "mccrowey.clinton@epa.gov",
+                           role = c("cre", "aut"),
+                           comment = "United States Enviornmental
+                                      Protection Agency Region 3 Air and
+                                      Radiation Division"),
+                    person(given = "Timothy", family = "Sharac",
+                           role = c("ctb","rev"), email = NULL,
+                           comment = "United States Enviornmental
+                                      Protection Agency"),
+                    person(given = "Nick", family = "Mangus",
+                           email = NULL, role = c("rev"),
+                           comment="United States Enviornmental
+                                    Protection Agency"),
+                    person(given = "Doug", family = "Jager",
+                           email = NULL, role = c("ctb", "rev"),
+                           comment = "United States Enviornmental
+                                      Protection Agency"),
+                    person(given = "Ryan",family = "Brown",
+                           email = NULL, role = c("ctb", "rev"),
+                           comment = "United States Enviornmental
+                                      Protection Agency"),
+                    person(given = "Daniel", family = "Garver",
+                                    email = NULL, role = c("ctb", "rev"),
+                                    comment = "United States Enviornmental
+                                               Protection Agency"),
+                    person(given = "Benjamin", family = "Wells",
+                                    email = NULL, role = c("ctb", "rev"),
+                                    comment="United States Enviornmental
+                                             Protection Agency"),
+                    person(given = "Hayley", family = "Brittingham",
+                           email = NULL, role = c("crr", "ctr"),
+                           comment = "Neptune and Company")
+                           ),
+         year = "2021",
+         url = c("https://cran.r-project.org/package=RAQSAPI",
+                 "https://github.com/USEPA/RAQSAPI",
+                 "https://aqs.epa.gov/aqsweb/documents/data_api.html"),
+         textVersion = "A R Interface to the US EPA Air Quality
+                        System Data Mart API"
+        )
