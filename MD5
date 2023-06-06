@@ -7,7 +7,7 @@ a9f33f42b60dd2b1b29cd9d24575e152 *cran-comments.Rmd
 74e297a0dc0b508ed18e3821264958d0 *dev/countlinesofcode.R
 204b6f5c7aac2b4273b03f8d09e6e90f *dev/hexsticker.R
 4fffa1dec318c9131c8378dee87a484f *dev/install_RAQSAPI.R
-5e6b8012b7a52e56b22e4f8a470c49a9 *inst/CITATION
+3c41777493d242206848842b6ba74fde *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
 dd65d70b425fb86f7c8b6d8841a837d8 *inst/schemaorg.json
 44650d3802ce6c4eccbbfc02684e51a2 *inst/WORDLIST
@@ -132,7 +132,7 @@ d7ceafa78f5ba2098f567b9c9150da20 *R/RAQSAPI-package.R
 f66af88ed4824e485b770cb54ec6d3a9 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-16b41cc7fe80dab85cbe1bb205e9677b *README.md
+37df2b601355703c9be9268438da951a *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R

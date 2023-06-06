@@ -40,4 +40,5 @@ tests/testthat/local.R
 dev/*
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
+^LICENSE$
+codemeta.json
