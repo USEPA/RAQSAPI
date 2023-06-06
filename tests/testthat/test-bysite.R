@@ -71,9 +71,9 @@ test_that("bysite functions", {
     expect_match(regexp = "Success")
 
   aqs_qa_collocated_assessments_by_site(parameter = "88101",
-                                        bdate = as.Date("20130101",
+                                        bdate = as.Date("20150101",
                                                         format = "%Y%m%d"),
-                                        edate = as.Date("20130131",
+                                        edate = as.Date("20150131",
                                                         format = "%Y%m%d"),
                                         stateFIPS = "01",
                                         countycode = "089",

@@ -8,6 +8,9 @@ output: md_document
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
   *RAQSAPI 2.0.4 was not published on CRAN.
+  - modify QA Collocated Assessments by County and by Site unit tests and
+    example code to reflect modified data.
+  - update CITATION file to the new style citation.
   - Package documentation referenced \*dailydata\* functions incorrectly,
     functions should be called \*dailysummary\* 
   - Switched license from CC0 to MIT, RAQSAPI will use MIT going forward.

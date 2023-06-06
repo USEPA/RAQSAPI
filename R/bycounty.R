@@ -366,9 +366,9 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble with collocated assessment data
-#'           #  for FRM PM2.5 in Madison County, AL for January 2013
+#'           #  for FRM PM2.5 in Madison County, AL for January 2015
 #'  \dontrun{aqs_qa_collocated_assessments_by_county(parameter = "88101",
-#'                                                   bdate = as.Date("20130101",
+#'                                                   bdate = as.Date("20150101",
 #'                                                             format = "%Y%m%d"
 #'                                                                  ),
 #'                                                   edate = as.Date("20150131",

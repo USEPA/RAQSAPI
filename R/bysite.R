@@ -614,9 +614,9 @@ aqs_dailysummary_by_site <- function(parameter, bdate, edate, stateFIPS,
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples #returns a tibble of collocated assessment data
 #'           #  for FRM PM2.5 at the Huntsville Old Airport site (\#0014)
-#'           #  in Madison County, AL for January 2013:
+#'           #  in Madison County, AL for January 2015:
 #'  \dontrun{aqs_qa_collocated_assessments_by_site(parameter = "88101",
-#'                                                 bdate = as.Date("20130101",
+#'                                                 bdate = as.Date("20150101",
 #'                                                             format = "%Y%m%d"
 #'                                                                ),
 #'                                                 edate = as.Date("20150131",
