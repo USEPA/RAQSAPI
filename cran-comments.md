@@ -8,6 +8,9 @@ output: md_document
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
   *RAQSAPI 2.0.4 was not published on CRAN.
+  - There is an issue with curl connecting to the AQS Datamart API, on
+    windows platforms, as a temporary fix, RAQSAPI will default to using
+    the Schannel curl backend.
   - modify QA Collocated Assessments by County and by Site unit tests and
     example code to reflect modified data.
   - update CITATION file to the new style citation.
@@ -15,10 +18,12 @@ output: md_document
     functions should be called \*dailysummary\* 
   - Switched license from CC0 to MIT, RAQSAPI will use MIT going forward.
   - a note Rd tag was added to the checkaqsparams function
-  - minor correction to the documentation of the aqs_monitors_by_state function
-  - Update github actions to the new workflow available through package:usethis
-    2.1.6
-    + usethis::use_github_action("test-coverage") to add coverage information
+  - minor correction to the documentation of the aqs_monitors_by_state
+    function
+  - Update github actions to the new workflow available through
+    package:usethis-2.1.6
+    + usethis::use_github_action("test-coverage") to add coverage
+    information
     in the git repository.
     + usethis::use_github_pages() to create a github page.
   

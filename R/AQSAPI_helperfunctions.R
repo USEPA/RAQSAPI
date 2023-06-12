@@ -375,6 +375,7 @@ aqs_ratelimit <- function(waittime=5L)
 #' @importFrom glue glue
 #' @importFrom rlang .data is_empty
 #' @importFrom tibble as_tibble
+#' @importFrom rlang local_options
 #' @importFrom httr GET http_type content http_error status_code modify_url
 #'               user_agent message_for_status
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -390,6 +391,13 @@ aqs <- function(service, filter = NA, user = NA,
       is.null(getOption("aqs_key")))
   {stop("please enter user credentials before using RAQSAPI functions,\n
          please refer to \'?aqs_credentials()\' for useage infomation \n")}
+
+  #on windows platform, use the Schannel Curl_SSL_BACKEND to avoid the
+  #legacy renegotiation disabled error
+  if(.Platform$OS.type == "windows")
+  {
+    local_options(CURL_SSL_BACKEND="Schannel")
+  }
 
   user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
     httr::user_agent()
