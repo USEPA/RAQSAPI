@@ -229,8 +229,8 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
 #'           audit data for the requested MA_code. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
-#'           first item (\$Header) is a tibble of header information from the
-#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           first item ($Header) is a tibble of header information from the
+#'           AQS API and the second item ($Data) is a tibble of the data
 #'           returned.
 #' @examples
 #'  # returns a tibble of flow rate audit data
@@ -293,9 +293,9 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code,
 #'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
 #'            qc data for a single monitoring agency. A AQS_Data_Mart_APIv2
-#'            object is a 2 item named list in which the first item (\$Header)
+#'            object is a 2 item named list in which the first item ($Header)
 #'            is a tibble of header information from the AQS API and the second
-#'            item (\$Data) is a tibble of the data returned.
+#'            item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of ozone One Point QC data
 #'           #  in January 2018 where the Monitoring Agency is the
 #'           #  Massachusetts Department of Environmental Protection
@@ -358,8 +358,8 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
 #'           assurance PEP audit data for a monitoring agency. A
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
-#'           first item (\$Header) is a tibble of header information from the
-#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           first item ($Header) is a tibble of header information from the
+#'           AQS API and the second item ($Data) is a tibble of the data
 #'           returned.
 #' @examples # Returns a tibble of PEP audit data for
 #'           #  June 2017 where the Monitoring Agency is the Alabama Department

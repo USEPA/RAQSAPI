@@ -226,8 +226,8 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
 #'           audit data  for the requested pqao_code. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
-#'           first item (\$Header) is a tibble of header information from the
-#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           first item ($Header) is a tibble of header information from the
+#'           AQS API and the second item ($Data) is a tibble of the data
 #'           returned.
 #' @examples # Returns a tibble of flow rate audit data for January
 #'   #  2018 where the PQAO is the Jefferson County, AL Department of
@@ -289,7 +289,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
 #'            qc data within a pqao. A AQS_Data_Mart_APIv2 object is a
-#'            2 item named list in which the first item (\$Header) is a tibble
+#'            2 item named list in which the first item ($Header) is a tibble
 #'            of header information from the AQS API and the second item
 #' @examples
 #'  # returns a tibble of ozone One Point QC
@@ -353,8 +353,8 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
 #'           assurance PEP audit data for a Primary Quality Assurance
 #'           Organization. A AQS_Data_Mart_APIv2 object is a 2 item named list
-#'           in which the first item (\$Header) is a tibble of header
-#'           information from the AQS API and the second item (\$Data) is a
+#'           in which the first item ($Header) is a tibble of header
+#'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @examples # returns a tibble of PEP audit data for
 #'           #  June 2017 where the pqao is the Alabama Department of

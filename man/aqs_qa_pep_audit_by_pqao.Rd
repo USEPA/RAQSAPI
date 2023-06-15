@@ -52,8 +52,8 @@ purposes in addition to the data requested.}
 a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
 assurance PEP audit data for a Primary Quality Assurance
 Organization. A AQS_Data_Mart_APIv2 object is a 2 item named list
-in which the first item (\$Header) is a tibble of header
-information from the AQS API and the second item (\$Data) is a
+in which the first item ($Header) is a tibble of header
+information from the AQS API and the second item ($Data) is a
 tibble of the data returned.
 }
 \description{

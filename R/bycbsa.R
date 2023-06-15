@@ -28,8 +28,8 @@
 #'                    }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
 #'            from the AQS API. A AQS_Data Mart_APIv2 object is a 2 item named
-#'            list in which the first item (\$Header) is a tibble of header
-#'            information from the AQS API and the second item (\$Data) is a
+#'            list in which the first item ($Header) is a tibble of header
+#'            information from the AQS API and the second item ($Data) is a
 #'            tibble of the data returned.
 #' @export
 aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
@@ -163,8 +163,8 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
 #'           summary data for the cbsa_code requested. A AQS_Data Mart_APIv2 is
-#'           a 2 item named list in which the first item (\$Header) is a tibble
-#'           of header information from the AQS API and the second item (\$Data)
+#'           a 2 item named list in which the first item ($Header) is a tibble
+#'           of header information from the AQS API and the second item ($Data)
 #'           is a tibble of the data returned.
 #' @examples # Returns a tibble of annual summary $NO_{2}$
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa on
@@ -230,8 +230,8 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single cbsa_code.
 #'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
-#'           item (\$Header) is a tibble of header information from the AQS API
-#'           and the second item (\$Data) is a tibble of the data returned.
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble of $NO_{2}$ daily summary
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa on
 #'           #  Janurary 01, 2017
@@ -298,8 +298,8 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a stateFIPS.
 #'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
-#'           item (\$Header) is a tibble of header information from the AQS API
-#'           and the second item (\$Data) is a tibble of the data returned.
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble of $NO_{2}$ quartyerly summary
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa for
 #'           #  each quarter in 2017.

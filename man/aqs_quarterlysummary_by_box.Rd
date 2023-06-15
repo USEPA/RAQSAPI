@@ -72,8 +72,8 @@ purposes in addition to the data requested.}
 a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
 summary statistics for an area within a latitude/longitude
 bounding box. An AQS_Data Mart_APIv2 is a 2 item named list in
-which the first item (\$Header) is a tibble of header information
-from the AQS API and the second item (\$Data) is a tibble of the
+which the first item ($Header) is a tibble of header information
+from the AQS API and the second item ($Data) is a tibble of the
 data returned.
 }
 \description{

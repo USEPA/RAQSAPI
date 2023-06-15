@@ -161,8 +161,8 @@ params <- aqsmultiyearparams(parameter = parameter,
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
 #'           summary data for the stateFIPS requested. A AQS_Data Mart_APIv2 is
-#'           a 2 item named list in which the first item (\$Header) is a tibble
-#'           of header information from the AQS API and the second item (\$Data
+#'           a 2 item named list in which the first item ($Header) is a tibble
+#'           of header information from the AQS API and the second item ($Data
 #'           is a tibble of the data returned.
 #' @examples # returns a tibble of all benzene annualy
 #'           #  summaries from North Carolina collected for 1995
@@ -295,8 +295,8 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single stateFIPS.
 #'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
-#'           item (\$Header) is a tibble of header information from the AQS API
-#'           and the second item (\$Data) is a tibble of the data returned.
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of all benzene daily
 #'           #  summaries from North Carolina collected on May 15th, 1995
 #'           \dontrun{aqs_dailysummary_by_state(parameter = "45201",
@@ -492,8 +492,8 @@ aqs_qa_flowrateverification_by_state <- function(parameter, bdate, edate,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
 #'           audit data for the requested stateFIPS. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
-#'           first item (\$Header) is a tibble of header information from the
-#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           first item ($Header) is a tibble of header information from the
+#'           AQS API and the second item ($Data) is a tibble of the data
 #'           returned.
 #' @examples # returns a tibble of flow rate audit
 #'           #  data for Alabama in January 2018
@@ -555,9 +555,9 @@ aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
 #'            qc data within a state. A AQS_Data_Mart_APIv2 object is a
-#'            2 item named list in which the first item (\$Header) is a tibble
+#'            2 item named list in which the first item ($Header) is a tibble
 #'            of header information from the AQS API and the second item
-#'            (\$Data) is a tibble of the data returned.
+#'            ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of one point QC check
 #'           #  data for ozone in Massachusettes in January 2018
 #'           \dontrun{aqs_qa_one_point_qc_by_state(parameter = "44201",
@@ -620,9 +620,9 @@ aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
 #'           assurance PEP audit data within a state. A AQS_Data_Mart_APIv2
-#'           object is a 2 item named list in which the first item (\$Header) is
+#'           object is a 2 item named list in which the first item ($Header) is
 #'           a tibble of header information from the AQS API and the second item
-#'           (\$Data) is a tibble of the data returned.
+#'           ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of PEP audit data for PM2.5 in Alabama 2017
 #'           \dontrun{aqs_qa_pep_audit_by_state_multiyear(parameter="88101",
 #'                                              bdate=as.Date("20160101",
@@ -871,8 +871,8 @@ aqs_qa_annualperformanceevaltransaction_by_state <- function(parameter, bdate,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a stateFIPS.
 #'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
-#'           item (\$Header) is a tibble of header information from the AQS API
-#'           and the second item (\$Data) is a tibble of the data returned.
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns an aqs S3 object containing quarterly summaries for
 #'           #  FRM/FEM PM2.5 data for North Carolina for each quater of  2016
 #'  \dontrun{aqs_quarterlysummary_by_state(parameter = "88101",

@@ -61,8 +61,8 @@ addition to the data requested.}
 a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
 summary data for the countycode and stateFIPS requested.
 A AQS_Data Mart_APIv2 is a 2 item named list in which the first
-item (\$Header) is a tibble of header information from the AQS API
-and the second item (\$Data) is a tibble of the data returned.
+item ($Header) is a tibble of header information from the AQS API
+and the second item ($Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}

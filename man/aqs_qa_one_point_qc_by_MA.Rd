@@ -51,9 +51,9 @@ purposes in addition to the data requested.}
 \value{
 a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
 qc data for a single monitoring agency. A AQS_Data_Mart_APIv2
-object is a 2 item named list in which the first item (\$Header)
+object is a 2 item named list in which the first item ($Header)
 is a tibble of header information from the AQS API and the second
-item (\$Data) is a tibble of the data returned.
+item ($Data) is a tibble of the data returned.
 }
 \description{
 \lifecycle{stable}

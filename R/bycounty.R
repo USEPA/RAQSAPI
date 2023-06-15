@@ -162,8 +162,8 @@ aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
 #'           summary data for the countycode and stateFIPS requested.
 #'           A AQS_Data Mart_APIv2 is a 2 item named list in which the first
-#'           item (\$Header) is a tibble of header information from the AQS API
-#'           and the second item (\$Data) is a tibble of the data returned.
+#'           item ($Header) is a tibble of header information from the AQS API
+#'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns an aqs S3 object with annual summary FRM/FEM
 #'           #  PM2.5 data for Wake County, NC between January
 #'           #  and February 2016
@@ -298,8 +298,8 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single countycode
 #'           and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
-#'           list in which the first item (\$Header) is a tibble of header
-#'           information from the AQS API and the second item (\$Data) is a
+#'           list in which the first item ($Header) is a tibble of header
+#'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @examples # returns an aqs S3 object of daily summary FRM/FEM PM2.5 data
 #'           #  for Wake County, NC between January and February 2016
@@ -500,8 +500,8 @@ aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
 #'           audit data for the requested countycode and stateFIPS. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
-#'           first item (\$Header) is a tibble of header information from the
-#'           AQS API and the second item (\$Data) is a tibble of the data
+#'           first item ($Header) is a tibble of header information from the
+#'           AQS API and the second item ($Data) is a tibble of the data
 #'           returned.
 #' @examples #Returns a tibble of flow rate audit data for
 #'           #  Jefferson County, AL for January 2018
@@ -564,9 +564,9 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
 #'            qc data within a county. A AQS_Data_Mart_APIv2 object is a
-#'            2 item named list in which the first item (\$Header) is a tibble
+#'            2 item named list in which the first item ($Header) is a tibble
 #'            of header information from the AQS API and the second item
-#'            (\$Data) is a tibble of the data returned.
+#'            ($Data) is a tibble of the data returned.
 #' @examples #returns a tibble of One Point QC data for ozone
 #'           #  in Barnstable County, MA for January 2018
 #'   \dontrun{aqs_qa_one_point_qc_by_county(parameter= "44201",
@@ -630,9 +630,9 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @inheritParams aqs_services_by_county
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
 #'           assurance PEP audit data within a county. A AQS_Data_Mart_APIv2
-#'           object is a 2 item named list in which the first item (\$Header) is
+#'           object is a 2 item named list in which the first item ($Header) is
 #'           a tibble of header information from the AQS API and the second item
-#'           (\$Data) is a tibble of the data returned.
+#'           ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble with PEP Audit data for FRM
 #'           #  PM2.5 in Madison County, AL for 2017
 #'  \dontrun{aqs_qa_pep_audit_by_county_multiyear(parameter = "88101",
@@ -897,8 +897,8 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a single countycode
 #'           and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
-#'           list in which the first item (\$Header) is a tibble of header
-#'           information from the AQS API and the second item (\$Data) is a
+#'           list in which the first item ($Header) is a tibble of header
+#'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @examples # returns a tibble containing quarterly summaries for
 #'           #  FRM/FEM PM2.5 data for Wake County, NC for each quarter of 2016

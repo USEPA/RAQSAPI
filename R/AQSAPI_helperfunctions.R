@@ -394,10 +394,10 @@ aqs <- function(service, filter = NA, user = NA,
 
   #on windows platform, use the Schannel Curl_SSL_BACKEND to avoid the
   #legacy renegotiation disabled error
-  if(.Platform$OS.type == "windows")
-  {
-    local_options(CURL_SSL_BACKEND="Schannel")
-  }
+  # if(.Platform$OS.type == "windows")
+  # {
+  #   local_options(CURL_SSL_BACKEND="Schannel")
+  # }
 
   user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
     httr::user_agent()
