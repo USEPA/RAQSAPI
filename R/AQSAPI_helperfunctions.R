@@ -398,7 +398,8 @@ aqs <- function(service, filter = NULL, user = NA,
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
                                   variables))) %>%
-    request()
+    request() %>%
+    httr::config(ssl_cipher_list = 'DEFAULT@SECLEVEL=1')
   #for some reason user_agent isn't working
   #%>%
     #req_user_agent(string = user_agent)

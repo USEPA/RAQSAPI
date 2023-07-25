@@ -119,7 +119,7 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
 d54578e689123033bdc0f894eb441c7e *NAMESPACE
 94c65e3824d4fd9ffa90ec73fed63596 *NEWS.md
-b86f3338b79e42e66d5dd2a48b52e603 *R/AQSAPI_helperfunctions.R
+7cb0c1a65c83e6f94eb1309fac9b0d87 *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -149,7 +149,7 @@ f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 41e407548ac72ec4f41e678d23a566dd *tests/testthat/test-bysite.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
 25648d9e388d85a6ba8449bec950ee28 *tests/testthat/test-helperfunctions.R
-f4618d7a4c9e7868f40c5ab3f9d927cc *tests/testthat/test-RAQSAPlistfunctions.R
+def7331bf9e0d31fdee6185008e9fc99 *tests/testthat/test-RAQSAPlistfunctions.R
 8ec3157359d9a0fbdf126ed74f399ee1 *vignettes/Acknowledgements.html
 49025d261826350f3050e677eab9dbac *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl
