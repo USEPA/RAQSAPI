@@ -376,7 +376,7 @@ aqs_ratelimit <- function(waittime=5L)
 #' @importFrom glue glue
 #' @importFrom tibble as_tibble
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json
-#'                   req_perform
+#'                   req_perform req_options
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -399,7 +399,8 @@ aqs <- function(service, filter = NULL, user = NA,
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
                                   variables))) %>%
     request() %>%
-    httr::config(ssl_cipher_list = 'DEFAULT@SECLEVEL=1')
+    req_options(ssl_verifypeer = 0)
+    #req_options(ssl_cipher_list = 'DEFAULT@SECLEVEL=1')
   #for some reason user_agent isn't working
   #%>%
     #req_user_agent(string = user_agent)

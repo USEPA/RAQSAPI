@@ -6,6 +6,20 @@ testthat::skip_if_offline()
 testthat::skip_on_cran()
 server <- "AQSDatamartAPI"
 
+if(file.exists("local.R"))
+{
+  source("helper.R")
+  AQScredentials <- RAQSAPItestsetup_helper()
+  datamartAPI_user <- AQScredentials$datamartAPI_user
+  datamartAPI_key <- AQScredentials$datamartAPI_key
+} else {
+  datamartAPI_user <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+  datamartAPI_key <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+}
+RAQSAPI::aqs_credentials(username = datamartAPI_user,
+                         key = datamartAPI_key
+)
+
 RAQSAPI:::checkaqsparams(parameter = "abcdefg") %>%
   expect_error()
 RAQSAPI:::checkaqsparams(bdate = "notadate") %>%

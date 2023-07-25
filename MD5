@@ -117,9 +117,9 @@ f41ed996be135fb35afe00641621da61 *man/figures/lifecycle-questioning.svg
 ed42e3fbd7cc30bc6ca8fa9b658e24a8 *man/figures/lifecycle-stable.svg
 bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
-d54578e689123033bdc0f894eb441c7e *NAMESPACE
+b9c254cb8186dd9711be9b0a04a55ebd *NAMESPACE
 94c65e3824d4fd9ffa90ec73fed63596 *NEWS.md
-7cb0c1a65c83e6f94eb1309fac9b0d87 *R/AQSAPI_helperfunctions.R
+cd77b18f3f8fda5c82c40a9eb815b812 *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -148,8 +148,8 @@ c883634140b22f5fb97c08f909ce377e *tests/testthat/test-byCBSA.R
 f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 41e407548ac72ec4f41e678d23a566dd *tests/testthat/test-bysite.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
-25648d9e388d85a6ba8449bec950ee28 *tests/testthat/test-helperfunctions.R
-def7331bf9e0d31fdee6185008e9fc99 *tests/testthat/test-RAQSAPlistfunctions.R
+014b81fb9c8d2350e1347841f41b24a3 *tests/testthat/test-helperfunctions.R
+8392bc0bfa62b60485a925a2517475a6 *tests/testthat/test-RAQSAPlistfunctions.R
 8ec3157359d9a0fbdf126ed74f399ee1 *vignettes/Acknowledgements.html
 49025d261826350f3050e677eab9dbac *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl

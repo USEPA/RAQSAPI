@@ -1,6 +1,9 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
-test_that("list functions", {
+#' @importFrom magrittr `%>%`()
+#' @import testthat
+
+test_that("test list functions", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
 
