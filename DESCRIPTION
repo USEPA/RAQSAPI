@@ -50,10 +50,10 @@ URL: <https://github.com/USEPA/RAQSAPI>,
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.0.0)
 Imports: 
+    desc,
     dplyr,
     glue,
-    httr,
-    jsonlite,
+    httr2,
     lifecycle,
     lubridate,
     magrittr,
@@ -63,7 +63,6 @@ Imports:
     tibble
 Suggests:
     covr,
-    desc,
     devtools,
     goodpractice,
     keyring,
