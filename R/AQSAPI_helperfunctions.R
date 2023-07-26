@@ -430,7 +430,8 @@ aqs <- function(service, filter = NA, user = NA,
                          )
 
     AQSresult <- httr::GET(url,
-                           user_agent
+                           user_agent,
+                           httr::config(ssl_cipher_list = 'DEFAULT@SECLEVEL=1')
                            )
   aqs_ratelimit()
   if (httr::http_type(AQSresult) != "application/json") {
