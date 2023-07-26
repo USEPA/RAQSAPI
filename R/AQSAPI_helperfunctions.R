@@ -372,7 +372,6 @@ aqs_ratelimit <- function(waittime=5L)
 #' @importFrom magrittr `%<>%` `%>%`
 #' @importFrom dplyr mutate select arrange bind_cols
 #' @importFrom lubridate ymd_hm
-#' @importFrom desc desc_get_version
 #' @importFrom glue glue
 #' @importFrom tibble as_tibble
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json
@@ -392,7 +391,7 @@ aqs <- function(service, filter = NULL, user = NA,
               )
           }
 
-  user_agent <- glue("User:{user} via RAQSAPI-{desc::desc_get_version()}
+  user_agent <- glue("User:{user} via RAQSAPI-{packageVersion('RAQSAPI')}
                       library for R")
 
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%

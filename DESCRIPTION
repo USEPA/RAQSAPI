@@ -50,7 +50,6 @@ URL: <https://github.com/USEPA/RAQSAPI>,
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.0.0)
 Imports: 
-    desc,
     dplyr,
     glue,
     httr2,

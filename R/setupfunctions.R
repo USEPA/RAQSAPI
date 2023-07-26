@@ -79,7 +79,7 @@ aqs_sign_up <- function(email)
   #We do not want aqs_sign_up registering new users as part of
   #the unit testing proceedures.
 
-  user_agent <- glue("User:{email} via RAQSAPI-{desc::desc_get_version()}
+  user_agent <- glue("User:{email} via RAQSAPI-{packageVersion('RAQSAPI')}
                       library for R")
 
   url <- glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%

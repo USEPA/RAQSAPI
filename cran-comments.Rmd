@@ -8,8 +8,8 @@ output: md_document
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
   *RAQSAPI 2.0.4 was not published on CRAN.
-  - Moved to the httr2 backend, removed httr, and jsonlite as dependencies,
-    also imports desc (no longer suggest).
+  - Moved to the httr2 backend, removed desc from suggests and
+    httr, and jsonlite as from imports.
   - There is an issue with curl connecting to the AQS Datamart API, on
     windows platforms, as a temporary fix, RAQSAPI will default to using
     the Schannel curl backend.
