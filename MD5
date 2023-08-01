@@ -1,6 +1,6 @@
 d3a7f7cc6aca27a043309d5bf9f32edc *codemeta.json
-abcf7d9181f86d4e1715ec2e98d8c2aa *cran-comments.md
-abcf7d9181f86d4e1715ec2e98d8c2aa *cran-comments.Rmd
+0e3e29455c23b98008a4753685d335cd *cran-comments.md
+0e3e29455c23b98008a4753685d335cd *cran-comments.Rmd
 b8d94ee4fbd2f34fd47fed05467f5337 *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
@@ -117,9 +117,9 @@ f41ed996be135fb35afe00641621da61 *man/figures/lifecycle-questioning.svg
 ed42e3fbd7cc30bc6ca8fa9b658e24a8 *man/figures/lifecycle-stable.svg
 bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
-ea0d09d1bd516ab2d9f19def978c075a *NAMESPACE
+de6522fbf913a3ddaca65ee3cc97dff5 *NAMESPACE
 94c65e3824d4fd9ffa90ec73fed63596 *NEWS.md
-be91bd08f01c51e56acef12bf05df3a0 *R/AQSAPI_helperfunctions.R
+2a65e7f35595c71b4f1322c407d72204 *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -133,7 +133,7 @@ c9fd9ac3f73645262f4c6665c370a9a8 *R/RAQSAPIlistfunctions.R
 443b6c1736f4b067a7c58b498a3ff5b1 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-caa8232b892b3a4259c960fb3cda6274 *README.md
+7f1e17619d227d4bbe40dfe7051d905a *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R

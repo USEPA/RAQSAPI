@@ -8,6 +8,9 @@ output: md_document
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
   *RAQSAPI 2.0.4 was not published on CRAN.
+  - The rate limit has been changed from a constant 5 second wait time to a maximum of 10 requests per minute.
+  - RAQSAPI will retry certain requests if they fail for a maximum of 5 times
+    after a 10 second wait time.
   - Moved to the httr2 backend, removed desc from suggests and
     httr, and jsonlite as from imports.
   - There is an issue with curl connecting to the AQS Datamart API, on
