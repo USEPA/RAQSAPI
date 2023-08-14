@@ -321,26 +321,6 @@ format_multiple_params_for_api <- function(x, separator=",")
 }
 
 
-#' @title aqs_ratelimit
-#' @description \lifecycle{depricated}
-#' @description a helper function that should not be called externally, used
-#'                 as a primitive rate limit function for aqs.
-#' @param waittime the number of seconds, encoded as a numeric, that the API
-#'                     should wait after performing a API query
-#'                     (defaults to 5 seconds, as recommended by the AQS team).
-#' @note  Although this function is designed to prevent users from exceeding
-#'        allowed data limits, it can not garuntee that the user exceed rate
-#'        limits. Users are advised to monitor their own usage to ensure that
-#'        data limits are not exceeded. Use of this package is at the users own
-#'        risk. The maintainers of this code assume no responsibility due to
-#'        anything that may happen as a result of using this code.
-#' @return NULL
-#' @noRd
-aqs_ratelimit <- function(waittime=5L)
-{
-  Sys.sleep(waittime)
-}
-
 #' @title aqs
 #' @description a helper function sends a AQS RESTful request to the AQS API
 #'                 and returns the result as a aqs data type. This helper
@@ -401,8 +381,8 @@ aqs <- function(service, filter = NULL, user = NA,
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, backoff = ~10) %>%
-    req_options(ssl_verifypeer = 0) %>%
-    req_user_agent(string = user_agent)
+    req_options(ssl_verifypeer = 0) #%>%
+    #req_user_agent(string = user_agent)
 
      AQStemp <- AQSpath %>%
        req_perform() %>%
@@ -418,7 +398,6 @@ aqs <- function(service, filter = NULL, user = NA,
      names(AQSresult) <- c("Header", "Data")
 
      AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
-
      #aqs_ratelimit()
      return(AQSresult)
 
