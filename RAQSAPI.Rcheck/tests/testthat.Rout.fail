@@ -1,0 +1,116 @@
+
+R version 4.3.1 (2023-06-16 ucrt) -- "Beagle Scouts"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(testthat)
+> library(RAQSAPI)
+Use the function
+RAQSAPI::aqs_credentials(username, key)
+before using other RAQSAPI functions
+See ?RAQSAPI::aqs_credentials for more information
+> 
+> test_check("RAQSAPI")
+Waiting 6s to retry =====>------------------------- 
+Waiting 6s to retry =========>--------------------- 
+Waiting 6s to retry ========================>------ 
+Waiting 6s to retry ==============================> 
+Waiting 6s to retry ========>---------------------- 
+Waiting 6s to retry =======================>------- 
+Waiting 6s to retry ==============================> 
+Waiting 6s to retry =======>----------------------- 
+Waiting 6s to retry ======================>-------- 
+Waiting 6s to retry ==============================> 
+Waiting 6s to retry =======>----------------------- 
+Waiting 6s to retry =====================>--------- 
+Waiting 6s to retry =============================>- 
+Waiting 5s to retry =======>----------------------- 
+Waiting 5s to retry ========================>------ 
+Waiting 5s to retry ==============================> 
+Waiting 6s to retry ==========>-------------------- 
+Waiting 6s to retry =========================>----- 
+Waiting 6s to retry ==============================> 
+Waiting 6s to retry =========>--------------------- 
+Waiting 6s to retry ========================>------ 
+Waiting 6s to retry ==============================> 
+Waiting 10s to retry ===>--------------------------- 
+Waiting 10s to retry ============>------------------ 
+Waiting 10s to retry ====================>---------- 
+Waiting 10s to retry ==============================> 
+Waiting 10s to retry ==============================> 
+Waiting 6s to retry =============>----------------- 
+Waiting 6s to retry ===========================>--- 
+Waiting 6s to retry ==============================> 
+[ FAIL 8 | WARN 0 | SKIP 0 | PASS 25 ]
+
+══ Failed tests ════════════════════════════════════════════════════════════════
+── Error ('test-RAQSAPlistfunctions.R:29:3'): test list functions ──────────────
+<httr2_http_400/httr2_http/rlang_error/error/condition>
+Error in `req_perform(.)`: HTTP 400 Bad Request.
+Backtrace:
+     ▆
+  1. ├─... %>% expect_match(regexp = "Success") at test-RAQSAPlistfunctions.R:29:2
+  2. ├─testthat::expect_match(., regexp = "Success")
+  3. │ └─testthat::quasi_label(enquo(object), label, arg = "object")
+  4. │   └─rlang::eval_bare(expr, quo_get_env(quo))
+  5. ├─RAQSAPI::aqs_fields_by_service(service = "list", return_header = TRUE)
+  6. │ └─RAQSAPI:::aqs_metadata_service(filter = "fieldsByService", service = service) at RAQSAPI/R/RAQSAPIlistfunctions.R:425:2
+  7. │   └─RAQSAPI:::aqs(...) at RAQSAPI/R/AQSAPI_helperfunctions.R:953:2
+  8. │     └─AQSpath %>% req_perform() %>% resp_body_json() at RAQSAPI/R/AQSAPI_helperfunctions.R:387:5
+  9. ├─httr2::resp_body_json(.)
+ 10. │ └─httr2:::check_response(resp)
+ 11. │   └─httr2:::is_response(req)
+ 12. └─httr2::req_perform(.)
+ 13.   └─httr2:::resp_abort(resp, error_body(req, resp), call = error_call)
+ 14.     └─rlang::abort(...)
+── Error ('test-byCBSA.R:21:3'): bybox functions ───────────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_cbsa)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+── Error ('test-byMA.R:21:3'): byMA functions ──────────────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_MA)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+── Error ('test-bybox.R:26:3'): bybox functions ────────────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_box)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+── Error ('test-bycounty.R:21:3'): bycounty functions ──────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_county)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+── Error ('test-bypqao.R:21:3'): bypqao functions ──────────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_pqao)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+── Error ('test-bysite.R:21:3'): bysite functions ──────────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_site)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+── Error ('test-bystate.R:22:1'): bystate functions ────────────────────────────
+<purrr_error_indexed/rlang_error/error/condition>
+Error in `purrr::pmap(.l = params, .f = aqs_services_by_state)`: i In index: 1.
+Caused by error in `req_perform()`:
+! HTTP 400 Bad Request.
+
+[ FAIL 8 | WARN 0 | SKIP 0 | PASS 25 ]
+Error: Test failures
+Execution halted

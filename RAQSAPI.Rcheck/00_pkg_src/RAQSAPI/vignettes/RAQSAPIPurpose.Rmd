@@ -1,0 +1,144 @@
+---
+title: "RAQSAPI - Objectives of the RAQSAPI package"
+author:
+- affiliation: |-
+    "United States Environmental Protection Agency (US EPA),
+        Region III,
+        Air and Radiation Division,
+        Air Quality and Analysis Branch"
+  name: Clinton Mccrowey
+output:
+  rmarkdown::html_vignette: default
+bibliography: AQSAPI.bib
+lang: en-US
+#csl: acs-nano.csl
+subtitle: RAQSAPI Purpose
+abstract: RAQSAPI is an add-on package for the R programming language and
+  environment (hereafter referred to as simply "R") that connects R to a U.S.
+  EPA database for the retrieval of ambient air pollution data. This document
+  is intended to state the purpose of creating RAQSAPI.
+vignette: >
+  %\VignetteIndexEntry{RAQSAPI - Objectives of the RAQSAPI package}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# The Air Quality System (AQS)  
+The Clean Air act [@cleanairact] requires all federal, state, local and tribal
+air pollution control agencies monitor ambient air for concentrations of certain
+air pollutants. Codified in 40 CFR Part 58 are the statutory requirements for
+these monitoring programs, including monitoring network technical requirements,
+operating schedules, data certification, data submittal and archiving
+requirements. In addition to the required air pollution and meteorological
+monitoring, pollution control agencies often perform additional and/or voluntary
+air monitoring.
+
+* The three objectives of ambient air monitoring programs as stated in 40 CFR
+Part 58 Appendix D.1 are as follows:
+    + Provide air pollution data to the public in a timely manner;
+    + Support compliance with ambient air quality standards and emissions
+        strategy development; and
+    + Support for air pollution research studies.
+
+As required by 40 CFR Part 58, air pollution and meteorological data is
+submitted to the United States Environmental Protection Agency along with
+associated metadata and quality assurance metadata via EPA's Air
+Quality System (AQS)[@AboutAQSdata].
+
+## About AQS Data Mart
+AQS Data Mart is a publicly accessible mirror of data stored on the AQS database
+designed to make air monitoring data more accessible and useful to the technical
+community, scientific community and the general public. Data on AQS is copied to
+AQS Data Mart once per week and this data is made available to the public
+through web-based applications and APIs (application programming interface)
+[@AQSDataMartWelcome]. RAQSAPI functions use the APIs provided by AQS Data Mart
+to retrieve data.
+
+<!-- # The R programming language -->
+<!--  The R language and it's environment [@website:whatisR] (Hereafter referred to -->
+<!--  as simply R) is a domain-specific programming environment that is inspired by -->
+<!--  the S statistical language and it's respective environment which was developed -->
+<!--  at Bell Laboratories (formerly AT&T, now Lucent Technologies) by John Chanmbers -->
+<!--  et al. The first public release of the S programming environment was released -->
+<!--  in 1976 [@website:whatisR]. -->
+
+<!--  The reference implementation of R has been accepted as a GNU project -->
+<!--  [@website:GNUproject] which means the code is free//libre open source software -->
+<!--  (FLOSS) under the terms of the [GNU General Public -->
+<!--  License](https://www.r-project.org/COPYING) (GNU GPL) [@website:whatisR]. -->
+
+<!-- ## Why R? -->
+<!--  The R environment is available for most of the major computer operating -->
+<!--  systems - Windows, unix and \*nix-like platforms such as Solaris, GNU\\Linux, -->
+<!--  \*BSD, Darwin-derived platforms such as Mac OS X and other POSIX and POSIX-like -->
+<!--  operating systems. -->
+
+<!--  R also is an well-established statistical programming environment that has wide -->
+<!--  adoption in the statistical, academic, and data analytics communities because -->
+<!--  of it's good third party support, a large user community that accomodates users -->
+<!--  from all experience levels and multilanguage support. -->
+
+<!--  R is easily extensible, in fact there is a large collection of Free packages -->
+<!--  available that extends the capabilities of the base R environment. The largest -->
+<!--  collection of packages available for R is hosted by -->
+<!--  [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org), -->
+<!--  currently CRAN hosts over 15,000 packages and are available to anyone under -->
+<!--  permissive licensing terms. These packages are developed and maintained by the -->
+<!--  worldwide R user community. -->
+
+<!-- * The design of the R statistical programming environment makes it a great -->
+<!--     platform for statistical calculation, data manipulation and graphical -->
+<!--     display of data. The R includes: -->
+<!--   + Packages such as feather, foreign, dbplyr, readR, which can be used to -->
+<!--       import data from external sources. -->
+<!--   + R is has support from many different integrated development environments to -->
+<!--       ease development including Visual Studio Code, Rstudio, Eclipse, Rattle -->
+<!--       GUI, R Commander, RKWard, Jupyter, StatET. R syntax highlighting is also -->
+<!--       supported in many common text and source code editors either natively or -->
+<!--       via an application add-on such as Emacs, Vim, Notepad++, Sublime Text -->
+<!--       and Atom. -->
+<!--   + R has a large set of operators for performing calculations on arrays and -->
+<!--       tabular data sets. -->
+<!--       a.  A functional programming style that makes it easy to apply a single -->
+<!--       operation on large data sets. -->
+<!--   + Tools for graphical output of data such as knitr and rmarkdown for creating -->
+<!--   reports, esquisse and ggplot2 creating graphs, openair for creating windroses. -->
+<!--   Rshiny for a web interface. -->
+<!--   + Linear and non-linear modeling tools. -->
+<!--   + R has hooks into many popular software packages used for geospatial analysis. -->
+
+<!--   These tools make R an excellent environment to perform statistical analysis on -->
+<!--   ambient air monitoring data. -->
+  
+# Benefits of using RAQSAPI
+RAQSAPI package for R is a easy to use R package that allows
+anyone using the R programming environment to retrieve data from AQS Data Mart
+Database vi the exposed API interface using a set of functions with consistent
+input variables, function names and output structure. RAQSAPI does not require
+installation of software or drivers external to R. The goal of RAQSAPI is to
+make a package which eases retrieving of ambient air monitoring data from AQS
+Data Mart.
+
+* Some possible uses of the RAQSAPI package
+  + Can be used as part of a monitoring agency's data validation process
+  + RAQSAPI can be used for data retrieval as part of quality management of air
+      data
+  + Ambient air monitoring data retrieval for Design value calculations
+  + To retrieve ambient air pollution concentrations
+    * Useful for retrieving ambient background air pollution data needed model
+        to perform air quality dispersion modeling
+  + Data retrieval for automation of Network Analysis
+  + Statistical analysis of ambient air data
+  + Compare ambient air pollution concentrations from different air monitoring
+      sites.
+  + Data retrieval to generate quarterly/audit reports
+  
+# References

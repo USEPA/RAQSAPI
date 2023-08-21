@@ -372,16 +372,16 @@ aqs <- function(service, filter = NULL, user = NA,
               )
           }
 
-  # user_agent <- glue("User:{user} via RAQSAPI-{packageVersion('RAQSAPI')}
-  #                     library for R")
+  user_agent <- glue("User:{user} via RAQSAPI-{packageVersion('RAQSAPI')}
+                      library for R")
 
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
                                   variables))) %>%
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
-    req_retry(max_tries = 5, max_seconds = 7, backoff = ~10)
-    #%>%#causes issues on some systems
+    req_retry(max_tries = 5, backoff = ~10) %>%
+    req_options(ssl_verifypeer = 0) #%>%
     #req_user_agent(string = user_agent)
 
      AQStemp <- AQSpath %>%
