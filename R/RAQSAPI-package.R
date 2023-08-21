@@ -33,7 +33,6 @@
 #' @name RAQSAPI
 #' @keywords internal
 "_PACKAGE"
-NULL
 
 
 ## usethis namespace: start
