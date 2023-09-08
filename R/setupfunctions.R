@@ -77,10 +77,10 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 aqs_sign_up <- function(email)
 { #nocov start
   #We do not want aqs_sign_up registering new users as part of
-  #the unit testing proceedures.
+  #the unit testing procedures.
 
-  user_agent <- glue("User:{email} via RAQSAPI-{packageVersion('RAQSAPI')}
-                      library for R")
+  # user_agent <- glue("User:{email} via RAQSAPI-{packageVersion('RAQSAPI')}
+  #                     library for R")
 
   url <- glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
     request() %>%

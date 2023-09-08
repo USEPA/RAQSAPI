@@ -119,7 +119,7 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
 de6522fbf913a3ddaca65ee3cc97dff5 *NAMESPACE
 94c65e3824d4fd9ffa90ec73fed63596 *NEWS.md
-a0d014a344d3a875e0d127d1e5c1a0ef *R/AQSAPI_helperfunctions.R
+a8abccacc480c25c2b4e8d123d56e98a *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -130,7 +130,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 8198ed65b99926d0ed9b07c49a1bf8e2 *R/deprecated.R
 87275ab3c5bd1af63ecfbd835ea8f53b *R/RAQSAPI-package.R
 c9fd9ac3f73645262f4c6665c370a9a8 *R/RAQSAPIlistfunctions.R
-443b6c1736f4b067a7c58b498a3ff5b1 *R/setupfunctions.R
+e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 8f51fe5ddf897afb20925542060627f7 *RAQSAPI.Rcheck/00_pkg_src/RAQSAPI/build/stage23.rdb
 12aced1f7b2dd6f0d2c8054e24271e0b *RAQSAPI.Rcheck/00_pkg_src/RAQSAPI/build/vignette.rds
@@ -403,7 +403,7 @@ f7ea691da1baf266047ed7af4b0c4629 *RAQSAPI.Rcheck/tests/testthat/test-bypqao.R
 3e2e78ef3cf7666c3c041ff1b5bec788 *RAQSAPI.Rcheck/tests/testthat/testthat-problems.rds
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
 cfb9487651a3162cdb4308fb94e30719 *RAQSAPI_2.0.5.tar.gz
-3b18b42a5e56d792476ec2672777366f *README.md
+fcd92c52edd5db808b7c744e2b25e17c *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -1598,7 +1598,7 @@ f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 41e407548ac72ec4f41e678d23a566dd *tests/testthat/test-bysite.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
 014b81fb9c8d2350e1347841f41b24a3 *tests/testthat/test-helperfunctions.R
-8392bc0bfa62b60485a925a2517475a6 *tests/testthat/test-RAQSAPlistfunctions.R
+480adf8b8de90b93a2074546df3cbbfb *tests/testthat/test-RAQSAPlistfunctions.R
 8ec3157359d9a0fbdf126ed74f399ee1 *vignettes/Acknowledgements.html
 49025d261826350f3050e677eab9dbac *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl

@@ -381,7 +381,7 @@ aqs <- function(service, filter = NULL, user = NA,
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 7, backoff = ~10)
-    #%>%#causes issues on some systems
+    #%>%#causes issues
     #req_user_agent(string = user_agent)
 
      AQStemp <- AQSpath %>%
@@ -394,9 +394,7 @@ aqs <- function(service, filter = NULL, user = NA,
      AQSresult[[2]] <- AQStemp$Data %>%
        bind_cols() %>%
        suppressMessages()
-
      names(AQSresult) <- c("Header", "Data")
-
      AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
      #aqs_ratelimit()
      return(AQSresult)

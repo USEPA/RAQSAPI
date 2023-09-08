@@ -62,4 +62,15 @@ test_that("test list functions", {
                           return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
 
+  #reuse test for aqs_mas() for testing of aqs_removeheader() without
+  # calling the API again
+  mas <- aqs_mas(return_header = TRUE)
+
+  mas$Header$status %>%
+    expect_match(regexp = "Success")
+
+  mas %>%
+    aqs_removeheader() %>%
+    testthat::expect_s3_class(class=c("tbl_df", "tbl", "data.frame"))
+
 })
