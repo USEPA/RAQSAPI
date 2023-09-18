@@ -380,7 +380,8 @@ aqs <- function(service, filter = NULL, user = NA,
                                   variables))) %>%
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
-    req_retry(max_tries = 5, max_seconds = 7, backoff = ~10)
+    req_retry(max_tries = 5, max_seconds = 7, backoff = ~10) %>%
+    req_options("default_protocol" = "TLS1.2-ECDHE-RSA-AES-256-SHA384")
     #%>%#causes issues
     #req_user_agent(string = user_agent)
 
