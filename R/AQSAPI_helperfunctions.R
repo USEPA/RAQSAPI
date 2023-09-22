@@ -378,14 +378,14 @@ aqs <- function(service, filter = NULL, user = NA,
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
                                   variables))) %>%
-    request(verbosity = 0) %>%
+    request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 7, backoff = ~10)
     #%>%#causes issues
     #req_user_agent(string = user_agent)
 
      AQStemp <- AQSpath %>%
-       req_perform() %>%
+       req_perform(verbosity = 0) %>%
        resp_body_json()
     AQSresult <- vector("list", length = 2)
      AQSresult[[1]] <- AQStemp$Header %>%
