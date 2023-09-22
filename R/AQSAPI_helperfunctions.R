@@ -378,7 +378,7 @@ aqs <- function(service, filter = NULL, user = NA,
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
                                   variables))) %>%
-    request() %>%
+    request(verbosity = 0) %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 7, backoff = ~10)
     #%>%#causes issues
