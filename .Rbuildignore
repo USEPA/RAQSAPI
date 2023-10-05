@@ -42,3 +42,4 @@ dev/*
 ^\.Rproj\.user$
 ^LICENSE$
 codemeta.json
+^revdep$
