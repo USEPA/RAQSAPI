@@ -388,7 +388,7 @@ aqs <- function(service, filter = NULL, user = NA,
       req_perform(verbosity = 0) %>%
       resp_body_json(simplifyVector = TRUE,
                      simplifyDataFrame = TRUE) %>%
-     as.tibble()
+     as_tibble()
     AQSresult <- vector("list", length = 2)
      AQSresult[[1]] <- AQStemp$Header
      AQSresult[[2]] <- AQStemp$Data
