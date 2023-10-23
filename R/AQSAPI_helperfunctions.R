@@ -351,7 +351,7 @@ format_multiple_params_for_api <- function(x, separator=",")
 #' @param AQS_domain a R string object containing the domain that should be
 #'                     used in constructing the API call.
 #' @importFrom magrittr `%<>%` `%>%`
-#' @importFrom dplyr mutate select arrange bind_cols
+#' @importFrom dplyr mutate select arrange
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
 #' @importFrom tibble as_tibble
@@ -380,20 +380,18 @@ aqs <- function(service, filter = NULL, user = NA,
                                   variables))) %>%
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
-    req_retry(max_tries = 5, max_seconds = 7, backoff = ~10)
+    req_retry(max_tries = 5, max_seconds = 30, backoff = ~10)
     #%>%#causes issues
     #req_user_agent(string = user_agent)
 
-     AQStemp <- AQSpath %>%
-       req_perform(verbosity = 0) %>%
-       resp_body_json()
+    AQStemp <- AQSpath %>%
+      req_perform(verbosity = 0) %>%
+      resp_body_json(simplifyVector = TRUE,
+                     simplifyDataFrame = TRUE) %>%
+     as.tibble()
     AQSresult <- vector("list", length = 2)
-     AQSresult[[1]] <- AQStemp$Header %>%
-       bind_cols() %>%
-       suppressMessages()
-     AQSresult[[2]] <- AQStemp$Data %>%
-       bind_cols() %>%
-       suppressMessages()
+     AQSresult[[1]] <- AQStemp$Header
+     AQSresult[[2]] <- AQStemp$Data
      names(AQSresult) <- c("Header", "Data")
      AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
      #aqs_ratelimit()
