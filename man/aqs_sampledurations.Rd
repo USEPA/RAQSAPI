@@ -25,6 +25,12 @@ associated duration codes. Returned values are not calculated
 durations such as 8 hour CO or O${_3}$ rolling averages, 3/6
 day PM averages or Pb 3 month rolling averages.
 }
+\note{
+Not all sample durations that are available through AQS are available
+through the AQS DataMart API, including certain calculated sample
+durations. Only sample durations that are available through the
+AQS DataMart API are returned.
+}
 \examples{
 # Returns a tibble or an AQS_Data Mart_APIv2 S3 object of
          \dontrun{ aqs_sampledurations() }

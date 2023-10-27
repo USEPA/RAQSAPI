@@ -429,10 +429,7 @@ aqs <- function(service, filter = NA, user = NA,
                           query = query
                          )
 
-    AQSresult <- httr::GET(url,
-                           user_agent,
-                           httr::config(ssl_cipher_list = 'DEFAULT@SECLEVEL=1')
-                           )
+    AQSresult <- httr::GET(url, user_agent)
   aqs_ratelimit()
   if (httr::http_type(AQSresult) != "application/json") {
     stop("API did not return json", call. = TRUE)
@@ -1136,6 +1133,7 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
                     stateFIPS = ellipsis_args$stateFIPS,
                     countycode = ellipsis_args$countycode,
                     sitenum = ellipsis_args$sitenum,
+                    duration = ellipsis_args$duration,
                     service = service,
                     cbdate = ellipsis_args$cbdate,
                     cedate = ellipsis_args$cedate,

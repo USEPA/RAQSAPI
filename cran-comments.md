@@ -8,9 +8,8 @@ output: md_document
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
   *RAQSAPI 2.0.4 was not published on CRAN.
-  - There is an issue with curl connecting to the AQS Datamart API, on
-    windows platforms, as a temporary fix, RAQSAPI will default to using
-    the Schannel curl backend.
+  - fixed an issue where the duration parameter was being ignored in
+    aqs_sampledata_by_* functions.
   - modify QA Collocated Assessments by County and by Site unit tests and
     example code to reflect modified data.
   - update CITATION file to the new style citation.
