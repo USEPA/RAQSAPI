@@ -440,6 +440,10 @@ aqs_fields_by_service <- function(service, return_header = FALSE)
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
+#' @note Not all sample durations that are available through AQS are available
+#'       through the AQS DataMart API, including certain calculated sample
+#'       durations. Only sample durations that are available through the
+#'       AQS DataMart API are returned.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
 #'         their associated duration codes
 #'                 (groups of parameters, i.e. "criteria" or "all").

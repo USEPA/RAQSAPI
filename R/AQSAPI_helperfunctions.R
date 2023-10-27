@@ -1057,6 +1057,7 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
                     stateFIPS = ellipsis_args$stateFIPS,
                     countycode = ellipsis_args$countycode,
                     sitenum = ellipsis_args$sitenum,
+                    duration = ellipsis_args$duration,
                     service = service,
                     cbdate = ellipsis_args$cbdate,
                     cedate = ellipsis_args$cedate,
