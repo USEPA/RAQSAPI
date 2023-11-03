@@ -1,6 +1,6 @@
 d3a7f7cc6aca27a043309d5bf9f32edc *codemeta.json
-f6a3bb19c1f296f1c54a3b64fd62254a *cran-comments.md
-f6a3bb19c1f296f1c54a3b64fd62254a *cran-comments.Rmd
+a4f38bdcd1e2b228600cb6e693648a12 *cran-comments.md
+a4f38bdcd1e2b228600cb6e693648a12 *cran-comments.Rmd
 8fe7ddfb9b852c041024d63250b69e7d *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
@@ -28,7 +28,7 @@ d6603aee862d71fa3ad9053696947ae9 *man/aqs_dailysummary_by_county.Rd
 10899741b0404e0af8d302c32ab8a273 *man/aqs_dailysummary_by_site.Rd
 a8be1d5dac981abb40ca34d32f00cbd0 *man/aqs_dailysummary_by_state.Rd
 f7a06f46bb7199f4f5b3f3186c016d78 *man/aqs_fields_by_service.Rd
-4224f0b4e1acf3adf239b4b201bb1a51 *man/aqs_isavailable.Rd
+8ae172caf932c47ef794fd1b130c0746 *man/aqs_isavailable.Rd
 22ba6fe3da488063d41399edac4eb1c0 *man/aqs_knownissues.Rd
 1b69f35ea5b2625254ed86f98ca1f69c *man/aqs_mas.Rd
 00d78eddaff8c09ba0cd62d664781831 *man/aqs_metadata_service.Rd
@@ -129,7 +129,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 2e6e59d801dc3b6bd5e415ada7268469 *R/bystate.R
 8198ed65b99926d0ed9b07c49a1bf8e2 *R/deprecated.R
 87275ab3c5bd1af63ecfbd835ea8f53b *R/RAQSAPI-package.R
-98d09a3daf414b41d254c637d00baf55 *R/RAQSAPIlistfunctions.R
+8bf50a551dbb3798f968436f95e3c343 *R/RAQSAPIlistfunctions.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 8f51fe5ddf897afb20925542060627f7 *RAQSAPI.Rcheck/00_pkg_src/RAQSAPI/build/stage23.rdb

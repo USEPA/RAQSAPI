@@ -7,13 +7,12 @@
 aqs_isavailable()
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object which details the status
-of the AQS API. No header information is returned.
+a tibble that details the status of the AQS Data Mart API.
 }
 \description{
 \lifecycle{stable}
-returns a tibble or an AQS_Data Mart_APIv2 S3 object
-explaining the status of the AQS API.
+returns a tibble that details the status of the
+AQS Data Mart API.
 }
 \section{list functions}{
 NA

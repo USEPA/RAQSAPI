@@ -7,6 +7,8 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
+  - aqs_isavailable no longer accepts the return_header parameter, this function
+    just returns a tibble and not a AQS_Data Mart_APIv2 object.
   - fixed an issue where the duration parameter was being ignored in
     aqs_sampledata_by_* functions.
   - add note to aqs_sampledurations function about not returning calculated
