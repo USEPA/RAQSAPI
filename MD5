@@ -1598,7 +1598,7 @@ f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 41e407548ac72ec4f41e678d23a566dd *tests/testthat/test-bysite.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
 014b81fb9c8d2350e1347841f41b24a3 *tests/testthat/test-helperfunctions.R
-5c47835297e6b9949060dc1a7a0a15ae *tests/testthat/test-RAQSAPlistfunctions.R
+e897203bb026b43141e5bc00dfe3cecd *tests/testthat/test-RAQSAPlistfunctions.R
 8ec3157359d9a0fbdf126ed74f399ee1 *vignettes/Acknowledgements.html
 49025d261826350f3050e677eab9dbac *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl
