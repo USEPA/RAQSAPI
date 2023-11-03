@@ -27,9 +27,9 @@ day PM averages or Pb 3 month rolling averages.
 }
 \note{
 Not all sample durations that are available through AQS are available
-through the AQS DataMart API, including certain calculated sample
+through the AQS Data Mart API, including certain calculated sample
 durations. Only sample durations that are available through the
-AQS DataMart API are returned.
+AQS Data Mart API are returned.
 }
 \examples{
 # Returns a tibble or an AQS_Data Mart_APIv2 S3 object of

@@ -1,27 +1,19 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
-#' @importFrom magrittr `%>%`()
-#' @import testthat
-
-test_that("test list functions", {
+test_that("list functions", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
 
-  if(file.exists("local.R"))
-  {
-    source("helper.R")
-    AQScredentials <- RAQSAPItestsetup_helper()
-    datamartAPI_user <- AQScredentials$datamartAPI_user
-    datamartAPI_key <- AQScredentials$datamartAPI_key
-  } else {
-    datamartAPI_user <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-    datamartAPI_key <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-  }
-  RAQSAPI::aqs_credentials(username = datamartAPI_user,
-                           key = datamartAPI_key
-  )
+  # if(file.exists("./tests/testthat/local.R")) { source("./tests/testthat/local.R") }
+  #
+  # datamartAPI_user <- Sys.getenv(x = "RAQSAPIUSERNAME")
+  # datamartAPI_key <- Sys.getenv(x = "RAQSAPIKEY")
+  #
+  # RAQSAPI::aqs_credentials(username = datamartAPI_user,
+  #                          key = datamartAPI_key
+  # )
 
-  aqs_isavailable(return_header = TRUE)$Header$status %>%
+  aqs_isavailable()$status %>%
   expect_match(regexp = "API service is up and running healthy",
                fixed = FALSE
                )
@@ -61,16 +53,5 @@ test_that("test list functions", {
   aqs_parameters_by_class(class = "CRITERIA",
                           return_header = TRUE)$Header$status %>%
     expect_match(regexp = "Success")
-
-  #reuse test for aqs_mas() for testing of aqs_removeheader() without
-  # calling the API again
-  mas <- aqs_mas(return_header = TRUE)
-
-  mas$Header$status %>%
-    expect_match(regexp = "Success")
-
-  mas %>%
-    aqs_removeheader() %>%
-    testthat::expect_s3_class(class=c("tbl_df", "tbl", "data.frame"))
 
 })

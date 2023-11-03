@@ -371,7 +371,7 @@ aqs <- function(service, filter = NULL, user = NA,
                 please refer to \'?aqs_credentials()\' for useage infomation \n"
               )
           }
-
+  # AQS DataMart API does not accept headers so user_agent not working
   # user_agent <- glue("User:{user} via RAQSAPI-{packageVersion('RAQSAPI')}
   #                     library for R")
 
@@ -381,20 +381,20 @@ aqs <- function(service, filter = NULL, user = NA,
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 30, backoff = ~10)
-    #%>%#causes issues
-    #req_user_agent(string = user_agent)
+    # AQS DataMart API does not accept headers so user_agent not working
+    #%>% req_user_agent(string = user_agent)
 
     AQStemp <- AQSpath %>%
       req_perform(verbosity = 0) %>%
       resp_body_json(simplifyVector = TRUE,
-                     simplifyDataFrame = TRUE) %>%
-     as_tibble()
+                     simplifyDataFrame = TRUE)
+
     AQSresult <- vector("list", length = 2)
      AQSresult[[1]] <- AQStemp$Header
      AQSresult[[2]] <- AQStemp$Data
      names(AQSresult) <- c("Header", "Data")
      AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
-     #aqs_ratelimit()
+     #aqs_ratelimit() #depricated
      return(AQSresult)
 
 }

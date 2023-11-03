@@ -6,35 +6,19 @@
 #'                returns a tibble or an AQS_Data Mart_APIv2 S3 object
 #'                explaining the status of the AQS API.
 #' @importFrom magrittr `%>%`
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object which details the status
-#'             of the AQS API (The status information is located in the header)
+#'             of the AQS API. No header information is returned.
 #' @examples
 #'   # Check if the AQS API is up, running and accepting requests.
 #'   \dontrun{ aqs_isAvailable() }
 #' @export
-aqs_isavailable <- function(return_header = FALSE)
+aqs_isavailable <- function()
 {
-  if (!return_header)
-  {
-  aqs(service = "metaData",
-          filter = "isAvailable",
-          user =  getOption("aqs_username"),
-          user_key =  getOption("aqs_key")
-          )$Header %>%
-    return()
-  } else
-  {
     aqs(service = "metaData",
-          filter = "isAvailable",
-          user =  getOption("aqs_username"),
-          user_key =  getOption("aqs_key")
-          )
-  }
+        filter = "isAvailable",
+        user =  getOption("aqs_username"),
+        user_key =  getOption("aqs_key")
+        )$Header
 }
 
 
@@ -441,9 +425,9 @@ aqs_fields_by_service <- function(service, return_header = FALSE)
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @note Not all sample durations that are available through AQS are available
-#'       through the AQS DataMart API, including certain calculated sample
+#'       through the AQS Data Mart API, including certain calculated sample
 #'       durations. Only sample durations that are available through the
-#'       AQS DataMart API are returned.
+#'       AQS Data Mart API are returned.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
 #'         their associated duration codes
 #'                 (groups of parameters, i.e. "criteria" or "all").

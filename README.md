@@ -37,7 +37,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--10--27-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--11--03-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -97,12 +97,12 @@ retrieving multiple years of data, formatting API requests, retrieving
 results, handling credentials, requesting multiple pollutant data and
 rate limiting data requests. All the basic functionality of the API have
 been implemented that are available from the AQS API Data Mart server.
-The library connects to AQS Data Mart API via Hypertext Transfer
-Protocol (HTTP) so there is no need to install external ODBC drivers,
+The library connects to AQS Data Mart API via Secure Hypertext Transfer
+Protocol (HTTPS) so there is no need to install external ODBC drivers,
 configure ODBC connections or deal with the security vulnerabilities
-associated with them. Most functions have a parameter, return_header
-which by default is set to FALSE. If the user decides to set
-return_header to TRUE, then that function will return a R
+associated with them. Most API functions have a parameter,
+return_header, which by default is set to FALSE. If the user decides to
+set return_header to TRUE, then that function will return a R
 AQS_DATAMART_APIv2 S3 object which is a two item named list.  
 The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
 tibble<sup>2</sup> which contains the header information. The Header

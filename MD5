@@ -1,7 +1,7 @@
 d3a7f7cc6aca27a043309d5bf9f32edc *codemeta.json
 f6a3bb19c1f296f1c54a3b64fd62254a *cran-comments.md
 f6a3bb19c1f296f1c54a3b64fd62254a *cran-comments.Rmd
-b8d94ee4fbd2f34fd47fed05467f5337 *DESCRIPTION
+8fe7ddfb9b852c041024d63250b69e7d *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
 74e297a0dc0b508ed18e3821264958d0 *dev/countlinesofcode.R
@@ -28,7 +28,7 @@ d6603aee862d71fa3ad9053696947ae9 *man/aqs_dailysummary_by_county.Rd
 10899741b0404e0af8d302c32ab8a273 *man/aqs_dailysummary_by_site.Rd
 a8be1d5dac981abb40ca34d32f00cbd0 *man/aqs_dailysummary_by_state.Rd
 f7a06f46bb7199f4f5b3f3186c016d78 *man/aqs_fields_by_service.Rd
-aaf0a25e0b1a43bf07df1c57e78a36e3 *man/aqs_isavailable.Rd
+4224f0b4e1acf3adf239b4b201bb1a51 *man/aqs_isavailable.Rd
 22ba6fe3da488063d41399edac4eb1c0 *man/aqs_knownissues.Rd
 1b69f35ea5b2625254ed86f98ca1f69c *man/aqs_mas.Rd
 00d78eddaff8c09ba0cd62d664781831 *man/aqs_metadata_service.Rd
@@ -91,7 +91,7 @@ a8f79ece8b275d2f60fc09a58239e661 *man/aqs_quarterlysummary_by_site.Rd
 4232385c24cb5041c7ad57ec9279a798 *man/aqs_sampledata_by_county.Rd
 d6bccf166ae844172cf9b241c89093e2 *man/aqs_sampledata_by_site.Rd
 a10c5684e68d35cebb418f849c058609 *man/aqs_sampledata_by_state.Rd
-a483627fe3673c8b006d8481179e7f53 *man/aqs_sampledurations.Rd
+0557bd694ffc18246eda85f4813fc2d1 *man/aqs_sampledurations.Rd
 f9d84d9671e9c011e40dcf3567f3aa47 *man/aqs_services_by_box.Rd
 9291322a3bd3a17248904a0bfcf32d2f *man/aqs_services_by_cbsa.Rd
 9ca1f01ed3c413b5c8cd1f9f2bec9f3d *man/aqs_services_by_county.Rd
@@ -119,7 +119,7 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
 cba75186037b95121bfe7eeca1a1159d *NAMESPACE
 94c65e3824d4fd9ffa90ec73fed63596 *NEWS.md
-e6f3f0f0ea2ae4ac177d3d3ae0bef63c *R/AQSAPI_helperfunctions.R
+548f6de7c29583ae9dc341809d47c4a0 *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -129,7 +129,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 2e6e59d801dc3b6bd5e415ada7268469 *R/bystate.R
 8198ed65b99926d0ed9b07c49a1bf8e2 *R/deprecated.R
 87275ab3c5bd1af63ecfbd835ea8f53b *R/RAQSAPI-package.R
-77a42295baa4ba40cc3a409bed39f67b *R/RAQSAPIlistfunctions.R
+98d09a3daf414b41d254c637d00baf55 *R/RAQSAPIlistfunctions.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 8f51fe5ddf897afb20925542060627f7 *RAQSAPI.Rcheck/00_pkg_src/RAQSAPI/build/stage23.rdb
@@ -403,7 +403,7 @@ f7ea691da1baf266047ed7af4b0c4629 *RAQSAPI.Rcheck/tests/testthat/test-bypqao.R
 3e2e78ef3cf7666c3c041ff1b5bec788 *RAQSAPI.Rcheck/tests/testthat/testthat-problems.rds
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
 cfb9487651a3162cdb4308fb94e30719 *RAQSAPI_2.0.5.tar.gz
-e67079ab26d57115232487088b776c1e *README.md
+1bcb5829b14849a66085c2b70b93a89f *README.md
 10f9e33622104f2df281fb4119a09d36 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -1590,7 +1590,7 @@ b2d403f29050e86e8efa021931ef8649 *revdep/README.md
 84732d71bac50c96565c4894a24ecc59 *tests/testthat.R
 56891c92989166a785013a8953da96a3 *tests/testthat/helper.R
 00b1828926ec94b2537bb2343df723d5 *tests/testthat/local.R
-37d187be50c130b4e8a8c6d2bb0d9fa5 *tests/testthat/test-bybox.R
+522ea3f8b07f6f4d206ce3fe38f1fbd8 *tests/testthat/test-bybox.R
 c883634140b22f5fb97c08f909ce377e *tests/testthat/test-byCBSA.R
 50d37429e9bf99ad5be17e09d92e16e8 *tests/testthat/test-bycounty.R
 19a199f8020db0329fe289a41aa71598 *tests/testthat/test-byMA.R
@@ -1598,7 +1598,7 @@ f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 41e407548ac72ec4f41e678d23a566dd *tests/testthat/test-bysite.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
 014b81fb9c8d2350e1347841f41b24a3 *tests/testthat/test-helperfunctions.R
-480adf8b8de90b93a2074546df3cbbfb *tests/testthat/test-RAQSAPlistfunctions.R
+5c47835297e6b9949060dc1a7a0a15ae *tests/testthat/test-RAQSAPlistfunctions.R
 8ec3157359d9a0fbdf126ed74f399ee1 *vignettes/Acknowledgements.html
 49025d261826350f3050e677eab9dbac *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl
@@ -1610,13 +1610,13 @@ a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 ce3de92ce1a1d0851726b5ae8b384b79 *vignettes/figures/RAQSAPIhexsticker.png
 44aa30dce806516fb33882e14edf4d80 *vignettes/InstallandSetup.html
 69224454907b49f3de5fcf3527a3ad3f *vignettes/InstallandSetup.Rmd
-aaebea417e69f7f1fa559709ba5cbce8 *vignettes/Intro.html
-a629c5720b68a384451709002c95a499 *vignettes/Intro.Rmd
+67dad9bb335f711013028746cf7ed61a *vignettes/Intro.html
+07bc02844f0f6f2c93d40603e140f41b *vignettes/Intro.Rmd
 bce644f7c50a618fee8429b3655e5fb9 *vignettes/RAQSAPIFunctions-Brief.html
 1dbae57a3f574ccd77b4d2af2c76e831 *vignettes/RAQSAPIFunctions-Brief.Rmd
-cc0f370ba9e854f2f15d0ad4711559fe *vignettes/RAQSAPIFunctions-Long.html
-9b05ed18481e653f90cb98ee206be369 *vignettes/RAQSAPIFunctions-Long.R
-85c580fbdeb29023fb03126654384923 *vignettes/RAQSAPIFunctions-Long.Rmd
+9b96ebd481321226caedaa7ab4472d05 *vignettes/RAQSAPIFunctions-Long.html
+c65f35b91bfac8c4f16ee2319b95d4f5 *vignettes/RAQSAPIFunctions-Long.R
+e923e364682d337856051526b5b8b3a6 *vignettes/RAQSAPIFunctions-Long.Rmd
 f6a1f578b9267b1182c4c3845fc68fb0 *vignettes/RAQSAPIPurpose.html
 b676d49a421ed0b581e2b3269bac31e0 *vignettes/RAQSAPIPurpose.Rmd
 c0099b9c0fa4d49121ad8d61078d13a7 *vignettes/RAQSAPIusagetipsandprecautions.html

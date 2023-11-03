@@ -300,10 +300,10 @@ listfunctions <- paste(".states",
 str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
   cat(sep = "  \n")
 ```
-List functions return options or groupings that can be used in conjunction with
-    other API calls. By default each function in this category returns results
-    as a tibble. If return_header parameter is set to TRUE a AQSAPI_v2 object is
-    returned instead.
+List functions return the status, API options or groupings that can be used in
+    conjunction with other API calls. By default each function in this category
+    returns results as a tibble. If return_header parameter is set to TRUE a
+    AQSAPI_v2 object is returned instead.
 
 RAQSAPI::aqs_cbsas returns a table of all available Core Based Statistical
     Areas (cbsas) and their respective cbsa codes.
