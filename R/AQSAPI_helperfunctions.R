@@ -355,6 +355,7 @@ format_multiple_params_for_api <- function(x, separator=",")
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
 #' @importFrom tibble as_tibble
+#' @importFrom rlang caller_call
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json
 #'                   req_perform req_options req_retry req_throttle
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -377,23 +378,32 @@ aqs <- function(service, filter = NULL, user = NA,
 
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
-                                  variables))) %>%
+                                  variables)))
+  AQSrequest <- AQSpath %>%
     request() %>%
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 30, backoff = ~10)
     # AQS DataMart API does not accept headers so user_agent not working
     #%>% req_user_agent(string = user_agent)
 
-    AQStemp <- AQSpath %>%
-      req_perform(verbosity = 0) %>%
+    AQSresponse <- AQSrequest %>%
+      req_perform(verbosity = 0)
+
+    if(httr2::resp_is_error(AQSresponse))
+    {
+      message(glue("RAQSAPI experienced an error with in aqs function from
+                   {rlang::caller_call(n=2)} /n
+                   url: {AQSpath}"))
+    }
+
+    AQSresponse %<>%
       resp_body_json(simplifyVector = TRUE,
                      simplifyDataFrame = TRUE)
-
     AQSresult <- vector("list", length = 2)
-     AQSresult[[1]] <- AQStemp$Header
-     AQSresult[[2]] <- AQStemp$Data
-     names(AQSresult) <- c("Header", "Data")
-     AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
+    AQSresult[[1]] <- AQSresponse$Header
+    AQSresult[[2]] <- AQSresponse$Data
+    names(AQSresult) <- c("Header", "Data")
+    AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
      #aqs_ratelimit() #depricated
      return(AQSresult)
 
