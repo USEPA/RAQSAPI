@@ -7,9 +7,22 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
-  *RAQSAPI 2.0.4 was not published on CRAN.
+  - aqs_isavailable no longer accepts the return_header parameter, this function
+    just returns a tibble and not a AQS_Data Mart_APIv2 object.
   - fixed an issue where the duration parameter was being ignored in
     aqs_sampledata_by_* functions.
+  - add note to aqs_sampledurations function about not returning calculated
+    durations
+  *RAQSAPI 2.0.4 was not published on CRAN.
+  - The rate limit has been changed from a constant 5 second wait time to a
+    maximum of 10 requests per minute.
+  - RAQSAPI will retry certain requests if they fail for a maximum of 5 times
+    after a 10 second wait time.
+  - Moved to the httr2 backend, removed desc from suggests and
+    httr, and jsonlite as from imports.
+  - There is an issue with curl connecting to the AQS Datamart API, on
+    windows platforms, as a temporary fix, RAQSAPI will default to using
+    the Schannel curl backend.
   - modify QA Collocated Assessments by County and by Site unit tests and
     example code to reflect modified data.
   - update CITATION file to the new style citation.

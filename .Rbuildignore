@@ -14,7 +14,6 @@
 ^README.Rmd
 ^README.md
 ^README.html
-^LICENSE.md
 ^RAQSAPI.Rproj
 ^doc$
 ^dev$
@@ -40,5 +39,6 @@ tests/testthat/local.R
 dev/*
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE$
 codemeta.json
+^revdep$
+^LICENSE\.md$

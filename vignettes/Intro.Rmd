@@ -34,12 +34,12 @@ The `RAQSAPI` package for the R programming environment allows a R programming
   results, handling credentials, requesting multiple pollutant data and rate
   limiting data requests. All the basic functionality of the API have been
   implemented that are available from the AQS API Data Mart server. The library
-  connects to AQS Data Mart API via Hypertext Transfer Protocol (HTTP) so there
-  is no need to install external ODBC drivers, configure ODBC connections or
-  deal with the security vulnerabilities associated with them. Most functions
-  have a parameter, return_header which by default is set to FALSE. If the user
-  decides to set return_header to TRUE, then that function will return a R
-  AQS_DATAMART_APIv2 S3 object which is a two item named list.  
+  connects to AQS Data Mart API via Secure Hypertext Transfer Protocol (HTTPS)
+  so there is no need to install external ODBC drivers, configure ODBC
+  connections or deal with the security vulnerabilities associated with them.
+  Most API functions have a parameter, return_header, which by default is set to
+  FALSE. If the user decides to set return_header to TRUE, then that function
+  will return a R AQS_DATAMART_APIv2 S3 object which is a two item named list.  
   The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
   tibble[@package:tibble] 
   which contains the header information. The Header contains status

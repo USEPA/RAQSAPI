@@ -52,8 +52,7 @@ Depends: R (>= 4.0.0)
 Imports: 
     dplyr,
     glue,
-    httr,
-    jsonlite,
+    httr2,
     lifecycle,
     lubridate,
     magrittr,
@@ -63,7 +62,6 @@ Imports:
     tibble
 Suggests:
     covr,
-    desc,
     devtools,
     goodpractice,
     keyring,
@@ -80,7 +78,7 @@ RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
-License: MIT
+License: MIT + file LICENSE
 License_is_FOSS: yes
 NeedsCompilation: no
 License_restricts_use: no

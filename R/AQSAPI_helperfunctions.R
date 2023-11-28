@@ -321,25 +321,6 @@ format_multiple_params_for_api <- function(x, separator=",")
 }
 
 
-#' @title aqs_ratelimit
-#' @description a helper function that should not be called externally, used
-#'                 as a primitive rate limit function for aqs.
-#' @param waittime the number of seconds, encoded as a numeric, that the API
-#'                     should wait after performing a API query
-#'                     (defaults to 5 seconds, as recommended by the AQS team).
-#' @note  Although this function is designed to prevent users from exceeding
-#'        allowed data limits, it can not garuntee that the user exceed rate
-#'        limits. Users are advised to monitor their own usage to ensure that
-#'        data limits are not exceeded. Use of this package is at the users own
-#'        risk. The maintainers of this code assume no responsibility due to
-#'        anything that may happen as a result of using this code.
-#' @return NULL
-#' @noRd
-aqs_ratelimit <- function(waittime=5L)
-{
-  Sys.sleep(waittime)
-}
-
 #' @title aqs
 #' @description a helper function sends a AQS RESTful request to the AQS API
 #'                 and returns the result as a aqs data type. This helper
@@ -373,108 +354,61 @@ aqs_ratelimit <- function(waittime=5L)
 #' @importFrom dplyr mutate select arrange
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
-#' @importFrom rlang .data is_empty
 #' @importFrom tibble as_tibble
-#' @importFrom rlang local_options
-#' @importFrom httr GET http_type content http_error status_code modify_url
-#'               user_agent message_for_status
+#' @importFrom rlang caller_call
+#' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json
+#'                   req_perform req_options req_retry req_throttle
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 #' @noRd
-aqs <- function(service, filter = NA, user = NA,
+aqs <- function(service, filter = NULL, user = NA,
                     user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
 {
-  if (is.null(getOption("aqs_username")) |
-      is.null(getOption("aqs_key")))
-  {stop("please enter user credentials before using RAQSAPI functions,\n
-         please refer to \'?aqs_credentials()\' for useage infomation \n")}
+  if (is.null(user) | is.null(user_key))
+         {stop("please enter user credentials before using RAQSAPI functions,\n
+                please refer to \'?aqs_credentials()\' for useage infomation \n"
+              )
+          }
+  # AQS DataMart API does not accept headers so user_agent not working
+  # user_agent <- glue("User:{user} via RAQSAPI-{packageVersion('RAQSAPI')}
+  #                     library for R")
 
-  #on windows platform, use the Schannel Curl_SSL_BACKEND to avoid the
-  #legacy renegotiation disabled error
-  # if(.Platform$OS.type == "windows")
-  # {
-  #   local_options(CURL_SSL_BACKEND="Schannel")
-  # }
+  AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
+    glue(format_variables_for_api(c(list(email = I(user), key = user_key),
+                                  variables)))
+  AQSrequest <- AQSpath %>%
+    request() %>%
+    req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
+    req_retry(max_tries = 5, max_seconds = 30, backoff = ~10)
+    # AQS DataMart API does not accept headers so user_agent not working
+    #%>% req_user_agent(string = user_agent)
 
-  user_agent <- glue("User:{user} via RAQSAPI library for R") %>%
-    httr::user_agent()
+    AQSresponse <- AQSrequest %>%
+      req_perform(verbosity = 0)
 
-   if (rlang::is_empty(service) & rlang::is_empty(filter))
-  {
-    path <- glue::glue("/data/api/")
-  }else if (rlang::is_empty(service))
-  {
-    path <- glue::glue("/data/api/")
-  }else if (rlang::is_empty(filter))
-  {
-    path <- glue::glue("/data/api/{service}")
-  }else {
-    path <- glue::glue("/data/api/{service}/{filter}")
-  }
-
-  query <- c(email = I(user),
-             key = I(user_key),
-             variables,
-             recursive = TRUE) %>%
-    as.list
-  #modify_url interprets NA's as literals therefore will need to remove all NA
-  # values before continuing
-  query <- query[!is.na(query)]
-  url <- httr::modify_url(scheme = "https",
-                          hostname = AQS_domain,
-                          url = path,
-                          query = query
-                         )
-
-    AQSresult <- httr::GET(url, user_agent)
-  aqs_ratelimit()
-  if (httr::http_type(AQSresult) != "application/json") {
-    stop("API did not return json", call. = TRUE)
-  }
-
-  out <- jsonlite::fromJSON(httr::content(AQSresult, "text"),
-                            simplifyDataFrame = TRUE)
-  if ("Header" %in% names(out)) {out$Header %<>% tibble::as_tibble()}
-  if ("Data" %in% names(out)) {out$Data %<>% tibble::as_tibble()}
-  if ("Error" %in% names(out)) {out$Error %<>% tibble::as_tibble()}
-
-  if (httr::http_error(AQSresult))
+    if(httr2::resp_is_error(AQSresponse))
     {
-       message("RAQSAPI has encountered an error")
-       message(paste("RAQSAPI failed on url: ", out$Header$url, sep=" "))
-       stop(httr::message_for_status(AQSresult),
-            call. = FALSE
-           )
-     }
-  out <- structure(.Data = out, class = "AQS_DATAMART_APIv2")
-  out$Data$datetime <- NA_character_ #create a new column in the Data dataframe
-
-  #arrange $Data portion by date_local, time_local if present.
-  #  this is done by creating a temporary variable named datetime
-  #  corercing datetime into a POSIXct object, then arranging $Data by this
-  #  variable. Lastly the temporary variable is removed.
-  if (all(c("date_local", "time_local") %in% colnames(out$Data)))
-    {
-      #out$Data %<>% dplyr::mutate(datetime = glue("{date_local} {time_local}"))
-      #out$Data %<>% dplyr::mutate(datetime = ymd_hm(.data$`datetime`))
-      #out$Data %<>% dplyr::arrange(.data$datetime)
-      #out$Data %<>% dplyr::select(-.data$datetime)
-
-      #Needed to get rid of that pesky check note "no visible binding for
-      # global variable 'datetime'
-      out$Data$datetime <- NA_character_
-
-      out$Data %<>% dplyr::mutate(datetime = glue("{.data$date_local}
-                                                  {.data$time_local}")) %>%
-        dplyr::mutate(datetime = ymd_hm(.data$datetime)) %>%
-        dplyr::arrange(.data$datetime) %>%
-        dplyr::select(- datetime)
+      message(glue("RAQSAPI experienced an error with in aqs function from
+                   {rlang::caller_call(n=2)} /n
+                   url: {AQSpath}"))
     }
-  return(out)
+
+    AQSresponse %<>%
+      resp_body_json(simplifyVector = TRUE,
+                     simplifyDataFrame = TRUE)
+    AQSresult <- vector("list", length = 2)
+    AQSresult[[1]] <- AQSresponse$Header
+    AQSresult[[2]] <- AQSresponse$Data
+    names(AQSresult) <- c("Header", "Data")
+    AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
+     #aqs_ratelimit() #depricated
+     return(AQSresult)
+
 }
+
 
 #' @title isValidEmail
 #' @description a helper function that checks the input string has the form

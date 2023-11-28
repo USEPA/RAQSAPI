@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "type": "SoftwareSourceCode",
+      "author": {
+        "type": "Person",
+        "email": "mccrowey.clinton@epa.gov",
+        "familyName": "Mccrowey",
+        "givenName": "Clinton"
+      },
+      "codeRepository": "https://github.com/USEPA/RAQSAPI",
+      "contributor": [
+        {
+          "type": "Person",
+          "familyName": "Sharac",
+          "givenName": "Timothy"
+        },
+        {
+          "type": "Person",
+          "familyName": "Jager",
+          "givenName": "Doug"
+        },
+        {
+          "type": "Person",
+          "familyName": "Brown",
+          "givenName": "Ryan"
+        },
+        {
+          "type": "Person",
+          "familyName": "Garver",
+          "givenName": "Daniel"
+        },
+        {
+          "type": "Person",
+          "familyName": "Wells",
+          "givenName": "Benjamin"
+        },
+        {
+          "type": "Person",
+          "email": "edward.s.andrews@wv.gov",
+          "familyName": "Andrews",
+          "givenName": "Edward"
+        }
+      ],
+      "description": "Retrieve air monitoring data and associated metadata from the US Environmental Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about the US EPA Data Mart API.",
+      "license": "https://spdx.org/licenses/MIT",
+      "name": "RAQSAPI: A Simple Interface to the US EPA Air Quality System Data Mart API",
+      "programmingLanguage": {
+        "type": "ComputerLanguage",
+        "name": "R",
+        "url": "https://r-project.org"
+      },
+      "provider": {
+        "id": "https://cran.r-project.org",
+        "type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "runtimePlatform": "R version 4.3.0 (2023-04-21 ucrt)",
+      "version": "2.0.5"
+    },
+    {
+      "type": "SoftwareSourceCode",
+      "author": {
+        "type": "Person",
+        "email": "mccrowey.clinton@epa.gov",
+        "familyName": "Mccrowey",
+        "givenName": "Clinton"
+      },
+      "name": "A R Interface to the US EPA Air Quality System\n                  Data Mart API"
+    }
+  ]
+}
