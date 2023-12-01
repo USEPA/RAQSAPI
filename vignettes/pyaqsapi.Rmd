@@ -10,14 +10,14 @@ author:
 output:
   rmarkdown::html_vignette: default
 lang: en-US
-bibliography: ./AQSAPI.bib
-csl: ./acs-nano.csl
 vignette: >
   %\VignetteIndexEntry{pyaqsapi - a port of RAQSAPI to the python 3 programming environment}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{knitr}
   %\VignetteDepends{rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
+bibliography: ./AQSAPI.bib
+csl: ./acs-nano.csl
 ---
 
 ```{r setup, include=FALSE}

@@ -9,7 +9,6 @@ author:
   name: Clinton Mccrowey
 output:
   rmarkdown::html_vignette: default
-bibliography: AQSAPI.bib
 lang: en-US
 #csl: acs-nano.csl
 subtitle: RAQSAPI Purpose
@@ -23,6 +22,8 @@ vignette: >
   %\VignetteDepends{knitr}
   %\VignetteDepends{rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
+bibliography: AQSAPI.bib
+csl: acs-nano.csl
 ---
 
 ```{r setup, include = FALSE}

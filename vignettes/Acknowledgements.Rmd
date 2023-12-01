@@ -10,6 +10,8 @@ vignette: >
   %\VignetteDepends{knitr}
   %\VignetteDepends{rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
+bibliography: AQSAPI.bib
+csl: acs-nano.csl
 ---
 
 # Acknowledgements

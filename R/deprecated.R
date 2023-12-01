@@ -7,7 +7,7 @@
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceeval_by_site <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -26,7 +26,7 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceeval_by_county <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -44,7 +44,7 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceeval_by_state <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -62,7 +62,7 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceeval_by_pqao <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -82,7 +82,7 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceeval_by_MA <- function()
 {
    abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been
@@ -100,7 +100,7 @@ aqs_qa_annualpeferomanceeval_by_MA <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -118,7 +118,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -136,7 +136,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -153,7 +153,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
 #' @export
-#' @rdname deprecated.Rd
+#' @rdname deprecated
 aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
