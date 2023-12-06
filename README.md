@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--12--01-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202023--12--06-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -405,17 +405,16 @@ The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
 those sources with them RAQSAPI would not be possible.
 
-- README badges are provided by R package `badgecreator`<sup>5</sup>.
-- The R package `usethis`<sup>6</sup> was used to generate GitHub
+- The R package `usethis`<sup>5</sup> was used to generate GitHub
   actions for Continuous integration (CI).
-- Code cleanup was assisted by the R package `lintr`<sup>7</sup>
+- Code cleanup was assisted by the R package `lintr`<sup>6</sup>
 - the function *install.packages* are provided by the R package
-  `utils`<sup>8</sup>
+  `utils`<sup>7</sup>
 - the function *install_github* are provided by the R package
-  `remotes`<sup>9</sup>
+  `remotes`<sup>8</sup>
 - .gitignore file borrowed examples from
   <https://github.com/github/gitignore/blob/master/R.gitignore>
-- The RAQSAPI hexsticker was created using the `hexSticker`<sup>10</sup>
+- The RAQSAPI hexsticker was created using the `hexSticker`<sup>9</sup>
   package for R
 
 # References
@@ -457,18 +456,9 @@ Mart API V2 Interface, 2022. <https://github.com/USEPA/pyaqsapi>.</span>
 
 </div>
 
-<div id="ref-package:badgecreatr" class="csl-entry">
-
-<span class="csl-left-margin">(5)
-</span><span class="csl-right-inline">Hogervorst, R. M. *[Badgecreatr:
-Create Badges for ’Travis’, ’Repostatus’ ’Codecov.io’ Etc in Github
-Readme](https://CRAN.R-project.org/package=badgecreatr)*; 2019.</span>
-
-</div>
-
 <div id="ref-package:usethis" class="csl-entry">
 
-<span class="csl-left-margin">(6)
+<span class="csl-left-margin">(5)
 </span><span class="csl-right-inline">Wickham, H.; Bryan, J.; Barrett,
 M. *[Usethis: Automate Package and Project
 Setup](https://CRAN.R-project.org/package=usethis)*; 2021.</span>
@@ -477,7 +467,7 @@ Setup](https://CRAN.R-project.org/package=usethis)*; 2021.</span>
 
 <div id="ref-package:lintr" class="csl-entry">
 
-<span class="csl-left-margin">(7)
+<span class="csl-left-margin">(6)
 </span><span class="csl-right-inline">Hester, J.; Angly, F.; Hyde, R.
 *[Lintr: A ’Linter’ for r
 Code](https://CRAN.R-project.org/package=lintr)*; 2020.</span>
@@ -486,7 +476,7 @@ Code](https://CRAN.R-project.org/package=lintr)*; 2020.</span>
 
 <div id="ref-RBase" class="csl-entry">
 
-<span class="csl-left-margin">(8)
+<span class="csl-left-margin">(7)
 </span><span class="csl-right-inline">Team, R. C. *[R: A Language and
 Environment for Statistical Computing](https://www.R-project.org/)*; R
 Foundation for Statistical Computing: Vienna, Austria, 2019.</span>
@@ -495,7 +485,7 @@ Foundation for Statistical Computing: Vienna, Austria, 2019.</span>
 
 <div id="ref-package:remotes" class="csl-entry">
 
-<span class="csl-left-margin">(9)
+<span class="csl-left-margin">(8)
 </span><span class="csl-right-inline">Csárdi, G.; Hester, J.; Wickham,
 H.; Chang, W.; Morgan, M.; Tenenbaum, D. *[Remotes: R Package
 Installation from Remote Repositories, Including
@@ -505,7 +495,7 @@ Installation from Remote Repositories, Including
 
 <div id="ref-package:hexsticker" class="csl-entry">
 
-<span class="csl-left-margin">(10)
+<span class="csl-left-margin">(9)
 </span><span class="csl-right-inline">Yu, G. *[hexSticker: Create
 Hexagon Sticker in r](https://CRAN.R-project.org/package=hexSticker)*;
 2020.</span>

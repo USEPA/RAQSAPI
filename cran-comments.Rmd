@@ -7,6 +7,7 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
+  - New hexstciker.
   - aqs_isavailable no longer accepts the return_header parameter, this function
     just returns a tibble and not a AQS_Data Mart_APIv2 object.
   - fixed an issue where the duration parameter was being ignored in

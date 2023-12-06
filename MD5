@@ -1,6 +1,6 @@
 d3a7f7cc6aca27a043309d5bf9f32edc *codemeta.json
-a4f38bdcd1e2b228600cb6e693648a12 *cran-comments.md
-a4f38bdcd1e2b228600cb6e693648a12 *cran-comments.Rmd
+78f3339af946d3c1bb810468b4981aa7 *cran-comments.md
+78f3339af946d3c1bb810468b4981aa7 *cran-comments.Rmd
 7b3092d9d1ec246090f159fd55deeb57 *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
@@ -403,7 +403,7 @@ f7ea691da1baf266047ed7af4b0c4629 *RAQSAPI.Rcheck/tests/testthat/test-bypqao.R
 3e2e78ef3cf7666c3c041ff1b5bec788 *RAQSAPI.Rcheck/tests/testthat/testthat-problems.rds
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
 cfb9487651a3162cdb4308fb94e30719 *RAQSAPI_2.0.5.tar.gz
-0860b0b61066e79ce6540b84d1d3aa04 *README.md
+f74f9e39da6098cb10a02d51b25e7c65 *README.md
 b2370e0e3f63a29557cd8f74746d74f6 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -1599,15 +1599,15 @@ f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
 014b81fb9c8d2350e1347841f41b24a3 *tests/testthat/test-helperfunctions.R
 e897203bb026b43141e5bc00dfe3cecd *tests/testthat/test-RAQSAPlistfunctions.R
-e4f9e3d5f1df30e56e5b5c18cf7149d3 *vignettes/Acknowledgements.html
-2834ddbf1c676ec4f80eac63869ee66e *vignettes/Acknowledgements.Rmd
+2af1969551c714d9527088a1186ea420 *vignettes/Acknowledgements.html
+e4818cf1094c1e272bf9c0d985055632 *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl
 0ec78b946a45069323acf54a24c77566 *vignettes/american-chemical-society.csl
 2afd7b01c6150e217d3989e7a704813e *vignettes/AQSAPI.bib
 de323c3deb36e066a7583c5b756ae49b *vignettes/EPA_Disclaimer.html
 a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 9f8f6638c5178a9bec62665b4cef5e1d *vignettes/figures/AQS_LOGO.png
-ce3de92ce1a1d0851726b5ae8b384b79 *vignettes/figures/RAQSAPIhexsticker.png
+52656f58a1ace48010f646376b988318 *vignettes/figures/RAQSAPIhexsticker.png
 44aa30dce806516fb33882e14edf4d80 *vignettes/InstallandSetup.html
 69224454907b49f3de5fcf3527a3ad3f *vignettes/InstallandSetup.Rmd
 87c86671047d619e996c248050cce085 *vignettes/Intro.html
