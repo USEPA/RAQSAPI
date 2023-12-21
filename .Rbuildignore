@@ -45,3 +45,7 @@ codemeta.json
 
 # Output files from R CMD check
 /*.Rcheck/
+
+# RAQSAPI package files
+*.tar.gz
+*.zip

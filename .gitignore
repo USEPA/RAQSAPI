@@ -51,3 +51,7 @@ dev/.experimental.R
 /*.Rcheck/
 /doc/
 /Meta/
+
+# RAQSAPI package files
+*.tar.gz
+*.zip
