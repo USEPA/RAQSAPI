@@ -10,7 +10,7 @@ d3a7f7cc6aca27a043309d5bf9f32edc *codemeta.json
 3c41777493d242206848842b6ba74fde *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
 dd65d70b425fb86f7c8b6d8841a837d8 *inst/schemaorg.json
-44650d3802ce6c4eccbbfc02684e51a2 *inst/WORDLIST
+f8856800f427562ecf965aa9c4899e8f *inst/WORDLIST
 e5b82cf7f3c21891bc0643f662a3f1ba *LICENSE
 9b3dc9e54281bcaa0a530371869f506c *LICENSE.md
 e7ec2b281fcab3d1b34b26031438438a *man/aqs_annualsummary_by_box.Rd
@@ -133,7 +133,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-5c9c15faa5fe536401b1aa571134cf3b *README.md
+c258e44bddf49695bdc3996fb80adf54 *README.md
 b2370e0e3f63a29557cd8f74746d74f6 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml

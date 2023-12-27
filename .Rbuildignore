@@ -47,5 +47,5 @@ codemeta.json
 /*.Rcheck/
 
 # RAQSAPI package files
-*.tar.gz
-*.zip
+^.tar.gz
+^.zip
