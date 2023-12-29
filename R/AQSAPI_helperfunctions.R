@@ -381,6 +381,7 @@ aqs <- function(service, filter = NULL, user = NA,
                                   variables)))
   AQSrequest <- AQSpath %>%
     request() %>%
+
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 30, backoff = ~10)
     # AQS DataMart API does not accept headers so user_agent not working
