@@ -1,6 +1,7 @@
+2d3e0e574783202b33c52d6feba58dd3 *CITATION.cff
 d3a7f7cc6aca27a043309d5bf9f32edc *codemeta.json
-41bc862202d75db51f4feb1f17fb2021 *cran-comments.md
-41bc862202d75db51f4feb1f17fb2021 *cran-comments.Rmd
+bfa24dfc7e0f2f217163fa917e8d2392 *cran-comments.md
+bfa24dfc7e0f2f217163fa917e8d2392 *cran-comments.Rmd
 7b3092d9d1ec246090f159fd55deeb57 *DESCRIPTION
 1dc95961c4c280f8645a65d15662725f *dev/contributing.md
 4fc13def6ec5d889261f1f22a13ba542 *dev/contributing.Rmd
@@ -116,9 +117,9 @@ f41ed996be135fb35afe00641621da61 *man/figures/lifecycle-questioning.svg
 ed42e3fbd7cc30bc6ca8fa9b658e24a8 *man/figures/lifecycle-stable.svg
 bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 7ce4525010156c02adaf819a8c835134 *man/RAQSAPI.Rd
-57d6cc4244ee282e5008f2245cbb451f *NAMESPACE
+797940f405cb85557ee355e7eae5894d *NAMESPACE
 904839971aff979c1716322c7d8bcdff *NEWS.md
-b3ea59c2042dbff778d8bec40aede580 *R/AQSAPI_helperfunctions.R
+b63d94a18d37de10925e09e6c3bb2eeb *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -132,7 +133,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-f46d3c0ef441d77706bcf750b4aa45c8 *README.md
+feb8f6defa51349e6110273bedcc046b *README.md
 b2370e0e3f63a29557cd8f74746d74f6 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -1328,11 +1329,11 @@ f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
 051416af24d0386f084eb13a14053ce1 *tests/testthat/test-bystate.R
 014b81fb9c8d2350e1347841f41b24a3 *tests/testthat/test-helperfunctions.R
 e897203bb026b43141e5bc00dfe3cecd *tests/testthat/test-RAQSAPlistfunctions.R
-b61158a69282efb5764330a69903f09f *vignettes/Acknowledgements.html
-c88632127a253c0c0252f83d6684e83f *vignettes/Acknowledgements.Rmd
+183ed69a443baffdf0454255cade3fcc *vignettes/Acknowledgements.html
+18cea3348cace002e6c706d373beb524 *vignettes/Acknowledgements.Rmd
 22d607e5d49e10047a911e5d42183c34 *vignettes/acs-nano.csl
 0ec78b946a45069323acf54a24c77566 *vignettes/american-chemical-society.csl
-ac521e98550ad829bf3d9b1055022f66 *vignettes/AQSAPI.bib
+e1df58c4692ce8a6e9743bf9d594ff9e *vignettes/AQSAPI.bib
 de323c3deb36e066a7583c5b756ae49b *vignettes/EPA_Disclaimer.html
 a79d926b2ab509e6a9e575539b205280 *vignettes/EPA_Disclaimer.Rmd
 9f8f6638c5178a9bec62665b4cef5e1d *vignettes/figures/AQS_LOGO.png

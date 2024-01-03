@@ -14,7 +14,6 @@
 ^README.md
 ^README.html
 ^RAQSAPI.Rproj
-^doc$
 ^dev$
 .out$
 .log$
@@ -40,12 +39,10 @@ dev/*
 ^.*\.Rproj$
 ^\.Rproj\.user$
 codemeta.json
-^revdep$
 ^LICENSE\.md$
-
 # Output files from R CMD check
 /*.Rcheck/
-
 # RAQSAPI package files
 ^.tar.gz
 ^.zip
+^CITATION\.cff$

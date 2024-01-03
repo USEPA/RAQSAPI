@@ -7,6 +7,8 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
+  - Added the ability to display server side messages for errors in API calls.
+  - Added a new CITATION.cff for thanks to R package cffr.
   - New hexstciker.
   - aqs_isavailable no longer accepts the return_header parameter, this function
     just returns a tibble and not a AQS_Data Mart_APIv2 object.
