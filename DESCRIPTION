@@ -73,8 +73,9 @@ Suggests:
     testthat (>= 3.0.0),
     usethis,
     withr
-SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
-RoxygenNote: 7.2.3
+SystemRequirements: package manual and Vignettes require pandoc 
+                    (>= 1.14) http://pandoc.org)
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true

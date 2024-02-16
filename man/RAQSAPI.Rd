@@ -2,8 +2,8 @@
 % Please edit documentation in R/RAQSAPI-package.R
 \docType{package}
 \name{RAQSAPI}
-\alias{RAQSAPI}
 \alias{RAQSAPI-package}
+\alias{RAQSAPI}
 \title{RAQSAPI: A R Interface to The United States Environmental Protection
 Agency's Air Quality System Data Mart RESTful API server.}
 \description{

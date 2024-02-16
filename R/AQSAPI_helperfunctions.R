@@ -346,11 +346,11 @@ RAQSAPI_error_msg <- function(AQSresponse)
               resp_body_json()
 
   msg <- glue("At server request time: {AQSresponse$headers$Date}
-              RAQSAPI experienced an error while processing the following url:
-              {AQSresponse$url}\n
-              with status_code: {AQSresponse$status_code}
-              and status message: {AQSresponse$status}
-              Server error message: {AQSerr$Header[[1]]$error}")
+               RAQSAPI experienced an error while processing the following url:
+               {gsub('(.)', '\\1 ', AQSresponse$url)}\n
+               with status_code: {AQSresponse$status_code}
+               and status message: {AQSresponse$status}
+               Server error message: {AQSerr$Header[[1]]$error}")
 
      return(msg)
   #nocov end
