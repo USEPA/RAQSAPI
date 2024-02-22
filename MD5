@@ -119,7 +119,7 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 792c28b91a2c0b5e0b060a2f18a20464 *man/RAQSAPI.Rd
 797940f405cb85557ee355e7eae5894d *NAMESPACE
 904839971aff979c1716322c7d8bcdff *NEWS.md
-d214f5204ba0d95601a92910109aad5e *R/AQSAPI_helperfunctions.R
+f2b0589a8087331e39aaa983561329aa *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -133,7 +133,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-4a756ab5cecfa9d56c075e6ed5353d6b *README.md
+5680d12ac8564134755c8f3889d17dd8 *README.md
 b2370e0e3f63a29557cd8f74746d74f6 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -1318,8 +1318,8 @@ b2d403f29050e86e8efa021931ef8649 *revdep/README.md
 9566921a96ff55c1a51b6eb898d25884 *tests/spelling.R
 846f989b5f8b7a32fa520e52b4675635 *tests/test-RAQSAPI.R.blob
 84732d71bac50c96565c4894a24ecc59 *tests/testthat.R
-56891c92989166a785013a8953da96a3 *tests/testthat/helper.R
-00b1828926ec94b2537bb2343df723d5 *tests/testthat/local.R
+89ff48b08754c7fc927acb5b6691bdb1 *tests/testthat/helper.R
+d5348436deb0b02017a3f7227ae8e5ab *tests/testthat/local.R
 522ea3f8b07f6f4d206ce3fe38f1fbd8 *tests/testthat/test-bybox.R
 c883634140b22f5fb97c08f909ce377e *tests/testthat/test-byCBSA.R
 50d37429e9bf99ad5be17e09d92e16e8 *tests/testthat/test-bycounty.R
