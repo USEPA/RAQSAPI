@@ -348,7 +348,7 @@ RAQSAPI_error_msg <- function(AQSresponse)
   #debug
   msg <- glue("At server request time: {AQSresponse$headers$Date}
                RAQSAPI experienced an error while processing the following url:
-               {str_replace_all(AQSresponse$url, pattern='(.)', '\\1_')}\n #debug {AQSresponse$url}
+               {str_replace_all(AQSresponse$url, pattern='(.)', '\\1_')}\n
                with status_code: {AQSresponse$status_code}
                and status message: {AQSresponse$status}
                Server error message: {AQSerr$Header[[1]]$error}")
