@@ -117,9 +117,9 @@ f41ed996be135fb35afe00641621da61 *man/figures/lifecycle-questioning.svg
 ed42e3fbd7cc30bc6ca8fa9b658e24a8 *man/figures/lifecycle-stable.svg
 bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 792c28b91a2c0b5e0b060a2f18a20464 *man/RAQSAPI.Rd
-797940f405cb85557ee355e7eae5894d *NAMESPACE
+eef9bd75f39b496fcfd63a36be7fb5a8 *NAMESPACE
 904839971aff979c1716322c7d8bcdff *NEWS.md
-f031417051ac3339f2600928ed3b9a29 *R/AQSAPI_helperfunctions.R
+f5bb0087a67a6d8912e802b5e53e025a *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 bd8b36cc7325d4fc8b8ed894f0046678 *R/bycbsa.R
 253ea551f88c65c1c49feff3cb33f552 *R/bycounty.R
@@ -133,7 +133,7 @@ d82b1ff8ee144afca1879e5b8dc58840 *R/byma.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 a69de5455537022556f014579766be59 *RAQSAPI.Rproj
-18f76ebd36736b286f12114b4d1a75b1 *README.md
+0a09f7b01761cf3c04560c3dd27ba89a *README.md
 b2370e0e3f63a29557cd8f74746d74f6 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -1321,7 +1321,7 @@ b2d403f29050e86e8efa021931ef8649 *revdep/README.md
 89ff48b08754c7fc927acb5b6691bdb1 *tests/testthat/helper.R
 d5348436deb0b02017a3f7227ae8e5ab *tests/testthat/local.R
 522ea3f8b07f6f4d206ce3fe38f1fbd8 *tests/testthat/test-bybox.R
-c883634140b22f5fb97c08f909ce377e *tests/testthat/test-byCBSA.R
+67192eeb2606380b3c349f08851ef9e6 *tests/testthat/test-byCBSA.R
 50d37429e9bf99ad5be17e09d92e16e8 *tests/testthat/test-bycounty.R
 19a199f8020db0329fe289a41aa71598 *tests/testthat/test-byMA.R
 f7ea691da1baf266047ed7af4b0c4629 *tests/testthat/test-bypqao.R
