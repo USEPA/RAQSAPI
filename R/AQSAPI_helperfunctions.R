@@ -327,6 +327,7 @@ format_multiple_params_for_api <- function(x, separator=",")
 #' @importFrom glue glue
 #' @importFrom httr2 last_response resp_body_json
 #' @importFrom magrittr `%<>%`
+#' @importFrom stringr str_replace_all
 #'
 #' @description A helper function that is called by httr2::req_error when an
 #'              error is encountered performing a request. This function returns
