@@ -63,7 +63,6 @@ Imports:
 Suggests:
     covr,
     devtools,
-    goodpractice,
     keyring,
     knitr,
     markdown,

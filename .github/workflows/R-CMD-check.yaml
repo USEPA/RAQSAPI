@@ -26,8 +26,8 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RAQSAPIKEY: ${{ secrets.RAQSAPIKEY }}
-      RAQSAPIUSERNAME: ${{ secrets.RAQSAPIUSERNAME }}
+      RAQSAPIKEY: "${{ secrets.RAQSAPIKEY }}"
+      RAQSAPIUSERNAME: "${{ secrets.RAQSAPIUSERNAME }}"
       R_KEEP_PKG_SOURCE: yes
 
     steps:

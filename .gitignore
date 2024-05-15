@@ -55,3 +55,4 @@ dev/.experimental.R
 # RAQSAPI package files
 *.tar.gz
 *.zip
+RAQSAPI.code-workspace

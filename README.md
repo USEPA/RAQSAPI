@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202024--04--05-yellowgreen.svg)](/commits/master)”
+“[![Last-changedate](https://img.shields.io/badge/last%20change-%202024--05--15-yellowgreen.svg)](/commits/master)”
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -419,7 +419,7 @@ those sources with them RAQSAPI would not be possible.
 
 # References
 
-<div id="refs" class="references csl-bib-body">
+<div id="refs" class="references csl-bib-body" entry-spacing="0">
 
 <div id="ref-AQSDataMartWelcome" class="csl-entry">
 

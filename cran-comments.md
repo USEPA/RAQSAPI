@@ -7,6 +7,7 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
+  - remove depricated package:goodpractice from SUGGESTS
   - Added the ability to display server side messages for errors in API calls.
   - Added a new CITATION.cff for thanks to R package cffr.
   - New hexstciker.

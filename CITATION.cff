@@ -2,7 +2,7 @@
 # CITATION file created with {cffr} R package, v0.5.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
- 
+
 cff-version: 1.2.0
 message: 'To cite package "RAQSAPI" in publications use:'
 type: software
@@ -273,31 +273,6 @@ references:
     given-names: Jennifer
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2023'
-- type: software
-  title: goodpractice
-  abstract: 'goodpractice: Advice on R Package Building'
-  notes: Suggests
-  url: https://github.com/mangothecat/goodpractice
-  repository: https://CRAN.R-project.org/package=goodpractice
-  authors:
-  - family-names: Marks
-    given-names: Karina
-    email: karina.marks@ascent.io
-  - family-names: de Bortoli
-    given-names: Daniel
-  - family-names: Csardi
-    given-names: Gabor
-    email: csardi.gabor@gmail.com
-  - family-names: Frick
-    given-names: Hannah
-    email: hannah.frick@gmail.com
-  - family-names: Jones
-    given-names: Owen
-    email: owenjonesuob@gmail.com
-  - family-names: Alexander
-    given-names: Hannah
-    email: halexander@mango-solutions.com
   year: '2023'
 - type: software
   title: keyring
