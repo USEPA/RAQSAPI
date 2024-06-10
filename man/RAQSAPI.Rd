@@ -5,7 +5,7 @@
 \alias{RAQSAPI-package}
 \alias{RAQSAPI}
 \title{RAQSAPI: A R Interface to The United States Environmental Protection
-Agency's Air Quality System Data Mart RESTful API server.}
+Agency's Air Quality System Data Mart RESTful API server}
 \description{
 RAQSAPI is a package for R that connects the R programming
 environment to the United State's Environmental protection agency's
@@ -37,8 +37,8 @@ activity by the USEPA or the United States Government.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{<https://github.com/USEPA/RAQSAPI>}
-  \item \url{<https://aqs.epa.gov/aqsweb/documents/data_api.html>}
+  \item \url{https://github.com/USEPA/RAQSAPI/}
+  \item \url{https://aqs.epa.gov/aqsweb/documents/data_api.html}
   \item Report bugs at \url{https://github.com/USEPA/RAQSAPI/issues}
 }
 
