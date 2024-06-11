@@ -327,6 +327,7 @@ format_multiple_params_for_api <- function(x, separator=",")
 #' @importFrom glue glue
 #' @importFrom httr2 last_response resp_body_json
 #' @importFrom magrittr `%<>%`
+#' @importFrom stringr str_replace_all
 #'
 #' @description A helper function that is called by httr2::req_error when an
 #'              error is encountered performing a request. This function returns
@@ -345,12 +346,13 @@ RAQSAPI_error_msg <- function(AQSresponse)
   AQSerr <- last_response() %>%
               resp_body_json()
 
+  #debug
   msg <- glue("At server request time: {AQSresponse$headers$Date}
-              RAQSAPI experienced an error while processing the following url:
-              {AQSresponse$url}\n
-              with status_code: {AQSresponse$status_code}
-              and status message: {AQSresponse$status}
-              Server error message: {AQSerr$Header[[1]]$error}")
+               RAQSAPI experienced an error while processing the following url:
+               {AQSresponse$url}
+               with status_code: {AQSresponse$status_code}
+               and status message: {AQSresponse$status}
+               Server error message: {AQSerr$Header[[1]]$error}")
 
      return(msg)
   #nocov end

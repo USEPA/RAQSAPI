@@ -46,3 +46,4 @@ codemeta.json
 ^.tar.gz
 ^.zip
 ^CITATION\.cff$
+^RAQSAPI\.code-workspace$

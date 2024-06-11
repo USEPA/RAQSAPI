@@ -2,9 +2,9 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: [main, httr2]
+    branches: [main, httr2, test_github_workflow]
   pull_request:
-    branches: [main, httr2]
+    branches: [main, httr2, test_github_workflow]
 
 name: R-CMD-check
 
@@ -26,8 +26,8 @@ jobs:
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RAQSAPIKEY: ${{ secrets.RAQSAPIKEY }}
-      RAQSAPIUSERNAME: ${{ secrets.RAQSAPIUSERNAME }}
+      RAQSAPIKEY: "${{ secrets.RAQSAPIKEY }}"
+      RAQSAPIUSERNAME: "${{ secrets.RAQSAPIUSERNAME }}"
       R_KEEP_PKG_SOURCE: yes
 
     steps:

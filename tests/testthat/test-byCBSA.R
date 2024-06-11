@@ -1,6 +1,6 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
-test_that("bybox functions", {
+test_that("byCBSA functions", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
 
@@ -11,8 +11,8 @@ test_that("bybox functions", {
     datamartAPI_user <- AQScredentials$datamartAPI_user
     datamartAPI_key <- AQScredentials$datamartAPI_key
   } else {
-    datamartAPI_user <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-    datamartAPI_key <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+    datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+    datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
   }
   RAQSAPI::aqs_credentials(username = datamartAPI_user,
                            key = datamartAPI_key

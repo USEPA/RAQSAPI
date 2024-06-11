@@ -45,8 +45,8 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
                   )
              )
-URL: <https://github.com/USEPA/RAQSAPI>,
-     <https://aqs.epa.gov/aqsweb/documents/data_api.html>
+URL: https://github.com/USEPA/RAQSAPI/,
+     https://aqs.epa.gov/aqsweb/documents/data_api.html
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.0.0)
 Imports: 
@@ -63,7 +63,6 @@ Imports:
 Suggests:
     covr,
     devtools,
-    goodpractice,
     keyring,
     knitr,
     markdown,
@@ -73,8 +72,9 @@ Suggests:
     testthat (>= 3.0.0),
     usethis,
     withr
-SystemRequirements: package manual requires pandoc (>= 1.14) http://pandoc.org
-RoxygenNote: 7.2.3
+SystemRequirements: package manual and Vignettes require pandoc 
+                    (>= 1.14) http://pandoc.org)
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true

@@ -3,7 +3,7 @@
 
 
 #' @title RAQSAPI: A R Interface to The United States Environmental Protection
-#' Agency's Air Quality System Data Mart RESTful API server.
+#' Agency's Air Quality System Data Mart RESTful API server
 #'
 #' @description RAQSAPI is a package for R that connects the R programming
 #' environment to the United State's Environmental protection agency's
