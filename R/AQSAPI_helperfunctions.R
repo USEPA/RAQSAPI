@@ -321,6 +321,44 @@ format_multiple_params_for_api <- function(x, separator=",")
 }
 
 
+#' @title RAQSAPI_error_msg
+#'
+#' @param AQSresponse a httr2 request object
+#' @importFrom glue glue
+#' @importFrom httr2 last_response resp_body_json
+#' @importFrom magrittr `%<>%`
+#' @importFrom stringr str_replace_all
+#'
+#' @description A helper function that is called by httr2::req_error when an
+#'              error is encountered performing a request. This function returns
+#'              a helpful error message for users. This function is not intended
+#'              to be called directly by end users and should only be called
+#'              within the aqs function.
+#'
+#' @return a string error message that is formatted for httr2 to display
+#'         request errors for end users.
+#' @noRd
+#'
+#' @example None
+RAQSAPI_error_msg <- function(AQSresponse)
+{
+  #nocov start
+  AQSerr <- last_response() %>%
+              resp_body_json()
+
+  #debug
+  msg <- glue("At server request time: {AQSresponse$headers$Date}
+               RAQSAPI experienced an error while processing the following url:
+               {AQSresponse$url}
+               with status_code: {AQSresponse$status_code}
+               and status message: {AQSresponse$status}
+               Server error message: {AQSerr$Header[[1]]$error}")
+
+     return(msg)
+  #nocov end
+}
+
+
 #' @title aqs
 #' @description a helper function sends a AQS RESTful request to the AQS API
 #'                 and returns the result as a aqs data type. This helper
@@ -357,7 +395,7 @@ format_multiple_params_for_api <- function(x, separator=",")
 #' @importFrom tibble as_tibble
 #' @importFrom rlang caller_call
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json
-#'                   req_perform req_options req_retry req_throttle
+#'                   req_perform req_options req_retry req_throttle req_error
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -381,8 +419,10 @@ aqs <- function(service, filter = NULL, user = NA,
                                   variables)))
   AQSrequest <- AQSpath %>%
     request() %>%
+
     req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
-    req_retry(max_tries = 5, max_seconds = 30, backoff = ~10)
+    req_retry(max_tries = 5, max_seconds = 30, backoff = ~10) %>%
+    req_error(body = RAQSAPI_error_msg)
     # AQS DataMart API does not accept headers so user_agent not working
     #%>% req_user_agent(string = user_agent)
 
@@ -644,16 +684,16 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
 {
 
   aqs(service = service,
-          filter = "byState",
-          user =  getOption("aqs_username"),
-          user_key =  getOption("aqs_key"),
-          variables = list(param = format_multiple_params_for_api(parameter),
-                           bdate = format(bdate, format = "%Y%m%d"),
-                           edate = format(edate, format = "%Y%m%d"),
-                           state = stateFIPS,
-                           duration = duration,
-                           cbdate = cbdate,
-                           cedate = cedate
+      filter = "byState",
+      user =  getOption("aqs_username"),
+      user_key =  getOption("aqs_key"),
+      variables = list(param = format_multiple_params_for_api(parameter),
+                       bdate = format(bdate, format = "%Y%m%d"),
+                       edate = format(edate, format = "%Y%m%d"),
+                       state = stateFIPS,
+                       duration = duration,
+                       cbdate = cbdate,
+                       cedate = cedate
           ),
       AQS_domain = AQS_domain
   )

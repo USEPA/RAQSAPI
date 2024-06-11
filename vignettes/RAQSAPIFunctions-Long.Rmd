@@ -257,18 +257,19 @@ The RAQSAPI::aqs_credentials function takes two parameters:
 ## Data Mart API metadata functions
 ```{r METADATAFUNCTIONS, echo = FALSE, comment = NA}
 metadatafunctions <- paste(".available",
-                           ".field_by_service",
+                           ".fields_by_service",
                            ".knownissues", sep = '|')
 
 str_subset(string = RAQSAPI_functions, pattern = metadatafunctions) %>%
   cat(sep = "  \n")
 ```
-These functions return Data Mart meta data
+These functions return the status of Data Mart API or metadata associated with
+    it.
 
 The RAQSAPI::aqs_isavailable function takes no parameters and returns a
     table which details the status of the AQS API.
 
-The RAQSAPI::aqs_field_by_Service function takes one parameter, service,
+The RAQSAPI::aqs_fields_by_service function takes one parameter, service,
     which is a R character object which represents the services provided by
     the AQS API. For a list of available services see
     [Air Quality System (AQS) API - Services Overview](
@@ -300,7 +301,7 @@ listfunctions <- paste(".states",
 str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
   cat(sep = "  \n")
 ```
-List functions return the status, API options or groupings that can be used in
+List functions return the API options or groupings that can be used in
     conjunction with other API calls. By default each function in this category
     returns results as a tibble. If return_header parameter is set to TRUE a
     AQSAPI_v2 object is returned instead.
@@ -580,8 +581,7 @@ functions in this family of functions aggregate data at the county level.
 * duration (optional): (This parameter is only used in conjunction with
                                  *\*sampledata_by_*\* functions).
 
-### Data Mart aggregate functions by Monitoring agency (MA)
-
+### Data Mart aggregate functions _by_state
 ```{r _by_STATEfunctions, echo = FALSE, comment = NA}
 by_STATEfunctions <- paste("._by_state", sep = '|')
 
@@ -607,6 +607,7 @@ functions in this family of functions aggregate data at the state level.
 * duration (optional): (This parameter is only used in conjunction with
                                  *\*sampledata_by_*\* functions).
 
+### Data Mart aggregate functions by Monitoring agency (MA)
 ```{r _by_MAfunctions, echo = FALSE, comment = NA}
 by_MAfunctions <- paste("._by_MA", sep = '|')
 
@@ -706,8 +707,6 @@ Functions in this family of functions aggregate data by a
 * return_header (optional): set to FALSE by default.
 * duration (optional): (This parameter is only used in conjunction with
                                  *\*sampledata_by_*\* functions).
-
-### Data Mart aggregate functions _by_state
 
 ### RAQSAPI Miscellaneous functions
 ```{r misc, echo = FALSE, comment = NA}

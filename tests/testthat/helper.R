@@ -13,5 +13,5 @@ RAQSAPItestsetup_helper <- function()
     AQScredentials <- list(datamartAPI_user = datamartAPI_user,
                            datamartAPI_key = datamartAPI_key)
     return(AQScredentials)
-  } else {print("did not go into if satement")} #debug
+  }
 }

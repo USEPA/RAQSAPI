@@ -3,12 +3,15 @@ title: RAQSAPI - About the timeliness of AQS Data
 author: Clinton Mccrowey physical scientist - US EPA
 output:
   rmarkdown::html_vignette: default
+lang: en-US
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - About the timeliness of AQS Data}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{knitr}
   %\VignetteDepends{rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
+bibliography: AQSAPI.bib
+csl: acs-nano.csl
 ---
 
 # About the timeliness of AQS Data

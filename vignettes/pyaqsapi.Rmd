@@ -1,0 +1,36 @@
+---
+title: "pyaqsapi - a port of RAQSAPI to the python 3 programming environment"
+author:
+- affiliation: |-
+    United States Environmental Protection Agency (US EPA),  
+        Region III,  
+        Air and Radiation Division,  
+        Air Quality and Analysis Branch
+  name: Clinton Mccrowey
+output:
+  rmarkdown::html_vignette: default
+lang: en-US
+vignette: >
+  %\VignetteIndexEntry{pyaqsapi - a port of RAQSAPI to the python 3 programming environment}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{knitr}
+  %\VignetteDepends{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
+bibliography: ./AQSAPI.bib
+csl: ./acs-nano.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
+
+For users that feel more comfortable working within a python 3 environment,
+[pyaqsapi](https://github.com/USEPA/pyaqsapi) [@py3package:pyaqsapi],
+a port of RAQSAPI to the python 3 language has been released. Both projects aim
+to maintain feature parity with the other and there are no inherent advantages
+to using either project over the other, except for the ability of working within
+the programming language environment of choice. The API of both packages are
+very structured similarly, both packages export the same data, use the same
+credentials and data source to retrieve data.

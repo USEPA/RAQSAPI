@@ -46,3 +46,13 @@ dev/contributing.Rmd
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
 dev/.experimental.R
+
+# Output files from R CMD check
+/*.Rcheck/
+/doc/
+/Meta/
+
+# RAQSAPI package files
+*.tar.gz
+*.zip
+RAQSAPI.code-workspace

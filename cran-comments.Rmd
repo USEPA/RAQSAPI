@@ -7,6 +7,10 @@ output: md_document
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
+  - remove depricated package:goodpractice from SUGGESTS
+  - Added the ability to display server side messages for errors in API calls.
+  - Added a new CITATION.cff for thanks to R package cffr.
+  - New hexstciker.
   - aqs_isavailable no longer accepts the return_header parameter, this function
     just returns a tibble and not a AQS_Data Mart_APIv2 object.
   - fixed an issue where the duration parameter was being ignored in
@@ -40,7 +44,7 @@ output: md_document
     + usethis::use_github_pages() to create a github page.
   
 ### Test environments
-* local R installation, Windows 10 R 4.2.1
+* local R installation, Windows 11 R 4.3.1
 * Windows-latest (release) (via Github_actions), R 4.2.1
 * macOS-latest (release) (via Github_actions), R 4.2.1
 * ubuntu-20.04 (release) (via Github_actions), R 4.2.1

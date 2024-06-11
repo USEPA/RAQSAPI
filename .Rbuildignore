@@ -1,4 +1,3 @@
-.Rcheck$
 ^.Rproj$
 ^.Rproj.user
 ^.gitignore
@@ -15,7 +14,6 @@
 ^README.md
 ^README.html
 ^RAQSAPI.Rproj
-^doc$
 ^dev$
 .out$
 .log$
@@ -34,11 +32,18 @@ dev/install_RAQSAPI.R
 ^.github$
 ^.github/workflows/R-CMD-check\.yaml$
 ^.Rprofile$
+
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
 dev/*
 ^.*\.Rproj$
 ^\.Rproj\.user$
 codemeta.json
-^revdep$
 ^LICENSE\.md$
+# Output files from R CMD check
+/*.Rcheck/
+# RAQSAPI package files
+^.tar.gz
+^.zip
+^CITATION\.cff$
+^RAQSAPI\.code-workspace$
