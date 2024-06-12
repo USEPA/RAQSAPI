@@ -44,11 +44,13 @@ output: md_document
     + usethis::use_github_pages() to create a github page.
   
 ### Test environments
-* local R installation, Windows 11 R 4.3.1
-* Windows-latest (release) (via Github_actions), R 4.2.1
-* macOS-latest (release) (via Github_actions), R 4.2.1
-* ubuntu-20.04 (release) (via Github_actions), R 4.2.1
-* ubuntu-20.04 (devel) (via Github_actions), R 
+* local R installation, Windows 11 R 4.4.0
+* Windows-latest (release) (via Github_actions), R 4.4.0
+* MacOS-latest (release) (via Github_actions), R 4.4.0
+* Ubuntu-22.04.4 (release) (via Github_actions), R 4.4.0.1
+* Ubuntu-22.04.4 (devel) (via Github_actions), R (unstable) (2024-06-10
+    r86715)
+* Ubuntu-22.04.4 (old-release) (via Github_actions), R 4.3.3
 
 ## RAQSAPI 2.0.4
 *Important API change
