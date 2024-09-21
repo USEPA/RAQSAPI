@@ -1,25 +1,25 @@
-Introduction to the RAQSAPI package
+Introduction to the `RAQSAPI` package
 ================
 Clinton Mccrowey, physical scientist - US EPA
 
 - [EPA Disclaimer](#epa-disclaimer)
 - [Introduction](#introduction)
 - [About the timeliness of AQS Data](#about-the-timeliness-of-aqs-data)
-- [Installing RAQSAPI](#installing-raqsapi)
+- [Installing `RAQSAPI`](#installing-raqsapi)
   - [Option 1: Installing the stable version from
     CRAN](#option-1-installing-the-stable-version-from-cran)
   - [Option 2: Installing the development version of
-    RAQSAPI](#option-2-installing-the-development-version-of-raqsapi)
-- [Using The RAQSAPI library](#using-the-raqsapi-library)
-  - [Load RAQSAPI](#load-raqsapi)
-  - [Sign up and setting up user credentials with the RAQSAPI
+    `RAQSAPI`](#option-2-installing-the-development-version-of-raqsapi)
+- [Using The `RAQSAPI` library](#using-the-raqsapi-library)
+  - [Load `RAQSAPI`](#load-raqsapi)
+  - [Sign up and setting up user credentials with the `RAQSAPI`
     library](#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library)
   - [(suggested) Use the `keyring` package to manage
     credentials](#suggested-use-the-keyring-package-to-manage-credentials)
   - [Data Mart aggregate functions](#data-mart-aggregate-functions)
-    - [See the RAQSAPI vignette for more
+    - [See the `RAQSAPI` vignette for more
       details](#see-the-raqsapi-vignette-for-more-details)
-  - [pyaqsapi - a port of RAQSAPI to the python 3 programming
+  - [`pyaqsapi` - a port of `RAQSAPI` to the python 3 programming
     environment](#pyaqsapi---a-port-of-raqsapi-to-the-python-3-programming-environment)
 - [Acknowledgements](#acknowledgements)
 - [References](#references)
@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202024--06--12-yellowgreen.svg)](/commits/master)”
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202024--06--12-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -103,49 +103,49 @@ The library connects to AQS Data Mart API via Secure Hypertext Transfer
 Protocol (HTTPS) so there is no need to install external ODBC drivers,
 configure ODBC connections or deal with the security vulnerabilities
 associated with them. Most API functions have a parameter,
-return_header, which by default is set to FALSE. If the user decides to
-set return_header to TRUE, then that function will return a R
-AQS_DATAMART_APIv2 S3 object which is a two item named list.  
-The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
+`return_header`, which by default is set to `FALSE`. If the user decides to
+set `return_header` to `TRUE`, then that function will return a R
+`AQS_DATAMART_APIv2` S3 object which is a two item named list.  
+The first item, (`$Header`) in the `AQS_DATAMART_APIv2` object is a
 tibble<sup>2</sup> which contains the header information. The Header
 contains status information regarding the request (success/fail), any
 applicable error messages returned from the API, if any exist, the URL
 used in the request, a date and time stamp noting when request was
 received and other useful information. The second item of the
-AQS_DATAMART_APIv2 object (\$Data) is a tibble which contains the actual
-data being requested. For functions with the return_header option set to
-FALSE (default) a simple tibble is returned with just the \$Data portion
+`AQS_DATAMART_APIv2` object (`$Data`) is a tibble which contains the actual
+data being requested. For functions with the `return_header` option set to
+`FALSE` (default) a simple tibble is returned with just the `$Data` portion
 of the request. After each call to the API a five second stall is
 invoked to help prevent overloading the Data Mart API server and to
 serve as a simple rate limit. [^1]
 
 # About the timeliness of AQS Data
 
-EPA’s AQS Datamart API, the service that RAQSAPI retrieves data from,
+EPA’s AQS Data Mart API, the service that `RAQSAPI` retrieves data from,
 does not host real time (collected now/today) data. If real time data is
 needed, please use the AirNow API and direct all questions toward real
-time data there. RAQSAPI does not work with AirNow and cannot retrieve
+time data there. `RAQSAPI` does not work with AirNow and cannot retrieve
 real time data. For more details see section 7.1 of the About AQS Data
 page<sup>3</sup>.
 
-# Installing RAQSAPI
+# Installing `RAQSAPI`
 
 Either install the stable version from CRAN or install the latest
 development version from GitHub.
 
 ## Option 1: Installing the stable version from CRAN
 
-``` r
+```r
 install.packages(pkgs="RAQSAPI", dependencies = TRUE )
 ```
 
-## Option 2: Installing the development version of RAQSAPI
+## Option 2: Installing the development version of `RAQSAPI`
 
 To install the development version of `RAQSAPI`, first if not already
 installed, install the `remotes` package and its dependencies. Then run
 the following in a R environment.
 
-``` r
+```r
 remotes::install_github(repo = "USEPA/raqsapi",
                         dependencies = TRUE,
                         upgrade = "always",
@@ -157,43 +157,43 @@ remotes::install_github(repo = "USEPA/raqsapi",
                         )
 ```
 
-# Using The RAQSAPI library
+# Using The `RAQSAPI` library
 
-## Load RAQSAPI
+## Load `RAQSAPI`
 
 after successfully installing the `RAQSAPI` package, load the `RAQSAPI`
 library:
 
-``` r
+```r
 library(RAQSAPI)
 ```
 
-## Sign up and setting up user credentials with the RAQSAPI library
+## Sign up and setting up user credentials with the `RAQSAPI` library
 
 If you have not already done so you will need to sign up with AQS Data
-Mart using aqs_sign_up function, [^2] this function takes one input,
-“email”, which is a R character object, that represents the email
+Mart using `aqs_sign_up function`, [^2] this function takes one input,
+`email`, which is a R character object, that represents the email
 address that you want to use as a user credential to the AQS Data Mart
-service. After a successful call to aqs_sign_up an email message will be
+service. After a successful call to `aqs_sign_up` an email message will be
 sent to the email address provided with a new Data Mart key which will
-be used as a credential key to access the Data Mart API. The aqs_sign_up
+be used as a credential key to access the Data Mart API. The `aqs_sign_up`
 function can also be used to regenerate a new key for an existing user,
-to generate a new key simply call the aqs_sign_up function with the
-parameter “email” set to an existing account. A new key will be e-mailed
+to generate a new key simply call the `aqs_sign_up` function with the
+parameter `email` set to an existing account. A new key will be e-mailed
 to the account given.
 
 The credentials used to access the Data Mart API service are stored in a
 R environment variable that needs to be set every time the `RAQSAPI`
 library is attached or the key is changed. Without valid credentials,
 the Data Mart server will reject any request sent to it. The key used
-with Data Mart is a key and is not a password, so the RAQSAPI library
+with Data Mart is a key and is not a password, so the `RAQSAPI` library
 does not treat the key as a password; this means that the key is stored
 in plain text and there are no attempts to encrypt Data Mart credentials
 as would be done for a username and password combination. The key that
 is supplied to use with Data Mart is not intended for authentication but
-only account monitoring. Each time RAQSAPI is loaded and before using
+only account monitoring. Each time `RAQSAPI` is loaded and before using
 any of it’s functions use the aqs_credentials [^3] function to enter in
-the user credentials so that RAQSAPI can access the AQS Data Mart
+the user credentials so that `RAQSAPI` can access the AQS Data Mart
 server.
 
 <table>
@@ -218,7 +218,7 @@ credentials.<br />
 ## (suggested) Use the `keyring` package to manage credentials
 
 It is highly suggested that users use a keyring manager to store and
-retrieve their credentials while using RAQSAPI. One such credential
+retrieve their credentials while using `RAQSAPI`. One such credential
 manager is provided by the `keyring` package [^4]. The `Keyring` package
 uses the credential manager available for most popular operating systems
 to store and manage user credentials. This will help avoid hard coding
@@ -226,21 +226,21 @@ credential information into R scripts.
 
 To use the `keyring` package with `RAQSAPI` first install `keyring`:
 
-``` r
+```r
 install.package("keyring")
 ```
 
 Ensure that your system is supported by the `keyring` package before
 proceeding.
 
-``` r
+```r
   keyring::has_keyring_support()
 ```
 
 then set the keyring used to access AQS Data Mart (make sure to replace
 the text in the angled brackets with your specific user information):
 
-``` r
+```r
   library("keyring")  
   keyring::key_set(service = "AQSDatamart",
                    username = "\<user email account\>")
@@ -252,19 +252,19 @@ AQS user name provided, then hit enter. Now the AQS Data Mart user
 credential is set using `keyring`.
 
 To retrieve the keyring to use with `RAQSAPI` load the `keyring` package
-and use the function key_get to return the user credential to RAQSAPI:
+and use the function key_get to return the user credential to `RAQSAPI`:
 
-``` r
+```r
   library(RAQSAPI)  
   library(keyring)  
   datamartAPI_user <- \<user email account\>  
   server <- "AQSDatamart"
 ```
 
-then pass these variables to the aqs_credentials function when using
-RAQSAPI:
+then pass these variables to the `aqs_credentials` function when using
+`RAQSAPI`:
 
-``` r
+```r
   aqs_credentials(username = datamartAPI_user,
                   key = key_get(service = server,
                                 username = datamartAPI_user
@@ -273,13 +273,13 @@ RAQSAPI:
 ```
 
 To change the keyring stored with the `keyring` package repeat the steps
-above to call the keyring::key_set function again with the new
+above to call the `keyring::key_set` function again with the new
 credential information.
 
 To retrieve a list of all keyrings managed with the `keyring` package
-use the function: \> keyring::key_list()
+use the function: `keyring::key_list()`
 
-Refer the the[`keyring` package
+Refer to the [`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
@@ -299,7 +299,7 @@ call.</span></th>
 </tbody>
 </table>
 
-RAQSAPI functions are named according to the service and filter
+`RAQSAPI` functions are named according to the service and filter
 variables that are available by the Data Mart API.[^5]
 
 ## Data Mart aggregate functions
@@ -311,14 +311,14 @@ groups data.
 
 **These seven families are**:
 
-- **\_by_site**
-- **\_by_county**
-- **\_by_state**
-- **\_by\_\<latitude/longitude bounding box\>** (\_by_box)
-- **\_by\_\<monitoring agency\>** (\_by_MA)
-- **\_by\_\<Primary Quality Assurance Organization\>** (\_by_pqao)
+- `_by_site`
+- `_by_county`
+- `_by_state`
+- **\_by\_\<latitude/longitude bounding box\>** (`_by_box`)
+- **\_by\_\<monitoring agency\>** (`_by_MA`)
+- **\_by\_\<Primary Quality Assurance Organization\>** (`_by_pqao`)
 - **\_by\_\<core based statistical area (as defined by the**  
-  **US census Bureau)\>** (\_by_cbsa).
+  **US census Bureau)\>** (`_by_cbsa`).
 
 Within these families of aggregated data functions there are functions
 that call on the 13 different aggregate services that the Data Mart API
@@ -327,27 +327,27 @@ service.**
 
 **These fourteen services are**:
 
-- **Monitors** (aqs_monitors_by\_\*)
-- **Sample Data** (aqs_sampledata_by\_\*)
-- **Daily Summary Data** (aqs_dailysummary_by\_\*)
-- **Annual Summary Data** (aqs_annualsummary_by\_\*)
-- **Quarterly Summary Data** (aqs_quarterlysummary_by\_\*)
-- **Quality Assurance - Blanks Data** (aqs_qa_blanks_by\_\*)
+- **Monitors** (`aqs_monitors_by_*`)
+- **Sample Data** (`aqs_sampledata_by_*`)
+- **Daily Summary Data** (`aqs_dailysummary_by_*`)
+- **Annual Summary Data** (`aqs_annualsummary_by_*`)
+- **Quarterly Summary Data** (`aqs_quarterlysummary_by_*`)
+- **Quality Assurance - Blanks Data** (`aqs_qa_blanks_by_*`)
 - **Quality Assurance - Collocated Assessments**
-  (aqs_qa_collocated_assessments_by\_\*)
+  (`aqs_qa_collocated_assessments_by_*`)
 - **Quality Assurance - Flow Rate Verifications**
-  (aqs_qa_flowrateverification_by\_\*)
-- **Quality Assurance - Flow Rate Audits** (aqs_qa_flowrateaudit_by\_\*)
+  (`aqs_qa_flowrateverification_by_*`)
+- **Quality Assurance - Flow Rate Audits** (`aqs_qa_flowrateaudit_by_*`)
 - **Quality Assurance - One Point Quality Control Raw Data**
-  (aqs_qa_one_point_qc_by\_\*)
-- **Quality Assurance - PEP Audits** (aqs_qa_pep_audit_by\_\*)
+  (`aqs_qa_one_point_qc_by_*`)
+- **Quality Assurance - PEP Audits** (`aqs_qa_pep_audit_by_*`)
 - **Transaction Sample - AQS Submission data in transaction Format
-  (RD)** (aqs_transactionsample_by\_\*)
+  (RD)** (`aqs_transactionsample_by_*`)
 - **Quality Assurance - Annual Performance Evaluations**  
-  (aqs_qa_annualperformanceeval_by\_\*)
+  (`aqs_qa_annualperformanceeval_by_*`)
 - **Quality Assurance - Annual Performance Evaluations in the AQS**  
   **Submission transaction format (RD)**
-  (aqs_qa_annualperformanceevaltransaction_by\_\*)
+  (`aqs_qa_annualperformanceevaltransaction_by_*`)
 
 <table>
 <colgroup>
@@ -363,7 +363,7 @@ by<br />
 making repeated calls to the API. Each call to the Data Mart API will
 take<br />
 time to complete. The more years of data being requested the longer
-RAQSAPI<br />
+`RAQSAPI`<br />
 will take to return the results.</span></th>
 </tr>
 </thead>
@@ -371,24 +371,24 @@ will take to return the results.</span></th>
 </tbody>
 </table>
 
-Aggregate functions are named AQS_API\<service\>\_\<aggregation\>()
-where \<service\> is one of the 13 services listed above and
-\<aggregation\> is either “\_by_site”, “\_by_county”, “\_by_state”,
-“\_by_box”, “\_by_cbsa”, “\_by_ma”, or “\_by_pqao”.
+Aggregate functions are named `AQS_API<service>_<aggregation>()`
+where `<service>` is one of the 13 services listed above and
+`<aggregation>` is either `_by_site`, `_by_county`, `_by_state`,
+`_by_box`, `_by_cbsa`, `_by_ma`, or `_by_pqao`.
 
-### See the RAQSAPI vignette for more details
+### See the `RAQSAPI` vignette for more details
 
-(RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)
+(`RAQSAPI` must be installed and built with `BUILD_MANUAL = TRUE` enabled)
 
-``` r
+```r
   RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
 ```
 
-## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
+## `pyaqsapi` - a port of `RAQSAPI` to the python 3 programming environment
 
 For users that feel more comfortable working within a python 3
-environment, [pyaqsapi](https://github.com/USEPA/pyaqsapi)<sup>4</sup>,
-a port of RAQSAPI to the python 3 language has been released. Both
+environment, [`pyaqsapi`](https://github.com/USEPA/pyaqsapi)<sup>4</sup>,
+a port of `RAQSAPI` to the python 3 language has been released. Both
 projects aim to maintain feature parity with the other and there are no
 inherent advantages to using either project over the other, except for
 the ability of working within the programming language environment of
@@ -398,25 +398,25 @@ to retrieve data.
 
 # Acknowledgements
 
-RAQSAPI was included in the Rblogger’s March 2021: “Top 40” [New CRAN
+`RAQSAPI` was included in the Rblogger’s March 2021: “Top 40” [New CRAN
 Packages](https://www.r-bloggers.com/2021/04/march-2021-top-40-new-cran-packages/).
 
-The RAQSAPI package borrows upon functions and code provided by sources
-not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
-those sources with them RAQSAPI would not be possible.
+The `RAQSAPI` package borrows upon functions and code provided by sources
+not mentioned in the [`DESCRIPTION`](DESCRIPTION) file. Here we attempt to acknowledge
+those sources with them `RAQSAPI` would not be possible.
 
-- README badges are provided by R package `badgecreator`<sup>5</sup>.
+- `README` badges are provided by R package `badgecreator`<sup>5</sup>.
 - The R package `usethis`<sup>6</sup> was used to generate GitHub
   actions for Continuous integration (CI).
 - Code cleanup was assisted by the R package `lintr`<sup>7</sup>
-- the function *install.packages* are provided by the R package
+- the function `install.packages` are provided by the R package
   `utils`<sup>8</sup>
-- the function *install_github* are provided by the R package
+- the function `install_github` are provided by the R package
   `remotes`<sup>9</sup>
-- .gitignore file borrowed examples from
+- [`.gitignore`](.gitignore) file borrowed examples from
   <https://github.com/github/gitignore/blob/master/R.gitignore>
-- . CITATION.cff file was generated by the R package `cffr`<sup>10</sup>
-- R package `urlchecker`<sup>11</sup> was used to check urls in RAQSAPI
+- . [`CITATION.cff`](CITATION.cff) file was generated by the R package `cffr`<sup>10</sup>
+- R package `urlchecker`<sup>11</sup> was used to check urls in `RAQSAPI`
   documentation
 
 # References
@@ -517,26 +517,25 @@ Pérez-Suárez, D.; Konovalov, A. Citation File Format, 2021.
 <div id="ref-package:urlchecker" class="csl-entry">
 
 <span class="csl-left-margin">(11)
-</span><span class="csl-right-inline">R-Lib/Urlchecker on Github.
+</span><span class="csl-right-inline">R-Lib/Urlchecker on GitHub.
 <https://github.com/r-lib/urlchecker> (accessed 2023-11-30).</span>
 
 </div>
 
 </div>
 
-[^1]: RAQSAPI’s rate limit does not guarantee that the user will not go
+[^1]: `RAQSAPI`’s rate limit does not guarantee that the user will not go
     over the rate limit and does not guarantee that API calls do not
     overload the AQS Data Mart system, each user should monitor their
     requests independently.
 
-[^2]: Use “?aqs_sign_up” after the RAQSAPI library has been loaded to
-    see the full usage description of the aqs_sign_up function.
+[^2]: Use `?aqs_sign_up` after the `RAQSAPI` library has been loaded to
+    see the full usage description of the `aqs_sign_up` function.
 
-[^3]: Use “?aqs_credentials” after the RAQSAPI library has been loaded
-    to see the full usage description of the aqs_credentials function.
+[^3]: Use `?aqs_credentials` after the `RAQSAPI` library has been loaded
+    to see the full usage description of the `aqs_credentials` function.
 
-[^4]: \[R `Keyring`
-    package\]<https://cran.r-project.org/package=keyring>)
+[^4]: [R `Keyring` package]<https://cran.r-project.org/package=keyring>)
 
 [^5]: See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
     full details of the Data Mart API
