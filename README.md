@@ -535,7 +535,7 @@ Pérez-Suárez, D.; Konovalov, A. Citation File Format, 2021.
 [^3]: Use `?aqs_credentials` after the `RAQSAPI` library has been loaded
     to see the full usage description of the `aqs_credentials` function.
 
-[^4]: [R `Keyring` package]<https://cran.r-project.org/package=keyring>)
+[^4]: [R `Keyring` package](https://cran.r-project.org/package=keyring)
 
 [^5]: See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
     full details of the Data Mart API
