@@ -39,19 +39,19 @@ The `RAQSAPI` package for the R programming environment allows a R programming
   connects to AQS Data Mart API via Secure Hypertext Transfer Protocol (HTTPS)
   so there is no need to install external ODBC drivers, configure ODBC
   connections or deal with the security vulnerabilities associated with them.
-  Most API functions have a parameter, return_header, which by default is set to
-  FALSE. If the user decides to set return_header to TRUE, then that function
-  will return a R AQS_DATAMART_APIv2 S3 object which is a two item named list.  
-  The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
+  Most API functions have a parameter, `return_header`, which by default is set to
+  `FALSE`. If the user decides to set `return_header` to `TRUE`, then that function
+  will return a R `AQS_DATAMART_APIv2` S3 object which is a two item named list.  
+  The first item, (`$Header`) in the `AQS_DATAMART_APIv2` object is a
   tibble[@package:tibble] 
   which contains the header information. The Header contains status
   information regarding the request (success/fail), any applicable error
   messages returned from the API, if any exist, the URL used in the request, a
   date and time stamp noting when request was received and other useful
-  information. The second item of the AQS_DATAMART_APIv2 object (\$Data) is a
+  information. The second item of the `AQS_DATAMART_APIv2` object (`$Data`) is a
   tibble which contains the actual data being requested. For functions with the
-  return_header option set to FALSE (default) a simple tibble is returned with
-  just the $Data portion of the request. After each call to the API a five
+  `return_header` option set to `FALSE` (default) a simple tibble is returned with
+  just the `$Data` portion of the request. After each call to the API a five
   second stall is invoked to help prevent overloading the Data Mart API server
   and to serve as a simple rate limit.  ^[RAQSAPI's rate limit does not
   guarantee that the user will not go over the rate limit and does not guarantee
