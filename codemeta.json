@@ -6,6 +6,7 @@
   "name": "RAQSAPI: A Simple Interface to the US EPA Air Quality System Data Mart API",
   "issueTracker": "https://github.com/USEPA/RAQSAPI/issues",
   "license": "https://spdx.org/licenses/MIT",
+  "identifier": "https://doi.org/10.32614/CRAN.package.RAQSAPI"
   "version": "2.0.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
