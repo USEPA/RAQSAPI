@@ -4,10 +4,20 @@ author: "Clinton Mccrowey"
 date: "01/04/2023"
 output: md_document
 ---
+# cran-comments for RAQSAPI
+## RAQSAPI 2.0.6
+ - add Rd file for AQS_DATAMART_APIv2 S3-class
+ - internal functions now use the @internal roxygen2 flag so that internal
+   function documentation is not included in the reference manual.
+ - functions previously marked as deprecated in earlier versions of RAQSAPI are
+   no longer exported and now marked with @internal roxygen2 flag so respective
+   documentation is not included in the automatically generated reference
+   documentation.
+ - resume using package:goodpractice, goodpractice is now maintained by ropensci
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5
-  - remove depricated package:goodpractice from SUGGESTS
+  - remove deprecated package:goodpractice from SUGGESTS
   - Added the ability to display server side messages for errors in API calls.
   - Added a new CITATION.cff for thanks to R package cffr.
   - New hexstciker.
@@ -66,7 +76,7 @@ output: md_document
 ## RAQSAPI 2.0.3
 * this is a minor release
 * Remove dependency on package:gtools.
-* removes calls to depreciated functions imported from package:rlang
+* remove calls to depreciated functions imported from package:rlang
 * updates documentation to include a note about the timeliness of data
 
 ## RAQSAPI 2.0.2

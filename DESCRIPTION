@@ -1,6 +1,6 @@
 Type: Package
 Package: RAQSAPI
-Version: 2.0.5
+Version: 2.0.6
 Title: A Simple Interface to the US EPA Air Quality System Data Mart API
 Description: Retrieve air monitoring data and associated metadata from the US
   Environmental Protection Agency's Air Quality System service using functions.
@@ -55,6 +55,7 @@ Imports:
     httr2,
     lifecycle,
     lubridate,
+    methods,
     magrittr,
     purrr,
     rlang,
@@ -63,6 +64,7 @@ Imports:
 Suggests:
     covr,
     devtools,
+    goodpractice,
     keyring,
     knitr,
     markdown,
@@ -74,7 +76,7 @@ Suggests:
     withr
 SystemRequirements: package manual and Vignettes require pandoc 
                     (>= 1.14) http://pandoc.org)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
@@ -96,6 +98,7 @@ Collate:
     'setupfunctions.R'
     'zzz.R'
     'RAQSAPI-package.R'
+    'AQS_DATAMART_APIv2-S3-class.R'
     'deprecated.R'
 Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
