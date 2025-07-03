@@ -24,6 +24,7 @@ server <- "AQSDatamartAPI"
 #' @importFrom magrittr `%<>%`
 #' @importFrom stringr str_detect
 #' @return NULL
+#' @keywords internal
 #' @noRd
 checkaqsparams <- function(...)
 {
@@ -273,6 +274,7 @@ checkaqsparams <- function(...)
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr `%>%`
+#' @keywords internal
 #' @noRd
 format_variables_for_api <- function(x, separator="&")
 {
@@ -305,6 +307,7 @@ format_variables_for_api <- function(x, separator="&")
 #'                   in the return value.
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
+#' @keywords internal
 #' @noRd
 format_multiple_params_for_api <- function(x, separator=",")
 {
@@ -337,6 +340,7 @@ format_multiple_params_for_api <- function(x, separator=",")
 #'
 #' @return a string error message that is formatted for httr2 to display
 #'         request errors for end users.
+#' @keywords internal
 #' @noRd
 #'
 #' @example None
@@ -392,7 +396,7 @@ RAQSAPI_error_msg <- function(AQSresponse)
 #' @importFrom dplyr mutate select arrange
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
-#' @importFrom tibble as_tibble
+#' @importFrom tibble tibble
 #' @importFrom rlang caller_call
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json
 #'                   req_perform req_options req_retry req_throttle req_error
@@ -401,6 +405,7 @@ RAQSAPI_error_msg <- function(AQSresponse)
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 #' @noRd
 aqs <- function(service, filter = NULL, user = NA,
                     user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
@@ -461,6 +466,7 @@ aqs <- function(service, filter = NULL, user = NA,
 #'         and may not work as expected all the time but overall generally works
 #'         as expected.
 #' @return Boolean
+#' @keywords internal
 #' @noRd
 isValidEmail <- function(email) {
   grepl("\\<[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\>",
@@ -526,6 +532,7 @@ isValidEmail <- function(email) {
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_site <- function(parameter, bdate, edate,
                                  stateFIPS, countycode, sitenum,
                                  duration = NA_character_, service,
@@ -604,6 +611,7 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_county <- function(parameter, bdate, edate,
                                    stateFIPS, countycode, service,
                                    duration = NA_character_,
@@ -677,6 +685,7 @@ aqs_services_by_county <- function(parameter, bdate, edate,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
                                   duration = NA_character_, service,
                                   cbdate = NA_Date_, cedate = NA_Date_,
@@ -761,6 +770,7 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                 minlon, maxlon, duration = NA_character_,
                                 service, cbdate = NA_Date_, cedate = NA_Date_,
@@ -833,6 +843,7 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                  duration = NA_character_, service,
                                  cbdate = NA_Date_, cedate = NA_Date_,
@@ -903,6 +914,7 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                  service, cbdate = NA_Date_, cedate = NA_Date_,
                                  AQS_domain = "aqs.epa.gov")
@@ -961,6 +973,7 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
                                cbdate = NA_Date_, cedate = NA_Date_,
                                AQS_domain = "aqs.epa.gov")
@@ -993,6 +1006,7 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @keywords internal
 aqs_metadata_service <- function(filter, service = NA_character_,
                                  AQS_domain = "aqs.epa.gov")
 {
@@ -1031,7 +1045,8 @@ if (is.null(aqsobject))
                   aqsobject$Data %<>%  dplyr::rename(!!name1 := 1)
                   aqsobject$Data %<>%  dplyr::rename(!!name2 := 2)
 
-              } else if (all(inherits(x = aqsobject[[1]], what = "AQS_DATAMART_APIv2")))
+              } else if (all(inherits(x = aqsobject[[1]],
+                                      what = "AQS_DATAMART_APIv2")))
                        {
                           #using tidyevaluation and substitute operator
                           aqsobject %<>%  lapply("[[", "Data") %>%
@@ -1066,6 +1081,7 @@ if (is.null(aqsobject))
 #' @importFrom glue glue
 #' @importFrom dplyr select_if
 #' @importFrom magrittr `%>%` `%<>%`
+#' @keywords internal
 #' @noRd
 aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
 {

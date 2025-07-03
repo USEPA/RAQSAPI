@@ -6,8 +6,10 @@
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_site <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -25,8 +27,10 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_county <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -43,8 +47,10 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_state <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -61,8 +67,10 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_pqao <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
@@ -81,8 +89,10 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_MA <- function()
 {
    abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been
@@ -99,8 +109,10 @@ aqs_qa_annualpeferomanceeval_by_MA <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -117,8 +129,10 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -135,8 +149,10 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -152,8 +168,10 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @export
+#' @noRd
 #' @rdname deprecated
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 {
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
@@ -163,20 +181,26 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 
 
 #' @title aqs_ratelimit
-#' @description \lifecycle{depricated}
+#' @description \lifecycle{deprecated}
 #' @description a helper function that should not be called externally, used
 #'                 as a primitive rate limit function for aqs.
 #' @param waittime the number of seconds, encoded as a numeric, that the API
 #'                     should wait after performing a API query
 #'                     (defaults to 5 seconds, as recommended by the AQS team).
 #' @note  Although this function is designed to prevent users from exceeding
-#'        allowed data limits, it can not garuntee that the user exceed rate
+#'        allowed data limits, it can not guarantee that the user exceed rate
 #'        limits. Users are advised to monitor their own usage to ensure that
 #'        data limits are not exceeded. Use of this package is at the users own
 #'        risk. The maintainers of this code assume no responsibility due to
-#'        anything that may happen as a result of using this code.
+#'        anything that may happen as a result of using this code. Recent
+#'        versions of RAQSAPI use httr2's built-in rate limiting functionality,
+#'        so this function is no longer needed
+#' @family deprecated RAQSAPI functions
 #' @return NULL
+#' @rdname deprecated
 #' @noRd
+#' @keywords internal # do not include deprecated function in
+#'                    # package reference manual
 aqs_ratelimit <- function(waittime=5L)
 {
   Sys.sleep(waittime)
