@@ -36,5 +36,6 @@ bibentry(bibtype = "Manual",
                            comment = "Neptune and Company")
                            ),
          year = "2023",
-         url = "https://cran.r-project.org/package=RAQSAPI"
+         url = "https://cran.r-project.org/package=RAQSAPI",
+         doi = "10.32614/CRAN.package.RAQSAPI"
         )

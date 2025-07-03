@@ -7,9 +7,9 @@
 \title{RAQSAPI: A R Interface to The United States Environmental Protection
 Agency's Air Quality System Data Mart RESTful API server}
 \description{
-RAQSAPI is a package for R that connects the R programming
-environment to the United State's Environmental protection agency's
-Air Quality System (AQS) Data Mart API for retrieval of air
+\lifecycle{maturing} RAQSAPI is a package for R that connects
+the R programming environment to the United States Environmental protection
+agency's Air Quality System (AQS) Data Mart API for retrieval of air
 monitoring data.
 
 There are two things that you must do before using this package.
@@ -19,7 +19,7 @@ There are two things that you must do before using this package.
 must be called before continuing.
 }
 
-please use vignette(RAQSAPI) for more details about this package.
+please use \code{vignette(RAQSAPI)} for more details about this package.
 
 EPA Disclaimer:
 This software/application was developed by the U.S. Environmental Protection

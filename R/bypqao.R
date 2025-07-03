@@ -515,7 +515,8 @@ aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter,
                                bdate = bdate,
                                edate = edate,
                                pqao_code = pqao_code,
-                               service = "transactionsQaAnnualPerformanceEvaluations"
+                               service =
+                                 "transactionsQaAnnualPerformanceEvaluations"
                                )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)

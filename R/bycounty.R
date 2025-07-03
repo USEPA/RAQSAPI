@@ -766,7 +766,7 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
 #'                                                   edate = as.Date("20171231",
-#'                                                            format = "%Y%m%d"),
+#'                                                           format = "%Y%m%d"),
 #'                                                   stateFIPS = "01",
 #'                                                   countycode = "003"
 #'                                                   )
@@ -829,7 +829,8 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate,
 #' @importFrom magrittr `%<>%`
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           # (raw) for ozone in Baldwin County, AL for 2017 in RD format.
-#'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_county(parameter = "44201",
+#'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_county(parameter =
+#'                                                                      "44201",
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
 #'                                                   edate = as.Date("20171231",
@@ -858,7 +859,8 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
                                edate = edate,
                                stateFIPS = stateFIPS,
                                countycode = countycode,
-                               service = "transactionsQaAnnualPerformanceEvaluations"
+                               service =
+                                 "transactionsQaAnnualPerformanceEvaluations"
                                )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_county)

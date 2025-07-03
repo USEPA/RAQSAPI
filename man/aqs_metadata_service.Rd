@@ -30,3 +30,4 @@ A helper function for functions which use the metaData service
 from the AQS API. This function is not intended to be called
 directly by the end user
 }
+\keyword{internal}

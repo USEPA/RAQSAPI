@@ -85,3 +85,4 @@ aggregations by county then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
+\keyword{internal}

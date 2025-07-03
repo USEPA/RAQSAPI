@@ -65,8 +65,9 @@ bdate - edate time frame.
 \note{
 All monitors that operated between the bdate and edate will be returned
 }
-\section{by_cbsa (By Core Based Statistical Area, as defined by the US Census Bureau) aggregate functions}{
-NA
+\section{by_cbsa}{
+ (By Core Based Statistical Area, as defined by the US \
+Census Bureau) aggregate functions
 }
 
 \examples{

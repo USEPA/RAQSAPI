@@ -1,4 +1,5 @@
-#' @section by_cbsa (By Core Based Statistical Area, as defined by the US Census Bureau) aggregate functions
+#' @section by_cbsa: (By Core Based Statistical Area, as defined by the US \
+#'          Census Bureau) aggregate functions
 
 
 #' @title aqs_monitors_by_cbsa

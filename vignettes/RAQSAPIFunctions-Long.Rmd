@@ -56,7 +56,7 @@ RAQSAPI_functions <- c(
 "aqs_monitors_by_state",  
 "aqs_parameters_by_class",  
 "aqs_pqaos",
-"aqs_qa_annualperformanceeeval_by_county",
+"aqs_qa_annualperformanceeval_by_county",
 "aqs_qa_annualperformanceeval_by_MA",
 "aqs_qa_annualperformanceeval_by_pqao",
 "aqs_qa_annualperformanceeval_by_site",

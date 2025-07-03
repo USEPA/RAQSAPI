@@ -415,7 +415,7 @@ aqs_fields_by_service <- function(service, return_header = FALSE)
 #' @description \lifecycle{stable}
 #'                 Returns a table of sample durations and their
 #'                 associated duration codes. Returned values are not calculated
-#'                 durations such as 8 hour CO or O$_3$ rolling averages, 3/6
+#'                 durations such as 8 hour CO or $O_3$ rolling averages, 3/6
 #'                 day PM averages or Pb 3 month rolling averages.
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested.
