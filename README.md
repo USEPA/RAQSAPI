@@ -24,7 +24,7 @@ Clinton Mccrowey, physical scientist - US EPA
 - [Acknowledgements](#acknowledgements)
 - [References](#references)
 
-<img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
+<img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" align="right" width="150" height="150">
 
 <!-- badges: start -->
 
@@ -38,8 +38,8 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![license](https://img.shields.io/badge/license-CC0-lightgrey.svg)](https://choosealicense.com/)
-“[![Last-changedate](https://img.shields.io/badge/last%20change-%202024--06--12-yellowgreen.svg)](/commits/master)”
+[![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--07--03-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -62,7 +62,7 @@ Government.
 <col style="width: 100%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><span style="color:red"> Warning: US EPA’s AQS Data Mart API V2 is
 currently<br />
 in beta phase of development, the API interface has not been
@@ -201,7 +201,7 @@ server.
 <col style="width: 100%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><span style="color:red"> Note: The credentials used to access AQS
 Data Mart<br />
 API is not the same as the credentials used to access AQS. AQS users who
@@ -288,7 +288,7 @@ for an in depth explanation on using the `keyring` package.
 <col style="width: 100%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><span style="color:blue"> Information: AQS Data Mart API restricts
 the<br />
 maximum amount of monitoring data to one full year of data per API<br />
@@ -354,7 +354,7 @@ service.**
 <col style="width: 100%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th><span style="color:blue"> Information: AQS Data Mart API restricts
 the<br />
 maximum amount of monitoring data to one full year of data per<br />
