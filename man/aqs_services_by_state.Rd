@@ -78,4 +78,25 @@ aggregations by State then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
+\examples{
+# if an user were to call aqs_qa_annualperformanceeval_by_site()
+         # for ozone in AL for 2017.
+         # [aqs_qa_annualperformanceeval_by_state(parameter = "44201",
+         #                                        bdate = as.Date("20170101",
+         #                                                format = "\%Y\%m\%d"),
+         #                                        edate = as.Date("20171231",
+         #                                                 format = "\%Y\%m\%d"),
+         #                                        stateFIPS = "01"
+         #                                        )]
+         # then aqs_qa_annualperformanceeval_by_site() would call this helper
+         # function with the following inputs.
+          \dontrun{aqs_services_by_state(parameter = "44201",
+                                        bdate=as.Date("20170101",
+                                                      format = "\%Y\%m\%d"),
+                                        edate=as.Date("20171231",
+                                                      format = "\%Y\%m\%d"),
+                                        stateFIPS= "01",
+                                    service="qaAnnualPerformanceEvaluations")
+                  }
+}
 \keyword{internal}

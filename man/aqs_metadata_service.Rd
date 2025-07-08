@@ -30,4 +30,13 @@ A helper function for functions which use the metaData service
 from the AQS API. This function is not intended to be called
 directly by the end user
 }
+\examples{
+# if an user were to call aqs_knownissues() for a list of known
+          # issues with respect to the US EPA AQS DataMart API
+          # [aqs_knownissues()]
+          # then aqs_knownissues() would call this helper
+          # function with the following inputs.
+          \dontrun{aqs_metadata_service(filter = "issues", service = NULL)
+                  }
+}
 \keyword{internal}

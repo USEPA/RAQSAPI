@@ -481,7 +481,7 @@ isValidEmail <- function(email) {
 #'                 aggregations by site then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#' @family Aggregate _by_site functions
+#' @family Aggregate _by_site functions AQS_services
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -532,6 +532,29 @@ isValidEmail <- function(email) {
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_qa_annualperformanceeval_by_site()
+#'          # for ozone at the Fairhope site in Baldwin County, AL for 2017.
+#'          # [aqs_qa_annualperformanceeval_by_site(parameter = "44201",
+#'          #                                        bdate = as.Date("20170101",
+#'          #                                                format = "%Y%m%d"),
+#'          #                                        edate = as.Date("20171231",
+#'          #                                                 format = "%Y%m%d"),
+#'          #                                        stateFIPS = "01",
+#'          #                                        countycode = "003",
+#'          #                                        sitenum = "0010"
+#'          #                                        )]
+#'          # then aqs_qa_annualperformanceeval_by_site() would call this helper
+#'          # function with the following inputs.
+#'           \dontrun{aqs_services_by_site(parameter = "44201",
+#'                                         bdate=as.Date("20170101",
+#'                                                       format = "%Y%m%d"),
+#'                                         edate=as.Date("20171231",
+#'                                                       format = "%Y%m%d"),
+#'                                         stateFIPS= "01",
+#'                                         countycode = "003",
+#'                                         sitenum = "0010",
+#'                                     service="qaAnnualPerformanceEvaluations")
+#'                   }
 #' @keywords internal
 aqs_services_by_site <- function(parameter, bdate, edate,
                                  stateFIPS, countycode, sitenum,
@@ -611,6 +634,27 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_qa_annualperformanceeval_by_county()
+#'          # for ozone in Baldwin County, AL for 2017.
+#'          # [aqs_qa_annualperformanceeval_by_county(parameter = "44201",
+#'          #                                        bdate = as.Date("20170101",
+#'          #                                                format = "%Y%m%d"),
+#'          #                                        edate = as.Date("20171231",
+#'          #                                                 format = "%Y%m%d"),
+#'          #                                        stateFIPS = "01",
+#'          #                                        countycode = "003"
+#'          #                                        )]
+#'          # then aqs_qa_annualperformanceeval_by_county() would call this
+#'          # helper function with the following inputs.
+#'           \dontrun{aqs_services_by_site(parameter = "44201",
+#'                                         bdate=as.Date("20170101",
+#'                                                       format = "%Y%m%d"),
+#'                                         edate=as.Date("20171231",
+#'                                                       format = "%Y%m%d"),
+#'                                         stateFIPS= "01",
+#'                                         countycode = "003"
+#'                                     service="qaAnnualPerformanceEvaluations")
+#'                   }
 #' @keywords internal
 aqs_services_by_county <- function(parameter, bdate, edate,
                                    stateFIPS, countycode, service,
@@ -685,6 +729,25 @@ aqs_services_by_county <- function(parameter, bdate, edate,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_qa_annualperformanceeval_by_site()
+#'          # for ozone in AL for 2017.
+#'          # [aqs_qa_annualperformanceeval_by_state(parameter = "44201",
+#'          #                                        bdate = as.Date("20170101",
+#'          #                                                format = "%Y%m%d"),
+#'          #                                        edate = as.Date("20171231",
+#'          #                                                 format = "%Y%m%d"),
+#'          #                                        stateFIPS = "01"
+#'          #                                        )]
+#'          # then aqs_qa_annualperformanceeval_by_site() would call this helper
+#'          # function with the following inputs.
+#'           \dontrun{aqs_services_by_state(parameter = "44201",
+#'                                         bdate=as.Date("20170101",
+#'                                                       format = "%Y%m%d"),
+#'                                         edate=as.Date("20171231",
+#'                                                       format = "%Y%m%d"),
+#'                                         stateFIPS= "01",
+#'                                     service="qaAnnualPerformanceEvaluations")
+#'                   }
 #' @keywords internal
 aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
                                   duration = NA_character_, service,
@@ -770,6 +833,32 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_annualsummary_by_box() for ozone
+#'          # annual summaries in the vicinity of central Alabama for the first
+#'          # two days of May, 2015
+#'          # [aqs_annualsummary_by_box(parameter = "44201",
+#'          #                           bdate = as.Date("20150501",
+#'          #                                            format = "%Y%m%d"),
+#'          #                           edate = as.Date("20170502",
+#'          #                                           format = "%Y%m%d"),
+#'          #                           minlat = "33.3",
+#'          #                           maxlat = "33.6",
+#'          #                           minlon = "-87.0",
+#'          #                           maxlon = "-86.7"
+#'          #                           )]
+#'          # then aqs_annualsummary_by_box() would call this helper
+#'          # function with the following inputs.
+#'           \dontrun{aqs_services_by_box(parameter = "44201",
+#'                                      bdate = as.Date("20150501",
+#'                                                      format = "%Y%m%d"),
+#'                                      edate = as.Date("20170502",
+#'                                                      format = "%Y%m%d"),
+#'                                      minlat = "33.3",
+#'                                      maxlat = "33.6",
+#'                                      minlon = "-87.0",
+#'                                      maxlon = "-86.7"
+#'                                     service = "annualData")
+#'                   }
 #' @keywords internal
 aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                                 minlon, maxlon, duration = NA_character_,
@@ -843,6 +932,28 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_annualsummary_by_cbsa() for  annual
+#'           # summary $NO_{2}$ data the for Charlotte-Concord-Gastonia, NC
+#'           # cbsa on Janurary 01, 2017
+#'           #[aqs_annualsummary_by_cbsa(parameter = "42602",
+#'           #                            bdate = as.Date("20170101",
+#'           #                                            format = "%Y%m%d"
+#'           #                                            ),
+#'           #                            edate = as.Date("20170101",
+#'           #                                            format = "%Y%m%d"
+#'           #                                           ),
+#'           #                            cbsa_code = "16740"
+#'           #                            )]
+#'          # then aqs_annualsummary_by_cbsa() would call this helper
+#'          # function with the following inputs.
+#'           \dontrun{aqs_services_by_cbsa(parameter = "42602",
+#'                                      bdate = as.Date("20170101",
+#'                                                      format = "%Y%m%d"),
+#'                                      edate = as.Date(20170101",
+#'                                                      format = "%Y%m%d"),
+#'                                      cbsa_code = "16740"
+#'                                      service = "annualData")
+#'                   }
 #' @keywords internal
 aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                  duration = NA_character_, service,
@@ -914,6 +1025,27 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_qa_annualperformanceeval_by_pqao())
+#'          # for annual performance evaluation data for ozone where the PQAO is
+#'          # the Alabamaba Department of Environmental Management
+#'          # (pqao_code 0013).
+#'          # [aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
+#'          #                                        bdate = as.Date("20170101",
+#'          #                                                format = "%Y%m%d"),
+#'          #                                        edate = as.Date("20171231",
+#'          #                                                format = "%Y%m%d"),
+#'          #                                        pqao_code = "0013"
+#'          #                                        )]
+#'          # then aqs_qa_annualperformanceeval_by_pqao() would call this helper
+#'          # function with the following inputs.
+#'           \dontrun{aqs_services_by_cbsa(parameter = "44201",
+#'                                      bdate = as.Date("20170101",
+#'                                                      format = "%Y%m%d"),
+#'                                      edate = as.Date("20171231",
+#'                                                      format = "%Y%m%d"),
+#'                                      pqao_code = "0013",
+#'                                   service = "qaAnnualPerformanceEvaluations")
+#'                   }
 #' @keywords internal
 aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
                                  service, cbdate = NA_Date_, cedate = NA_Date_,
@@ -973,6 +1105,27 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_qa_annualperformanceeval_by_MA())
+#'          # for information containing annual performance evaluation data
+#'          #  for ozone where the monitoring agency is the Alabama Department
+#'          #  of Environmental Management (MA_code 0013).
+#'          # [aqs_qa_annualperformanceeval_by_MA(parameter = "44201",
+#'          #                                    bdate = as.Date("20170101",
+#'          #                                                 format = "%Y%m%d"),
+#'          #                                    edate = as.Date("20171231",
+#'          #                                                 format = "%Y%m%d"),
+#'          #
+#'          #                                   )]
+#'          # then aqs_qa_annualperformanceeval_by_MA() would call this helper
+#'          # function with the following inputs.
+#'           \dontrun{aqs_services_by_MA(parameter = "44201",
+#'                                       bdate = as.Date("20170101",
+#'                                                       format = "%Y%m%d"),
+#'                                       edate = as.Date("20171231",
+#'                                                       format = "%Y%m%d"),
+#'                                       MA_code = "0013",
+#'                                   service = "qaAnnualPerformanceEvaluations")
+#'                   }
 #' @keywords internal
 aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
                                cbdate = NA_Date_, cedate = NA_Date_,
@@ -1006,6 +1159,13 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
 #'            first item ($Header) is a tibble of header information from the
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
+#' @examples # if an user were to call aqs_knownissues() for a list of known
+#'           # issues with respect to the US EPA AQS DataMart API
+#'           # [aqs_knownissues()]
+#'           # then aqs_knownissues() would call this helper
+#'           # function with the following inputs.
+#'           \dontrun{aqs_metadata_service(filter = "issues", service = NULL)
+#'                   }
 #' @keywords internal
 aqs_metadata_service <- function(filter, service = NA_character_,
                                  AQS_domain = "aqs.epa.gov")

@@ -23,4 +23,3 @@
 #' @name AQS_DATAMART_APIv2-S3-class
 #' @seealso tibble::tibble#'
 setOldClass("AQS_DATAMART_APIv2")
-

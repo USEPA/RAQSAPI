@@ -66,4 +66,27 @@ then calls the aqs and returns the result.
 This helper function is not meant to be called directly from
 external functions.
 }
+\examples{
+# if an user were to call aqs_qa_annualperformanceeval_by_MA())
+         # for information containing annual performance evaluation data
+         #  for ozone where the monitoring agency is the Alabama Department
+         #  of Environmental Management (MA_code 0013).
+         # [aqs_qa_annualperformanceeval_by_MA(parameter = "44201",
+         #                                    bdate = as.Date("20170101",
+         #                                                 format = "\%Y\%m\%d"),
+         #                                    edate = as.Date("20171231",
+         #                                                 format = "\%Y\%m\%d"),
+         #
+         #                                   )]
+         # then aqs_qa_annualperformanceeval_by_MA() would call this helper
+         # function with the following inputs.
+          \dontrun{aqs_services_by_MA(parameter = "44201",
+                                      bdate = as.Date("20170101",
+                                                      format = "\%Y\%m\%d"),
+                                      edate = as.Date("20171231",
+                                                      format = "\%Y\%m\%d"),
+                                      MA_code = "0013",
+                                  service = "qaAnnualPerformanceEvaluations")
+                  }
+}
 \keyword{internal}

@@ -13,6 +13,7 @@ output: md_document
    no longer exported and now marked with @internal roxygen2 flag so respective
    documentation is not included in the automatically generated reference
    documentation.
+ - resume using package:goodpractice, goodpractice is now maintained by ropensci
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5

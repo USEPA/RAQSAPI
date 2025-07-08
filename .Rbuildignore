@@ -47,3 +47,4 @@ codemeta.json
 ^.zip
 ^CITATION\.cff$
 ^RAQSAPI\.code-workspace$
+^\.github$

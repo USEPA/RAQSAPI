@@ -97,4 +97,32 @@ latitude/longitude coordinates then calls the aqs
 and returns the result. This helper function is not meant
 to be called directly from external functions.
 }
+\examples{
+# if an user were to call aqs_annualsummary_by_box() for ozone
+         # annual summaries in the vicinity of central Alabama for the first
+         # two days of May, 2015
+         # [aqs_annualsummary_by_box(parameter = "44201",
+         #                           bdate = as.Date("20150501",
+         #                                            format = "\%Y\%m\%d"),
+         #                           edate = as.Date("20170502",
+         #                                           format = "\%Y\%m\%d"),
+         #                           minlat = "33.3",
+         #                           maxlat = "33.6",
+         #                           minlon = "-87.0",
+         #                           maxlon = "-86.7"
+         #                           )]
+         # then aqs_annualsummary_by_box() would call this helper
+         # function with the following inputs.
+          \dontrun{aqs_services_by_box(parameter = "44201",
+                                     bdate = as.Date("20150501",
+                                                     format = "\%Y\%m\%d"),
+                                     edate = as.Date("20170502",
+                                                     format = "\%Y\%m\%d"),
+                                     minlat = "33.3",
+                                     maxlat = "33.6",
+                                     minlon = "-87.0",
+                                     maxlon = "-86.7"
+                                    service = "annualData")
+                  }
+}
 \keyword{internal}

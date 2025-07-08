@@ -52,11 +52,10 @@ tibble of the data returned.
 }
 \description{
 \lifecycle{stable}
-Returns AQS submissions transaction format (RD) of the annual
-performance evaluation data (raw). Includes data pairs for
-QA - aggregated by county for a parameter code aggregated by
-matching input parameter, countycode and stateFIPS
-provided for bdate - edate time frame.
+Returns quality assurance performance evaluation data - aggregated
+by county for a parameter code aggregated by matching input
+parameter, countycode and stateFIPS provided for
+bdate - edate time frame.
 }
 \note{
 The AQS API only allows for a single year of quality assurance
@@ -74,7 +73,7 @@ server. This operation has a linear run time of
 }
 \examples{
 # Returns a tibble containing annual performance evaluation data
-          # (raw) for ozone in Baldwin County, AL for 2017 in RD format.
+          # for ozone in Baldwin County, AL for 2017.
  \dontrun{ aqs_qa_annualperformanceeval_by_county(parameter = "44201",
                                                   bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),

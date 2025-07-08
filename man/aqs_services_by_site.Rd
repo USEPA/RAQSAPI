@@ -89,22 +89,30 @@ aggregations by site then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
-\seealso{
-Other Aggregate _by_site functions: 
-\code{\link{aqs_annualsummary_by_site}()},
-\code{\link{aqs_dailysummary_by_site}()},
-\code{\link{aqs_monitors_by_site}()},
-\code{\link{aqs_qa_annualperformanceeval_by_site}()},
-\code{\link{aqs_qa_annualperformanceevaltransaction_by_county}()},
-\code{\link{aqs_qa_annualperformanceevaltransaction_by_site}()},
-\code{\link{aqs_qa_blanks_by_site}()},
-\code{\link{aqs_qa_collocated_assessments_by_site}()},
-\code{\link{aqs_qa_flowrateaudit_by_site}()},
-\code{\link{aqs_qa_flowrateverification_by_site}()},
-\code{\link{aqs_qa_one_point_qc_by_site}()},
-\code{\link{aqs_qa_pep_audit_by_site}()},
-\code{\link{aqs_sampledata_by_site}()},
-\code{\link{aqs_transactionsample_by_site}()}
+\examples{
+# if an user were to call aqs_qa_annualperformanceeval_by_site()
+         # for ozone at the Fairhope site in Baldwin County, AL for 2017.
+         # [aqs_qa_annualperformanceeval_by_site(parameter = "44201",
+         #                                        bdate = as.Date("20170101",
+         #                                                format = "\%Y\%m\%d"),
+         #                                        edate = as.Date("20171231",
+         #                                                 format = "\%Y\%m\%d"),
+         #                                        stateFIPS = "01",
+         #                                        countycode = "003",
+         #                                        sitenum = "0010"
+         #                                        )]
+         # then aqs_qa_annualperformanceeval_by_site() would call this helper
+         # function with the following inputs.
+          \dontrun{aqs_services_by_site(parameter = "44201",
+                                        bdate=as.Date("20170101",
+                                                      format = "\%Y\%m\%d"),
+                                        edate=as.Date("20171231",
+                                                      format = "\%Y\%m\%d"),
+                                        stateFIPS= "01",
+                                        countycode = "003",
+                                        sitenum = "0010",
+                                    service="qaAnnualPerformanceEvaluations")
+                  }
 }
-\concept{Aggregate _by_site functions}
+\concept{Aggregate _by_site functions AQS_services}
 \keyword{internal}

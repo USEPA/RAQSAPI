@@ -66,4 +66,27 @@ then calls the aqs and returns the result.
 This helper function is not meant to be called directly from
 external functions.
 }
+\examples{
+# if an user were to call aqs_qa_annualperformanceeval_by_pqao())
+         # for annual performance evaluation data for ozone where the PQAO is
+         # the Alabamaba Department of Environmental Management
+         # (pqao_code 0013).
+         # [aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
+         #                                        bdate = as.Date("20170101",
+         #                                                format = "\%Y\%m\%d"),
+         #                                        edate = as.Date("20171231",
+         #                                                format = "\%Y\%m\%d"),
+         #                                        pqao_code = "0013"
+         #                                        )]
+         # then aqs_qa_annualperformanceeval_by_pqao() would call this helper
+         # function with the following inputs.
+          \dontrun{aqs_services_by_cbsa(parameter = "44201",
+                                     bdate = as.Date("20170101",
+                                                     format = "\%Y\%m\%d"),
+                                     edate = as.Date("20171231",
+                                                     format = "\%Y\%m\%d"),
+                                     pqao_code = "0013",
+                                  service = "qaAnnualPerformanceEvaluations")
+                  }
+}
 \keyword{internal}

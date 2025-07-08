@@ -85,4 +85,27 @@ aggregations by county then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
+\examples{
+# if an user were to call aqs_qa_annualperformanceeval_by_county()
+         # for ozone in Baldwin County, AL for 2017.
+         # [aqs_qa_annualperformanceeval_by_county(parameter = "44201",
+         #                                        bdate = as.Date("20170101",
+         #                                                format = "\%Y\%m\%d"),
+         #                                        edate = as.Date("20171231",
+         #                                                 format = "\%Y\%m\%d"),
+         #                                        stateFIPS = "01",
+         #                                        countycode = "003"
+         #                                        )]
+         # then aqs_qa_annualperformanceeval_by_county() would call this
+         # helper function with the following inputs.
+          \dontrun{aqs_services_by_site(parameter = "44201",
+                                        bdate=as.Date("20170101",
+                                                      format = "\%Y\%m\%d"),
+                                        edate=as.Date("20171231",
+                                                      format = "\%Y\%m\%d"),
+                                        stateFIPS= "01",
+                                        countycode = "003"
+                                    service="qaAnnualPerformanceEvaluations")
+                  }
+}
 \keyword{internal}

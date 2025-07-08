@@ -116,7 +116,6 @@ Other Aggregate _by_site functions:
 \code{\link{aqs_qa_flowrateverification_by_site}()},
 \code{\link{aqs_qa_one_point_qc_by_site}()},
 \code{\link{aqs_sampledata_by_site}()},
-\code{\link{aqs_services_by_site}()},
 \code{\link{aqs_transactionsample_by_site}()}
 }
 \concept{Aggregate _by_site functions}
