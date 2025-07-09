@@ -5,7 +5,7 @@
 9cc6ff995929c426150be2c3bda959e5 *DESCRIPTION
 0186cb4801a2d5f60fece7864320a374 *dev/index.R
 a82b0dc8f307f12dcf088d3abbcdf99b *dev/index.Rmd
-ad3b5d50c270d57eceb9a18c1b56f23b *dev/install_RAQSAPI.R
+2d7ab7b640afb333e504aa70e41a13ba *dev/install_RAQSAPI.R
 8678a5c15c21e8daaf7cd7d912391f9e *dev/RDcheck.R
 2a2af3ec143905dbe9a4c61dd83b14d5 *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
