@@ -944,12 +944,12 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'           #                                           ),
 #'           #                            cbsa_code = "16740"
 #'           #                            )]
-#'          # then aqs_annualsummary_by_cbsa() would call this helper
-#'          # function with the following inputs.
+#'           # then aqs_annualsummary_by_cbsa() would call this helper
+#'           # function with the following inputs.
 #'           \dontrun{aqs_services_by_cbsa(parameter = "42602",
 #'                                      bdate = as.Date("20170101",
 #'                                                      format = "%Y%m%d"),
-#'                                      edate = as.Date(20170101",
+#'                                      edate = as.Date("20170101",
 #'                                                      format = "%Y%m%d"),
 #'                                      cbsa_code = "16740"
 #'                                      service = "annualData")

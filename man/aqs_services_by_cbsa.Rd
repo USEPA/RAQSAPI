@@ -77,4 +77,28 @@ aggregations by cbsa then calls the aqs and returns the
 result. This helper function is not meant to be called
 directly from external functions.
 }
+\examples{
+# if an user were to call aqs_annualsummary_by_cbsa() for  annual
+          # summary $NO_{2}$ data the for Charlotte-Concord-Gastonia, NC
+          # cbsa on Janurary 01, 2017
+          #[aqs_annualsummary_by_cbsa(parameter = "42602",
+          #                            bdate = as.Date("20170101",
+          #                                            format = "\%Y\%m\%d"
+          #                                            ),
+          #                            edate = as.Date("20170101",
+          #                                            format = "\%Y\%m\%d"
+          #                                           ),
+          #                            cbsa_code = "16740"
+          #                            )]
+          # then aqs_annualsummary_by_cbsa() would call this helper
+          # function with the following inputs.
+          \dontrun{aqs_services_by_cbsa(parameter = "42602",
+                                     bdate = as.Date("20170101",
+                                                     format = "\%Y\%m\%d"),
+                                     edate = as.Date("20170101",
+                                                     format = "\%Y\%m\%d"),
+                                     cbsa_code = "16740"
+                                     service = "annualData")
+                  }
+}
 \keyword{internal}

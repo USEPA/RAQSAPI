@@ -94,7 +94,7 @@ a8f79ece8b275d2f60fc09a58239e661 *man/aqs_quarterlysummary_by_site.Rd
 a10c5684e68d35cebb418f849c058609 *man/aqs_sampledata_by_state.Rd
 9fa83fd8d768a55147443113a526e3c3 *man/aqs_sampledurations.Rd
 2a80445bd83e1879bc4c3385e29412cd *man/aqs_services_by_box.Rd
-14d71f47dd3ae659d0b44cfdf2c87e3d *man/aqs_services_by_cbsa.Rd
+d0284ee8d60614d9f472ae561656ae19 *man/aqs_services_by_cbsa.Rd
 642329b92bf91db47d4b7114db48aabb *man/aqs_services_by_county.Rd
 c9742046e414a8a10c299706524499c5 *man/aqs_services_by_MA.Rd
 a5675f5eec8861ea0fab87c2440cf8b4 *man/aqs_services_by_pqao.Rd
@@ -114,7 +114,7 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 fdaa247362031d3e868d9831e129fc73 *man/RAQSAPI.Rd
 ee58e73f604148d150e7b02e7f24c12d *NAMESPACE
 6658c49cebe5cec2e9d6c5a8687ec5e1 *R/AQS_DATAMART_APIv2-S3-class.R
-1400df491b11568ca2649e89096c4bf2 *R/AQSAPI_helperfunctions.R
+d7e1b95b9fe17a6fc5ccabdd33e39a08 *R/AQSAPI_helperfunctions.R
 a3558975d0256839b174ab7868833075 *R/bybox.R
 5d91170b60a61aff777458d66478a435 *R/bycbsa.R
 ca9422b7325951a084bcfb49a63111e4 *R/bycounty.R
@@ -128,7 +128,7 @@ f98dc7eacb8ae3b7754998a2ff225b04 *R/RAQSAPI-package.R
 e6e3b87e48f4403642382987b0f40714 *R/setupfunctions.R
 6e659bb3bbf313dc819d4c029f0b22d0 *R/zzz.R
 02b8c23888d61888da952778d6743ed0 *RAQSAPI.Rproj
-98d6a7d81377675dbcff97cb94ed8e1b *README.md
+a01babf173b3bcdce2e35ad87a8d835c *README.md
 0f3c5be17b5a6c82e8262078fc98bc49 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
