@@ -278,14 +278,14 @@ RAQSAPI_functions_table <- function()
                                                full.names=TRUE)) %>%
     mutate(functionfamily = functiontype(functionnames))
   functiontable$functionfamily[which(functiontable$functionnames %in%
-                                       listfunctions)]
-                                                     <- "RAQSAPI list functions"
+                                     listfunctions)] <- "RAQSAPI list functions"
   functiontable$functionfamily[which(functiontable$functionnames %in%
-                                       setupfunctions)]
-                                                    <- "RAQSAPI setup functions"
+                                       setupfunctions)] <- "RAQSAPI setup
+                                                            functions"
   functiontable$functionfamily[which(functiontable$functionnames %in%
-                                       serviceshelperfunctions)]
-                                                 <- "RAQSAPI services functions"
+                                     serviceshelperfunctions)] <- "RAQSAPI
+                                                                   services
+                                                                   functions"
 
   functiontable %<>% filter(!functionfamily == "services functions") %>%
     filter(!functionnames == "deprecated")

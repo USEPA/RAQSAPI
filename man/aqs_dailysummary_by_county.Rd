@@ -91,7 +91,7 @@ API server. This operation has a linear run time of
           #  for Wake County, NC between January and February 2016
  \dontrun{aqs_dailysummary_by_county(parameter = "88101",
                                      bdate = as.Date("20160101",
-                                                   format = "\%Y\%m\%d"),
+                                                    format = "\%Y\%m\%d"),
                                      edate = as.Date("20170228",
                                                      format = "\%Y\%m\%d"),
                                      stateFIPS = "37",

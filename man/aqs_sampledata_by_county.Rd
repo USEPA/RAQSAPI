@@ -111,7 +111,7 @@ API server. This operation has a linear run time of
                                    bdate = as.Date("20150101",
                                                    format = "\%Y\%m\%d"),
                                    edate=as.Date("20160228",
-                                                   format = "\%Y\%m\%d"),
+                                                 format = "\%Y\%m\%d"),
                                    stateFIPS = "37",
                                    countycode = "183"
                                    )

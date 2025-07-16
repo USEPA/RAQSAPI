@@ -93,14 +93,14 @@ directly from external functions.
 # if an user were to call aqs_qa_annualperformanceeval_by_site()
          # for ozone at the Fairhope site in Baldwin County, AL for 2017.
          # [aqs_qa_annualperformanceeval_by_site(parameter = "44201",
-         #                                        bdate = as.Date("20170101",
+         #                                       bdate = as.Date("20170101",
+         #                                               format = "\%Y\%m\%d"),
+         #                                       edate = as.Date("20171231",
          #                                                format = "\%Y\%m\%d"),
-         #                                        edate = as.Date("20171231",
-         #                                                format = "\%Y\%m\%d"),
-         #                                        stateFIPS = "01",
-         #                                        countycode = "003",
-         #                                        sitenum = "0010"
-         #                                        )]
+         #                                       stateFIPS = "01",
+         #                                       countycode = "003",
+         #                                       sitenum = "0010"
+         #                                       )]
          # then aqs_qa_annualperformanceeval_by_site() would call this helper
          # function with the following inputs.
           \dontrun{aqs_services_by_site(parameter = "44201",

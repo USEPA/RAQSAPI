@@ -14,7 +14,8 @@ will be used to connect to the AQS API.}
 AQS Data Mart.}
 }
 \value{
-None
+NULL (invisible) This functions is called for its side effect and
+does not return meaningful data.
 }
 \description{
 \lifecycle{stable}

@@ -88,7 +88,7 @@ API server. This operation has a linear run time of
   \dontrun{aqs_qa_one_point_qc_by_county(parameter= "44201",
                                          bdate = as.Date("20170101",
                                                        format = "\%Y\%m\%d"),
-                                         edate = a s.Date("20180131",
+                                         edate = as.Date("20180131",
                                                          format = "\%Y\%m\%d"),
                                          stateFIPS = "25",
                                          countycode = "001"

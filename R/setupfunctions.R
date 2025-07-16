@@ -14,7 +14,8 @@
 #'                    will be used to connect to the AQS API.
 #' @param key the key used in conjunction with the username given to connect to
 #'              AQS Data Mart.
-#' @return None
+#' @return NULL (invisible) This functions is called for its side effect and
+#'         does not return meaningful data.
 #' @examples
 #'  #to authenticate an existing user the email address
 #'  # "John.Doe@myemail.com" and key = "MyKey"

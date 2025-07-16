@@ -36,16 +36,10 @@ vignettes/*.docx
 
 #other files
 #not needed
-dev/countlinesofcode.R
-#this file is not needed on github use the remotes package instead
-dev/install_RAQSAPI.R
-# this project is not taking contributions at this time, any issues with this
-#package, or feature request should be submitted to the issue tracker.
-dev/contributing.md
-dev/contributing.Rmd
+ignore all files under dev
+dev/.
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
-dev/.experimental.R
 
 # Output files from R CMD check
 /*.Rcheck/

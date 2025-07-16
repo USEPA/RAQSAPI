@@ -175,7 +175,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @return NULL
+#' @return NULL````````
 #' @noRd
 #' @rdname deprecated
 #' @keywords internal # do not include deprecated function in
