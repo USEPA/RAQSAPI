@@ -507,7 +507,7 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate,
 aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter,
                                                             bdate, edate,
                                                             pqao_code,
-                                                          return_header = FALSE)
+                                                            return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
 

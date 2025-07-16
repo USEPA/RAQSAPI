@@ -1,21 +1,5 @@
-library(lintr)
-library(magrittr)
-
-RAQSAPI_lintrs <- lintr::linters_with_defaults(absolute_path_linter,
-commas_linter, cyclocomp_linter, equals_na_linter, expect_lint,
-extraction_operator_linter, function_left_parentheses_linter,
-implicit_integer_linter, line_length_linter, no_tab_linter,
-nonportable_path_linter, object_length_linter, object_length_linter,
-object_name_linter, object_usage_linter, paren_brace_linter,
-pipe_continuation_linter, semicolon_terminator_linter, seq_linter,
-single_quotes_linter, spaces_inside_linter, T_and_F_symbol_linter,
-todo_comment_linter, trailing_blank_lines_linter,
-trailing_whitespace_linter, unneeded_concatenation_linter,
-unneeded_concatenation_linter)
-
-RAQSAPI_lintrs <- linters_with_defaults(
-  defaults = RAQSAPI_lintrs,
-  brace_linter(allow_single_line=TRUE),
-  assignment_linter(operator = "%<>%"),
-  semicolon_linter(allow_trailing = FALSE)
-)
+linters:
+  linters_with_defaults(
+    assignment_linter(allow_pipe_assign = TRUE),
+    brace_linter(allow_single_line = TRUE),
+    return_linter(return_style = "explicit"))

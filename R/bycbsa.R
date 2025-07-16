@@ -34,8 +34,8 @@
 #'            tibble of the data returned.
 #' @export
 aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                    cbdate = NA_Date_, cedate = NA_Date_,
-                                    return_header = FALSE)
+                                 cbdate = NA_Date_, cedate = NA_Date_,
+                                 return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate,
                  return_header)

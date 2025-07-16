@@ -57,6 +57,12 @@ AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 first item ($Header) is a tibble of header information from the
 AQS API and the second item ($Data) is a tibble of the data
 returned.
+
+a AQS_DATAMART_APIv2 S3 object that is the return value from the
+AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
+first item ($Header) is a tibble of header information from the
+AQS API and the second item ($Data) is a tibble of the data
+returned.
 }
 \description{
 a helper function that abstracts the formatting of the inputs
@@ -73,9 +79,9 @@ external functions.
          #  of Environmental Management (MA_code 0013).
          # [aqs_qa_annualperformanceeval_by_MA(parameter = "44201",
          #                                    bdate = as.Date("20170101",
-         #                                                 format = "\%Y\%m\%d"),
+         #                                                format = "\%Y\%m\%d"),
          #                                    edate = as.Date("20171231",
-         #                                                 format = "\%Y\%m\%d"),
+         #                                                format = "\%Y\%m\%d"),
          #
          #                                   )]
          # then aqs_qa_annualperformanceeval_by_MA() would call this helper

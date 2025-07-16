@@ -26,7 +26,7 @@ RAQSAPI_by_site_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_by_county_functions <- c(
   "aqs_annualsummary_by_county",
@@ -48,7 +48,7 @@ RAQSAPI_by_county_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_by_state_functions <- c(
   "aqs_annualsummary_by_state",
@@ -70,7 +70,7 @@ RAQSAPI_by_state_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_by_pqao_functions <- c(
   "aqs_qa_annualperformanceeval_by_pqao",
@@ -85,7 +85,7 @@ RAQSAPI_by_pqao_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_by_MA_functions <- c(
   "aqs_qa_annualperformanceeval_by_MA",
@@ -101,7 +101,7 @@ RAQSAPI_by_MA_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_by_box_functions <- c(
   "aqs_annualsummary_by_box",
@@ -139,7 +139,7 @@ RAQSAPI_list_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_signup_and_credentials_functions <- c(
   "aqs_credentials",
@@ -148,7 +148,7 @@ RAQSAPI_signup_and_credentials_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_metadata_functions <- c(
   "aqs_fields_by_service",
@@ -159,7 +159,7 @@ RAQSAPI_metadata_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 RAQSAPI_misc_functions <- c(
   "aqs_removeheader"
@@ -167,7 +167,7 @@ RAQSAPI_misc_functions <- c(
   sort() %>%
   tibble() %>%
   rename("FUN" = ".") %>%
-  mutate(PATH=glue::glue("../man/{FUN}"))
+  mutate(PATH = glue::glue("../man/{FUN}"))
 
 ALL_EXPORTED_RAQSAPI_FUNCTIONS <- list(
   RAQSAPI_by_site_functions,

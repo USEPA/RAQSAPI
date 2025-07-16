@@ -29,8 +29,8 @@
 #'
 #' @export
 aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS,
-                                    cbdate = NA_Date_, cedate = NA_Date_,
-                                    return_header = FALSE)
+                                  cbdate = NA_Date_, cedate = NA_Date_,
+                                  return_header = FALSE)
 {
     checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate,
                    return_header)
@@ -115,14 +115,14 @@ aqs_sampledata_by_state <- function(parameter, bdate, edate, stateFIPS,
                  cedate, return_header)
 
 params <- aqsmultiyearparams(parameter = parameter,
-                                   bdate = bdate,
-                                   edate = edate,
-                                   stateFIPS = stateFIPS,
-                                   duration = duration,
-                                   service = "sampleData",
-                                   cbdate = cbdate,
-                                   cedate = cedate
-                              )
+                             bdate = bdate,
+                             edate = edate,
+                             stateFIPS = stateFIPS,
+                             duration = duration,
+                             service = "sampleData",
+                             cbdate = cbdate,
+                             cedate = cedate
+                            )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_state)
   if (!return_header) sampledata %<>% aqs_removeheader

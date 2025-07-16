@@ -9,6 +9,5 @@ Rdfiles <- list.files(recursive = TRUE, pattern = ".Rd$") %>%
 
 for(i in Rdfiles)
 {
-  print(i)
   tools::checkRd(Rd = i, def_enc = TRUE)
 }

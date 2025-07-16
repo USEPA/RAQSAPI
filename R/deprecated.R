@@ -175,6 +175,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
+#' @return NULL
 #' @noRd
 #' @rdname deprecated
 #' @keywords internal # do not include deprecated function in
@@ -184,6 +185,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
   abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead.")
+  return(NULL)
 }
 
 
@@ -211,4 +213,5 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 aqs_ratelimit <- function(waittime=5L)
 {
   Sys.sleep(waittime)
+  return(NULL)
 }

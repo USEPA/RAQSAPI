@@ -17,7 +17,8 @@ aqs_isavailable <- function()
         filter = "isAvailable",
         user =  getOption("aqs_username"),
         user_key =  getOption("aqs_key")
-        )$Header
+        )$Header %>%
+    return()
 }
 
 

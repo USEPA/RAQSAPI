@@ -37,10 +37,10 @@ checkaqsparams <- function(...)
 
   if ("parameter" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$parameter) != 5 |
-        !is.character(ellipsis_args$parameter) |
+    if (nchar(ellipsis_args$parameter) != 5 ||
+        !is.character(ellipsis_args$parameter) ||
         !str_detect(ellipsis_args$parameter, "^[:digit:]+$")
-        )
+       )
     {
       error <- TRUE
       errmessage %<>% c("x" =
@@ -51,21 +51,22 @@ checkaqsparams <- function(...)
 
   if ("stateFIPS" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$stateFIPS) != 2 |
+    if (nchar(ellipsis_args$stateFIPS) != 2 ||
         !is.character(ellipsis_args$stateFIPS)
         )
     {
       error <- TRUE
       errmessage %<>% c("x" =
-      "stateFIPS must be a two digit number (represented as a character string),
-       please pad stateFIPS less than 2 digits with leading zeros"
+          "stateFIPS must be a two digit number (represented as a
+          character string), please pad stateFIPS less than 2 digits with
+          leading zeros"
                         )
     }
   }
 
   if ("countycode" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$countycode) != 3 |
+    if (nchar(ellipsis_args$countycode) != 3 ||
         !is.character(ellipsis_args$countycode))
     {
       error <- TRUE
@@ -78,7 +79,7 @@ checkaqsparams <- function(...)
 
   if ("sitenum" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$sitenum) != 4 |
+    if (nchar(ellipsis_args$sitenum) != 4 ||
         !is.character(ellipsis_args$sitenum))
     {
       error <- TRUE
@@ -91,8 +92,8 @@ checkaqsparams <- function(...)
 
   if ("MA_code" %in% names(ellipsis_args))
   {
-    if ((nchar(ellipsis_args$MA_code) != 4 |
-         nchar(ellipsis_args$MA_code) != 3) |
+    if ((nchar(ellipsis_args$MA_code) != 4 ||
+         nchar(ellipsis_args$MA_code) != 3) ||
         !is.character(ellipsis_args$MA_code))
     {
       error <- TRUE
@@ -106,8 +107,8 @@ checkaqsparams <- function(...)
 
   if ("pqao_code" %in% names(ellipsis_args))
   {
-    if ((nchar(ellipsis_args$pqao_code) != 4 |
-         nchar(ellipsis_args$pqao_code) != 3) |
+    if ((nchar(ellipsis_args$pqao_code) != 4 ||
+         nchar(ellipsis_args$pqao_code) != 3) ||
         !is.character(ellipsis_args$pqao_code))
     {
       error <- TRUE
@@ -120,7 +121,7 @@ checkaqsparams <- function(...)
   }
   if ("cbsa_code" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$cbsa_code) != 5 |
+    if (nchar(ellipsis_args$cbsa_code) != 5 ||
         !is.character(ellipsis_args$cbsa_code))
     {
       error <- TRUE
@@ -132,7 +133,7 @@ checkaqsparams <- function(...)
   }
   if ("POC" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$POC) != 1 |
+    if (nchar(ellipsis_args$POC) != 1 ||
         !is.character(ellipsis_args$POC))
     {
       error <- TRUE
@@ -159,7 +160,7 @@ checkaqsparams <- function(...)
   }
   if ("cbdate" %in% names(ellipsis_args))
   {
-    if (!is.Date(ellipsis_args$cbdate) & !is.null(ellipsis_args$cbdate))
+    if (!is.Date(ellipsis_args$cbdate) && !is.null(ellipsis_args$cbdate))
     {
       error <- TRUE
       errmessage %<>% c("x" = "cbdate must be an R date object")
@@ -167,7 +168,7 @@ checkaqsparams <- function(...)
   }
   if ("cedate" %in% names(ellipsis_args))
   {
-    if (!is.Date(ellipsis_args$cedate) & !is.null(ellipsis_args$cedate))
+    if (!is.Date(ellipsis_args$cedate) && !is.null(ellipsis_args$cedate))
     {
       error <- TRUE
       errmessage %<>% c("x" = "cedate must be an R date object")
@@ -183,7 +184,7 @@ checkaqsparams <- function(...)
   }
   if ("minlat" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$minlat), -90, 90)) |
+    if ((!between(as.double(ellipsis_args$minlat), -90, 90)) ||
         !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
@@ -194,7 +195,7 @@ checkaqsparams <- function(...)
   }
   if ("maxlat" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$maxlat), -90, 90)) |
+    if ((!between(as.double(ellipsis_args$maxlat), -90, 90)) ||
         !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
@@ -205,7 +206,7 @@ checkaqsparams <- function(...)
   }
   if ("minlon" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$minlon), -180, 180)) |
+    if ((!between(as.double(ellipsis_args$minlon), -180, 180)) ||
         !is.character(ellipsis_args$minlon)
        )
     {
@@ -217,7 +218,7 @@ checkaqsparams <- function(...)
   }
     if ("maxlon" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$maxlon), -180, 180)) |
+    if ((!between(as.double(ellipsis_args$maxlon), -180, 180)) ||
         !is.character(ellipsis_args$maxlon)
        )
     {
@@ -229,9 +230,9 @@ checkaqsparams <- function(...)
   }
   if ("duration" %in% names(ellipsis_args))
   {
-    if (nchar(ellipsis_args$duration) != 1 |
-        !is.character(ellipsis_args$duration) &
-        ellipsis_args$duration %in% 1:9 |
+    if (nchar(ellipsis_args$duration) != 1 ||
+        !is.character(ellipsis_args$duration) &&
+        ellipsis_args$duration %in% 1:9 ||
         ellipsis_args$duration %in% LETTERS[1:26]
         )
     {
@@ -256,7 +257,8 @@ checkaqsparams <- function(...)
       if (is.null(callingfunction)) callingfunction <- "Unknown Environment"
       callingfunction <- glue(" in: {callingfunction}")
       c("i" = callingfunction, errmessage) %>% abort
-    }
+  }
+  return(NULL)
 }
 
 
@@ -276,7 +278,7 @@ checkaqsparams <- function(...)
 #' @importFrom magrittr `%>%`
 #' @keywords internal
 #' @noRd
-format_variables_for_api <- function(x, separator="&")
+format_variables_for_api <- function(x, separator = "&")
 {
   if (length(x) == 0) {
     return("")
@@ -309,7 +311,7 @@ format_variables_for_api <- function(x, separator="&")
 #'            calls.
 #' @keywords internal
 #' @noRd
-format_multiple_params_for_api <- function(x, separator=",")
+format_multiple_params_for_api <- function(x, separator = ",")
 {
   if (length(x) == 0) {
     return("")
@@ -320,7 +322,8 @@ format_multiple_params_for_api <- function(x, separator=",")
   #don't forget to remove NAs
   x[vapply(x, is.na, FUN.VALUE = NA)] <- NULL
   x <- purrr::map_chr(x, as.character)
-  paste0(x, collapse = separator)
+  paste0(x, collapse = separator) %>%
+    return()
 }
 
 
@@ -408,9 +411,9 @@ RAQSAPI_error_msg <- function(AQSresponse)
 #' @keywords internal
 #' @noRd
 aqs <- function(service, filter = NULL, user = NA,
-                    user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
+                user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
 {
-  if (is.null(user) | is.null(user_key))
+  if (is.null(user) || is.null(user_key))
          {stop("please enter user credentials before using RAQSAPI functions,\n
                 please refer to \'?aqs_credentials()\' for useage infomation \n"
               )
@@ -421,11 +424,11 @@ aqs <- function(service, filter = NULL, user = NA,
 
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(format_variables_for_api(c(list(email = I(user), key = user_key),
-                                  variables)))
+                                    variables)))
   AQSrequest <- AQSpath %>%
     request() %>%
 
-    req_throttle(rate = 10/60, realm = "RAQSAPI") %>%
+    req_throttle(rate = 10 / 60, realm = "RAQSAPI") %>%
     req_retry(max_tries = 5, max_seconds = 30, backoff = ~10) %>%
     req_error(body = RAQSAPI_error_msg)
     # AQS DataMart API does not accept headers so user_agent not working
@@ -445,13 +448,12 @@ aqs <- function(service, filter = NULL, user = NA,
       resp_body_json(simplifyVector = TRUE,
                      simplifyDataFrame = TRUE)
     AQSresult <- vector("list", length = 2)
-    AQSresult[[1]] <- AQSresponse$Header
-    AQSresult[[2]] <- AQSresponse$Data
-    names(AQSresult) <- c("Header", "Data")
-    AQSresult <- structure(.Data = AQSresult, class = "AQS_DATAMART_APIv2")
-     #aqs_ratelimit() #depricated
-     return(AQSresult)
+    AQSresult[[1]] <- AQSresponse$Header %>% tibble()
+    AQSresult[[2]] <- AQSresponse$Data %>% tibble()
 
+    names(AQSresult) <- c("Header", "Data")
+    AQSresult <- new_AQS_DATAMART_APIv2(AQSresult)
+    return(AQSresult)
 }
 
 
@@ -460,6 +462,7 @@ aqs <- function(service, filter = NULL, user = NA,
 #'                \<character\>\<AT\>\<character\>.\<character\> with length
 #'                of at least 2 can be used to check if the input has the form
 #'                of a valid e-mail address.
+#' @importFrom magrittr `%>%`
 #' @param email a string which represents the parameter code of the air
 #'                   pollutant related to the data being requested.
 #' @note since this code relies on using regex the implementation is not perfect
@@ -471,7 +474,8 @@ aqs <- function(service, filter = NULL, user = NA,
 isValidEmail <- function(email) {
   grepl("\\<[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\>",
         as.character(email),
-        ignore.case = TRUE)
+        ignore.case = TRUE) %>%
+    return()
 }
 
 
@@ -482,6 +486,7 @@ isValidEmail <- function(email) {
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
 #' @family Aggregate _by_site functions AQS_services
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -538,7 +543,7 @@ isValidEmail <- function(email) {
 #'          #                                        bdate = as.Date("20170101",
 #'          #                                                format = "%Y%m%d"),
 #'          #                                        edate = as.Date("20171231",
-#'          #                                                 format = "%Y%m%d"),
+#'          #                                                format = "%Y%m%d"),
 #'          #                                        stateFIPS = "01",
 #'          #                                        countycode = "003",
 #'          #                                        sitenum = "0010"
@@ -577,7 +582,8 @@ aqs_services_by_site <- function(parameter, bdate, edate,
                        cedate = cedate
                       ),
       AQS_domain = AQS_domain
-      )
+      ) %>%
+    return()
 }
 
 #' @title aqs_services_by_county
@@ -586,6 +592,7 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'                 aggregations by county then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -640,7 +647,7 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'          #                                        bdate = as.Date("20170101",
 #'          #                                                format = "%Y%m%d"),
 #'          #                                        edate = as.Date("20171231",
-#'          #                                                 format = "%Y%m%d"),
+#'          #                                                format = "%Y%m%d"),
 #'          #                                        stateFIPS = "01",
 #'          #                                        countycode = "003"
 #'          #                                        )]
@@ -676,7 +683,8 @@ aqs_services_by_county <- function(parameter, bdate, edate,
                            cedate = cedate
           ),
       AQS_domain = AQS_domain
-  )
+  ) %>%
+    return()
 }
 
 
@@ -686,6 +694,7 @@ aqs_services_by_county <- function(parameter, bdate, edate,
 #'                 aggregations by State then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -735,7 +744,7 @@ aqs_services_by_county <- function(parameter, bdate, edate,
 #'          #                                        bdate = as.Date("20170101",
 #'          #                                                format = "%Y%m%d"),
 #'          #                                        edate = as.Date("20171231",
-#'          #                                                 format = "%Y%m%d"),
+#'          #                                                format = "%Y%m%d"),
 #'          #                                        stateFIPS = "01"
 #'          #                                        )]
 #'          # then aqs_qa_annualperformanceeval_by_site() would call this helper
@@ -768,7 +777,8 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
                        cedate = cedate
           ),
       AQS_domain = AQS_domain
-  )
+  ) %>%
+    return()
 }
 
 #' @title aqs_services_by_box
@@ -778,6 +788,7 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                 latitude/longitude coordinates then calls the aqs
 #'                 and returns the result. This helper function is not meant
 #'                 to be called directly from external functions.
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -881,7 +892,8 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
                            cedate = cedate
           ),
       AQS_domain = AQS_domain
-  )
+  ) %>%
+    return()
 }
 
 #' @title aqs_services_by_cbsa
@@ -890,6 +902,7 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                 aggregations by cbsa then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -973,7 +986,8 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                            cedate = cedate
                            ),
       AQS_domain = AQS_domain
-      )
+      ) %>%
+    return()
 }
 
 #' @title aqs_services_by_pqao
@@ -984,7 +998,7 @@ aqs_services_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'                 then calls the aqs and returns the result.
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
-#'
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -1063,7 +1077,8 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
                        cedate = cedate
           ),
       AQS_domain = AQS_domain
-  )
+  ) %>%
+    return()
 }
 
 #' @title aqs_services_by_MA
@@ -1073,6 +1088,7 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'                 then calls the aqs and returns the result.
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
+#' @importFrom magrittr `%>%`
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -1111,9 +1127,9 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'          #  of Environmental Management (MA_code 0013).
 #'          # [aqs_qa_annualperformanceeval_by_MA(parameter = "44201",
 #'          #                                    bdate = as.Date("20170101",
-#'          #                                                 format = "%Y%m%d"),
+#'          #                                                format = "%Y%m%d"),
 #'          #                                    edate = as.Date("20171231",
-#'          #                                                 format = "%Y%m%d"),
+#'          #                                                format = "%Y%m%d"),
 #'          #
 #'          #                                   )]
 #'          # then aqs_qa_annualperformanceeval_by_MA() would call this helper
@@ -1126,6 +1142,11 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'                                       MA_code = "0013",
 #'                                   service = "qaAnnualPerformanceEvaluations")
 #'                   }
+#' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
+#'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
+#'            first item ($Header) is a tibble of header information from the
+#'            AQS API and the second item ($Data) is a tibble of the data
+#'            returned.
 #' @keywords internal
 aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
                                cbdate = NA_Date_, cedate = NA_Date_,
@@ -1143,13 +1164,15 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
                        cedate = cedate
           ),
       AQS_domain = AQS_domain
-  )
+  ) %>%
+    return()
 }
 
 #' @title aqs_metadata_service
 #' @description A helper function for functions which use the metaData service
 #'                from the AQS API. This function is not intended to be called
 #'                directly by the end user
+#' @importFrom magrittr `%>%`
 #' @param filter a character string representing the filter being applied
 #' @param service a character string representing the service
 #' @param AQS_domain a R string object containing the domain that should be
@@ -1167,7 +1190,8 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service,
 #'           \dontrun{aqs_metadata_service(filter = "issues", service = NULL)
 #'                   }
 #' @keywords internal
-aqs_metadata_service <- function(filter, service = NA_character_,
+aqs_metadata_service <- function(filter,
+                                 service = NA_character_,
                                  AQS_domain = "aqs.epa.gov")
 {
   aqs(service = "metaData",
@@ -1176,7 +1200,8 @@ aqs_metadata_service <- function(filter, service = NA_character_,
       user_key =  getOption("aqs_key"),
       variables = list(service = service),
       AQS_domain = AQS_domain
-  )
+  ) %>%
+    return()
 }
 
 
@@ -1202,17 +1227,19 @@ if (is.null(aqsobject))
     } else if(inherits(x = aqsobject, what = "AQS_DATAMART_APIv2"))
              {
                   #using tidyevaluation and substitute operator
-                  aqsobject$Data %<>%  dplyr::rename(!!name1 := 1)
-                  aqsobject$Data %<>%  dplyr::rename(!!name2 := 2)
+                  aqsobject$Data %<>% dplyr::rename(!!name1 := 1)
+                  aqsobject$Data %<>% dplyr::rename(!!name2 := 2)
 
               } else if (all(inherits(x = aqsobject[[1]],
                                       what = "AQS_DATAMART_APIv2")))
                        {
                           #using tidyevaluation and substitute operator
-                          aqsobject %<>%  lapply("[[", "Data") %>%
-                            dplyr::rename(!!name1 := 1)
-                          aqsobject %<>%  lapply("[[", "Data") %>%
-                            dplyr::rename(!!name2 := 2)
+                          aqsobject %<>%
+                            lapply("[[", "Data") %>%
+                              dplyr::rename(!!name1 := 1)
+                          aqsobject %<>%
+                            lapply("[[", "Data") %>%
+                              dplyr::rename(!!name2 := 2)
                        }
  return(aqsobject)
 }

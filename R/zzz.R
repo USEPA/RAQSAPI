@@ -1,6 +1,7 @@
 #nocov start
 .onLoad <- function(libname, pkgname)
-  {
+{
+  setOldClass("AQS_DATAMART_APIv2")
   utils::globalVariables(names = c("env.RAQSAPI", "AQSObject", "datetime"),
                          package = "RAQSAPI")
   env.RAQSAPI <- Sys.getenv()
@@ -21,13 +22,14 @@
 #' @return NULL
 #' @noRd
 .onAttach <- function(libname, pkgname)
-  {
-     RAQSAPIstartupmessage <- paste("Use the function",
-           "RAQSAPI::aqs_credentials(username, key)",
-           "before using other RAQSAPI functions",
-           "See ?RAQSAPI::aqs_credentials for more information",
-           sep = "\n"
-          )
-     packageStartupMessage(RAQSAPIstartupmessage)
-  }
+{
+  RAQSAPIstartupmessage <- paste("Use the function",
+    "RAQSAPI::aqs_credentials(username, key)",
+    "before using other RAQSAPI functions",
+    "See ?RAQSAPI::aqs_credentials for more information",
+     sep = "\n"
+    )
+    packageStartupMessage(RAQSAPIstartupmessage)
+    return(NULL)
+}
 #nocov end

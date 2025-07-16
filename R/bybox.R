@@ -32,7 +32,7 @@
 #'                    }
 #' @export
 aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                    minlon, maxlon, return_header = FALSE)
+                                minlon, maxlon, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
                  return_header)

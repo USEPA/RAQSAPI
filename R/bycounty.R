@@ -27,9 +27,8 @@
 #'          }
 #' @export
 aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                     countycode,
-                                     cbdate = NA_Date_, cedate = NA_Date_,
-                                     return_header = FALSE)
+                                   countycode, cbdate = NA_Date_,
+                                   cedate = NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
                  cbdate, cedate, return_header)
@@ -778,10 +777,9 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate,
-                                                              edate, stateFIPS,
-                                                              countycode,
-                                                          return_header = FALSE)
+aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate,
+                                                   stateFIPS, countycode,
+                                                   return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 

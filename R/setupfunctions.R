@@ -39,8 +39,6 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
    {
     options(aqs_username = username)
     options(aqs_key = key)
-    #credentials <- options(list(aqs_username = username, aqs_key = key))
-    #on.exit(options(credentials), add = TRUE)
   } else {warning("Please enter a valid username and key  \n") }
 } #no cov end
 
@@ -72,7 +70,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #'           \dontrun{aqs_sign_up(email = "John.Doe/@myemail.com")}
 #'           #  after calling this function please follow the instructions that
 #'           #  are sent in the verification e-mail before proceeding.
-#' @return None
+#' @return NULL
 #' @export
 aqs_sign_up <- function(email)
 { #nocov start
@@ -82,12 +80,13 @@ aqs_sign_up <- function(email)
   # user_agent <- glue("User:{email} via RAQSAPI-{packageVersion('RAQSAPI')}
   #                     library for R")
 
-  url <- glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
-    request() %>%
-    req_perform()
+    glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
+      request() %>%
+      req_perform()
   #for some reason user_agent isn't working
   #%>%
   #req_user_agent(string = user_agent)
   glue("A verification email will be sent to {email}  \n") %>%
     message()
+  return(NULL)
 } #nocov end

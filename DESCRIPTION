@@ -86,6 +86,7 @@ NeedsCompilation: no
 License_restricts_use: no
 Language: en-US
 Collate:
+    'AQS_DATAMART_APIv2-S3-class.R' 
     'AQSAPI_helperfunctions.R'
     'bysite.R'
     'bycounty.R'
@@ -98,7 +99,6 @@ Collate:
     'setupfunctions.R'
     'zzz.R'
     'RAQSAPI-package.R'
-    'AQS_DATAMART_APIv2-S3-class.R'
     'deprecated.R'
 Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
