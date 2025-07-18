@@ -18,31 +18,31 @@
 #'         does not return meaningful data.
 #' @examples
 #'  #to authenticate an existing user the email address
-#'  # "John.Doe@myemail.com" and key = "MyKey"
+#'  # 'John.Doe@myemail.com' and key = 'MyKey'
 #'  #  after calling this function please follow the instructions that are sent
 #'  #  in the verification e-mail before proceeding.
-#'  \dontrun{aqs_credentials(username = "John.Doe@myemail.com",
-#'                               key = "MyKey")
+#'  \dontrun{aqs_credentials(username = 'John.Doe@myemail.com',
+#'                               key = 'MyKey')
 #'          }
 #' @export
 aqs_credentials <- function(username = NA_character_, key = NA_character_)
-{
-  # nocov
-  #The code simply stores the credentials as a R option. Since the
-  #Data Mart server only issues a "key" and not a "password" we don't need to
-  #worry about securing the credentials with complicated code such as involving
-  #salt and hashes and etc.
-   if (!is.na(username) ||
-       !is.na(key) ||
-       !is_character(username) ||
-       !is_character(key)
-       )
-   {
+  {
+  # nocov The code simply stores the credentials as a R option. Since the Data Mart server only issues a 'key' and not a
+  # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
+  # and etc.
+  if (!is.na(username) ||
+    !is.na(key) ||
+    !is_character(username) ||
+    !is_character(key))
+      {
     options(aqs_username = username)
     options(aqs_key = key)
-   } else {warning("Please enter a valid username and key  \n") }
+  } else
+  {
+    warning("Please enter a valid username and key  \n")
+  }
   return(NULL)
-} #no cov end
+}  #no cov end
 
 
 #' @title aqs_sign_up
@@ -68,27 +68,23 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #' @importFrom httr2 request
 #' @importFrom glue glue
 #' @examples # to register a new user or generate a new key with the email
-#'           #  address "John.Doe/@myemail.com"
-#'           \dontrun{aqs_sign_up(email = "John.Doe/@myemail.com")}
+#'           #  address 'John.Doe/@myemail.com'
+#'           \dontrun{aqs_sign_up(email = 'John.Doe/@myemail.com')}
 #'           #  after calling this function please follow the instructions that
 #'           #  are sent in the verification e-mail before proceeding.
 #' @return NULL
 #' @export
 aqs_sign_up <- function(email)
-{ #nocov start
-  #We do not want aqs_sign_up registering new users as part of
-  #the unit testing procedures.
+  {
+  # nocov start We do not want aqs_sign_up registering new users as part of the unit testing procedures.
 
-  # user_agent <- glue("User:{email} via RAQSAPI-{packageVersion('RAQSAPI')}
-  #                     library for R")
+  # user_agent <- glue('User:{email} via RAQSAPI-{packageVersion('RAQSAPI')} library for R')
 
-    glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
-      request() %>%
-      req_perform()
-  # user agent string (currently not implemented) on the API
-  # %>%
-  # req_user_agent(string = user_agent)
+  glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
+    request() %>%
+    req_perform()
+  # user agent string (currently not implemented) on the API %>% req_user_agent(string = user_agent)
   glue("A verification email will be sent to {email}  \n") %>%
     message()
   return(NULL)
-} #nocov end
+}  #nocov end

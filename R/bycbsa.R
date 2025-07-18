@@ -19,12 +19,12 @@
 #' @examples # returns a tibble of $NO_{2}$ monitors
 #'           #  for Charlotte-Concord-Gastonia, NC cbsa that were operating
 #'           #  on Janurary 01, 2017
-#'           \dontrun{aqs_monitors_by_cbsa(parameter="42602",
-#'                                                bdate=as.Date("20170101",
-#'                                                            format="%Y%m%d"),
-#'                                                edate=as.Date("20170101",
-#'                                                             format="%Y%m%d"),
-#'                                                cbsa_code="16740"
+#'           \dontrun{aqs_monitors_by_cbsa(parameter='42602',
+#'                                                bdate=as.Date('20170101',
+#'                                                            format='%Y%m%d'),
+#'                                                edate=as.Date('20170101',
+#'                                                             format='%Y%m%d'),
+#'                                                cbsa_code='16740'
 #'                                                    )
 #'                    }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
@@ -33,26 +33,27 @@
 #'            information from the AQS API and the second item ($Data) is a
 #'            tibble of the data returned.
 #' @export
-aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                 cbdate = NA_Date_, cedate = NA_Date_,
-                                 return_header = FALSE)
-{
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate,
-                 return_header)
-    #aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
-    #monitors API call accepts multiple years of data on the server, purrr::pmap
-    #is used so that the output is consistent with other RAQSAPI functions.
-  params <- tibble(parameter = parameter,
-                   bdate = bdate,
-                   edate = edate,
-                   cbsa_code = cbsa_code,
-                   service = "monitors",
-                   cbdate = cbdate,
-                   cedate = cedate) %>%
-     dplyr::select_if(function(x) {!all(is.na(x))})
+aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA_Date_,
+                                 cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
+  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
+  # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
+  params <- tibble(
+    parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code,
+    service = "monitors", cbdate = cbdate, cedate = cedate
+  ) %>%
+    dplyr::select_if(
+      function(x)
+        {
+        !all(is.na(x))
+      }
+    )
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) monitors %<>% aqs_removeheader
+  if (!return_header)
+    monitors %<>%
+      aqs_removeheader
   return(monitors)
 }
 
@@ -100,36 +101,29 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @examples # returns tibble which contains $NO_{2}$ data
 #'           #  for Charlotte-Concord-Gastonia, NC cbsa for
 #'           #  Janurary 1, 2015 - Janurary 01, 2017
-#'           \dontrun{aqs_sampledata_by_cbsa(parameter = "42602",
-#'                                           bdate = as.Date("20150101",
-#'                                                           format = "%Y%m%d"),
-#'                                           edate = as.Date("20170101",
-#'                                                           format = "%Y%m%d"),
-#'                                           cbsa_code = "16740"
+#'           \dontrun{aqs_sampledata_by_cbsa(parameter = '42602',
+#'                                           bdate = as.Date('20150101',
+#'                                                           format = '%Y%m%d'),
+#'                                           edate = as.Date('20170101',
+#'                                                           format = '%Y%m%d'),
+#'                                           cbsa_code = '16740'
 #'                                          )
 #'                    }
 #' @export
-aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                   duration = NA_character_,
-                                   cbdate = NA_Date_, cedate = NA_Date_,
-                                   return_header = FALSE
-                                   )
-{
-  checkaqsparams(parameter, bdate, edate, cbsa_code, duration, cbdate,
-                 cedate, return_header)
+aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code, duration = NA_character_,
+                                   cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, cbsa_code, duration, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               cbsa_code = cbsa_code,
-                               duration = duration,
-                               service = "sampleData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                              )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code, duration = duration, service = "sampleData",
+    cbdate = cbdate, cedate = cedate
+  )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) sampledata %<>% aqs_removeheader
+  if (!return_header)
+    sampledata %<>%
+      aqs_removeheader
   return(sampledata)
 }
 
@@ -170,36 +164,32 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @examples # Returns a tibble of annual summary $NO_{2}$
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa on
 #'           #  Janurary 01, 2017
-#'           \dontrun{aqs_annualsummary_by_cbsa(parameter = "42602",
-#'                                              bdate = as.Date("20170101",
-#'                                                             format = "%Y%m%d"
+#'           \dontrun{aqs_annualsummary_by_cbsa(parameter = '42602',
+#'                                              bdate = as.Date('20170101',
+#'                                                             format = '%Y%m%d'
 #'                                                             ),
-#'                                              edate = as.Date("20170101",
-#'                                                             format = "%Y%m%d"
+#'                                              edate = as.Date('20170101',
+#'                                                             format = '%Y%m%d'
 #'                                                             ),
-#'                                              cbsa_code = "16740"
+#'                                              cbsa_code = '16740'
 #'                                              )
 #'                    }
 #' @export
 aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                       cbdate = NA_Date_, cedate = NA_Date_,
-                                      return_header = FALSE
-                                      )
-{
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate,
-                 return_header)
+                                      return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               cbsa_code = cbsa_code,
-                               service = "annualData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code,
+    service = "annualData", cbdate = cbdate, cedate = cedate
+  )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) annualsummary %<>% aqs_removeheader
+  if (!return_header)
+    annualsummary %<>%
+      aqs_removeheader
   return(annualsummary)
 
 }
@@ -236,36 +226,31 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @examples # Returns a tibble of $NO_{2}$ daily summary
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa on
 #'           #  Janurary 01, 2017
-#'           \dontrun{aqs_dailysummary_by_cbsa(parameter = "42602",
-#'                                                bdate = as.Date("20170101",
-#'                                                             format = "%Y%m%d"
+#'           \dontrun{aqs_dailysummary_by_cbsa(parameter = '42602',
+#'                                                bdate = as.Date('20170101',
+#'                                                             format = '%Y%m%d'
 #'                                                               ),
-#'                                                edate = as.Date("20190101",
-#'                                                             format = "%Y%m%d"
+#'                                                edate = as.Date('20190101',
+#'                                                             format = '%Y%m%d'
 #'                                                               ),
-#'                                                cbsa_code = "16740"
+#'                                                cbsa_code = '16740'
 #'                                            )
 #'                    }
 #' @export
 aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                     cbdate = NA_Date_, cedate = NA_Date_,
-                                     return_header = FALSE
-                                     )
-{
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate,
-                 return_header)
+                                     cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               cbsa_code = cbsa_code,
-                               service = "dailyData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code,
+    service = "dailyData", cbdate = cbdate, cedate = cedate
+  )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) dailysummary %<>% aqs_removeheader
+  if (!return_header)
+    dailysummary %<>%
+      aqs_removeheader
   return(dailysummary)
 }
 
@@ -304,34 +289,30 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @examples # Returns a tibble of $NO_{2}$ quartyerly summary
 #'           #  data the for Charlotte-Concord-Gastonia, NC cbsa for
 #'           #  each quarter in 2017.
-#'           \dontrun{aqs_quarterlysummary_by_cbsa(parameter = "42602",
-#'                                                 bdate = as.Date("20170101",
-#'                                                           format = "%Y%m%d"),
-#'                                                 edate = as.Date("20171231",
-#'                                                           format = "%Y%m%d"),
-#'                                                 cbsa_code = "16740"
+#'           \dontrun{aqs_quarterlysummary_by_cbsa(parameter = '42602',
+#'                                                 bdate = as.Date('20170101',
+#'                                                           format = '%Y%m%d'),
+#'                                                 edate = as.Date('20171231',
+#'                                                           format = '%Y%m%d'),
+#'                                                 cbsa_code = '16740'
 #'                                                 )
 #'                    }
 #' @export
 aqs_quarterlysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                         cbdate = NA_Date_, cedate = NA_Date_,
-                                         return_header = FALSE)
-{
+                                         cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
   AQS_domain <- "aqs.epa.gov"
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate,
-                 return_header)
+  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               cbsa_code = cbsa_code,
-                               service = "quarterlyData",
-                               cbdate = cbdate,
-                               cedate = cedate,
-                               AQS_domain = AQS_domain
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code,
+    service = "quarterlyData", cbdate = cbdate,
+    cedate = cedate, AQS_domain = AQS_domain
+  )
 
   quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
-  if (!return_header) quarterlysummary %<>% aqs_removeheader
+  if (!return_header)
+    quarterlysummary %<>%
+      aqs_removeheader
   return(quarterlysummary)
 }

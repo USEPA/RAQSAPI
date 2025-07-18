@@ -64,12 +64,12 @@ overloading the API server. This operation has a linear run time of
 #Returns a AQS_Data Mart_APIv2 S3 object of
          \dontrun{ # Returns a tibble containing benzene transaction sample
                    # data for North Carolina on May 15, 1995
-                   aqs_transactionsample_by_state(parameter = "45201",
-                                                 bdate = as.Date("19950515",
-                                                         format = "\%Y\%m\%d"),
-                                                 edate = as.Date("19950515",
-                                                          format = "\%Y\%m\%d"),
-                                                 stateFIPS = "37"
+                   aqs_transactionsample_by_state(parameter = '45201',
+                                                 bdate = as.Date('19950515',
+                                                         format = '\%Y\%m\%d'),
+                                                 edate = as.Date('19950515',
+                                                          format = '\%Y\%m\%d'),
+                                                 stateFIPS = '37'
                                                  )
                  }
 }

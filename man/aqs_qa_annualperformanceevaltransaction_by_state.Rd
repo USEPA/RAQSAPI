@@ -69,12 +69,12 @@ server. This operation has a linear run time of
 # Returns a tibble containing annual performance evaluation data
           # for ozone in Alabmba for 2017 in RD format.
 \dontrun{
-        aqs_qa_annualperformanceevaltransaction_by_state(parameter = "44201",
-                                                  bdate = as.Date("20170101",
-                                                          format = "\%Y\%m\%d"),
-                                                  edate = as.Date("20171231",
-                                                          format = "\%Y\%m\%d"),
-                                                         stateFIPS = "01"
+        aqs_qa_annualperformanceevaltransaction_by_state(parameter = '44201',
+                                                  bdate = as.Date('20170101',
+                                                          format = '\%Y\%m\%d'),
+                                                  edate = as.Date('20171231',
+                                                          format = '\%Y\%m\%d'),
+                                                         stateFIPS = '01'
                                                          )
          }
 }

@@ -9,16 +9,26 @@
 #'              item ($Data) is a tibble of the data returned.
 #' @importFrom tibble is_tibble
 #' @note The .Data must be a two item list each containing a tibble with the
-#'       first item named "Header" and the second "Data".
+#'       first item named 'Header' and the second 'Data'.
 #' @seealso AQS_DATAMART_APIv2-S3-class
 #' @return NULL
 #' @noRd
 #' @keywords internal
-AQS_DATAMART_APIv2_validator <- function(.Data) {
+AQS_DATAMART_APIv2_validator <- function(.Data)
+  {
   stopifnot(is.list(.Data))
-  stopifnot(is.data.frame(.Data[[1]]) | is_tibble(.Data[[1]]))
-  stopifnot(is.data.frame(.Data[[2]]) | is_tibble(.Data[[1]]))
-  stopifnot(names(.Data) == c("Header", "Data"))
+  stopifnot(
+    is.data.frame(.Data[[1]]) |
+      is_tibble(.Data[[1]])
+  )
+  stopifnot(
+    is.data.frame(.Data[[2]]) |
+      is_tibble(.Data[[1]])
+  )
+  stopifnot(
+    names(.Data) ==
+      c("Header", "Data")
+  )
   return(NULL)
 }
 
@@ -51,7 +61,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
 #' @importFrom tibble tibble is_tibble
 #' @importFrom magrittr `%>%`
 #' @note The .Data must be a two item list each containing a tibble with the
-#'       first item named "Header" and the second "Data".
+#'       first item named 'Header' and the second 'Data'.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -60,7 +70,8 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
 #' @seealso tibble::tibble#'
 #' @noRd
 #' @keywords internal
-new_AQS_DATAMART_APIv2 <- function(.AQSobject) {
+new_AQS_DATAMART_APIv2 <- function(.AQSobject)
+  {
   AQS_DATAMART_APIv2_validator(.AQSobject)
   structure(.AQSobject, class = "AQS_DATAMART_APIv2") %>%
     return()

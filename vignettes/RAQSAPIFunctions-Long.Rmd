@@ -14,7 +14,7 @@ vignette: >
 The RAQSAPI library exports the following functions (in alphabetical order):
 
 ```{r RAQSAPIfun_all, echo = FALSE, comment = NA}
-knitr::opts_chunk$set(collapse = TRUE, comment = "#>" )
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 invisible(library(magrittr, warn.conflicts = FALSE, quietly = TRUE))
 invisible(library(stringr, warn.conflicts = FALSE, quietly = TRUE))
 invisible(library(tibble, warn.conflicts = FALSE, quietly = TRUE))
@@ -31,30 +31,30 @@ invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 # na.omit() %>%
 # as.character()
 RAQSAPI_functions <- c(
-"aqs_annualsummary_by_box",  
-"aqs_annualsummary_by_cbsa",  
-"aqs_annualsummary_by_county",  
+"aqs_annualsummary_by_box",
+"aqs_annualsummary_by_cbsa",
+"aqs_annualsummary_by_county",
 "aqs_annualsummary_by_site",
-"aqs_annualsummary_by_state",  
-"aqs_cbsas",  
-"aqs_classes",  
-"aqs_counties_by_state",  
-"aqs_credentials",  
-"aqs_dailysummary_by_box",  
-"aqs_dailysummary_by_cbsa",  
-"aqs_dailysummary_by_county",  
-"aqs_dailysummary_by_site",  
-"aqs_dailysummary_by_state",  
-"aqs_fields_by_service",  
-"aqs_isavailable",  
-"aqs_knownissues",  
-"aqs_mas",  
-"aqs_monitors_by_box",  
-"aqs_monitors_by_cbsa",  
-"aqs_monitors_by_county",  
-"aqs_monitors_by_site",  
-"aqs_monitors_by_state",  
-"aqs_parameters_by_class",  
+"aqs_annualsummary_by_state",
+"aqs_cbsas",
+"aqs_classes",
+"aqs_counties_by_state",
+"aqs_credentials",
+"aqs_dailysummary_by_box",
+"aqs_dailysummary_by_cbsa",
+"aqs_dailysummary_by_county",
+"aqs_dailysummary_by_site",
+"aqs_dailysummary_by_state",
+"aqs_fields_by_service",
+"aqs_isavailable",
+"aqs_knownissues",
+"aqs_mas",
+"aqs_monitors_by_box",
+"aqs_monitors_by_cbsa",
+"aqs_monitors_by_county",
+"aqs_monitors_by_site",
+"aqs_monitors_by_state",
+"aqs_parameters_by_class",
 "aqs_pqaos",
 "aqs_qa_annualperformanceeval_by_county",
 "aqs_qa_annualperformanceeval_by_MA",
@@ -66,35 +66,35 @@ RAQSAPI_functions <- c(
 "aqs_qa_annualperformanceevaltransaction_by_pqao",
 "aqs_qa_annualperformanceevaltransaction_by_site",
 "aqs_qa_annualperformanceevaltransaction_by_state",
-"aqs_qa_blanks_by_county",  
-"aqs_qa_blanks_by_MA",  
-"aqs_qa_blanks_by_pqao",  
-"aqs_qa_blanks_by_site",  
-"aqs_qa_blanks_by_state",  
-"aqs_qa_collocated_assessments_by_county",  
-"aqs_qa_collocated_assessments_by_MA",  
-"aqs_qa_collocated_assessments_by_pqao",  
-"aqs_qa_collocated_assessments_by_site",  
-"aqs_qa_collocated_assessments_by_state",  
-"aqs_qa_flowrateaudit_by_county",  
-"aqs_qa_flowrateaudit_by_MA",  
-"aqs_qa_flowrateaudit_by_pqao",  
-"aqs_qa_flowrateaudit_by_site",  
-"aqs_qa_flowrateaudit_by_state",  
-"aqs_qa_flowrateverification_by_county",  
-"aqs_qa_flowrateverification_by_MA",  
-"aqs_qa_flowrateverification_by_pqao",  
-"aqs_qa_flowrateverification_by_site",  
-"aqs_qa_flowrateverification_by_state",  
-"aqs_qa_one_point_qc_by_county",  
-"aqs_qa_one_point_qc_by_MA",  
-"aqs_qa_one_point_qc_by_pqao",  
-"aqs_qa_one_point_qc_by_site",  
-"aqs_qa_one_point_qc_by_state",  
-"aqs_qa_pep_audit_by_county",  
-"aqs_qa_pep_audit_by_MA",  
-"aqs_qa_pep_audit_by_pqao",  
-"aqs_qa_pep_audit_by_site",  
+"aqs_qa_blanks_by_county",
+"aqs_qa_blanks_by_MA",
+"aqs_qa_blanks_by_pqao",
+"aqs_qa_blanks_by_site",
+"aqs_qa_blanks_by_state",
+"aqs_qa_collocated_assessments_by_county",
+"aqs_qa_collocated_assessments_by_MA",
+"aqs_qa_collocated_assessments_by_pqao",
+"aqs_qa_collocated_assessments_by_site",
+"aqs_qa_collocated_assessments_by_state",
+"aqs_qa_flowrateaudit_by_county",
+"aqs_qa_flowrateaudit_by_MA",
+"aqs_qa_flowrateaudit_by_pqao",
+"aqs_qa_flowrateaudit_by_site",
+"aqs_qa_flowrateaudit_by_state",
+"aqs_qa_flowrateverification_by_county",
+"aqs_qa_flowrateverification_by_MA",
+"aqs_qa_flowrateverification_by_pqao",
+"aqs_qa_flowrateverification_by_site",
+"aqs_qa_flowrateverification_by_state",
+"aqs_qa_one_point_qc_by_county",
+"aqs_qa_one_point_qc_by_MA",
+"aqs_qa_one_point_qc_by_pqao",
+"aqs_qa_one_point_qc_by_site",
+"aqs_qa_one_point_qc_by_state",
+"aqs_qa_pep_audit_by_county",
+"aqs_qa_pep_audit_by_MA",
+"aqs_qa_pep_audit_by_pqao",
+"aqs_qa_pep_audit_by_site",
 "aqs_qa_pep_audit_by_state",
 "aqs_quarterlysummary_by_box",
 "aqs_quarterlysummary_by_county",
@@ -102,15 +102,15 @@ RAQSAPI_functions <- c(
 "aqs_quarterlysummary_by_site",
 "aqs_quarterlysummary_by_state",
 "aqs_removeheader",
-"aqs_revisionhistory",  
-"aqs_sampledata_by_box",  
-"aqs_sampledata_by_cbsa",  
-"aqs_sampledata_by_county",  
-"aqs_sampledata_by_site",  
-"aqs_sampledata_by_state",  
+"aqs_revisionhistory",
+"aqs_sampledata_by_box",
+"aqs_sampledata_by_cbsa",
+"aqs_sampledata_by_county",
+"aqs_sampledata_by_site",
+"aqs_sampledata_by_state",
 "aqs_sampledurations",
-"aqs_sign_up",  
-"aqs_sites_by_county",  
+"aqs_sign_up",
+"aqs_sites_by_county",
 "aqs_states",
 "aqs_transactionsample_by_county",
 "aqs_transactionsample_by_site",
@@ -125,7 +125,7 @@ RAQSAPI_functions %>%
 RAQSAPI functions are named according to the service and filter variables that
 are available by the AQS Data Mart API.^[See
 (https://aqs.epa.gov/aqsweb/documents/data_api.html) for full details of the
-Data Mart API] 
+Data Mart API]
 
 # Variable descriptions and usage.
 These are all the available variables that can be used with various functions
@@ -238,7 +238,7 @@ see which parameters are used with each function.
 The functions included in this family of functions are:
 
 ```{r SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA}
-signupandcredentials <- paste(".sign_up", ".credentials", sep = '|')
+signupandcredentials <- paste(".sign_up", ".credentials", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
   cat(sep = "  \n")
@@ -258,7 +258,7 @@ The RAQSAPI::aqs_credentials function takes two parameters:
 ```{r METADATAFUNCTIONS, echo = FALSE, comment = NA}
 metadatafunctions <- paste(".available",
                            ".fields_by_service",
-                           ".knownissues", sep = '|')
+                           ".knownissues", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = metadatafunctions) %>%
   cat(sep = "  \n")
@@ -556,7 +556,7 @@ functions in this family of functions aggregate data at the site level. All
 
 ### Data Mart aggregate functions _by_county
 ```{r _by_countyfuncions, echo = FALSE, comment = NA}
-by_countyfunctions <- paste("._by_county", sep = '|')
+by_countyfunctions <- paste("._by_county", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = by_countyfunctions) %>%
   cat(sep = "  \n")
@@ -583,7 +583,7 @@ functions in this family of functions aggregate data at the county level.
 
 ### Data Mart aggregate functions _by_state
 ```{r _by_STATEfunctions, echo = FALSE, comment = NA}
-by_STATEfunctions <- paste("._by_state", sep = '|')
+by_STATEfunctions <- paste("._by_state", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = by_STATEfunctions) %>%
   cat(sep = "  \n")
@@ -609,7 +609,7 @@ functions in this family of functions aggregate data at the state level.
 
 ### Data Mart aggregate functions by Monitoring agency (MA)
 ```{r _by_MAfunctions, echo = FALSE, comment = NA}
-by_MAfunctions <- paste("._by_MA", sep = '|')
+by_MAfunctions <- paste("._by_MA", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = by_MAfunctions) %>%
   cat(sep = "  \n")
@@ -635,7 +635,7 @@ functions in this family of functions aggregate data at the Monitoring Agency
 
 ### Data Mart aggregate functions by Core Based Statistical Area (cbsa)
 ```{r bycbsafunctions, echo = FALSE, comment = NA}
-by_cbsafunctions <- paste("._by_cbsa", sep = '|')
+by_cbsafunctions <- paste("._by_cbsa", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = by_cbsafunctions) %>%
   cat(sep = "  \n")
@@ -663,7 +663,7 @@ functions in this family of functions aggregate data at the Core Based
 
 ### Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)
 ```{r _by_pqaofunctions, echo = FALSE, comment = NA}
-by_pqaofunctions <- paste("._by_pqao", sep = '|')
+by_pqaofunctions <- paste("._by_pqao", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = by_pqaofunctions) %>%
   cat(sep = "  \n")
@@ -680,7 +680,7 @@ functions in this family of functions aggregate data at the Primary Quality
 
 ### Data Mart aggregate functions by latitude/longitude bounding box (_by_box)
 ```{r _by_BOXfunctions, echo = FALSE, comment = NA}
-by_BOXfunctions <- paste("._by_box", sep = '|')
+by_BOXfunctions <- paste("._by_box", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = by_BOXfunctions) %>%
   cat(sep = "  \n")
@@ -710,7 +710,7 @@ Functions in this family of functions aggregate data by a
 
 ### RAQSAPI Miscellaneous functions
 ```{r misc, echo = FALSE, comment = NA}
-misc_functions <- paste("aqs_removeheader", sep = '|')
+misc_functions <- paste("aqs_removeheader", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = misc_functions) %>%
   cat(sep = "  \n")

@@ -34,34 +34,29 @@
 #' @examples # Returns tibble of PM2.5 blank data in
 #'           #  January 2018 where the PQAO is the Alabama Department of
 #'           #  Environmental Management (agency 0013)
-#'           \dontrun{aqs_qa_blanks_by_pqao(parameter = "88101",
-#'                                          bdate = as.Date("20180101",
-#'                                                          format = "%Y%m%d"),
-#'                                          edate = as.Date("20180131",
-#'                                                          format = "%Y%m%d"),
-#'                                          pqao_code = "0013"
+#'           \dontrun{aqs_qa_blanks_by_pqao(parameter = '88101',
+#'                                          bdate = as.Date('20180101',
+#'                                                          format = '%Y%m%d'),
+#'                                          edate = as.Date('20180131',
+#'                                                          format = '%Y%m%d'),
+#'                                          pqao_code = '0013'
 #'                                          )
 #'                    }
 #' @export
-aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                  cbdate = NA_Date_, cedate = NA_Date_,
-                                  return_header = FALSE
-                                  )
-{
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
-                 return_header)
+aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = NA_Date_,
+                                  cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaBlanks",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    service = "qaBlanks", cbdate = cbdate, cedate = cedate
+  )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) blanks %<>% aqs_removeheader
+  if (!return_header)
+    blanks %<>%
+      aqs_removeheader
   return(blanks)
 }
 
@@ -98,35 +93,30 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #' @examples # Returns a tibble of collocated assessment
 #'           #  data for FRM PM2.5 in January 2013 where the PQAO is the Alabama
 #'           #  Department of Environmental Management (agency 0013)
-#'           \dontrun{aqs_qa_collocated_assessments_by_pqao(parameter = "88101",
-#'                                                   bdate = as.Date("20130101",
-#'                                                           format = "%Y%m%d"),
-#'                                                   edate = as.Date("20150131",
-#'                                                           format = "%Y%m%d"),
-#'                                                         pqao_code = "0013"
+#'           \dontrun{aqs_qa_collocated_assessments_by_pqao(parameter = '88101',
+#'                                                   bdate = as.Date('20130101',
+#'                                                           format = '%Y%m%d'),
+#'                                                   edate = as.Date('20150131',
+#'                                                           format = '%Y%m%d'),
+#'                                                         pqao_code = '0013'
 #'                                                         )
 #'                    }
 #' @export
-aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate,
-                                                  pqao_code, cbdate = NA_Date_,
-                                                  cedate = NA_Date_,
-                                                  return_header = FALSE
-                                                  )
-{
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
-                 return_header)
+aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate, pqao_code,
+                                                  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaCollocatedAssessments",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    service = "qaCollocatedAssessments", cbdate = cbdate,
+    cedate = cedate
+  )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) colocatedsummary %<>% aqs_removeheader
+  if (!return_header)
+    colocatedsummary %<>%
+      aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -163,38 +153,32 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate,
 #' @examples # returns a tibble of flow rate verification
 #'   #  data for January 2018 where the PQAO is the Alabama Department
 #'   #  of Environmental Management (agency 0013)
-#'   \dontrun{aqs_qa_flowrateverification_by_pqao(parameter = "88101",
-#'                                                bdate = as.Date("20170101",
-#'                                                             format = "%Y%m%d"
+#'   \dontrun{aqs_qa_flowrateverification_by_pqao(parameter = '88101',
+#'                                                bdate = as.Date('20170101',
+#'                                                             format = '%Y%m%d'
 #'                                                               ),
-#'                                                edate = as.Date("20190131",
-#'                                                             format = "%Y%m%d"
+#'                                                edate = as.Date('20190131',
+#'                                                             format = '%Y%m%d'
 #'                                                               ),
-#'                                                pqao_code = "0013"
+#'                                                pqao_code = '0013'
 #'                                                )
 #'          }
 #' @export
-aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate,
-                                                pqao_code,
-                                                cbdate = NA_Date_,
-                                                cedate = NA_Date_,
-                                                return_header = FALSE
-                                                )
-{
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
-                 return_header)
+aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate, pqao_code,
+                                                cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaFlowRateVerifications",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    service = "qaFlowRateVerifications", cbdate = cbdate,
+    cedate = cedate
+  )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) frv %<>% aqs_removeheader
+  if (!return_header)
+    frv %<>%
+      aqs_removeheader
   return(frv)
 }
 
@@ -232,34 +216,30 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate,
 #' @examples # Returns a tibble of flow rate audit data for January
 #'   #  2018 where the PQAO is the Jefferson County, AL Department of
 #'   #  Health (agency 0550).
-#'   \dontrun{aqs_qa_flowrateaudit_by_pqao(parameter = "88101",
-#'                                         bdate = as.Date("20170101",
-#'                                                         format = "%Y%m%d"),
-#'                                         edate = as.Date("20180131",
-#'                                                         format = "%Y%m%d"),
-#'                                         pqao_code = "0550"
+#'   \dontrun{aqs_qa_flowrateaudit_by_pqao(parameter = '88101',
+#'                                         bdate = as.Date('20170101',
+#'                                                         format = '%Y%m%d'),
+#'                                         edate = as.Date('20180131',
+#'                                                         format = '%Y%m%d'),
+#'                                         pqao_code = '0550'
 #'                                        )
 #'           }
 #' @export
 aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                         cbdate = NA_Date_, cedate = NA_Date_,
-                                         return_header = FALSE
-                                         )
-{
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
-                 return_header)
+                                         cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaFlowRateAudits",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    service = "qaFlowRateAudits", cbdate = cbdate,
+    cedate = cedate
+  )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) fra %<>% aqs_removeheader
+  if (!return_header)
+    fra %<>%
+      aqs_removeheader
   return(fra)
 }
 
@@ -295,34 +275,30 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'  # returns a tibble of ozone One Point QC
 #'  #  data for Jan 2017 - January 2018 where the PQAO is the Massachusetts
 #'  #  Department of Environmental Protection (agency 0660)
-#'  \dontrun{aqs_qa_one_point_qc_by_pqao(parameter = "88101",
-#'                                       bdate = as.Date("20170101",
-#'                                                       format = "%Y%m%d"),
-#'                                       edate = as.Date("20180131",
-#'                                                     format = "%Y%m%d"),
-#'                                       pqao_code = "0660"
+#'  \dontrun{aqs_qa_one_point_qc_by_pqao(parameter = '88101',
+#'                                       bdate = as.Date('20170101',
+#'                                                       format = '%Y%m%d'),
+#'                                       edate = as.Date('20180131',
+#'                                                     format = '%Y%m%d'),
+#'                                       pqao_code = '0660'
 #'                                      )
 #'          }
 #' @export
-aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                        cbdate = NA_Date_, cedate = NA_Date_,
-                                        return_header = FALSE
-                                        )
-{
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
-                 return_header)
+aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = NA_Date_,
+                                        cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaOnePointQcRawData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    service = "qaOnePointQcRawData", cbdate = cbdate,
+    cedate = cedate
+  )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) opqcc %<>% aqs_removeheader
+  if (!return_header)
+    opqcc %<>%
+      aqs_removeheader
   return(opqcc)
 }
 
@@ -359,36 +335,30 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #' @examples # returns a tibble of PEP audit data for
 #'           #  June 2017 where the pqao is the Alabama Department of
 #'           #  Environmental Management (agency 0013)
-#'   \dontrun{aqs_qa_pep_audit_by_pqao(parameter = "88101",
-#'                                     bdate = as.Date("20170601",
-#'                                                     format = "%Y%m%d"
+#'   \dontrun{aqs_qa_pep_audit_by_pqao(parameter = '88101',
+#'                                     bdate = as.Date('20170601',
+#'                                                     format = '%Y%m%d'
 #'                                                    ),
-#'                                     edate = as.Date("20190630",
-#'                                                     format = "%Y%m%d"),
-#'                                     pqao_code = "0013"
+#'                                     edate = as.Date('20190630',
+#'                                                     format = '%Y%m%d'),
+#'                                     pqao_code = '0013'
 #'                                     )
 #'                    }
 #' @export
-aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                     cbdate = NA_Date_,
-                                     cedate = NA_Date_,
-                                     return_header = FALSE
-                                     )
-{
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate,
-                 return_header)
+aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = NA_Date_,
+                                     cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaPepAudits",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code, service = "qaPepAudits", cbdate = cbdate,
+    cedate = cedate
+  )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) pepaudit %<>% aqs_removeheader
+  if (!return_header)
+    pepaudit %<>%
+      aqs_removeheader
   return(pepaudit)
 }
 
@@ -422,12 +392,12 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           # for ozone where the PQAO is the Alabamaba Department of
 #'           # Environmental Management (pqao_code 0013).
-#'  \dontrun{ aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
-#'                                                 bdate = as.Date("20170101",
-#'                                                           format = "%Y%m%d"),
-#'                                                 edate = as.Date("20171231",
-#'                                                           format = "%Y%m%d"),
-#'                                                 pqao_code = "0013"
+#'  \dontrun{ aqs_qa_annualperformanceeval_by_pqao(parameter = '44201',
+#'                                                 bdate = as.Date('20170101',
+#'                                                           format = '%Y%m%d'),
+#'                                                 edate = as.Date('20171231',
+#'                                                           format = '%Y%m%d'),
+#'                                                 pqao_code = '0013'
 #'                                                 )
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
@@ -438,21 +408,17 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate,
-                                                 pqao_code,
-                                                 return_header = FALSE)
-{
+aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE)
+  {
   checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service = "qaAnnualPerformanceEvaluations"
-                               )
+  params <- aqsmultiyearparams(parameter = parameter, bdate = bdate, edate = edate,
+                               pqao_code = pqao_code, service = "qaAnnualPerformanceEvaluations")
 
   qaape <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) qaape %<>% aqs_removeheader
+  if (!return_header)
+    qaape %<>%
+      aqs_removeheader
   return(qaape)
 }
 
@@ -488,12 +454,12 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate,
 #'           # ozone in where the PQAO is the Alabama Department of
 #'           # Environmental Management (pqao_code 0013) for 2017 in RD format.
 #'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_pqao(parameter =
-#'                                                                      "44201",
-#'                                                 bdate = as.Date("20170101",
-#'                                                           format = "%Y%m%d"),
-#'                                                 edate = as.Date("20171231",
-#'                                                           format = "%Y%m%d"),
-#'                                                 pqao_code = "0013"
+#'                                                                      '44201',
+#'                                                 bdate = as.Date('20170101',
+#'                                                           format = '%Y%m%d'),
+#'                                                 edate = as.Date('20171231',
+#'                                                           format = '%Y%m%d'),
+#'                                                 pqao_code = '0013'
 #'                                                )
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
@@ -504,22 +470,18 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter,
-                                                            bdate, edate,
-                                                            pqao_code,
-                                                          return_header = FALSE)
-{
+aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE)
+  {
   checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               pqao_code = pqao_code,
-                               service =
-                                 "transactionsQaAnnualPerformanceEvaluations"
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    service = "transactionsQaAnnualPerformanceEvaluations"
+  )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header) tqaape %<>% aqs_removeheader
+  if (!return_header)
+    tqaape %<>%
+      aqs_removeheader
   return(tqaape)
 }

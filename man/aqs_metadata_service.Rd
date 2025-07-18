@@ -36,7 +36,7 @@ directly by the end user
           # [aqs_knownissues()]
           # then aqs_knownissues() would call this helper
           # function with the following inputs.
-          \dontrun{aqs_metadata_service(filter = "issues", service = NULL)
+          \dontrun{aqs_metadata_service(filter = 'issues', service = NULL)
                   }
 }
 \keyword{internal}

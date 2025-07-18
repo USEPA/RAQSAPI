@@ -35,7 +35,7 @@ with the input state and county FIPS code combination.
 \examples{
 # Returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
           #  in Hawaii County, HI
-          \dontrun{aqs_sites_by_county(stateFIPS = "15",
-                                       countycode = "001")
+          \dontrun{aqs_sites_by_county(stateFIPS = '15',
+                                       countycode = '001')
                  }
 }

@@ -37,15 +37,15 @@ FIPS code for the county being requested (with leading
 zero(s)). @seealso \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}} for the
 list of available county codes for each state.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -91,13 +91,13 @@ API server. This operation has a linear run time of
 \examples{
 # returns a tibble containing quarterly summaries for
           #  FRM/FEM PM2.5 data for Wake County, NC for each quarter of 2016
- \dontrun{aqs_quarterlysummary_by_county(parameter = "88101",
-                                         bdate = as.Date("20160101",
-                                                          format = "\%Y\%m\%d"),
-                                         edate = as.Date("20170228",
-                                                          format = "\%Y\%m\%d"),
-                                         stateFIPS = "37",
-                                         countycode = "183"
+ \dontrun{aqs_quarterlysummary_by_county(parameter = '88101',
+                                         bdate = as.Date('20160101',
+                                                          format = '\%Y\%m\%d'),
+                                         edate = as.Date('20170228',
+                                                          format = '\%Y\%m\%d'),
+                                         stateFIPS = '37',
+                                         countycode = '183'
                                         )
          }
 }

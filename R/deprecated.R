@@ -19,10 +19,11 @@
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_site <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
+  abort(
+    message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
-        )
+  )
 }
 
 
@@ -40,10 +41,11 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_county <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
+  abort(
+    message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
-        )
+  )
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_state
@@ -60,10 +62,11 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_state <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
+  abort(
+    message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
-        )
+  )
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_pqao
@@ -80,10 +83,11 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_pqao <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
+  abort(
+    message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
-        )
+  )
 }
 
 
@@ -102,10 +106,11 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_MA <- function()
 {
-   abort(message = "aqs_qa_annualpeferomanceeval_by* functions have been
+  abort(
+    message = "aqs_qa_annualpeferomanceeval_by* functions have been
                   renamed to aqs_qa_annualperformance* functions, please use
                     these functions instead."
-         )
+  )
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_site
@@ -122,9 +127,11 @@ aqs_qa_annualpeferomanceeval_by_MA <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
+  abort(
+    message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
-                   functions, please use these functions instead.")
+                   functions, please use these functions instead."
+  )
 }
 
 
@@ -142,9 +149,11 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
+  abort(
+    message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
-                   functions, please use these functions instead.")
+                   functions, please use these functions instead."
+  )
 }
 
 
@@ -162,9 +171,11 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
+  abort(
+    message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
-                   functions, please use these functions instead.")
+                   functions, please use these functions instead."
+  )
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_MA
@@ -182,9 +193,11 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 {
-  abort(message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
+  abort(
+    message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
-                   functions, please use these functions instead.")
+                   functions, please use these functions instead."
+  )
   return(NULL)
 }
 
@@ -210,8 +223,8 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 #' @noRd
 #' @keywords internal # do not include deprecated function in
 #'                    # package reference manual
-aqs_ratelimit <- function(waittime=5L)
-{
+aqs_ratelimit <- function(waittime = 5L)
+  {
   Sys.sleep(waittime)
   return(NULL)
 }

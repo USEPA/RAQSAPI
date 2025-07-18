@@ -31,5 +31,5 @@ stateFIPS provided.
           # Returns a tibble all the counties
           #   in North Carolina the county FIPS codes (county codes) for
           #   each.
-          \dontrun{aqs_counties_by_state(stateFIPS = "37")}
+          \dontrun{aqs_counties_by_state(stateFIPS = '37')}
 }

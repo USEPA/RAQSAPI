@@ -13,11 +13,10 @@
 #' @export
 aqs_isavailable <- function()
 {
-  aqs(service = "metaData",
-      filter = "isAvailable",
-      user =  getOption("aqs_username"),
-      user_key =  getOption("aqs_key")
-      )$Header %>%
+  aqs(
+    service = "metaData", filter = "isAvailable", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key")
+  )$Header %>%
     return()
 }
 
@@ -43,9 +42,11 @@ aqs_isavailable <- function()
 #'        \dontrun{aqs_knownissues()}
 #' @export
 aqs_knownissues <- function(return_header = FALSE)
-{
+  {
   issues <- aqs_metadata_service(filter = "issues", service = NULL)
-   if (!return_header) issues %<>% aqs_removeheader
+  if (!return_header)
+    issues %<>%
+      aqs_removeheader
   return(issues)
 
 }
@@ -71,20 +72,21 @@ aqs_knownissues <- function(return_header = FALSE)
 #'           # Returns a tibble all the counties
 #'           #   in North Carolina the county FIPS codes (county codes) for
 #'           #   each.
-#'           \dontrun{aqs_counties_by_state(stateFIPS = "37")}
+#'           \dontrun{aqs_counties_by_state(stateFIPS = '37')}
 #' @export
 aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
-{
-  counties <- aqs(service = "list",
-                      filter = "countiesByState",
-                      user =  getOption("aqs_username"),
-                      user_key =  getOption("aqs_key"),
-                      variables = list(state = stateFIPS)
-                  )
-     counties %<>% renameaqsvariables(name1 = "county_code",
-                                      name2 = "county_name")
-     if (!return_header) counties %<>% aqs_removeheader
-     return(counties)
+  {
+  counties <- aqs(
+    service = "list", filter = "countiesByState", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = list(state = stateFIPS)
+  )
+  counties %<>%
+    renameaqsvariables(name1 = "county_code", name2 = "county_name")
+  if (!return_header)
+    counties %<>%
+      aqs_removeheader
+  return(counties)
 
 }
 
@@ -104,22 +106,22 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
 #'            sites with the requested state and county FIPS codes.
 #' @examples # Returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
 #'           #  in Hawaii County, HI
-#'           \dontrun{aqs_sites_by_county(stateFIPS = "15",
-#'                                        countycode = "001")
+#'           \dontrun{aqs_sites_by_county(stateFIPS = '15',
+#'                                        countycode = '001')
 #'                  }
 #' @export
 aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
-{
-  sites <- aqs(service = "list",
-                   filter = "sitesByCounty",
-                   user =  getOption("aqs_username"),
-                   user_key =  getOption("aqs_key"),
-                   variables = list(state = stateFIPS,
-                                    county = countycode
-                                    )
-                )
-  sites %<>% renameaqsvariables(name1 = "site_number", name2 = "site_name")
-  if (!return_header) sites %<>% aqs_removeheader
+  {
+  sites <- aqs(
+    service = "list", filter = "sitesByCounty", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = list(state = stateFIPS, county = countycode)
+  )
+  sites %<>%
+    renameaqsvariables(name1 = "site_number", name2 = "site_name")
+  if (!return_header)
+    sites %<>%
+      aqs_removeheader
   return(sites)
 
 }
@@ -128,7 +130,7 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
 #' @title aqs_classes
 #' @description \lifecycle{stable}
 #'                 Returns a table of Parameter classes (groups of parameters,
-#'                 i.e. "criteria" or "all"). The information from this function
+#'                 i.e. 'criteria' or 'all'). The information from this function
 #'                 can be used as input to other API calls.
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested.
@@ -137,21 +139,22 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of Parameter classes
-#'                 (groups of parameters, i.e. "criteria" or "all").
+#'                 (groups of parameters, i.e. 'criteria' or 'all').
 #' @examples # Returns a tibble of parameter classes (groups of parameters, i.e.
-#'           # "criteria" or all")
+#'           # 'criteria' or all')
 #'          \dontrun{ aqs_classes() }
 #' @export
 aqs_classes <- function(return_header = FALSE)
-{
-  classes <- aqs(service = "list",
-                 filter = "classes",
-                 user =  getOption("aqs_username"),
-                 user_key =  getOption("aqs_key"),
-                 variables = NULL
-                 )
+  {
+  classes <- aqs(
+    service = "list", filter = "classes", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL
+  )
 
-  if (!return_header) classes %<>% aqs_removeheader
+  if (!return_header)
+    classes %<>%
+      aqs_removeheader
   return(classes)
 }
 
@@ -175,17 +178,18 @@ aqs_classes <- function(return_header = FALSE)
 #'            parameters associated with the class requested. NULL is returned
 #'            for classes not found.
 #' @examples # Returns a tibble of AQS parameters in the criteria class
-#'           \dontrun{ aqs_parameters_by_class(class = "CRITERIA") }
+#'           \dontrun{ aqs_parameters_by_class(class = 'CRITERIA') }
 #' @export
 aqs_parameters_by_class <- function(class, return_header = FALSE)
-{
-  parameters <- aqs(service = "list",
-                    filter = "parametersByClass",
-                    user =  getOption("aqs_username"),
-                    user_key =  getOption("aqs_key"),
-                    variables = list(pc = class)
-                   )
-  if (!return_header) parameters %<>% aqs_removeheader
+  {
+  parameters <- aqs(
+    service = "list", filter = "parametersByClass", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = list(pc = class)
+  )
+  if (!return_header)
+    parameters %<>%
+      aqs_removeheader
   return(parameters)
 }
 
@@ -207,15 +211,17 @@ aqs_parameters_by_class <- function(class, return_header = FALSE)
 #'           \dontrun{aqs_mas()}
 #' @export
 aqs_mas <- function(return_header = FALSE)
-{
-  mas <- aqs(service = "list",
-                 filter = "mas",
-                 user =  getOption("aqs_username"),
-                 user_key =  getOption("aqs_key"),
-                 variables = NULL
+  {
+  mas <- aqs(
+    service = "list", filter = "mas", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL
   )
-  mas %<>% renameaqsvariables(name1 = "MA_code", name2 = "MonitoringAgency")
-  if (!return_header) mas %<>% aqs_removeheader
+  mas %<>%
+    renameaqsvariables(name1 = "MA_code", name2 = "MonitoringAgency")
+  if (!return_header)
+    mas %<>%
+      aqs_removeheader
   return(mas)
 }
 
@@ -237,15 +243,17 @@ aqs_mas <- function(return_header = FALSE)
 #'            \dontrun{ aqs_pqaos() }
 #' @export
 aqs_pqaos <- function(return_header = FALSE)
-{
-  pqaos <- aqs(service = "list",
-                   filter = "pqaos",
-                   user =  getOption("aqs_username"),
-                   user_key =  getOption("aqs_key"),
-                   variables = NULL
+  {
+  pqaos <- aqs(
+    service = "list", filter = "pqaos", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL
   )
-  pqaos %<>% renameaqsvariables(name1 = "PQAO_code", name2 = "PQAO")
-  if (!return_header) pqaos %<>% aqs_removeheader
+  pqaos %<>%
+    renameaqsvariables(name1 = "PQAO_code", name2 = "PQAO")
+  if (!return_header)
+    pqaos %<>%
+      aqs_removeheader
   return(pqaos)
 }
 
@@ -269,16 +277,18 @@ aqs_pqaos <- function(return_header = FALSE)
 #'           \dontrun{ aqs_cbsas() }
 #' @export
 aqs_cbsas <- function(return_header = FALSE)
-{
-  cbsas <- aqs(service = "list",
-                   filter = "cbsas",
-                   user =  getOption("aqs_username"),
-                   user_key =  getOption("aqs_key"),
-                   variables = NULL
+  {
+  cbsas <- aqs(
+    service = "list", filter = "cbsas", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL
   )
 
-  cbsas %<>% renameaqsvariables(name1 = "CBSA_code", name2 = "CBSA_name")
-  if (!return_header) cbsas %<>% aqs_removeheader
+  cbsas %<>%
+    renameaqsvariables(name1 = "CBSA_code", name2 = "CBSA_name")
+  if (!return_header)
+    cbsas %<>%
+      aqs_removeheader
   return(cbsas)
 }
 
@@ -299,15 +309,17 @@ aqs_cbsas <- function(return_header = FALSE)
 #'           \dontrun{ aqs_states() }
 #' @export
 aqs_states <- function(return_header = FALSE)
-{
-  states <- aqs(service = "list",
-                filter = "states",
-                user =  getOption("aqs_username"),
-                user_key =  getOption("aqs_key"),
-                variables = NULL
-                )
-  states %<>% renameaqsvariables(name1 = "stateFIPS", name2 = "state")
-  if (!return_header) states %<>% aqs_removeheader
+  {
+  states <- aqs(
+    service = "list", filter = "states", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL
+  )
+  states %<>%
+    renameaqsvariables(name1 = "stateFIPS", name2 = "state")
+  if (!return_header)
+    states %<>%
+      aqs_removeheader
   return(states)
 }
 
@@ -333,21 +345,22 @@ aqs_states <- function(return_header = FALSE)
 #'            \dontrun{ aqs_removeheader(AQSobject) }
 #' @export
 aqs_removeheader <- function(AQSobject)
-{
+  {
   if (is.null(AQSobject))
     {
     return(AQSobject)
-    } else if (isa(x = AQSobject, what = "AQS_DATAMART_APIv2"))
-      #if (class(AQSobject) %in% "AQS_DATAMART_APIv2")
+  } else if (isa(x = AQSobject, what = "AQS_DATAMART_APIv2"))
     {
-      AQSobject <- AQSobject$Data
-    } else if (isa(x = AQSobject[[1]], what = "AQS_DATAMART_APIv2") &&
-                                    is.list(AQSobject))
-    {
-      AQSobject %<>% lapply("[[", "Data") %>% dplyr::bind_rows()
-    }
+    AQSobject <- AQSobject$Data
+  } else if (isa(x = AQSobject[[1]], what = "AQS_DATAMART_APIv2") &&
+    is.list(AQSobject))
+      {
+    AQSobject %<>%
+      lapply("[[", "Data") %>%
+      dplyr::bind_rows()
+  }
 
- return(AQSobject)
+  return(AQSobject)
 }
 
 
@@ -370,14 +383,15 @@ aqs_removeheader <- function(AQSobject)
 #'  #  \dontrun{ aqs_revisionHistory() }
 #' @export
 aqs_revisionhistory <- function(return_header = FALSE)
-{
-  history <- aqs(service = "metaData",
-                 filter = "revisionHistory",
-                 user =  getOption("aqs_username"),
-                 user_key =  getOption("aqs_key"),
-                 variables = NULL
-                )
-   if (!return_header) history %<>% aqs_removeheader
+  {
+  history <- aqs(
+    service = "metaData", filter = "revisionHistory", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL
+  )
+  if (!return_header)
+    history %<>%
+      aqs_removeheader
   return(history)
 }
 
@@ -398,15 +412,17 @@ aqs_revisionhistory <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @examples # Returns a tibble containing a list and definitions
 #'           #  of fields in the Sample Data service
-#'          \dontrun{ aqs_fieldsbyservice(service = "sampleData") }
+#'          \dontrun{ aqs_fieldsbyservice(service = 'sampleData') }
 #'
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object with containing the list
 #'   and definitions of fields requested service
 #' @export
 aqs_fields_by_service <- function(service, return_header = FALSE)
-{
+  {
   fields <- aqs_metadata_service(filter = "fieldsByService", service = service)
-   if (!return_header) fields %<>% aqs_removeheader
+  if (!return_header)
+    fields %<>%
+      aqs_removeheader
   return(fields)
 }
 
@@ -429,22 +445,22 @@ aqs_fields_by_service <- function(service, return_header = FALSE)
 #'       AQS Data Mart API are returned.
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
 #'         their associated duration codes
-#'                 (groups of parameters, i.e. "criteria" or "all").
+#'                 (groups of parameters, i.e. 'criteria' or 'all').
 #' @examples # Returns a tibble or an AQS_Data Mart_APIv2 S3 object of
 #'          \dontrun{ aqs_sampledurations() }
 #' @export
 aqs_sampledurations <- function(return_header = FALSE)
-{
+  {
   AQS_domain <- "aqs.epa.gov"
 
-    durations <- aqs(service = "list",
-                 filter = "duration",
-                 user =  getOption("aqs_username"),
-                 user_key =  getOption("aqs_key"),
-                 variables = NULL,
-                 AQS_domain = AQS_domain
-                 )
+  durations <- aqs(
+    service = "list", filter = "duration", user = getOption("aqs_username"),
+    user_key = getOption("aqs_key"),
+    variables = NULL, AQS_domain = AQS_domain
+  )
 
-  if (!return_header) durations %<>% aqs_removeheader
+  if (!return_header)
+    durations %<>%
+      aqs_removeheader
   return(durations)
 }

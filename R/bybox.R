@@ -19,40 +19,39 @@
 #' @examples #  Returns a tibble of all ozone
 #'           #  monitors in the vicinity of central Alabama that operated in
 #'           #  1995
-#'           \dontrun{aqs_monitors_by_box(parameter="44201",
-#'                                        bdate=as.Date("19950101",
-#'                                                      format="%Y%m%d"),
-#'                                        edate=as.Date("19951231",
-#'                                                      format="%Y%m%d"),
-#'                                        minlat="33.3",
-#'                                        maxlat="33.6",
-#'                                        minlon="-87.0",
-#'                                        maxlon="-86.7"
+#'           \dontrun{aqs_monitors_by_box(parameter='44201',
+#'                                        bdate=as.Date('19950101',
+#'                                                      format='%Y%m%d'),
+#'                                        edate=as.Date('19951231',
+#'                                                      format='%Y%m%d'),
+#'                                        minlat='33.3',
+#'                                        maxlat='33.6',
+#'                                        minlon='-87.0',
+#'                                        maxlon='-86.7'
 #'                                        )
 #'                    }
 #' @export
-aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                minlon, maxlon, return_header = FALSE)
-{
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                 return_header)
+aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
-  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
-  #  monitors API call accepts multiple years of data on the server, purrr::map
-  #  is used so that the output is consistent with other RAQSAPI functions.
-  params <- tibble(parameter = parameter,
-                   bdate = bdate,
-                   edate = edate,
-                   minlat = minlat,
-                   maxlat = maxlat,
-                   minlon = minlon,
-                   maxlon = maxlon,
-                   service = "monitors"
-                   ) %>%
-     dplyr::select_if(function(x) {!all(is.na(x))})
+  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
+  # on the server, purrr::map is used so that the output is consistent with other RAQSAPI functions.
+  params <- tibble(
+    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
+    service = "monitors"
+  ) %>%
+    dplyr::select_if(
+      function(x)
+        {
+        !all(is.na(x))
+      }
+    )
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) monitors %<>% aqs_removeheader
+  if (!return_header)
+    monitors %<>%
+      aqs_removeheader
   return(monitors)
 }
 
@@ -101,43 +100,35 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @examples # Returns a tibble containing all ozone samples
 #'              #  in the vicinity of central Alabama between
 #'              #  May 1, 2015 - May 2, 2017
-#'           \dontrun{aqs_sampledata_by_box(parameter = "44201",
-#'                                          bdate = as.Date("20150501",
-#'                                                          format = "%Y%m%d"),
-#'                                          edate = as.Date("20170502",
-#'                                                          format = "%Y%m%d"),
-#'                                          minlat = "33.3",
-#'                                          maxlat = "33.6",
-#'                                          minlon = "-87.0",
-#'                                          maxlon = "-86.7"
+#'           \dontrun{aqs_sampledata_by_box(parameter = '44201',
+#'                                          bdate = as.Date('20150501',
+#'                                                          format = '%Y%m%d'),
+#'                                          edate = as.Date('20170502',
+#'                                                          format = '%Y%m%d'),
+#'                                          minlat = '33.3',
+#'                                          maxlat = '33.6',
+#'                                          minlon = '-87.0',
+#'                                          maxlon = '-86.7'
 #'                                          )
 #'                    }
 #' @export
-aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                  minlon, maxlon,
-                                  duration = NA_character_,
-                                  cbdate = NA_Date_, cedate = NA_Date_,
-                                  return_header = FALSE
-                                  )
-{
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                 duration, return_header)
+aqs_sampledata_by_box <- function(
+  parameter, bdate, edate, minlat, maxlat, minlon,
+  maxlon, duration = NA_character_, cbdate = NA_Date_,
+  cedate = NA_Date_, return_header = FALSE
+)
+  {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               minlat = minlat,
-                               maxlat = maxlat,
-                               minlon = minlon,
-                               maxlon = maxlon,
-                               duration = duration,
-                               service = "sampleData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
+    duration = duration, service = "sampleData", cbdate = cbdate, cedate = cedate
+  )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) sampledata %<>% aqs_removeheader
+  if (!return_header)
+    sampledata %<>%
+      aqs_removeheader
   return(sampledata)
 }
 
@@ -177,42 +168,32 @@ aqs_sampledata_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @examples # Returns a tibble containing ozone annual summaries
 #'           #  in the vicinity of central Alabama for the first two days
 #'           # of May, 2015
-#'           \dontrun{aqs_annualsummary_by_box(parameter = "44201",
-#'                                             bdate = as.Date("20150501",
-#'                                                           format = "%Y%m%d"),
-#'                                             edate = as.Date("20170502",
-#'                                                           format = "%Y%m%d"),
-#'                                             minlat = "33.3",
-#'                                             maxlat = "33.6",
-#'                                             minlon = "-87.0",
-#'                                             maxlon = "-86.7"
+#'           \dontrun{aqs_annualsummary_by_box(parameter = '44201',
+#'                                             bdate = as.Date('20150501',
+#'                                                           format = '%Y%m%d'),
+#'                                             edate = as.Date('20170502',
+#'                                                           format = '%Y%m%d'),
+#'                                             minlat = '33.3',
+#'                                             maxlat = '33.6',
+#'                                             minlon = '-87.0',
+#'                                             maxlon = '-86.7'
 #'                                             )
 #'                    }
 #' @export
-aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                     minlon, maxlon,
-                                     cbdate = NA_Date_,
-                                     cedate = NA_Date_,
-                                     return_header = FALSE
-                                     )
-{
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                 return_header)
+aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
+                                     maxlon, cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               minlat = minlat,
-                               maxlat = maxlat,
-                               minlon = minlon,
-                               maxlon = maxlon,
-                               service = "annualData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
+    service = "annualData", cbdate = cbdate, cedate = cedate
+  )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) annualsummary %<>% aqs_removeheader
+  if (!return_header)
+    annualsummary %<>%
+      aqs_removeheader
   return(annualsummary)
 
 }
@@ -251,42 +232,34 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @examples #Returns a tibble of ozone daily summaries in the vicinity of
 #'           #  central Alabama for the first two days of May 2015
 #'
-#'           \dontrun{aqs_dailysummary_by_box(parameter = "44201",
-#'                                            bdate = as.Date("20140501",
-#'                                                            format = "%Y%m%d"
+#'           \dontrun{aqs_dailysummary_by_box(parameter = '44201',
+#'                                            bdate = as.Date('20140501',
+#'                                                            format = '%Y%m%d'
 #'                                                           ),
-#'                                             edate = as.Date("20160502",
-#'                                                             format = "%Y%m%d"
+#'                                             edate = as.Date('20160502',
+#'                                                             format = '%Y%m%d'
 #'                                                             ),
-#'                                             mqinlat ="33.3",
-#'                                             maxlat = "33.6",
-#'                                             minlon = "-87.0",
-#'                                             maxlon = "-86.7"
+#'                                             mqinlat ='33.3',
+#'                                             maxlat = '33.6',
+#'                                             minlon = '-87.0',
+#'                                             maxlon = '-86.7'
 #'                                             )
 #'                    }
 #' @export
-aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                    minlon, maxlon, cbdate = NA_Date_,
-                                    cedate = NA_Date_, return_header = FALSE
-                                    )
-{
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                 return_header)
+aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
+                                    cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
-    params <- aqsmultiyearparams(parameter = parameter,
-                                 bdate = bdate,
-                                 edate = edate,
-                                 minlat = minlat,
-                                 maxlat = maxlat,
-                                 minlon = minlon,
-                                 maxlon = maxlon,
-                                 service = "dailyData",
-                                 cbdate = cbdate,
-                                 cedate = cedate
-                                 )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
+    service = "dailyData", cbdate = cbdate, cedate = cedate
+  )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) dailysummary %<>% aqs_removeheader
+  if (!return_header)
+    dailysummary %<>%
+      aqs_removeheader
   return(dailysummary)
 }
 
@@ -327,41 +300,32 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #' @examples # Returns a tibble containing ozone quarterly summaries
 #'           #  in the vicinity of central Alabama for each quarter in
 #'           #  between 2015 - 2017
-#'           \dontrun{aqs_quarterlysummary_by_box(parameter = "44201",
-#'                                                bdate = as.Date("20150101",
-#'                                                           format = "%Y%m%d"),
-#'                                                edate = as.Date("20171231",
-#'                                                           format = "%Y%m%d"),
-#'                                                minlat = "33.3",
-#'                                                maxlat = "33.6",
-#'                                                minlon = "-87.0",
-#'                                                maxlon = "-86.7"
+#'           \dontrun{aqs_quarterlysummary_by_box(parameter = '44201',
+#'                                                bdate = as.Date('20150101',
+#'                                                           format = '%Y%m%d'),
+#'                                                edate = as.Date('20171231',
+#'                                                           format = '%Y%m%d'),
+#'                                                minlat = '33.3',
+#'                                                maxlat = '33.6',
+#'                                                minlon = '-87.0',
+#'                                                maxlon = '-86.7'
 #'                                               )
 #'                    }
 #' @export
-aqs_quarterlysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat,
-                                        minlon, maxlon, cbdate = NA_Date_,
-                                        cedate = NA_Date_, return_header = FALSE
-                                       )
-{
+aqs_quarterlysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
+                                        cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
   AQS_domain <- "aqs.epa.gov"
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat,
-                 minlon, maxlon, cbdate, cedate, return_header)
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               minlat = minlat,
-                               maxlat = maxlat,
-                               minlon = minlon,
-                               maxlon = maxlon,
-                               service = "quarterlyData",
-                               cbdate = cbdate,
-                               cedate = cedate,
-                               AQS_domain = AQS_domain
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
+    service = "quarterlyData", cbdate = cbdate, cedate = cedate, AQS_domain = AQS_domain
+  )
 
   quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header) quarterlysummary %<>% aqs_removeheader
+  if (!return_header)
+    quarterlysummary %<>%
+      aqs_removeheader
   return(quarterlysummary)
 }

@@ -19,7 +19,6 @@ knitr::opts_chunk$set(
   tidy.ops = list(width.cutoff = 80),
   tidy = TRUE
 )
-
 ```
 <img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" align="right" width="150" height="150">
 

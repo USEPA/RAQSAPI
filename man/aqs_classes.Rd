@@ -15,16 +15,16 @@ purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_Data Mart_APIv2 S3 object of Parameter classes
-(groups of parameters, i.e. "criteria" or "all").
+(groups of parameters, i.e. 'criteria' or 'all').
 }
 \description{
 \lifecycle{stable}
 Returns a table of Parameter classes (groups of parameters,
-i.e. "criteria" or "all"). The information from this function
+i.e. 'criteria' or 'all'). The information from this function
 can be used as input to other API calls.
 }
 \examples{
 # Returns a tibble of parameter classes (groups of parameters, i.e.
-          # "criteria" or all")
+          # 'criteria' or all')
          \dontrun{ aqs_classes() }
 }

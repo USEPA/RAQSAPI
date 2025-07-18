@@ -29,15 +29,15 @@ returned.}
 \item{MA_code}{a R character object which represents the 4 digit AQS
 Monitoring Agency code (with leading zeroes).}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -86,12 +86,12 @@ NA
 # Returns a tibble containing PM2.5 blank data in
           #  January 2018 where the Monitoring Agency is the Alabama
           #  Department of Environmental Management (agency 0013)
-          \dontrun{aqs_qa_blanks_by_MA(parameter = "88101",
-                                       bdate = as.Date("20170101",
-                                                       format = "\%Y\%m\%d"),
-                                       edate = as.Date("20190131",
-                                                       format = "\%Y\%m\%d"),
-                                       MA_code = "0013"
+          \dontrun{aqs_qa_blanks_by_MA(parameter = '88101',
+                                       bdate = as.Date('20170101',
+                                                       format = '\%Y\%m\%d'),
+                                       edate = as.Date('20190131',
+                                                       format = '\%Y\%m\%d'),
+                                       MA_code = '0013'
                                        )
                    }
 }

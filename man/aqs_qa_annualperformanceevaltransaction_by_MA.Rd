@@ -68,12 +68,12 @@ server. This operation has a linear run time of
 # Returns a tibble containing annual performance evaluation data
           #  for ozone in where the MA is the Alabama Department of
           #  Environmental Management (MA_code 0013) for 2017 in RD format.
- \dontrun{aqs_qa_annualperformanceevaltransaction_by_MA(parameter = "44201",
-                                                  bdate = as.Date("20170101",
-                                                          format = "\%Y\%m\%d"),
-                                                  edate = as.Date("20171231",
-                                                          format = "\%Y\%m\%d"),
-                                                  MA_code = "0013"
+ \dontrun{aqs_qa_annualperformanceevaltransaction_by_MA(parameter = '44201',
+                                                  bdate = as.Date('20170101',
+                                                          format = '\%Y\%m\%d'),
+                                                  edate = as.Date('20171231',
+                                                          format = '\%Y\%m\%d'),
+                                                  MA_code = '0013'
                                                         )
          }
 }

@@ -31,8 +31,8 @@ The '@' character needs to be escaped with the '/' character.
 }
 \examples{
 # to register a new user or generate a new key with the email
-          #  address "John.Doe/@myemail.com"
-          \dontrun{aqs_sign_up(email = "John.Doe/@myemail.com")}
+          #  address 'John.Doe/@myemail.com'
+          \dontrun{aqs_sign_up(email = 'John.Doe/@myemail.com')}
           #  after calling this function please follow the instructions that
           #  are sent in the verification e-mail before proceeding.
 }

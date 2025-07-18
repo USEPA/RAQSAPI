@@ -70,13 +70,13 @@ overloading the API server. This operation has a linear run time of
 \examples{
          #Returns all FRM/FEM transaction data for
          #Wake County, NC between on Feb 28, 2016.
-         \dontrun{aqs_transactionsample_by_county(parameter = "88101",
-                                                  bdate = as.Date("20160228",
-                                                          format = "\%Y\%m\%d"),
-                                                  edate = as.Date("20160228",
-                                                         format = "\%Y\%m\%d"),
-                                                  stateFIPS = "37",
-                                                  countycode = "183"
+         \dontrun{aqs_transactionsample_by_county(parameter = '88101',
+                                                  bdate = as.Date('20160228',
+                                                          format = '\%Y\%m\%d'),
+                                                  edate = as.Date('20160228',
+                                                         format = '\%Y\%m\%d'),
+                                                  stateFIPS = '37',
+                                                  countycode = '183'
                                                   )
                  }
 }

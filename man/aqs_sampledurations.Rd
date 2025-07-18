@@ -16,7 +16,7 @@ purposes in addition to the data requested.}
 \value{
 a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
 their associated duration codes
-(groups of parameters, i.e. "criteria" or "all").
+(groups of parameters, i.e. 'criteria' or 'all').
 }
 \description{
 \lifecycle{stable}

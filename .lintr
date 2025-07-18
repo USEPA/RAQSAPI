@@ -2,4 +2,5 @@ linters:
   linters_with_defaults(
     assignment_linter(allow_pipe_assign = TRUE),
     brace_linter(allow_single_line = TRUE),
-    return_linter(return_style = "explicit"))
+    return_linter(return_style = "explicit"),
+    line_length_linter(length = 125L))

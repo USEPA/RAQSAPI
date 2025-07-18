@@ -31,5 +31,5 @@ Returns parameters associated with the input class.
 }
 \examples{
 # Returns a tibble of AQS parameters in the criteria class
-          \dontrun{ aqs_parameters_by_class(class = "CRITERIA") }
+          \dontrun{ aqs_parameters_by_class(class = 'CRITERIA') }
 }

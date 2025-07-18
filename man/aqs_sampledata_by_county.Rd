@@ -49,15 +49,15 @@ averages or Pb 3 month rolling averages.
 @seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
 available duration codes.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -107,13 +107,13 @@ API server. This operation has a linear run time of
 \examples{
 # returns all FRM/FEM PM2.5 data for Wake County, NC between
           #  January 1, 2015 - February 28, 2016
- \dontrun{aqs_sampledata_by_county(parameter = "88101",
-                                   bdate = as.Date("20150101",
-                                                   format = "\%Y\%m\%d"),
-                                   edate=as.Date("20160228",
-                                                 format = "\%Y\%m\%d"),
-                                   stateFIPS = "37",
-                                   countycode = "183"
+ \dontrun{aqs_sampledata_by_county(parameter = '88101',
+                                   bdate = as.Date('20150101',
+                                                   format = '\%Y\%m\%d'),
+                                   edate=as.Date('20160228',
+                                                 format = '\%Y\%m\%d'),
+                                   stateFIPS = '37',
+                                   countycode = '183'
                                    )
          }
 }

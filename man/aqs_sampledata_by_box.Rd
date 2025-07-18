@@ -60,15 +60,15 @@ averages or Pb 3 month rolling averages.
 @seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
 available duration codes.}
 
-\item{cbdate}{a R date object which represents a "beginning date of last
-change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning date of last
+change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -121,15 +121,15 @@ API server. This operation has a linear run time of
 # Returns a tibble containing all ozone samples
              #  in the vicinity of central Alabama between
              #  May 1, 2015 - May 2, 2017
-          \dontrun{aqs_sampledata_by_box(parameter = "44201",
-                                         bdate = as.Date("20150501",
-                                                         format = "\%Y\%m\%d"),
-                                         edate = as.Date("20170502",
-                                                         format = "\%Y\%m\%d"),
-                                         minlat = "33.3",
-                                         maxlat = "33.6",
-                                         minlon = "-87.0",
-                                         maxlon = "-86.7"
+          \dontrun{aqs_sampledata_by_box(parameter = '44201',
+                                         bdate = as.Date('20150501',
+                                                         format = '\%Y\%m\%d'),
+                                         edate = as.Date('20170502',
+                                                         format = '\%Y\%m\%d'),
+                                         minlat = '33.3',
+                                         maxlat = '33.6',
+                                         minlon = '-87.0',
+                                         maxlon = '-86.7'
                                          )
                    }
 }

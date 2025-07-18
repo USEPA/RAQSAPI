@@ -41,15 +41,15 @@ list of available county codes for each state.}
 (with leading zeros) within the county and state being
 requested.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -84,14 +84,14 @@ NA
  # between May 1 , 2015-2019. (Note, all monitors that operated between the
  # bdate and edate will be returned).
  \dontrun{
-           aqs_monitors_by_site(parameter = "42401",
-                                  bdate = as.Date("20150501",
-                                                     format="\%Y\%m\%d"),
-                                  edate = as.Date("20190501",
-                                                     format="\%Y\%m\%d"),
-                                  stateFIPS = "15",
-                                  countycode = "001",
-                                  sitenum = "0007"
+           aqs_monitors_by_site(parameter = '42401',
+                                  bdate = as.Date('20150501',
+                                                     format='\%Y\%m\%d'),
+                                  edate = as.Date('20190501',
+                                                     format='\%Y\%m\%d'),
+                                  stateFIPS = '15',
+                                  countycode = '001',
+                                  sitenum = '0007'
                                  )
          }
 

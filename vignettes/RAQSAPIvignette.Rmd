@@ -36,12 +36,6 @@ csl: acs-nano.csl
 
 ```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
 invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
-
-#usethisurl <- "https://usethis.r-lib.org"
-#usethissetup <- "/articles/articles/usethis-setup.html"
-#usethispatsection <- "#get-and-store-a-github-personal-access-token"
-
-#patsetuplink <- glue::glue("{usethisurl}{usethissetup}{usethispatsection}")
 ```
 <img src="./figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 

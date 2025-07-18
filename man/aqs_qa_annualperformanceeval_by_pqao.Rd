@@ -67,12 +67,12 @@ server. This operation has a linear run time of
 # Returns a tibble containing annual performance evaluation data
           # for ozone where the PQAO is the Alabamaba Department of
           # Environmental Management (pqao_code 0013).
- \dontrun{ aqs_qa_annualperformanceeval_by_pqao(parameter = "44201",
-                                                bdate = as.Date("20170101",
-                                                          format = "\%Y\%m\%d"),
-                                                edate = as.Date("20171231",
-                                                          format = "\%Y\%m\%d"),
-                                                pqao_code = "0013"
+ \dontrun{ aqs_qa_annualperformanceeval_by_pqao(parameter = '44201',
+                                                bdate = as.Date('20170101',
+                                                          format = '\%Y\%m\%d'),
+                                                edate = as.Date('20171231',
+                                                          format = '\%Y\%m\%d'),
+                                                pqao_code = '0013'
                                                 )
                  }
 }

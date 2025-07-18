@@ -29,15 +29,15 @@ returned.}
 \item{MA_code}{a R character object which represents the 4 digit AQS
 Monitoring Agency code (with leading zeroes).}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -79,12 +79,12 @@ overloading the API server. This operation has a linear run time of
 #Returns a tibble of ozone transaction sample data for all monitors
           #operated by South Coast Air Quality Management District collected
           #on May 15, 2015
-          \dontrun{aqs_transactionsample_by_MA(parameter = "44201",
-                                               bdate = as.Date("20150515",
-                                                          format = "\%Y\%m\%d"),
-                                               edate = as.Date("20150515",
-                                                          format = "\%Y\%m\%d"),
-                                               MA_code = "0972"
+          \dontrun{aqs_transactionsample_by_MA(parameter = '44201',
+                                               bdate = as.Date('20150515',
+                                                          format = '\%Y\%m\%d'),
+                                               edate = as.Date('20150515',
+                                                          format = '\%Y\%m\%d'),
+                                               MA_code = '0972'
                                                )
                  }
 }

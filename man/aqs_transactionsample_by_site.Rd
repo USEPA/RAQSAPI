@@ -41,15 +41,15 @@ list of available county codes for each state.}
 (with leading zeros) within the county and state being
 requested.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -92,14 +92,14 @@ overloading the API server. This operation has a linear run time of
          \dontrun{ #   returns all ozone transaction data for the
                    #   Millbrook School site (#0014) in Wake County, NC for
                    #   June 18, 2017
-                   aqs_transactionsample_by_site(parameter = "44201",
-                                                 bdate = as.Date("20170618",
-                                                         format = "\%Y\%m\%d"),
-                                                 edate = as.Date("20170618",
-                                                          format = "\%Y\%m\%d"),
-                                                 stateFIPS = "37",
-                                                 countycode = "183",
-                                                 sitenum = "0014"
+                   aqs_transactionsample_by_site(parameter = '44201',
+                                                 bdate = as.Date('20170618',
+                                                         format = '\%Y\%m\%d'),
+                                                 edate = as.Date('20170618',
+                                                          format = '\%Y\%m\%d'),
+                                                 stateFIPS = '37',
+                                                 countycode = '183',
+                                                 sitenum = '0014'
                                                  )
                  }
 }

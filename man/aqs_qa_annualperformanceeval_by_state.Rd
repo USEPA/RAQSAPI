@@ -67,12 +67,12 @@ server. This operation has a linear run time of
 \examples{
 # Returns a tibble containing annual performance evaluation
           # data for ozone in Alabamba for 2017.
- \dontrun{ aqs_qa_annualperformanceeval_by_state(parameter = "44201",
-                                                  bdate = as.Date("20170101",
-                                                          format = "\%Y\%m\%d"),
-                                                  edate = as.Date("20171231",
-                                                          format = "\%Y\%m\%d"),
-                                                  stateFIPS = "01"
+ \dontrun{ aqs_qa_annualperformanceeval_by_state(parameter = '44201',
+                                                  bdate = as.Date('20170101',
+                                                          format = '\%Y\%m\%d'),
+                                                  edate = as.Date('20171231',
+                                                          format = '\%Y\%m\%d'),
+                                                  stateFIPS = '01'
                                                   )
                  }
 }

@@ -42,15 +42,15 @@ averages or Pb 3 month rolling averages.
 @seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
 available duration codes.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -101,13 +101,13 @@ API server. This operation has a linear run time of
 \examples{
 # Returns a tibble with all benzene samples from
           #  North Carolina collected from May 15th, 1995 - May 15, 1999
-          \dontrun{aqs_sampledata_by_state(parameter = "45201",
-                                           bdate = as.Date("19950515",
-                                                           format="\%Y\%m\%d"
+          \dontrun{aqs_sampledata_by_state(parameter = '45201',
+                                           bdate = as.Date('19950515',
+                                                           format='\%Y\%m\%d'
                                                            ),
-                                           edate = as.Date("19990515",
-                                                          format = "\%Y\%m\%d"),
-                                           stateFIPS = "37"
+                                           edate = as.Date('19990515',
+                                                          format = '\%Y\%m\%d'),
+                                           stateFIPS = '37'
                                           )
                    }
 }

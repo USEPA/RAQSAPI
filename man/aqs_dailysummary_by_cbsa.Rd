@@ -29,15 +29,15 @@ selection. Only data on or before this date will be returned.}
 Based Statistical Area code (the same as the census code,
 with leading zeros)}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -78,14 +78,14 @@ API server. This operation has a linear run time of
 # Returns a tibble of $NO_{2}$ daily summary
           #  data the for Charlotte-Concord-Gastonia, NC cbsa on
           #  Janurary 01, 2017
-          \dontrun{aqs_dailysummary_by_cbsa(parameter = "42602",
-                                               bdate = as.Date("20170101",
-                                                            format = "\%Y\%m\%d"
+          \dontrun{aqs_dailysummary_by_cbsa(parameter = '42602',
+                                               bdate = as.Date('20170101',
+                                                            format = '\%Y\%m\%d'
                                                               ),
-                                               edate = as.Date("20190101",
-                                                            format = "\%Y\%m\%d"
+                                               edate = as.Date('20190101',
+                                                            format = '\%Y\%m\%d'
                                                               ),
-                                               cbsa_code = "16740"
+                                               cbsa_code = '16740'
                                            )
                    }
 }

@@ -32,10 +32,10 @@ NA
 
 \examples{
  #to authenticate an existing user the email address
- # "John.Doe@myemail.com" and key = "MyKey"
+ # 'John.Doe@myemail.com' and key = 'MyKey'
  #  after calling this function please follow the instructions that are sent
  #  in the verification e-mail before proceeding.
- \dontrun{aqs_credentials(username = "John.Doe@myemail.com",
-                              key = "MyKey")
+ \dontrun{aqs_credentials(username = 'John.Doe@myemail.com',
+                              key = 'MyKey')
          }
 }

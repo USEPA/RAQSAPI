@@ -37,15 +37,15 @@ FIPS code for the county being requested (with leading
 zero(s)). @seealso \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}} for the
 list of available county codes for each state.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -86,15 +86,15 @@ API server. This operation has a linear run time of
 \examples{
 # returns a tibble with PEP Audit data for FRM
           #  PM2.5 in Madison County, AL for 2017
- \dontrun{aqs_qa_pep_audit_by_county_multiyear(parameter = "88101",
-                                               bdate = as.Date("20150101",
-                                                         format = "\%Y\%m\%d"
+ \dontrun{aqs_qa_pep_audit_by_county_multiyear(parameter = '88101',
+                                               bdate = as.Date('20150101',
+                                                         format = '\%Y\%m\%d'
                                                               ),
-                                               edate = as.Date("20171231",
-                                                           format = "\%Y\%m\%d"
+                                               edate = as.Date('20171231',
+                                                           format = '\%Y\%m\%d'
                                                               ),
-                                               stateFIPS = "01",
-                                               countycode = "089"
+                                               stateFIPS = '01',
+                                               countycode = '089'
                                                )
           }
 }

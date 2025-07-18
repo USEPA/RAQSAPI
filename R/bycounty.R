@@ -18,36 +18,36 @@
 #'           selected county
 #' @examples # returns an aqs_v2 S3 object containing all SO2 monitors in
 #'           #  Hawaii County, HI that were operating between May 01-02, 2015.
-#'  \dontrun{aqs_monitors_by_county(parameter="42401",
-#'                                  bdate=as.Date("20150501", format="%Y%m%d"),
-#'                                  edate=as.Date("20150502", format="%Y%m%d"),
-#'                                  stateFIPS="15",
-#'                                  countycode="001"
+#'  \dontrun{aqs_monitors_by_county(parameter='42401',
+#'                                  bdate=as.Date('20150501', format='%Y%m%d'),
+#'                                  edate=as.Date('20150502', format='%Y%m%d'),
+#'                                  stateFIPS='15',
+#'                                  countycode='001'
 #'                                  )
 #'          }
 #' @export
-aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                   countycode, cbdate = NA_Date_,
+aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, cbdate = NA_Date_,
                                    cedate = NA_Date_, return_header = FALSE)
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the
-  #  monitors API call accepts multiple years of data on the server, purrr::pmap
-  #  is used so that the output is consistent with other RAQSAPI functions.
-  params <- tibble(parameter = parameter,
-                   bdate = bdate,
-                   edate = edate,
-                   stateFIPS = stateFIPS,
-                   countycode = countycode,
-                   service = "monitors",
-                   cbdate = cbdate,
-                   cedate = cedate) %>%
-     dplyr::select_if(function(x) {!all(is.na(x))})
+  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
+  # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
+  params <- tibble(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "monitors", cbdate = cbdate, cedate = cedate
+  ) %>%
+    dplyr::select_if(
+      function(x)
+        {
+        !all(is.na(x))
+      }
+    )
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) monitors %<>% aqs_removeheader
+  if (!return_header)
+    monitors %<>%
+      aqs_removeheader
   return(monitors)
 }
 
@@ -93,39 +93,32 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           returned.
 #' @examples # returns all FRM/FEM PM2.5 data for Wake County, NC between
 #'           #  January 1, 2015 - February 28, 2016
-#'  \dontrun{aqs_sampledata_by_county(parameter = "88101",
-#'                                    bdate = as.Date("20150101",
-#'                                                    format = "%Y%m%d"),
-#'                                    edate=as.Date("20160228",
-#'                                                  format = "%Y%m%d"),
-#'                                    stateFIPS = "37",
-#'                                    countycode = "183"
+#'  \dontrun{aqs_sampledata_by_county(parameter = '88101',
+#'                                    bdate = as.Date('20150101',
+#'                                                    format = '%Y%m%d'),
+#'                                    edate=as.Date('20160228',
+#'                                                  format = '%Y%m%d'),
+#'                                    stateFIPS = '37',
+#'                                    countycode = '183'
 #'                                    )
 #'          }
 #' @export
-aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                     countycode,
-                                     duration = NA_character_,
-                                     cbdate = NA_Date_, cedate = NA_Date_,
-                                     return_header = FALSE
-                                     )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 duration, cbdate, cedate, return_header)
+aqs_sampledata_by_county <- function(
+  parameter, bdate, edate, stateFIPS, countycode, duration = NA_character_,
+  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE
+)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, duration, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                                   bdate = bdate,
-                                   edate = edate,
-                                   stateFIPS = stateFIPS,
-                                   countycode = countycode,
-                                   duration = duration,
-                                   service = "sampleData",
-                                   cbdate = cbdate,
-                                   cedate = cedate
-                              )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS, countycode = countycode, duration = duration,
+    service = "sampleData", cbdate = cbdate, cedate = cedate
+  )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) sampledata %<>% aqs_removeheader
+  if (!return_header)
+    sampledata %<>%
+      aqs_removeheader
   return(sampledata)
 }
 
@@ -166,36 +159,31 @@ aqs_sampledata_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @examples # returns an aqs S3 object with annual summary FRM/FEM
 #'           #  PM2.5 data for Wake County, NC between January
 #'           #  and February 2016
-#'  \dontrun{aqs_annualsummary_by_county(parameter = "88101",
-#'                                       bdate = as.Date("20160101",
-#'                                                       format = "%Y%m%d"),
-#'                                        edate = as.Date("20180228",
-#'                                                       format = "%Y%m%d"),
-#'                                        stateFIPS = "37",
-#'                                        countycode = "183"
+#'  \dontrun{aqs_annualsummary_by_county(parameter = '88101',
+#'                                       bdate = as.Date('20160101',
+#'                                                       format = '%Y%m%d'),
+#'                                        edate = as.Date('20180228',
+#'                                                       format = '%Y%m%d'),
+#'                                        stateFIPS = '37',
+#'                                        countycode = '183'
 #'                                        )
 #'          }
 #' @export
-aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                        countycode, cbdate = NA_Date_,
-                                        cedate = NA_Date_, return_header = FALSE
-                                        )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                        cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "annualData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "annualData",
+    cbdate = cbdate, cedate = cedate
+  )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) dailysummary %<>% aqs_removeheader
+  if (!return_header)
+    dailysummary %<>%
+      aqs_removeheader
   return(dailysummary)
 }
 
@@ -234,36 +222,30 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           tibble of the data returned.
 #' @examples # returns a tibble with PM2.5 blank data for
 #'           #  Colbert County, AL for January 2018
-#'    \dontrun{aqs_qa_blanks_by_county(parameter = "88101",
-#'                                     bdate = as.Date("20170101",
-#'                                                    format="%Y%m%d"),
-#'                                     edate = as.Date("20190131",
-#'                                                     format="%Y%m%d"),
-#'                                     stateFIPS = "01",
-#'                                     countycode = "033"
+#'    \dontrun{aqs_qa_blanks_by_county(parameter = '88101',
+#'                                     bdate = as.Date('20170101',
+#'                                                    format='%Y%m%d'),
+#'                                     edate = as.Date('20190131',
+#'                                                     format='%Y%m%d'),
+#'                                     stateFIPS = '01',
+#'                                     countycode = '033'
 #'                                    )
 #'            }
 #' @export
-aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                    countycode, cbdate = NA_Date_,
-                                    cedate = NA_Date_, return_header = FALSE
-                                              )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, cbdate = NA_Date_,
+                                    cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "qaBlanks",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaBlanks", cbdate = cbdate, cedate = cedate
+  )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) blanks %<>% aqs_removeheader
+  if (!return_header)
+    blanks %<>%
+      aqs_removeheader
   return(blanks)
 }
 
@@ -302,35 +284,30 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           tibble of the data returned.
 #' @examples # returns an aqs S3 object of daily summary FRM/FEM PM2.5 data
 #'           #  for Wake County, NC between January and February 2016
-#'  \dontrun{aqs_dailysummary_by_county(parameter = "88101",
-#'                                      bdate = as.Date("20160101",
-#'                                                     format = "%Y%m%d"),
-#'                                      edate = as.Date("20170228",
-#'                                                      format = "%Y%m%d"),
-#'                                      stateFIPS = "37",
-#'                                      countycode = "183"
+#'  \dontrun{aqs_dailysummary_by_county(parameter = '88101',
+#'                                      bdate = as.Date('20160101',
+#'                                                     format = '%Y%m%d'),
+#'                                      edate = as.Date('20170228',
+#'                                                      format = '%Y%m%d'),
+#'                                      stateFIPS = '37',
+#'                                      countycode = '183'
 #'                                     )
 #'          }
 #' @export
-aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                       countycode, cbdate = NA_Date_,
-                                       cedate = NA_Date_, return_header = FALSE)
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                       cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "dailyData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "dailyData", cbdate = cbdate, cedate = cedate
+  )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) dailysummary %<>% aqs_removeheader
+  if (!return_header)
+    dailysummary %<>%
+      aqs_removeheader
   return(dailysummary)
 }
 
@@ -366,39 +343,32 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble with collocated assessment data
 #'           #  for FRM PM2.5 in Madison County, AL for January 2015
-#'  \dontrun{aqs_qa_collocated_assessments_by_county(parameter = "88101",
-#'                                                   bdate = as.Date("20150101",
-#'                                                             format = "%Y%m%d"
+#'  \dontrun{aqs_qa_collocated_assessments_by_county(parameter = '88101',
+#'                                                   bdate = as.Date('20150101',
+#'                                                             format = '%Y%m%d'
 #'                                                                  ),
-#'                                                   edate = as.Date("20150131",
-#'                                                             format = "%Y%m%d"
+#'                                                   edate = as.Date('20150131',
+#'                                                             format = '%Y%m%d'
 #'                                                                  ),
-#'                                                   stateFIPS = "01",
-#'                                                   countycode = "089"
+#'                                                   stateFIPS = '01',
+#'                                                   countycode = '089'
 #'                                                   )
 #'          }
 #' @export
-aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate,
-                                                    stateFIPS, countycode,
-                                                    cbdate = NA_Date_,
-                                                    cedate = NA_Date_,
-                                                    return_header = FALSE)
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                                    cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "qaCollocatedAssessments",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaCollocatedAssessments", cbdate = cbdate, cedate = cedate
+  )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) colocatedsummary %<>% aqs_removeheader
+  if (!return_header)
+    colocatedsummary %<>%
+      aqs_removeheader
   return(colocatedsummary)
 }
 
@@ -434,40 +404,32 @@ aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate,
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification data for
 #'           #  Colbert County, AL for January 2018
-#'   \dontrun{aqs_qa_flowrateverification_by_county(parameter = "88101",
-#'                                                  bdate = as.Date("20180101",
-#'                                                             format = "%Y%m%d"
+#'   \dontrun{aqs_qa_flowrateverification_by_county(parameter = '88101',
+#'                                                  bdate = as.Date('20180101',
+#'                                                             format = '%Y%m%d'
 #'                                                                  ),
-#'                                                  edate = as.Date("20190131",
-#'                                                             format = "%Y%m%d"
+#'                                                  edate = as.Date('20190131',
+#'                                                             format = '%Y%m%d'
 #'                                                                 ),
-#'                                                  stateFIPS = "01",
-#'                                                  countycode = "033"
+#'                                                  stateFIPS = '01',
+#'                                                  countycode = '033'
 #'                                                    )
 #'            }
 #' @export
-aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate,
-                                                  stateFIPS, countycode,
-                                                  cbdate = NA_Date_,
-                                                  cedate = NA_Date_,
-                                                  return_header = FALSE
-                                                  )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                                  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-     params <- aqsmultiyearparams(parameter = parameter,
-                                  bdate = bdate,
-                                  edate = edate,
-                                  stateFIPS = stateFIPS,
-                                  countycode = countycode,
-                                  service = "qaFlowRateVerifications",
-                                  cbdate = cbdate,
-                                  cedate = cedate
-                                  )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaFlowRateVerifications", cbdate = cbdate, cedate = cedate
+  )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) frv %<>% aqs_removeheader
+  if (!return_header)
+    frv %<>%
+      aqs_removeheader
   return(frv)
 }
 
@@ -504,36 +466,30 @@ aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate,
 #'           returned.
 #' @examples #Returns a tibble of flow rate audit data for
 #'           #  Jefferson County, AL for January 2018
-#'    \dontrun{aqs_qa_flowrateaudit_by_county(parameter = "88101",
-#'                                            bdate = as.Date("20170101",
-#'                                                          format="%Y%m%d"),
-#'                                            edate = as.Date("20190131",
-#'                                                          format = "%Y%m%d"),
-#'                                            tateFIPS = "01",
-#'                                            countycode = "073"
+#'    \dontrun{aqs_qa_flowrateaudit_by_county(parameter = '88101',
+#'                                            bdate = as.Date('20170101',
+#'                                                          format='%Y%m%d'),
+#'                                            edate = as.Date('20190131',
+#'                                                          format = '%Y%m%d'),
+#'                                            tateFIPS = '01',
+#'                                            countycode = '073'
 #'                                            )
 #'            }
 #' @export
-aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                           countycode, cbdate = NA_Date_,
-                                           cedate = NA_Date_, return_header
-                                           )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                           cbdate = NA_Date_, cedate = NA_Date_, return_header)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "qaFlowRateAudits",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaFlowRateAudits", cbdate = cbdate, cedate = cedate
+  )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) fra %<>% aqs_removeheader
+  if (!return_header)
+    fra %<>%
+      aqs_removeheader
   return(fra)
 }
 
@@ -568,37 +524,30 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'            ($Data) is a tibble of the data returned.
 #' @examples #returns a tibble of One Point QC data for ozone
 #'           #  in Barnstable County, MA for January 2018
-#'   \dontrun{aqs_qa_one_point_qc_by_county(parameter= "44201",
-#'                                          bdate = as.Date("20170101",
-#'                                                        format = "%Y%m%d"),
-#'                                          edate = as.Date("20180131",
-#'                                                          format = "%Y%m%d"),
-#'                                          stateFIPS = "25",
-#'                                          countycode = "001"
+#'   \dontrun{aqs_qa_one_point_qc_by_county(parameter= '44201',
+#'                                          bdate = as.Date('20170101',
+#'                                                        format = '%Y%m%d'),
+#'                                          edate = as.Date('20180131',
+#'                                                          format = '%Y%m%d'),
+#'                                          stateFIPS = '25',
+#'                                          countycode = '001'
 #'                                          )
 #'            }
 #' @export
-aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                          countycode, cbdate = NA_Date_,
-                                          cedate = NA_Date_,
-                                          return_header = FALSE
-                                          )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                          cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "qaOnePointQcRawData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaOnePointQcRawData", cbdate = cbdate, cedate = cedate
+  )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) opqcc %<>% aqs_removeheader
+  if (!return_header)
+    opqcc %<>%
+      aqs_removeheader
   return(opqcc)
 }
 
@@ -634,38 +583,32 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'           ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble with PEP Audit data for FRM
 #'           #  PM2.5 in Madison County, AL for 2017
-#'  \dontrun{aqs_qa_pep_audit_by_county_multiyear(parameter = "88101",
-#'                                                bdate = as.Date("20150101",
-#'                                                          format = "%Y%m%d"
+#'  \dontrun{aqs_qa_pep_audit_by_county_multiyear(parameter = '88101',
+#'                                                bdate = as.Date('20150101',
+#'                                                          format = '%Y%m%d'
 #'                                                               ),
-#'                                                edate = as.Date("20171231",
-#'                                                            format = "%Y%m%d"
+#'                                                edate = as.Date('20171231',
+#'                                                            format = '%Y%m%d'
 #'                                                               ),
-#'                                                stateFIPS = "01",
-#'                                                countycode = "089"
+#'                                                stateFIPS = '01',
+#'                                                countycode = '089'
 #'                                                )
 #'           }
 #' @export
-aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                       countycode, cbdate = NA_Date_,
-                                       cedate = NA_Date_, return_header = FALSE
-                                      )
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                       cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "qaPepAudits",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaPepAudits", cbdate = cbdate, cedate = cedate
+  )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) pepaudit %<>% aqs_removeheader
+  if (!return_header)
+    pepaudit %<>%
+      aqs_removeheader
   return(pepaudit)
 }
 
@@ -699,35 +642,32 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @examples
 #'          #Returns all FRM/FEM transaction data for
 #'          #Wake County, NC between on Feb 28, 2016.
-#'          \dontrun{aqs_transactionsample_by_county(parameter = "88101",
-#'                                                   bdate = as.Date("20160228",
-#'                                                           format = "%Y%m%d"),
-#'                                                   edate = as.Date("20160228",
-#'                                                          format = "%Y%m%d"),
-#'                                                   stateFIPS = "37",
-#'                                                   countycode = "183"
+#'          \dontrun{aqs_transactionsample_by_county(parameter = '88101',
+#'                                                   bdate = as.Date('20160228',
+#'                                                           format = '%Y%m%d'),
+#'                                                   edate = as.Date('20160228',
+#'                                                          format = '%Y%m%d'),
+#'                                                   stateFIPS = '37',
+#'                                                   countycode = '183'
 #'                                                   )
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of transaction sample
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
-aqs_transactionsample_by_county <- function(parameter, bdate, edate,
-                                            stateFIPS, countycode,
-                                            return_header = FALSE)
-{
+aqs_transactionsample_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, return_header = FALSE)
+  {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "transactionsSample"
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "transactionsSample"
+  )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) transactionsample %<>% aqs_removeheader
+  if (!return_header)
+    transactionsample %<>%
+      aqs_removeheader
   return(transactionsample)
 }
 
@@ -760,13 +700,13 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 #' @importFrom magrittr `%<>%`
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           # for ozone in Baldwin County, AL for 2017.
-#'  \dontrun{ aqs_qa_annualperformanceeval_by_county(parameter = "44201",
-#'                                                   bdate = as.Date("20170101",
-#'                                                           format = "%Y%m%d"),
-#'                                                   edate = as.Date("20171231",
-#'                                                           format = "%Y%m%d"),
-#'                                                   stateFIPS = "01",
-#'                                                   countycode = "003"
+#'  \dontrun{ aqs_qa_annualperformanceeval_by_county(parameter = '44201',
+#'                                                   bdate = as.Date('20170101',
+#'                                                           format = '%Y%m%d'),
+#'                                                   edate = as.Date('20171231',
+#'                                                           format = '%Y%m%d'),
+#'                                                   stateFIPS = '01',
+#'                                                   countycode = '003'
 #'                                                   )
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
@@ -777,22 +717,19 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate,
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate,
-                                                   stateFIPS, countycode,
-                                                   return_header = FALSE)
-{
+aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, return_header = FALSE)
+  {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "qaAnnualPerformanceEvaluations"
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "qaAnnualPerformanceEvaluations"
+  )
 
   qaape <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) qaape %<>% aqs_removeheader
+  if (!return_header)
+    qaape %<>%
+      aqs_removeheader
   return(qaape)
 }
 
@@ -827,13 +764,13 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate,
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           # (raw) for ozone in Baldwin County, AL for 2017 in RD format.
 #'  \dontrun{aqs_qa_annualperformanceevaltransaction_by_county(parameter =
-#'                                                                      "44201",
-#'                                                   bdate = as.Date("20170101",
-#'                                                           format = "%Y%m%d"),
-#'                                                   edate = as.Date("20171231",
-#'                                                           format = "%Y%m%d"),
-#'                                                   stateFIPS = "01",
-#'                                                   countycode = "003"
+#'                                                                      '44201',
+#'                                                   bdate = as.Date('20170101',
+#'                                                           format = '%Y%m%d'),
+#'                                                   edate = as.Date('20171231',
+#'                                                           format = '%Y%m%d'),
+#'                                                   stateFIPS = '01',
+#'                                                   countycode = '003'
 #'                                                   )
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
@@ -844,24 +781,20 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate,
 #'           ($Header) is a tibble of header information from the AQS API and
 #'           the second item ($Data) is a tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
-                                                              edate, stateFIPS,
-                                                              countycode,
-                                                          return_header = FALSE)
-{
+aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate, edate, stateFIPS,
+                                                              countycode, return_header = FALSE)
+  {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service =
-                                 "transactionsQaAnnualPerformanceEvaluations"
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "transactionsQaAnnualPerformanceEvaluations"
+  )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) tqaape %<>% aqs_removeheader
+  if (!return_header)
+    tqaape %<>%
+      aqs_removeheader
   return(tqaape)
 }
 
@@ -901,34 +834,30 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate,
 #'           tibble of the data returned.
 #' @examples # returns a tibble containing quarterly summaries for
 #'           #  FRM/FEM PM2.5 data for Wake County, NC for each quarter of 2016
-#'  \dontrun{aqs_quarterlysummary_by_county(parameter = "88101",
-#'                                          bdate = as.Date("20160101",
-#'                                                           format = "%Y%m%d"),
-#'                                          edate = as.Date("20170228",
-#'                                                           format = "%Y%m%d"),
-#'                                          stateFIPS = "37",
-#'                                          countycode = "183"
+#'  \dontrun{aqs_quarterlysummary_by_county(parameter = '88101',
+#'                                          bdate = as.Date('20160101',
+#'                                                           format = '%Y%m%d'),
+#'                                          edate = as.Date('20170228',
+#'                                                           format = '%Y%m%d'),
+#'                                          stateFIPS = '37',
+#'                                          countycode = '183'
 #'                                         )
 #'          }
 #' @export
-aqs_quarterlysummary_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                       countycode, cbdate = NA_Date_,
-                                       cedate = NA_Date_, return_header = FALSE)
-{
-  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
-                 cbdate, cedate, return_header)
+aqs_quarterlysummary_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
+                                           cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+  {
+  checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               service = "quarterlyData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                               )
+  params <- aqsmultiyearparams(
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
+    countycode = countycode, service = "quarterlyData",
+    cbdate = cbdate, cedate = cedate
+  )
 
   quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header) quarterlysummary %<>% aqs_removeheader
+  if (!return_header)
+    quarterlysummary %<>%
+      aqs_removeheader
   return(quarterlysummary)
 }

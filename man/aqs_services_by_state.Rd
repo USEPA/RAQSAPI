@@ -47,15 +47,15 @@ available duration codes.}
 AQS API. For a list of available services @seealso
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -81,22 +81,22 @@ directly from external functions.
 \examples{
 # if an user were to call aqs_qa_annualperformanceeval_by_site()
          # for ozone in AL for 2017.
-         # [aqs_qa_annualperformanceeval_by_state(parameter = "44201",
-         #                                        bdate = as.Date("20170101",
-         #                                                format = "\%Y\%m\%d"),
-         #                                        edate = as.Date("20171231",
-         #                                                format = "\%Y\%m\%d"),
-         #                                        stateFIPS = "01"
+         # [aqs_qa_annualperformanceeval_by_state(parameter = '44201',
+         #                                        bdate = as.Date('20170101',
+         #                                                format = '\%Y\%m\%d'),
+         #                                        edate = as.Date('20171231',
+         #                                                format = '\%Y\%m\%d'),
+         #                                        stateFIPS = '01'
          #                                        )]
          # then aqs_qa_annualperformanceeval_by_site() would call this helper
          # function with the following inputs.
-          \dontrun{aqs_services_by_state(parameter = "44201",
-                                        bdate=as.Date("20170101",
-                                                      format = "\%Y\%m\%d"),
-                                        edate=as.Date("20171231",
-                                                      format = "\%Y\%m\%d"),
-                                        stateFIPS= "01",
-                                    service="qaAnnualPerformanceEvaluations")
+          \dontrun{aqs_services_by_state(parameter = '44201',
+                                        bdate=as.Date('20170101',
+                                                      format = '\%Y\%m\%d'),
+                                        edate=as.Date('20171231',
+                                                      format = '\%Y\%m\%d'),
+                                        stateFIPS= '01',
+                                    service='qaAnnualPerformanceEvaluations')
                   }
 }
 \keyword{internal}

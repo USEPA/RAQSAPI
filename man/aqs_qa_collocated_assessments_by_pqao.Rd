@@ -29,15 +29,15 @@ selection. Only data on or before this date will be returned.}
 Primary Quality Assurance Organization code
 (with leading zeroes).}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -79,12 +79,12 @@ time of /(Big O notation: O/(n + 5 seconds/)/).
 # Returns a tibble of collocated assessment
           #  data for FRM PM2.5 in January 2013 where the PQAO is the Alabama
           #  Department of Environmental Management (agency 0013)
-          \dontrun{aqs_qa_collocated_assessments_by_pqao(parameter = "88101",
-                                                  bdate = as.Date("20130101",
-                                                          format = "\%Y\%m\%d"),
-                                                  edate = as.Date("20150131",
-                                                          format = "\%Y\%m\%d"),
-                                                        pqao_code = "0013"
+          \dontrun{aqs_qa_collocated_assessments_by_pqao(parameter = '88101',
+                                                  bdate = as.Date('20130101',
+                                                          format = '\%Y\%m\%d'),
+                                                  edate = as.Date('20150131',
+                                                          format = '\%Y\%m\%d'),
+                                                        pqao_code = '0013'
                                                         )
                    }
 }

@@ -41,15 +41,15 @@ list of available county codes for each state.}
 (with leading zeros) within the county and state being
 requested.}
 
-\item{cbdate}{a R date object which represents a "beginning
-date of last change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -94,14 +94,14 @@ server. This operation has a linear run time of
 \examples{
 #Returns a tibble containing annual performance evaluation data for
           # ozone at the Fairhope site in Baldwin County, AL for 2017
- \dontrun{  aqs_qa_annualperformanceeval_by_site(parameter = "44201",
-                                                 bdate = as.Date("20170101",
-                                                         format = "\%Y\%m\%d"),
-                                                 edate = as.Date("20171231",
-                                                          format = "\%Y\%m\%d"),
-                                                 stateFIPS = "01",
-                                                 countycode = "003",
-                                                 sitenum = "0010"
+ \dontrun{  aqs_qa_annualperformanceeval_by_site(parameter = '44201',
+                                                 bdate = as.Date('20170101',
+                                                         format = '\%Y\%m\%d'),
+                                                 edate = as.Date('20171231',
+                                                          format = '\%Y\%m\%d'),
+                                                 stateFIPS = '01',
+                                                 countycode = '003',
+                                                 sitenum = '0010'
                                                  )
                  }
 }

@@ -65,15 +65,15 @@ available duration codes.}
 AQS API. For a list of available services @seealso
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
-\item{cbdate}{a R date object which represents a "beginning date of last
-change" that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning date of last
+change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{cedate}{a R date object which represents an "end
-date of last change" that indicates when the data was last
+\item{cedate}{a R date object which represents an 'end
+date of last change' that indicates when the data was last
 updated. cedate is used to filter data based on the change
 date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
@@ -101,28 +101,28 @@ to be called directly from external functions.
 # if an user were to call aqs_annualsummary_by_box() for ozone
          # annual summaries in the vicinity of central Alabama for the first
          # two days of May, 2015
-         # [aqs_annualsummary_by_box(parameter = "44201",
-         #                           bdate = as.Date("20150501",
-         #                                            format = "\%Y\%m\%d"),
-         #                           edate = as.Date("20170502",
-         #                                           format = "\%Y\%m\%d"),
-         #                           minlat = "33.3",
-         #                           maxlat = "33.6",
-         #                           minlon = "-87.0",
-         #                           maxlon = "-86.7"
+         # [aqs_annualsummary_by_box(parameter = '44201',
+         #                           bdate = as.Date('20150501',
+         #                                            format = '\%Y\%m\%d'),
+         #                           edate = as.Date('20170502',
+         #                                           format = '\%Y\%m\%d'),
+         #                           minlat = '33.3',
+         #                           maxlat = '33.6',
+         #                           minlon = '-87.0',
+         #                           maxlon = '-86.7'
          #                           )]
          # then aqs_annualsummary_by_box() would call this helper
          # function with the following inputs.
-          \dontrun{aqs_services_by_box(parameter = "44201",
-                                     bdate = as.Date("20150501",
-                                                     format = "\%Y\%m\%d"),
-                                     edate = as.Date("20170502",
-                                                     format = "\%Y\%m\%d"),
-                                     minlat = "33.3",
-                                     maxlat = "33.6",
-                                     minlon = "-87.0",
-                                     maxlon = "-86.7",
-                                    service = "annualData")
+          \dontrun{aqs_services_by_box(parameter = '44201',
+                                     bdate = as.Date('20150501',
+                                                     format = '\%Y\%m\%d'),
+                                     edate = as.Date('20170502',
+                                                     format = '\%Y\%m\%d'),
+                                     minlat = '33.3',
+                                     maxlat = '33.6',
+                                     minlon = '-87.0',
+                                     maxlon = '-86.7',
+                                    service = 'annualData')
                   }
 }
 \keyword{internal}
