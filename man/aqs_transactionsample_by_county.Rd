@@ -68,16 +68,16 @@ overloading the API server. This operation has a linear run time of
 /(Big O notation: O/(n + 5 seconds/)/).
 }
 \examples{
-         \dontrun{ #   Returns all FRM/FEM transaction data for
-                   #   Wake County, NC between on Feb 28, 2016.
-                   aqs_transactionsample_by_county(parameter = "88101",
-                                                 bdate = as.Date("20160228",
-                                                         format = "\%Y\%m\%d"),
-                                                 edate = as.Date("20160228",
+         #Returns all FRM/FEM transaction data for
+         #Wake County, NC between on Feb 28, 2016.
+         \dontrun{aqs_transactionsample_by_county(parameter = "88101",
+                                                  bdate = as.Date("20160228",
                                                           format = "\%Y\%m\%d"),
-                                                 stateFIPS = "37",
-                                                 countycode = "183"
-                                                 )
+                                                  edate = as.Date("20160228",
+                                                         format = "\%Y\%m\%d"),
+                                                  stateFIPS = "37",
+                                                  countycode = "183"
+                                                  )
                  }
 }
 \seealso{

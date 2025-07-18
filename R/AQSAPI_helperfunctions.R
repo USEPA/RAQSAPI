@@ -649,7 +649,7 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'          #                                        edate = as.Date("20171231",
 #'          #                                                format = "%Y%m%d"),
 #'          #                                        stateFIPS = "01",
-#'          #                                        countycode = "003"
+#'          #                                        countycode = "003",
 #'          #                                        )]
 #'          # then aqs_qa_annualperformanceeval_by_county() would call this
 #'          # helper function with the following inputs.
@@ -659,7 +659,7 @@ aqs_services_by_site <- function(parameter, bdate, edate,
 #'                                         edate=as.Date("20171231",
 #'                                                       format = "%Y%m%d"),
 #'                                         stateFIPS= "01",
-#'                                         countycode = "003"
+#'                                         countycode = "003",
 #'                                     service="qaAnnualPerformanceEvaluations")
 #'                   }
 #' @keywords internal
@@ -867,7 +867,7 @@ aqs_services_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'                                      minlat = "33.3",
 #'                                      maxlat = "33.6",
 #'                                      minlon = "-87.0",
-#'                                      maxlon = "-86.7"
+#'                                      maxlon = "-86.7",
 #'                                     service = "annualData")
 #'                   }
 #' @keywords internal
@@ -964,7 +964,7 @@ aqs_services_by_box <- function(parameter, bdate, edate, minlat, maxlat,
 #'                                                      format = "%Y%m%d"),
 #'                                      edate = as.Date("20170101",
 #'                                                      format = "%Y%m%d"),
-#'                                      cbsa_code = "16740"
+#'                                      cbsa_code = "16740",
 #'                                      service = "annualData")
 #'                   }
 #' @keywords internal

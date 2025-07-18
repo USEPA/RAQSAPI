@@ -73,7 +73,7 @@ server. This operation has a linear run time of
                                                   bdate = as.Date("20170101",
                                                           format = "\%Y\%m\%d"),
                                                   edate = as.Date("20171231",
-                                                           format = "\%Y\%m\%d")
+                                                          format = "\%Y\%m\%d"),
                                                          stateFIPS = "01"
                                                          )
          }

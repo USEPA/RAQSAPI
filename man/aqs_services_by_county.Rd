@@ -94,7 +94,7 @@ directly from external functions.
          #                                        edate = as.Date("20171231",
          #                                                format = "\%Y\%m\%d"),
          #                                        stateFIPS = "01",
-         #                                        countycode = "003"
+         #                                        countycode = "003",
          #                                        )]
          # then aqs_qa_annualperformanceeval_by_county() would call this
          # helper function with the following inputs.
@@ -104,7 +104,7 @@ directly from external functions.
                                         edate=as.Date("20171231",
                                                       format = "\%Y\%m\%d"),
                                         stateFIPS= "01",
-                                        countycode = "003"
+                                        countycode = "003",
                                     service="qaAnnualPerformanceEvaluations")
                   }
 }

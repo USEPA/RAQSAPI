@@ -25,5 +25,5 @@ Returns the change history to the AQS Data Mart API.
 }
 \examples{
  # Returns a DataFrame of the EPA AQS Data Mart API revision history
- #  \dontrun{aqs_revisionHistory()}
+ #  \dontrun{ aqs_revisionHistory() }
 }

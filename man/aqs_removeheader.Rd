@@ -30,5 +30,6 @@ objects this means that the $Header information will not be present in the
 object being returned.
 }
 \examples{
-          \dontrun{ AQSobject <- aqs_removeheader(AQSobject)}
+#coerce a AQS_Data_MART_APIv2 object to a single tibble.
+           \dontrun{ aqs_removeheader(AQSobject) }
 }

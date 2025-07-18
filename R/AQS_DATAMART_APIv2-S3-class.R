@@ -62,7 +62,6 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
 #' @keywords internal
 new_AQS_DATAMART_APIv2 <- function(.AQSobject) {
   AQS_DATAMART_APIv2_validator(.AQSobject)
-  #setOldClass("AQS_DATAMART_APIv2")
   structure(.AQSobject, class = "AQS_DATAMART_APIv2") %>%
     return()
 }

@@ -1,5 +1,6 @@
 ---
-title: "pyaqsapi - a port of RAQSAPI to the python 3 programming environment"
+title: "pyaqsapi - a port of RAQSAPI to the python 3 programming  
+        environment"
 author:
 - affiliation: |-
     United States Environmental Protection Agency (US EPA),  

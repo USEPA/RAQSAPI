@@ -40,7 +40,8 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
    {
     options(aqs_username = username)
     options(aqs_key = key)
-  } else {warning("Please enter a valid username and key  \n") }
+   } else {warning("Please enter a valid username and key  \n") }
+  return(NULL)
 } #no cov end
 
 
@@ -84,9 +85,9 @@ aqs_sign_up <- function(email)
     glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
       request() %>%
       req_perform()
-  #for some reason user_agent isn't working
-  #%>%
-  #req_user_agent(string = user_agent)
+  # user agent string (currently not implemented) on the API
+  # %>%
+  # req_user_agent(string = user_agent)
   glue("A verification email will be sent to {email}  \n") %>%
     message()
   return(NULL)

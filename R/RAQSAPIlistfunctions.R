@@ -13,11 +13,11 @@
 #' @export
 aqs_isavailable <- function()
 {
-    aqs(service = "metaData",
-        filter = "isAvailable",
-        user =  getOption("aqs_username"),
-        user_key =  getOption("aqs_key")
-        )$Header %>%
+  aqs(service = "metaData",
+      filter = "isAvailable",
+      user =  getOption("aqs_username"),
+      user_key =  getOption("aqs_key")
+      )$Header %>%
     return()
 }
 
@@ -105,7 +105,7 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
 #' @examples # Returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
 #'           #  in Hawaii County, HI
 #'           \dontrun{aqs_sites_by_county(stateFIPS = "15",
-#'                                            countycode = "001")
+#'                                        countycode = "001")
 #'                  }
 #' @export
 aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
@@ -296,7 +296,7 @@ aqs_cbsas <- function(return_header = FALSE)
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of states and their
 #'            associated FIPS codes.
 #' @examples # Returns a tibble of states and their FIPS codes
-#'           \dontrun{aqs_states()}
+#'           \dontrun{ aqs_states() }
 #' @export
 aqs_states <- function(return_header = FALSE)
 {
@@ -329,8 +329,8 @@ aqs_states <- function(return_header = FALSE)
 #' @importFrom dplyr bind_rows
 #' @return a tibble of the combined $data portions of the input
 #'           AQS_Data_Mart_APIv2 S3 object with the $Header portion discarded.
-#' @examples
-#'           \dontrun{ AQSobject <- aqs_removeheader(AQSobject)}
+#' @examples #coerce a AQS_Data_MART_APIv2 object to a single tibble.
+#'            \dontrun{ aqs_removeheader(AQSobject) }
 #' @export
 aqs_removeheader <- function(AQSobject)
 {
@@ -344,8 +344,7 @@ aqs_removeheader <- function(AQSobject)
     } else if (isa(x = AQSobject[[1]], what = "AQS_DATAMART_APIv2") &&
                                     is.list(AQSobject))
     {
-      AQSobject %<>% lapply("[[", "Data") %>%
-        dplyr::bind_rows()
+      AQSobject %<>% lapply("[[", "Data") %>% dplyr::bind_rows()
     }
 
  return(AQSobject)
@@ -368,7 +367,7 @@ aqs_removeheader <- function(AQSobject)
 #'            returned.
 #' @examples
 #'  # Returns a DataFrame of the EPA AQS Data Mart API revision history
-#'  #  \dontrun{aqs_revisionHistory()}
+#'  #  \dontrun{ aqs_revisionHistory() }
 #' @export
 aqs_revisionhistory <- function(return_header = FALSE)
 {
@@ -399,7 +398,7 @@ aqs_revisionhistory <- function(return_header = FALSE)
 #'                        purposes in addition to the data requested.
 #' @examples # Returns a tibble containing a list and definitions
 #'           #  of fields in the Sample Data service
-#'          \dontrun{aqs_fieldsbyservice(service = "sampleData")}
+#'          \dontrun{ aqs_fieldsbyservice(service = "sampleData") }
 #'
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object with containing the list
 #'   and definitions of fields requested service

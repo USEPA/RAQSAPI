@@ -25,3 +25,32 @@ test_that("AQS_DATAMART_API S3 class",
               expect_no_error()
           }
         )
+
+
+#' @importFrom magrittr `%>%`()
+#' @importFrom tibble tibble tribble
+#' @importfrom lubridate mdy_hms now year
+#' @import from glue glue
+#' @import testthat
+test_that("test AQS_DATAMART_APIv2_validator", {
+
+  year <- now() %>% year()
+  fakeData <- tibble(
+    datetime = seq.POSIXt(from=mdy_hms(glue("01-01-{now() %>% year()} 00:00:00")),
+                          to=mdy_hms(glue("12-31-{now() %>% year()} 23:59:59")),
+                          by="hour"
+    ),
+    sample = rnorm(n = ifelse(leap_year(year), 87840, 8760), mean = 100, sd = 50),
+    site_name="Fake air monitoring data",
+    pollutant_code=253046,
+    lat = 22,
+    long = -175
+  )
+
+  fakeheader <- tibble(timestamp=paste0("07-01-", year, "12:00:00Z"),
+                       url = "https://aqs.epa.gov/data/api/"
+  )
+  list(Header = fakeheader, Data = fakeData) %>%
+    RAQSAPI:::AQS_DATAMART_APIv2_validator() %>% expect_no_failure()
+}
+)

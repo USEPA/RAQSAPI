@@ -121,7 +121,7 @@ to be called directly from external functions.
                                      minlat = "33.3",
                                      maxlat = "33.6",
                                      minlon = "-87.0",
-                                     maxlon = "-86.7"
+                                     maxlon = "-86.7",
                                     service = "annualData")
                   }
 }

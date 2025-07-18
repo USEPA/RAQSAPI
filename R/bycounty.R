@@ -648,7 +648,7 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS,
 #' @export
 aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
                                        countycode, cbdate = NA_Date_,
-                                        cedate = NA_Date_, return_header = FALSE
+                                       cedate = NA_Date_, return_header = FALSE
                                       )
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode,
@@ -697,16 +697,16 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS,
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr `%<>%`
 #' @examples
-#'          \dontrun{ #   Returns all FRM/FEM transaction data for
-#'                    #   Wake County, NC between on Feb 28, 2016.
-#'                    aqs_transactionsample_by_county(parameter = "88101",
-#'                                                  bdate = as.Date("20160228",
-#'                                                          format = "%Y%m%d"),
-#'                                                  edate = as.Date("20160228",
+#'          #Returns all FRM/FEM transaction data for
+#'          #Wake County, NC between on Feb 28, 2016.
+#'          \dontrun{aqs_transactionsample_by_county(parameter = "88101",
+#'                                                   bdate = as.Date("20160228",
 #'                                                           format = "%Y%m%d"),
-#'                                                  stateFIPS = "37",
-#'                                                  countycode = "183"
-#'                                                  )
+#'                                                   edate = as.Date("20160228",
+#'                                                          format = "%Y%m%d"),
+#'                                                   stateFIPS = "37",
+#'                                                   countycode = "183"
+#'                                                   )
 #'                  }
 #' @return a tibble or an AQS_Data Mart_APIv2 S3 object of transaction sample
 #'           (raw) data in the AQS submission transaction format (RD)

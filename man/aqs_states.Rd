@@ -24,5 +24,5 @@ district or Columbia with their respective FIPS codes.
 }
 \examples{
 # Returns a tibble of states and their FIPS codes
-          \dontrun{aqs_states()}
+          \dontrun{ aqs_states() }
 }

@@ -97,7 +97,7 @@ directly from external functions.
                                                      format = "\%Y\%m\%d"),
                                      edate = as.Date("20170101",
                                                      format = "\%Y\%m\%d"),
-                                     cbsa_code = "16740"
+                                     cbsa_code = "16740",
                                      service = "annualData")
                   }
 }

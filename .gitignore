@@ -1,6 +1,5 @@
 #Took samples from "A collection of useful .gitignore templates"
 #https://github.com/github/gitignore/blob/master/R.gitignore
-
 # R environment
 .Rcheck$ # Output files from R CMD check
 .Rproj.user*
@@ -12,16 +11,13 @@
 .Ruserdata
 doc
 Meta
-
 # knitr and R markdown default cache directories
 *_cache/
 ^cache/*
-
 # Temporary files created by knitr and R markdown
 *.utf8.md
 *.knit.md
 $.Rd2pdf*
-
 #compiled Document files
 *.out
 *.aux
@@ -33,20 +29,18 @@ vignettes/*.html
 vignettes/*.pdf
 vignettes/*.md
 vignettes/*.docx
-
 #other files
 #not needed
 ignore all files under dev
 dev/.
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
-
 # Output files from R CMD check
 /*.Rcheck/
 /doc/
 /Meta/
-
 # RAQSAPI package files
 *.tar.gz
 *.zip
 RAQSAPI.code-workspace
+dev

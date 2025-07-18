@@ -811,7 +811,7 @@ aqs_qa_annualperformanceeval_by_state <- function(parameter, bdate, edate,
 #'                                                   bdate = as.Date("20170101",
 #'                                                           format = "%Y%m%d"),
 #'                                                   edate = as.Date("20171231",
-#'                                                            format = "%Y%m%d")
+#'                                                           format = "%Y%m%d"),
 #'                                                          stateFIPS = "01"
 #'                                                          )
 #'          }
