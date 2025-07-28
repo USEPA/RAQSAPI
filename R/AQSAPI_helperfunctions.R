@@ -821,7 +821,7 @@ aqs_services_by_state <- function(
 #'               selection. Only data on or after this date will be returned.
 #' @param edate a R date object which represents that end date of the data
 #'               selection. Only data on or before this date will be returned.
-#' @param minlat a R character object which represents the minimum latitude of
+#' @param minlat a R character object that represents the minimum latitude of
 #'                   a geographic box.  Decimal latitude with north begin
 #'                   positive. Only data north of this latitude will be
 #'                   returned.
@@ -1282,7 +1282,7 @@ renameaqsvariables <- function(aqsobject, name1, name2)
 #' @importFrom tibble tibble
 #' @importFrom lubridate year ymd month day years
 #' @importFrom glue glue
-#' @importFrom dplyr select_if
+#' @importFrom dplyr select
 #' @importFrom magrittr `%>%` `%<>%`
 #' @keywords internal
 #' @noRd
@@ -1346,11 +1346,6 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
   )
   params %>%
     # remove all columns that have all NA values
-  dplyr::select_if(
-    function(x)
-      {
-      !all(is.na(x))
-    }
-  ) %>%
+    select(where(~!all(is.na(.x)))) %>%
     return()
 }

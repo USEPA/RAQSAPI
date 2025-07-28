@@ -28,7 +28,7 @@ selection. Only data on or after this date will be returned.}
 \item{edate}{a R date object which represents that end date of the data
 selection. Only data on or before this date will be returned.}
 
-\item{minlat}{a R character object which represents the minimum latitude of
+\item{minlat}{a R character object that represents the minimum latitude of
 a geographic box.  Decimal latitude with north begin
 positive. Only data north of this latitude will be
 returned.}
@@ -85,7 +85,7 @@ return_header is FALSE (default) the object returned is a
 tibble, if TRUE an AQS_API_v2 object.
 }
 \note{
-The AQS API only allows for a single year of annualsummary to be
+The AQS API only allows for a single year of annual summary data to be
 retrieved at a time. This function conveniently extracts date
 information from the bdate and edate parameters then makes repeated
 calls to the AQSAPI retrieving a maximum of one calendar year of data

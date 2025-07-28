@@ -43,8 +43,13 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email = "edward.s.andrews@wv.gov",
                     role = c("rev", "ctb"),
                     comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
+                  ),
+            person(given= "Cynthia", family = "Stahl",
+                   email = "stahl.cynthia@epa.gov",
+                   role="rev",
+                   comment="United States Environmental Protection
+                            Agency Region 3 Air and Radiation Division")
                   )
-             )
 URL: https://github.com/USEPA/RAQSAPI/,
      https://aqs.epa.gov/aqsweb/documents/data_api.html
 BugReports: https://github.com/USEPA/RAQSAPI/issues

@@ -10,6 +10,7 @@
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
+#' @importFrom dplyr select
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -41,12 +42,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
     parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
     service = "monitors"
   ) %>%
-    dplyr::select_if(
-      function(x)
-        {
-        !all(is.na(x))
-      }
-    )
+    select(where(~!all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_box)
   if (!return_header)
@@ -142,7 +138,7 @@ aqs_sampledata_by_box <- function(
 #'                 returned include mean value, maxima, percentiles, and etc. If
 #'                 return_header is FALSE (default) the object returned is a
 #'                 tibble, if TRUE an AQS_API_v2 object.
-#' @note The AQS API only allows for a single year of annualsummary to be
+#' @note The AQS API only allows for a single year of annual summary data to be
 #'         retrieved at a time. This function conveniently extracts date
 #'         information from the bdate and edate parameters then makes repeated
 #'         calls to the AQSAPI retrieving a maximum of one calendar year of data
@@ -185,10 +181,17 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, mi
   {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
-  params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
-    service = "annualData", cbdate = cbdate, cedate = cedate
-  )
+  params <- aqsmultiyearparams(parameter = parameter,
+                               bdate = bdate,
+                               edate = edate,
+                               minlat = minlat,
+                               maxlat = maxlat,
+                               minlon = minlon,
+                               maxlon = maxlon,
+                               service = "annualData",
+                               cbdate = cbdate,
+                               cedate = cedate
+                              )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
   if (!return_header)

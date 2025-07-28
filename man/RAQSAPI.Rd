@@ -57,6 +57,7 @@ Other contributors:
   \item Hayley Brittingham (Neptune and Company) [corrector, contractor]
   \item Jeffrey Hollister \email{hollister.jeff@epa.gov} (\href{https://orcid.org/0000-0002-9254-9740}{ORCID}) (United States Environmental Protection Agency) [reviewer]
   \item Edward Andrews \email{edward.s.andrews@wv.gov} (West Virginia Department of Environmental Protection, Division of Air Quality) [reviewer, contributor]
+  \item Cynthia Stahl \email{stahl.cynthia@epa.gov} (United States Environmental Protection Agency Region 3 Air and Radiation Division) [reviewer]
 }
 
 }

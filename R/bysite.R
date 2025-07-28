@@ -11,7 +11,7 @@
 #' @inheritParams aqs_services_by_site
 #' @importFrom magrittr `%<>%`
 #' @importFrom tibble tibble
-#' @importFrom dplyr select_if
+#' @importFrom dplyr select
 #' @importFrom purrr pmap
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
@@ -49,12 +49,7 @@ aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS, countycode,
     countycode = countycode, service = "monitors",
     sitenum = sitenum, cbdate = cbdate, cedate = cedate
   ) %>%
-    dplyr::select_if(
-      function(x)
-        {
-        !all(is.na(x))
-      }
-    )
+    select(where(~!all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_site)
   if (!return_header)

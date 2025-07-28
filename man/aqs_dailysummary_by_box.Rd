@@ -28,7 +28,7 @@ selection. Only data on or after this date will be returned.}
 \item{edate}{a R date object which represents that end date of the data
 selection. Only data on or before this date will be returned.}
 
-\item{minlat}{a R character object which represents the minimum latitude of
+\item{minlat}{a R character object that represents the minimum latitude of
 a geographic box.  Decimal latitude with north begin
 positive. Only data north of this latitude will be
 returned.}

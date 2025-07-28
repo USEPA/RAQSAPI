@@ -11,6 +11,7 @@
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
 #' @importFrom magrittr `%<>%`
+#' @importFrom dplyr select
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'                        returns a AQSAPI_v2 object which is a two item list
 #'                        that contains header information returned from the
@@ -43,12 +44,7 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA
     parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code,
     service = "monitors", cbdate = cbdate, cedate = cedate
   ) %>%
-    dplyr::select_if(
-      function(x)
-        {
-        !all(is.na(x))
-      }
-    )
+    select(where(~!all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
   if (!return_header)

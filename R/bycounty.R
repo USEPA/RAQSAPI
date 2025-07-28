@@ -9,6 +9,7 @@
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
+#' @importFrom dplyr select
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -37,12 +38,7 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycod
     parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
     countycode = countycode, service = "monitors", cbdate = cbdate, cedate = cedate
   ) %>%
-    dplyr::select_if(
-      function(x)
-        {
-        !all(is.na(x))
-      }
-    )
+    select(where(~!all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_county)
   if (!return_header)

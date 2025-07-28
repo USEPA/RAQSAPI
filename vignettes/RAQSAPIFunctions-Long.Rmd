@@ -186,7 +186,8 @@ see which parameters are used with each function.
 
 * MA_code: a R character object which represents the 4 digit AQS Monitoring
              Agency code (with leading zeroes).
-* maxlat: a R character object which represents the maximum latitude of a
+             
+* maxlat: a R character object that represents the maximum latitude of a
             geographic box. Decimal latitude with north begin positive. Only
             data south of this latitude will be returned.
             

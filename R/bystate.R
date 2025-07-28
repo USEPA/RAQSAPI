@@ -8,7 +8,8 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate_by_state functions
 #' @inheritParams aqs_services_by_state
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr `%<>%` `%>%`
+#' @importFrom dplyr select
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -39,12 +40,7 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = N
     parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
     service = "monitors", cbdate = cbdate, cedate = cedate
   ) %>%
-    dplyr::select_if(
-      function(x)
-        {
-        !all(is.na(x))
-      }
-    )
+    select(where(~!all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_state)
   if (!return_header)
