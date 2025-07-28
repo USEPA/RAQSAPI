@@ -100,7 +100,7 @@ b04f51125300408d6c54ff049580b093 *man/aqs_services_by_box.Rd
 669cdc3935a3c98d2c453353c5f642c2 *man/aqs_services_by_pqao.Rd
 c023bc179948762d6c4802167abeb76e *man/aqs_services_by_site.Rd
 d6490c11d2db47703a78c9013f9b2e80 *man/aqs_services_by_state.Rd
-f3a6b2e9da4e0f4b635a5c1496d524b6 *man/aqs_sign_up.Rd
+80d79528c05544bd5727cbc0a3b29da3 *man/aqs_sign_up.Rd
 ea836903264ec3feff2c4b472f941834 *man/aqs_sites_by_county.Rd
 7e22118d4698b20ef40c128768cddb2c *man/aqs_states.Rd
 e4e05c7f403781053b97294e1b1d132c *man/aqs_transactionsample_by_county.Rd
@@ -125,7 +125,7 @@ ca1baaf3dc7c21addd1a520e7c50a6c2 *R/bysite.R
 822b8c81ee565eb98889e35ef66e1f73 *R/deprecated.R
 f98dc7eacb8ae3b7754998a2ff225b04 *R/RAQSAPI-package.R
 1d1319d5656adc1568bacd810f340333 *R/RAQSAPIlistfunctions.R
-f9da65c9cd149ee80432f25bded86d92 *R/setupfunctions.R
+b1d78be8de38c0e0938dd1add2824782 *R/setupfunctions.R
 b93452ff944026760ba223fd077a2fa2 *R/zzz.R
 02b8c23888d61888da952778d6743ed0 *RAQSAPI.Rproj
 7641c9b73ba3d9b15e1afd4292dda87b *README.md

@@ -16,6 +16,10 @@ functionality of the AQS API. Register your credential
 with the @3 \code{\link[=aqs_credentials]{aqs_credentials()}} before using the
 other functions in this library.}
 }
+\value{
+NULL, This functions is called for its side effect and
+does not return meaningful data.
+}
 \description{
 \lifecycle{stable}
 Use this service to register as a new user or to reset an

@@ -72,7 +72,8 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #'           \dontrun{aqs_sign_up(email = 'John.Doe/@myemail.com')}
 #'           #  after calling this function please follow the instructions that
 #'           #  are sent in the verification e-mail before proceeding.
-#' @return NULL
+#' @return NULL, This functions is called for its side effect and
+#'         does not return meaningful data.
 #' @export
 aqs_sign_up <- function(email)
   {
