@@ -40,6 +40,7 @@ downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.or
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 [![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--01-yellowgreen.svg)](/commits/master)
+[![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20RAQSAPI/actions?query=workflow%3Apkgcheck)
 <!-- badges: end -->
 
 # EPA Disclaimer

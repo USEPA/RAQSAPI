@@ -23,7 +23,8 @@ server <- "AQSDatamartAPI"
 #' @importFrom glue glue
 #' @importFrom magrittr `%<>%`
 #' @importFrom stringr str_detect
-#' @return NULL
+#' @return NULL, This functions is called for its side effect and
+#'         does not return meaningful data.
 #' @keywords internal
 #' @noRd
 checkaqsparams <- function(...)
