@@ -12,6 +12,7 @@
 #' @importFrom magrittr `%<>%`
 #' @importFrom tibble tibble
 #' @importFrom dplyr select
+#' @importFrom tidyselect where
 #' @importFrom purrr pmap
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two

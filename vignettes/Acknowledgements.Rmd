@@ -34,4 +34,6 @@ with them RAQSAPI would not be possible.
 * R package `urlchecker` [@package:urlchecker] was used to check urls in RAQSAPI
     documentation
 * R package `goodpractice` [@package:goodpractice] was used for static code checking
-* R package `formatR` [@package:formatR] was used to form code in this repository 
+* R package `formatR` [@package:formatR] was used to form code in this repository
+* R package `testthat` [@package:testthat] is used for unit testing
+  * unit tests are mocked using R package `httptest2` [@package:httptest2]

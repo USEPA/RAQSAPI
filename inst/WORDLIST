@@ -16,6 +16,7 @@ DATAMART
 Datamart
 Druskat
 Github
+Httr
 HTTPS
 Haines
 Hogervorst
@@ -72,6 +73,8 @@ flowrateverification
 github
 gitignore
 https
+Httptest
+httptest2
 img
 io
 io’
@@ -105,6 +108,8 @@ sitenum
 stateFIPS
 submittal
 svg
+testthat
+Tesetthat
 tibble
 transactionsample
 verifications

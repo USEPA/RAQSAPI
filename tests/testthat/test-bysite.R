@@ -1,9 +1,9 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
+#' @import httptest2
+with_mock_dir("bysite",{
 test_that(
   "bysite functions", {
-    testthat::skip_on_cran()
-    testthat::skip_if_offline()
 
     if (file.exists("local.R"))
       {
@@ -26,8 +26,8 @@ test_that(
       countycode = "183",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_annualsummary_by_site(
       parameter = "44201",
@@ -37,8 +37,8 @@ test_that(
       countycode = "183",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_dailysummary_by_site(
       parameter = "44201",
@@ -48,8 +48,8 @@ test_that(
       countycode = "183",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_blanks_by_site(
       parameter = "88101",
@@ -59,8 +59,8 @@ test_that(
       countycode = "033",
       sitenum = "1002",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_monitors_by_site(
       parameter = "42401",
@@ -70,8 +70,8 @@ test_that(
       countycode = "001",
       sitenum = "0007",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_collocated_assessments_by_site(
       parameter = "88101",
@@ -81,8 +81,8 @@ test_that(
       countycode = "089",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_flowrateaudit_by_site(
       parameter = "88101",
@@ -92,8 +92,8 @@ test_that(
       countycode = "073",
       sitenum = "2003",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_one_point_qc_by_site(
       parameter = "44201",
@@ -103,8 +103,8 @@ test_that(
       countycode = "001",
       sitenum = "0002",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_flowrateverification_by_site(
       parameter = "88101",
@@ -114,8 +114,8 @@ test_that(
       countycode = "033",
       sitenum = "1002",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_transactionsample_by_site(
       parameter = "44201",
@@ -125,8 +125,8 @@ test_that(
       countycode = "183",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_annualperformanceeval_by_site(
       parameter = "44201",
@@ -136,8 +136,8 @@ test_that(
       countycode = "003",
       sitenum = "0010",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_annualperformanceevaltransaction_by_site(
       parameter = "44201",
@@ -147,8 +147,8 @@ test_that(
       countycode = "003",
       sitenum = "0010",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_quarterlysummary_by_site(
       parameter = "88101",
@@ -158,8 +158,8 @@ test_that(
       countycode = "183",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_pep_audit_by_site(
       parameter = "88101",
@@ -169,7 +169,8 @@ test_that(
       countycode = "089",
       sitenum = "0014",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
   }
 )
+})

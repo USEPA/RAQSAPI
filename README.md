@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--07--28-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--01-yellowgreen.svg)](/commits/master)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -422,6 +422,8 @@ those sources with them RAQSAPI would not be possible.
   checking
 - R package `formatR`<sup>13</sup> was used to form code in this
   repository
+- R package `testthat`<sup>14</sup> is used for unit testing
+  - unit tests are mocked using R package `httptest2`<sup>15</sup>
 
 # References
 
@@ -430,7 +432,7 @@ those sources with them RAQSAPI would not be possible.
 <div id="ref-AQSDataMartWelcome" class="csl-entry">
 
 <span class="csl-left-margin">(1)
-</span><span class="csl-right-inline">*AQS data mart welcome*.
+</span><span class="csl-right-inline">AQS Data Mart Welcome, 2018.
 <https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html>.</span>
 
 </div>
@@ -447,7 +449,7 @@ Simple Data Frames*; 2025.
 <div id="ref-AboutAQSdata" class="csl-entry">
 
 <span class="csl-left-margin">(3)
-</span><span class="csl-right-inline">*About AQS data*.
+</span><span class="csl-right-inline">About AQS Data, 2019.
 <https://aqs.epa.gov/aqsweb/documents/about_aqs_data.html>.</span>
 
 </div>
@@ -542,6 +544,25 @@ Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander, H.
 </span><span class="csl-right-inline">Xie, Y. *formatR: Format r Code
 Automatically*; 2023.
 <https://doi.org/10.32614/CRAN.package.formatR>.</span>
+
+</div>
+
+<div id="ref-package:testthat" class="csl-entry">
+
+<span class="csl-left-margin">(14)
+</span><span class="csl-right-inline">Wickham, H. [Testthat: Get Started
+with
+Testing](https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf).
+*The R Journal* **2011**, *3*, 5–10.</span>
+
+</div>
+
+<div id="ref-package:httptest2" class="csl-entry">
+
+<span class="csl-left-margin">(15)
+</span><span class="csl-right-inline">Richardson, N. *Httptest2: Test
+Helpers for Httr2*; 2025.
+<https://doi.org/10.32614/CRAN.package.httptest2>.</span>
 
 </div>
 

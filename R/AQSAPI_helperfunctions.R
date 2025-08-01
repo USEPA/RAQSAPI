@@ -1283,6 +1283,7 @@ renameaqsvariables <- function(aqsobject, name1, name2)
 #' @importFrom lubridate year ymd month day years
 #' @importFrom glue glue
 #' @importFrom dplyr select
+#' @importFrom tidyselect where
 #' @importFrom magrittr `%>%` `%<>%`
 #' @keywords internal
 #' @noRd

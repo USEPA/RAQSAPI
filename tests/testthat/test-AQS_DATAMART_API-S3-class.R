@@ -26,8 +26,8 @@ test_that(
 
 #' @importFrom magrittr `%>%`()
 #' @importFrom tibble tibble tribble
-#' @importfrom lubridate mdy_hms now year
-#' @import from glue glue
+#' @importFrom lubridate mdy_hms now year
+#' @import from glue gluedata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbElEQVR4Xs2RQQrAMAgEfZgf7W9LAguybljJpR3wEse5JOL3ZObDb4x1loDhHbBOFU6i2Ddnw2KNiXcdAXygJlwE8OFVBHDgKrLgSInN4WMe9iXiqIVsTMjH7z/GhNTEibOxQswcYIWYOR/zAjBJfiXh3jZ6AAAAAElFTkSuQmCC
 #' @import testthat
 test_that(
   "test AQS_DATAMART_APIv2_validator", {

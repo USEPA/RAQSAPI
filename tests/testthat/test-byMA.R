@@ -1,9 +1,9 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
+#' @import httptest2
+with_mock_dir("byMA",{
 test_that(
   "byMA functions", {
-    testthat::skip_on_cran()
-    testthat::skip_if_offline()
 
     if (file.exists("local.R"))
       {
@@ -24,8 +24,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       MA_code = "0013",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_collocated_assessments_by_MA(
       parameter = "88101",
@@ -33,8 +33,8 @@ test_that(
       edate = as.Date("20130131", format = "%Y%m%d"),
       MA_code = "0013",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_one_point_qc_by_MA(
       parameter = "44201",
@@ -42,8 +42,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       MA_code = "0660",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_flowrateaudit_by_MA(
       parameter = "88101",
@@ -51,8 +51,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       MA_code = "0550",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_flowrateverification_by_MA(
       parameter = "88101",
@@ -60,8 +60,8 @@ test_that(
       edate = as.Date("20130131", format = "%Y%m%d"),
       MA_code = "0013",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_pep_audit_by_MA(
       parameter = "88101",
@@ -69,8 +69,8 @@ test_that(
       edate = as.Date("20170630", format = "%Y%m%d"),
       MA_code = "0013",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_transactionsample_by_MA(
       parameter = "44201",
@@ -78,8 +78,8 @@ test_that(
       edate = as.Date("20150515", format = "%Y%m%d"),
       MA_code = "0972",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_annualperformanceeval_by_MA(
       parameter = "44201",
@@ -87,8 +87,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       MA_code = "0013",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
 
     aqs_qa_annualperformanceevaltransaction_by_MA(
       parameter = "44201",
@@ -96,7 +96,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       MA_code = "0013",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+     expect_no_error()
   }
 )
+})

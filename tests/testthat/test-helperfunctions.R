@@ -3,8 +3,6 @@
 #' @import testthat
 test_that(
   "helperfunctions (checkaqsparams()) functions", {
-    testthat::skip_if_offline()
-    testthat::skip_on_cran()
     server <- "AQSDatamartAPI"
 
     if (file.exists("local.R"))

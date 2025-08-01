@@ -14,6 +14,8 @@ output: md_document
    documentation is not included in the automatically generated reference
    documentation.
  - resume using package:goodpractice, goodpractice is now maintained by ropensci
+ - code formatting now done using the package:formatr package
+ - Mocked unit tests using package:httptest2
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5

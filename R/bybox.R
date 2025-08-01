@@ -11,6 +11,7 @@
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
 #' @importFrom dplyr select
+#' @importFrom tidyselect where
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging

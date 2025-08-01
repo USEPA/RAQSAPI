@@ -65,11 +65,13 @@ Imports:
     purrr,
     rlang,
     stringr,
-    tibble
-Suggests:
+    tibble,
+    tidyselect
+Suggests: 
     covr,
     devtools,
     goodpractice,
+    httptest2,
     keyring,
     knitr,
     markdown,

@@ -48,3 +48,4 @@ codemeta.json
 ^RAQSAPI\.code-workspace$
 ^\.github$
 ^codecov\.yml$
+.editorconfig

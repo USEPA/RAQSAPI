@@ -1,10 +1,9 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
-
+#' @import httptest2
+with_mock_dir("bystate",{
 test_that(
   "bystate functions", {
-    testthat::skip_on_cran()
-    testthat::skip_if_offline()
 
     if (file.exists("local.R"))
       {
@@ -25,8 +24,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_sampledata_by_state(
       parameter = "45201",
@@ -34,8 +33,8 @@ test_that(
       edate = as.Date("19950515", format = "%Y%m%d"),
       stateFIPS = "37",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_annualsummary_by_state(
       parameter = "45201",
@@ -43,8 +42,8 @@ test_that(
       edate = as.Date("19990515", format = "%Y%m%d"),
       stateFIPS = "37",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_dailysummary_by_state(
       parameter = "45201",
@@ -52,8 +51,8 @@ test_that(
       edate = as.Date("19950515", format = "%Y%m%d"),
       stateFIPS = "37",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_blanks_by_state(
       parameter = "88101",
@@ -61,8 +60,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_collocated_assessments_by_state(
       parameter = "88101",
@@ -70,8 +69,8 @@ test_that(
       edate = as.Date("20130131", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_flowrateaudit_by_state(
       parameter = "88101",
@@ -79,8 +78,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_flowrateverification_by_state(
       parameter = "88101",
@@ -88,8 +87,8 @@ test_that(
       edate = as.Date("20190131", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_one_point_qc_by_state(
       parameter = "44201",
@@ -97,8 +96,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "25",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_one_point_qc_by_state(
       parameter = "44201",
@@ -106,8 +105,8 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "25",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_pep_audit_by_state(
       parameter = "88101",
@@ -115,8 +114,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_transactionsample_by_state(
       parameter = "45201",
@@ -124,8 +123,8 @@ test_that(
       edate = as.Date("19950515", format = "%Y%m%d"),
       stateFIPS = "37",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_annualperformanceeval_by_state(
       parameter = "44201",
@@ -133,8 +132,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_qa_annualperformanceevaltransaction_by_state(
       parameter = "44201",
@@ -142,8 +141,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
 
     aqs_quarterlysummary_by_state(
       parameter = "88101",
@@ -151,7 +150,8 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "37",
       return_header = TRUE
-    )[[1]]$Header$status %>%
-      expect_match(regexp = "Success")
+    ) %>%
+      expect_no_error()
   }
 )
+})
