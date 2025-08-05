@@ -40,7 +40,7 @@ downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.or
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 [![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--05-yellowgreen.svg)](/commits/master)
-[![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20RAQSAPI/actions?query=workflow%3Apkgcheck)
+[![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -142,8 +142,8 @@ install.packages(pkgs="RAQSAPI", dependencies = TRUE )
 
 ## Option 2: Installing the development version of RAQSAPI (unstable)
 
-> \[!CAUTION\] The developement version of RAQSAPI contains code that
-> has not yet been thouroughly been tested and is more likely to contain
+> \[!CAUTION\] The development version of RAQSAPI contains code that has
+> not yet been thoroughly been tested and is more likely to contain
 > bugs. It is recommended that the stable CRAN version be installed for
 > production use.
 
