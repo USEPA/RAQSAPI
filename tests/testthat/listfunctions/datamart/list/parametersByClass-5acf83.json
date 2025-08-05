@@ -1,0 +1,44 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2025-08-05T11:33:16-04:00",
+            "url": "datamart/list/parametersByClass?email=<redacted>&key=<redacted>&pc=CRITERIA",
+            "rows": 8
+        }
+    ],
+    "Data": [
+        {
+            "code": "14129",
+            "value_represented": "Lead (TSP) LC"
+        },
+        {
+            "code": "42101",
+            "value_represented": "Carbon monoxide"
+        },
+        {
+            "code": "42401",
+            "value_represented": "Sulfur dioxide"
+        },
+        {
+            "code": "42602",
+            "value_represented": "Nitrogen dioxide (NO2)"
+        },
+        {
+            "code": "44201",
+            "value_represented": "Ozone"
+        },
+        {
+            "code": "81102",
+            "value_represented": "PM10 Total 0-10um STP"
+        },
+        {
+            "code": "85129",
+            "value_represented": "Lead PM10 LC FRM/FEM"
+        },
+        {
+            "code": "88101",
+            "value_represented": "PM2.5 - Local Conditions"
+        }
+    ]
+}

@@ -22,13 +22,16 @@ vignette: >
 Either install the stable version from CRAN or install the latest
 development version from GitHub.
 
-## Option 1: Installing the stable version from CRAN
+## Option 1: Installing the stable version from CRAN (preferred method)
 
 ```R
 install.packages(pkgs="RAQSAPI", dependencies = TRUE )
 ```
 
-## Option 2: Installing the development version of RAQSAPI
+## Option 2: Installing the development version of RAQSAPI (unstable)
+
+> [!CAUTION]
+> The developement version of RAQSAPI contains code that has not yet been thouroughly been tested and is more likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
 
 To install the development version of `RAQSAPI`, first if not already installed,
 install the `remotes` package and its dependencies. Then run the following in a

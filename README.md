@@ -6,10 +6,10 @@ Clinton Mccrowey, physical scientist - US EPA
 - [Introduction](#introduction)
 - [About the timeliness of AQS Data](#about-the-timeliness-of-aqs-data)
 - [Installing RAQSAPI](#installing-raqsapi)
-  - [Option 1: Installing the stable version from
-    CRAN](#option-1-installing-the-stable-version-from-cran)
-  - [Option 2: Installing the development version of
-    RAQSAPI](#option-2-installing-the-development-version-of-raqsapi)
+  - [Option 1: Installing the stable version from CRAN (preferred
+    method)](#option-1-installing-the-stable-version-from-cran-preferred-method)
+  - [Option 2: Installing the development version of RAQSAPI
+    (unstable)](#option-2-installing-the-development-version-of-raqsapi-unstable)
 - [Using The RAQSAPI library](#using-the-raqsapi-library)
   - [Load RAQSAPI](#load-raqsapi)
   - [Sign up and setting up user credentials with the RAQSAPI
@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--01-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--05-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20RAQSAPI/actions?query=workflow%3Apkgcheck)
 <!-- badges: end -->
 
@@ -134,13 +134,18 @@ page<sup>3</sup>.
 Either install the stable version from CRAN or install the latest
 development version from GitHub.
 
-## Option 1: Installing the stable version from CRAN
+## Option 1: Installing the stable version from CRAN (preferred method)
 
 ``` r
 install.packages(pkgs="RAQSAPI", dependencies = TRUE )
 ```
 
-## Option 2: Installing the development version of RAQSAPI
+## Option 2: Installing the development version of RAQSAPI (unstable)
+
+> \[!CAUTION\] The developement version of RAQSAPI contains code that
+> has not yet been thouroughly been tested and is more likely to contain
+> bugs. It is recommended that the stable CRAN version be installed for
+> production use.
 
 To install the development version of `RAQSAPI`, first if not already
 installed, install the `remotes` package and its dependencies. Then run

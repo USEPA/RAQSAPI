@@ -1,0 +1,12 @@
+{
+    "Header": [
+        {
+            "status": "API service is up and running healthy. Status: connection_pool: size: 5, connections: 1, in use: 1, waiting_in_queue: 0",
+            "request_time": "2025-08-05T11:33:15-04:00",
+            "url": "http://aqs.epa.gov/api/metaData/isAvailable?email=<redacted>&key=<redacted>"
+        }
+    ],
+    "Data": [
+
+    ]
+}

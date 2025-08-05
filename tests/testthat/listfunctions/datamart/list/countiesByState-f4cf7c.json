@@ -1,0 +1,320 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2025-08-05T11:33:15-04:00",
+            "url": "datamart/list/countiesByState?email=<redacted>&key=<redacted>&state=40",
+            "rows": 77
+        }
+    ],
+    "Data": [
+        {
+            "code": "001",
+            "value_represented": "Adair"
+        },
+        {
+            "code": "003",
+            "value_represented": "Alfalfa"
+        },
+        {
+            "code": "005",
+            "value_represented": "Atoka"
+        },
+        {
+            "code": "007",
+            "value_represented": "Beaver"
+        },
+        {
+            "code": "009",
+            "value_represented": "Beckham"
+        },
+        {
+            "code": "011",
+            "value_represented": "Blaine"
+        },
+        {
+            "code": "013",
+            "value_represented": "Bryan"
+        },
+        {
+            "code": "015",
+            "value_represented": "Caddo"
+        },
+        {
+            "code": "017",
+            "value_represented": "Canadian"
+        },
+        {
+            "code": "019",
+            "value_represented": "Carter"
+        },
+        {
+            "code": "021",
+            "value_represented": "Cherokee"
+        },
+        {
+            "code": "023",
+            "value_represented": "Choctaw"
+        },
+        {
+            "code": "025",
+            "value_represented": "Cimarron"
+        },
+        {
+            "code": "027",
+            "value_represented": "Cleveland"
+        },
+        {
+            "code": "029",
+            "value_represented": "Coal"
+        },
+        {
+            "code": "031",
+            "value_represented": "Comanche"
+        },
+        {
+            "code": "033",
+            "value_represented": "Cotton"
+        },
+        {
+            "code": "035",
+            "value_represented": "Craig"
+        },
+        {
+            "code": "037",
+            "value_represented": "Creek"
+        },
+        {
+            "code": "039",
+            "value_represented": "Custer"
+        },
+        {
+            "code": "041",
+            "value_represented": "Delaware"
+        },
+        {
+            "code": "043",
+            "value_represented": "Dewey"
+        },
+        {
+            "code": "045",
+            "value_represented": "Ellis"
+        },
+        {
+            "code": "047",
+            "value_represented": "Garfield"
+        },
+        {
+            "code": "049",
+            "value_represented": "Garvin"
+        },
+        {
+            "code": "051",
+            "value_represented": "Grady"
+        },
+        {
+            "code": "053",
+            "value_represented": "Grant"
+        },
+        {
+            "code": "055",
+            "value_represented": "Greer"
+        },
+        {
+            "code": "057",
+            "value_represented": "Harmon"
+        },
+        {
+            "code": "059",
+            "value_represented": "Harper"
+        },
+        {
+            "code": "061",
+            "value_represented": "Haskell"
+        },
+        {
+            "code": "063",
+            "value_represented": "Hughes"
+        },
+        {
+            "code": "065",
+            "value_represented": "Jackson"
+        },
+        {
+            "code": "067",
+            "value_represented": "Jefferson"
+        },
+        {
+            "code": "069",
+            "value_represented": "Johnston"
+        },
+        {
+            "code": "071",
+            "value_represented": "Kay"
+        },
+        {
+            "code": "073",
+            "value_represented": "Kingfisher"
+        },
+        {
+            "code": "075",
+            "value_represented": "Kiowa"
+        },
+        {
+            "code": "077",
+            "value_represented": "Latimer"
+        },
+        {
+            "code": "079",
+            "value_represented": "Le Flore"
+        },
+        {
+            "code": "081",
+            "value_represented": "Lincoln"
+        },
+        {
+            "code": "083",
+            "value_represented": "Logan"
+        },
+        {
+            "code": "085",
+            "value_represented": "Love"
+        },
+        {
+            "code": "087",
+            "value_represented": "McClain"
+        },
+        {
+            "code": "089",
+            "value_represented": "McCurtain"
+        },
+        {
+            "code": "091",
+            "value_represented": "McIntosh"
+        },
+        {
+            "code": "093",
+            "value_represented": "Major"
+        },
+        {
+            "code": "095",
+            "value_represented": "Marshall"
+        },
+        {
+            "code": "097",
+            "value_represented": "Mayes"
+        },
+        {
+            "code": "099",
+            "value_represented": "Murray"
+        },
+        {
+            "code": "101",
+            "value_represented": "Muskogee"
+        },
+        {
+            "code": "103",
+            "value_represented": "Noble"
+        },
+        {
+            "code": "105",
+            "value_represented": "Nowata"
+        },
+        {
+            "code": "107",
+            "value_represented": "Okfuskee"
+        },
+        {
+            "code": "109",
+            "value_represented": "Oklahoma"
+        },
+        {
+            "code": "111",
+            "value_represented": "Okmulgee"
+        },
+        {
+            "code": "113",
+            "value_represented": "Osage"
+        },
+        {
+            "code": "115",
+            "value_represented": "Ottawa"
+        },
+        {
+            "code": "117",
+            "value_represented": "Pawnee"
+        },
+        {
+            "code": "119",
+            "value_represented": "Payne"
+        },
+        {
+            "code": "121",
+            "value_represented": "Pittsburg"
+        },
+        {
+            "code": "123",
+            "value_represented": "Pontotoc"
+        },
+        {
+            "code": "125",
+            "value_represented": "Pottawatomie"
+        },
+        {
+            "code": "127",
+            "value_represented": "Pushmataha"
+        },
+        {
+            "code": "129",
+            "value_represented": "Roger Mills"
+        },
+        {
+            "code": "131",
+            "value_represented": "Rogers"
+        },
+        {
+            "code": "133",
+            "value_represented": "Seminole"
+        },
+        {
+            "code": "135",
+            "value_represented": "Sequoyah"
+        },
+        {
+            "code": "137",
+            "value_represented": "Stephens"
+        },
+        {
+            "code": "139",
+            "value_represented": "Texas"
+        },
+        {
+            "code": "141",
+            "value_represented": "Tillman"
+        },
+        {
+            "code": "143",
+            "value_represented": "Tulsa"
+        },
+        {
+            "code": "145",
+            "value_represented": "Wagoner"
+        },
+        {
+            "code": "147",
+            "value_represented": "Washington"
+        },
+        {
+            "code": "149",
+            "value_represented": "Washita"
+        },
+        {
+            "code": "151",
+            "value_represented": "Woods"
+        },
+        {
+            "code": "153",
+            "value_represented": "Woodward"
+        }
+    ]
+}
