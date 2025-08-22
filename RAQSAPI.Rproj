@@ -18,9 +18,11 @@ StripTrailingWhitespace: Yes
 
 BuildType: Package
 PackageUseDevtools: Yes
-PackageInstallArgs: --no-multiarch --with-keep.source --preclean --byte-compile --use-vanilla
-PackageBuildArgs: --md5 --log
+PackageInstallArgs: --no-multiarch --preclean --byte-compile
+PackageBuildArgs: --md5 --log  --compact-vignettes
 PackageCheckArgs: --manual  = TRUE --as-cran
 PackageRoxygenize: rd,collate,namespace,vignette
 
 QuitChildProcessesOnExit: Yes
+
+SpellingDictionary: en_US

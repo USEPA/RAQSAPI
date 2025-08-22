@@ -3,6 +3,8 @@ title: RAQSAPI - Introduction to RAQSAPI
 author: Clinton Mccrowey physical scientist - US EPA
 output:
   rmarkdown::html_vignette: default
+  md_document:
+    variant: gfm
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Introduction to RAQSAPI}
   %\VignetteEncoding{UTF-8}

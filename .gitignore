@@ -43,4 +43,4 @@ tests/testthat/local.R
 *.tar.gz
 *.zip
 RAQSAPI.code-workspace
-dev
+./tests/testthat/testthat-problems.rds

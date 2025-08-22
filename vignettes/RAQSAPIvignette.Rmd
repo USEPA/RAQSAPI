@@ -13,6 +13,8 @@ abstract: RAQSAPI is a package for R that connects the R programming language
   air pollution data.
 output:
    rmarkdown::html_vignette: default
+   md_document:
+    variant: gfm
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{Introduction to the RAQSAPI package}

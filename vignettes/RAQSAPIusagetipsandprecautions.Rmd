@@ -3,6 +3,8 @@ title: RAQSAPI - Usage tips and precautions
 author: Clinton Mccrowey physical scientist - US EPA
 output:
   rmarkdown::html_vignette: default
+  md_document:
+    variant: gfm
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Usage tips and precautions}
   %\VignetteEncoding{UTF-8}

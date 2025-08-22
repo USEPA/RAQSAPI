@@ -1,22 +1,22 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
 #' @import httptest2
+if (file.exists("local.R"))
+{
+  source("helper.R")
+  AQScredentials <- RAQSAPItestsetup_helper()
+  datamartAPI_user <- AQScredentials$datamartAPI_user
+  datamartAPI_key <- AQScredentials$datamartAPI_key
+} else
+{
+  datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+  datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+}
+RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
+
 with_mock_dir("bycbsa",{
 test_that(
   "byCBSA functions", {
-
-    if (file.exists("local.R"))
-      {
-      source("helper.R")
-      AQScredentials <- RAQSAPItestsetup_helper()
-      datamartAPI_user <- AQScredentials$datamartAPI_user
-      datamartAPI_key <- AQScredentials$datamartAPI_key
-    } else
-    {
-      datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-      datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-    }
-    RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
     aqs_monitors_by_cbsa(
       parameter = "42602",

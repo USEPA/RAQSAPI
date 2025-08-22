@@ -3,6 +3,8 @@ title: RAQSAPI - Acknowledgements
 author: Clinton Mccrowey physical scientist - US EPA
 output:
   rmarkdown::html_vignette: default
+  md_document:
+    variant: gfm
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Acknowledgements}

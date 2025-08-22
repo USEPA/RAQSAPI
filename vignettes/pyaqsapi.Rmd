@@ -10,6 +10,8 @@ author:
   name: Clinton Mccrowey
 output:
   rmarkdown::html_vignette: default
+  md_document:
+    variant: gfm
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{pyaqsapi - a port of RAQSAPI to the python 3 programming environment}

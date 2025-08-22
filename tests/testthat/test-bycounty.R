@@ -1,22 +1,22 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
 #' @import httptest2
+if (file.exists("local.R"))
+{
+  source("helper.R")
+  AQScredentials <- RAQSAPItestsetup_helper()
+  datamartAPI_user <- AQScredentials$datamartAPI_user
+  datamartAPI_key <- AQScredentials$datamartAPI_key
+} else
+{
+  datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+  datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+}
+RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
+
 with_mock_dir("byco",{ #name shortened from "bycounty" to "byco" to avoid the long path name limit.
 test_that(
   "bycounty functions", {
-
-    if (file.exists("local.R"))
-      {
-      source("helper.R")
-      AQScredentials <- RAQSAPItestsetup_helper()
-      datamartAPI_user <- AQScredentials$datamartAPI_user
-      datamartAPI_key <- AQScredentials$datamartAPI_key
-    } else
-    {
-      datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-      datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-    }
-    RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
     aqs_annualsummary_by_county(
       parameter = "88101",

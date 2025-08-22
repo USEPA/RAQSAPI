@@ -39,24 +39,26 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--05-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--08--21-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 <!-- badges: end -->
 
 # EPA Disclaimer
 
-This software/application was developed by the U.S. Environmental
-Protection Agency (USEPA). No warranty expressed or implied is made
-regarding the accuracy or utility of the system, nor shall the act of
-distribution constitute any such warranty. The USEPA has relinquished
-control of the information and no longer has responsibility to protect
-the integrity, confidentiality or availability of the information. Any
-reference to specific commercial products, processes, or services by
-service mark, trademark, manufacturer, or otherwise, does not constitute
-or imply their endorsement, recommendation or favoring by the USEPA. The
-USEPA seal and logo shall not be used in any manner to imply endorsement
-of any commercial product or activity by the USEPA or the United States
-Government.
+> \[!NOTE\]
+>
+> This software/application was developed by the U.S. Environmental
+> Protection Agency (USEPA). No warranty expressed or implied is made
+> regarding the accuracy or utility of the system, nor shall the act of
+> distribution constitute any such warranty. The USEPA has relinquished
+> control of the information and no longer has responsibility to protect
+> the integrity, confidentiality or availability of the information. Any
+> reference to specific commercial products, processes, or services by
+> service mark, trademark, manufacturer, or otherwise, does not
+> constitute or imply their endorsement, recommendation or favoring by
+> the USEPA. The USEPA seal and logo shall not be used in any manner to
+> imply endorsement of any commercial product or activity by the USEPA
+> or the United States Government.
 
 <table>
 <colgroup>

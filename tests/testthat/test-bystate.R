@@ -1,29 +1,32 @@
 #' @importFrom magrittr `%>%`()
 #' @import testthat
 #' @import httptest2
+
+
+if (file.exists("local.R"))
+{
+  source("helper.R")
+  AQScredentials <- RAQSAPItestsetup_helper()
+  datamartAPI_user <- AQScredentials$datamartAPI_user
+  datamartAPI_key <- AQScredentials$datamartAPI_key
+} else
+{
+  datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+  datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+}
+RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
+
+
 with_mock_dir("bystate",{
 test_that(
   "bystate functions", {
-
-    if (file.exists("local.R"))
-      {
-      source("helper.R")
-      AQScredentials <- RAQSAPItestsetup_helper()
-      datamartAPI_user <- AQScredentials$datamartAPI_user
-      datamartAPI_key <- AQScredentials$datamartAPI_key
-    } else
-    {
-      datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-      datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-    }
-    RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
     aqs_monitors_by_state(
       parameter = "88101",
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -32,7 +35,7 @@ test_that(
       bdate = as.Date("19950515", format = "%Y%m%d"),
       edate = as.Date("19950515", format = "%Y%m%d"),
       stateFIPS = "37",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -41,7 +44,7 @@ test_that(
       bdate = as.Date("19950515", format = "%Y%m%d"),
       edate = as.Date("19990515", format = "%Y%m%d"),
       stateFIPS = "37",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -50,7 +53,7 @@ test_that(
       bdate = as.Date("19950515", format = "%Y%m%d"),
       edate = as.Date("19950515", format = "%Y%m%d"),
       stateFIPS = "37",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -59,7 +62,7 @@ test_that(
       bdate = as.Date("20180101", format = "%Y%m%d"),
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -68,7 +71,7 @@ test_that(
       bdate = as.Date("20130101", format = "%Y%m%d"),
       edate = as.Date("20130131", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -77,7 +80,7 @@ test_that(
       bdate = as.Date("20180101", format = "%Y%m%d"),
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -86,7 +89,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20190131", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -95,7 +98,7 @@ test_that(
       bdate = as.Date("20180101", format = "%Y%m%d"),
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "25",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -104,7 +107,7 @@ test_that(
       bdate = as.Date("20180101", format = "%Y%m%d"),
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "25",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -113,7 +116,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -122,7 +125,7 @@ test_that(
       bdate = as.Date("19950515", format = "%Y%m%d"),
       edate = as.Date("19950515", format = "%Y%m%d"),
       stateFIPS = "37",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -131,7 +134,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -140,7 +143,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -149,7 +152,7 @@ test_that(
       bdate = as.Date("20160101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "37",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
   }

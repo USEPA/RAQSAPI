@@ -3,6 +3,8 @@ title: RAQSAPI - About the timeliness of AQS Data
 author: Clinton Mccrowey physical scientist - US EPA
 output:
   rmarkdown::html_vignette: default
+  md_document:
+    variant: gfm
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - About the timeliness of AQS Data}

@@ -49,3 +49,4 @@ codemeta.json
 ^\.github$
 ^codecov\.yml$
 .editorconfig
+./tests/testthat/testthat-problems.rds
