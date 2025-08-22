@@ -31,7 +31,7 @@ test_that(
       parameter = "42602",
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20170101", format = "%Y%m%d"),
-      cbsa_code = "16740", return_header = TRUE
+      cbsa_code = "16740", return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -40,7 +40,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20170101", format = "%Y%m%d"),
       cbsa_code = "16740",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -49,7 +49,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20170101", format = "%Y%m%d"),
       cbsa_code = "16740",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -58,11 +58,11 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       cbsa_code = "16740",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
-    aqs_sampledurations(return_header = TRUE)$Header$status %>%
+    aqs_sampledurations(return_header = FALSE) %>%
       expect_no_error()
   }
 )

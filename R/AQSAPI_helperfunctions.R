@@ -379,11 +379,11 @@ RAQSAPI_error_msg <- function(AQSresponse)
   # debug
   msg <- glue(
     "At server request time: {AQSresponse$headers$Date}
-               RAQSAPI experienced an error while processing the following url:
-               {AQSresponse$url}
-               with status_code: {AQSresponse$status_code}
-               and status message: {AQSresponse$status}
-               Server error message: {AQSerr$Header[[1]]$error}"
+      RAQSAPI experienced an error while processing the following url:
+      {AQSresponse$url}
+      with status_code: {AQSresponse$status_code}
+      and status message: {AQSresponse$status}
+      Server error message: {AQSerr$Header[[1]]$error}"
   )
 
   return(msg)
@@ -474,13 +474,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   # AQS DataMart API does not accept headers so user_agent not working %>% req_user_agent(string = user_agent)
 
   AQSresponse <- AQSrequest %>%
-    req_verbose(header_req = TRUE,
-                header_resp = TRUE,
-                body_req = TRUE,
-                body_resp = TRUE,
-                info = TRUE,
-                redact_headers = FALSE) %>%
-    req_perform(verbosity = 3)
+    req_perform(verbosity = 0)
 
   if (httr2::resp_is_error(AQSresponse))
     {

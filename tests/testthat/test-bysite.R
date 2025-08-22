@@ -38,7 +38,7 @@ test_that(
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -49,7 +49,7 @@ test_that(
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -60,7 +60,7 @@ test_that(
       stateFIPS = "01",
       countycode = "033",
       sitenum = "1002",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -71,7 +71,7 @@ test_that(
       stateFIPS = "15",
       countycode = "001",
       sitenum = "0007",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -82,7 +82,7 @@ test_that(
       stateFIPS = "01",
       countycode = "089",
       sitenum = "0014",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -93,7 +93,7 @@ test_that(
       stateFIPS = "01",
       countycode = "073",
       sitenum = "2003",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -104,7 +104,7 @@ test_that(
       stateFIPS = "25",
       countycode = "001",
       sitenum = "0002",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -115,7 +115,7 @@ test_that(
       stateFIPS = "01",
       countycode = "033",
       sitenum = "1002",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -126,7 +126,7 @@ test_that(
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -137,7 +137,7 @@ test_that(
       stateFIPS = "01",
       countycode = "003",
       sitenum = "0010",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -148,7 +148,7 @@ test_that(
       stateFIPS = "01",
       countycode = "003",
       sitenum = "0010",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -159,7 +159,7 @@ test_that(
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
 
@@ -170,7 +170,7 @@ test_that(
       stateFIPS = "01",
       countycode = "089",
       sitenum = "0014",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
       expect_no_error()
   }

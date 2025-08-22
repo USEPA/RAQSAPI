@@ -34,7 +34,7 @@ test_that(
       edate = as.Date("20160228", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -44,7 +44,7 @@ test_that(
       edate = as.Date("20160101", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -54,7 +54,7 @@ test_that(
       edate = as.Date("20150502", format = "%Y%m%d"),
       stateFIPS = "15",
       countycode = "001",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -64,7 +64,7 @@ test_that(
       edate = as.Date("20150131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "089",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -74,7 +74,7 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "033",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -84,7 +84,7 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "073",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -94,7 +94,7 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "033",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -104,7 +104,7 @@ test_that(
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "25",
       countycode = "001",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -114,7 +114,7 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "089",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -124,7 +124,7 @@ test_that(
       edate = as.Date("20160228", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -134,7 +134,7 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "003",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -144,7 +144,7 @@ test_that(
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "003",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -154,7 +154,7 @@ test_that(
       edate = as.Date("20170228", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
   }

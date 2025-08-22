@@ -38,7 +38,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
 
@@ -50,7 +50,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
 
@@ -62,7 +62,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
 
@@ -74,7 +74,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
     }

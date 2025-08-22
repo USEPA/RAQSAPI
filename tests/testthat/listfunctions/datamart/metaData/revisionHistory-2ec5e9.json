@@ -1,0 +1,144 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2025-08-22T16:57:46-04:00",
+            "url": "https://datamart/metaData/revisionHistory?email=redacted&key=redacted",
+            "rows": 22
+        }
+    ],
+    "Data": [
+        {
+            "effective_date": "2021-10-19",
+            "effected_component": "Sample Data",
+            "title": "New Option for Sample Data Service: duration",
+            "description": "The sample data service now allows for an optional filter on the sample duration."
+        },
+        {
+            "effective_date": "2021-10-19",
+            "effected_component": "Quarterly Summaries",
+            "title": "New Service: QD",
+            "description": "A new service that returns quarterly summary data."
+        },
+        {
+            "effective_date": "2021-10-19",
+            "effected_component": "List Durations",
+            "title": "New Service: listDurations",
+            "description": "A new service that returns valid values for the duration variable."
+        },
+        {
+            "effective_date": "2021-09-03",
+            "effected_component": "QA - Annual Performance Evaluations",
+            "title": "New Service: QAape",
+            "description": "A new service to get annual perforamnce evaluation data."
+        },
+        {
+            "effective_date": "2021-09-03",
+            "effected_component": "Transactions - QA - Annual Performance Evaluations",
+            "title": "New Service: tQAape",
+            "description": "A new service to get annual performance evaluation data in the AQS transaction format."
+        },
+        {
+            "effective_date": "2021-08-10",
+            "effected_component": "sampleData",
+            "title": "Sample frequency corrected",
+            "description": "In certain cases, the sample_frequency on any service showing sample data was displayed as Seasonal for hourly monitors.  This has been corrected."
+        },
+        {
+            "effective_date": "2021-07-26",
+            "effected_component": "fieldsByService",
+            "title": "Field descriptions updated",
+            "description": "The descriptions of the fields in the fieldsByService have been updated."
+        },
+        {
+            "effective_date": "2021-02-08",
+            "effected_component": "Transactions - Sample",
+            "title": "Reported Alt MDL added",
+            "description": "The Alternate MDL in reported units field (reported_alternate_mdl) was added."
+        },
+        {
+            "effective_date": "2021-02-08",
+            "effected_component": "Sample Data, Transactions - Sample",
+            "title": "Detection Limit / Alt MDL unit conversion corrected",
+            "description": "There was an error in the software that prevented some detection limits from being converted to the displayed units of measure.  On the Sample Data output, this is in the Detection Limit field, and in the Transactions - Sample output, the Alt MDL entry in the Transaction fields."
+        },
+        {
+            "effective_date": "2021-01-12",
+            "effected_component": "Transactions - Sample",
+            "title": "New Service: transactionsSample",
+            "description": "Coming soon, a new service to get sample data in the AQS RD transaction format."
+        },
+        {
+            "effective_date": "2020-12-30",
+            "effected_component": "Transactions - Sample",
+            "title": "New Service: transactionsSample",
+            "description": "Coming soon, a new service to get sample data in the AQS RD transaction format."
+        },
+        {
+            "effective_date": "2020-07-14",
+            "effected_component": "Sample Data",
+            "title": "Sample Frequency",
+            "description": "The sample data service was reporting an incorrect sampling freqency of 1 Hour for certain samplers.  This logic error has been corrected.  If the sampling frequency is not specified by the monitor owner, this field is now null."
+        },
+        {
+            "effective_date": "2020-07-14",
+            "effected_component": "Sample Data",
+            "title": "Additional Fields",
+            "description": "Two fields were added to the output of the Sample Data service: units_of_measure_code and sample_duration_code.  These contain short codes representing the longer versions of those fields.  They were added at the request of users."
+        },
+        {
+            "effective_date": "2019-10-30",
+            "effected_component": "All",
+            "title": "Services faster",
+            "description": "All of the services had their underlying queries tuned to perform faster.  On average, services are 4 times faster, but this varies by service and system load."
+        },
+        {
+            "effective_date": "2019-08-28",
+            "effected_component": "Monitors",
+            "title": "Monitor Service Faster",
+            "description": "The monitors service was changed to improve performance.  Several of the agency roles were dropped from the output and replace by a single monitoring agency.  This is the agency that has respsonbility for operation of the monitor."
+        },
+        {
+            "effective_date": "2019-08-28",
+            "effected_component": "PEP Audits",
+            "title": "PEP Audits Calculation Change",
+            "description": "The percent difference calculation was corrected to use the same equation for all parameters and rounding to two decimal places.  It had been using the pollutant specific equations from the previous regulation."
+        },
+        {
+            "effective_date": "2019-08-28",
+            "effected_component": "QA Blanks",
+            "title": "QA Blanks Faster",
+            "description": "Dropped the fields: sample frequency, auditing agency code, and auditing agency from QA Blanks to improve performance.  These fields are not relevant to blanks data."
+        },
+        {
+            "effective_date": "2019-08-27",
+            "effected_component": "All",
+            "title": "Known Issues",
+            "description": "This service was added to show all known issues with the system or the underlying data."
+        },
+        {
+            "effective_date": "2019-08-27",
+            "effected_component": "Register",
+            "title": "Password Reset Fixed",
+            "description": "The password reset capability of the register service was not working. This has been corrected."
+        },
+        {
+            "effective_date": "2019-08-27",
+            "effected_component": "All",
+            "title": "Revision History",
+            "description": "This service was added to show the revision history, change log, and any important user notices for the API."
+        },
+        {
+            "effective_date": "2019-07-25",
+            "effected_component": "Daily Data",
+            "title": "Daily Summary Methods",
+            "description": "Daily summaries corrected to show method for all data.  Previously, the method was only displayed for a subset of daily summary durations."
+        },
+        {
+            "effective_date": "2019-06-04",
+            "effected_component": "All",
+            "title": "Launch",
+            "description": "Official launch date of API."
+        }
+    ]
+}

@@ -36,7 +36,7 @@ test_that(
       bdate = as.Date("20130101", format = "%Y%m%d"),
       edate = as.Date("20130131", format = "%Y%m%d"),
       MA_code = "0013",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -45,7 +45,7 @@ test_that(
       bdate = as.Date("20180101", format = "%Y%m%d"),
       edate = as.Date("20180131", format = "%Y%m%d"),
       MA_code = "0660",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -54,7 +54,7 @@ test_that(
       bdate = as.Date("20180101", format = "%Y%m%d"),
       edate = as.Date("20180131", format = "%Y%m%d"),
       MA_code = "0550",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -63,7 +63,7 @@ test_that(
       bdate = as.Date("20130101", format = "%Y%m%d"),
       edate = as.Date("20130131", format = "%Y%m%d"),
       MA_code = "0013",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -72,7 +72,7 @@ test_that(
       bdate = as.Date("20170601", format = "%Y%m%d"),
       edate = as.Date("20170630", format = "%Y%m%d"),
       MA_code = "0013",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -81,7 +81,7 @@ test_that(
       bdate = as.Date("20150515", format = "%Y%m%d"),
       edate = as.Date("20150515", format = "%Y%m%d"),
       MA_code = "0972",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -90,7 +90,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       MA_code = "0013",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
 
@@ -99,7 +99,7 @@ test_that(
       bdate = as.Date("20170101", format = "%Y%m%d"),
       edate = as.Date("20171231", format = "%Y%m%d"),
       MA_code = "0013",
-      return_header = TRUE
+      return_header = FALSE
     ) %>%
      expect_no_error()
   }

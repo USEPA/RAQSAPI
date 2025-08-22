@@ -1,0 +1,20 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2025-08-22T16:57:46-04:00",
+            "url": "https://datamart/metaData/fieldsByService?email=redacted&key=redacted&service=list",
+            "rows": 2
+        }
+    ],
+    "Data": [
+        {
+            "field_name": "code",
+            "field_description": "A short numberic or character \"code\" used to represent something else in the database.  Used to make data entry easier.  For example, state_code 01 represents Alabama."
+        },
+        {
+            "field_name": "value_represented",
+            "field_description": null
+        }
+    ]
+}
