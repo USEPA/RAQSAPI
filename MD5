@@ -5,7 +5,7 @@ c21cdd34beedf1946a4c2181c296ba6c *cran-comments.Rmd
 bff0e2efeedd09d6fb682a3a088ecdc7 *DESCRIPTION
 2a2af3ec143905dbe9a4c61dd83b14d5 *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
-7eae1d9c90f55ad737d01e442fd15517 *inst/httptest2/redact.R
+fc81e0377f74ee9007a052b3c5d5bf53 *inst/httptest2/redact.R
 dd65d70b425fb86f7c8b6d8841a837d8 *inst/schemaorg.json
 92ef6504cd2fcc4345f4b65ab14e1733 *inst/WORDLIST
 6db6f39cbf0413504e0334a53aa473f9 *LICENSE
@@ -124,7 +124,7 @@ f98dc7eacb8ae3b7754998a2ff225b04 *R/RAQSAPI-package.R
 b1d78be8de38c0e0938dd1add2824782 *R/setupfunctions.R
 b93452ff944026760ba223fd077a2fa2 *R/zzz.R
 f2cf4aeca387c06c23b2c54456ea96f0 *RAQSAPI.Rproj
-93f7403cdc4cc78c75aa2b736f26771d *README.md
+68af7168b87f764cb8a23411258bb22d *README.md
 e0a4bfc87ff5e78b734f955c05b4fb85 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
@@ -133,12 +133,6 @@ b2d403f29050e86e8efa021931ef8649 *revdep/README.md
 846f989b5f8b7a32fa520e52b4675635 *tests/test-RAQSAPI.R.blob
 7b7948332230432feb92e92353d83a98 *tests/testthat-problems.rds
 cb0e705ce06ab9db6aad083e91041d31 *tests/testthat.R
-18fcf4c613425b11cc3f4ce866dffeaf *tests/testthat/bycbsa/datamart/annualData/byCBSA-18c785.json
-2e1f0b15f5189e24f051c74b04fa0a4d *tests/testthat/bycbsa/datamart/dailyData/byCBSA-18c785.json
-afc5598675e72c79de17afa979cac2a4 *tests/testthat/bycbsa/datamart/list/duration-2ec5e9.json
-a417c7ce65dd526c0982b0c7aa63d953 *tests/testthat/bycbsa/datamart/monitors/byCBSA-f0a9d7.json
-011a44bc805c0632e8797fbfa384c4d8 *tests/testthat/bycbsa/datamart/QD/byCBSA-ca7a1f.json
-301678733e62314f5e3da5aa2337eb5c *tests/testthat/bycbsa/datamart/sampleData/byCBSA-18c785.json
 568a3433e98e1f603b3487174669a96e *tests/testthat/helper.R
 b013980eae16bb9f943c1ff2f6475354 *tests/testthat/setup.R
 2109dbc187eeaa91dd15d29b5e891c78 *tests/testthat/test-AQS_DATAMART_API-S3-class.R

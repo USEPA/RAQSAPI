@@ -12,7 +12,6 @@ on:
   push:
     branches:
       - main
-      - test_httptest2
 jobs:
   pkgcheck:
     runs-on: ubuntu-latest
