@@ -68,7 +68,8 @@ Imports:
     stringr,
     tibble,
     tidyselect
-Suggests: 
+Suggests:
+    cli,
     covr,
     devtools,
     goodpractice,
@@ -84,7 +85,7 @@ Suggests:
     withr
 SystemRequirements: package manual and Vignettes require pandoc 
                     (>= 1.14) http://pandoc.org)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true

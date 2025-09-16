@@ -1,0 +1,55 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2025-09-12T17:18:31-04:00",
+            "url": "https://datamart/qaBlanks/bySite?email=<redacted>&key=<redacted>&param=88101&bdate=20180101&edate=20180131&state=01&county=033&site=1002",
+            "rows": 1
+        }
+    ],
+    "Data": [
+        {
+            "state_code": "01",
+            "county_code": "033",
+            "site_number": "1002",
+            "parameter_code": "88101",
+            "poc": 1,
+            "parameter_name": "PM2.5 - Local Conditions",
+            "blank_type": "FIELD",
+            "date_local": "2018-01-06",
+            "time_local": "00:01",
+            "sample_measurement": 1.0,
+            "units_of_measure": "Micrograms",
+            "sample_duration": "24 HOUR",
+            "detection_limit": null,
+            "uncertainty": null,
+            "method_type": "FRM",
+            "method_code": "145",
+            "method": "R & P Model 2025 PM-2.5 Sequential Air Sampler w/VSCC - Gravimetric",
+            "date_of_last_change": "2019-02-13",
+            "qualifiers": null,
+            "latitude": 34.762619,
+            "longitude": -87.638097,
+            "datum": "NAD83",
+            "local_site_name": "MUSCLE SHOALS",
+            "address": "WILSON DAM RD AND 2ND ST.",
+            "state_name": "Alabama",
+            "county_name": "Colbert",
+            "city_name": "Muscle Shoals",
+            "cbsa_code": "22520",
+            "cbsa_name": "Florence-Muscle Shoals, AL",
+            "csa_code": null,
+            "csa_name": null,
+            "tribal_code": null,
+            "tribe_name": null,
+            "monitor_type": null,
+            "pqao_code": "0013",
+            "pqao": "Al Dept Of Env Mgt",
+            "monitoring_agency_code": "0013",
+            "monitoring_agency": "Al Dept Of Env Mgt",
+            "analyzing_agency_code": "0013",
+            "analyzing_agency": "Al Dept Of Env Mgt",
+            "networks": null
+        }
+    ]
+}

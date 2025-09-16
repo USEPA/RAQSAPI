@@ -1,5 +1,7 @@
 RAQSAPItestsetup_helper <- function()
 {
+
+  cli::cli_alert_success("Helper file being run")
   path <- NA
   if (file.exists("local.R"))
     {

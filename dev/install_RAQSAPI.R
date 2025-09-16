@@ -115,6 +115,8 @@ buildRAQSAPIbase <- function()
   }
   invisible(usethis::use_lifecycle())
   source("./dev/alphabetize_WORDLIST.R")
+  #need to run document twice to work out the circuular dependencies with RAQSAPI_helperfunctions.R
+  devtools::document(quiet = TRUE, roclets = c("collate", "namespace", "rd", "vignette"))
   devtools::document(quiet = TRUE, roclets = c("collate", "namespace", "rd", "vignette"))
   devtools::build_readme()
   # knitr::knit(input = './dev/contributing.Rmd', output = './dev/contributing.md') #removed this file

@@ -32,7 +32,7 @@ vignettes/*.docx
 #other files
 #not needed
 ignore all files under dev
-dev/.
+dev/
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
 # Output files from R CMD check
