@@ -1,22 +1,20 @@
 {
   "name": "RAQSAPI Dev Container",
   "image": "rocker/geospatial:latest",
-  "workspaceFolder": "/repodata",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/repodata,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/RAQSAPI",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/RAQSAPI,type=bind,consistency=cached",
   "features": {},
   "forwardPorts": [],
   "postCreateCommand": "R --version",
   "customizations": {
     "vscode": {
-      "extensions": [
-				"REditorSupport.r",
-				"RDebugger.r-debugger",
-				"quarto.quarto"
-			],
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
       },
-      "extensions": []
+      "extensions": [
+        "REditorSupport.r",
+				"RDebugger.r-debugger",
+				"quarto.quarto"]
     }
   }
 }
