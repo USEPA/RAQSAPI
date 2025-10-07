@@ -15,17 +15,17 @@ vignette: >
 
 # Troubleshooting
 
-Parameters must be supplied exactly as they are specified, for example the
-stateFIPS for Alabama is "01", entering a value of "1" for the stateFIPS
+Parameters must be supplied exactly as they are specified. For example the
+stateFIPS for Alabama is "01", and entering a value of "1" for the stateFIPS
 may lead to unexpected results. Do not omit leading zeros in parameters that
 expect them.
 
-In Functions that have the return_header=TRUE option set the returned object is
+In functions that have the return_header=TRUE option set, the returned object is
 an AQSAPI_v2 object, this is a 2 item list where the first object is a tibble
-with the label \$Header, the second, a tibble with the label \$Data. sampledata
-functions are limited by the API to one calendar year of data per API call so if
-the user requests multiple years of data the sampledata call will return
+with the label \$Header, and the second is also a tibble with the label \$Data.
+sampledata functions are limited by the API to one calendar year of data per API
+call so if the user requests multiple years of data the sampledata call will return
 multiple AQSAPI_v2 objects, one for each call to the API. The returned result is
 a list of AQSAPI_v2 objects. In R to access the data in each item in the list
-the user will need to use the "double bracket operator" ("[[", "]]") not the
+the user will need to use the "double bracket operator ("[[", "]]") not the
 single bracket operator ("[", "]").

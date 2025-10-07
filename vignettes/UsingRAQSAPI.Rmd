@@ -27,15 +27,15 @@ library(RAQSAPI)
 ## Sign up and setting up user credentials with the RAQSAPI library
 
 If you have not already done so you will need to sign up with AQS Data Mart
-  using aqs_sign_up function, ^[Use "?aqs_sign_up" after the RAQSAPI library has
+  using the aqs_sign_up function, ^[Use "?aqs_sign_up" after the RAQSAPI library has
   been loaded to see the full usage description of the aqs_sign_up
-  function.] this function takes one input, "email", which is a R
+  function]. This function takes one input, "email", which is a R
   character object, that represents the email address that you want to use
   as a user credential to the AQS Data Mart service. After a successful call to
   aqs_sign_up an email message will be sent to the email address provided
   with a new Data Mart key which will be used as a credential key to access the
   Data Mart API. The aqs_sign_up function can also be used to regenerate a
-  new key for an existing user, to generate a new key simply call the
+  new key for an existing user. To generate a new key simply call the
   aqs_sign_up function with the parameter "email" set to an existing
   account. A new key will be e-mailed to the account given.
 
@@ -48,7 +48,7 @@ The credentials used to access the Data Mart API service are stored in a R
   attempts to encrypt Data Mart credentials as would be done for a username and
   password combination. The key that is supplied to use with Data Mart is not
   intended for authentication but only account monitoring. Each time RAQSAPI is
-  loaded and before using any of it's functions use the aqs_credentials ^[Use
+  loaded and before using any of its functions use the aqs_credentials ^[Use
   "?aqs_credentials" after the RAQSAPI library has been loaded to see the full
   usage description of the aqs_credentials function.] function
   to enter in the user credentials so that RAQSAPI can access the AQS Data Mart
@@ -73,7 +73,7 @@ hard coding credential information into R scripts.
 To use the `keyring` package with `RAQSAPI` first install `keyring`:
 
 ```R
-install.package("keyring")
+install.packages("keyring")
 ```
 
 Ensure that your system is supported by the `keyring` package before proceeding.
@@ -102,7 +102,7 @@ the function key_get to return the user credential to RAQSAPI:
 ```R
   library(RAQSAPI)  
   library(keyring)  
-  datamartAPI_user <- \<user email account\>  
+  datamartAPI_user <- "\<user email account\>  
   server <- "AQSDatamart"
 ```
 
@@ -122,6 +122,6 @@ To retrieve a list of all keyrings managed with the `keyring` package use
 the function:
 > keyring::key_list()
 
-Refer the the[`keyring` package documentation](
+Refer to the[`keyring` package documentation](
 https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.

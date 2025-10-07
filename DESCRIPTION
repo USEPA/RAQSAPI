@@ -31,7 +31,7 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email=NULL, role=c("ctb", "rev"),
                     comment="United States Environmental Protection Agency"),
              person(given = "Hayley", family= "Brittingham",
-                    email = NULL, role=c("crr", "ctr"),
+                    email = NULL, role=c("rev", "ctr"),
                     comment="Neptune and Company"),
              person(given = "Jeffrey", family = "Hollister",
                     email = "hollister.jeff@epa.gov", role = c("rev"),
@@ -40,16 +40,22 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                                 )
                     ),
             person(given = "Edward", family = "Andrews",
-                    email = "edward.s.andrews@wv.gov",
-                    role = c("rev", "ctb"),
-                    comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
+                   email = "edward.s.andrews@wv.gov",
+                   role = c("rev", "ctb"),
+                   comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
                   ),
             person(given= "Cynthia", family = "Stahl",
                    email = "stahl.cynthia@epa.gov",
                    role="rev",
-                   comment="United States Environmental Protection
+                   comment=("United States Environmental Protection
                             Agency Region 3 Air and Radiation Division")
-                  )
+                  ),
+            person(given= "Maria", family="Morresi",
+                   email="Morresi.Maria@epa.gov",
+                   role=c("ctr", "rev"),
+                   comment="ASRC Federal"
+                   )
+            )
 URL: https://github.com/USEPA/RAQSAPI/,
      https://aqs.epa.gov/aqsweb/documents/data_api.html
 BugReports: https://github.com/USEPA/RAQSAPI/issues
@@ -95,7 +101,7 @@ NeedsCompilation: no
 License_restricts_use: no
 Language: en-US
 Collate:
-    'AQS_DATAMART_APIv2-S3-class.R' 
+    'AQS_DATAMART_APIv2-S3-class.R'
     'AQSAPI_helperfunctions.R'
     'bysite.R'
     'bycounty.R'

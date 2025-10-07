@@ -1,6 +1,3 @@
-#' @section by_ma aggregate functions
-
-
 #' @title aqs_qa_blanks_by_MA
 #' @description \lifecycle{stable}
 #'        Returns a table of blank quality assurance data.
@@ -19,7 +16,7 @@
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @importFrom magrittr `%<>%`
@@ -78,7 +75,7 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Da
 #'         does the length of time that it will take to retrieve results. There
 #'         is also a 5 second wait time inserted between successive API calls to
 #'         prevent overloading the API server. This operation has a linear run
-#'         time of /(Big O notation: O/(n + 5 seconds/)/).
+#'         time of $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @importFrom magrittr `%<>%`
@@ -86,9 +83,9 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Da
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance collocated assessment data for monitors within a
-#'           monitoring agency. An AQS_Data Mart_APIv2 is a 2 item named list
+#'           monitoring agency. An AQS_DataMart_APIv2 is a 2 item named list
 #'           in which the first item ($Header) is a tibble of header information
 #'           from the AQS API and the second item ($Data) is a tibble of the
 #'           data returned.
@@ -140,7 +137,7 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate, edate, MA_code
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @importFrom magrittr `%<>%`
@@ -148,9 +145,9 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate, edate, MA_code
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance flow rate verification data for monitors within a
-#'           Monitoring agency. An AQS_Data Mart_APIv2 is a 2 item named list in
+#'           Monitoring agency. An AQS_DataMart_APIv2 is a 2 item named list in
 #'           which the first item ($Header) is a tibble of header information
 #'           from the AQS API and the second item ($Data) is a tibble of the
 #'           data returned.
@@ -203,7 +200,7 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate, MA_code, 
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @importFrom magrittr `%<>%`
@@ -211,7 +208,7 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate, MA_code, 
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate
 #'           audit data for the requested MA_code. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
 #'           first item ($Header) is a tibble of header information from the
@@ -249,7 +246,7 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate 
 
 #' @title aqs_qa_one_point_qc_by_MA
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3 object
 #'                containing one point QC check data aggregated by monitoring
 #'                agency code (_by_MA).
 #' @note The AQS API only allows for a single year of one point qc data to
@@ -262,7 +259,7 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate 
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @importFrom magrittr `%<>%`
@@ -270,7 +267,7 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate 
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 #'            qc data for a single monitoring agency. A AQS_Data_Mart_APIv2
 #'            object is a 2 item named list in which the first item ($Header)
 #'            is a tibble of header information from the AQS API and the second
@@ -322,7 +319,7 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code, cbdate =
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @importFrom magrittr `%<>%`
@@ -330,7 +327,7 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code, cbdate =
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance PEP audit data for a monitoring agency. A
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
 #'           first item ($Header) is a tibble of header information from the
@@ -384,7 +381,7 @@ aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA
 #'         length of time that it will take to retrieve results. There is also a
 #'         5 second wait time inserted between successive API calls to prevent
 #'         overloading the API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_MA
 #' @param return_header If FALSE (default) only returns data requested.
@@ -404,7 +401,7 @@ aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA
 #'                                                MA_code = '0972'
 #'                                                )
 #'                  }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of transaction sample
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of transaction sample
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
@@ -441,7 +438,7 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code, cbdate
 #'         will take to retrieve results. There is also a 5 second wait time
 #'         inserted between successive API calls to prevent overloading the API
 #'         server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @param return_header If FALSE (default) only returns data requested.
@@ -462,7 +459,7 @@ aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code, cbdate
 #'                                                           MA_code = '0013'
 #'                                                      )
 #'                   }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for all monitoring sites for with
 #'           the MA_code requested for the time frame between bdate and edate.
 #'           An AQS_Data_Mart_APIv2 is a 2 item named list in which the first
@@ -502,7 +499,7 @@ aqs_qa_annualperformanceeval_by_MA <- function(parameter, bdate, edate, MA_code,
 #'         will take to retrieve results. There is also a 5 second wait time
 #'         inserted between successive API calls to prevent overloading the API
 #'         server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
 #' @param return_header If FALSE (default) only returns data requested.
@@ -522,7 +519,7 @@ aqs_qa_annualperformanceeval_by_MA <- function(parameter, bdate, edate, MA_code,
 #'                                                   MA_code = '0013'
 #'                                                         )
 #'          }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data in the AQS submissions transaction
 #'           format (RD)for all sites matching the MA_code requested for the
 #'           time frame between bdate and edate. An AQS_Data_Mart_APIv2 is a 2

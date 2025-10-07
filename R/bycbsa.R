@@ -1,7 +1,3 @@
-#' @section by_cbsa: (By Core Based Statistical Area, as defined by the US \
-#'          Census Bureau) aggregate functions
-
-
 #' @title aqs_monitors_by_cbsa
 #' @description \lifecycle{stable}
 #'  Returns a table of monitors at all sites with the provided
@@ -29,8 +25,8 @@
 #'                                                cbsa_code='16740'
 #'                                                    )
 #'                    }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
-#'            from the AQS API. A AQS_Data Mart_APIv2 object is a 2 item named
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object that is the return value
+#'            from the AQS API. A AQS_DataMart_APIv2 object is a 2 item named
 #'            list in which the first item ($Header) is a tibble of header
 #'            information from the AQS API and the second item ($Data) is a
 #'            tibble of the data returned.
@@ -92,7 +88,7 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
 #'           for all monitors matching cbsa_code for the given parameter. An
-#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           AQS_DataMart_APIv2 is a 2 item named list in which the first item
 #'           /(/$Header/) is a tibble of header information from the AQS API and
 #'           the second item /(/$Data/) is a tibble of the data returned.
 #' @examples # returns tibble which contains $NO_{2}$ data
@@ -153,8 +149,8 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code, duration 
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
-#'           summary data for the cbsa_code requested. A AQS_Data Mart_APIv2 is
+#' @return A tibble or an AQS_DataMart_APIv2 S3 object that containing annual
+#'           summary data for the cbsa_code requested. A AQS_DataMart_APIv2 is
 #'           a 2 item named list in which the first item ($Header) is a tibble
 #'           of header information from the AQS API and the second item ($Data)
 #'           is a tibble of the data returned.
@@ -194,7 +190,7 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 
 #' @title aqs_dailysummary_by_cbsa
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object containing daily summary data aggregated by cbsa
 #'                (Core Based Statistical Area) code.
 #' @note The AQS API only allows for a single year of dailysummary to be
@@ -215,9 +211,9 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single cbsa_code.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble of $NO_{2}$ daily summary
@@ -254,7 +250,7 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 
 #' @title aqs_quarterlysummary_by_cbsa
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object of quarterly summary data aggregated by stateFIPS.
 #' @note The AQS API only allows for a single year of quarterly summary to be
 #'         retrieved at a time. This function conveniently extracts date
@@ -268,7 +264,7 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'         API server. This operation has a linear run time of
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #'
-#'         Also Note that for quarterly data, only the year portion of the bdate
+#'         Also note that for quarterly data, only the year portion of the bdate
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_cbsa
@@ -278,9 +274,9 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a stateFIPS.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble of $NO_{2}$ quartyerly summary

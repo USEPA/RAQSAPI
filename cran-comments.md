@@ -16,6 +16,7 @@ output: md_document
  - resume using package:goodpractice, goodpractice is now maintained by ropensci
  - code formatting now done using the package:formatr package
  - Mocked unit tests using package:httptest2
+ - Many improvements to project documentation thanks to Maria Morresi of ASRC Federal
 
 # cran-comments for RAQSAPI
 ## RAQSAPI 2.0.5

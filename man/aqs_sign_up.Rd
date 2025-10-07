@@ -13,7 +13,7 @@ existing user's key. A verification email will be sent to
 the account specified. Follow the instructions
 in the verification e-mail before proceeding to use any other
 functionality of the AQS API. Register your credential
-with the @3 \code{\link[=aqs_credentials]{aqs_credentials()}} before using the
+with \code{\link[=aqs_credentials]{aqs_credentials()}} before using the
 other functions in this library.}
 }
 \value{
@@ -22,7 +22,7 @@ does not return meaningful data.
 }
 \description{
 \lifecycle{stable}
-Use this service to register as a new user or to reset an
+Use this function to register as a new user or to reset an
 existing user's key. A verification email will be sent to the
 email account specified. To reset a password: If the request is
 made with an email that is already registered, a new key will

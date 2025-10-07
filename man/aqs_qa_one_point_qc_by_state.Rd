@@ -19,10 +19,10 @@ aqs_qa_one_point_qc_by_state(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
@@ -51,7 +51,7 @@ the API server mostly used for debugging purposes in
 addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 qc data within a state. A AQS_Data_Mart_APIv2 object is a
 2 item named list in which the first item ($Header) is a tibble
 of header information from the AQS API and the second item
@@ -59,7 +59,7 @@ of header information from the AQS API and the second item
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3
+Returns a tibble or an AQS_DataMart_APIv2 S3
 object containing Quality assurance data - flow rate audit
 raw data aggregated by state FIPS.
 }
@@ -74,7 +74,7 @@ of years of data being requested increases so does the length of time
 that it will take to retrieve results. There is also a 5 second wait
 time inserted between successive API calls to prevent overloading the
 API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).
+$mathcal(n + 5 seconds)$$.
 }
 \examples{
 # returns a tibble of one point QC check

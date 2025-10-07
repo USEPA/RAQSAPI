@@ -14,10 +14,6 @@ a tibble that details the status of the AQS Data Mart API.
 returns a tibble that details the status of the
 AQS Data Mart API.
 }
-\section{list functions}{
-NA
-}
-
 \examples{
   # Check if the AQS API is up, running and accepting requests.
   \dontrun{ aqs_isAvailable() }

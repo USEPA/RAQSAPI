@@ -50,3 +50,6 @@ codemeta.json
 ^codecov\.yml$
 .editorconfig
 ./tests/testthat/testthat-problems.rds
+codeinventory.json
+.vscode/
+.devcontainer/

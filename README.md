@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--09--12-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202025--10--07-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 <!-- badges: end -->
 
@@ -109,7 +109,7 @@ associated with them. Most API functions have a parameter,
 return_header, which by default is set to FALSE. If the user decides to
 set return_header to TRUE, then that function will return a R
 AQS_DATAMART_APIv2 S3 object which is a two item named list.  
-The first item, (\$Header) in the AQS_DATAMART_APIv2 object is a
+The first item, (\$Header) in the AQS_DATAMART_APIv2 object, is a
 tibble<sup>2</sup> which contains the header information. The Header
 contains status information regarding the request (success/fail), any
 applicable error messages returned from the API, if any exist, the URL
@@ -179,14 +179,14 @@ library(RAQSAPI)
 ## Sign up and setting up user credentials with the RAQSAPI library
 
 If you have not already done so you will need to sign up with AQS Data
-Mart using aqs_sign_up function, [^2] this function takes one input,
-“email”, which is a R character object, that represents the email
+Mart using the aqs_sign_up function, [^2]. This function takes one
+input, “email”, which is a R character object, that represents the email
 address that you want to use as a user credential to the AQS Data Mart
 service. After a successful call to aqs_sign_up an email message will be
 sent to the email address provided with a new Data Mart key which will
 be used as a credential key to access the Data Mart API. The aqs_sign_up
-function can also be used to regenerate a new key for an existing user,
-to generate a new key simply call the aqs_sign_up function with the
+function can also be used to regenerate a new key for an existing user.
+To generate a new key simply call the aqs_sign_up function with the
 parameter “email” set to an existing account. A new key will be e-mailed
 to the account given.
 
@@ -200,7 +200,7 @@ in plain text and there are no attempts to encrypt Data Mart credentials
 as would be done for a username and password combination. The key that
 is supplied to use with Data Mart is not intended for authentication but
 only account monitoring. Each time RAQSAPI is loaded and before using
-any of it’s functions use the aqs_credentials [^3] function to enter in
+any of its functions use the aqs_credentials [^3] function to enter in
 the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
@@ -235,7 +235,7 @@ credential information into R scripts.
 To use the `keyring` package with `RAQSAPI` first install `keyring`:
 
 ``` r
-install.package("keyring")
+install.packages("keyring")
 ```
 
 Ensure that your system is supported by the `keyring` package before
@@ -265,7 +265,7 @@ and use the function key_get to return the user credential to RAQSAPI:
 ``` r
   library(RAQSAPI)  
   library(keyring)  
-  datamartAPI_user <- \<user email account\>  
+  datamartAPI_user <- "\<user email account\>  
   server <- "AQSDatamart"
 ```
 
@@ -287,7 +287,7 @@ credential information.
 To retrieve a list of all keyrings managed with the `keyring` package
 use the function: \> keyring::key_list()
 
-Refer the the[`keyring` package
+Refer to the[`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
@@ -308,7 +308,7 @@ call.</span></th>
 </table>
 
 RAQSAPI functions are named according to the service and filter
-variables that are available by the Data Mart API.[^5]
+variables that are available from the Data Mart API.[^5]
 
 ## Data Mart aggregate functions
 
@@ -379,10 +379,10 @@ will take to return the results.</span></th>
 </tbody>
 </table>
 
-Aggregate functions are named AQS_API\<service\>\_\<aggregation\>()
-where \<service\> is one of the 13 services listed above and
-\<aggregation\> is either “\_by_site”, “\_by_county”, “\_by_state”,
-“\_by_box”, “\_by_cbsa”, “\_by_ma”, or “\_by_pqao”.
+Aggregate functions are named AQS\_\<service\>\_\<aggregation\>() where
+\<service\> is one of the 13 services listed above and \<aggregation\>
+is either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
+“\_by_cbsa”, “\_by_ma”, or “\_by_pqao”.
 
 ### See the RAQSAPI vignette for more details
 
@@ -400,9 +400,9 @@ a port of RAQSAPI to the python 3 language has been released. Both
 projects aim to maintain feature parity with the other and there are no
 inherent advantages to using either project over the other, except for
 the ability of working within the programming language environment of
-choice. The API of both packages are very structured similarly, both
-packages export the same data, use the same credentials and data source
-to retrieve data.
+choice. The API of both packages are structured similarly, both packages
+export the same data and use the same credentials and data source to
+retrieve data.
 
 # Acknowledgements
 
@@ -411,7 +411,7 @@ Packages](https://www.r-bloggers.com/2021/04/march-2021-top-40-new-cran-packages
 
 The RAQSAPI package borrows upon functions and code provided by sources
 not mentioned in the DESCRIPTION file. Here we attempt to acknowledge
-those sources with them RAQSAPI would not be possible.
+those sources without them RAQSAPI would not be possible.
 
 - README badges are provided by R package `badgecreator`<sup>5</sup>.
 - The R package `usethis`<sup>6</sup> was used to generate GitHub
@@ -432,6 +432,13 @@ those sources with them RAQSAPI would not be possible.
   repository
 - R package `testthat`<sup>14</sup> is used for unit testing
   - unit tests are mocked using R package `httptest2`<sup>15</sup>
+
+  Additionally the project maintainers would like to thank the following
+  people: Cynthia Sthal, Maria Morresi both at the US Environmental
+  Protection Agency and Hayley Brittingham at Neptune and Company for
+  their assistance with improving the package documentation. This is a
+  huge undertaking, documentation is often overlooked and not given
+  proper attention to. We thank you for your efforts.
 
 # References
 
@@ -582,7 +589,7 @@ Helpers for Httr2*; 2025.
     requests independently.
 
 [^2]: Use “?aqs_sign_up” after the RAQSAPI library has been loaded to
-    see the full usage description of the aqs_sign_up function.
+    see the full usage description of the aqs_sign_up function
 
 [^3]: Use “?aqs_credentials” after the RAQSAPI library has been loaded
     to see the full usage description of the aqs_credentials function.

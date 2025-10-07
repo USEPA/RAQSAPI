@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2025-09-12T17:17:17-04:00",
+            "request_time": "2025-10-06T12:55:50-04:00",
             "url": "https://datamart/qaCollocatedAssessments/byCounty?email=<redacted>&key=<redacted>&param=88101&bdate=20150101&edate=20150131&state=01&county=089",
             "rows": 5
         }

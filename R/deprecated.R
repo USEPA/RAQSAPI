@@ -6,7 +6,7 @@
 #'
 #' @family deprecated RAQSAPI functions
 #' @importFrom rlang abort
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for single monitoring site for the
 #'           sitenum, countycode and stateFIPS requested for the time frame
 #'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
@@ -24,6 +24,7 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
   )
+  invisible()
 }
 
 
@@ -46,6 +47,7 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
   )
+  invisible()
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_state
@@ -67,6 +69,7 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
   )
+  invisible()
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_pqao
@@ -88,6 +91,7 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
   )
+  invisible()
 }
 
 
@@ -132,6 +136,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
+  invisible()
 }
 
 
@@ -176,6 +181,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
+  invisible()
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_MA
@@ -198,7 +204,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
-  return(NULL)
+  invisible()
 }
 
 
@@ -226,5 +232,5 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 aqs_ratelimit <- function(waittime = 5L)
   {
   Sys.sleep(waittime)
-  return(NULL)
+  invisible()
 }

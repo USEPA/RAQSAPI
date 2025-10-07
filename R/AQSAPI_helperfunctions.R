@@ -4,7 +4,7 @@ server <- "AQSDatamartAPI"
 
 #' @title checkaqsparams
 #' @description \lifecycle{experimental}
-#'              a helper function used to check the validity of parameters being
+#'              A helper function used to check the validity of parameters being
 #'                sent to the API
 #' @param  ... variables to be checked. Must be one of the parameters
 #'                         being exported RAQSAPI functions. All other
@@ -274,12 +274,12 @@ checkaqsparams <- function(...)
     c(i = callingfunction, errmessage) %>%
       abort
   }
-  return(NULL)
+  invisible()
 }
 
 
 #' @title format.terms.for.api
-#' @description a helper function that accepts a named list of
+#' @description A helper function that accepts a named list of
 #'                 parameters and returns a string vector of
 #'                 separator separated variables for use in
 #'                 sending parameters to AQS RESTFUL API calls,
@@ -316,7 +316,8 @@ format_variables_for_api <- function(x, separator = "&")
 
 
 #' @title format_multiple_params_for_api
-#' @description a helper function that accepts a list of parameters
+#' @backref R/RAQSAPI/listfunctions.R
+#' @description A helper function that accepts a list of parameters
 #'                 and returns a string vector of separator separated variables
 #'                 for use in sending parameters to AQS RESTFUL API calls, All
 #'                 NA and NULL values will be removed. This function is not
@@ -385,14 +386,14 @@ RAQSAPI_error_msg <- function(AQSresponse)
       and status message: {AQSresponse$status}
       Server error message: {AQSerr$Header[[1]]$error}"
   )
-
   return(msg)
   # nocov end
 }
 
 
 #' @title aqs
-#' @description a helper function sends a AQS RESTful request to the AQS API
+#' @backref R/RAQSAPI/listfunctions.R
+#' @description A helper function sends a AQS RESTful request to the AQS API
 #'                 and returns the result as a aqs data type. This helper
 #'                 function is used to abstract the call to AQS API away from
 #'                 functions that need it's result. This helper function is not
@@ -502,7 +503,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
 
 
 #' @title isValidEmail
-#' @description a helper function that checks the input string has the form
+#' @description A helper function that checks the input string has the form
 #'                \<character\>\<AT\>\<character\>.\<character\> with length
 #'                of at least 2 can be used to check if the input has the form
 #'                of a valid e-mail address.
@@ -526,7 +527,7 @@ isValidEmail <- function(email)
 
 
 #' @title aqs_services_by_site
-#' @description a helper function that abstracts the formatting of the inputs
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by site then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
@@ -536,9 +537,9 @@ isValidEmail <- function(email)
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zero) for the state being
@@ -550,7 +551,8 @@ isValidEmail <- function(email)
 #'                       list of available county codes for each state.
 #' @param sitenum a R character object which represents the 4 digit site number
 #'                 (with leading zeros) within the county and state being
-#'                 requested.
+#'                 requested. @seealso [aqs_sites_by_county()] for the list of
+#'                 availables site numbers for a given county and state.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of
@@ -597,14 +599,14 @@ isValidEmail <- function(email)
 #'          # then aqs_qa_annualperformanceeval_by_site() would call this helper
 #'          # function with the following inputs.
 #'           \dontrun{aqs_services_by_site(parameter = '44201',
-#'                                         bdate=as.Date('20170101',
+#'                                         bdate = as.Date('20170101',
 #'                                                       format = '%Y%m%d'),
-#'                                         edate=as.Date('20171231',
+#'                                         edate = as.Date('20171231',
 #'                                                       format = '%Y%m%d'),
-#'                                         stateFIPS= '01',
+#'                                         stateFIPS = '01',
 #'                                         countycode = '003',
 #'                                         sitenum = '0010',
-#'                                     service='qaAnnualPerformanceEvaluations')
+#'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
 aqs_services_by_site <- function(
@@ -627,7 +629,7 @@ aqs_services_by_site <- function(
 }
 
 #' @title aqs_services_by_county
-#' @description a helper function that abstracts the formatting of the inputs
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by county then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
@@ -636,9 +638,9 @@ aqs_services_by_site <- function(
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'                  selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'                  selection. Only data on or before this date will be
 #'                  returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
@@ -694,13 +696,13 @@ aqs_services_by_site <- function(
 #'          # then aqs_qa_annualperformanceeval_by_county() would call this
 #'          # helper function with the following inputs.
 #'           \dontrun{aqs_services_by_site(parameter = '44201',
-#'                                         bdate=as.Date('20170101',
+#'                                         bdate = as.Date('20170101',
 #'                                                       format = '%Y%m%d'),
-#'                                         edate=as.Date('20171231',
+#'                                         edate = as.Date('20171231',
 #'                                                       format = '%Y%m%d'),
-#'                                         stateFIPS= '01',
+#'                                         stateFIPS = '01',
 #'                                         countycode = '003',
-#'                                     service='qaAnnualPerformanceEvaluations')
+#'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
 aqs_services_by_county <- function(
@@ -724,7 +726,8 @@ aqs_services_by_county <- function(
 
 
 #' @title aqs_services_by_state
-#' @description a helper function that abstracts the formatting of the inputs
+#' @backref R/RAQSAPI/listfunctions.R
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by State then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
@@ -733,9 +736,9 @@ aqs_services_by_county <- function(
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                      FIPS code (with leading zero) for the state being
@@ -785,12 +788,12 @@ aqs_services_by_county <- function(
 #'          # then aqs_qa_annualperformanceeval_by_site() would call this helper
 #'          # function with the following inputs.
 #'           \dontrun{aqs_services_by_state(parameter = '44201',
-#'                                         bdate=as.Date('20170101',
+#'                                          bdate = as.Date('20170101',
 #'                                                       format = '%Y%m%d'),
-#'                                         edate=as.Date('20171231',
+#'                                          edate = as.Date('20171231',
 #'                                                       format = '%Y%m%d'),
-#'                                         stateFIPS= '01',
-#'                                     service='qaAnnualPerformanceEvaluations')
+#'                                          stateFIPS = '01',
+#'                                          service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
 aqs_services_by_state <- function(
@@ -814,7 +817,7 @@ aqs_services_by_state <- function(
 }
 
 #' @title aqs_services_by_box
-#' @description a helper function that abstracts the formatting of the inputs
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by a box formed by minimum/maximum
 #'                 latitude/longitude coordinates then calls the aqs
@@ -826,14 +829,14 @@ aqs_services_by_state <- function(
 #'                    pollutant related to the data being requested.
 #' @param bdate a R date object which represents that begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #' @param minlat a R character object that represents the minimum latitude of
-#'                   a geographic box.  Decimal latitude with north begin
+#'                   a geographic box.  Decimal latitude with north being
 #'                   positive. Only data north of this latitude will be
 #'                   returned.
 #' @param maxlat a R character object which represents the maximum latitude of
-#'                   a geographic box. Decimal latitude with north begin
+#'                   a geographic box. Decimal latitude with north being
 #'                   positive. Only data south of this latitude will be
 #'                   returned.
 #' @param minlon a R character object which represents the minimum longitude
@@ -892,15 +895,15 @@ aqs_services_by_state <- function(
 #'          # then aqs_annualsummary_by_box() would call this helper
 #'          # function with the following inputs.
 #'           \dontrun{aqs_services_by_box(parameter = '44201',
-#'                                      bdate = as.Date('20150501',
+#'                                        bdate = as.Date('20150501',
 #'                                                      format = '%Y%m%d'),
-#'                                      edate = as.Date('20170502',
+#'                                        edate = as.Date('20170502',
 #'                                                      format = '%Y%m%d'),
-#'                                      minlat = '33.3',
-#'                                      maxlat = '33.6',
-#'                                      minlon = '-87.0',
-#'                                      maxlon = '-86.7',
-#'                                     service = 'annualData')
+#'                                        minlat = '33.3',
+#'                                        maxlat = '33.6',
+#'                                        minlon = '-87.0',
+#'                                        maxlon = '-86.7',
+#'                                        service = 'annualData')
 #'                   }
 #' @keywords internal
 aqs_services_by_box <- function(
@@ -931,7 +934,7 @@ aqs_services_by_box <- function(
 }
 
 #' @title aqs_services_by_cbsa
-#' @description a helper function that abstracts the formatting of the inputs
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by cbsa then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
@@ -940,13 +943,14 @@ aqs_services_by_box <- function(
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #' @param cbsa_code a R character object which represents the 5 digit AQS Core
 #'                   Based Statistical Area code (the same as the census code,
-#'                   with leading zeros)
+#'                   with leading zeros) @seealso [aqs_cbsas()] for a list of all
+#'                   CBSA codes and names available,
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of
@@ -983,23 +987,23 @@ aqs_services_by_box <- function(
 #'           # summary $NO_{2}$ data the for Charlotte-Concord-Gastonia, NC
 #'           # cbsa on Janurary 01, 2017
 #'           #[aqs_annualsummary_by_cbsa(parameter = '42602',
-#'           #                            bdate = as.Date('20170101',
+#'           #                           bdate = as.Date('20170101',
 #'           #                                            format = '%Y%m%d'
 #'           #                                            ),
-#'           #                            edate = as.Date('20170101',
+#'           #                           edate = as.Date('20170101',
 #'           #                                            format = '%Y%m%d'
 #'           #                                           ),
-#'           #                            cbsa_code = '16740'
+#'           #                           cbsa_code = '16740'
 #'           #                            )]
 #'           # then aqs_annualsummary_by_cbsa() would call this helper
 #'           # function with the following inputs.
 #'           \dontrun{aqs_services_by_cbsa(parameter = '42602',
-#'                                      bdate = as.Date('20170101',
+#'                                         bdate = as.Date('20170101',
 #'                                                      format = '%Y%m%d'),
-#'                                      edate = as.Date('20170101',
+#'                                         edate = as.Date('20170101',
 #'                                                      format = '%Y%m%d'),
-#'                                      cbsa_code = '16740',
-#'                                      service = 'annualData')
+#'                                         cbsa_code = '16740',
+#'                                         service = 'annualData')
 #'                   }
 #' @keywords internal
 aqs_services_by_cbsa <- function(
@@ -1023,7 +1027,7 @@ aqs_services_by_cbsa <- function(
 
 #' @title aqs_services_by_pqao
 #'
-#' @description a helper function that abstracts the formatting of the inputs
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by Primary Quality Assurance Organization (pqao)
 #'                 then calls the aqs and returns the result.
@@ -1034,15 +1038,15 @@ aqs_services_by_cbsa <- function(
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
 #'
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'               selection. Only data on or after this date will be returned.
 #'
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #'
 #' @param pqao_code a R character object which represents the 4 digit AQS
 #'                   Primary Quality Assurance Organization code
-#'                   (with leading zeroes).
+#'                   (with leading zeroes). @See
 #'
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
@@ -1075,21 +1079,21 @@ aqs_services_by_cbsa <- function(
 #'          # the Alabamaba Department of Environmental Management
 #'          # (pqao_code 0013).
 #'          # [aqs_qa_annualperformanceeval_by_pqao(parameter = '44201',
-#'          #                                        bdate = as.Date('20170101',
+#'          #                                       bdate = as.Date('20170101',
 #'          #                                                format = '%Y%m%d'),
-#'          #                                        edate = as.Date('20171231',
+#'          #                                       edate = as.Date('20171231',
 #'          #                                                format = '%Y%m%d'),
-#'          #                                        pqao_code = '0013'
+#'          #                                       pqao_code = '0013'
 #'          #                                        )]
 #'          # then aqs_qa_annualperformanceeval_by_pqao() would call this helper
 #'          # function with the following inputs.
 #'           \dontrun{aqs_services_by_cbsa(parameter = '44201',
-#'                                      bdate = as.Date('20170101',
+#'                                         bdate = as.Date('20170101',
 #'                                                      format = '%Y%m%d'),
-#'                                      edate = as.Date('20171231',
+#'                                         edate = as.Date('20171231',
 #'                                                      format = '%Y%m%d'),
-#'                                      pqao_code = '0013',
-#'                                   service = 'qaAnnualPerformanceEvaluations')
+#'                                         pqao_code = '0013',
+#'                                         service = 'qaAnnualPerformanceEvaluations'
 #'                   }
 #' @keywords internal
 aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cbdate = NA_Date_, cedate = NA_Date_,
@@ -1110,7 +1114,7 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
 }
 
 #' @title aqs_services_by_MA
-#' @description a helper function that abstracts the formatting of the inputs
+#' @description A helper function that abstracts the formatting of the inputs
 #'                 for a call to aqs away from the calling function for
 #'                 aggregations by Monitoring Agency (MA)
 #'                 then calls the aqs and returns the result.
@@ -1120,9 +1124,9 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'                  selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'                  selection. Only data on or before this date will be
 #'                  returned.
 #' @param MA_code a R character object which represents the 4 digit AQS
@@ -1154,12 +1158,13 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
 #'          #  for ozone where the monitoring agency is the Alabama Department
 #'          #  of Environmental Management (MA_code 0013).
 #'          # [aqs_qa_annualperformanceeval_by_MA(parameter = '44201',
-#'          #                                    bdate = as.Date('20170101',
+#'          #                                     bdate = as.Date('20170101',
 #'          #                                                format = '%Y%m%d'),
-#'          #                                    edate = as.Date('20171231',
+#'          #                                     edate = as.Date('20171231',
 #'          #                                                format = '%Y%m%d'),
+#'          #                                     MA_code = '0013'
 #'          #
-#'          #                                   )]
+#'          #                                    )]
 #'          # then aqs_qa_annualperformanceeval_by_MA() would call this helper
 #'          # function with the following inputs.
 #'           \dontrun{aqs_services_by_MA(parameter = '44201',
@@ -1168,7 +1173,7 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
 #'                                       edate = as.Date('20171231',
 #'                                                       format = '%Y%m%d'),
 #'                                       MA_code = '0013',
-#'                                   service = 'qaAnnualPerformanceEvaluations')
+#'                                       service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
@@ -1278,9 +1283,9 @@ renameaqsvariables <- function(aqsobject, name1, name2)
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
+#' @param bdate a R date object which represents the begin date of the data
 #'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents that end date of the data
+#' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #' @param ... Other parameters returned to the calling function.
 #' @importFrom rlang abort

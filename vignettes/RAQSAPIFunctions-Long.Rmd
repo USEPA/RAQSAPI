@@ -151,14 +151,14 @@ see which parameters are used with each function.
                        updated. cbdate is used to filter data based on the
                        change date. Only data that changed on or after this date
                        will be returned. This is an optional variable which
-                       defaults to NA. 
+                       defaults to NA_Date. 
 
 * cedate (optional): a R date object which represents the "end date of last
                        change" that indicates when the data was last updated.
                        cedate is used to filter data based on the change date.
                        Only data that changed on or before this date will be
                        returned. This is an optional variable which defaults to
-                       NA.
+                       NA_Date.
 
 * countycode: a R character object which represents the 3 digit state FIPS code
                 for the county being requested (with leading zero(s)). Refer to
@@ -190,7 +190,7 @@ see which parameters are used with each function.
              Agency code (with leading zeroes).
              
 * maxlat: a R character object that represents the maximum latitude of a
-            geographic box. Decimal latitude with north begin positive. Only
+            geographic box. Decimal latitude with north being positive. Only
             data south of this latitude will be returned.
             
 * maxlon: a R character object which represents the maximum longitude of a
@@ -203,15 +203,15 @@ see which parameters are used with each function.
             Only data north of this latitude will be returned.
             
 * minlon: a R character object which represents the minimum longitude of a
-            geographic box. Decimal longitude with east begin positive. Only
+            geographic box. Decimal longitude with east being positive. Only
             data east of this longitude will be returned.
 
 * parameter: a R character list or single character object which represents
                the parameter code of the air pollutant related to the data
                being requested.
                
-* return_header If FALSE (default) only returns data requested. If TRUE
-                  returns a AQSAPI_v2 object which is a two item list that
+* return_header: If FALSE (default) only returns data requested. If TRUE
+                  returns an AQSAPI_v2 object which is a two item list that
                   contains header information returned from the API server
                   mostly used for debugging purposes in addition to the
                   data requested.
@@ -329,8 +329,8 @@ RAQSAPI::aqs_counties_by_state takes one parameter, stateFIPS, which is a two
 
 RAQSAPI::aqs_sites_by_county takes two parameters, stateFIPS, which is a
     two digit state FIPS code for the state being requested and county_code
-    which is a three digit county FIPS code for the county being requested,
-    both stateFIPS and county_code should be encoded as a R character object
+    which is a three digit county FIPS code for the county being requested.
+    Both stateFIPS and county_code should be encoded as a R character object
     This function returns a table of all air monitoring sites with the
     requested state and county FIPS code combination.
 
@@ -459,21 +459,21 @@ These functions retrieve aggregated data from the Data Mart API and are
                           Quality assurance data - collocated assessments.
                             Collocated assessments are pairs of samples
                             collected by different samplers at the same time and
-                            place. (These are "operational" samplers,
+                            place. (These are "operational" samplers;
                             assessments with independently calibrated samplers
                             are called "audits".). Functions using this service
                             contain *\*qa_collocated_assessments_by_*\* in the
                             function name.
 8. **Quality Assurance - Flow Rate Verifications**:
                         Quality assurance data - flow rate verifications.
-                          Several times per year, each PM monitor must have it's
+                          Several times per year, each PM monitor must have its
                           (fixed) flow rate verified by an operator taking a
                           measurement of the flow rate. Functions using this
                           service contain *\*qa_flowrateverification_by_*\* in
                           the function name. 
 9. **Quality Assurance - Flow Rate Audits**:
                       Quality assurance data - flow rate audits. At least twice
-                        year, each PM monitor must have it's flow rate
+                        per year, each PM monitor must have its flow rate
                         measurement audited by an expert using a different
                         method than is used for flow rate verifications.
                         Functions using this service contain

@@ -44,3 +44,5 @@ tests/testthat/local.R
 *.zip
 RAQSAPI.code-workspace
 ./tests/testthat/testthat-problems.rds
+.vscode/
+.devcontainer/

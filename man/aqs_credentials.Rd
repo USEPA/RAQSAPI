@@ -26,10 +26,6 @@ can be obtained through the use of the aqs_sign_up function,
 @seealso \code{\link[=aqs_sign_up]{aqs_sign_up()}} to sign up for AQS data mart
 credentials.
 }
-\section{RAQSAPI setup functions}{
-NA
-}
-
 \examples{
  #to authenticate an existing user the email address
  # 'John.Doe@myemail.com' and key = 'MyKey'

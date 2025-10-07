@@ -1,6 +1,3 @@
-#'  @section `AQS_DATAMART_APIv2` S3 class
-
-
 #' @title AQS_DATAMART_APIv2_validator
 #' @description Helper function to Validate data structure of data before
 #'              converting it into an AQS_DATAMART_APIv2 S3 object.

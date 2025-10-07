@@ -1,5 +1,3 @@
-#' @section by_county aggregate functions
-
 #' @title aqs_monitors_by_county
 #' @description \lifecycle{stable}
 #'  Returns a table of monitors and related metadata at sites with the
@@ -16,7 +14,7 @@
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of monitors from a
 #'           selected county
 #' @examples # returns an aqs_v2 S3 object containing all SO2 monitors in
 #'           #  Hawaii County, HI that were operating between May 01-02, 2015.
@@ -72,7 +70,7 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycod
 #'         will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @param return_header If FALSE (default) only returns data requested.
 #'                      If TRUE returns a AQSAPI_v2 object which is a two item
@@ -84,7 +82,7 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycod
 #' @importFrom purrr pmap
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
 #'           for all monitors matching stateFIPS and county_code for the given
-#'           parameter. An AQS_Data Mart_APIv2 is a 2 item named list in which
+#'           parameter. An AQS_DataMart_APIv2 is a 2 item named list in which
 #'           the first item /(/$Header/) is a tibble of header information from
 #'           the AQS API and the second item /(/$Data/) is a tibble of the data
 #'           returned.
@@ -139,7 +137,7 @@ aqs_sampledata_by_county <- function(
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -148,9 +146,9 @@ aqs_sampledata_by_county <- function(
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
+#' @return A tibble or an AQS_DataMart_APIv2 S3 object that containing annual
 #'           summary data for the countycode and stateFIPS requested.
-#'           A AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           A AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns an aqs S3 object with annual summary FRM/FEM
@@ -202,7 +200,7 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS, coun
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -264,7 +262,7 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS, countyco
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -273,9 +271,9 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS, countyco
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains daily
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single countycode
-#'           and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
+#'           and stateFIPS combination. An AQS_DataMart_APIv2 is a 2 item named
 #'           list in which the first item ($Header) is a tibble of header
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
@@ -324,7 +322,7 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS, count
 #'         does the length of time that it will take to retrieve results. There
 #'         is also a 5 second wait time inserted between successive API calls to
 #'         prevent overloading the API server. This operation has a linear run
-#'         time of /(Big O notation: O/(n + 5 seconds/)/).
+#'         time of $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -333,9 +331,9 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS, count
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance collocated assessment data for monitors within a county.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble with collocated assessment data
@@ -385,7 +383,7 @@ aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate, sta
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -394,9 +392,9 @@ aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate, sta
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance flow rate verification data for monitors within a county.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification data for
@@ -446,7 +444,7 @@ aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate, state
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -455,7 +453,7 @@ aqs_qa_flowrateverification_by_county <- function(parameter, bdate, edate, state
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate
 #'           audit data for the requested countycode and stateFIPS. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
 #'           first item ($Header) is a tibble of header information from the
@@ -493,7 +491,7 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS, c
 
 #' @title aqs_qa_one_point_qc_by_county_
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3 object
 #'                containing one point QC check data aggregated by county_code.
 #' @note The AQS API only allows for a single year of one point qc data to
 #'         be retrieved at a time. This function conveniently extracts date
@@ -505,7 +503,7 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS, c
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
@@ -514,7 +512,7 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS, c
 #'                        list that contains header information returned from
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 #'            qc data within a county. A AQS_Data_Mart_APIv2 object is a
 #'            2 item named list in which the first item ($Header) is a tibble
 #'            of header information from the AQS API and the second item
@@ -564,7 +562,7 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS, co
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
@@ -573,7 +571,7 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS, co
 #'                        the API server mostly used for debugging purposes in
 #'                        addition to the data requested.
 #' @inheritParams aqs_services_by_county
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance PEP audit data within a county. A AQS_Data_Mart_APIv2
 #'           object is a 2 item named list in which the first item ($Header) is
 #'           a tibble of header information from the AQS API and the second item
@@ -627,7 +625,7 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS, count
 #'         length of time that it will take to retrieve results. There is also a
 #'         5 second wait time inserted between successive API calls to prevent
 #'         overloading the API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @param return_header If FALSE (default) only returns data requested.
@@ -648,7 +646,7 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS, count
 #'                                                   countycode = '183'
 #'                                                   )
 #'                  }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of transaction sample
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of transaction sample
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
@@ -686,7 +684,7 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate, stateFIPS, 
 #'         will take to retrieve results. There is also a 5 second wait time
 #'         inserted between successive API calls to prevent overloading the API
 #'         server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @param return_header If FALSE (default) only returns data requested.
@@ -706,7 +704,7 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate, stateFIPS, 
 #'                                                   countycode = '003'
 #'                                                   )
 #'                  }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for single monitoring site for the
 #'           sitenum, countycode and stateFIPS requested for the time frame
 #'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
@@ -749,7 +747,7 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate, stat
 #'         will take to retrieve results. There is also a 5 second wait time
 #'         inserted between successive API calls to prevent overloading the API
 #'         server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_county
 #' @param return_header If FALSE (default) only returns data requested.
@@ -770,7 +768,7 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate, stat
 #'                                                   countycode = '003'
 #'                                                   )
 #'                  }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data in the RD format for a single
 #'           monitoring site for the countycode and stateFIPS requested
 #'           for the time frame between bdate and edate in the AQS. An
@@ -798,7 +796,7 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate, 
 
 #' @title aqs_quarterlysummary_by_county
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object of quarterly summary data aggregated by cbsa
 #'                (Core Based Statistical Area) code.
 #' @note The AQS API only allows for a single year of quarterly summary to be
@@ -811,9 +809,9 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate, 
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds)$.
 #'
-#'         Also Note that for quarterly data, only the year portion of the bdate
+#'         Also note that for quarterly data, only the year portion of the bdate
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
@@ -823,9 +821,9 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate, 
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a single countycode
-#'           and stateFIPS combination. An AQS_Data Mart_APIv2 is a 2 item named
+#'           and stateFIPS combination. An AQS_DataMart_APIv2 is a 2 item named
 #'           list in which the first item ($Header) is a tibble of header
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.

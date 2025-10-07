@@ -59,6 +59,18 @@
       "givenName": "Edward",
       "familyName": "Andrews",
       "email": "edward.s.andrews@wv.gov"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Cynthia",
+      "familyName": "Sthal",
+      "email": "Sthal.Cynthia@epa.gov"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Morresi",
+      "familyName": "Maria",
+      "email": "Morresi.Maria@epa.gov"
     }
   ],
   "maintainer": [

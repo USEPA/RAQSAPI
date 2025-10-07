@@ -27,16 +27,16 @@ pollutant related to the data being requested.}
 \item{bdate}{a R date object which represents that begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{minlat}{a R character object that represents the minimum latitude of
-a geographic box.  Decimal latitude with north begin
+a geographic box.  Decimal latitude with north being
 positive. Only data north of this latitude will be
 returned.}
 
 \item{maxlat}{a R character object which represents the maximum latitude of
-a geographic box. Decimal latitude with north begin
+a geographic box. Decimal latitude with north being
 positive. Only data south of this latitude will be
 returned.}
 
@@ -90,7 +90,7 @@ AQS API and the second item ($Data) is a tibble of the data
 returned.
 }
 \description{
-a helper function that abstracts the formatting of the inputs
+A helper function that abstracts the formatting of the inputs
 for a call to aqs away from the calling function for
 aggregations by a box formed by minimum/maximum
 latitude/longitude coordinates then calls the aqs
@@ -114,15 +114,15 @@ to be called directly from external functions.
          # then aqs_annualsummary_by_box() would call this helper
          # function with the following inputs.
           \dontrun{aqs_services_by_box(parameter = '44201',
-                                     bdate = as.Date('20150501',
+                                       bdate = as.Date('20150501',
                                                      format = '\%Y\%m\%d'),
-                                     edate = as.Date('20170502',
+                                       edate = as.Date('20170502',
                                                      format = '\%Y\%m\%d'),
-                                     minlat = '33.3',
-                                     maxlat = '33.6',
-                                     minlon = '-87.0',
-                                     maxlon = '-86.7',
-                                    service = 'annualData')
+                                       minlat = '33.3',
+                                       maxlat = '33.6',
+                                       minlon = '-87.0',
+                                       maxlon = '-86.7',
+                                       service = 'annualData')
                   }
 }
 \keyword{internal}

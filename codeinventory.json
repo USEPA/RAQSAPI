@@ -1,0 +1,20 @@
+{
+  "name": "RAQSAPI",
+  "description": "RAQSAPI: A R extension to retrieve EPA Air Quality System Data via the AQS Data Mart API",
+  "license": "https://github.com/USEPA/RAQSAPI/blob/main/LICENSE.md",
+  "openSourceProject": 1,
+  "governmentWideReuseProject": 1,
+  "tags": [
+    "environmental monitoring",
+    "Air Quality System datamart",
+    "United States Environmental Protection Agency",
+    "python package",
+    "air monitoring",
+    "Clean Air Act",
+    "ambient air quality",
+    "air quality data"
+
+  ],
+  "contact": {
+    "email": "mccrowey.clinton@epa.gov"
+  }

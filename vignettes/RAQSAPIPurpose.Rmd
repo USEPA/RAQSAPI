@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 ```
 # The Air Quality System (AQS)  
 The Clean Air act [@cleanairact] requires all federal, state, local and tribal
-air pollution control agencies monitor ambient air for concentrations of certain
+air pollution control agencies to monitor ambient air for concentrations of certain
 air pollutants. Codified in 40 CFR Part 58 are the statutory requirements for
 these monitoring programs, including monitoring network technical requirements,
 operating schedules, data certification, data submittal and archiving
@@ -121,9 +121,9 @@ to retrieve data.
 <!--   ambient air monitoring data. -->
   
 # Benefits of using RAQSAPI
-RAQSAPI package for R is a easy to use R package that allows
+RAQSAPI package for R is an easy to use R package that allows
 anyone using the R programming environment to retrieve data from AQS Data Mart
-Database vi the exposed API interface using a set of functions with consistent
+Database via the exposed API interface using a set of functions with consistent
 input variables, function names and output structure. RAQSAPI does not require
 installation of software or drivers external to R. The goal of RAQSAPI is to
 make a package which eases retrieving of ambient air monitoring data from AQS
@@ -135,7 +135,7 @@ Data Mart.
       data
   + Ambient air monitoring data retrieval for Design value calculations
   + To retrieve ambient air pollution concentrations
-    * Useful for retrieving ambient background air pollution data needed model
+    * Useful for retrieving ambient background air pollution data needed
         to perform air quality dispersion modeling
   + Data retrieval for automation of Network Analysis
   + Statistical analysis of ambient air data

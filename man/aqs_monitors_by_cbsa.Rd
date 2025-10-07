@@ -19,15 +19,16 @@ aqs_monitors_by_cbsa(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{cbsa_code}{a R character object which represents the 5 digit AQS Core
 Based Statistical Area code (the same as the census code,
-with leading zeros)}
+with leading zeros) @seealso \code{\link[=aqs_cbsas]{aqs_cbsas()}} for a list of all
+CBSA codes and names available,}
 
 \item{cbdate}{a R date object which represents a 'beginning
 date of last change' that indicates when the data was last
@@ -50,8 +51,8 @@ API server mostly used for debugging purposes in
 addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object that is the return value
-from the AQS API. A AQS_Data Mart_APIv2 object is a 2 item named
+a tibble or an AQS_DataMart_APIv2 S3 object that is the return value
+from the AQS API. A AQS_DataMart_APIv2 object is a 2 item named
 list in which the first item ($Header) is a tibble of header
 information from the AQS API and the second item ($Data) is a
 tibble of the data returned.
@@ -65,11 +66,6 @@ bdate - edate time frame.
 \note{
 All monitors that operated between the bdate and edate will be returned
 }
-\section{by_cbsa}{
- (By Core Based Statistical Area, as defined by the US \
-Census Bureau) aggregate functions
-}
-
 \examples{
 # returns a tibble of $NO_{2}$ monitors
           #  for Charlotte-Concord-Gastonia, NC cbsa that were operating

@@ -22,10 +22,10 @@ aqs_sampledata_by_site(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
@@ -40,7 +40,8 @@ list of available county codes for each state.}
 
 \item{sitenum}{a R character object which represents the 4 digit site number
 (with leading zeros) within the county and state being
-requested.}
+requested. @seealso \code{\link[=aqs_sites_by_county]{aqs_sites_by_county()}} for the list of
+availables site numbers for a given county and state.}
 
 \item{duration}{an optional R character string that represents the
 parameter duration code that limits returned data
@@ -78,7 +79,7 @@ information from each api call.}
 }
 \value{
 a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
-for a single site with the input parameter. An AQS_Data Mart_APIv2
+for a single site with the input parameter. An AQS_DataMart_APIv2
 is a 2 item named list in which the first item /(/$Header/) is a
 tibble of header information from the AQS API and the second item
 /(/$Data/) is a tibble of the data returned.
@@ -96,8 +97,8 @@ where the $Data portion contains data that contains
 sample air monitoring data at a site with the input
 parameter, stateFIPS and county_code provided for
 bdate - edate time frame. The $Header is a tibble of
-header information from the API call /(useful for
-debugging/).  Returns NULL is bdate > edate.
+header information from the API call (useful for
+debugging).  Returns NULL is bdate > edate.
 }
 \note{
 The AQS API only allows for a single year of sampledata to be retrieved
@@ -110,7 +111,7 @@ of data being requested increases so does the length of time that it
 will take to retrieve results. There is also a 5 second wait
 time inserted between successive API calls to prevent overloading the
 API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).
+$mathcal(n + 5 seconds)$.
 }
 \examples{
 #Returns a table of ozone monitoring data for the Millbrook School

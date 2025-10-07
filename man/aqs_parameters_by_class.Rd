@@ -21,7 +21,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object containing the
+a tibble or an AQS_DataMart_APIv2 S3 object containing the
 parameters associated with the class requested. NULL is returned
 for classes not found.
 }

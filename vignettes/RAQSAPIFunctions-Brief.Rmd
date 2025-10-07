@@ -20,7 +20,7 @@ call.</span> |
 | -- |
 
 RAQSAPI functions are named according to the service and filter variables that
-are available by the Data Mart
+are available from the Data Mart
 API.^[See (https://aqs.epa.gov/aqsweb/documents/data_api.html) for the full 
 details of the Data Mart API]
 
@@ -78,7 +78,7 @@ time to complete. The more years of data being requested the longer RAQSAPI \
 will take to return the results.</span> |
 | -- |
 
-Aggregate functions are named AQS_API\<service\>\_\<aggregation\>() where
+Aggregate functions are named AQS_\<service\>\_\<aggregation\>() where
 \<service\> is one of the 13 services listed above and \<aggregation\> is
 either "\_by\_site", "\_by\_county", "\_by\_state", "\_by\_box", "\_by\_cbsa",
 "\_by\_ma", or "\_by\_pqao".

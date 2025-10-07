@@ -1,5 +1,4 @@
 # nocov start
-#' @section Onload/onunload and on attach functions.
 #' @noRd
 #' @keywords internal # do not include deprecated function in
 #'                    # package reference manual
@@ -54,6 +53,6 @@
     sep = "\n"
   )
   packageStartupMessage(RAQSAPIstartupmessage)
-  return(NULL)
+  invisible()
 }
 # nocov end

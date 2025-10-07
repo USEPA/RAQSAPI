@@ -19,7 +19,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of all counties in the
+a tibble or an AQS_DataMart_APIv2 S3 object of all counties in the
 requested state.
 }
 \description{

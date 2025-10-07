@@ -1,5 +1,3 @@
-#' @section by_pqao aggregate functions
-
 #' @title aqs_qa_blanks_by_pqao
 #' @description \lifecycle{stable}
 #'        Returns a table of blank quality assurance data.
@@ -26,9 +24,9 @@
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance blank data for monitors within a pqao. An
-#'           AQS_Data Mart_APIv2 is a 2 item named list in which the first item
+#'           AQS_DataMart_APIv2 is a 2 item named list in which the first item
 #'           ($Header) is a tibble of header information from the AQS API and
 #'           the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns tibble of PM2.5 blank data in
@@ -85,9 +83,9 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = N
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance collocated assessment data for monitors within a pqao.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # Returns a tibble of collocated assessment
@@ -145,9 +143,9 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate, pqao_
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance flow rate verification data for monitors within a pqao.
-#'           An AQS_Data Mart_APIv2 is a 2 item named list in which the first
+#'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @examples # returns a tibble of flow rate verification
@@ -207,7 +205,7 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate, pqao_co
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing flow rate
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate
 #'           audit data  for the requested pqao_code. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
 #'           first item ($Header) is a tibble of header information from the
@@ -246,7 +244,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 
 #' @title aqs_qa_one_point_qc_by_pqao
 #' @description \lifecycle{stable}
-#'   Returns a tibble or an AQS_Data Mart_APIv2 S3 object containing Quality
+#'   Returns a tibble or an AQS_DataMart_APIv2 S3 object containing Quality
 #'     assurance data - collocated assessment raw data aggregated by Primary
 #'     Quality Assurance Organization (PQAO) code.
 #' @note The AQS API only allows for a single year of one point qc data to
@@ -267,7 +265,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing one point
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 #'            qc data within a pqao. A AQS_Data_Mart_APIv2 object is a
 #'            2 item named list in which the first item ($Header) is a tibble
 #'            of header information from the AQS API and the second item
@@ -326,7 +324,7 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbda
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object containing quality
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance PEP audit data for a Primary Quality Assurance
 #'           Organization. A AQS_Data_Mart_APIv2 object is a 2 item named list
 #'           in which the first item ($Header) is a tibble of header
@@ -400,7 +398,7 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate 
 #'                                                 pqao_code = '0013'
 #'                                                 )
 #'                  }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for single monitoring site for the
 #'           pqao_code requested for the time frame
 #'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
@@ -462,7 +460,7 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_c
 #'                                                 pqao_code = '0013'
 #'                                                )
 #'                  }
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of quality assurance
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of quality assurance
 #'           performance evaluation data. for single monitoring site for the
 #'           sitenum, countycode and stateFIPS requested for the time frame
 #'           between bdate and edate. An AQS_Data_Mart_APIv2 is a 2 item named
