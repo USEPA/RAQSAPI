@@ -107,17 +107,17 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'                    }
 #' @export
 aqs_sampledata_by_box <- function(parameter,
-                                  bdate,
-                                  edate,
-                                  minlat,
-                                  maxlat,
-                                  minlon,
-                                  maxlon,
-                                  duration = NA_character_,
-                                  cbdate = NA_Date_,
-                                  cedate = NA_Date_,
-                                  return_header = FALSE
-                                 )
+  bdate,
+  edate,
+  minlat,
+  maxlat,
+  minlon,
+  maxlon,
+  duration = NA_character_,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  return_header = FALSE
+)
 {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
 
@@ -186,15 +186,15 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, mi
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               minlat = minlat,
-                               maxlat = maxlat,
-                               minlon = minlon,
-                               maxlon = maxlon,
-                               service = "annualData",
-                               cbdate = cbdate,
-                               cedate = cedate
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    service = "annualData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)

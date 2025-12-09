@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:43:37-05:00",
-            "url": "https://datamart/qaFlowRateAudits/byState?email=<redacted>&key=<redacted>&param=88101&bdate=20180101&edate=20180131&state=01",
+            "url": "https://datamart/qaFlowRateAudits/byState?param=88101&bdate=20180101&edate=20180131&state=01",
             "rows": 3
         }
     ],

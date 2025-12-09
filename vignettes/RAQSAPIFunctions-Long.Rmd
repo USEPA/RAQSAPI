@@ -108,7 +108,7 @@ RAQSAPI_functions <- c(
   "aqs_transactionsample_by_site",
   "aqs_transactionsample_by_state",
   "aqs_transactionsample_by_MA"
-    )
+)
 
 RAQSAPI_functions %>%
   cat(sep = "  \n")
@@ -230,10 +230,10 @@ RAQSAPI_functions %>%
   The functions included in this family of functions are:
   
 ```{r SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA}
-  signupandcredentials <- paste(".sign_up", ".credentials", sep = "|")
+signupandcredentials <- paste(".sign_up", ".credentials", sep = "|")
 
-  str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
-    cat(sep = "  \n")
+str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
+  cat(sep = "  \n")
 ```
 These functions are used to sign up with Data Mart and to store credential
 information to use with RAQSAPI. The RAQSAPI::aqs_signup function takes
@@ -281,14 +281,14 @@ change history to the API.
 ## Data Mart API list functions
 ```{r LISTFUNCTIONS, echo = FALSE, comment = NA}
 listfunctions <- paste(".states",
-                       ".counties_by_state",
-                       ".sites_by_county",
-                       ".cbsas",
-                       ".classes",
-                       ".pqaos",
-                       ".mas",
-                       sep = "|"
-                         )
+  ".counties_by_state",
+  ".sites_by_county",
+  ".cbsas",
+  ".classes",
+  ".pqaos",
+  ".mas",
+  sep = "|"
+)
 
 str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
   cat(sep = "  \n")

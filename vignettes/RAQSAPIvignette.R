@@ -115,14 +115,14 @@ str_subset(string = RAQSAPI_functions, pattern = metadatafunctions) %>%
 
 ## ----LISTFUNCTIONS, echo = FALSE, comment = NA-----------------------------------------------------------------------------
 listfunctions <- paste(".states",
-                       ".counties_by_state",
-                       ".sites_by_county",
-                       ".cbsas",
-                       ".classes",
-                       ".pqaos",
-                       ".mas",
-                       sep = "|"
-                        )
+  ".counties_by_state",
+  ".sites_by_county",
+  ".cbsas",
+  ".classes",
+  ".pqaos",
+  ".mas",
+  sep = "|"
+)
 
 str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
   cat(sep = "  \n")

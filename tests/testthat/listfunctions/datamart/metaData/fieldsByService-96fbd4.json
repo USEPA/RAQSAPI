@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:44:09-05:00",
-            "url": "https://datamart/metaData/fieldsByService?email=<redacted>&key=<redacted>&service=list",
+            "url": "https://datamart/metaData/fieldsByService?service=list",
             "rows": 2
         }
     ],

@@ -15,91 +15,91 @@ if (file.exists("local.R"))
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
 
-with_mock_dir("bypqao",{
-test_that(
-  "bypqao functions", {
+with_mock_dir("bypqao", {
+  test_that(
+    "bypqao functions", {
 
-    aqs_qa_blanks_by_pqao(
-      parameter = "88101",
-      bdate = as.Date("20180101", format = "%Y%m%d"),
-      edate = as.Date("20180131", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_blanks_by_pqao(
+        parameter = "88101",
+        bdate = as.Date("20180101", format = "%Y%m%d"),
+        edate = as.Date("20180131", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_collocated_assessments_by_pqao(
-      parameter = "88101",
-      bdate = as.Date("20130101", format = "%Y%m%d"),
-      edate = as.Date("20130131", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_collocated_assessments_by_pqao(
+        parameter = "88101",
+        bdate = as.Date("20130101", format = "%Y%m%d"),
+        edate = as.Date("20130131", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_flowrateaudit_by_pqao(
-      parameter = "88101",
-      bdate = as.Date("20180101", format = "%Y%m%d"),
-      edate = as.Date("20180131", format = "%Y%m%d"),
-      pqao_code = "0550",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_flowrateaudit_by_pqao(
+        parameter = "88101",
+        bdate = as.Date("20180101", format = "%Y%m%d"),
+        edate = as.Date("20180131", format = "%Y%m%d"),
+        pqao_code = "0550",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_flowrateverification_by_pqao(
-      parameter = "88101",
-      bdate = as.Date("20180101", format = "%Y%m%d"),
-      edate = as.Date("20180131", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_flowrateverification_by_pqao(
+        parameter = "88101",
+        bdate = as.Date("20180101", format = "%Y%m%d"),
+        edate = as.Date("20180131", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_one_point_qc_by_pqao(
-      parameter = "44201",
-      bdate = as.Date("20180101", format = "%Y%m%d"),
-      edate = as.Date("20180131", format = "%Y%m%d"),
-      pqao_code = "0660",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_one_point_qc_by_pqao(
+        parameter = "44201",
+        bdate = as.Date("20180101", format = "%Y%m%d"),
+        edate = as.Date("20180131", format = "%Y%m%d"),
+        pqao_code = "0660",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_pep_audit_by_pqao(
-      parameter = "88101",
-      bdate = as.Date("20170601", format = "%Y%m%d"),
-      edate = as.Date("20170630", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_pep_audit_by_pqao(
+        parameter = "88101",
+        bdate = as.Date("20170601", format = "%Y%m%d"),
+        edate = as.Date("20170630", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_collocated_assessments_by_pqao(
-      parameter = "88101",
-      bdate = as.Date("20130101", format = "%Y%m%d"),
-      edate = as.Date("20130131", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_collocated_assessments_by_pqao(
+        parameter = "88101",
+        bdate = as.Date("20130101", format = "%Y%m%d"),
+        edate = as.Date("20130131", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_annualperformanceeval_by_pqao(
-      parameter = "44201",
-      bdate = as.Date("20170101", format = "%Y%m%d"),
-      edate = as.Date("20171231", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_annualperformanceeval_by_pqao(
+        parameter = "44201",
+        bdate = as.Date("20170101", format = "%Y%m%d"),
+        edate = as.Date("20171231", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-    aqs_qa_annualperformanceevaltransaction_by_pqao(
-      parameter = "44201",
-      bdate = as.Date("20170101", format = "%Y%m%d"),
-      edate = as.Date("20171231", format = "%Y%m%d"),
-      pqao_code = "0013",
-      return_header = TRUE
-    ) %>%
-      expect_no_error()
+      aqs_qa_annualperformanceevaltransaction_by_pqao(
+        parameter = "44201",
+        bdate = as.Date("20170101", format = "%Y%m%d"),
+        edate = as.Date("20171231", format = "%Y%m%d"),
+        pqao_code = "0013",
+        return_header = TRUE
+      ) %>%
+        expect_no_error()
 
-  }
-)
+    }
+  )
 })

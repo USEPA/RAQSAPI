@@ -39,7 +39,7 @@ checkaqsparams <- function(...)
   if ("parameter" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$parameter) != 5 || !is.character(ellipsis_args$parameter) ||
-          !str_detect(ellipsis_args$parameter, "^[:digit:]+$"))
+          !stringr::str_detect(ellipsis_args$parameter, "^[:digit:]+$"))
     { error <- TRUE
       errmessage %<>%
         c(x = "parameter must be a 5 digit number (represented as a character string)")
@@ -133,7 +133,7 @@ checkaqsparams <- function(...)
   }
   if ("bdate" %in% names(ellipsis_args))
   {
-    if (!is.Date(ellipsis_args$bdate))
+    if (!lubridate::is.Date(ellipsis_args$bdate))
     {
       error <- TRUE
       errmessage %<>%
@@ -142,7 +142,7 @@ checkaqsparams <- function(...)
   }
   if ("edate" %in% names(ellipsis_args))
   {
-    if (!is.Date(ellipsis_args$edate))
+    if (!lubridate::is.Date(ellipsis_args$edate))
     {
       error <- TRUE
       errmessage %<>%
@@ -151,7 +151,7 @@ checkaqsparams <- function(...)
   }
   if ("cbdate" %in% names(ellipsis_args))
   {
-    if (!is.Date(ellipsis_args$cbdate) && !is.null(ellipsis_args$cbdate))
+    if (!lubridate::is.Date(ellipsis_args$cbdate) && !is.null(ellipsis_args$cbdate))
     {
       error <- TRUE
       errmessage %<>%
@@ -160,7 +160,7 @@ checkaqsparams <- function(...)
   }
   if ("cedate" %in% names(ellipsis_args))
   {
-    if (!is.Date(ellipsis_args$cedate) &&
+    if (!lubridate::is.Date(ellipsis_args$cedate) &&
           !is.null(ellipsis_args$cedate))
     {
       error <- TRUE
@@ -240,7 +240,7 @@ checkaqsparams <- function(...)
       callingfunction <- "Unknown Environment"
     callingfunction <- glue(" in: {callingfunction}")
     c(i = callingfunction, errmessage) %>%
-      abort
+      rlang::abort
   }
   return(invisible())
 }
@@ -274,6 +274,14 @@ format_variables_for_api <- function(x, separator = "&")
   # don't forget to remove NAs
   x[vapply(x, is.na, FUN.VALUE = NA)] <- NULL
   x <- purrr::map_chr(x, as.character)
+  # Filter out zero-length values before building the query string
+  # This prevents empty parameters like "email=" from being included
+  x <- x[nzchar(x)]
+
+  if (length(x) == 0) {
+    return("")
+  }
+
   stringr::str_c(
     names(x),
     "=", x, collapse = separator
@@ -340,8 +348,8 @@ format_multiple_params_for_api <- function(x, separator = ",")
 RAQSAPI_error_msg <- function(AQSresponse)
 {
   # nocov start
-  AQSerr <- last_response() %>%
-    resp_body_json()
+  AQSerr <- httr2::last_response() %>%
+    httr2::resp_body_json()
 
   # debug
   msg <- glue(
@@ -409,13 +417,13 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   {
     stop("please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
-        )
+    )
   }
-  if (gtools::invalid(user) | gtools::invalid(user_key))
+  if (gtools::invalid(user) || gtools::invalid(user_key))
   {
     stop("please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
-        )
+    )
   }
   # AQS DataMart API does not accept headers so user_agent not working user_agent <- glue('User:{user} via
   # RAQSAPI-{packageVersion('RAQSAPI')} library for R')
@@ -433,10 +441,10 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
       )
     )
   AQSrequest <- AQSpath %>%
-    request() %>%
-    req_throttle(rate = 10 / 60, realm = "RAQSAPI") %>%
-    req_retry(max_tries = 5, max_seconds = 30, backoff = ~10) %>%
-    req_error(body = RAQSAPI_error_msg)
+    httr2::request() %>%
+    httr2::req_throttle(rate = 10 / 60, realm = "RAQSAPI") %>%
+    httr2::req_retry(max_tries = 5, max_seconds = 30, backoff = ~10) %>%
+    httr2::req_error(body = RAQSAPI_error_msg)
   # AQS DataMart API does not accept headers so user_agent not working %>% req_user_agent(string = user_agent)
 
   AQSresponse <- AQSrequest %>%
@@ -499,6 +507,7 @@ isValidEmail <- function(email)
 #'                 directly from external functions.
 #' @family Aggregate _by_site functions AQS_services
 #' @importFrom magrittr `%>%`
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -575,17 +584,17 @@ isValidEmail <- function(email)
 #'                   }
 #' @keywords internal
 aqs_services_by_site <- function(parameter,
-                                 bdate,
-                                 edate,
-                                 stateFIPS,
-                                 countycode,
-                                 sitenum,
-                                 duration = NA_character_,
-                                 service,
-                                 cbdate = NA_Date_,
-                                 cedate = NA_Date_,
-                                 AQS_domain = "aqs.epa.gov"
-                                )
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  sitenum,
+  duration = NA_character_,
+  service,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
+)
 {
   aqs(
     service = service, filter = "bySite", user = getOption("aqs_username"),
@@ -608,6 +617,7 @@ aqs_services_by_site <- function(parameter,
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
 #' @importFrom magrittr `%>%`
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -679,16 +689,16 @@ aqs_services_by_site <- function(parameter,
 #'                   }
 #' @keywords internal
 aqs_services_by_county <- function(parameter,
-                                   bdate,
-                                   edate,
-                                   stateFIPS,
-                                   countycode,
-                                   service,
-                                   duration = NA_character_,
-                                   cbdate = NA_Date_,
-                                   cedate = NA_Date_,
-                                   AQS_domain = "aqs.epa.gov"
-                                  )
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  service,
+  duration = NA_character_,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
+)
 {
   aqs(
     service = service, filter = "byCounty", user = getOption("aqs_username"),
@@ -777,15 +787,15 @@ aqs_services_by_county <- function(parameter,
 #'                   }
 #' @keywords internal
 aqs_services_by_state <- function(parameter,
-                                  bdate,
-                                  edate,
-                                  stateFIPS,
-                                  duration = NA_character_,
-                                  service,
-                                  cbdate = NA_Date_,
-                                  cedate = NA_Date_,
-                                  AQS_domain = "aqs.epa.gov"
-                                 )
+  bdate,
+  edate,
+  stateFIPS,
+  duration = NA_character_,
+  service,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
+)
 {
 
   aqs(
@@ -810,6 +820,7 @@ aqs_services_by_state <- function(parameter,
 #'                 and returns the result. This helper function is not meant
 #'                 to be called directly from external functions.
 #' @importFrom magrittr `%>%`
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -893,18 +904,18 @@ aqs_services_by_state <- function(parameter,
 #'                   }
 #' @keywords internal
 aqs_services_by_box <- function(parameter,
-                                bdate,
-                                edate,
-                                minlat,
-                                maxlat,
-                                minlon,
-                                maxlon,
-                                duration = NA_character_,
-                                service,
-                                cbdate = NA_Date_,
-                                cedate = NA_Date_,
-                                AQS_domain = "aqs.epa.gov"
-                               )
+  bdate,
+  edate,
+  minlat,
+  maxlat,
+  minlon,
+  maxlon,
+  duration = NA_character_,
+  service,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
+)
 {
   aqs(
     service = service,
@@ -935,6 +946,7 @@ aqs_services_by_box <- function(parameter,
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
 #' @importFrom magrittr `%>%`
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -1002,15 +1014,15 @@ aqs_services_by_box <- function(parameter,
 #'                   }
 #' @keywords internal
 aqs_services_by_cbsa <- function(parameter,
-                                 bdate,
-                                 edate,
-                                 cbsa_code,
-                                 duration = NA_character_,
-                                 service,
-                                 cbdate = NA_Date_,
-                                 cedate = NA_Date_,
-                                 AQS_domain = "aqs.epa.gov"
-                                 )
+  bdate,
+  edate,
+  cbsa_code,
+  duration = NA_character_,
+  service,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  AQS_domain = "aqs.epa.gov"
+)
 {
   aqs(
     service = service, filter = "byCBSA", user = getOption("aqs_username"),
@@ -1035,6 +1047,7 @@ aqs_services_by_cbsa <- function(parameter,
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
 #' @importFrom magrittr `%>%`
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -1329,12 +1342,12 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
         edate
       )
     } else
-    {
-      edatevector <- seq.Date(
-        from = ymd(glue("{year(bdate)}-12-31")),
-        to = edate, by = "year"
-      )
-    }
+      {
+        edatevector <- seq.Date(
+          from = ymd(glue("{year(bdate)}-12-31")),
+          to = edate, by = "year"
+        )
+      }
   }
   if (length(bdatevector) > length(edatevector))
   {

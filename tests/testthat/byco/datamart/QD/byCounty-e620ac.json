@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:37:54-05:00",
-            "url": "https://datamart/QD/byCounty?email=<redacted>&key=<redacted>&param=88101&bdate=20170101&edate=20170228&state=37&county=183",
+            "url": "https://datamart/QD/byCounty?param=88101&bdate=20170101&edate=20170228&state=37&county=183",
             "rows": 110
         }
     ],

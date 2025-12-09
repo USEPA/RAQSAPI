@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:42:10-05:00",
-            "url": "https://datamart/annualData/byState?email=<redacted>&key=<redacted>&param=45201&bdate=19990101&edate=19990515&state=37",
+            "url": "https://datamart/annualData/byState?param=45201&bdate=19990101&edate=19990515&state=37",
             "rows": 7
         }
     ],

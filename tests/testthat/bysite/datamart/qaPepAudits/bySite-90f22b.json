@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:41:28-05:00",
-            "url": "https://datamart/qaPepAudits/bySite?email=<redacted>&key=<redacted>&param=88101&bdate=20190101&edate=20191231&state=01&county=089&site=0014",
+            "url": "https://datamart/qaPepAudits/bySite?param=88101&bdate=20190101&edate=20191231&state=01&county=089&site=0014",
             "rows": 5
         }
     ],

@@ -299,30 +299,30 @@ aqs_qa_pep_audit_by_site <- function(parameter, bdate, edate, stateFIPS, countyc
 #'          }
 #' @export
 aqs_sampledata_by_site <- function(parameter,
-                                   bdate,
-                                   edate,
-                                   stateFIPS,
-                                   countycode,
-                                   sitenum,
-                                   duration = NA_character_,
-                                   cbdate = NA_Date_,
-                                   cedate = NA_Date_,
-                                   return_header = FALSE
-                                  )
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  sitenum,
+  duration = NA_character_,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  return_header = FALSE
+)
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, duration, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               stateFIPS = stateFIPS,
-                               countycode = countycode,
-                               sitenum = sitenum,
-                               duration = duration,
-                               service = "sampleData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                              )
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    sitenum = sitenum,
+    duration = duration,
+    service = "sampleData",
+    cbdate = cbdate,
+    cedate = cedate
+  )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_site)
   if (!return_header)

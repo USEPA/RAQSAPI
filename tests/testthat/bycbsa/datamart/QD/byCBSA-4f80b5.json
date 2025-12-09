@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:36:18-05:00",
-            "url": "https://datamart/QD/byCBSA?email=<redacted>&key=<redacted>&param=42602&bdate=20170101&edate=20171231&cbsa=16740",
+            "url": "https://datamart/QD/byCBSA?param=42602&bdate=20170101&edate=20171231&cbsa=16740",
             "rows": 16
         }
     ],

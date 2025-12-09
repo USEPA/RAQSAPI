@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:39:40-05:00",
-            "url": "https://datamart/transactionsSample/byMA?email=<redacted>&key=<redacted>&param=44201&bdate=20150515&edate=20150515&agency=0972",
+            "url": "https://datamart/transactionsSample/byMA?param=44201&bdate=20150515&edate=20150515&agency=0972",
             "rows": 663
         }
     ],

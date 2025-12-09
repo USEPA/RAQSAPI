@@ -96,12 +96,12 @@ RAQSAPI_functions <- c(
 RAQSAPI_functions %>%
   cat(sep = "  \n")
   ```
-  
+
   RAQSAPI functions are named according to the service and filter variables that
   are available by the AQS Data Mart API.^[See
   (https://aqs.epa.gov/aqsweb/documents/data_api.html) for full details of the
   Data Mart API]
-  
+
   # Variable descriptions and usage.
   These are all the available variables that can be used with various functions
   exported from the RAQSAPI library listed alphabetically. Not all of these
@@ -109,35 +109,35 @@ RAQSAPI_functions %>%
   required. See the
   [RAQSAPI functional families](#RAQSAPI functional families) section to
   see which parameters are used with each function.
-  
+
   * AQSobject: a R S3 object that is returned from RAQSAPI aggregate functions
   where return_header is TRUE. An AQS_Data_Mart_APIv2 is a 2 item
   named list in which the first item (\$Header) is a tibble of
   header information from the AQS API and the second item (\$Data)
   is a tibble of the data returned.
-  
+
   * bdate: a R date object which represents the begin date of the data selection.
   Only data on or after this date will be returned.
-  
+
   * cbdate (optional): a R date object which represents the "beginning date of
   last change" that indicates when the data was last
   updated. cbdate is used to filter data based on the
   change date. Only data that changed on or after this date
   will be returned. This is an optional variable which
-  defaults to NA_Date. 
-  
+  defaults to NA_Date.
+
   * cedate (optional): a R date object which represents the "end date of last
   change" that indicates when the data was last updated.
   cedate is used to filter data based on the change date.
   Only data that changed on or before this date will be
   returned. This is an optional variable which defaults to
   NA_Date.
-  
+
   * countycode: a R character object which represents the 3 digit state FIPS code
   for the county being requested (with leading zero(s)). Refer to
   [aqs_counties_by_state()] for a table of available county
   codes for each state.
-  
+
   * duration (optional): a R character string that represents the parameter
   duration code that limits returned data to a specific
   sample duration. The default value of NA_character_
@@ -148,77 +148,77 @@ RAQSAPI_functions %>%
   Pb 3 month rolling averages. Refer to
   [aqs_sampledurations()] for a table of all available
   duration codes.
-  
+
   * edate: a R date object which represents the end date of the data selection.
   Only data on or before this date will be returned.
-  
+
   * email: a R character object which represents the email account that will be
   used to register with the AQS API or change an existing users key. A
   verification email will be sent to the account specified.
-  
+
   * key: the key used in conjunction with the username given to connect to AQS
   Data Mart.
-  
+
   * MA_code: a R character object which represents the 4 digit AQS Monitoring
   Agency code (with leading zeroes).
-  
+
   * maxlat: a R character object that represents the maximum latitude of a
   geographic box. Decimal latitude with north being positive. Only
   data south of this latitude will be returned.
-  
+
   * maxlon: a R character object which represents the maximum longitude of a
   geographic box. Decimal longitude with east being positive. Only
   data west of this longitude will be returned. Note that -80 is less
   than -70.
-  
+
   * minlat: a R character object which represents the minimum latitude of a
   geographic box. Decimal latitude with north being positive.
   Only data north of this latitude will be returned.
-  
+
   * minlon: a R character object which represents the minimum longitude of a
   geographic box. Decimal longitude with east being positive. Only
   data east of this longitude will be returned.
-  
+
   * parameter: a R character list or single character object which represents
   the parameter code of the air pollutant related to the data
   being requested.
-  
+
   * return_header: If FALSE (default) only returns data requested. If TRUE
   returns an AQSAPI_v2 object which is a two item list that
   contains header information returned from the API server
   mostly used for debugging purposes in addition to the
   data requested.
-  
+
   * service a string which represents the services provided by the AQS
   API. For a list of available services refer to
   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
   for the complete listing of services available through the
   Datamart API
-  
+
   * sitenum: a R character object which represents the 4 digit site number (with
   leading zeros) within the county and state being requested.
-  
+
   * stateFIPS: a R character object which represents the 2 digit state FIPS code
   (with leading zero) for the state being requested.
-  
+
   * pqao_code: a R character object which represents the 4 digit AQS Primary
   Quality Assurance Organization code (with leading zeroes).
-  
+
   * username: a R character object which represents the email account that will
   be used to connect to the AQS API.
-  
+
   <a name="RAQSAPI families of functions"> </a>
-  
+
   # RAQSAPI functional families
   ## Sign up and credentials
   The functions included in this family of functions are:
-  
-  ```{r SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA}
+
+```{r SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA}
 signupandcredentials <- paste(".sign_up", ".credentials", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
   cat(sep = "  \n")
-
+```
 
 ## ----METADATAFUNCTIONS, echo = FALSE, comment = NA------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 metadatafunctions <- paste(".available",
@@ -298,4 +298,3 @@ misc_functions <- paste("aqs_removeheader", sep = "|")
 
 str_subset(string = RAQSAPI_functions, pattern = misc_functions) %>%
   cat(sep = "  \n")
-

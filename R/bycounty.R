@@ -99,15 +99,15 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycod
 #'          }
 #' @export
 aqs_sampledata_by_county <- function(parameter,
-                                     bdate,
-                                     edate,
-                                     stateFIPS,
-                                     countycode,
-                                     duration = NA_character_,
-                                     cbdate = NA_Date_,
-                                     cedate = NA_Date_,
-                                     return_header = FALSE
-                                     )
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  duration = NA_character_,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  return_header = FALSE
+)
 {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, duration, cbdate, cedate, return_header)
 

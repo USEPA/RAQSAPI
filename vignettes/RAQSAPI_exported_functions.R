@@ -5,16 +5,16 @@ library(tibble)
 library(stringr)
 
 
-#` @title RAQSAPI_functions
-#` @description Internal function that creates a table and list of exported function from this package`
-#` @importFrom dplyr case_when filter mutate
-#` @importFrom stringr str_detect str_remove_all
-#` @importFrom magrittr `%>%``
-#` @importFrom tibble tibble
-#` @importFrom rlang .data
-#` @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
-#` @NoRd
-#` @keywords internal
+#' @title RAQSAPI_functions
+#' @description Internal function that creates a table and list of exported function from this package`
+#' @importFrom dplyr case_when filter mutate
+#' @importFrom stringr str_detect str_remove_all
+#' @importFrom magrittr `%>%``
+#' @importFrom tibble tibble
+#' @importFrom rlang .data
+#' @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
+#' @NoRd
+#' @keywords internal
 RAQSAPI_functions <- function()
 {
   setupfunctions <- list("aqs_credentials", "aqs_sign_up")
@@ -28,12 +28,17 @@ RAQSAPI_functions <- function()
     "aqs_services_by_cbsa", "aqs_services_by_box"
   )
 
-  #`  @title functiontype
-  #` @importFrom stringr str_detect
-  #` @importFrom rlang .data
-  #` @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
-  #` @NoRd
-  #` @keywords internal
+  #' @title functiontype
+  #' @description internal helper function that classifies RAQSAPI functions into function types.
+  #' @importFrom stringr str_detect str_remove_all
+  #' @importFrom rlang .data
+  #' @importFrom magrittr `%>%`
+  #' @importFrom dplyr case_when filter mutate
+  #' @param functionname A character string representing the name of the RAQSAPI function.
+  #' @return A character string indicating the type of RAQSAPI function.
+  #' @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
+  #' @NoRd
+  #' @keywords internal
   functiontype <- function(functionname)
   {
     case_when(
@@ -46,7 +51,8 @@ RAQSAPI_functions <- function()
         "RAQSAPI aggregation by lat/long bounding box aggregate functions", str_detect(string = functionname,
                                                                                        pattern = "by_MA") ~
         "RAQSAPI aggregation by Monitoring Agency aggregate functions", .default = "misc"
-    )
+    ) %>%
+      return()
   }
 
   functiontable <- tibble(
@@ -60,8 +66,8 @@ RAQSAPI_functions <- function()
     "RAQSAPI services functions"
 
   functiontable %<>%
-    filter(!functionfamily == "services functions") %>%
-    filter(!functionnames == "deprecated")
+    dplyr::filter(!functionfamily == "services functions") %>%
+    dplyr::filter(!functionnames == "deprecated")
 
   functionlist <- functiontable %>%
     split(functiontable$functionfamily)

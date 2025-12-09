@@ -3,7 +3,7 @@
         {
             "status": "Success",
             "request_time": "2025-12-09T14:44:58-05:00",
-            "url": "https://datamart/list/parametersByClass?email=<redacted>&key=<redacted>&pc=CRITERIA",
+            "url": "https://datamart/list/parametersByClass?pc=CRITERIA",
             "rows": 8
         }
     ],
