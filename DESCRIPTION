@@ -5,7 +5,7 @@ Title: A Simple Interface to the US EPA Air Quality System Data Mart API
 Description: Retrieve air monitoring data and associated metadata from the US
   Environmental Protection Agency's Air Quality System service using functions.
   See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about
-  the US EPA Data Mart API.
+  the US EPA Data Mart API <doi: 10.32614/CRAN.package.RAQSAPI>.
 Encoding: UTF-8
 Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email="mccrowey.clinton@epa.gov",
@@ -60,8 +60,7 @@ URL: https://github.com/USEPA/RAQSAPI/,
      https://aqs.epa.gov/aqsweb/documents/data_api.html
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.0.0)
-Imports: 
-    dplyr,
+Imports: dplyr,
     glue,
     gtools,
     httr2,
@@ -74,22 +73,21 @@ Imports:
     stringr,
     tibble,
     tidyselect
-Suggests:
-    cli,
+Suggests: cli,
     covr,
     devtools,
     goodpractice,
     httptest2,
     keyring,
     knitr,
-    markdown,
     rmarkdown,
+    remotes,
     roxygen2,
     spelling,
     testthat (>= 3.0.0),
     usethis,
     withr
-SystemRequirements: package manual and Vignettes require pandoc 
+SystemRequirements: package manual and Vignettes require pandoc
                     (>= 1.14) http://pandoc.org)
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr

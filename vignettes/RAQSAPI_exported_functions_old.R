@@ -164,7 +164,7 @@ RAQSAPI_functions_table <- function()
   )
 
   functiontype <- function(functionname)
-    {
+  {
     case_when(
       str_detect(string = functionname, pattern = "by_site") ~
         "RAQSAPI aggregation by site aggregate functions", str_detect(string = functionname, pattern = "by_county") ~

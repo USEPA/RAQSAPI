@@ -1,20 +1,19 @@
 RAQSAPItestsetup_helper <- function()
 {
 
-  cli::cli_alert_success("Helper file being run")
   path <- NA
   if (file.exists("local.R"))
-    {
+  {
     path <- "./"
   } else if (file.exists("tests/testthat/local.R"))
-    {
+  {
     path <- "tests/testthat/"
   }
 
   if (!is.na(path))
-    {
+  {
     source(paste0(path, "local.R"))
-    AQScredentials <- RAQSAPItestsetup_local()
+    AQScredentials <- RAQSAPItestsetup_local() #nolint
     datamartAPI_user <- AQScredentials$AQSusername
     datamartAPI_key <- AQScredentials$AQSkey
     AQScredentials <- list(datamartAPI_user = datamartAPI_user, datamartAPI_key = datamartAPI_key)

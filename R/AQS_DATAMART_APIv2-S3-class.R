@@ -12,7 +12,7 @@
 #' @noRd
 #' @keywords internal
 AQS_DATAMART_APIv2_validator <- function(.Data)
-  {
+{
   stopifnot(is.list(.Data))
   stopifnot(
     is.data.frame(.Data[[1]]) |
@@ -26,7 +26,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data)
     names(.Data) ==
       c("Header", "Data")
   )
-  return(NULL)
+  return(invisible())
 }
 
 
@@ -68,7 +68,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data)
 #' @noRd
 #' @keywords internal
 new_AQS_DATAMART_APIv2 <- function(.AQSobject)
-  {
+{
   AQS_DATAMART_APIv2_validator(.AQSobject)
   structure(.AQSobject, class = "AQS_DATAMART_APIv2") %>%
     return()

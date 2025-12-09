@@ -24,7 +24,7 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 
@@ -47,7 +47,7 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_state
@@ -69,7 +69,7 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_pqao
@@ -91,7 +91,7 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 
@@ -115,6 +115,7 @@ aqs_qa_annualpeferomanceeval_by_MA <- function()
                   renamed to aqs_qa_annualperformance* functions, please use
                     these functions instead."
   )
+  return(invisible())
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_site
@@ -136,7 +137,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 
@@ -159,6 +160,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
+  return(invisible())
 }
 
 
@@ -181,7 +183,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_MA
@@ -204,7 +206,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
   )
-  invisible()
+  return(invisible())
 }
 
 
@@ -230,7 +232,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 #' @keywords internal # do not include deprecated function in
 #'                    # package reference manual
 aqs_ratelimit <- function(waittime = 5L)
-  {
+{
   Sys.sleep(waittime)
-  invisible()
+  return(invisible())
 }

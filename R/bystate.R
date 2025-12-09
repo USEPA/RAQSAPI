@@ -29,7 +29,7 @@
 #' @export
 aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = NA_Date_,
                                   cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
@@ -102,7 +102,7 @@ aqs_monitors_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = N
 #' @export
 aqs_sampledata_by_state <- function(parameter, bdate, edate, stateFIPS, duration = NA_character_,
                                     cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, duration, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -167,7 +167,7 @@ aqs_sampledata_by_state <- function(parameter, bdate, edate, stateFIPS, duration
 #' @export
 aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = NA_Date_,
                                        cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -229,7 +229,7 @@ aqs_annualsummary_by_state <- function(parameter, bdate, edate, stateFIPS, cbdat
 #' @export
 aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = NA_Date_,
                                    cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -291,7 +291,7 @@ aqs_qa_blanks_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = 
 #' @export
 aqs_dailysummary_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate = NA_Date_,
                                       cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -351,7 +351,7 @@ aqs_dailysummary_by_state <- function(parameter, bdate, edate, stateFIPS, cbdate
 #' @export
 aqs_qa_collocated_assessments_by_state <- function(parameter, bdate, edate, stateFIPS,
                                                    cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -412,7 +412,7 @@ aqs_qa_collocated_assessments_by_state <- function(parameter, bdate, edate, stat
 #' @export
 aqs_qa_flowrateverification_by_state <- function(parameter, bdate, edate, stateFIPS,
                                                  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -472,7 +472,7 @@ aqs_qa_flowrateverification_by_state <- function(parameter, bdate, edate, stateF
 #' @export
 aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
                                           cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -533,7 +533,7 @@ aqs_qa_flowrateaudit_by_state <- function(parameter, bdate, edate, stateFIPS,
 #' @export
 aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
                                          cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -591,7 +591,7 @@ aqs_qa_one_point_qc_by_state <- function(parameter, bdate, edate, stateFIPS,
 #' @export
 aqs_qa_pep_audit_by_state <- function(parameter, bdate, edate, stateFIPS,
                                       cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -649,7 +649,7 @@ aqs_qa_pep_audit_by_state <- function(parameter, bdate, edate, stateFIPS,
 #'           corresponding to the inputs provided.
 #' @export
 aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter, bdate = bdate, edate = edate,
@@ -707,7 +707,7 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS, r
 #'           tibble of the data returned.
 #' @export
 aqs_qa_annualperformanceeval_by_state <- function(parameter, bdate, edate, stateFIPS, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter, bdate = bdate, edate = edate,
@@ -768,7 +768,7 @@ aqs_qa_annualperformanceeval_by_state <- function(parameter, bdate, edate, state
 #'           tibble of the data returned.
 #' @export
 aqs_qa_annualperformanceevaltransaction_by_state <- function(parameter, bdate, edate, stateFIPS, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter, bdate = bdate, edate = edate,
@@ -826,7 +826,7 @@ aqs_qa_annualperformanceevaltransaction_by_state <- function(parameter, bdate, e
 #' @export
 aqs_quarterlysummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                           cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 

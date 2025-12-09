@@ -23,22 +23,19 @@
 #'          }
 #' @export
 aqs_credentials <- function(username = NA_character_, key = NA_character_)
-  {
+{
   # nocov The code simply stores the credentials as a R option. Since the Data Mart server only issues a 'key' and not a
   # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
   # and etc.
-  if (!is.na(username) ||
-    !is.na(key) ||
-    !is_character(username) ||
-    !is_character(key))
-      {
+  if (!is.na(username) || !is.na(key) || !is_character(username) || !is_character(key))
+  {
     options(aqs_username = username)
     options(aqs_key = key)
   } else
-  {
-    warning("Please enter a valid username and key  \n")
-  }
-  invisible()
+    {
+      warning("Please enter a valid username and key  \n")
+    }
+  return(invisible())
 }  #no cov end
 
 
@@ -73,7 +70,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #'         does not return meaningful data.
 #' @export
 aqs_sign_up <- function(email)
-  {
+{
   # nocov start We do not want aqs_sign_up registering new users as part of the unit testing procedures.
 
   # user_agent <- glue('User:{email} via RAQSAPI-{packageVersion('RAQSAPI')} library for R')
@@ -84,5 +81,5 @@ aqs_sign_up <- function(email)
   # user agent string (currently not implemented) on the API %>% req_user_agent(string = user_agent)
   glue("A verification email will be sent to {email}  \n") %>%
     message()
-  invisible()
+  return(invisible())
 }  #nocov end

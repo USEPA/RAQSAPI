@@ -31,7 +31,7 @@ vignettes/*.md
 vignettes/*.docx
 #other files
 #not needed
-ignore all files under dev
+#ignore all files under dev
 dev/
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
@@ -43,6 +43,5 @@ tests/testthat/local.R
 *.tar.gz
 *.zip
 RAQSAPI.code-workspace
-./tests/testthat/testthat-problems.rds
+tests/testthat/testthat-problems.rds
 .vscode/
-.devcontainer/

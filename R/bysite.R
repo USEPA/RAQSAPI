@@ -38,7 +38,7 @@
 #' @export
 aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
   # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
@@ -103,7 +103,7 @@ aqs_monitors_by_site <- function(parameter, bdate, edate, stateFIPS, countycode,
 #' @export
 aqs_qa_flowrateaudit_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                          cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate)
 
   params <- aqsmultiyearparams(
@@ -164,7 +164,7 @@ aqs_qa_flowrateaudit_by_site <- function(parameter, bdate, edate, stateFIPS, cou
 #' @export
 aqs_qa_one_point_qc_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                         cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -225,7 +225,7 @@ aqs_qa_one_point_qc_by_site <- function(parameter, bdate, edate, stateFIPS, coun
 #' @export
 aqs_qa_pep_audit_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                      cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -298,17 +298,31 @@ aqs_qa_pep_audit_by_site <- function(parameter, bdate, edate, stateFIPS, countyc
 #'                                    )
 #'          }
 #' @export
-aqs_sampledata_by_site <- function(
-  parameter, bdate, edate, stateFIPS, countycode, sitenum, duration = NA_character_,
-  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE
-)
-  {
+aqs_sampledata_by_site <- function(parameter,
+                                   bdate,
+                                   edate,
+                                   stateFIPS,
+                                   countycode,
+                                   sitenum,
+                                   duration = NA_character_,
+                                   cbdate = NA_Date_,
+                                   cedate = NA_Date_,
+                                   return_header = FALSE
+                                  )
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, duration, cbdate, cedate, return_header)
 
-  params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS, countycode = countycode, sitenum = sitenum,
-    duration = duration, service = "sampleData", cbdate = cbdate, cedate = cedate
-  )
+  params <- aqsmultiyearparams(parameter = parameter,
+                               bdate = bdate,
+                               edate = edate,
+                               stateFIPS = stateFIPS,
+                               countycode = countycode,
+                               sitenum = sitenum,
+                               duration = duration,
+                               service = "sampleData",
+                               cbdate = cbdate,
+                               cedate = cedate
+                              )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_site)
   if (!return_header)
@@ -373,7 +387,7 @@ aqs_sampledata_by_site <- function(
 #' @export
 aqs_annualsummary_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                       cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -439,7 +453,7 @@ aqs_annualsummary_by_site <- function(parameter, bdate, edate, stateFIPS, county
 #' @export
 aqs_qa_blanks_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                   cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -504,7 +518,7 @@ aqs_qa_blanks_by_site <- function(parameter, bdate, edate, stateFIPS, countycode
 #' @export
 aqs_dailysummary_by_site <- function(parameter, bdate, edate, stateFIPS, countycode,
                                      sitenum, cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -567,7 +581,7 @@ aqs_dailysummary_by_site <- function(parameter, bdate, edate, stateFIPS, countyc
 #' @export
 aqs_qa_collocated_assessments_by_site <- function(parameter, bdate, edate, stateFIPS, countycode,
                                                   sitenum, cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -629,7 +643,7 @@ aqs_qa_collocated_assessments_by_site <- function(parameter, bdate, edate, state
 #' @export
 aqs_qa_flowrateverification_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                                 cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -691,7 +705,7 @@ aqs_qa_flowrateverification_by_site <- function(parameter, bdate, edate, stateFI
 #' @export
 aqs_transactionsample_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                           cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, return_header)
 
   params <- aqsmultiyearparams(
@@ -755,7 +769,7 @@ aqs_transactionsample_by_site <- function(parameter, bdate, edate, stateFIPS, co
 #' @export
 aqs_qa_annualperformanceeval_by_site <- function(parameter, bdate, edate, stateFIPS, countycode,
                                                  sitenum, cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, return_header)
 
   params <- aqsmultiyearparams(
@@ -822,7 +836,7 @@ aqs_qa_annualperformanceeval_by_site <- function(parameter, bdate, edate, stateF
 aqs_qa_annualperformanceevaltransaction_by_site <- function(parameter, bdate, edate, stateFIPS, countycode,
                                                             sitenum, cbdate = NA_Date_, cedate = NA_Date_,
                                                             return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -887,7 +901,7 @@ aqs_qa_annualperformanceevaltransaction_by_site <- function(parameter, bdate, ed
 #' @export
 aqs_quarterlysummary_by_site <- function(parameter, bdate, edate, stateFIPS, countycode, sitenum,
                                          cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, sitenum, cbdate, cedate, return_header)
 

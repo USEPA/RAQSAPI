@@ -15,7 +15,7 @@ identifiers:
   value: https://aqs.epa.gov/aqsweb/documents/data_api.html
 abstract: Retrieve air monitoring data and associated metadata from the US Environmental
   Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html>
-  for details about the US EPA Data Mart API.
+  for details about the US EPA Data Mart API <https://doi.org/ 10.32614/CRAN.package.RAQSAPI>.
 authors:
 - family-names: Mccrowey
   given-names: Clinton
@@ -377,23 +377,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.knitr
 - type: software
-  title: markdown
-  abstract: 'markdown: Render Markdown with ''commonmark'''
-  notes: Suggests
-  url: https://github.com/rstudio/markdown
-  repository: https://CRAN.R-project.org/package=markdown
-  authors:
-  - family-names: Xie
-    given-names: Yihui
-    email: xie@yihui.name
-    orcid: https://orcid.org/0000-0003-0645-5666
-  - family-names: Allaire
-    given-names: JJ
-  - family-names: Horner
-    given-names: Jeffrey
-  year: '2025'
-  doi: 10.32614/CRAN.package.markdown
-- type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
@@ -437,6 +420,28 @@ references:
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2025'
   doi: 10.32614/CRAN.package.rmarkdown
+- type: software
+  title: remotes
+  abstract: 'remotes: R Package Installation from Remote Repositories, Including ''GitHub'''
+  notes: Suggests
+  url: https://remotes.r-lib.org
+  repository: https://CRAN.R-project.org/package=remotes
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: Chang
+    given-names: Winston
+  - family-names: Morgan
+    given-names: Martin
+  - family-names: Tenenbaum
+    given-names: Dan
+  year: '2025'
+  doi: 10.32614/CRAN.package.remotes
 - type: software
   title: roxygen2
   abstract: 'roxygen2: In-Line Documentation for R'

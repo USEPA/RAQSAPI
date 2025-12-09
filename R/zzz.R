@@ -12,15 +12,15 @@
 #'                    # package reference manual
 #' @noRd
 .onLoad <- function(libname, pkgname)
-  {
+{
   setOldClass("AQS_DATAMART_APIv2")
   utils::globalVariables(
-    names = c("env.RAQSAPI", "AQSObject", "datetime"),
+    names = c("env.RAQSAPI", "AQSObject", "datetime", "."),
     package = "RAQSAPI"
   )
-  env.RAQSAPI <- Sys.getenv()
+  env.RAQSAPI <- Sys.getenv() #nolint
   Sys.setenv(`_R_CHECK_LENGTH_1_CONDITION_` = "TRUE")
-  invisible()
+  return(invisible())
 }
 
 
@@ -33,9 +33,9 @@
 #'                    # package reference manual
 #' @noRd
 .onUnLoad <- function(libname, pkgname)
-  {
+{
   Sys.setenv(env.RAQSAPI)
-  invisible()
+  return(invisible())
 }
 
 #' @title .onAttach
@@ -47,12 +47,14 @@
 #'                    # package reference manual
 #' @noRd
 .onAttach <- function(libname, pkgname)
-  {
+{
   RAQSAPIstartupmessage <- paste(
-    "Use the function", "RAQSAPI::aqs_credentials(username, key)", "before using other RAQSAPI functions", "See ?RAQSAPI::aqs_credentials for more information",
+    "Use the function",
+    "RAQSAPI::aqs_credentials(username, key)",
+    "before using other RAQSAPI functions", "See ?RAQSAPI::aqs_credentials for more information",
     sep = "\n"
   )
   packageStartupMessage(RAQSAPIstartupmessage)
-  invisible()
+  return(invisible())
 }
 # nocov end

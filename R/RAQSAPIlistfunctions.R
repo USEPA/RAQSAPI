@@ -39,7 +39,7 @@ aqs_isavailable <- function()
 #'        \dontrun{aqs_knownissues()}
 #' @export
 aqs_knownissues <- function(return_header = FALSE)
-  {
+{
   issues <- aqs_metadata_service(filter = "issues", service = NULL)
   if (!return_header)
     issues %<>%
@@ -72,7 +72,7 @@ aqs_knownissues <- function(return_header = FALSE)
 #'           \dontrun{aqs_counties_by_state(stateFIPS = '37')}
 #' @export
 aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
-  {
+{
   counties <- aqs(
     service = "list", filter = "countiesByState", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -108,7 +108,7 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE)
 #'                  }
 #' @export
 aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
-  {
+{
   sites <- aqs(
     service = "list", filter = "sitesByCounty", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -142,7 +142,7 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE)
 #'          \dontrun{ aqs_classes() }
 #' @export
 aqs_classes <- function(return_header = FALSE)
-  {
+{
   classes <- aqs(
     service = "list", filter = "classes", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -178,7 +178,7 @@ aqs_classes <- function(return_header = FALSE)
 #'           \dontrun{ aqs_parameters_by_class(class = 'CRITERIA') }
 #' @export
 aqs_parameters_by_class <- function(class, return_header = FALSE)
-  {
+{
   parameters <- aqs(
     service = "list", filter = "parametersByClass", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -208,7 +208,7 @@ aqs_parameters_by_class <- function(class, return_header = FALSE)
 #'           \dontrun{aqs_mas()}
 #' @export
 aqs_mas <- function(return_header = FALSE)
-  {
+{
   mas <- aqs(
     service = "list", filter = "mas", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -240,7 +240,7 @@ aqs_mas <- function(return_header = FALSE)
 #'            \dontrun{ aqs_pqaos() }
 #' @export
 aqs_pqaos <- function(return_header = FALSE)
-  {
+{
   pqaos <- aqs(
     service = "list", filter = "pqaos", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -274,7 +274,7 @@ aqs_pqaos <- function(return_header = FALSE)
 #'           \dontrun{ aqs_cbsas() }
 #' @export
 aqs_cbsas <- function(return_header = FALSE)
-  {
+{
   cbsas <- aqs(
     service = "list", filter = "cbsas", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -306,7 +306,7 @@ aqs_cbsas <- function(return_header = FALSE)
 #'           \dontrun{ aqs_states() }
 #' @export
 aqs_states <- function(return_header = FALSE)
-  {
+{
   states <- aqs(
     service = "list", filter = "states", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -342,16 +342,15 @@ aqs_states <- function(return_header = FALSE)
 #'            \dontrun{ aqs_removeheader(AQSobject) }
 #' @export
 aqs_removeheader <- function(AQSobject)
-  {
+{
   if (is.null(AQSobject))
-    {
+  {
     return(AQSobject)
   } else if (isa(x = AQSobject, what = "AQS_DATAMART_APIv2"))
-    {
+  {
     AQSobject <- AQSobject$Data
-  } else if (isa(x = AQSobject[[1]], what = "AQS_DATAMART_APIv2") &&
-    is.list(AQSobject))
-      {
+  } else if (isa(x = AQSobject[[1]], what = "AQS_DATAMART_APIv2") && is.list(AQSobject))
+  {
     AQSobject %<>%
       lapply("[[", "Data") %>%
       dplyr::bind_rows()
@@ -380,7 +379,7 @@ aqs_removeheader <- function(AQSobject)
 #'  #  \dontrun{ aqs_revisionHistory() }
 #' @export
 aqs_revisionhistory <- function(return_header = FALSE)
-  {
+{
   history <- aqs(
     service = "metaData", filter = "revisionHistory", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -415,7 +414,7 @@ aqs_revisionhistory <- function(return_header = FALSE)
 #'   and definitions of fields requested service
 #' @export
 aqs_fields_by_service <- function(service, return_header = FALSE)
-  {
+{
   fields <- aqs_metadata_service(filter = "fieldsByService", service = service)
   if (!return_header)
     fields %<>%
@@ -447,7 +446,7 @@ aqs_fields_by_service <- function(service, return_header = FALSE)
 #'          \dontrun{ aqs_sampledurations() }
 #' @export
 aqs_sampledurations <- function(return_header = FALSE)
-  {
+{
   AQS_domain <- "aqs.epa.gov"
 
   durations <- aqs(

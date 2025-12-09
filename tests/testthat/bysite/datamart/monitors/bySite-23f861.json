@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2025-10-06T12:56:52-04:00",
+            "request_time": "2025-12-09T14:40:22-05:00",
             "url": "https://datamart/monitors/bySite?email=<redacted>&key=<redacted>&param=42401&bdate=20150501&edate=20190501&state=15&county=001&site=0007",
             "rows": 2
         }
@@ -13,7 +13,7 @@
             "county_code": "001",
             "site_number": "0007",
             "parameter_code": "42401",
-            "poc": 1,
+            "poc": 2,
             "parameter_name": "Sulfur dioxide",
             "open_date": "2001-02-01",
             "close_date": "2018-07-03",
@@ -56,7 +56,7 @@
             "county_code": "001",
             "site_number": "0007",
             "parameter_code": "42401",
-            "poc": 2,
+            "poc": 1,
             "parameter_name": "Sulfur dioxide",
             "open_date": "2001-02-01",
             "close_date": "2018-07-03",

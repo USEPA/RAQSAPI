@@ -28,7 +28,7 @@ server <- "AQSDatamartAPI"
 #' @keywords internal
 #' @noRd
 checkaqsparams <- function(...)
-  {
+{
   # Note: the variable errmessage does not follow this project's style This is to ensure that the output string format looks
   # nice.
   errmessage <- vector()
@@ -37,229 +37,197 @@ checkaqsparams <- function(...)
   names(ellipsis_args) <- names(match.call(expand.dots = FALSE)$...)
 
   if ("parameter" %in% names(ellipsis_args))
-    {
-    if (nchar(ellipsis_args$parameter) !=
-      5 || !is.character(ellipsis_args$parameter) ||
-      !str_detect(ellipsis_args$parameter, "^[:digit:]+$"))
-        {
-      error <- TRUE
+  {
+    if (nchar(ellipsis_args$parameter) != 5 || !is.character(ellipsis_args$parameter) ||
+          !str_detect(ellipsis_args$parameter, "^[:digit:]+$"))
+    { error <- TRUE
       errmessage %<>%
         c(x = "parameter must be a 5 digit number (represented as a character string)")
     }
   }
 
   if ("stateFIPS" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$stateFIPS) != 2 || !is.character(ellipsis_args$stateFIPS))
     {
-    if (nchar(ellipsis_args$stateFIPS) !=
-      2 || !is.character(ellipsis_args$stateFIPS))
-      {
       error <- TRUE
       errmessage %<>%
-        c(
-          x = "stateFIPS must be a two digit number (represented as a
-          character string), please pad stateFIPS less than 2 digits with
-          leading zeros"
+        c(x = "stateFIPS must be a two digit number (represented as a
+              character string), please pad stateFIPS less than 2 digits with
+              leading zeros"
         )
     }
   }
 
   if ("countycode" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$countycode) != 3 || !is.character(ellipsis_args$countycode))
     {
-    if (nchar(ellipsis_args$countycode) !=
-      3 || !is.character(ellipsis_args$countycode))
-      {
       error <- TRUE
       errmessage %<>%
-        c(
-          x = "countycode must be a three digit number (represented as a character
-      string), please pad countycode less than three digits with leading zeros"
+        c(x = "countycode must be a three digit number (represented as a character
+          string), please pad countycode less than three digits with leading zeros"
         )
     }
   }
 
   if ("sitenum" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$sitenum) != 4 || !is.character(ellipsis_args$sitenum))
     {
-    if (nchar(ellipsis_args$sitenum) !=
-      4 || !is.character(ellipsis_args$sitenum))
-      {
       error <- TRUE
       errmessage %<>%
-        c(
-          x = "sitenum must be a four digit number (represented as a character string),
-       please pad sitenum less than four digits with leading zeros"
+        c(x = "sitenum must be a four digit number (represented as a character string),
+          please pad sitenum less than four digits with leading zeros"
         )
     }
   }
 
   if ("MA_code" %in% names(ellipsis_args))
+  {
+    if ((nchar(ellipsis_args$MA_code) != 4 || nchar(ellipsis_args$MA_code) != 3) || !is.character(ellipsis_args$MA_code))
     {
-    if ((nchar(ellipsis_args$MA_code) !=
-      4 || nchar(ellipsis_args$MA_code) !=
-      3) || !is.character(ellipsis_args$MA_code))
-      {
       error <- TRUE
       errmessage %<>%
-        c(
-          x = "MA_code must be a three or four digit number (represented as a character
-       string), please pad MA_code less than three or four digits with
-       leading zeros"
+        c(x = "MA_code must be a three or four digit number (represented as a character
+              string), please pad MA_code less than three or four digits with
+              leading zeros"
         )
     }
   }
 
   if ("pqao_code" %in% names(ellipsis_args))
+  {
+    if ((nchar(ellipsis_args$pqao_code) != 4 || nchar(ellipsis_args$pqao_code) != 3) ||
+          !is.character(ellipsis_args$pqao_code))
     {
-    if ((nchar(ellipsis_args$pqao_code) !=
-      4 || nchar(ellipsis_args$pqao_code) !=
-      3) || !is.character(ellipsis_args$pqao_code))
-      {
       error <- TRUE
       errmessage %<>%
-        c(
-          x = "pqao_code must be a three or four digit number (represented as a
-      character string), please pad pqao_code less than three or four digits
-      with leading zeros"
+        c(x = "pqao_code must be a three or four digit number (represented as a
+              character string), please pad pqao_code less than three or four digits
+              with leading zeros"
         )
     }
   }
   if ("cbsa_code" %in% names(ellipsis_args))
-    {
+  {
     if (nchar(ellipsis_args$cbsa_code) !=
-      5 || !is.character(ellipsis_args$cbsa_code))
-      {
+          5 || !is.character(ellipsis_args$cbsa_code))
+    {
       error <- TRUE
       errmessage %<>%
         c(
           x = "cbsa_code must be a five digit number (represented as a character
-      string), please pad cbsa_code less than five digits with leading zeros"
+              string), please pad cbsa_code less than five digits with leading zeros"
         )
     }
   }
   if ("POC" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$POC) != 1 || !is.character(ellipsis_args$POC))
     {
-    if (nchar(ellipsis_args$POC) !=
-      1 || !is.character(ellipsis_args$POC))
-      {
       error <- TRUE
       errmessage %<>%
         c(x = "POC must be a single digit number (represented as a character string)")
     }
   }
   if ("bdate" %in% names(ellipsis_args))
-    {
+  {
     if (!is.Date(ellipsis_args$bdate))
-      {
+    {
       error <- TRUE
       errmessage %<>%
         c(x = "bdate must be an R date object")
     }
   }
   if ("edate" %in% names(ellipsis_args))
-    {
+  {
     if (!is.Date(ellipsis_args$edate))
-      {
+    {
       error <- TRUE
       errmessage %<>%
         c(x = "edate must be an R date object")
     }
   }
   if ("cbdate" %in% names(ellipsis_args))
+  {
+    if (!is.Date(ellipsis_args$cbdate) && !is.null(ellipsis_args$cbdate))
     {
-    if (!is.Date(ellipsis_args$cbdate) &&
-      !is.null(ellipsis_args$cbdate))
-        {
       error <- TRUE
       errmessage %<>%
         c(x = "cbdate must be an R date object")
     }
   }
   if ("cedate" %in% names(ellipsis_args))
-    {
+  {
     if (!is.Date(ellipsis_args$cedate) &&
-      !is.null(ellipsis_args$cedate))
-        {
+          !is.null(ellipsis_args$cedate))
+    {
       error <- TRUE
       errmessage %<>%
         c(x = "cedate must be an R date object")
     }
   }
   if ("email" %in% names(ellipsis_args))
-    {
+  {
     if (!isValidEmail(ellipsis_args$email))
-      {
+    {
       error <- TRUE
       errmessage %<>%
         c(x = "invalid email address entered")
     }
   }
   if ("minlat" %in% names(ellipsis_args))
+  {
+    if ((!between(as.double(ellipsis_args$minlat), -90, 90)) || !is.character(ellipsis_args$minlat))
     {
-    if ((!between(
-      as.double(ellipsis_args$minlat),
-      -90, 90
-    )) ||
-      !is.character(ellipsis_args$minlat))
-        {
       error <- TRUE
       errmessage %<>%
         c(x = "minlat must be a numeric (expressed as a string) between -90 and 90")
     }
   }
   if ("maxlat" %in% names(ellipsis_args))
+  {
+    if ((!between(as.double(ellipsis_args$maxlat), -90, 90)) || !is.character(ellipsis_args$minlat))
     {
-    if ((!between(
-      as.double(ellipsis_args$maxlat),
-      -90, 90
-    )) ||
-      !is.character(ellipsis_args$minlat))
-        {
       error <- TRUE
       errmessage %<>%
         c(x = "maxlat must be a numeric (expressed as a string) between -90 and 90")
     }
   }
   if ("minlon" %in% names(ellipsis_args))
+  {
+    if ((!between(as.double(ellipsis_args$minlon), -180, 180)) || !is.character(ellipsis_args$minlon))
     {
-    if ((!between(
-      as.double(ellipsis_args$minlon),
-      -180, 180
-    )) ||
-      !is.character(ellipsis_args$minlon))
-        {
       error <- TRUE
       errmessage %<>%
         c(x = "minlon must be a numeric (expressed as a string) between -180 and 180")
     }
   }
   if ("maxlon" %in% names(ellipsis_args))
+  {
+    if ((!between(as.double(ellipsis_args$maxlon), -180, 180)) || !is.character(ellipsis_args$maxlon))
     {
-    if ((!between(
-      as.double(ellipsis_args$maxlon),
-      -180, 180
-    )) ||
-      !is.character(ellipsis_args$maxlon))
-        {
       error <- TRUE
       errmessage %<>%
         c(x = "maxlon must be a numeric (expressed as a string) between -180 and 180")
     }
   }
   if ("duration" %in% names(ellipsis_args))
+  {
+    if (nchar(ellipsis_args$duration) != 1 || !is.character(ellipsis_args$duration) &&
+          ellipsis_args$duration %in% 1:9 || ellipsis_args$duration %in% LETTERS[1:26])
     {
-    if (nchar(ellipsis_args$duration) !=
-      1 || !is.character(ellipsis_args$duration) &&
-      ellipsis_args$duration %in% 1:9 || ellipsis_args$duration %in% LETTERS[1:26])
-      {
       error <- TRUE
       errmessage %<>%
         c(x = "duration must be a character from '1' to '9' or 'A' to 'Z'
-       (represented as a character string)")
+              (represented as a character string)")
     }
   }
   if ("return_header" %in% names(ellipsis_args))
-    {
+  {
     if (!is.logical(ellipsis_args$return_header))
-      {
+    {
       error <- TRUE
       errmessage %<>%
         c(x = "return_header must be of type logical")
@@ -274,7 +242,7 @@ checkaqsparams <- function(...)
     c(i = callingfunction, errmessage) %>%
       abort
   }
-  invisible()
+  return(invisible())
 }
 
 
@@ -295,10 +263,9 @@ checkaqsparams <- function(...)
 #' @keywords internal
 #' @noRd
 format_variables_for_api <- function(x, separator = "&")
+{
+  if (length(x) == 0)
   {
-  if (length(x) ==
-    0)
-    {
     return("")
   }
   # first check for NULLs, if found remove them
@@ -334,10 +301,9 @@ format_variables_for_api <- function(x, separator = "&")
 #' @keywords internal
 #' @noRd
 format_multiple_params_for_api <- function(x, separator = ",")
+{
+  if (length(x) == 0)
   {
-  if (length(x) ==
-    0)
-    {
     return("")
   }
   # first check for NULLs, if found remove them
@@ -372,7 +338,7 @@ format_multiple_params_for_api <- function(x, separator = ",")
 #'
 #' @example None
 RAQSAPI_error_msg <- function(AQSresponse)
-  {
+{
   # nocov start
   AQSerr <- last_response() %>%
     resp_body_json()
@@ -438,15 +404,14 @@ RAQSAPI_error_msg <- function(AQSresponse)
 #' @keywords internal
 #' @noRd
 aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
+{
+  if (is.null(user) || is.null(user_key))
   {
-  if (is.null(user) ||
-    is.null(user_key))
-      {
-        stop("please enter user credentials before using RAQSAPI functions,\n
-              please refer to '?aqs_credentials()' for useage infomation \n"
-            )
+    stop("please enter user credentials before using RAQSAPI functions,\n
+          please refer to '?aqs_credentials()' for useage infomation \n"
+        )
   }
-  if(gtools::invalid(user) | gtools::invalid(user_key))
+  if (gtools::invalid(user) | gtools::invalid(user_key))
   {
     stop("please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
@@ -460,9 +425,9 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
       format_variables_for_api(
         c(
           list(
-          email = I(user),
-          key = user_key
-        ),
+            email = I(user),
+            key = user_key
+          ),
           variables
         )
       )
@@ -478,7 +443,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
     req_perform(verbosity = 0)
 
   if (httr2::resp_is_error(AQSresponse))
-    {
+  {
     message(
       glue(
         "RAQSAPI experienced an error with in aqs function from
@@ -517,7 +482,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
 #' @keywords internal
 #' @noRd
 isValidEmail <- function(email)
-  {
+{
   grepl(
     "\\<[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\>", as.character(email),
     ignore.case = TRUE
@@ -609,11 +574,19 @@ isValidEmail <- function(email)
 #'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
-aqs_services_by_site <- function(
-  parameter, bdate, edate, stateFIPS, countycode, sitenum, duration = NA_character_, service, cbdate = NA_Date_,
-  cedate = NA_Date_, AQS_domain = "aqs.epa.gov"
-)
-  {
+aqs_services_by_site <- function(parameter,
+                                 bdate,
+                                 edate,
+                                 stateFIPS,
+                                 countycode,
+                                 sitenum,
+                                 duration = NA_character_,
+                                 service,
+                                 cbdate = NA_Date_,
+                                 cedate = NA_Date_,
+                                 AQS_domain = "aqs.epa.gov"
+                                )
+{
   aqs(
     service = service, filter = "bySite", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -705,11 +678,18 @@ aqs_services_by_site <- function(
 #'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
-aqs_services_by_county <- function(
-  parameter, bdate, edate, stateFIPS, countycode, service, duration = NA_character_, cbdate = NA_Date_, cedate = NA_Date_,
-  AQS_domain = "aqs.epa.gov"
-)
-  {
+aqs_services_by_county <- function(parameter,
+                                   bdate,
+                                   edate,
+                                   stateFIPS,
+                                   countycode,
+                                   service,
+                                   duration = NA_character_,
+                                   cbdate = NA_Date_,
+                                   cedate = NA_Date_,
+                                   AQS_domain = "aqs.epa.gov"
+                                  )
+{
   aqs(
     service = service, filter = "byCounty", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -796,11 +776,17 @@ aqs_services_by_county <- function(
 #'                                          service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
-aqs_services_by_state <- function(
-  parameter, bdate, edate, stateFIPS, duration = NA_character_, service, cbdate = NA_Date_, cedate = NA_Date_,
-  AQS_domain = "aqs.epa.gov"
-)
-  {
+aqs_services_by_state <- function(parameter,
+                                  bdate,
+                                  edate,
+                                  stateFIPS,
+                                  duration = NA_character_,
+                                  service,
+                                  cbdate = NA_Date_,
+                                  cedate = NA_Date_,
+                                  AQS_domain = "aqs.epa.gov"
+                                 )
+{
 
   aqs(
     service = service, filter = "byState", user = getOption("aqs_username"),
@@ -906,11 +892,20 @@ aqs_services_by_state <- function(
 #'                                        service = 'annualData')
 #'                   }
 #' @keywords internal
-aqs_services_by_box <- function(
-  parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration = NA_character_, service, cbdate = NA_Date_,
-  cedate = NA_Date_, AQS_domain = "aqs.epa.gov"
-)
-  {
+aqs_services_by_box <- function(parameter,
+                                bdate,
+                                edate,
+                                minlat,
+                                maxlat,
+                                minlon,
+                                maxlon,
+                                duration = NA_character_,
+                                service,
+                                cbdate = NA_Date_,
+                                cedate = NA_Date_,
+                                AQS_domain = "aqs.epa.gov"
+                               )
+{
   aqs(
     service = service,
     filter = "byBox",
@@ -1006,11 +1001,17 @@ aqs_services_by_box <- function(
 #'                                         service = 'annualData')
 #'                   }
 #' @keywords internal
-aqs_services_by_cbsa <- function(
-  parameter, bdate, edate, cbsa_code, duration = NA_character_, service, cbdate = NA_Date_, cedate = NA_Date_,
-  AQS_domain = "aqs.epa.gov"
-)
-  {
+aqs_services_by_cbsa <- function(parameter,
+                                 bdate,
+                                 edate,
+                                 cbsa_code,
+                                 duration = NA_character_,
+                                 service,
+                                 cbdate = NA_Date_,
+                                 cedate = NA_Date_,
+                                 AQS_domain = "aqs.epa.gov"
+                                 )
+{
   aqs(
     service = service, filter = "byCBSA", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -1098,7 +1099,7 @@ aqs_services_by_cbsa <- function(
 #' @keywords internal
 aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cbdate = NA_Date_, cedate = NA_Date_,
                                  AQS_domain = "aqs.epa.gov")
-  {
+{
   aqs(
     service = service, filter = "byPQAO", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -1183,7 +1184,7 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
 #' @keywords internal
 aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service, cbdate = NA_Date_, cedate = NA_Date_,
                                AQS_domain = "aqs.epa.gov")
-  {
+{
   aqs(
     service = service, filter = "byMA", user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -1221,7 +1222,7 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service, cbdate
 #'                   }
 #' @keywords internal
 aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "aqs.epa.gov")
-  {
+{
   aqs(
     service = "metaData", filter = filter, user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
@@ -1247,12 +1248,12 @@ aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "
 #'                column of the $Data portion of the RAQSAPI_v2 object.
 #' @noRd
 renameaqsvariables <- function(aqsobject, name1, name2)
-  {
+{
   if (is.null(aqsobject))
-    {
+  {
     return(aqsobject)
   } else if (inherits(x = aqsobject, what = "AQS_DATAMART_APIv2"))
-    {
+  {
     # using tidyevaluation and substitute operator
     aqsobject$Data %<>%
       dplyr::rename(!!name1 := 1)
@@ -1260,7 +1261,7 @@ renameaqsvariables <- function(aqsobject, name1, name2)
       dplyr::rename(!!name2 := 2)
 
   } else if (all(inherits(x = aqsobject[[1]], what = "AQS_DATAMART_APIv2")))
-    {
+  {
     # using tidyevaluation and substitute operator
     aqsobject %<>%
       lapply("[[", "Data") %>%
@@ -1300,30 +1301,26 @@ renameaqsvariables <- function(aqsobject, name1, name2)
 #' @keywords internal
 #' @noRd
 aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
-  {
+{
   ellipsis_args <- list(...)
   if (bdate > edate)
   {
     return(rlang::abort(message = "bdate > edate"))
-  } else if (year(bdate) ==
-    year(edate))
-      {
+  } else if (year(bdate) == year(edate))
+  {
     bdatevector <- bdate
     edatevector <- edate
 
-  } else if (year(bdate) <
-    year(edate))
-      {
+  } else if (year(bdate) < year(edate))
+  {
     bdatevector <- c(
       bdate, seq.Date(
         from = ymd(glue("{year(bdate) + 1}-1-1")),
         to = edate, by = "year"
       )
     )
-    if (month(edate) !=
-      12 && day(edate) !=
-      31)
-      {
+    if (month(edate) != 12 && day(edate) != 31)
+    {
       edatevector <- c(
         seq.Date(
           from = ymd(glue("{year(bdate)}-12-31")),
@@ -1339,13 +1336,10 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
       )
     }
   }
-  if (length(bdatevector) >
-    length(edatevector))
-      {
+  if (length(bdatevector) > length(edatevector))
+  {
     edatevector %<>%
-      c(
-        ymd(tail(edatevector, n = 1)) +
-          years(1)
+      c(ymd(tail(edatevector, n = 1)) + years(1)
       )
   }
   params <- tibble(

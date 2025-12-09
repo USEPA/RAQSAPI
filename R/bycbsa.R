@@ -33,7 +33,7 @@
 #' @export
 aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA_Date_,
                                  cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
   # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
@@ -105,7 +105,7 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA
 #' @export
 aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code, duration = NA_character_,
                                    cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, cbsa_code, duration, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -171,7 +171,7 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code, duration 
 aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                       cbdate = NA_Date_, cedate = NA_Date_,
                                       return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -232,7 +232,7 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @export
 aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                      cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
@@ -293,7 +293,7 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #' @export
 aqs_quarterlysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
                                          cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 

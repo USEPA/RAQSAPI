@@ -5,6 +5,16 @@ library(tibble)
 library(stringr)
 
 
+#` @title RAQSAPI_functions
+#` @description Internal function that creates a table and list of exported function from this package`
+#` @importFrom dplyr case_when filter mutate
+#` @importFrom stringr str_detect str_remove_all
+#` @importFrom magrittr `%>%``
+#` @importFrom tibble tibble
+#` @importFrom rlang .data
+#` @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
+#` @NoRd
+#` @keywords internal
 RAQSAPI_functions <- function()
 {
   setupfunctions <- list("aqs_credentials", "aqs_sign_up")
@@ -18,8 +28,14 @@ RAQSAPI_functions <- function()
     "aqs_services_by_cbsa", "aqs_services_by_box"
   )
 
+  #`  @title functiontype
+  #` @importFrom stringr str_detect
+  #` @importFrom rlang .data
+  #` @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
+  #` @NoRd
+  #` @keywords internal
   functiontype <- function(functionname)
-    {
+  {
     case_when(
       str_detect(string = functionname, pattern = "by_site") ~
         "RAQSAPI aggregation by site aggregate functions", str_detect(string = functionname, pattern = "by_county") ~
@@ -34,15 +50,14 @@ RAQSAPI_functions <- function()
   }
 
   functiontable <- tibble(
-    functionnames = list.files("./man/html") %>%
+    functionnames <- list.files("./man/html") %>%
       str_remove_all(pattern = ".html"),
-    relPATH = list.files("./man/html", full.names = TRUE)
   ) %>%
     mutate(functionfamily = functiontype(functionnames))
   functiontable$functionfamily[which(functiontable$functionnames %in% listfunctions)] <- "RAQSAPI list functions"
   functiontable$functionfamily[which(functiontable$functionnames %in% setupfunctions)] <- "RAQSAPI setup functions"
-  functiontable$functionfamily[
-      which(functiontable$functionnames %in% serviceshelperfunctions)] <- "RAQSAPI services functions"
+  functiontable$functionfamily[which(functiontable$functionnames %in% serviceshelperfunctions)] <-
+    "RAQSAPI services functions"
 
   functiontable %<>%
     filter(!functionfamily == "services functions") %>%

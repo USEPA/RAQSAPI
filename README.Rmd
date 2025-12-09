@@ -5,9 +5,9 @@ abstract: RAQSAPI is a package for R that connects the R programming language
   environment to the United States Environmental Protection Agency's Air Quality
   System (AQS) Data Mart database for retrieval of ambient air pollution data.
 output:
+  rmarkdown::html_document: null
   rmarkdown::github_document:
     toc: true
-  rmarkdown::html_document: null
 lang: en-US
 bibliography: ./vignettes/AQSAPI.bib
 csl: ./vignettes/acs-nano.csl
@@ -23,26 +23,26 @@ knitr::opts_chunk$set(
 <img src="./vignettes/figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" align="right" width="150" height="150">
 
 <!-- badges: start -->
-  [![Project Status: Active – The project has reached a stable, usable state\
-      and is being actively developed.](
-      https://www.repostatus.org/badges/latest/active.svg)](
-      https://www.repostatus.org/#active)
-  [![R-CMD-check](
-  https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](
-  https://github.com/USEPA/RAQSAPI/actions)
-  [![CRAN status](https://www.r-pkg.org/badges/version/RAQSAPI)](
-  https://CRAN.R-project.org/package=RAQSAPI)
-  [![metacran downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](
-                         https://cran.r-project.org/package=RAQSAPI)
-  [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](
-  https://lifecycle.r-lib.org/articles/stages.html)
-  [![license](https://img.shields.io/badge/license-MIT-green)](
-  https://choosealicense.com/licenses/mit/)
-  [![Last-changedate](https://img.shields.io/badge/last%20change-
-  `r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
-  [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\
-                /RAQSAPI/.github/workflows/pkgcheck.yaml)
-  <!-- badges: end -->
+[![Project Status: Active – The project has reached a stable, usable state\
+and is being actively developed.](
+https://www.repostatus.org/badges/latest/active.svg)](
+https://www.repostatus.org/#active)
+[![R-CMD-check](
+https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](
+https://github.com/USEPA/RAQSAPI/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/RAQSAPI)](
+https://CRAN.R-project.org/package=RAQSAPI)
+[![metacran downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](
+https://cran.r-project.org/package=RAQSAPI)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](
+https://lifecycle.r-lib.org/articles/stages.html)
+[![license](https://img.shields.io/badge/license-MIT-green)](
+https://choosealicense.com/licenses/mit/)
+[![Last-changedate](https://img.shields.io/badge/last%20change-
+`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
+[![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\
+/RAQSAPI/.github/workflows/pkgcheck.yaml)
+<!-- badges: end -->
 
 ```{r child = "./vignettes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
