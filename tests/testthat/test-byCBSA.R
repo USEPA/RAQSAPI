@@ -14,6 +14,7 @@ if (file.exists("local.R"))
   }
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
+#with_mock_api({
 with_mock_dir("bycbsa", {
   test_that(
     "byCBSA functions", {

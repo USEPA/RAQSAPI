@@ -3,6 +3,7 @@
 #' @import testthat
 #' @import httptest2
 
+#with_mock_api({
 with_mock_dir("listfunctions", {
   test_that(
     "list functions", {

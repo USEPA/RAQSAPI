@@ -14,10 +14,10 @@ if (file.exists("local.R"))
   }
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
+#with_mock_api({
 with_mock_dir("bybox", {
   test_that(
     "bybox functions", {
-
       aqs_sampledata_by_box(
         parameter = "44201",
         bdate = as.Date("20150501", format = "%Y%m%d"),

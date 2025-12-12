@@ -2,8 +2,8 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2025-12-09T14:42:28-05:00",
-            "url": "https://datamart/qaCollocatedAssessments/byState?param=88101&bdate=20130101&edate=20130131&state=01",
+            "request_time": "2025-12-12T11:16:34-05:00",
+            "url": "https://datamart/qaCollocatedAssessments/byState?email=<redacted>&key=<redacted>&param=88101&bdate=20130101&edate=20130131&state=01",
             "rows": 30
         }
     ],

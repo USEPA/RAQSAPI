@@ -2,8 +2,8 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2025-12-09T14:36:15-05:00",
-            "url": "https://datamart/annualData/byCBSA?param=42602&bdate=20170101&edate=20170101&cbsa=16740",
+            "request_time": "2025-12-12T11:11:24-05:00",
+            "url": "https://datamart/annualData/byCBSA?email=<redacted>&key=<redacted>&param=42602&bdate=20170101&edate=20170101&cbsa=16740",
             "rows": 4
         }
     ],

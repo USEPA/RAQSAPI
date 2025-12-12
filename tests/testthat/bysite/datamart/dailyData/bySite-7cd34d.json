@@ -2,8 +2,8 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2025-12-09T14:40:10-05:00",
-            "url": "https://datamart/dailyData/bySite?param=44201&bdate=20170618&edate=20170618&state=37&county=183&site=0014",
+            "request_time": "2025-12-12T11:14:16-05:00",
+            "url": "https://datamart/dailyData/bySite?email=<redacted>&key=<redacted>&param=44201&bdate=20170618&edate=20170618&state=37&county=183&site=0014",
             "rows": 4
         }
     ],

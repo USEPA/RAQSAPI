@@ -53,3 +53,5 @@ tests/testthat/testthat-problems.rds
 codeinventory.json
 .vscode/
 .devcontainer/
+contributing.md
+CODE_OF_CONDUCT.md

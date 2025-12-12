@@ -14,6 +14,7 @@ if (file.exists("local.R"))
   }
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
+#with_mock_api({
 with_mock_dir("byco", {
   #name shortened from "bycounty" to "byco" to avoid the long path name limit.
   test_that(
