@@ -53,7 +53,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
   version: '>= 4.0.0'
 - type: software
   title: dplyr
@@ -78,7 +78,7 @@ references:
     given-names: Davis
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.dplyr
 - type: software
   title: glue
@@ -94,7 +94,7 @@ references:
     given-names: Jennifer
     email: jenny@posit.co
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.glue
 - type: software
   title: gtools
@@ -119,7 +119,7 @@ references:
     given-names: Genei
   - family-names: Moeller
     given-names: Steffen
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.gtools
 - type: software
   title: httr2
@@ -131,7 +131,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.httr2
 - type: software
   title: lifecycle
@@ -147,7 +147,7 @@ references:
     given-names: Hadley
     email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.lifecycle
 - type: software
   title: lubridate
@@ -163,7 +163,7 @@ references:
     given-names: Garrett
   - family-names: Wickham
     given-names: Hadley
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.lubridate
 - type: software
   title: methods
@@ -174,7 +174,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
 - type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
@@ -188,7 +188,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.magrittr
 - type: software
   title: purrr
@@ -204,7 +204,7 @@ references:
   - family-names: Henry
     given-names: Lionel
     email: lionel@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.purrr
 - type: software
   title: rlang
@@ -219,7 +219,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rlang
 - type: software
   title: stringr
@@ -231,7 +231,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.stringr
 - type: software
   title: tibble
@@ -247,7 +247,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.tibble
 - type: software
   title: tidyselect
@@ -262,7 +262,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.tidyselect
 - type: software
   title: cli
@@ -274,7 +274,7 @@ references:
   - family-names: Csárdi
     given-names: Gábor
     email: gabor@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.cli
 - type: software
   title: covr
@@ -286,7 +286,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.covr
 - type: software
   title: devtools
@@ -305,7 +305,7 @@ references:
     given-names: Jennifer
     email: jenny@posit.co
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.devtools
 - type: software
   title: goodpractice
@@ -336,7 +336,7 @@ references:
   - family-names: Alexander
     given-names: Hannah
     email: halexander@mango-solutions.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.goodpractice
 - type: software
   title: httptest2
@@ -349,7 +349,7 @@ references:
     given-names: Neal
     email: neal.p.richardson@gmail.com
     orcid: https://orcid.org/0009-0002-7992-3520
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.httptest2
 - type: software
   title: keyring
@@ -361,7 +361,7 @@ references:
   - family-names: Csárdi
     given-names: Gábor
     email: csardi.gabor@gmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.keyring
 - type: software
   title: knitr
@@ -374,7 +374,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
   title: rmarkdown
@@ -418,7 +418,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: remotes
@@ -440,7 +440,7 @@ references:
     given-names: Martin
   - family-names: Tenenbaum
     given-names: Dan
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.remotes
 - type: software
   title: roxygen2
@@ -461,7 +461,7 @@ references:
     email: csardi.gabor@gmail.com
   - family-names: Eugster
     given-names: Manuel
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.roxygen2
 - type: software
   title: spelling
@@ -477,7 +477,7 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.hester@rstudio.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.spelling
 - type: software
   title: testthat
@@ -489,7 +489,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
@@ -515,7 +515,7 @@ references:
     given-names: Andy
     email: andy.teucher@posit.co
     orcid: https://orcid.org/0000-0002-7840-692X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.usethis
 - type: software
   title: withr
@@ -540,6 +540,6 @@ references:
     email: hadley@posit.co
   - family-names: Chang
     given-names: Winston
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.withr
 

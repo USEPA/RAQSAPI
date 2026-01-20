@@ -1,6 +1,4 @@
 #' @importFrom magrittr `%>%`()
-#' @import testthat
-#' @import httptest2
 if (file.exists("local.R"))
 {
   source("helper.R")

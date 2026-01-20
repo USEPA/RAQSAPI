@@ -1,17 +1,11 @@
-library(lubridate)
-library(testthat)
-
-
 #' @importFrom magrittr `%>%`()
-#' @import testthat
 #' @importFrom tibble tibble
 #' @importFrom lubridate now
-#' @import testthat`
 test_that(
   "AQS_DATAMART_API S3 class", {
-    .Data <- tibble(a = 1:10, b = 11:20, c = 21:30)
-    .Header <- tibble(
-      Error = "NA", datetime = now(), status_code = 400, user = "RAQSAPI testing", url = "RAQSAPI package/tests",
+    .Data <- tibble::tibble(a = 1:10, b = 11:20, c = 21:30)
+    .Header <- tibble::tibble(
+      Error = "NA", datetime = lubridate::now(), status_code = 400, user = "RAQSAPI testing", url = "RAQSAPI package/tests",
       format = "application/json",
       content = "fake data"
     )
@@ -32,7 +26,7 @@ test_that(
 test_that(
   "test AQS_DATAMART_APIv2_validator", {
 
-    year <- now() %>%
+    year <- lubridate::now() %>%
       year()
     fakeData <- tibble(
       datetime = seq.POSIXt(

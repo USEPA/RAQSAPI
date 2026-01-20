@@ -1,7 +1,5 @@
 #' @importFrom magrittr `%>%`()
 #' @importFrom stringr str_detect
-#' @import testthat
-
 if (file.exists("local.R"))
 {
   source("helper.R")

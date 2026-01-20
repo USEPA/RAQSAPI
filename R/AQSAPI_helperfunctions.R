@@ -427,7 +427,6 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   }
   # AQS DataMart API does not accept headers so user_agent not working user_agent <- glue('User:{user} via
   # RAQSAPI-{packageVersion('RAQSAPI')} library for R')
-
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(
       format_variables_for_api(
@@ -442,7 +441,9 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
     )
   AQSrequest <- AQSpath %>%
     httr2::request() %>%
-    httr2::req_throttle(rate = 10 / 60, realm = "RAQSAPI") %>%
+    # Please refer to the section Request Limits and Terms of Service at https://aqs.epa.gov/aqsweb/documents/data_api.html for
+    # more information regarding how RAQSAPI handles throttleing and retries.
+    httr2::req_throttle(capacity = 10, fill_time_s = 60, realm = "RAQSAPI") %>%
     httr2::req_retry(max_tries = 5, max_seconds = 30, backoff = ~10) %>%
     httr2::req_error(body = RAQSAPI_error_msg)
   # AQS DataMart API does not accept headers so user_agent not working %>% req_user_agent(string = user_agent)

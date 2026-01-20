@@ -1,7 +1,5 @@
 #' @importFrom dplyr pull
 #' @importFrom magrittr `%>%`()
-#' @import testthat
-#' @import httptest2
 
 #with_mock_api({
 with_mock_dir("listfunctions", {
