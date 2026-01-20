@@ -164,8 +164,8 @@ e78a41509964b897d1247289b67caabc *tests/testthat/byco/aqs.epa.gov/data/api/QD/by
 b91bcb0fc760c43787a3ddac4d749458 *tests/testthat/byco/aqs.epa.gov/data/api/tQAape/byCounty-305da6.json
 30305c13a56ce76444c7aec471f17748 *tests/testthat/byco/aqs.epa.gov/data/api/transactionsSample/byCounty-fbf73d.json
 3d4a33b266147ac8e2364087d07656d9 *tests/testthat/helper.R
-e40495bf999e63c4fc5dae5ed4ad5f85 *tests/testthat/setup.R
-926ce382cc97050475a8619c1be761be *tests/testthat/test-AQS_DATAMART_API-S3-class.R
+628d3b503bece794d7e8688990af5cea *tests/testthat/setup.R
+f4ed94e8d4b979c13f1cca53d13568cf *tests/testthat/test-AQS_DATAMART_API-S3-class.R
 3d625427ebec2c8014a82d7c0eb03281 *tests/testthat/test-bybox.R
 3e886e78225532c9287dbdbf2d9b056d *tests/testthat/test-byCBSA.R
 c793fceb16005e987a6017373f51e88d *tests/testthat/test-bycounty.R
