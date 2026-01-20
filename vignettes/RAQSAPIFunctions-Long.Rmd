@@ -210,7 +210,7 @@ RAQSAPI_functions %>%
   API. For a list of available services refer to
   https://aqs.epa.gov/aqsweb/documents/data_api.html#services
   for the complete listing of services available through the
-  Datamart API
+  DataMart API
   
   * sitenum: a R character object which represents the 4 digit site number (with
   leading zeros) within the county and state being requested.

@@ -119,5 +119,5 @@ Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 X-schema.org-keywords: United State Environmental Protection Agency,
                        Environmental-data-retrieval, Air-Quality-System,
-                       AQS-Datamart, Air-monitoring, Environmental-monitoring
+                       AQS-DataMart, Air-monitoring, Environmental-monitoring
 Config/testthat/load-all: list(export_all = FALSE, helpers = FALSE)

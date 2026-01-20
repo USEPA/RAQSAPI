@@ -37,7 +37,7 @@ output: md_document
     after a 10 second wait time.
   - Moved to the httr2 backend, removed desc from suggests and
     httr, and jsonlite as from imports.
-  - There is an issue with curl connecting to the AQS Datamart API, on
+  - There is an issue with curl connecting to the AQS DataMart API, on
     windows platforms, as a temporary fix, RAQSAPI will default to using
     the Schannel curl backend.
   - modify QA Collocated Assessments by County and by Site unit tests and

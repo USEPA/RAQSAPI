@@ -527,7 +527,7 @@ isValidEmail <- function(email)
 #' @param sitenum a R character object which represents the 4 digit site number
 #'                 (with leading zeros) within the county and state being
 #'                 requested. @seealso [aqs_sites_by_county()] for the list of
-#'                 availables site numbers for a given county and state.
+#'                 available site numbers for a given county and state.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of

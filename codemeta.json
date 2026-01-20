@@ -369,7 +369,7 @@
     },
     "SystemRequirements": "package manual requires pandoc (>= 1.14) http://pandoc.org"
   },
-  "keywords": ["UnitedStateEnvironmentalProtectionAgency", "Environmental-data-retrieval", "Air-Quality-System", "AQS-Datamart", "Air-monitoring", "Environmental-monitoring", "r03", "airmonitoring", "aqs", "datamart", "environmental-data-retrieval", "environmental-monitoring", "usepa", "rpackage", "rprogramming"],
+  "keywords": ["UnitedStateEnvironmentalProtectionAgency", "Environmental-data-retrieval", "Air-Quality-System", "AQS-DataMart", "Air-monitoring", "Environmental-monitoring", "r03", "airmonitoring", "aqs", "datamart", "environmental-data-retrieval", "environmental-monitoring", "usepa", "rpackage", "rprogramming"],
   "fileSize": "1599.568KB",
   "citation": [
     {
