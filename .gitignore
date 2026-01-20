@@ -33,6 +33,7 @@ vignettes/*.docx
 #not needed
 ignore all files under dev
 dev/.
+.vscode/
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
 # Output files from R CMD check
