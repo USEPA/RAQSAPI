@@ -1,0 +1,12 @@
+{
+    "Header": [
+        {
+            "status": "API service is up and running healthy. Status: connection_pool: size: 5, connections: 1, in use: 1, waiting_in_queue: 0",
+            "request_time": "2026-01-21T14:41:41-05:00",
+            "url": "http://datamart/api/metaData/isAvailable?email=redacted&key=redacted"
+        }
+    ],
+    "Data": [
+
+    ]
+}

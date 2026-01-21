@@ -10,7 +10,7 @@ function (resp) {
   }
 
   # shorten mock path by removing the base URL
-  #resp <- httptest2::gsub_response(resp, "aqs.epa.gov/data/api/", "datamart/", fixed = TRUE)
+  resp <- httptest2::gsub_response(resp, "aqs.epa.gov", "datamart", fixed = TRUE)
   # abbreviate long function causes path in mocks
   resp <- httptest2::gsub_response(resp, "qaAnnualPerformanceEvaluations", "QAape", fixed = TRUE)
   # abbreviate long function causes path in mocks

@@ -1,0 +1,136 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2026-01-21T14:42:41-05:00",
+            "url": "https://datamart/data/api/list/sitesByCounty?email=redacted&key=redacted&state=15&county=001",
+            "rows": 31
+        }
+    ],
+    "Data": [
+        {
+            "code": "0001",
+            "value_represented": null
+        },
+        {
+            "code": "0002",
+            "value_represented": null
+        },
+        {
+            "code": "0003",
+            "value_represented": null
+        },
+        {
+            "code": "0004",
+            "value_represented": null
+        },
+        {
+            "code": "0005",
+            "value_represented": "Hawaii Volcanoes NP - Kilauea Visitors Center"
+        },
+        {
+            "code": "0006",
+            "value_represented": "HAWAII VOLCANOES NP - THURSTON"
+        },
+        {
+            "code": "0007",
+            "value_represented": "Hawaii Volcanoes NP - The Observatory"
+        },
+        {
+            "code": "1001",
+            "value_represented": null
+        },
+        {
+            "code": "1002",
+            "value_represented": null
+        },
+        {
+            "code": "1006",
+            "value_represented": "Hilo"
+        },
+        {
+            "code": "1012",
+            "value_represented": "Kona"
+        },
+        {
+            "code": "1016",
+            "value_represented": null
+        },
+        {
+            "code": "2001",
+            "value_represented": null
+        },
+        {
+            "code": "2010",
+            "value_represented": "Puna E"
+        },
+        {
+            "code": "2016",
+            "value_represented": "Pahala"
+        },
+        {
+            "code": "2017",
+            "value_represented": "Mountain View 17"
+        },
+        {
+            "code": "2020",
+            "value_represented": "HOVE"
+        },
+        {
+            "code": "2021",
+            "value_represented": "Waikoloa"
+        },
+        {
+            "code": "2023",
+            "value_represented": "Mountain View 23"
+        },
+        {
+            "code": "2035",
+            "value_represented": "Leilani Estates"
+        },
+        {
+            "code": "3027",
+            "value_represented": "KS Hawaii"
+        },
+        {
+            "code": "3028",
+            "value_represented": null
+        },
+        {
+            "code": "3030",
+            "value_represented": null
+        },
+        {
+            "code": "3032",
+            "value_represented": null
+        },
+        {
+            "code": "3033",
+            "value_represented": "Naalehu-TS"
+        },
+        {
+            "code": "3034",
+            "value_represented": "Kailua-Kona"
+        },
+        {
+            "code": "9000",
+            "value_represented": null
+        },
+        {
+            "code": "9001",
+            "value_represented": null
+        },
+        {
+            "code": "9002",
+            "value_represented": null
+        },
+        {
+            "code": "9003",
+            "value_represented": null
+        },
+        {
+            "code": "9004",
+            "value_represented": null
+        }
+    ]
+}

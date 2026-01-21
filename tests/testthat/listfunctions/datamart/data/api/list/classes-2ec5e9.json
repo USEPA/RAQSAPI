@@ -1,0 +1,120 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2026-01-21T14:42:36-05:00",
+            "url": "https://datamart/data/api/list/classes?email=redacted&key=redacted",
+            "rows": 27
+        }
+    ],
+    "Data": [
+        {
+            "code": "AIRNOW MAPS",
+            "value_represented": "The parameters represented on AirNow maps (88101, 88502, and 44201)"
+        },
+        {
+            "code": "ALL",
+            "value_represented": "Select all Parameters Available"
+        },
+        {
+            "code": "AQI POLLUTANTS",
+            "value_represented": "Pollutants that have an AQI Defined"
+        },
+        {
+            "code": "CORE_HAPS",
+            "value_represented": "Urban Air Toxic Pollutants"
+        },
+        {
+            "code": "CRITERIA",
+            "value_represented": "Criteria Pollutants"
+        },
+        {
+            "code": "CSN DART",
+            "value_represented": "List of CSN speciation parameters to populate the STI DART tool"
+        },
+        {
+            "code": "FORECAST",
+            "value_represented": "Parameters routinely extracted by AirNow (STI)"
+        },
+        {
+            "code": "HAPS",
+            "value_represented": "Hazardous Air Pollutants"
+        },
+        {
+            "code": "IMPROVE CARBON",
+            "value_represented": "IMPROVE Carbon Parameters"
+        },
+        {
+            "code": "IMPROVE_SPECIATION",
+            "value_represented": "PM2.5 Speciated Parameters Measured at IMPROVE sites"
+        },
+        {
+            "code": "MET",
+            "value_represented": "Meteorological Parameters"
+        },
+        {
+            "code": "NATTS CORE HAPS",
+            "value_represented": "The core list of toxics of interest to the NATTS program."
+        },
+        {
+            "code": "NATTS REQUIRED",
+            "value_represented": "Required compounds to be collected in the National Air Toxics Network"
+        },
+        {
+            "code": "PAMS",
+            "value_represented": "Photochemical Assessment Monitoring System"
+        },
+        {
+            "code": "PAMS_VOC",
+            "value_represented": "Volatile Organic Compound subset of the PAMS Parameters"
+        },
+        {
+            "code": "PM COARSE",
+            "value_represented": "PM between 2.5 and 10 micrometers"
+        },
+        {
+            "code": "PM10 SPECIATION",
+            "value_represented": "PM10 Speciated Parameters"
+        },
+        {
+            "code": "PM2.5 CONT NONREF",
+            "value_represented": "PM2.5 Continuous, Nonreference Methods"
+        },
+        {
+            "code": "PM2.5 MASS/QA",
+            "value_represented": "PM2.5 Mass and QA Parameters"
+        },
+        {
+            "code": "SCHOOL AIR TOXICS",
+            "value_represented": "School Air Toxics Program Parameters"
+        },
+        {
+            "code": "SPECIATION",
+            "value_represented": "PM2.5 Speciated Parameters"
+        },
+        {
+            "code": "SPECIATION CARBON",
+            "value_represented": "PM2.5 Speciation Carbon Parameters"
+        },
+        {
+            "code": "SPECIATION CATION/ANION",
+            "value_represented": "PM2.5 Speciation Cation/Anion Parameters"
+        },
+        {
+            "code": "SPECIATION METALS",
+            "value_represented": "PM2.5 Speciation Metal Parameters"
+        },
+        {
+            "code": "UATMP CARBONYL",
+            "value_represented": "Urban Air Toxics Monitoring Program Carbonyls"
+        },
+        {
+            "code": "UATMP VOC",
+            "value_represented": "Urban Air Toxics Monitoring Program VOCs"
+        },
+        {
+            "code": "VOC",
+            "value_represented": "Volatile organic compounds"
+        }
+    ]
+}

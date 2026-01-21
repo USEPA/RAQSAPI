@@ -1,0 +1,17 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2026-01-21T14:42:00-05:00",
+            "url": "https://datamart/data/api/metaData/issues?email=redacted&key=redacted",
+            "rows": 1
+        }
+    ],
+    "Data": [
+        {
+            "title": "None",
+            "affected_services": "None",
+            "description": "There are no known issues at this time."
+        }
+    ]
+}
