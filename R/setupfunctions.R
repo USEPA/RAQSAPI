@@ -27,7 +27,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
   # nocov The code simply stores the credentials as a R option. Since the Data Mart server only issues a 'key' and not a
   # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
   # and etc.
-  if (!is.na(username) || !is.na(key) || !is_character(username) || !is_character(key))
+  if (is_character(username) && is_character(key) && !is.na(username) && !is.na(key))
   {
     options(aqs_username = username)
     options(aqs_key = key)

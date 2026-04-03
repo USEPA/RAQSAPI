@@ -1,4 +1,5 @@
-function (resp) {
+function(resp)
+{
   key <- getOption("aqs_key")
   user <- getOption("aqs_username")
 
@@ -9,14 +10,13 @@ function (resp) {
     resp <- httptest2::gsub_response(resp, as.character(user), "redacted", fixed = TRUE)
   }
 
-  # shorten mock path by removing the base URL
-  resp <- httptest2::gsub_response(resp, "aqs.epa.gov", "datamart", fixed = TRUE)
-  # abbreviate long function causes path in mocks
+  # shorten all mock paths by abbreviating the base URL
+  resp <- httptest2::gsub_response(resp, "https://aqs.epa.gov/data/api", "aqs", fixed = TRUE)
+  # abbreviate long function, changes path in mocks
   resp <- httptest2::gsub_response(resp, "qaAnnualPerformanceEvaluations", "QAape", fixed = TRUE)
-  # abbreviate long function causes path in mocks
+  # abbreviate long function, causes path in mocks
   resp <- httptest2::gsub_response(resp, "transactionsQaAnnualPerformanceEvaluations", "tQAape", fixed = TRUE)
   resp <- httptest2::gsub_response(resp, "quarterlyData", "QD", fixed = TRUE)
 
   return(resp)
 }
-

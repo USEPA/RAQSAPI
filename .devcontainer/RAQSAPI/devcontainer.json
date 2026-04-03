@@ -1,6 +1,5 @@
 {
     "name": "rockerimage",
-    "dockerComposeFile": "./compose.yml",
     "service": "rstudio",
     "workspaceFolder": "/home/rstudio/workspace/RAQSAPI",
     "remoteUser": "rstudio",

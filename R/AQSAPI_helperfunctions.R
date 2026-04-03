@@ -36,6 +36,38 @@ checkaqsparams <- function(...)
   ellipsis_args <- list(...)
   names(ellipsis_args) <- names(match.call(expand.dots = FALSE)$...)
 
+  if ("service" %in% names(ellipsis_args))
+  {
+    if (!is.character(ellipsis_args$service))
+    {
+      error <- TRUE
+      errmessage %<>%
+        c(x = "service mus be a string")
+    }
+    listofservices <- c("annualData",
+                        "annualsummary",
+                        "dailyData",
+                        "quarterlyData",
+                        "monitors",
+                        "sampleData",
+                        "qaAnnualPerformanceEvaluations",
+                        "qaBlanks",
+                        "qaCollocatedAssessments",
+                        "qaFlowRateVerifications",
+                        "qaFlowRateAudits",
+                        "qaOnePointQcRawData",
+                        "qaPepAudits",
+                        "transactionsSample",
+                        "transactionsQaAnnualPerformanceEvaluations")
+
+    if (!ellipsis_args$service %in% listofservices)
+    {
+      error <- TRUE
+      errmessage %<>%
+        c(x = glue("service must be one of the following: {glue(listofservices, collapse = ', ')}"))
+    }
+  }
+
   if ("parameter" %in% names(ellipsis_args))
   {
     if (nchar(ellipsis_args$parameter) != 5 || !is.character(ellipsis_args$parameter) ||
@@ -260,6 +292,8 @@ checkaqsparams <- function(...)
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr `%>%`
+#' @importFrom purrr map_chr
+#' @importFrom stringr str_c
 #' @keywords internal
 #' @noRd
 format_variables_for_api <- function(x, separator = "&")
@@ -413,19 +447,21 @@ RAQSAPI_error_msg <- function(AQSresponse)
 #' @noRd
 aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov")
 {
-  if (is.null(user) || is.null(user_key))
+  if (is.null(user) || is.null(user_key) || user_key == "redacted")
   {
     stop("please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
     )
   }
-  if (gtools::invalid(user) || gtools::invalid(user_key))
+  if (gtools::invalid(user) || gtools::invalid(user_key) || user == "redacted")
   {
     stop("please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
     )
   }
-  # AQS DataMart API does not accept headers so user_agent not working user_agent <- glue('User:{user} via
+
+  # AQS DataMart API does not accept headers so user_agent not working
+  # user_agent <- glue('User:{user} via
   # RAQSAPI-{packageVersion('RAQSAPI')} library for R')
   AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
     glue(
@@ -439,17 +475,18 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
         )
       )
     )
+
   AQSrequest <- AQSpath %>%
     httr2::request() %>%
-    # Please refer to the section Request Limits and Terms of Service at https://aqs.epa.gov/aqsweb/documents/data_api.html for
-    # more information regarding how RAQSAPI handles throttleing and retries.
+    # Please refer to the section Request Limits and Terms of Service at https://aqs.epa.gov/aqsweb/documents/data_api.html
+    # for more information regarding how RAQSAPI handles throttleing and retries.
     httr2::req_throttle(capacity = 10, fill_time_s = 60, realm = "RAQSAPI") %>%
     httr2::req_retry(max_tries = 5, max_seconds = 30, backoff = ~10) %>%
     httr2::req_error(body = RAQSAPI_error_msg)
-  # AQS DataMart API does not accept headers so user_agent not working %>% req_user_agent(string = user_agent)
+  # AQS DataMart API does not accept headers so user_agent not working ATM, %>% req_user_agent(string = user_agent)
 
   AQSresponse <- AQSrequest %>%
-    req_perform(verbosity = 0)
+    httr2::req_perform(verbosity = 0)
 
   if (httr2::resp_is_error(AQSresponse))
   {
@@ -598,7 +635,9 @@ aqs_services_by_site <- function(parameter,
 )
 {
   aqs(
-    service = service, filter = "bySite", user = getOption("aqs_username"),
+    service = service,
+    filter = "bySite",
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(
       param = format_multiple_params_for_api(parameter),
@@ -702,7 +741,9 @@ aqs_services_by_county <- function(parameter,
 )
 {
   aqs(
-    service = service, filter = "byCounty", user = getOption("aqs_username"),
+    service = service,
+    filter = "byCounty",
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(
       param = format_multiple_params_for_api(parameter),
@@ -798,9 +839,10 @@ aqs_services_by_state <- function(parameter,
   AQS_domain = "aqs.epa.gov"
 )
 {
-
   aqs(
-    service = service, filter = "byState", user = getOption("aqs_username"),
+    service = service,
+    filter = "byState",
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(
       param = format_multiple_params_for_api(parameter),
@@ -1026,7 +1068,9 @@ aqs_services_by_cbsa <- function(parameter,
 )
 {
   aqs(
-    service = service, filter = "byCBSA", user = getOption("aqs_username"),
+    service = service,
+    filter = "byCBSA",
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(
       param = format_multiple_params_for_api(parameter),
@@ -1115,7 +1159,9 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
                                  AQS_domain = "aqs.epa.gov")
 {
   aqs(
-    service = service, filter = "byPQAO", user = getOption("aqs_username"),
+    service = service,
+    filter = "byPQAO",
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(
       param = format_multiple_params_for_api(parameter),
@@ -1200,7 +1246,9 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service, cbdate
                                AQS_domain = "aqs.epa.gov")
 {
   aqs(
-    service = service, filter = "byMA", user = getOption("aqs_username"),
+    service = service,
+    filter = "byMA",
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(
       param = format_multiple_params_for_api(parameter),
@@ -1238,7 +1286,9 @@ aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service, cbdate
 aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "aqs.epa.gov")
 {
   aqs(
-    service = "metaData", filter = filter, user = getOption("aqs_username"),
+    service = "metaData",
+    filter = filter,
+    user = getOption("aqs_username"),
     user_key = getOption("aqs_key"),
     variables = list(service = service),
     AQS_domain = AQS_domain

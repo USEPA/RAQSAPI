@@ -1,7 +1,6 @@
 #' @importFrom magrittr `%>%`()
 if (file.exists("local.R"))
 {
-  source("helper.R")
   AQScredentials <- RAQSAPItestsetup_helper()
   datamartAPI_user <- AQScredentials$datamartAPI_user
   datamartAPI_key <- AQScredentials$datamartAPI_key
@@ -12,7 +11,6 @@ if (file.exists("local.R"))
   }
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
-#with_mock_api({
 with_mock_dir("bybox", {
   test_that(
     "bybox functions", {

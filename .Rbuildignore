@@ -55,3 +55,4 @@ codeinventory.json
 .devcontainer/
 contributing.md
 CODE_OF_CONDUCT.md
+^RAQSAPI\.Rproj$

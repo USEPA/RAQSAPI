@@ -828,10 +828,11 @@ aqs_quarterlysummary_by_state <- function(parameter, bdate, edate, stateFIPS,
                                           cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
 {
   AQS_domain <- "aqs.epa.gov"
-  checkaqsparams(parameter, bdate, edate, stateFIPS, cbdate, cedate, return_header)
+  service <- "quarterlyData"
+  checkaqsparams(parameter, service, bdate, edate, stateFIPS, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS, service = "quarterlyData", cbdate = cbdate,
+    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS, service = service, cbdate = cbdate,
     cedate = cedate, AQS_domain = AQS_domain
   )
 
