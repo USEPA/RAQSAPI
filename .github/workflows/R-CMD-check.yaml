@@ -2,8 +2,7 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches:
-      - '*'
+    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -51,5 +50,5 @@ jobs:
 
       - uses: r-lib/actions/check-r-package@v2
         with:
-          upload-snapshots: false
+          upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
