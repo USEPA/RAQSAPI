@@ -1,23 +1,27 @@
 #' @importFrom magrittr `%>%`()
-#' @import testthat
-#' @import httptest2
-with_mock_dir("bybox",{
+if (file.exists("local.R"))
+{
+  AQScredentials <- RAQSAPItestsetup_helper()
+  datamartAPI_user <- AQScredentials$datamartAPI_user
+  datamartAPI_key <- AQScredentials$datamartAPI_key
+} else
+  {
+    datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+    datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+  }
+
+# If credentials are not available (e.g., during check_built), set dummy values for mocked tests
+if (is.na(datamartAPI_user) || datamartAPI_user == "" || is.na(datamartAPI_key) || datamartAPI_key == "")
+{
+  datamartAPI_user <- "test@example.com"
+  datamartAPI_key <- "testkey"
+}
+
+RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
+
+with_mock_dir("bybox", {
   test_that(
     "bybox functions", {
-
-      if (file.exists("local.R"))
-        {
-        source("helper.R")
-          AQScredentials <- RAQSAPItestsetup_helper()
-          datamartAPI_user <- AQScredentials$datamartAPI_user
-          datamartAPI_key <- AQScredentials$datamartAPI_key
-        } else
-        {
-          datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-          datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-        }
-        RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
-
       aqs_sampledata_by_box(
         parameter = "44201",
         bdate = as.Date("20150501", format = "%Y%m%d"),
@@ -38,7 +42,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
 
@@ -50,7 +54,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
 
@@ -62,7 +66,7 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
 
@@ -74,9 +78,10 @@ with_mock_dir("bybox",{
         maxlat = "33.6",
         minlon = "-87.0",
         maxlon = "-86.7",
-        return_header = TRUE
+        return_header = FALSE
       ) %>%
         expect_no_error()
     }
   )
-})
+}
+)

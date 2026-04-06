@@ -1,6 +1,3 @@
-#' @section  RAQSAPI setup functions
-
-
 #' @title aqs_credentials
 #' @description \lifecycle{stable}
 #'                 Sets the user credentials for the AQS API. This function
@@ -26,28 +23,25 @@
 #'          }
 #' @export
 aqs_credentials <- function(username = NA_character_, key = NA_character_)
-  {
+{
   # nocov The code simply stores the credentials as a R option. Since the Data Mart server only issues a 'key' and not a
   # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
   # and etc.
-  if (!is.na(username) ||
-    !is.na(key) ||
-    !is_character(username) ||
-    !is_character(key))
-      {
+  if (is_character(username) && is_character(key) && !is.na(username) && !is.na(key))
+  {
     options(aqs_username = username)
     options(aqs_key = key)
   } else
-  {
-    warning("Please enter a valid username and key  \n")
-  }
-  return(NULL)
+    {
+      warning("Please enter a valid username and key  \n")
+    }
+  return(invisible())
 }  #no cov end
 
 
 #' @title aqs_sign_up
 #' @description \lifecycle{stable}
-#'              Use this service to register as a new user or to reset an
+#'              Use this function to register as a new user or to reset an
 #'              existing user's key. A verification email will be sent to the
 #'              email account specified. To reset a password: If the request is
 #'              made with an email that is already registered, a new key will
@@ -60,7 +54,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #'                 the account specified. Follow the instructions
 #'                 in the verification e-mail before proceeding to use any other
 #'                 functionality of the AQS API. Register your credential
-#'                 with the @3 [aqs_credentials()] before using the
+#'                 with [aqs_credentials()] before using the
 #'                 other functions in this library.
 #' @note The '@' character needs to be escaped with the '/' character.
 #' @importFrom glue glue
@@ -76,7 +70,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #'         does not return meaningful data.
 #' @export
 aqs_sign_up <- function(email)
-  {
+{
   # nocov start We do not want aqs_sign_up registering new users as part of the unit testing procedures.
 
   # user_agent <- glue('User:{email} via RAQSAPI-{packageVersion('RAQSAPI')} library for R')
@@ -87,5 +81,5 @@ aqs_sign_up <- function(email)
   # user agent string (currently not implemented) on the API %>% req_user_agent(string = user_agent)
   glue("A verification email will be sent to {email}  \n") %>%
     message()
-  return(NULL)
+  return(invisible())
 }  #nocov end

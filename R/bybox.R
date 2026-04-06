@@ -1,6 +1,3 @@
-#' @section by_box aggregate functions
-
-
 #' @title aqs_monitors_by_box
 #' @description \lifecycle{stable}
 #'  Returns a table of monitors and related metadata sites with the provided
@@ -16,7 +13,7 @@
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
 #'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object of monitors from a
 #'           latitude/longitude bounding box (_by_box).
 #' @examples #  Returns a tibble of all ozone
 #'           #  monitors in the vicinity of central Alabama that operated in
@@ -34,7 +31,7 @@
 #'                    }
 #' @export
 aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
@@ -78,7 +75,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'         will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
@@ -90,7 +87,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
 #'           for all monitors within the input latitude/longitude bounding box
-#'           for a single parameter. An AQS_Data Mart_APIv2 is a 2 item named
+#'           for a single parameter. An AQS_DataMart_APIv2 is a 2 item named
 #'           list in which the first item /(/$Header/) is a tibble of header
 #'           information from the AQS API and the second item /(/$Data/) is a
 #'           tibble of the data returned.
@@ -109,19 +106,25 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'                                          )
 #'                    }
 #' @export
-aqs_sampledata_by_box <- function(
-  parameter, bdate, edate, minlat, maxlat, minlon,
-  maxlon, duration = NA_character_, cbdate = NA_Date_,
-  cedate = NA_Date_, return_header = FALSE
+aqs_sampledata_by_box <- function(parameter,
+  bdate,
+  edate,
+  minlat,
+  maxlat,
+  minlon,
+  maxlon,
+  duration = NA_character_,
+  cbdate = NA_Date_,
+  cedate = NA_Date_,
+  return_header = FALSE
 )
-  {
+{
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
 
   params <- aqsmultiyearparams(
     parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
     duration = duration, service = "sampleData", cbdate = cbdate, cedate = cedate
   )
-
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_box)
   if (!return_header)
     sampledata %<>%
@@ -149,16 +152,16 @@ aqs_sampledata_by_box <- function(
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
-#'           summary data for the box (area) requested. A AQS_Data Mart_APIv2
+#'           returns a AQSAPI_v2 object which is a two item list that contains header
+#'           information returned from the API server mostly used for debugging
+#'           purposes in addition to the data requested.
+#' @return A tibble or an AQS_DataMart_APIv2 S3 object that containing annual
+#'           summary data for the box (area) requested. A AQS_DataMart_APIv2
 #'           is a 2 item named list in which the first item ($Header) is a
 #'           tibble of header information from the AQS API and the second item
 #'           ($Data) is a tibble of the data returned.
@@ -179,33 +182,32 @@ aqs_sampledata_by_box <- function(
 #' @export
 aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
                                      maxlon, cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   params <- aqsmultiyearparams(parameter = parameter,
-                               bdate = bdate,
-                               edate = edate,
-                               minlat = minlat,
-                               maxlat = maxlat,
-                               minlon = minlon,
-                               maxlon = maxlon,
-                               service = "annualData",
-                               cbdate = cbdate,
-                               cedate = cedate
-                              )
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    service = "annualData",
+    cbdate = cbdate,
+    cedate = cedate
+  )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
   if (!return_header)
     annualsummary %<>%
       aqs_removeheader
   return(annualsummary)
-
 }
 
 
 #' @title aqs_dailysummary_by_box
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object containing daily summary data bounded within a
 #'                latitude/longitude bounding box
 #' @note The AQS API only allows for a single year of dailysummary to be
@@ -218,7 +220,7 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, mi
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds).
 #' @family Aggregate_by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr `%<>%`
@@ -229,7 +231,7 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, mi
 #'                        addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for an area bounded
-#'           within a latitude/longitude bounding box. An AQS_Data Mart_APIv2 is
+#'           within a latitude/longitude bounding box. An AQS_DataMart_APIv2 is
 #'           a 2 item named list in which the first item ($Header) is a tibble
 #'           of header information from the AQS API and the second item ($Data)
 #'           is a tibble of the data returned.
@@ -252,7 +254,7 @@ aqs_annualsummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, mi
 #' @export
 aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
                                     cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   params <- aqsmultiyearparams(
@@ -270,7 +272,7 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, min
 
 #' @title aqs_quarterlysummary_by_box
 #' @description \lifecycle{stable}
-#'                Returns a tibble or an AQS_Data Mart_APIv2 S3
+#'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object of quarterly summary data aggregated by and area within
 #'                a latitude/longitude bounding box.
 #' @note The AQS API only allows for a single year of quarterly summary to be
@@ -283,9 +285,9 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, min
 #'         that it will take to retrieve results. There is also a 5 second wait
 #'         time inserted between successive API calls to prevent overloading the
 #'         API server. This operation has a linear run time of
-#'         /(Big O notation: O/(n + 5 seconds/)/).
+#'         $mathcal(n + 5 seconds).
 #'
-#'         Also Note that for quarterly data, only the year portion of the bdate
+#'         Also note that for quarterly data, only the year portion of the bdate
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_box
@@ -295,9 +297,9 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, min
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @return a tibble or an AQS_Data Mart_APIv2 S3 object that contains quarterly
+#' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains quarterly
 #'           summary statistics for an area within a latitude/longitude
-#'           bounding box. An AQS_Data Mart_APIv2 is a 2 item named list in
+#'           bounding box. An AQS_DataMart_APIv2 is a 2 item named list in
 #'           which the first item ($Header) is a tibble of header information
 #'           from the AQS API and the second item ($Data) is a tibble of the
 #'           data returned.
@@ -318,7 +320,7 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, min
 #' @export
 aqs_quarterlysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
                                         cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
-  {
+{
   AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, cbdate, cedate, return_header)
 

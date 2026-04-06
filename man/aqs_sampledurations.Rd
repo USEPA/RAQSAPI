@@ -14,7 +14,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of sample durations and
+a tibble or an AQS_DataMart_APIv2 S3 object of sample durations and
 their associated duration codes
 (groups of parameters, i.e. 'criteria' or 'all').
 }
@@ -32,6 +32,6 @@ durations. Only sample durations that are available through the
 AQS Data Mart API are returned.
 }
 \examples{
-# Returns a tibble or an AQS_Data Mart_APIv2 S3 object of
+# Returns a tibble or an AQS_DataMart_APIv2 S3 object of
          \dontrun{ aqs_sampledurations() }
 }

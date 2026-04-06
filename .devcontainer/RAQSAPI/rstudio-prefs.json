@@ -1,0 +1,28 @@
+{
+    "initial_working_directory": "~/workspace/RAQSAPI",
+    "pdf_previewer": "none",
+    "document_author": "testing",
+    "jobs_tab_visibility": "closed",
+    "rmd_viewer_type": "pane",
+    "sync_files_pane_working_dir": true,
+    "editor_theme": "Twilight",
+    "text_rendering": "geometricPrecision",
+    "global_theme": "alternate",
+    "margin_column": 125,
+    "show_hidden_files": true,
+    "save_files_before_build": true,
+    "show_doc_outline_rmd": true,
+    "doc_outline_show": "all",
+    "code_formatter": "styler",
+    "run_rprofile_on_resume": true,
+    "posix_terminal_shell": "bash",
+    "default_open_project_location": "~/workspace/RAQSAPI",
+    "cran_mirror": {
+        "name": "USA (IA) [https]",
+        "host": "Iowa State University, Ames, IA",
+        "url": "https://mirror.las.iastate.edu/CRAN/",
+        "country": "us",
+        "ok": 1,
+        "secondary": ""
+    }
+}

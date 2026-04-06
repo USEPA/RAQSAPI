@@ -21,15 +21,16 @@ aqs_services_by_cbsa(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{cbsa_code}{a R character object which represents the 5 digit AQS Core
 Based Statistical Area code (the same as the census code,
-with leading zeros)}
+with leading zeros) @seealso \code{\link[=aqs_cbsas]{aqs_cbsas()}} for a list of all
+CBSA codes and names available,}
 
 \item{duration}{an optional R character string that represents the
 parameter duration code that limits returned data
@@ -71,7 +72,7 @@ AQS API and the second item ($Data) is a tibble of the data
 returned.
 }
 \description{
-a helper function that abstracts the formatting of the inputs
+A helper function that abstracts the formatting of the inputs
 for a call to aqs away from the calling function for
 aggregations by cbsa then calls the aqs and returns the
 result. This helper function is not meant to be called
@@ -82,23 +83,23 @@ directly from external functions.
           # summary $NO_{2}$ data the for Charlotte-Concord-Gastonia, NC
           # cbsa on Janurary 01, 2017
           #[aqs_annualsummary_by_cbsa(parameter = '42602',
-          #                            bdate = as.Date('20170101',
+          #                           bdate = as.Date('20170101',
           #                                            format = '\%Y\%m\%d'
           #                                            ),
-          #                            edate = as.Date('20170101',
+          #                           edate = as.Date('20170101',
           #                                            format = '\%Y\%m\%d'
           #                                           ),
-          #                            cbsa_code = '16740'
+          #                           cbsa_code = '16740'
           #                            )]
           # then aqs_annualsummary_by_cbsa() would call this helper
           # function with the following inputs.
           \dontrun{aqs_services_by_cbsa(parameter = '42602',
-                                     bdate = as.Date('20170101',
+                                        bdate = as.Date('20170101',
                                                      format = '\%Y\%m\%d'),
-                                     edate = as.Date('20170101',
+                                        edate = as.Date('20170101',
                                                      format = '\%Y\%m\%d'),
-                                     cbsa_code = '16740',
-                                     service = 'annualData')
+                                        cbsa_code = '16740',
+                                        service = 'annualData')
                   }
 }
 \keyword{internal}

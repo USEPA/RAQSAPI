@@ -31,9 +31,14 @@ vignettes/*.md
 vignettes/*.docx
 #other files
 #not needed
+<<<<<<< HEAD
 ignore all files under dev
 dev/.
 .vscode/
+=======
+#ignore all files under dev
+dev/
+>>>>>>> test_httptest2
 #Set up hte loocal environment for unit tests
 tests/testthat/local.R
 # Output files from R CMD check
@@ -44,4 +49,5 @@ tests/testthat/local.R
 *.tar.gz
 *.zip
 RAQSAPI.code-workspace
-dev
+tests/testthat/testthat-problems.rds
+.vscode/

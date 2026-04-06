@@ -12,7 +12,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   pkgcheck:
     runs-on: ubuntu-latest

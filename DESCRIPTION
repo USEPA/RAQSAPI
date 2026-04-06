@@ -5,7 +5,7 @@ Title: A Simple Interface to the US EPA Air Quality System Data Mart API
 Description: Retrieve air monitoring data and associated metadata from the US
   Environmental Protection Agency's Air Quality System service using functions.
   See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about
-  the US EPA Data Mart API.
+  the US EPA Data Mart API <doi: 10.32614/CRAN.package.RAQSAPI>.
 Encoding: UTF-8
 Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email="mccrowey.clinton@epa.gov",
@@ -31,7 +31,7 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                     email=NULL, role=c("ctb", "rev"),
                     comment="United States Environmental Protection Agency"),
              person(given = "Hayley", family= "Brittingham",
-                    email = NULL, role=c("crr", "ctr"),
+                    email = NULL, role=c("rev", "ctr"),
                     comment="Neptune and Company"),
              person(given = "Jeffrey", family = "Hollister",
                     email = "hollister.jeff@epa.gov", role = c("rev"),
@@ -40,23 +40,29 @@ Authors@R: c(person(given="Clinton", family="Mccrowey",
                                 )
                     ),
             person(given = "Edward", family = "Andrews",
-                    email = "edward.s.andrews@wv.gov",
-                    role = c("rev", "ctb"),
-                    comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
+                   email = "edward.s.andrews@wv.gov",
+                   role = c("rev", "ctb"),
+                   comment = "West Virginia Department of Environmental Protection, Division of Air Quality"
                   ),
             person(given= "Cynthia", family = "Stahl",
                    email = "stahl.cynthia@epa.gov",
                    role="rev",
-                   comment="United States Environmental Protection
+                   comment=("United States Environmental Protection
                             Agency Region 3 Air and Radiation Division")
-                  )
+                  ),
+            person(given= "Maria", family="Morresi",
+                   email="Morresi.Maria@epa.gov",
+                   role=c("ctr", "rev"),
+                   comment="ASRC Federal"
+                   )
+            )
 URL: https://github.com/USEPA/RAQSAPI/,
      https://aqs.epa.gov/aqsweb/documents/data_api.html
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.0.0)
-Imports: 
-    dplyr,
+Imports: dplyr,
     glue,
+    gtools,
     httr2,
     lifecycle,
     lubridate,
@@ -67,23 +73,22 @@ Imports:
     stringr,
     tibble,
     tidyselect
-Suggests: 
+Suggests: cli,
     covr,
     devtools,
     goodpractice,
     httptest2,
     keyring,
     knitr,
-    markdown,
     rmarkdown,
+    remotes,
     roxygen2,
     spelling,
     testthat (>= 3.0.0),
-    usethis,
-    withr
-SystemRequirements: package manual and Vignettes require pandoc 
+    usethis
+SystemRequirements: package manual and Vignettes require pandoc
                     (>= 1.14) http://pandoc.org)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
@@ -93,7 +98,7 @@ NeedsCompilation: no
 License_restricts_use: no
 Language: en-US
 Collate:
-    'AQS_DATAMART_APIv2-S3-class.R' 
+    'AQS_DATAMART_APIv2-S3-class.R'
     'AQSAPI_helperfunctions.R'
     'bysite.R'
     'bycounty.R'
@@ -110,7 +115,9 @@ Collate:
 Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
 Roxygen: list(markdown = TRUE)
-Config/testthat/edition: 3
 X-schema.org-keywords: United State Environmental Protection Agency,
                        Environmental-data-retrieval, Air-Quality-System,
-                       AQS-Datamart, Air-monitoring, Environmental-monitoring
+                       AQS-DataMart, Air-monitoring, Environmental-monitoring
+Config/testthat/edition: 3
+Config/testthat/load-all: list(export_all = FALSE, helpers = FALSE)
+Config/testthat/parallel: false

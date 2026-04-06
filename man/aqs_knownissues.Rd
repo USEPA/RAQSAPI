@@ -13,7 +13,7 @@ information returned from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object that contains
+a tibble or an AQS_DataMart_APIv2 S3 object that contains
 information involving known issues with the Data Mart API.
 }
 \description{

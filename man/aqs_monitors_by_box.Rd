@@ -23,16 +23,16 @@ pollutant related to the data being requested.}
 \item{bdate}{a R date object which represents that begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{minlat}{a R character object that represents the minimum latitude of
-a geographic box.  Decimal latitude with north begin
+a geographic box.  Decimal latitude with north being
 positive. Only data north of this latitude will be
 returned.}
 
 \item{maxlat}{a R character object which represents the maximum latitude of
-a geographic box. Decimal latitude with north begin
+a geographic box. Decimal latitude with north being
 positive. Only data south of this latitude will be
 returned.}
 
@@ -52,7 +52,7 @@ information returned from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of monitors from a
+a tibble or an AQS_DataMart_APIv2 S3 object of monitors from a
 latitude/longitude bounding box (_by_box).
 }
 \description{
@@ -64,10 +64,6 @@ bdate - edate time frame.
 \note{
 All monitors that operated between the bdate and edate will be returned
 }
-\section{by_box aggregate functions}{
-NA
-}
-
 \examples{
 #  Returns a tibble of all ozone
           #  monitors in the vicinity of central Alabama that operated in

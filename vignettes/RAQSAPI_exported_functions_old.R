@@ -163,8 +163,18 @@ RAQSAPI_functions_table <- function()
     "aqs_services_by_cbsa", "aqs_services_by_box"
   )
 
+  #' @title functiontype
+  #' @description Internal function to classify RAQSAPI functions into their respective functional families.
+  #' @importFrom stringr str_detect
+  #' @importFrom rlang .data
+  #' @importFrom dplyr case_when
+  #' @param functionnames A character vector of RAQSAPI function names to be classified
+  #' @return A character vector indicating the functional family of each input function name.
+  #' @Note This function is used in the RAQSAPI vignette to display the exported functions and should not be called directly.
+  #' @NoRd
+  #' @keywords internal
   functiontype <- function(functionname)
-    {
+  {
     case_when(
       str_detect(string = functionname, pattern = "by_site") ~
         "RAQSAPI aggregation by site aggregate functions", str_detect(string = functionname, pattern = "by_county") ~
@@ -175,7 +185,8 @@ RAQSAPI_functions_table <- function()
         "RAQSAPI aggregation by lat/long bounding box aggregate functions", str_detect(string = functionname,
                                                                                        pattern = "by_MA") ~
         "RAQSAPI aggregation by Monitoring Agency aggregate functions", .default = "misc"
-    )
+    ) %>%
+      return()
   }
 
   functiontable <- tibble(

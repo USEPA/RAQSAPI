@@ -7,9 +7,11 @@ author:
         Region III,  
         Air and Radiation Division,  
         Air Quality and Analysis Branch
-  name: Clinton Mccrowey
-output:
-  rmarkdown::html_vignette: default
+    name: Clinton Mccrowey
+  output:
+    rmarkdown::html_vignette: default
+  md_document:
+    variant: gfm
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{pyaqsapi - a port of RAQSAPI to the python 3 programming environment}
@@ -33,5 +35,5 @@ a port of RAQSAPI to the python 3 language has been released. Both projects aim
 to maintain feature parity with the other and there are no inherent advantages
 to using either project over the other, except for the ability of working within
 the programming language environment of choice. The API of both packages are
-very structured similarly, both packages export the same data, use the same
+structured similarly, both packages export the same data and use the same
 credentials and data source to retrieve data.

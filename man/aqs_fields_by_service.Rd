@@ -19,12 +19,12 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object with containing the list
+a tibble or an AQS_DataMart_APIv2 S3 object with containing the list
 and definitions of fields requested service
 }
 \description{
 \lifecycle{stable}
-Returns a tibble or an AQS_Data Mart_APIv2 S3
+Returns a tibble or an AQS_DataMart_APIv2 S3
 object with the list and definitions of fields in the
 service requested.
 }

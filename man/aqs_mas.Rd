@@ -14,7 +14,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of monitoring agencies
+a tibble or an AQS_DataMart_APIv2 S3 object of monitoring agencies
 and their associated agency code.
 }
 \description{
@@ -22,7 +22,7 @@ and their associated agency code.
 Returns a table of monitoring agencies (MA).
 }
 \examples{
-# Returns a tibble or an AQS_Data Mart_APIv2 S3 object
+# Returns a tibble or an AQS_DataMart_APIv2 S3 object
           # of monitoring agencies and their respective
           # monitoring agency codes.
           \dontrun{aqs_mas()}

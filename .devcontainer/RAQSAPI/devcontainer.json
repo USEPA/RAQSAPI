@@ -1,0 +1,13 @@
+{
+    "name": "rockerimage",
+    "service": "rstudio",
+    "workspaceFolder": "/home/rstudio/workspace/RAQSAPI",
+    "remoteUser": "rstudio",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "REditorSupport.r"
+            ]
+        }
+    }
+}

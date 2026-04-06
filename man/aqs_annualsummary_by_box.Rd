@@ -25,16 +25,16 @@ pollutant related to the data being requested.}
 \item{bdate}{a R date object which represents that begin date of the data
 selection. Only data on or after this date will be returned.}
 
-\item{edate}{a R date object which represents that end date of the data
+\item{edate}{a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.}
 
 \item{minlat}{a R character object that represents the minimum latitude of
-a geographic box.  Decimal latitude with north begin
+a geographic box.  Decimal latitude with north being
 positive. Only data north of this latitude will be
 returned.}
 
 \item{maxlat}{a R character object which represents the maximum latitude of
-a geographic box. Decimal latitude with north begin
+a geographic box. Decimal latitude with north being
 positive. Only data south of this latitude will be
 returned.}
 
@@ -68,8 +68,8 @@ information returned from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object that containing annual
-summary data for the box (area) requested. A AQS_Data Mart_APIv2
+A tibble or an AQS_DataMart_APIv2 S3 object that containing annual
+summary data for the box (area) requested. A AQS_DataMart_APIv2
 is a 2 item named list in which the first item ($Header) is a
 tibble of header information from the AQS API and the second item
 ($Data) is a tibble of the data returned.
@@ -95,7 +95,7 @@ of years of data being requested increases so does the length of time
 that it will take to retrieve results. There is also a 5 second wait
 time inserted between successive API calls to prevent overloading the
 API server. This operation has a linear run time of
-/(Big O notation: O/(n + 5 seconds/)/).
+$mathcal(n + 5 seconds).
 }
 \examples{
 # Returns a tibble containing ozone annual summaries

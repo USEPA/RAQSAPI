@@ -1,9 +1,8 @@
 Version: 1.0
-ProjectId: 17547c76-5fa6-42af-8d47-4c8d48bbb46b
 
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
+RestoreWorkspace: Yes
+SaveWorkspace: Yes
+AlwaysSaveHistory: No
 
 EnableCodeIndexing: Yes
 UseSpacesForTab: Yes
@@ -18,9 +17,11 @@ StripTrailingWhitespace: Yes
 
 BuildType: Package
 PackageUseDevtools: Yes
-PackageInstallArgs: --no-multiarch --with-keep.source --preclean --byte-compile --use-vanilla
-PackageBuildArgs: --md5 --log
+PackageInstallArgs: --no-multiarch --preclean --byte-compile
+PackageBuildArgs: --md5 --log  --compact-vignettes
 PackageCheckArgs: --manual  = TRUE --as-cran
 PackageRoxygenize: rd,collate,namespace,vignette
 
 QuitChildProcessesOnExit: Yes
+
+SpellingDictionary: en_US

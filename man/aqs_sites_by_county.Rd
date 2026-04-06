@@ -24,7 +24,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of all air monitoring
+a tibble or an AQS_DataMart_APIv2 S3 object of all air monitoring
 sites with the requested state and county FIPS codes.
 }
 \description{
@@ -33,7 +33,7 @@ Returns data containing a table of all air monitoring sites
 with the input state and county FIPS code combination.
 }
 \examples{
-# Returns an AQS_Data Mart_APIv2 S3 object witch returns all sites
+# Returns an AQS_DataMart_APIv2 S3 object witch returns all sites
           #  in Hawaii County, HI
           \dontrun{aqs_sites_by_county(stateFIPS = '15',
                                        countycode = '001')

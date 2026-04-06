@@ -14,7 +14,7 @@ from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{
-a tibble or an AQS_Data Mart_APIv2 S3 object of Parameter classes
+a tibble or an AQS_DataMart_APIv2 S3 object of Parameter classes
 (groups of parameters, i.e. 'criteria' or 'all').
 }
 \description{
