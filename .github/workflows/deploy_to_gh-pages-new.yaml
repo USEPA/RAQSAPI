@@ -1,10 +1,14 @@
-name: deploy to github pages
-description: "prepare RAQSAPI vignettes for publishing on github pages"
+---
+name: Deploy to github pages
 
 on:
   push:
-    branches: [main, http2_test]
+    branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -15,7 +19,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+      - name: Install R
+        run: |
+          apt-get update
+          apt-get install -y r-base
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
       - name: Install dependencies
@@ -38,5 +46,5 @@ jobs:
       name: github-pages
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        id: deploy-to-github-pages
+        uses: actions/deploy-pages@v5

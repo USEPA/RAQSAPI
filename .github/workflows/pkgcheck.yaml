@@ -6,12 +6,12 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  # Manually trigger the Action under Actions/pkgcheck
   workflow_dispatch:
-  # Run on every push to main
   push:
     branches:
       - main
+  pull_request:
+
 jobs:
   pkgcheck:
     runs-on: ubuntu-latest
