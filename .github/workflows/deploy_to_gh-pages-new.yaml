@@ -10,41 +10,66 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
     steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 'latest'
       - uses: actions/checkout@v6
-      - name: Install R
-        run: |
-          apt-get update
-          apt-get install -y r-base
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
-      - name: Install dependencies
-        run: Rscript -e 'install.packages(c("devtools", "rmarkdown"))'
+        with:
+          r-version: 'release'
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        name: Install R dependencies
+        with:
+          cache: true
+          install-pandoc: true
+          packages: |
+            any::rmarkdown
+            any::knitr
+            any::magrittr
+            any::stringr
+            any::tibble
+            any::glue
+          upgrade: 'TRUE'
       - name: Build vignettes
-        run: Rscript -e 'devtools::build_vignettes()'
-      - name: Copy vignettes to docs
         run: |
-          mkdir -p docs
-          cp vignettes/*.html docs/
+               Rscript -e 'list.files("./vignettes", pattern="*.Rmd", full.names=TRUE) |>
+                 unique() |>
+                 sapply(FUN=rmarkdown::render,
+                            output_dir="./doc/",
+                            clean=TRUE,
+                            encoding="UTF-8",
+                            output_format="html_document"
+                        )'
+      #- name: Copy vignettes to docs
+       # run: |
+        #  cp vignettes/*.html doc/
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: doc/
 
   deploy:
     needs: build
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     runs-on: ubuntu-latest
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deploy-to-github-pages
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
+

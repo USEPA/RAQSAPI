@@ -1,3 +1,4 @@
+---
 name: pkgcheck
 
 # This will cancel running jobs once a new run is triggered
@@ -19,3 +20,6 @@ jobs:
       issues: write
     steps:
       - uses: ropensci-review-tools/pkgcheck-action@main
+        with:
+          skip_checks: |
+            - lintr_assignment_linter

@@ -44,21 +44,28 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Clinton Mccrowey \email{mccrowey.clinton@epa.gov} (United States Environmental Protection Agency Region 3 Air and Radiation Division)
+\strong{Maintainer}: Clinton Mccrowey \email{mccrowey.clinton@epa.gov} (\href{https://orcid.org/0009-0001-1802-1518}{ORCID}) (United States Environmental Protection Agency, Region 3)
+
+Authors:
+\itemize{
+  \item United States Environmental Protection Agency (\href{https://ror.org/03tns0030}{ROR}) (https://www.epa.gov) [copyright holder, contributor, data contributor, funder, reviewer]
+}
 
 Other contributors:
 \itemize{
   \item Timothy Sharac (United States Environmental Protection Agency) [contributor, reviewer]
   \item Nick Mangus (United States Environmental Protection Agency) [reviewer]
   \item Doug Jager (United States Environmental Protection Agency) [contributor, reviewer]
-  \item Ryan Brown (United States Environmental Protection Agency) [contributor, reviewer]
-  \item Daniel Garver (United States Environmental Protection Agency) [contributor, reviewer]
+  \item Ryan Brown (United States Environmental Protection Agency, Region 4) [contributor, reviewer]
+  \item Daniel Garver (United States Environmental Protection Agency, Region 4) [contributor, reviewer]
   \item Benjamin Wells (United States Environmental Protection Agency) [contributor, reviewer]
-  \item Hayley Brittingham (Neptune and Company) [reviewer, contractor]
   \item Jeffrey Hollister \email{hollister.jeff@epa.gov} (\href{https://orcid.org/0000-0002-9254-9740}{ORCID}) (United States Environmental Protection Agency) [reviewer]
-  \item Edward Andrews \email{edward.s.andrews@wv.gov} (West Virginia Department of Environmental Protection, Division of Air Quality) [reviewer, contributor]
-  \item Cynthia Stahl \email{stahl.cynthia@epa.gov} (United States Environmental Protection Agency Region 3 Air and Radiation Division) [reviewer]
-  \item Maria Morresi \email{Morresi.Maria@epa.gov} (ASRC Federal) [contractor, reviewer]
+  \item Cynthia Stahl (\href{https://orcid.org/0009-0005-1291-9668}{ORCID}) (United States Environmental Protection Agency, Region 3) [reviewer]
+  \item Hayley Brittingham (Neptune and Company) [reviewer, contractor]
+  \item Neptune and Company (https://www.neptuneinc.org/) [contractor, reviewer]
+  \item Edward Andrews \email{edwards.andrews@wv.gov} (West Virginia Department of Environmental Protection) [reviewer, contributor]
+  \item Maria Morresi \email{Morresi.Maria@epa.gov} (ASRC Federal Analytical Service) [contractor, reviewer]
+  \item ASRC Federal Analytical Service (\href{https://ror.org/02fnwes63}{ROR}) (https://www.asrcfederal.com/) [contractor, reviewer]
 }
 
 }

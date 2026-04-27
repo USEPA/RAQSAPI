@@ -56,7 +56,7 @@ aqs_knownissues <- function(return_header = FALSE)
 #' @importFrom magrittr `%<>%`
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zeros) for the state being
-#'                   requested. @seealso [aqs_states()] for the list of
+#'                   requested. @seealso [RAQSAPI::aqs_states()] for the list of
 #'                   available FIPS codes.
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
@@ -161,7 +161,7 @@ aqs_classes <- function(return_header = FALSE)
 #'                 Returns parameters associated with the input class.
 #' @importFrom magrittr `%<>%`
 #' @param class a R character object that represents the class requested,
-#'                  @seealso [aqs_classes()] for retrieving
+#'                  @seealso [RAQSAPI::aqs_classes()] for retrieving
 #'                  available classes.  The class R character object must be a
 #'                  valid class as returned from aqs_classes(). The class must
 #'                  be an exact match to what is returned from aqs_classes()

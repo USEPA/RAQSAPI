@@ -24,25 +24,21 @@ vignette: >
 Either install the stable version from CRAN or install the latest development version from GitHub.
 
 ## Option 1: Installing the stable version from CRAN (preferred method)
-
+First install the `pak` packages if not already installed
 ``` r
-install.packages(pkgs="RAQSAPI", dependencies = TRUE )
+install.packages("pak", dependencies = TRUE)
+```
+Then use the package `pak` to install the latest stable version of RAQSAPI from CRAN
+``` r
+pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 ```
 
 ## Option 2: Installing the development version of RAQSAPI (unstable)
 
 > [!CAUTION] The development version of RAQSAPI contains code that has not yet been thoroughly been tested and is more likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
 
-To install the development version of `RAQSAPI`, first if not already installed, install the `remotes` package and its dependencies. Then run the following in a R environment.
+To install the development version of `RAQSAPI`, first if not already installed, install the `pak` package and its dependencies. Then run the following in a R environment.
 
 ``` r
-remotes::install_github(repo = "USEPA/raqsapi",
-                        dependencies = TRUE,
-                        upgrade = "always",
-                        build = TRUE,
-                        #optional, set TRUE if the manual is desired,
-                        #requires pandoc
-                        build_manual = FALSE,
-                        build_vignettes = TRUE 
-                        )
+pak::pkg_install("USEPA/RAQSAPI")
 ```

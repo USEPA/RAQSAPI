@@ -27,6 +27,10 @@ test_that(
     server <- "AQSDatamartAPI"
 
 
+    RAQSAPI:::checkaqsparams(service = 99999) %>%
+      expect_error()
+    RAQSAPI:::checkaqsparams(service = "notanactualservice") %>%
+      expect_error()
     RAQSAPI:::checkaqsparams(parameter = "abcdefg") %>%
       expect_error()
     RAQSAPI:::checkaqsparams(bdate = "notadate") %>%
