@@ -555,15 +555,15 @@ isValidEmail <- function(email)
 #'               selection. Only data on or before this date will be returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zero) for the state being
-#'                   requested. @seealso [aqs_states()] for the list of
+#'                   requested. @seealso [RAQSAPI::aqs_states()] for the list of
 #'                   available FIPS codes.
 #' @param countycode a R character object which represents the 3 digit state
 #'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). @seealso [aqs_counties_by_state()] for the
+#'                       zero(s)). @seealso [RAQSAPI::aqs_counties_by_state()] for the
 #'                       list of available county codes for each state.
 #' @param sitenum a R character object which represents the 4 digit site number
 #'                 (with leading zeros) within the county and state being
-#'                 requested. @seealso [aqs_sites_by_county()] for the list of
+#'                 requested. @seealso [RAQSAPI::aqs_sites_by_county()] for the list of
 #'                 available site numbers for a given county and state.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
@@ -573,7 +573,7 @@ isValidEmail <- function(email)
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
 #'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS
 #'                    API. For a list of available services @seealso
@@ -668,11 +668,11 @@ aqs_services_by_site <- function(parameter,
 #'                  returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                      FIPS code (with leading zero) for the state being
-#'                      requested. @seealso [aqs_states()] for the list of
+#'                      requested. @seealso [RAQSAPI::aqs_states()] for the list of
 #'                      available FIPS codes.
 #' @param countycode a R character object which represents the 3 digit state
 #'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). @seealso [aqs_counties_by_state()] for the
+#'                       zero(s)). @seealso [RAQSAPI::aqs_counties_by_state()] for the
 #'                       list of available county codes for each state.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
@@ -682,7 +682,7 @@ aqs_services_by_site <- function(parameter,
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
 #'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS API
 #'                    For a list of available services @seealso
@@ -774,7 +774,7 @@ aqs_services_by_county <- function(parameter,
 #'               selection. Only data on or before this date will be returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                      FIPS code (with leading zero) for the state being
-#'                      requested. @seealso [aqs_states()] for the list of
+#'                      requested. @seealso [RAQSAPI::aqs_states()] for the list of
 #'                      available FIPS codes.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
@@ -784,7 +784,7 @@ aqs_services_by_county <- function(parameter,
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
 #'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
@@ -895,7 +895,7 @@ aqs_services_by_state <- function(parameter,
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
 #'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
@@ -999,7 +999,7 @@ aqs_services_by_box <- function(parameter,
 #'               selection. Only data on or before this date will be returned.
 #' @param cbsa_code a R character object which represents the 5 digit AQS Core
 #'                   Based Statistical Area code (the same as the census code,
-#'                   with leading zeros) @seealso [aqs_cbsas()] for a list of all
+#'                   with leading zeros) @seealso [RAQSAPI::aqs_cbsas()] for a list of all
 #'                   CBSA codes and names available,
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
@@ -1009,7 +1009,7 @@ aqs_services_by_box <- function(parameter,
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
 #'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [aqs_sampledurations()] for a list of all
+#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS
 #'                    API For a list of available services @seealso

@@ -7,11 +7,14 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  workflow_dispatch:
-  push:
+  workflow_run:
+    workflows: ["R-CMD-check.yaml"]
+    types: [completed]
     branches:
       - main
-  pull_request:
+  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   pkgcheck:
@@ -21,5 +24,7 @@ jobs:
     steps:
       - uses: ropensci-review-tools/pkgcheck-action@main
         with:
+          issue title: "(Automated) pkgcheck report for ${{ github.repository }}"
+          append-to-issue: true
           skip_checks: |
             - lintr_assignment_linter
