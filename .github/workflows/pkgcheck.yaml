@@ -8,7 +8,7 @@ concurrency:
 
 on:
   workflow_run:
-    workflows: ["R-CMD-check.yaml"]
+    workflows: ["R-CMD-check"]
     types: [completed]
     branches:
       - main
