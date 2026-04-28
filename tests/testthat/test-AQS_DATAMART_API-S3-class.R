@@ -50,7 +50,7 @@ test_that(
       url = "https://aqs.epa.gov/data/api/"
     )
     list(Header = fakeheader, Data = fakeData) %>%
-      RAQSAPI:::AQS_DATAMART_APIv2_validator() %>%
+      AQS_DATAMART_APIv2_validator() %>%
       expect_no_error()
   }
 )

@@ -12,8 +12,8 @@ aqs_annualsummary_by_box(
   maxlat,
   minlon,
   maxlon,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   return_header = FALSE
 )
 }

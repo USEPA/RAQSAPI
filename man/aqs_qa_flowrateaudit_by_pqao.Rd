@@ -9,8 +9,8 @@ aqs_qa_flowrateaudit_by_pqao(
   bdate,
   edate,
   pqao_code,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   return_header = FALSE
 )
 }

@@ -12,8 +12,8 @@ aqs_services_by_county(
   countycode,
   service,
   duration = NA_character_,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 }

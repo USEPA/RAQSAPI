@@ -16,11 +16,11 @@ AQS_DATAMART_APIv2_validator <- function(.Data)
   stopifnot(is.list(.Data))
   stopifnot(
     is.data.frame(.Data[[1]]) |
-      is_tibble(.Data[[1]])
+      tibble::is_tibble(.Data[[1]])
   )
   stopifnot(
     is.data.frame(.Data[[2]]) |
-      is_tibble(.Data[[1]])
+      tibble::is_tibble(.Data[[1]])
   )
   stopifnot(
     names(.Data) ==

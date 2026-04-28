@@ -31,17 +31,17 @@
 #'            information from the AQS API and the second item ($Data) is a
 #'            tibble of the data returned.
 #' @export
-aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA_Date_,
-                                 cedate = NA_Date_, return_header = FALSE)
+aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = lubridate::NA_Date_,
+                                 cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
   # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
-  params <- tibble(
+  params <- tibble::tibble(
     parameter = parameter, bdate = bdate, edate = edate, cbsa_code = cbsa_code,
     service = "monitors", cbdate = cbdate, cedate = cedate
   ) %>%
-    select(where(~!all(is.na(.x))))
+    dplyr::select(tidyselect::where(~!all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_cbsa)
   if (!return_header)
@@ -104,7 +104,7 @@ aqs_monitors_by_cbsa <- function(parameter, bdate, edate, cbsa_code, cbdate = NA
 #'                    }
 #' @export
 aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code, duration = NA_character_,
-                                   cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+                                   cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, cbsa_code, duration, cbdate, cedate, return_header)
 
@@ -169,7 +169,7 @@ aqs_sampledata_by_cbsa <- function(parameter, bdate, edate, cbsa_code, duration 
 #'                    }
 #' @export
 aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                      cbdate = NA_Date_, cedate = NA_Date_,
+                                      cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_,
                                       return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
@@ -231,7 +231,7 @@ aqs_annualsummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'                    }
 #' @export
 aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                     cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+                                     cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
 
@@ -292,7 +292,7 @@ aqs_dailysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
 #'                    }
 #' @export
 aqs_quarterlysummary_by_cbsa <- function(parameter, bdate, edate, cbsa_code,
-                                         cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+                                         cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)

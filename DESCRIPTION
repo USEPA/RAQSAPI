@@ -117,6 +117,7 @@ NeedsCompilation: no
 License_restricts_use: no
 Language: en-US
 Collate:
+    'utils-pipe.R'
     'AQS_DATAMART_APIv2-S3-class.R'
     'AQSAPI_helperfunctions.R'
     'bysite.R'

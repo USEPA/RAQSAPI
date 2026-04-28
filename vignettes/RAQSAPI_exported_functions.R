@@ -66,7 +66,7 @@ RAQSAPI_functions <- function()
     "RAQSAPI services functions"
 
   functiontable %<>%
-    dplyr::filter(!functionfamily == "services functions") %>%
+    dplyr::filter(!functionfamily == "services functions") %>%  #nolint: object_usage_linter
     dplyr::filter(!functionnames == "deprecated")
 
   functionlist <- functiontable %>%

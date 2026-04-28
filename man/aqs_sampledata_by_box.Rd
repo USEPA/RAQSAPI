@@ -13,8 +13,8 @@ aqs_sampledata_by_box(
   minlon,
   maxlon,
   duration = NA_character_,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   return_header = FALSE
 )
 }

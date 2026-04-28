@@ -41,8 +41,8 @@
 #'                                          )
 #'                    }
 #' @export
-aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = NA_Date_,
-                                  cedate = NA_Date_, return_header = FALSE)
+aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = lubridate::NA_Date_,
+                                  cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
@@ -100,8 +100,13 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = N
 #'                                                         )
 #'                    }
 #' @export
-aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                                  cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+aqs_qa_collocated_assessments_by_pqao <- function(parameter,
+                                                  bdate,
+                                                  edate,
+                                                  pqao_code,
+                                                  cbdate = lubridate::NA_Date_,
+                                                  cedate = lubridate::NA_Date_,
+                                                  return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
@@ -162,8 +167,13 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter, bdate, edate, pqao_
 #'                                                )
 #'          }
 #' @export
-aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                                cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+aqs_qa_flowrateverification_by_pqao <- function(parameter,
+                                                bdate,
+                                                edate,
+                                                pqao_code,
+                                                cbdate = lubridate::NA_Date_,
+                                                cedate = lubridate::NA_Date_,
+                                                return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
@@ -224,7 +234,7 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter, bdate, edate, pqao_co
 #'           }
 #' @export
 aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                         cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+                                         cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
@@ -282,8 +292,8 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'                                      )
 #'          }
 #' @export
-aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = NA_Date_,
-                                        cedate = NA_Date_, return_header = FALSE)
+aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = lubridate::NA_Date_,
+                                        cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
@@ -343,8 +353,8 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbda
 #'                                     )
 #'                    }
 #' @export
-aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = NA_Date_,
-                                     cedate = NA_Date_, return_header = FALSE)
+aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = lubridate::NA_Date_,
+                                     cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 

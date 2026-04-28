@@ -27,7 +27,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
   # nocov The code simply stores the credentials as a R option. Since the Data Mart server only issues a 'key' and not a
   # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
   # and etc.
-  if (is_character(username) && is_character(key) && !is.na(username) && !is.na(key))
+  if (rlang::is_character(username) && rlang::is_character(key) && !is.na(username) && !is.na(key))
   {
     options(aqs_username = username)
     options(aqs_key = key)
@@ -59,7 +59,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_)
 #' @note The '@' character needs to be escaped with the '/' character.
 #' @importFrom glue glue
 #' @importFrom magrittr `%>%`
-#' @importFrom httr2 request
+#' @importFrom httr2 request req_perform
 #' @importFrom glue glue
 #' @examples # to register a new user or generate a new key with the email
 #'           #  address 'John.Doe/@myemail.com'
@@ -75,11 +75,11 @@ aqs_sign_up <- function(email)
 
   # user_agent <- glue('User:{email} via RAQSAPI-{packageVersion('RAQSAPI')} library for R')
 
-  glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
-    request() %>%
-    req_perform()
+  glue::glue("https://aqs.epa.gov/data/api/signup?email={email}") %>%
+    httr2::request() %>%
+    httr2::req_perform()
   # user agent string (currently not implemented) on the API %>% req_user_agent(string = user_agent)
-  glue("A verification email will be sent to {email}  \n") %>%
+  glue::glue("A verification email will be sent to {email}  \n") %>%
     message()
   return(invisible())
 }  #nocov end

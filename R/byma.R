@@ -42,8 +42,8 @@
 #'                                        )
 #'                    }
 #' @export
-aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Date_,
-                                cedate = NA_Date_, return_header = FALSE)
+aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = lubridate::NA_Date_,
+                                cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
 
@@ -102,8 +102,13 @@ aqs_qa_blanks_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Da
 #'                                                        )
 #'                    }
 #' @export
-aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate, edate, MA_code,
-                                                cbdate = NA_Date_, cedate = NA_Date_, return_header = FALSE)
+aqs_qa_collocated_assessments_by_MA <- function(parameter,
+                                                bdate,
+                                                edate,
+                                                MA_code,
+                                                cbdate = lubridate::NA_Date_,
+                                                cedate = lubridate::NA_Date_,
+                                                return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
 
@@ -166,8 +171,8 @@ aqs_qa_collocated_assessments_by_MA <- function(parameter, bdate, edate, MA_code
 #'                                              )
 #'           }
 #' @export
-aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Date_,
-                                              cedate = NA_Date_, return_header = FALSE)
+aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = lubridate::NA_Date_,
+                                              cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
 
@@ -227,8 +232,8 @@ aqs_qa_flowrateverification_by_MA <- function(parameter, bdate, edate, MA_code, 
 #'                                      )
 #'          }
 #' @export
-aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Date_,
-                                       cedate = NA_Date_, return_header = FALSE)
+aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = lubridate::NA_Date_,
+                                       cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
   params <- aqsmultiyearparams(
@@ -285,8 +290,8 @@ aqs_qa_flowrateaudit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate 
 #'                                             )
 #'                    }
 #' @export
-aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Date_,
-                                      cedate = NA_Date_, return_header = FALSE)
+aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = lubridate::NA_Date_,
+                                      cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
 
@@ -345,8 +350,8 @@ aqs_qa_one_point_qc_by_MA <- function(parameter, bdate, edate, MA_code, cbdate =
 #'                                          )
 #'                    }
 #' @export
-aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Date_,
-                                   cedate = NA_Date_, return_header = FALSE)
+aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = lubridate::NA_Date_,
+                                   cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
 
@@ -405,8 +410,8 @@ aqs_qa_pep_audit_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
-aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = NA_Date_,
-                                        cedate = NA_Date_, return_header = FALSE)
+aqs_transactionsample_by_MA <- function(parameter, bdate, edate, MA_code, cbdate = lubridate::NA_Date_,
+                                        cedate = lubridate::NA_Date_, return_header = FALSE)
 {
   checkaqsparams(parameter, bdate, edate, MA_code, cbdate, cedate, return_header)
 

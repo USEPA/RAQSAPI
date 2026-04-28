@@ -13,7 +13,7 @@ RAQSAPItestsetup_helper <- function()
   if (!is.na(path))
   {
     source(paste0(path, "local.R"))
-    AQScredentials <- RAQSAPItestsetup_local() #nolint
+    AQScredentials <- RAQSAPItestsetup_local() #nolint: object_usage_linter
     datamartAPI_user <- AQScredentials$AQSusername
     datamartAPI_key <- AQScredentials$AQSkey
     AQScredentials <- list(datamartAPI_user = datamartAPI_user, datamartAPI_key = datamartAPI_key)

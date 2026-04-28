@@ -11,8 +11,8 @@ aqs_qa_blanks_by_site(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   return_header = FALSE
 )
 }

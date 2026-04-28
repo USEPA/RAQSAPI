@@ -10,8 +10,8 @@ aqs_services_by_pqao(
   edate,
   pqao_code,
   service,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 }

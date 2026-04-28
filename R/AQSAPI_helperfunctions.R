@@ -64,7 +64,7 @@ checkaqsparams <- function(...)
     {
       error <- TRUE
       errmessage %<>%
-        c(x = glue("service must be one of the following: {glue(listofservices, collapse = ', ')}"))
+        c(x = glue::glue("service must be one of the following: {glue(listofservices, collapse = ', ')}"))
     }
   }
 
@@ -211,7 +211,7 @@ checkaqsparams <- function(...)
   }
   if ("minlat" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$minlat), -90, 90)) || !is.character(ellipsis_args$minlat))
+    if ((!dplyr::between(as.double(ellipsis_args$minlat), -90, 90)) || !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
       errmessage %<>%
@@ -220,7 +220,7 @@ checkaqsparams <- function(...)
   }
   if ("maxlat" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$maxlat), -90, 90)) || !is.character(ellipsis_args$minlat))
+    if ((!dplyr::between(as.double(ellipsis_args$maxlat), -90, 90)) || !is.character(ellipsis_args$minlat))
     {
       error <- TRUE
       errmessage %<>%
@@ -229,7 +229,7 @@ checkaqsparams <- function(...)
   }
   if ("minlon" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$minlon), -180, 180)) || !is.character(ellipsis_args$minlon))
+    if ((!dplyr::between(as.double(ellipsis_args$minlon), -180, 180)) || !is.character(ellipsis_args$minlon))
     {
       error <- TRUE
       errmessage %<>%
@@ -238,7 +238,7 @@ checkaqsparams <- function(...)
   }
   if ("maxlon" %in% names(ellipsis_args))
   {
-    if ((!between(as.double(ellipsis_args$maxlon), -180, 180)) || !is.character(ellipsis_args$maxlon))
+    if ((!dplyr::between(as.double(ellipsis_args$maxlon), -180, 180)) || !is.character(ellipsis_args$maxlon))
     {
       error <- TRUE
       errmessage %<>%
@@ -270,7 +270,7 @@ checkaqsparams <- function(...)
     callingfunction <- rlang::call_name(sys.call(sys.parent(2)))
     if (is.null(callingfunction))
       callingfunction <- "Unknown Environment"
-    callingfunction <- glue(" in: {callingfunction}")
+    callingfunction <- glue::glue(" in: {callingfunction}")
     c(i = callingfunction, errmessage) %>%
       rlang::abort
   }
@@ -386,7 +386,7 @@ RAQSAPI_error_msg <- function(AQSresponse)
     httr2::resp_body_json()
 
   # debug
-  msg <- glue(
+  msg <- glue::glue(
     "At server request time: {AQSresponse$headers$Date}
       RAQSAPI experienced an error while processing the following url:
       {AQSresponse$url}
@@ -463,8 +463,8 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   # AQS DataMart API does not accept headers so user_agent not working
   # user_agent <- glue('User:{user} via
   # RAQSAPI-{packageVersion('RAQSAPI')} library for R')
-  AQSpath <- glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
-    glue(
+  AQSpath <- glue::glue("https://{AQS_domain}/data/api/{service}/{filter}?") %>%
+    glue::glue(
       format_variables_for_api(
         c(
           list(
@@ -491,7 +491,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   if (httr2::resp_is_error(AQSresponse))
   {
     message(
-      glue(
+      glue::glue(
         "RAQSAPI experienced an error with in aqs function from
                    {rlang::caller_call(n=2)} /n
                    url: {AQSpath}"
@@ -500,12 +500,12 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   }
 
   AQSresponse %<>%
-    resp_body_json(simplifyVector = TRUE, simplifyDataFrame = TRUE)
+    httr2::resp_body_json(simplifyVector = TRUE, simplifyDataFrame = TRUE)
   AQSresult <- vector("list", length = 2)
   AQSresult[[1]] <- AQSresponse$Header %>%
-    tibble()
+    tibble::tibble()
   AQSresult[[2]] <- AQSresponse$Data %>%
-    tibble()
+    tibble::tibble()
 
   names(AQSresult) <- c("Header", "Data")
   AQSresult <- new_AQS_DATAMART_APIv2(AQSresult)
@@ -629,8 +629,8 @@ aqs_services_by_site <- function(parameter,
   sitenum,
   duration = NA_character_,
   service,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 {
@@ -735,8 +735,8 @@ aqs_services_by_county <- function(parameter,
   countycode,
   service,
   duration = NA_character_,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 {
@@ -834,8 +834,8 @@ aqs_services_by_state <- function(parameter,
   stateFIPS,
   duration = NA_character_,
   service,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 {
@@ -955,8 +955,8 @@ aqs_services_by_box <- function(parameter,
   maxlon,
   duration = NA_character_,
   service,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 {
@@ -1062,8 +1062,8 @@ aqs_services_by_cbsa <- function(parameter,
   cbsa_code,
   duration = NA_character_,
   service,
-  cbdate = NA_Date_,
-  cedate = NA_Date_,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
   AQS_domain = "aqs.epa.gov"
 )
 {
@@ -1155,8 +1155,8 @@ aqs_services_by_cbsa <- function(parameter,
 #'                                         service = 'qaAnnualPerformanceEvaluations'
 #'                   }
 #' @keywords internal
-aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cbdate = NA_Date_, cedate = NA_Date_,
-                                 AQS_domain = "aqs.epa.gov")
+aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cbdate = lubridate::NA_Date_,
+                                 cedate = lubridate::NA_Date_, AQS_domain = "aqs.epa.gov")
 {
   aqs(
     service = service,
@@ -1242,8 +1242,8 @@ aqs_services_by_pqao <- function(parameter, bdate, edate, pqao_code, service, cb
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 #' @keywords internal
-aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service, cbdate = NA_Date_, cedate = NA_Date_,
-                               AQS_domain = "aqs.epa.gov")
+aqs_services_by_MA <- function(parameter, bdate, edate, MA_code, service, cbdate = lubridate::NA_Date_,
+                               cedate = lubridate::NA_Date_, AQS_domain = "aqs.epa.gov")
 {
   aqs(
     service = service,
@@ -1370,24 +1370,24 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
   if (bdate > edate)
   {
     return(rlang::abort(message = "bdate > edate"))
-  } else if (year(bdate) == year(edate))
+  } else if (lubridate::year(bdate) == lubridate::year(edate))
   {
     bdatevector <- bdate
     edatevector <- edate
 
-  } else if (year(bdate) < year(edate))
+  } else if (lubridate::year(bdate) < lubridate::year(edate))
   {
     bdatevector <- c(
       bdate, seq.Date(
-        from = ymd(glue("{year(bdate) + 1}-1-1")),
+        from = lubridate::ymd(glue::glue("{year(bdate) + 1}-1-1")),
         to = edate, by = "year"
       )
     )
-    if (month(edate) != 12 && day(edate) != 31)
+    if (lubridate::month(edate) != 12 && lubridate::day(edate) != 31)
     {
       edatevector <- c(
         seq.Date(
-          from = ymd(glue("{year(bdate)}-12-31")),
+          from = lubridate::ymd(glue::glue("{year(bdate)}-12-31")),
           to = edate, by = "year"
         ),
         edate
@@ -1395,7 +1395,7 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
     } else
       {
         edatevector <- seq.Date(
-          from = ymd(glue("{year(bdate)}-12-31")),
+          from = lubridate::ymd(glue::glue("{year(bdate)}-12-31")),
           to = edate, by = "year"
         )
       }
@@ -1403,10 +1403,10 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
   if (length(bdatevector) > length(edatevector))
   {
     edatevector %<>%
-      c(ymd(tail(edatevector, n = 1)) + years(1)
+      c(lubridate::ymd(tail(edatevector, n = 1)) + lubridate::years(1)
       )
   }
-  params <- tibble(
+  params <- tibble::tibble(
     parameter = format_multiple_params_for_api(parameter),
     bdate = bdatevector, edate = edatevector, stateFIPS = ellipsis_args$stateFIPS, countycode = ellipsis_args$countycode,
     sitenum = ellipsis_args$sitenum, duration = ellipsis_args$duration, service = service, cbdate = ellipsis_args$cbdate,
@@ -1417,6 +1417,6 @@ aqsmultiyearparams <- function(parameter, bdate, edate, service, ...)
   )
   params %>%
     # remove all columns that have all NA values
-    select(where(~!all(is.na(.x)))) %>%
+    dplyr::select(tidyselect::where(~!all(is.na(.x)))) %>%
     return()
 }

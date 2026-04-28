@@ -194,7 +194,7 @@ RAQSAPI_functions_table <- function()
       str_remove_all(pattern = ".html"),
     relPATH = list.files("./man/html", full.names = TRUE)
   ) %>%
-    mutate(functionfamily = functiontype(functionnames))
+    mutate(functionfamily = functiontype(functionnames))  #nolint: object_usage_linter
   functiontable$functionfamily[which(functiontable$functionnames %in% listfunctions)] <- "RAQSAPI list functions"
   functiontable$functionfamily[which(functiontable$functionnames %in% setupfunctions)] <- "RAQSAPI setup
                                                             functions"
@@ -203,8 +203,8 @@ RAQSAPI_functions_table <- function()
                                                                    functions"
 
   functiontable %<>%
-    filter(!functionfamily == "services functions") %>%
-    filter(!functionnames == "deprecated")
+    filter(!functionfamily == "services functions") %>%  #nolint: object_usage_linter
+    filter(!functionnames == "deprecated")  #nolint: object_usage_linter
   return(functiontable)
 }
 

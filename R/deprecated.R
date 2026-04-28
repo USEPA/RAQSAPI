@@ -19,7 +19,7 @@
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_site <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
@@ -42,7 +42,7 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_county <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance* functions, please use these
                    functions instead."
@@ -64,7 +64,7 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_state <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
@@ -86,7 +86,7 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_pqao <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance_by* functions, please use these
                    functions instead."
@@ -110,7 +110,7 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceeval_by_MA <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been
                   renamed to aqs_qa_annualperformance* functions, please use
                     these functions instead."
@@ -132,7 +132,7 @@ aqs_qa_annualpeferomanceeval_by_MA <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
@@ -155,7 +155,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
@@ -178,7 +178,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."
@@ -201,7 +201,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #'                    # package reference manual
 aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 {
-  abort(
+  rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
                    functions, please use these functions instead."

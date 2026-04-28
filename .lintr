@@ -14,4 +14,6 @@ linters:
                        regexes = c(CAMELcase = "[[:upper:]+[:lower:]+]",
                                    HYBRID_case="[[:upper:]+_[:lower:]+]")),
     pipe_consistency_linter(pipe = "%>%"), #will move to the strictly the native pipe sometime in the future
-    object_length_linter(length=99L))
+    object_length_linter(length=99L),
+    object_usage_linter(interpret_extensions = c("glue", "rlang", "magrittr", "dplyr", "tidyselect"))
+    )
