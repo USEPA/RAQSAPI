@@ -21,10 +21,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      pull-requests: read
     steps:
+      - uses: actions/checkout@v4
+      - name: Find PR number
+        id: pr
+        run: |
+          PR="${{ github.event.workflow_run.pull_requests[0].number }}"
+          echo "pr=$PR" >> $GITHUB_OUTPUT
       - uses: ropensci-review-tools/pkgcheck-action@main
         with:
-          issue title: "(Automated) pkgcheck report for ${{ github.repository }}"
+          issue-number: ${{ steps.pr.outputs.pr }}
+          issue-title: "(Automated) pkgcheck report for ${{ github.repository }}"
           append-to-issue: true
           skip_checks: |
             - lintr_assignment_linter
