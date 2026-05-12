@@ -6,7 +6,7 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr `%<>%` `%>%`
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
@@ -30,22 +30,28 @@
 #'                                        )
 #'                    }
 #' @export
-aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE)
-{
+aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
   # on the server, purrr::map is used so that the output is consistent with other RAQSAPI functions.
   params <- tibble::tibble(
-    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
     service = "monitors"
   ) %>%
-    dplyr::select(tidyselect::where(~!all(is.na(.x))))
+    dplyr::select(tidyselect::where(~ !all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header)
+  if (!return_header) {
     monitors %<>%
       aqs_removeheader
+  }
   return(monitors)
 }
 
@@ -106,7 +112,8 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'                                          )
 #'                    }
 #' @export
-aqs_sampledata_by_box <- function(parameter,
+aqs_sampledata_by_box <- function(
+  parameter,
   bdate,
   edate,
   minlat,
@@ -117,18 +124,27 @@ aqs_sampledata_by_box <- function(parameter,
   cbdate = lubridate::NA_Date_,
   cedate = lubridate::NA_Date_,
   return_header = FALSE
-)
-{
+) {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
-    duration = duration, service = "sampleData", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    duration = duration,
+    service = "sampleData",
+    cbdate = cbdate,
+    cedate = cedate
   )
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header)
+  if (!return_header) {
     sampledata %<>%
       aqs_removeheader
+  }
   return(sampledata)
 }
 
@@ -180,20 +196,22 @@ aqs_sampledata_by_box <- function(parameter,
 #'                                             )
 #'                    }
 #' @export
-aqs_annualsummary_by_box <- function(parameter,
-                                     bdate,
-                                     edate,
-                                     minlat,
-                                     maxlat,
-                                     minlon,
-                                     maxlon,
-                                     cbdate = lubridate::NA_Date_,
-                                     cedate = lubridate::NA_Date_,
-                                     return_header = FALSE)
-{
+aqs_annualsummary_by_box <- function(
+  parameter,
+  bdate,
+  edate,
+  minlat,
+  maxlat,
+  minlon,
+  maxlon,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter,
+  params <- aqsmultiyearparams(
+    parameter = parameter,
     bdate = bdate,
     edate = edate,
     minlat = minlat,
@@ -206,9 +224,10 @@ aqs_annualsummary_by_box <- function(parameter,
   )
 
   annualsummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header)
+  if (!return_header) {
     annualsummary %<>%
       aqs_removeheader
+  }
   return(annualsummary)
 }
 
@@ -260,20 +279,38 @@ aqs_annualsummary_by_box <- function(parameter,
 #'                                             )
 #'                    }
 #' @export
-aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                                    cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_dailysummary_by_box <- function(
+  parameter,
+  bdate,
+  edate,
+  minlat,
+  maxlat,
+  minlon,
+  maxlon,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
-    service = "dailyData", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    service = "dailyData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header)
+  if (!return_header) {
     dailysummary %<>%
       aqs_removeheader
+  }
   return(dailysummary)
 }
 
@@ -326,20 +363,39 @@ aqs_dailysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, min
 #'                                               )
 #'                    }
 #' @export
-aqs_quarterlysummary_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon,
-                                        cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_quarterlysummary_by_box <- function(
+  parameter,
+  bdate,
+  edate,
+  minlat,
+  maxlat,
+  minlon,
+  maxlon,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   AQS_domain <- "aqs.epa.gov"
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, minlat = minlat, maxlat = maxlat, minlon = minlon, maxlon = maxlon,
-    service = "quarterlyData", cbdate = cbdate, cedate = cedate, AQS_domain = AQS_domain
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    service = "quarterlyData",
+    cbdate = cbdate,
+    cedate = cedate,
+    AQS_domain = AQS_domain
   )
 
   quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_box)
-  if (!return_header)
+  if (!return_header) {
     quarterlysummary %<>%
       aqs_removeheader
+  }
   return(quarterlysummary)
 }

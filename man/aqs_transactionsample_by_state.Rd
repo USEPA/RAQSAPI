@@ -74,12 +74,12 @@ $mathcal(n + 5 seconds)$$.
                  }
 }
 \seealso{
-Other Aggregate _by_state functions: 
-\code{\link{aqs_qa_annualperformanceeval_by_state}()},
-\code{\link{aqs_qa_annualperformanceevaltransaction_by_state}()},
-\code{\link{aqs_quarterlysummary_by_box}()},
-\code{\link{aqs_quarterlysummary_by_cbsa}()},
-\code{\link{aqs_quarterlysummary_by_state}()},
-\code{\link{aqs_transactionsample_by_MA}()}
+Other Aggregate _by_state functions:
+\code{\link[=aqs_qa_annualperformanceeval_by_state]{aqs_qa_annualperformanceeval_by_state()}},
+\code{\link[=aqs_qa_annualperformanceevaltransaction_by_state]{aqs_qa_annualperformanceevaltransaction_by_state()}},
+\code{\link[=aqs_quarterlysummary_by_box]{aqs_quarterlysummary_by_box()}},
+\code{\link[=aqs_quarterlysummary_by_cbsa]{aqs_quarterlysummary_by_cbsa()}},
+\code{\link[=aqs_quarterlysummary_by_state]{aqs_quarterlysummary_by_state()}},
+\code{\link[=aqs_transactionsample_by_MA]{aqs_transactionsample_by_MA()}}
 }
 \concept{Aggregate _by_state functions}

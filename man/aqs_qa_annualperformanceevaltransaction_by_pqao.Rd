@@ -79,13 +79,13 @@ server. This operation has a linear run time of
                  }
 }
 \seealso{
-Other Aggregate _by_pqao functions: 
-\code{\link{aqs_qa_annualperformanceeval_by_pqao}()},
-\code{\link{aqs_qa_blanks_by_pqao}()},
-\code{\link{aqs_qa_collocated_assessments_by_pqao}()},
-\code{\link{aqs_qa_flowrateaudit_by_pqao}()},
-\code{\link{aqs_qa_flowrateverification_by_pqao}()},
-\code{\link{aqs_qa_one_point_qc_by_pqao}()},
-\code{\link{aqs_qa_pep_audit_by_pqao}()}
+Other Aggregate _by_pqao functions:
+\code{\link[=aqs_qa_annualperformanceeval_by_pqao]{aqs_qa_annualperformanceeval_by_pqao()}},
+\code{\link[=aqs_qa_blanks_by_pqao]{aqs_qa_blanks_by_pqao()}},
+\code{\link[=aqs_qa_collocated_assessments_by_pqao]{aqs_qa_collocated_assessments_by_pqao()}},
+\code{\link[=aqs_qa_flowrateaudit_by_pqao]{aqs_qa_flowrateaudit_by_pqao()}},
+\code{\link[=aqs_qa_flowrateverification_by_pqao]{aqs_qa_flowrateverification_by_pqao()}},
+\code{\link[=aqs_qa_one_point_qc_by_pqao]{aqs_qa_one_point_qc_by_pqao()}},
+\code{\link[=aqs_qa_pep_audit_by_pqao]{aqs_qa_pep_audit_by_pqao()}}
 }
 \concept{Aggregate _by_pqao functions}

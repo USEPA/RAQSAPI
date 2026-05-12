@@ -112,15 +112,15 @@ $mathcal(n + 5 seconds)$$.
                    }
 }
 \seealso{
-Other Aggregate_by_state functions: 
-\code{\link{aqs_annualsummary_by_state}()},
-\code{\link{aqs_dailysummary_by_state}()},
-\code{\link{aqs_monitors_by_state}()},
-\code{\link{aqs_qa_blanks_by_state}()},
-\code{\link{aqs_qa_collocated_assessments_by_state}()},
-\code{\link{aqs_qa_flowrateaudit_by_state}()},
-\code{\link{aqs_qa_flowrateverification_by_state}()},
-\code{\link{aqs_qa_one_point_qc_by_state}()},
-\code{\link{aqs_qa_pep_audit_by_state}()}
+Other Aggregate_by_state functions:
+\code{\link[=aqs_annualsummary_by_state]{aqs_annualsummary_by_state()}},
+\code{\link[=aqs_dailysummary_by_state]{aqs_dailysummary_by_state()}},
+\code{\link[=aqs_monitors_by_state]{aqs_monitors_by_state()}},
+\code{\link[=aqs_qa_blanks_by_state]{aqs_qa_blanks_by_state()}},
+\code{\link[=aqs_qa_collocated_assessments_by_state]{aqs_qa_collocated_assessments_by_state()}},
+\code{\link[=aqs_qa_flowrateaudit_by_state]{aqs_qa_flowrateaudit_by_state()}},
+\code{\link[=aqs_qa_flowrateverification_by_state]{aqs_qa_flowrateverification_by_state()}},
+\code{\link[=aqs_qa_one_point_qc_by_state]{aqs_qa_one_point_qc_by_state()}},
+\code{\link[=aqs_qa_pep_audit_by_state]{aqs_qa_pep_audit_by_state()}}
 }
 \concept{Aggregate_by_state functions}

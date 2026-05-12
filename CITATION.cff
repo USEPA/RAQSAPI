@@ -22,6 +22,7 @@ authors:
   email: mccrowey.clinton@epa.gov
   orcid: https://orcid.org/0009-0001-1802-1518
 - name: United States Environmental Protection Agency
+  website: https://ror.org/03tns0030
 repository: https://CRAN.R-project.org/package=RAQSAPI
 repository-code: https://github.com/USEPA/RAQSAPI
 url: https://github.com/USEPA/RAQSAPI/
@@ -53,10 +54,13 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
+  doi: 10.32614/R.manuals
   version: '>= 4.0.0'
 - type: software
   title: dplyr
@@ -174,10 +178,13 @@ references:
   notes: Imports
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
     name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
+  doi: 10.32614/R.manuals
 - type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'

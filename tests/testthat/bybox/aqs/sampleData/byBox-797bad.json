@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2026-04-06T15:34:36-04:00",
+            "request_time": "2026-05-12T12:05:13-04:00",
             "url": "aqs/sampleData/byBox?email=redacted&key=redacted&param=44201&bdate=20150501&edate=20150502&minlon=-87.0&maxlon=-86.7&minlat=33.3&maxlat=33.6",
             "rows": 240
         }

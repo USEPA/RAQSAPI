@@ -1,17 +1,12 @@
-RAQSAPItestsetup_helper <- function()
-{
-
+RAQSAPItestsetup_helper <- function() {
   path <- NA
-  if (file.exists("local.R"))
-  {
+  if (file.exists("local.R")) {
     path <- "./"
-  } else if (file.exists("tests/testthat/local.R"))
-  {
+  } else if (file.exists("tests/testthat/local.R")) {
     path <- "tests/testthat/"
   }
 
-  if (!is.na(path))
-  {
+  if (!is.na(path)) {
     source(paste0(path, "local.R"))
     AQScredentials <- RAQSAPItestsetup_local() #nolint: object_usage_linter
     datamartAPI_user <- AQScredentials$AQSusername

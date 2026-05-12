@@ -57,3 +57,7 @@ contributing.md
 CODE_OF_CONDUCT.md
 ^RAQSAPI\.Rproj$
 .actrc
+^\.positai$
+^\.claude$
+^[.]?air[.]toml$
+^\.vscode$

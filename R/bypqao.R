@@ -41,20 +41,32 @@
 #'                                          )
 #'                    }
 #' @export
-aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = lubridate::NA_Date_,
-                                  cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_blanks_by_pqao <- function(
+  parameter,
+  bdate,
+  edate,
+  pqao_code,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
-    service = "qaBlanks", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaBlanks",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     blanks %<>%
       aqs_removeheader
+  }
   return(blanks)
 }
 
@@ -100,26 +112,32 @@ aqs_qa_blanks_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = l
 #'                                                         )
 #'                    }
 #' @export
-aqs_qa_collocated_assessments_by_pqao <- function(parameter,
-                                                  bdate,
-                                                  edate,
-                                                  pqao_code,
-                                                  cbdate = lubridate::NA_Date_,
-                                                  cedate = lubridate::NA_Date_,
-                                                  return_header = FALSE)
-{
+aqs_qa_collocated_assessments_by_pqao <- function(
+  parameter,
+  bdate,
+  edate,
+  pqao_code,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
-    service = "qaCollocatedAssessments", cbdate = cbdate,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaCollocatedAssessments",
+    cbdate = cbdate,
     cedate = cedate
   )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     colocatedsummary %<>%
       aqs_removeheader
+  }
   return(colocatedsummary)
 }
 
@@ -167,26 +185,32 @@ aqs_qa_collocated_assessments_by_pqao <- function(parameter,
 #'                                                )
 #'          }
 #' @export
-aqs_qa_flowrateverification_by_pqao <- function(parameter,
-                                                bdate,
-                                                edate,
-                                                pqao_code,
-                                                cbdate = lubridate::NA_Date_,
-                                                cedate = lubridate::NA_Date_,
-                                                return_header = FALSE)
-{
+aqs_qa_flowrateverification_by_pqao <- function(
+  parameter,
+  bdate,
+  edate,
+  pqao_code,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
-    service = "qaFlowRateVerifications", cbdate = cbdate,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaFlowRateVerifications",
+    cbdate = cbdate,
     cedate = cedate
   )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     frv %<>%
       aqs_removeheader
+  }
   return(frv)
 }
 
@@ -233,21 +257,32 @@ aqs_qa_flowrateverification_by_pqao <- function(parameter,
 #'                                        )
 #'           }
 #' @export
-aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
-                                         cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_flowrateaudit_by_pqao <- function(
+  parameter,
+  bdate,
+  edate,
+  pqao_code,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
-    service = "qaFlowRateAudits", cbdate = cbdate,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaFlowRateAudits",
+    cbdate = cbdate,
     cedate = cedate
   )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     fra %<>%
       aqs_removeheader
+  }
   return(fra)
 }
 
@@ -292,21 +327,32 @@ aqs_qa_flowrateaudit_by_pqao <- function(parameter, bdate, edate, pqao_code,
 #'                                      )
 #'          }
 #' @export
-aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = lubridate::NA_Date_,
-                                        cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_one_point_qc_by_pqao <- function(
+  parameter,
+  bdate,
+  edate,
+  pqao_code,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
-    service = "qaOnePointQcRawData", cbdate = cbdate,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaOnePointQcRawData",
+    cbdate = cbdate,
     cedate = cedate
   )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     opqcc %<>%
       aqs_removeheader
+  }
   return(opqcc)
 }
 
@@ -353,20 +399,32 @@ aqs_qa_one_point_qc_by_pqao <- function(parameter, bdate, edate, pqao_code, cbda
 #'                                     )
 #'                    }
 #' @export
-aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate = lubridate::NA_Date_,
-                                     cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_pep_audit_by_pqao <- function(
+  parameter,
+  bdate,
+  edate,
+  pqao_code,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code, service = "qaPepAudits", cbdate = cbdate,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaPepAudits",
+    cbdate = cbdate,
     cedate = cedate
   )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     pepaudit %<>%
       aqs_removeheader
+  }
   return(pepaudit)
 }
 
@@ -416,17 +474,22 @@ aqs_qa_pep_audit_by_pqao <- function(parameter, bdate, edate, pqao_code, cbdate 
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE)
-{
+aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
 
-  params <- aqsmultiyearparams(parameter = parameter, bdate = bdate, edate = edate,
-                               pqao_code = pqao_code, service = "qaAnnualPerformanceEvaluations")
+  params <- aqsmultiyearparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    service = "qaAnnualPerformanceEvaluations"
+  )
 
   qaape <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     qaape %<>%
       aqs_removeheader
+  }
   return(qaape)
 }
 
@@ -478,18 +541,21 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_c
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE)
-{
+aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, pqao_code = pqao_code,
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
     service = "transactionsQaAnnualPerformanceEvaluations"
   )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
-  if (!return_header)
+  if (!return_header) {
     tqaape %<>%
       aqs_removeheader
+  }
   return(tqaape)
 }

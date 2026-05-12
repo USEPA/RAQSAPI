@@ -76,13 +76,13 @@ $mathcal(n + 5 seconds)$.
                   }
 }
 \seealso{
-Other Aggregate _by_MA functions: 
-\code{\link{aqs_qa_annualperformanceevaltransaction_by_MA}()},
-\code{\link{aqs_qa_blanks_by_MA}()},
-\code{\link{aqs_qa_collocated_assessments_by_MA}()},
-\code{\link{aqs_qa_flowrateaudit_by_MA}()},
-\code{\link{aqs_qa_flowrateverification_by_MA}()},
-\code{\link{aqs_qa_one_point_qc_by_MA}()},
-\code{\link{aqs_qa_pep_audit_by_MA}()}
+Other Aggregate _by_MA functions:
+\code{\link[=aqs_qa_annualperformanceevaltransaction_by_MA]{aqs_qa_annualperformanceevaltransaction_by_MA()}},
+\code{\link[=aqs_qa_blanks_by_MA]{aqs_qa_blanks_by_MA()}},
+\code{\link[=aqs_qa_collocated_assessments_by_MA]{aqs_qa_collocated_assessments_by_MA()}},
+\code{\link[=aqs_qa_flowrateaudit_by_MA]{aqs_qa_flowrateaudit_by_MA()}},
+\code{\link[=aqs_qa_flowrateverification_by_MA]{aqs_qa_flowrateverification_by_MA()}},
+\code{\link[=aqs_qa_one_point_qc_by_MA]{aqs_qa_one_point_qc_by_MA()}},
+\code{\link[=aqs_qa_pep_audit_by_MA]{aqs_qa_pep_audit_by_MA()}}
 }
 \concept{Aggregate _by_MA functions}

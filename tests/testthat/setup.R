@@ -1,11 +1,13 @@
 library(httptest2)
 source("helper.R")
-httptest2::.mockPaths(c(".",
-                        "./bybox",
-                        "./bycbsa",
-                        "./byco",
-                        "./byMA",
-                        "./bypqao",
-                        "./bysite",
-                        "./bystate",
-                        "./listfunctions"))
+httptest2::.mockPaths(c(
+  ".",
+  "./bybox",
+  "./bycbsa",
+  "./byco",
+  "./byMA",
+  "./bypqao",
+  "./bysite",
+  "./bystate",
+  "./listfunctions"
+))

@@ -15,10 +15,8 @@
 #'           tibble of the data returned.
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceeval_by_site <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceeval_by_site <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance* functions, please use these
@@ -38,10 +36,8 @@ aqs_qa_annualpeferomanceeval_by_site <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceeval_by_county <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceeval_by_county <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance* functions, please use these
@@ -60,10 +56,8 @@ aqs_qa_annualpeferomanceeval_by_county <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceeval_by_state <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceeval_by_state <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance_by* functions, please use these
@@ -82,10 +76,8 @@ aqs_qa_annualpeferomanceeval_by_state <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceeval_by_pqao <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceeval_by_pqao <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been renamed
                    to aqs_qa_annualperformance_by* functions, please use these
@@ -106,10 +98,8 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceeval_by_MA <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceeval_by_MA <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceeval_by* functions have been
                   renamed to aqs_qa_annualperformance* functions, please use
@@ -128,10 +118,8 @@ aqs_qa_annualpeferomanceeval_by_MA <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceevaltransaction_by_site <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
@@ -151,10 +139,8 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceevaltransaction_by_county <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
@@ -174,10 +160,8 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function()
 #' @importFrom rlang abort
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
@@ -197,10 +181,8 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function()
 #' @return NULL````````
 #' @noRd
 #' @rdname deprecated
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_qa_annualpeferomanceevaltransaction_by_MA <- function() {
   rlang::abort(
     message = "aqs_qa_annualpeferomanceevaltransaction_by* functions have
                    been renamed to aqs_qa_annualperformancetransaction_by*
@@ -229,10 +211,8 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function()
 #' @return NULL
 #' @rdname deprecated
 #' @noRd
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
-aqs_ratelimit <- function(waittime = 5L)
-{
+#' @keywords internal # do not include deprecated function in package reference manual
+aqs_ratelimit <- function(waittime = 5L) {
   Sys.sleep(waittime)
   return(invisible())
 }

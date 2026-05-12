@@ -39,8 +39,8 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--04--28-yellowgreen.svg)](/commits/master)
-[![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--05--12-yellowgreen.svg)](/commits/master)
+[![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -60,35 +60,25 @@ downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.or
 > imply endorsement of any commercial product or activity by the USEPA
 > or the United States Government.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr>
-<th><span style="color:red"> Warning: US EPA’s AQS Data Mart API V2 is
-currently<br />
+<span style="color:red"> Warning: US EPA’s AQS Data Mart API V2 is
+currently \\
+
 in beta phase of development, the API interface has not been
-finalized.<br />
+finalized.  
 This means that certain functionality of the API may change or be
-removed<br />
+removed  
 without notice. As a result, this package is also currently marked as
-beta and<br />
+beta and  
 may also change to reflect any changes made to the Data Mart API or in
-respect<br />
+respect  
 to improvements in the design, functionality, quality and documentation
-of<br />
+of  
 this package. The authors assume no liability for any problems that may
-occur<br />
+occur  
 as a result of using this package, the Data Mart service, any
-software,<br />
+software,  
 service, hardware, or user accounts that may utilize this package.
-</span></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+</span> \| \| – \|
 
 # Introduction
 
@@ -205,24 +195,14 @@ any of its functions use the aqs_credentials [^3] function to enter in
 the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr>
-<th><span style="color:red"> Note: The credentials used to access AQS
-Data Mart<br />
+<span style="color:red"> Note: The credentials used to access AQS Data
+Mart \\
+
 API is not the same as the credentials used to access AQS. AQS users who
-do<br />
+do  
 not have access to the AQS Data Mart will need to create new
-credentials.<br />
-</span></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+credentials.  
+</span> \| \| – \|
 
 ## (suggested) Use the `keyring` package to manage credentials
 
@@ -292,21 +272,11 @@ Refer to the[`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr>
-<th><span style="color:blue"> Information: AQS Data Mart API restricts
-the<br />
-maximum amount of monitoring data to one full year of data per API<br />
-call.</span></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<span style="color:blue"> Information: AQS Data Mart API restricts the
+\\
+
+maximum amount of monitoring data to one full year of data per API  
+call.</span> \| \| – \|
 
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
@@ -358,27 +328,16 @@ service.**
   **Submission transaction format (RD)**
   (aqs_qa_annualperformanceevaltransaction_by\_\*)
 
-<table>
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<thead>
-<tr>
-<th><span style="color:blue"> Information: AQS Data Mart API restricts
-the<br />
-maximum amount of monitoring data to one full year of data per<br />
-API call. These functions are able to return multiple years of data
-by<br />
+<span style="color:blue"> Information: AQS Data Mart API restricts the
+\\
+
+maximum amount of monitoring data to one full year of data per  
+API call. These functions are able to return multiple years of data by  
 making repeated calls to the API. Each call to the Data Mart API will
-take<br />
+take  
 time to complete. The more years of data being requested the longer
-RAQSAPI<br />
-will take to return the results.</span></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+RAQSAPI  
+will take to return the results.</span> \| \| – \|
 
 Aggregate functions are named AQS\_\<service\>\_\<aggregation\>() where
 \<service\> is one of the 13 services listed above and \<aggregation\>
@@ -547,9 +506,9 @@ G. *Urlchecker: Run CRAN URL Checks from Older r Versions*; 2021.
 <div id="ref-package:goodpractice" class="csl-entry">
 
 <span class="csl-left-margin">(12)
-</span><span class="csl-right-inline">Padgham, M.; Marks, K.; de
-Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander, H.
-*Goodpractice: Advice on r Package Building*; 2024.
+</span><span class="csl-right-inline"><span class="nocase">Padgham, M.;
+Marks, K.; de Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander,
+H.</span> *Goodpractice: Advice on r Package Building*; 2024.
 <https://doi.org/10.32614/CRAN.package.goodpractice>.</span>
 
 </div>

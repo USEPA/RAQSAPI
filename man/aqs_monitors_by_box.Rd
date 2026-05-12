@@ -81,8 +81,8 @@ All monitors that operated between the bdate and edate will be returned
                    }
 }
 \seealso{
-Other Aggregate _by_box functions: 
-\code{\link{aqs_annualsummary_by_box}()},
-\code{\link{aqs_sampledata_by_box}()}
+Other Aggregate _by_box functions:
+\code{\link[=aqs_annualsummary_by_box]{aqs_annualsummary_by_box()}},
+\code{\link[=aqs_sampledata_by_box]{aqs_sampledata_by_box()}}
 }
 \concept{Aggregate _by_box functions}

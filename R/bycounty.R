@@ -6,7 +6,7 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr `%<>%` `%>%`
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
 #' @param return_header If FALSE (default) only returns data requested.
@@ -26,23 +26,37 @@
 #'                                  )
 #'          }
 #' @export
-aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, cbdate = lubridate::NA_Date_,
-                                   cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_monitors_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
   # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
   params <- tibble::tibble(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "monitors", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "monitors",
+    cbdate = cbdate,
+    cedate = cedate
   ) %>%
-    dplyr::select(tidyselect::where(~!all(is.na(.x))))
+    dplyr::select(tidyselect::where(~ !all(is.na(.x))))
 
   monitors <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     monitors %<>%
       aqs_removeheader
+  }
   return(monitors)
 }
 
@@ -98,7 +112,8 @@ aqs_monitors_by_county <- function(parameter, bdate, edate, stateFIPS, countycod
 #'                                    )
 #'          }
 #' @export
-aqs_sampledata_by_county <- function(parameter,
+aqs_sampledata_by_county <- function(
+  parameter,
   bdate,
   edate,
   stateFIPS,
@@ -107,19 +122,26 @@ aqs_sampledata_by_county <- function(parameter,
   cbdate = lubridate::NA_Date_,
   cedate = lubridate::NA_Date_,
   return_header = FALSE
-)
-{
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, duration, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS, countycode = countycode, duration = duration,
-    service = "sampleData", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    duration = duration,
+    service = "sampleData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   sampledata <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     sampledata %<>%
       aqs_removeheader
+  }
   return(sampledata)
 }
 
@@ -170,21 +192,34 @@ aqs_sampledata_by_county <- function(parameter,
 #'                                        )
 #'          }
 #' @export
-aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
-                                        cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_annualsummary_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "annualData",
-    cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "annualData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     dailysummary %<>%
       aqs_removeheader
+  }
   return(dailysummary)
 }
 
@@ -233,20 +268,34 @@ aqs_annualsummary_by_county <- function(parameter, bdate, edate, stateFIPS, coun
 #'                                    )
 #'            }
 #' @export
-aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, cbdate = lubridate::NA_Date_,
-                                    cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_blanks_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaBlanks", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaBlanks",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     blanks %<>%
       aqs_removeheader
+  }
   return(blanks)
 }
 
@@ -295,20 +344,34 @@ aqs_qa_blanks_by_county <- function(parameter, bdate, edate, stateFIPS, countyco
 #'                                     )
 #'          }
 #' @export
-aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
-                                       cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_dailysummary_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "dailyData", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "dailyData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   dailysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     dailysummary %<>%
       aqs_removeheader
+  }
   return(dailysummary)
 }
 
@@ -356,21 +419,34 @@ aqs_dailysummary_by_county <- function(parameter, bdate, edate, stateFIPS, count
 #'                                                   )
 #'          }
 #' @export
-aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
-                                                    cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_,
-                                                    return_header = FALSE)
-{
+aqs_qa_collocated_assessments_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaCollocatedAssessments", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaCollocatedAssessments",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     colocatedsummary %<>%
       aqs_removeheader
+  }
   return(colocatedsummary)
 }
 
@@ -418,26 +494,34 @@ aqs_qa_collocated_assessments_by_county <- function(parameter, bdate, edate, sta
 #'                                                    )
 #'            }
 #' @export
-aqs_qa_flowrateverification_by_county <- function(parameter,
-                                                  bdate,
-                                                  edate,
-                                                  stateFIPS,
-                                                  countycode,
-                                                  cbdate = lubridate::NA_Date_,
-                                                  cedate = lubridate::NA_Date_,
-                                                  return_header = FALSE)
-{
+aqs_qa_flowrateverification_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaFlowRateVerifications", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaFlowRateVerifications",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     frv %<>%
       aqs_removeheader
+  }
   return(frv)
 }
 
@@ -461,6 +545,7 @@ aqs_qa_flowrateverification_by_county <- function(parameter,
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_county
 #' @importFrom magrittr `%<>%`
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -484,20 +569,34 @@ aqs_qa_flowrateverification_by_county <- function(parameter,
 #'                                            )
 #'            }
 #' @export
-aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
-                                           cbdate = NA_Date_, cedate = NA_Date_, return_header)
-{
+aqs_qa_flowrateaudit_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaFlowRateAudits", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaFlowRateAudits",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     fra %<>%
       aqs_removeheader
+  }
   return(fra)
 }
 
@@ -542,20 +641,34 @@ aqs_qa_flowrateaudit_by_county <- function(parameter, bdate, edate, stateFIPS, c
 #'                                          )
 #'            }
 #' @export
-aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
-                                          cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_one_point_qc_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaOnePointQcRawData", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaOnePointQcRawData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     opqcc %<>%
       aqs_removeheader
+  }
   return(opqcc)
 }
 
@@ -603,20 +716,34 @@ aqs_qa_one_point_qc_by_county <- function(parameter, bdate, edate, stateFIPS, co
 #'                                                )
 #'           }
 #' @export
-aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS, countycode,
-                                       cbdate = lubridate::NA_Date_, cedate = lubridate::NA_Date_, return_header = FALSE)
-{
+aqs_qa_pep_audit_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaPepAudits", cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaPepAudits",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     pepaudit %<>%
       aqs_removeheader
+  }
   return(pepaudit)
 }
 
@@ -663,19 +790,23 @@ aqs_qa_pep_audit_by_county <- function(parameter, bdate, edate, stateFIPS, count
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
-aqs_transactionsample_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, return_header = FALSE)
-{
+aqs_transactionsample_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "transactionsSample"
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "transactionsSample"
   )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     transactionsample %<>%
       aqs_removeheader
+  }
   return(transactionsample)
 }
 
@@ -725,19 +856,23 @@ aqs_transactionsample_by_county <- function(parameter, bdate, edate, stateFIPS, 
 #'           information from the AQS API and the second item ($Data) is a
 #'           tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, return_header = FALSE)
-{
+aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate, stateFIPS, countycode, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "qaAnnualPerformanceEvaluations"
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "qaAnnualPerformanceEvaluations"
   )
 
   qaape <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     qaape %<>%
       aqs_removeheader
+  }
   return(qaape)
 }
 
@@ -789,20 +924,30 @@ aqs_qa_annualperformanceeval_by_county <- function(parameter, bdate, edate, stat
 #'           ($Header) is a tibble of header information from the AQS API and
 #'           the second item ($Data) is a tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate, edate, stateFIPS,
-                                                              countycode, return_header = FALSE)
-{
+aqs_qa_annualperformanceevaltransaction_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "transactionsQaAnnualPerformanceEvaluations"
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "transactionsQaAnnualPerformanceEvaluations"
   )
 
   tqaape <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     tqaape %<>%
       aqs_removeheader
+  }
   return(tqaape)
 }
 
@@ -852,26 +997,33 @@ aqs_qa_annualperformanceevaltransaction_by_county <- function(parameter, bdate, 
 #'                                         )
 #'          }
 #' @export
-aqs_quarterlysummary_by_county <- function(parameter,
-                                           bdate,
-                                           edate,
-                                           stateFIPS,
-                                           countycode,
-                                           cbdate = lubridate::NA_Date_,
-                                           cedate = lubridate::NA_Date_,
-                                           return_header = FALSE)
-{
+aqs_quarterlysummary_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
   params <- aqsmultiyearparams(
-    parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS,
-    countycode = countycode, service = "quarterlyData",
-    cbdate = cbdate, cedate = cedate
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    countycode = countycode,
+    service = "quarterlyData",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   quarterlysummary <- purrr::pmap(.l = params, .f = aqs_services_by_county)
-  if (!return_header)
+  if (!return_header) {
     quarterlysummary %<>%
       aqs_removeheader
+  }
   return(quarterlysummary)
 }

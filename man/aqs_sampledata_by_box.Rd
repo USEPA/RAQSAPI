@@ -134,8 +134,8 @@ $mathcal(n + 5 seconds).
                    }
 }
 \seealso{
-Other Aggregate _by_box functions: 
-\code{\link{aqs_annualsummary_by_box}()},
-\code{\link{aqs_monitors_by_box}()}
+Other Aggregate _by_box functions:
+\code{\link[=aqs_annualsummary_by_box]{aqs_annualsummary_by_box()}},
+\code{\link[=aqs_monitors_by_box]{aqs_monitors_by_box()}}
 }
 \concept{Aggregate _by_box functions}

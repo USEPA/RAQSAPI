@@ -1,7 +1,6 @@
 #' @importFrom lubridate today year mdy '%within%' NA_Date_
 #' @importFrom lifecycle deprecate_soft badge
 
-
 #' @title RAQSAPI: A R Interface to The United States Environmental Protection
 #' Agency's Air Quality System Data Mart RESTful API server
 #'
@@ -34,7 +33,6 @@
 #' @name RAQSAPI
 #' @keywords internal
 "_PACKAGE"
-
 
 ## usethis namespace: start
 #' @importFrom lifecycle deprecate_soft

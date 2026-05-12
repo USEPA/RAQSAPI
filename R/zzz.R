@@ -1,18 +1,15 @@
 # nocov start
 #' @noRd
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
+#' @keywords internal # do not include deprecated function in package reference manual
 
 #' @title .onload
 #' @description setup and configuration of RAQSAPI package when loaded into an
 #' R environment. This function is not to be manually called by the end-user.
 #' @inheritParams base ns-hooks
 #' @return return NULL invisibly
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
+#' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
-.onLoad <- function(libname, pkgname)
-{
+.onLoad <- function(libname, pkgname) {
   setOldClass("AQS_DATAMART_APIv2")
   utils::globalVariables(
     names = c("env.RAQSAPI", "AQSObject", "datetime", "."),
@@ -29,11 +26,9 @@
 #'           to a state in which is was set before loading RASQSAPI.
 #' @inheritDotParams base ns-hooks
 #' @return return NULL invisibly
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
+#' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
-.onUnLoad <- function(libname, pkgname)
-{
+.onUnLoad <- function(libname, pkgname) {
   Sys.setenv(env.RAQSAPI)
   return(invisible())
 }
@@ -43,15 +38,14 @@
 #'              the RAQSAPI library is attached to a R environment.
 #' @inheritParams base .onAttech
 #' @return NULL
-#' @keywords internal # do not include deprecated function in
-#'                    # package reference manual
+#' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
-.onAttach <- function(libname, pkgname)
-{
+.onAttach <- function(libname, pkgname) {
   RAQSAPIstartupmessage <- paste(
     "Use the function",
     "RAQSAPI::aqs_credentials(username, key)",
-    "before using other RAQSAPI functions", "See ?RAQSAPI::aqs_credentials for more information",
+    "before using other RAQSAPI functions",
+    "See ?RAQSAPI::aqs_credentials for more information",
     sep = "\n"
   )
   packageStartupMessage(RAQSAPIstartupmessage)

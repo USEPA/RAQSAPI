@@ -99,19 +99,19 @@ time of $mathcal(n + 5 seconds)$.
          }
 }
 \seealso{
-Other Aggregate _by_county functions: 
-\code{\link{aqs_annualsummary_by_county}()},
-\code{\link{aqs_dailysummary_by_county}()},
-\code{\link{aqs_monitors_by_county}()},
-\code{\link{aqs_qa_annualperformanceeval_by_county}()},
-\code{\link{aqs_qa_blanks_by_county}()},
-\code{\link{aqs_qa_flowrateaudit_by_county}()},
-\code{\link{aqs_qa_flowrateverification_by_county}()},
-\code{\link{aqs_qa_one_point_qc_by_county}()},
-\code{\link{aqs_qa_pep_audit_by_county}()},
-\code{\link{aqs_quarterlysummary_by_county}()},
-\code{\link{aqs_quarterlysummary_by_site}()},
-\code{\link{aqs_sampledata_by_county}()},
-\code{\link{aqs_transactionsample_by_county}()}
+Other Aggregate _by_county functions:
+\code{\link[=aqs_annualsummary_by_county]{aqs_annualsummary_by_county()}},
+\code{\link[=aqs_dailysummary_by_county]{aqs_dailysummary_by_county()}},
+\code{\link[=aqs_monitors_by_county]{aqs_monitors_by_county()}},
+\code{\link[=aqs_qa_annualperformanceeval_by_county]{aqs_qa_annualperformanceeval_by_county()}},
+\code{\link[=aqs_qa_blanks_by_county]{aqs_qa_blanks_by_county()}},
+\code{\link[=aqs_qa_flowrateaudit_by_county]{aqs_qa_flowrateaudit_by_county()}},
+\code{\link[=aqs_qa_flowrateverification_by_county]{aqs_qa_flowrateverification_by_county()}},
+\code{\link[=aqs_qa_one_point_qc_by_county]{aqs_qa_one_point_qc_by_county()}},
+\code{\link[=aqs_qa_pep_audit_by_county]{aqs_qa_pep_audit_by_county()}},
+\code{\link[=aqs_quarterlysummary_by_county]{aqs_quarterlysummary_by_county()}},
+\code{\link[=aqs_quarterlysummary_by_site]{aqs_quarterlysummary_by_site()}},
+\code{\link[=aqs_sampledata_by_county]{aqs_sampledata_by_county()}},
+\code{\link[=aqs_transactionsample_by_county]{aqs_transactionsample_by_county()}}
 }
 \concept{Aggregate _by_county functions}

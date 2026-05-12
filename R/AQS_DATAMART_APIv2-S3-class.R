@@ -11,8 +11,7 @@
 #' @return NULL
 #' @noRd
 #' @keywords internal
-AQS_DATAMART_APIv2_validator <- function(.Data)
-{
+AQS_DATAMART_APIv2_validator <- function(.Data) {
   stopifnot(is.list(.Data))
   stopifnot(
     is.data.frame(.Data[[1]]) |
@@ -23,8 +22,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data)
       tibble::is_tibble(.Data[[1]])
   )
   stopifnot(
-    names(.Data) ==
-      c("Header", "Data")
+    names(.Data) == c("Header", "Data")
   )
   return(invisible())
 }
@@ -67,8 +65,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data)
 #' @seealso tibble::tibble#'
 #' @noRd
 #' @keywords internal
-new_AQS_DATAMART_APIv2 <- function(.AQSobject)
-{
+new_AQS_DATAMART_APIv2 <- function(.AQSobject) {
   AQS_DATAMART_APIv2_validator(.AQSobject)
   structure(.AQSobject, class = "AQS_DATAMART_APIv2") %>%
     return()

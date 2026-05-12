@@ -107,7 +107,6 @@ Suggests: cli,
     usethis
 SystemRequirements: package manual and Vignettes require pandoc
                     (>= 1.14) http://pandoc.org)
-RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
@@ -142,3 +141,6 @@ Config/testthat/edition: 3
 Config/testthat/load-all: list(export_all = FALSE, helpers = FALSE)
 Config/testthat/parallel: false
 Config/build/clean-inst-doc: true
+Config/roxygen2/version: 8.0.0
+Config/roxygen2/markdown: TRUE
+RoxygenNote: 8.0.0 #for package:lifecycle compatiblility remove whne lifecycle is updated to work with roxygen: 8.x.y

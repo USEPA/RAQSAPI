@@ -1,18 +1,15 @@
 #' @importFrom magrittr `%>%`()
-if (file.exists("local.R"))
-{
+if (file.exists("local.R")) {
   AQScredentials <- RAQSAPItestsetup_helper()
   datamartAPI_user <- AQScredentials$datamartAPI_user
   datamartAPI_key <- AQScredentials$datamartAPI_key
-} else
-  {
-    datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-    datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-  }
+} else {
+  datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
+  datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
+}
 
 # If credentials are not available (e.g., during check_built), set dummy values for mocked tests
-if (is.na(datamartAPI_user) || datamartAPI_user == "" || is.na(datamartAPI_key) || datamartAPI_key == "")
-{
+if (is.na(datamartAPI_user) || datamartAPI_user == "" || is.na(datamartAPI_key) || datamartAPI_key == "") {
   datamartAPI_user <- "test@example.com"
   datamartAPI_key <- "testkey"
 }
@@ -20,56 +17,53 @@ if (is.na(datamartAPI_user) || datamartAPI_user == "" || is.na(datamartAPI_key) 
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
 with_mock_dir("bycbsa", {
-  test_that(
-    "byCBSA functions", {
+  test_that("byCBSA functions", {
+    aqs_monitors_by_cbsa(
+      parameter = "42602",
+      bdate = as.Date("20170101", format = "%Y%m%d"),
+      edate = as.Date("20170102", format = "%Y%m%d"),
+      cbsa_code = "16740",
+      return_header = TRUE
+    ) %>%
+      expect_no_error()
 
-      aqs_monitors_by_cbsa(
-        parameter = "42602",
-        bdate = as.Date("20170101", format = "%Y%m%d"),
-        edate = as.Date("20170102", format = "%Y%m%d"),
-        cbsa_code = "16740",
-        return_header = TRUE
-      ) %>%
-        expect_no_error()
+    aqs_annualsummary_by_cbsa(
+      parameter = "42602",
+      bdate = as.Date("20170101", format = "%Y%m%d"),
+      edate = as.Date("20170101", format = "%Y%m%d"),
+      cbsa_code = "16740",
+      return_header = FALSE
+    ) %>%
+      expect_no_error()
 
-      aqs_annualsummary_by_cbsa(
-        parameter = "42602",
-        bdate = as.Date("20170101", format = "%Y%m%d"),
-        edate = as.Date("20170101", format = "%Y%m%d"),
-        cbsa_code = "16740", return_header = FALSE
-      ) %>%
-        expect_no_error()
+    aqs_dailysummary_by_cbsa(
+      parameter = "42602",
+      bdate = as.Date("20170101", format = "%Y%m%d"),
+      edate = as.Date("20170101", format = "%Y%m%d"),
+      cbsa_code = "16740",
+      return_header = FALSE
+    ) %>%
+      expect_no_error()
 
-      aqs_dailysummary_by_cbsa(
-        parameter = "42602",
-        bdate = as.Date("20170101", format = "%Y%m%d"),
-        edate = as.Date("20170101", format = "%Y%m%d"),
-        cbsa_code = "16740",
-        return_header = FALSE
-      ) %>%
-        expect_no_error()
+    aqs_sampledata_by_cbsa(
+      parameter = "42602",
+      bdate = as.Date("20170101", format = "%Y%m%d"),
+      edate = as.Date("20170101", format = "%Y%m%d"),
+      cbsa_code = "16740",
+      return_header = FALSE
+    ) %>%
+      expect_no_error()
 
-      aqs_sampledata_by_cbsa(
-        parameter = "42602",
-        bdate = as.Date("20170101", format = "%Y%m%d"),
-        edate = as.Date("20170101", format = "%Y%m%d"),
-        cbsa_code = "16740",
-        return_header = FALSE
-      ) %>%
-        expect_no_error()
+    aqs_quarterlysummary_by_cbsa(
+      parameter = "42602",
+      bdate = as.Date("20170101", format = "%Y%m%d"),
+      edate = as.Date("20171231", format = "%Y%m%d"),
+      cbsa_code = "16740",
+      return_header = FALSE
+    ) %>%
+      expect_no_error()
 
-      aqs_quarterlysummary_by_cbsa(
-        parameter = "42602",
-        bdate = as.Date("20170101", format = "%Y%m%d"),
-        edate = as.Date("20171231", format = "%Y%m%d"),
-        cbsa_code = "16740",
-        return_header = FALSE
-      ) %>%
-        expect_no_error()
-
-      aqs_sampledurations(return_header = FALSE) %>%
-        expect_no_error()
-    }
-  )
-}
-)
+    aqs_sampledurations(return_header = FALSE) %>%
+      expect_no_error()
+  })
+})

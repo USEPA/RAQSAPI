@@ -96,9 +96,9 @@ API server. This operation has a linear run time of
                    }
 }
 \seealso{
-Other Aggregate _by_cbsa functions: 
-\code{\link{aqs_dailysummary_by_cbsa}()},
-\code{\link{aqs_monitors_by_cbsa}()},
-\code{\link{aqs_sampledata_by_cbsa}()}
+Other Aggregate _by_cbsa functions:
+\code{\link[=aqs_dailysummary_by_cbsa]{aqs_dailysummary_by_cbsa()}},
+\code{\link[=aqs_monitors_by_cbsa]{aqs_monitors_by_cbsa()}},
+\code{\link[=aqs_sampledata_by_cbsa]{aqs_sampledata_by_cbsa()}}
 }
 \concept{Aggregate _by_cbsa functions}
