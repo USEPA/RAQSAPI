@@ -411,7 +411,8 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #' @importFrom tibble tibble
 #' @importFrom rlang caller_call
 #' @importFrom gtools invalid
-#' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json req_perform req_options req_retry req_throttle req_error req_verbose
+#' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json req_perform req_options req_retry req_throttle
+#' @importFrom httr2 req_error req_verbose
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the

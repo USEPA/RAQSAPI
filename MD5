@@ -114,7 +114,7 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 651f91aebbe8a5bc41c4ed0a93089513 *man/RAQSAPI.Rd
 2693a97f6b22d1946897aa8d19c40194 *NAMESPACE
 02064a627d483e51189ca9fcd11e70ad *R/AQS_DATAMART_APIv2-S3-class.R
-5ad00b5db75b9aad7a89d620ee9e3e26 *R/AQSAPI_helperfunctions.R
+0a6011e3a1e7542bf82b81a5de02e336 *R/AQSAPI_helperfunctions.R
 d54aabc7c14fe665ec65e8082ba6da8d *R/bybox.R
 44bde4eaee149ad99cc017823656edfd *R/bycbsa.R
 dd346918511587d00f46f0cb612b6efd *R/bycounty.R
@@ -130,7 +130,7 @@ b56ff2b193ecba52f9ec7f3b10cca008 *R/utils-pipe.R
 404ad82c5184219e8000bfcbcc9cee28 *R/zzz.R
 222af7f195cd5003bb1001490921c413 *RAQSAPI.code-workspace
 4a09e6a5eacad3bb95e0c30f41a8672e *RAQSAPI.Rproj
-ec0fd7527f91dcfdf8c20f6b876a53cb *README.md
+cf1264969e3df404c86431b38f63b2c1 *README.md
 e0f5e029e471d05b97e9f13acd3c13f3 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
