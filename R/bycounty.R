@@ -38,8 +38,10 @@ aqs_monitors_by_county <- function(
 ) {
   checkaqsparams(parameter, bdate, edate, stateFIPS, countycode, cbdate, cedate, return_header)
 
-  # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
-  # on the server, purrr::pmap is used so that the output is consistent with other RAQSAPI functions.
+  # aqs_monitors_by_* functions don't call aqsmultiyearparams()
+  # since the monitors API call accepts multiple years of data
+  # on the server, purrr::pmap is used so that the output is
+  # consistent with other RAQSAPI functions.
   params <- tibble::tibble(
     parameter = parameter,
     bdate = bdate,

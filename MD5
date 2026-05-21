@@ -4,8 +4,8 @@
 1a5ff4b7028f626ef773b5409a6c971d *codeinventory.json
 262b2c950172efb4634053b9d9387815 *codemeta.json
 ca421635a95e9dcc68eb7eac06fd8e8a *contributing.md
-85fec9c88ca01bfa872cadbc233ff627 *cran-comments.md
-85fec9c88ca01bfa872cadbc233ff627 *cran-comments.Rmd
+f37075bd43220dbdf32545a72f057eb1 *cran-comments.md
+132af8480a171e97d1d1792b7e4c09ba *cran-comments.Rmd
 b0854b0dfbdc6a2300b11de61b6200fb *DESCRIPTION
 3c56848e6426fdc0c278e4cf57953f5e *inst/CITATION
 3df907b50c4f00bc26ee6d988e0c849f *inst/codecov.yml
@@ -113,6 +113,8 @@ bf2f1ad432ecccee3400afe533404113 *man/figures/lifecycle-superseded.svg
 8f4aad003a999fae004ba9361f9a99d6 *man/pipe.Rd
 651f91aebbe8a5bc41c4ed0a93089513 *man/RAQSAPI.Rd
 2693a97f6b22d1946897aa8d19c40194 *NAMESPACE
+16b97120df21197a5d6a3734bd906bb6 *NEWS.md
+12cb47ab86524471990805ec13fa8cdb *NEWS.Rmd
 02064a627d483e51189ca9fcd11e70ad *R/AQS_DATAMART_APIv2-S3-class.R
 0a6011e3a1e7542bf82b81a5de02e336 *R/AQSAPI_helperfunctions.R
 d54aabc7c14fe665ec65e8082ba6da8d *R/bybox.R
@@ -130,8 +132,8 @@ b56ff2b193ecba52f9ec7f3b10cca008 *R/utils-pipe.R
 404ad82c5184219e8000bfcbcc9cee28 *R/zzz.R
 222af7f195cd5003bb1001490921c413 *RAQSAPI.code-workspace
 4a09e6a5eacad3bb95e0c30f41a8672e *RAQSAPI.Rproj
-cf1264969e3df404c86431b38f63b2c1 *README.md
-e0f5e029e471d05b97e9f13acd3c13f3 *README.Rmd
+b6d946ed6175ab1a25391168a22aaa4d *README.md
+c94ea669f4d411303fdd0d03d1bffa42 *README.Rmd
 7ed08f3fb96a77ec01c95c2ad7964250 *revdep/data.sqlite
 34952a5944548ea4fc132a9899f8e6ab *revdep/email.yml
 b2d403f29050e86e8efa021931ef8649 *revdep/README.md
@@ -250,8 +252,8 @@ b3c1d5b8b570f4cdbd01754f780f6f02 *vignettes/AQSAPI.bib
 05ed13ce5219d60acb3778f2a77a6e88 *vignettes/EPA_Disclaimer.Rmd
 9f8f6638c5178a9bec62665b4cef5e1d *vignettes/figures/AQS_LOGO.png
 52656f58a1ace48010f646376b988318 *vignettes/figures/RAQSAPIhexsticker.png
-e1952146375b38a1189df80c3b72c48f *vignettes/InstallandSetup.Rmd
-3742cb701266546206ec440b75eff326 *vignettes/Intro.Rmd
+daba475572adf603c34765d647c4e109 *vignettes/InstallandSetup.Rmd
+80a475999e3b11809e7b4f054a269c3e *vignettes/Intro.Rmd
 00272bf8d60b7f238d8985b73230017a *vignettes/pyaqsapi.Rmd
 b3e3f5b9394894def7c16e80e79f09f3 *vignettes/RAQSAPI_exported_functions.R
 7d7cebca432168cadfaa8e9d37987238 *vignettes/RAQSAPI_exported_functions_old.R
@@ -259,7 +261,7 @@ b3e3f5b9394894def7c16e80e79f09f3 *vignettes/RAQSAPI_exported_functions.R
 c54a98afa44a5a90a5e9f8adf10bf63a *vignettes/RAQSAPIFunctions-Long.Rmd
 e08359cdca7c75aeed0b3ee00c6a5557 *vignettes/RAQSAPIPurpose.Rmd
 a29b6aa0d6de6e56ba800788b0c4951b *vignettes/RAQSAPIusagetipsandprecautions.Rmd
-0f5d0447bac0b57f14e502dc3654ed56 *vignettes/RAQSAPIvignette.Rmd
+1309d5201d832c0265a3e46f41506792 *vignettes/RAQSAPIvignette.Rmd
 225cb4ddc90f1562d6eacac3bda64db9 *vignettes/TimelinessofAQSData.Rmd
 2087db1b21d2ebed4552a3ed76855bc5 *vignettes/Troubleshooting.Rmd
-477d7591d27ffdc31df0536e27035501 *vignettes/UsingRAQSAPI.Rmd
+569fb364f0152b69791c3b59443e99ef *vignettes/UsingRAQSAPI.Rmd

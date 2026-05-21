@@ -2,9 +2,9 @@
 title: RAQSAPI - Introduction to RAQSAPI
 author: Clinton Mccrowey physical scientist - US EPA
 output:
-  rmarkdown::html_vignette: default
   md_document:
     variant: gfm
+  rmarkdown::html_vignette: default
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Introduction to RAQSAPI}
   %\VignetteEncoding{UTF-8}
@@ -15,16 +15,18 @@ bibliography: AQSAPI.bib
 csl: acs-nano.csl
 ---
 
-| <span style="color:red"> Warning: US EPA's AQS Data Mart API V2 is currently \
-in beta phase of development, the API interface has not been finalized. \
-This means that certain functionality of the API may change or be removed \
-without notice. As a result, this package is also currently marked as beta and \
-may also change to reflect any changes made to the Data Mart API or in respect \
-to improvements in the design, functionality, quality and documentation of \
-this package. The authors assume no liability for any problems that may occur \
-as a result of using this package, the Data Mart service, any software, \
-service, hardware, or user accounts that may utilize this package. </span> |
-| -- |
+>[!WARNING]
+>
+> US EPA's AQS Data Mart API V2 is currently
+> in beta phase of development, the API interface has not been finalized.
+> This means that certain functionality of the API may change or be removed
+> without notice. As a result, this package is also currently marked as beta and
+> may also change to reflect any changes made to the Data Mart API or in respect
+> to improvements in the design, functionality, quality and documentation of
+> this package. The authors assume no liability for any problems that may occur
+> as a result of using this package, the Data Mart service, any software,
+> service, hardware, or user accounts that may utilize this package.
+
 
 # Introduction
 
@@ -43,9 +45,9 @@ The `RAQSAPI` package for the R programming environment allows a R programming
   connections or deal with the security vulnerabilities associated with them.
   Most API functions have a parameter, return_header, which by default is set to
   FALSE. If the user decides to set return_header to TRUE, then that function
-  will return a R AQS_DATAMART_APIv2 S3 object which is a two item named list.  
+  will return a R AQS_DATAMART_APIv2 S3 object which is a two item named list.
   The first item, (\$Header) in the AQS_DATAMART_APIv2 object, is a
-  tibble[@package:tibble] 
+  tibble[@package:tibble]
   which contains the header information. The Header contains status
   information regarding the request (success/fail), any applicable error
   messages returned from the API, if any exist, the URL used in the request, a

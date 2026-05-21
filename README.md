@@ -39,8 +39,11 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--05--13-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--05--21-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
+\[![Status at rOpenSci Software Peer
+Review](https://badges.ropensci.org/744_status.svg)\]
+(<https://github.com/ropensci/software-review/issues/744>)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -60,25 +63,18 @@ downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.or
 > imply endorsement of any commercial product or activity by the USEPA
 > or the United States Government.
 
-<span style="color:red"> Warning: US EPA’s AQS Data Mart API V2 is
-currently \\
-
-in beta phase of development, the API interface has not been
-finalized.  
-This means that certain functionality of the API may change or be
-removed  
-without notice. As a result, this package is also currently marked as
-beta and  
-may also change to reflect any changes made to the Data Mart API or in
-respect  
-to improvements in the design, functionality, quality and documentation
-of  
-this package. The authors assume no liability for any problems that may
-occur  
-as a result of using this package, the Data Mart service, any
-software,  
-service, hardware, or user accounts that may utilize this package.
-</span> \| \| – \|
+> \[!WARNING\]
+>
+> US EPA’s AQS Data Mart API V2 is currently in beta phase of
+> development, the API interface has not been finalized. This means that
+> certain functionality of the API may change or be removed without
+> notice. As a result, this package is also currently marked as beta and
+> may also change to reflect any changes made to the Data Mart API or in
+> respect to improvements in the design, functionality, quality and
+> documentation of this package. The authors assume no liability for any
+> problems that may occur as a result of using this package, the Data
+> Mart service, any software, service, hardware, or user accounts that
+> may utilize this package.
 
 # Introduction
 
@@ -98,8 +94,8 @@ configure ODBC connections or deal with the security vulnerabilities
 associated with them. Most API functions have a parameter,
 return_header, which by default is set to FALSE. If the user decides to
 set return_header to TRUE, then that function will return a R
-AQS_DATAMART_APIv2 S3 object which is a two item named list.  
-The first item, (\$Header) in the AQS_DATAMART_APIv2 object, is a
+AQS_DATAMART_APIv2 S3 object which is a two item named list. The first
+item, (\$Header) in the AQS_DATAMART_APIv2 object, is a
 tibble<sup>2</sup> which contains the header information. The Header
 contains status information regarding the request (success/fail), any
 applicable error messages returned from the API, if any exist, the URL
@@ -223,14 +219,14 @@ Ensure that your system is supported by the `keyring` package before
 proceeding.
 
 ``` r
-  keyring::has_keyring_support()
+keyring::has_keyring_support()
 ```
 
 then set the keyring used to access AQS Data Mart (make sure to replace
 the text in the angled brackets with your specific user information):
 
 ``` r
-  library("keyring")  
+  library("keyring")
   keyring::key_set(service = "AQSDatamart",
                    username = "\<user email account\>")
 ```
@@ -244,21 +240,17 @@ To retrieve the keyring to use with `RAQSAPI` load the `keyring` package
 and use the function key_get to return the user credential to RAQSAPI:
 
 ``` r
-  library(RAQSAPI)  
-  library(keyring)  
-  datamartAPI_user <- "\<user email account\>  
-  server <- "AQSDatamart"
+library(RAQSAPI)
+library(keyring)
+datamartAPI_user <- "<user email account>"
+server <- "AQSDatamart"
 ```
 
 then pass these variables to the aqs_credentials function when using
 RAQSAPI:
 
 ``` r
-  aqs_credentials(username = datamartAPI_user,
-                  key = key_get(service = server,
-                                username = datamartAPI_user
-                                )
-                  )
+aqs_credentials(username = datamartAPI_user, key = key_get(service = server, username = datamartAPI_user))
 ```
 
 To change the keyring stored with the `keyring` package repeat the steps
@@ -553,8 +545,7 @@ Helpers for Httr2*; 2025.
 [^3]: Use “?aqs_credentials” after the RAQSAPI library has been loaded
     to see the full usage description of the aqs_credentials function.
 
-[^4]: \[R `Keyring`
-    package\]<https://cran.r-project.org/package=keyring>)
+[^4]: [R `Keyring` package](https://cran.r-project.org/package=keyring)
 
 [^5]: See (<https://aqs.epa.gov/aqsweb/documents/data_api.html>) for the
     full details of the Data Mart API

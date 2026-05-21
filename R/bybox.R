@@ -30,7 +30,14 @@
 #'                                        )
 #'                    }
 #' @export
-aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE) {
+aqs_monitors_by_box <- function(parameter,
+                                bdate,
+                                edate,
+                                minlat,
+                                maxlat,
+                                minlon,
+                                maxlon,
+                                return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
@@ -125,7 +132,15 @@ aqs_sampledata_by_box <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
+  checkaqsparams(parameter,
+                 bdate,
+                 edate,
+                 minlat,
+                 maxlat,
+                 minlon,
+                 maxlon,
+                 duration,
+                 return_header)
 
   params <- aqsmultiyearparams(
     parameter = parameter,

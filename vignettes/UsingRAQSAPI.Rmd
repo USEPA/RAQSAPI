@@ -16,9 +16,9 @@ vignette: >
 
 # Using The RAQSAPI library
 
-## Load RAQSAPI                           
+## Load RAQSAPI
   after successfully installing the `RAQSAPI` package, load the `RAQSAPI`
-  library: 
+  library:
 
 ```R
 library(RAQSAPI)
@@ -65,28 +65,28 @@ not have access to the AQS Data Mart will need to create new credentials. \
 It is highly suggested that users use a keyring manager to store and retrieve
 their credentials while using RAQSAPI. One such credential manager is provided
 by the `keyring`
-package ^[[R `Keyring` package]https://cran.r-project.org/package=keyring)].
+package ^[[R `Keyring` package](https://cran.r-project.org/package=keyring)].
 The `Keyring` package uses the credential manager available for most popular
 operating systems to store and manage user credentials. This will help avoid
 hard coding credential information into R scripts.
 
 To use the `keyring` package with `RAQSAPI` first install `keyring`:
 
-```R
+```{R eval=FALSE}
 install.packages("keyring")
 ```
 
 Ensure that your system is supported by the `keyring` package before proceeding.
 
-```R
+```{R eval=FALSE}
   keyring::has_keyring_support()
 ```
 
 then set the keyring used to access AQS Data Mart (make sure to replace the text
 in the angled brackets with your specific user information):
 
-```R
-  library("keyring")  
+```{R eval=FALSE}
+  library("keyring")
   keyring::key_set(service = "AQSDatamart",
                    username = "\<user email account\>")
 ```
@@ -99,16 +99,16 @@ provided, then hit enter. Now the AQS Data Mart user credential is set using
 To retrieve the keyring to use with `RAQSAPI` load the `keyring` package and use
 the function key_get to return the user credential to RAQSAPI:
 
-```R
-  library(RAQSAPI)  
-  library(keyring)  
-  datamartAPI_user <- "\<user email account\>  
+```{R eval=FALSE}
+  library(RAQSAPI)
+  library(keyring)
+  datamartAPI_user <- "<user email account>"
   server <- "AQSDatamart"
 ```
 
 then pass these variables to the aqs_credentials function when using RAQSAPI:
 
-```R
+```{R eval=FALSE}
   aqs_credentials(username = datamartAPI_user,
                   key = key_get(service = server,
                                 username = datamartAPI_user

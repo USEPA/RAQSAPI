@@ -28,8 +28,10 @@ server <- "AQSDatamartAPI"
 #' @keywords internal
 #' @noRd
 checkaqsparams <- function(...) {
-  # Note: the variable errmessage does not follow this project's style This is to ensure that the output string format looks
+  # Note: the variable errmessage does not follow this project's style
+  # This is to ensure that the output string format looks
   # nice.
+  # nolint start: line_length_linter
   errmessage <- vector()
   error <- FALSE
   ellipsis_args <- list(...)
@@ -253,6 +255,7 @@ checkaqsparams <- function(...) {
       rlang::abort
   }
   return(invisible())
+  # nolint end
 }
 
 
@@ -411,8 +414,8 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #' @importFrom tibble tibble
 #' @importFrom rlang caller_call
 #' @importFrom gtools invalid
-#' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json req_perform req_options req_retry req_throttle
-#' @importFrom httr2 req_error req_verbose
+#' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json req_perform
+#' @importFrom httr2 req_error req_verbose req_options req_retry req_throttle
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -420,7 +423,12 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #'            returned.
 #' @keywords internal
 #' @noRd
-aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov") {
+aqs <- function(service,
+                filter = NULL,
+                user = NA,
+                user_key = NA,
+                variables = NULL,
+                AQS_domain = "aqs.epa.gov") {
   if (is.null(user) || is.null(user_key) || user_key == "redacted") {
     stop(
       "please enter user credentials before using RAQSAPI functions,\n

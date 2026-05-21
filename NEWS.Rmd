@@ -1,0 +1,24 @@
+---
+title: "News.md Please refer to crancomments.md"
+author: Clinton Mccrowey, physical scientist - US EPA  
+abstract: Please refer to cran-comments.[Rmd/md]
+output:
+  rmarkdown::github_document:
+    toc: true
+  rmarkdown::html_document: null
+lang: en-US
+bibliography: ./vignettes/AQSAPI.bib
+csl: ./vignettes/acs-nano.csl
+---
+
+```{r setup, include=FALSE}
+```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  tidy.ops = list(width.cutoff = 80),
+  tidy = TRUE
+)
+```
+
+Please refer to (cran-comments file)[cran-comments.md].

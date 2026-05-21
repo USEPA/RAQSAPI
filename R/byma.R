@@ -547,7 +547,11 @@ aqs_transactionsample_by_MA <- function(
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_MA <- function(parameter, bdate, edate, MA_code, return_header = FALSE) {
+aqs_qa_annualperformanceeval_by_MA <- function(parameter,
+                                               bdate,
+                                               edate,
+                                               MA_code,
+                                               return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, MA_code, return_header)
 
   params <- aqsmultiyearparams(
