@@ -332,13 +332,13 @@ object containing a table of monitoring agencies (MA).
 
 ## Data Mart aggregate functions
 
-| <span style="color:blue"> Information: AQS Data Mart API restricts the \
-maximum amount of monitoring data to one full year of data per \
-API call. These functions are able to return multiple years of data by \
-making repeated calls to the API.  Each call to the Data Mart API will take \
-time to complete. The more years of data being requested the longer RAQSAPI \
-will take to return the results.</span> |
-| -- |
+> [!IMPORTANT]
+> AQS Data Mart API restricts the maximum amount of monitoring data to one full year
+> of data per API call. These functions are able to return multiple years of data by
+> making repeated calls to the API.  Each call to the Data Mart API will take
+> time to complete. The more years of data being requested the longer RAQSAPI
+> will take to return the results.
+
 
 These functions retrieve aggregated data from the Data Mart API and are
 grouped by how each function aggregates the data. There are 5 different

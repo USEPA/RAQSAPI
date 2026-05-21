@@ -42,8 +42,8 @@ https://choosealicense.com/licenses/mit/)
 `r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\
 /RAQSAPI/.github/workflows/pkgcheck.yaml)
-[![Status at rOpenSci Software Peer Review](https://badges.ropensci.org/744_status.svg)]
-(https://github.com/ropensci/software-review/issues/744)
+[![Status at rOpenSci Software Peer Review](https://badges.ropensci.org/744_status.svg)](
+https://github.com/ropensci/software-review/issues/744)
 <!-- badges: end -->
 
 ```{r child = "./vignettes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}

@@ -3,9 +3,9 @@ title: "RAQSAPI - Using RAQSAPI"
 author: "Clinton Mccrowey physical scientist - US EPA"
 date: "April 5, 2021"
 output:
-  rmarkdown::html_vignette: default
   md_document:
     variant: gfm
+  rmarkdown::html_vignette: default
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Using RAQSAPI}
   %\VignetteEncoding{UTF-8}
@@ -54,11 +54,11 @@ The credentials used to access the Data Mart API service are stored in a R
   to enter in the user credentials so that RAQSAPI can access the AQS Data Mart
   server.
 
-| <span style="color:red"> Note: The credentials used to access AQS Data Mart \
-API is not the same as the credentials used to access AQS. AQS users who do \
-not have access to the AQS Data Mart will need to create new credentials. \
-</span> |
-| -- |
+> [!NOTE]
+>
+> The credentials used to access AQS Data Mart
+> API is not the same as the credentials used to access AQS. AQS users who do
+> not have access to the AQS Data Mart will need to create new credentials.
 
 
 ## (suggested) Use the `keyring` package to manage credentials

@@ -2,9 +2,9 @@
 title: RAQSAPI - A Brief introduction into RAQSAPI functions
 author: Clinton Mccrowey physical scientist - US EPA
 output:
-  rmarkdown::html_vignette: default
   md_document:
     variant: gfm
+  rmarkdown::html_vignette: default
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - A Brief introduction into RAQSAPI functions}
   %\VignetteEncoding{UTF-8}
@@ -12,12 +12,6 @@ vignette: >
   %\VignetteDepends{rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
 ---
-
-
-| <span style="color:blue"> Information: AQS Data Mart API restricts the \
-maximum amount of monitoring data to one full year of data per API \
-call.</span> |
-| -- |
 
 RAQSAPI functions are named according to the service and filter variables that
 are available from the Data Mart
@@ -70,13 +64,15 @@ on the 13 different aggregate services that the Data Mart API provides.
      **Submission transaction format (RD)**
      (aqs_qa_annualperformanceevaltransaction_by_*)
      
-| <span style="color:blue"> Information: AQS Data Mart API restricts the \
-maximum amount of monitoring data to one full year of data per \
-API call. These functions are able to return multiple years of data by \
-making repeated calls to the API.  Each call to the Data Mart API will take \
-time to complete. The more years of data being requested the longer RAQSAPI \
-will take to return the results.</span> |
-| -- |
+> [!IMPORTANT]
+>
+> AQS Data Mart API restricts the
+> maximum amount of monitoring data to one full year of data per
+> API call. These functions are able to return multiple years of data by
+> making repeated calls to the API.  Each call to the Data Mart API will take
+> time to complete. The more years of data being requested the longer RAQSAPI
+> will take to return the results.
+
 
 Aggregate functions are named AQS_\<service\>\_\<aggregation\>() where
 \<service\> is one of the 13 services listed above and \<aggregation\> is

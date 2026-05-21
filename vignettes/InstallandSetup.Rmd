@@ -8,9 +8,9 @@ author:
         Air Quality and Analysis Branch
   name: Clinton Mccrowey
 output:
-  rmarkdown::html_vignette: default
   md_document:
     variant: gfm
+  rmarkdown::html_vignette: default
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Install and Setup}
   %\VignetteEncoding{UTF-8}

@@ -41,9 +41,8 @@ downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.or
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
 [![Last-changedate](https://img.shields.io/badge/last%20change-%202026--05--21-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
-\[![Status at rOpenSci Software Peer
-Review](https://badges.ropensci.org/744_status.svg)\]
-(<https://github.com/ropensci/software-review/issues/744>)
+[![Status at rOpenSci Software Peer
+Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -191,14 +190,11 @@ any of its functions use the aqs_credentials [^3] function to enter in
 the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
-<span style="color:red"> Note: The credentials used to access AQS Data
-Mart \\
-
-API is not the same as the credentials used to access AQS. AQS users who
-do  
-not have access to the AQS Data Mart will need to create new
-credentials.  
-</span> \| \| – \|
+> \[!NOTE\]
+>
+> The credentials used to access AQS Data Mart API is not the same as
+> the credentials used to access AQS. AQS users who do not have access
+> to the AQS Data Mart will need to create new credentials.
 
 ## (suggested) Use the `keyring` package to manage credentials
 
@@ -264,12 +260,6 @@ Refer to the[`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
-<span style="color:blue"> Information: AQS Data Mart API restricts the
-\\
-
-maximum amount of monitoring data to one full year of data per API  
-call.</span> \| \| – \|
-
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
 
@@ -320,16 +310,14 @@ service.**
   **Submission transaction format (RD)**
   (aqs_qa_annualperformanceevaltransaction_by\_\*)
 
-<span style="color:blue"> Information: AQS Data Mart API restricts the
-\\
-
-maximum amount of monitoring data to one full year of data per  
-API call. These functions are able to return multiple years of data by  
-making repeated calls to the API. Each call to the Data Mart API will
-take  
-time to complete. The more years of data being requested the longer
-RAQSAPI  
-will take to return the results.</span> \| \| – \|
+> \[!IMPORTANT\]
+>
+> AQS Data Mart API restricts the maximum amount of monitoring data to
+> one full year of data per API call. These functions are able to return
+> multiple years of data by making repeated calls to the API. Each call
+> to the Data Mart API will take time to complete. The more years of
+> data being requested the longer RAQSAPI will take to return the
+> results.
 
 Aggregate functions are named AQS\_\<service\>\_\<aggregation\>() where
 \<service\> is one of the 13 services listed above and \<aggregation\>
