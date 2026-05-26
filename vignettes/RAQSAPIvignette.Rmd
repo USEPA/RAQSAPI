@@ -8,12 +8,12 @@ abstract: RAQSAPI is a package for R that connects the R programming language en
   to the United States Environmental Protection Agency's (US EPA) Air Quality System
   (AQS) Data Mart database API for retrieval of ambient air pollution data.
 output:
+  rmarkdown::github_document:
+    toc: true
   rmarkdown::html_vignette:
     toc: true
     df_print: paged
     self_contained: false
-  rmarkdown::github_document:
-    toc: true
   rmarkdown::pdf_document:
     toc: true
 lang: "en-US"

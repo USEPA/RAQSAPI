@@ -138,15 +138,16 @@ pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 
 ## Option 2: Installing the development version of RAQSAPI (unstable)
 
-```
-> [!CAUTION]
+> \[!CAUTION\]
 >
-> The development version of RAQSAPI contains code that has not yet been thoroughly been tested and is more
-> likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
+> The development version of RAQSAPI contains code that has not yet been
+> thoroughly been tested and is more likely to contain bugs. It is
+> recommended that the stable CRAN version be installed for production
+> use.
 
-To install the development version of `RAQSAPI`, first if not already installed, install the `pak` package and its
-dependencies. Then run the following in a R environment.
-```
+To install the development version of `RAQSAPI`, first if not already
+installed, install the `pak` package and its dependencies. Then run the
+following in a R environment.
 
 ``` r
 pak::pkg_install("USEPA/RAQSAPI")
