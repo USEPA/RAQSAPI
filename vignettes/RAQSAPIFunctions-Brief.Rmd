@@ -1,10 +1,12 @@
 ---
-title: RAQSAPI - A Brief introduction into RAQSAPI functions
-author: Clinton Mccrowey physical scientist - US EPA
+title: "RAQSAPI - A Brief introduction into RAQSAPI functions"
+author:
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
 output:
-  md_document:
-    variant: gfm
-  rmarkdown::html_vignette: default
+  rmarkdown::github_document: null
+  rmarkdown::html_vignette: null
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - A Brief introduction into RAQSAPI functions}
   %\VignetteEncoding{UTF-8}

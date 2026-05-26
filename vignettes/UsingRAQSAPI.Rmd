@@ -1,11 +1,13 @@
 ---
 title: "RAQSAPI - Using RAQSAPI"
-author: "Clinton Mccrowey physical scientist - US EPA"
+author:
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
 date: "April 5, 2021"
 output:
-  md_document:
-    variant: gfm
-  rmarkdown::html_vignette: default
+  rmarkdown::github_document: null
+  rmarkdown::html_vignette: null
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Using RAQSAPI}
   %\VignetteEncoding{UTF-8}
@@ -88,7 +90,7 @@ in the angled brackets with your specific user information):
 ```{R eval=FALSE}
   library("keyring")
   keyring::key_set(service = "AQSDatamart",
-                   username = "\<user email account\>")
+                   username = "<user email account>")
 ```
 
 a popup window will appear for the user to input their keyring information.
@@ -99,7 +101,7 @@ provided, then hit enter. Now the AQS Data Mart user credential is set using
 To retrieve the keyring to use with `RAQSAPI` load the `keyring` package and use
 the function key_get to return the user credential to RAQSAPI:
 
-```{R eval=FALSE}
+```{R eval=FALSE, tidy=FALSE}
   library(RAQSAPI)
   library(keyring)
   datamartAPI_user <- "<user email account>"

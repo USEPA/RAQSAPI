@@ -2,16 +2,12 @@
 title: "pyaqsapi - a port of RAQSAPI to the python 3 programming  
         environment"
 author:
-- affiliation: |-
-    United States Environmental Protection Agency (US EPA),  
-        Region III,  
-        Air and Radiation Division,  
-        Air Quality and Analysis Branch
-    name: Clinton Mccrowey
-  output:
-    rmarkdown::html_vignette: default
-  md_document:
-    variant: gfm
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
+output:
+  rmarkdown::github_document: null
+  rmarkdown::html_vignette: null
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{pyaqsapi - a port of RAQSAPI to the python 3 programming environment}

@@ -1,16 +1,9 @@
 ---
-title: RAQSAPI - EPA Disclaimer
-author:
-- affiliation: |-
-    United States Environmental Protection Agency (US EPA),  
-        Region III,  
-        Air and Radiation Division,  
-        Air Quality and Analysis Branch
-  name: Clinton Mccrowey
+title: "RAQSAPI - EPA Disclaimer"
+author: "United States Environmental Protection Agency"
 output:
-  rmarkdown::html_vignette: default
-  md_document:
-    variant: gfm
+  rmarkdown::github_document: null
+  rmarkdown::html_vignette: null
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - EPA Disclaimer}
   %\VignetteEncoding{UTF-8}

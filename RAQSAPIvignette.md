@@ -1,119 +1,492 @@
 ---
-title: "RAQSAPI - RAQSAPI functions Long version"
+title: "Introduction to the RAQSAPI package"
 author:
-- name: Clinton Mccrowey
-  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
-    Division
+- affiliation: "United States Environmental Protection Agency (US EPA),  \n    Region
+    III,  \n    Air and Radiation Division,  \n    Air Quality and Analysis Branch"
+  name: Clinton Mccrowey
+abstract: RAQSAPI is a package for R that connects the R programming language environment
+  to the United States Environmental Protection Agency's (US EPA) Air Quality System
+  (AQS) Data Mart database API for retrieval of ambient air pollution data.
 output:
-  rmarkdown::github_document: null
-  rmarkdown::html_vignette: null
-vignette: >
-  %\VignetteIndexEntry{RAQSAPI - RAQSAPI functions Long version}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteDepends{knitr}
-  %\VignetteDepends{rmarkdown}
-  %\VignetteEngine{knitr::rmarkdown}
+  html_document:
+    toc: true
+    df_print: paged
+  md_document:
+    variant: gfm
+  rmarkdown::html_vignette: default
+  pdf_document:
+    toc: true
+lang: "en-US"
+vignette: "%\\VignetteIndexEntry{Introduction to the RAQSAPI package} %\\VignetteEncoding{UTF-8}
+  %\\VignetteKeyword{R} %\\VignetteKeyword{AQS} %\\VignetteKeyword{EPA} %\\VignetteKeyword{Data
+  Mart} %\\VignetteKeyword{API} %\\VignetteDepends{magrittr} %\\VignetteDepends{stringr}
+  %\\VignetteDepends{tibble} %\\VignetteDepends{purrr} %\\VignetteDepends{knitr} %\\VignetteDepends{rmarkdown}
+  %\\VignetteDepends{RAQSAPI} %\\VignetteEngine{knitr::rmarkdown}\n"
+bibliography: AQSAPI.bib
+csl: "acs-nano.csl"
 ---
+
+
+<img src="./figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# EPA Disclaimer
+
+> [!NOTE]
+>
+> This software/application was developed by the U.S. Environmental Protection Agency (USEPA). No warranty expressed or
+> implied is made regarding the accuracy or utility of the system, nor shall the act of distribution constitute any such
+> warranty. The USEPA has relinquished control of the information and no longer has responsibility to protect the integrity,
+> confidentiality or availability of the information. Any reference to specific commercial products, processes, or services
+> by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or
+> favoring by the USEPA. The USEPA seal and logo shall not be used in any manner to imply endorsement of any commercial
+> product or activity by the USEPA or the United States Government.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>[!WARNING]
+>
+> US EPA's AQS Data Mart API V2 is currently
+> in beta phase of development, the API interface has not been finalized.
+> This means that certain functionality of the API may change or be removed
+> without notice. As a result, this package is also currently marked as beta and
+> may also change to reflect any changes made to the Data Mart API or in respect
+> to improvements in the design, functionality, quality and documentation of
+> this package. The authors assume no liability for any problems that may occur
+> as a result of using this package, the Data Mart service, any software,
+> service, hardware, or user accounts that may utilize this package.
+
+
+# Introduction
+
+The `RAQSAPI` package for the R programming environment allows a R programming
+  environment to connect to and retrieve data from the United States
+  Environmental Protection Agency's (US EPA) Air Quality System (AQS) Data Mart
+  API v2 Air Quality System[@AQSDataMartWelcome]
+  interface directly. This package enables the data user to omit legacy
+  challenges including coercing data from a JSON object to a usable R object,
+  retrieving multiple years of data, formatting API requests, retrieving
+  results, handling credentials, requesting multiple pollutant data and rate
+  limiting data requests. All the basic functionality of the API have been
+  implemented that are available from the AQS API Data Mart server. The library
+  connects to AQS Data Mart API via Secure Hypertext Transfer Protocol (HTTPS)
+  so there is no need to install external ODBC drivers, configure ODBC
+  connections or deal with the security vulnerabilities associated with them.
+  Most API functions have a parameter, return_header, which by default is set to
+  FALSE. If the user decides to set return_header to TRUE, then that function
+  will return a R AQS_DATAMART_APIv2 S3 object which is a two item named list.
+  The first item, (\$Header) in the AQS_DATAMART_APIv2 object, is a
+  tibble[@package:tibble]
+  which contains the header information. The Header contains status
+  information regarding the request (success/fail), any applicable error
+  messages returned from the API, if any exist, the URL used in the request, a
+  date and time stamp noting when request was received and other useful
+  information. The second item of the AQS_DATAMART_APIv2 object (\$Data) is a
+  tibble which contains the actual data being requested. For functions with the
+  return_header option set to FALSE (default) a simple tibble is returned with
+  just the $Data portion of the request. After each call to the API a five
+  second stall is invoked to help prevent overloading the Data Mart API server
+  and to serve as a simple rate limit.  ^[RAQSAPI's rate limit does not
+  guarantee that the user will not go over the rate limit and does not guarantee
+  that API calls do not overload the AQS Data Mart system, each user should
+  monitor their requests independently.]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# About the timeliness of AQS Data
+
+EPA's AQS DataMart API, the service that RAQSAPI retrieves data from, does not
+host real time (collected now/today) data. If real time data is needed, please
+use the AirNow API and direct all questions toward real time data there. RAQSAPI
+does not work with AirNow and cannot retrieve real time data. For more details
+see section 7.1 of the About AQS Data page[@AboutAQSdata].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Installing RAQSAPI
+
+Either install the stable version from CRAN or install the latest development version from GitHub.
+
+## Option 1: Installing the stable version from CRAN (preferred method)
+First install the `pak` packages if not already installed
+``` r
+install.packages("pak", dependencies = TRUE)
+```
+Then use the package `pak` to install the latest stable version of RAQSAPI from CRAN
+``` r
+pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
+```
+
+## Option 2: Installing the development version of RAQSAPI (unstable)
+
+> [!CAUTION]
+>
+> The development version of RAQSAPI contains code that has not yet been thoroughly been tested and is more
+> likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
+
+To install the development version of `RAQSAPI`, first if not already installed, install the `pak` package and its
+dependencies. Then run the following in a R environment.
+
+``` r
+pak::pkg_install("USEPA/RAQSAPI")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Using The RAQSAPI library
+
+## Load RAQSAPI
+  after successfully installing the `RAQSAPI` package, load the `RAQSAPI`
+  library:
+
+```R
+library(RAQSAPI)
+```
+
+## Sign up and setting up user credentials with the RAQSAPI library
+
+If you have not already done so you will need to sign up with AQS Data Mart
+  using the aqs_sign_up function, ^[Use "?aqs_sign_up" after the RAQSAPI library has
+  been loaded to see the full usage description of the aqs_sign_up
+  function]. This function takes one input, "email", which is a R
+  character object, that represents the email address that you want to use
+  as a user credential to the AQS Data Mart service. After a successful call to
+  aqs_sign_up an email message will be sent to the email address provided
+  with a new Data Mart key which will be used as a credential key to access the
+  Data Mart API. The aqs_sign_up function can also be used to regenerate a
+  new key for an existing user. To generate a new key simply call the
+  aqs_sign_up function with the parameter "email" set to an existing
+  account. A new key will be e-mailed to the account given.
+
+The credentials used to access the Data Mart API service are stored in a R
+  environment variable that needs to be set every time the `RAQSAPI` library is
+  attached or the key is changed. Without valid credentials, the Data Mart
+  server will reject any request sent to it. The key used with Data Mart is a
+  key and is not a password, so the RAQSAPI library does not treat the key as a
+  password; this means that the key is stored in plain text and there are no
+  attempts to encrypt Data Mart credentials as would be done for a username and
+  password combination. The key that is supplied to use with Data Mart is not
+  intended for authentication but only account monitoring. Each time RAQSAPI is
+  loaded and before using any of its functions use the aqs_credentials ^[Use
+  "?aqs_credentials" after the RAQSAPI library has been loaded to see the full
+  usage description of the aqs_credentials function.] function
+  to enter in the user credentials so that RAQSAPI can access the AQS Data Mart
+  server.
+
+> [!NOTE]
+>
+> The credentials used to access AQS Data Mart
+> API is not the same as the credentials used to access AQS. AQS users who do
+> not have access to the AQS Data Mart will need to create new credentials.
+
+
+## (suggested) Use the `keyring` package to manage credentials
+It is highly suggested that users use a keyring manager to store and retrieve
+their credentials while using RAQSAPI. One such credential manager is provided
+by the `keyring`
+package ^[[R `Keyring` package](https://cran.r-project.org/package=keyring)].
+The `Keyring` package uses the credential manager available for most popular
+operating systems to store and manage user credentials. This will help avoid
+hard coding credential information into R scripts.
+
+To use the `keyring` package with `RAQSAPI` first install `keyring`:
+
+
+
+Ensure that your system is supported by the `keyring` package before proceeding.
+
+
+
+then set the keyring used to access AQS Data Mart (make sure to replace the text
+in the angled brackets with your specific user information):
+
+
+
+a popup window will appear for the user to input their keyring information.
+Enter the AQS Data mart credential key associated with the AQS user name
+provided, then hit enter. Now the AQS Data Mart user credential is set using
+`keyring`.
+
+To retrieve the keyring to use with `RAQSAPI` load the `keyring` package and use
+the function key_get to return the user credential to RAQSAPI:
+
+
+
+then pass these variables to the aqs_credentials function when using RAQSAPI:
+
+
+To change the keyring stored with the `keyring` package repeat the steps above
+to call the keyring::key_set function again with the new credential information.
+
+To retrieve a list of all keyrings managed with the `keyring` package use
+the function:
+> keyring::key_list()
+
+Refer to the[`keyring` package documentation](
+https://cran.r-project.org/package=keyring/readme/README.html)
+for an in depth explanation on using the `keyring` package.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Usage tips and precautions
+This section contains suggestions for completing certain data related tasks.
+
+* Determine if or how much data exists for a time-parameter-geography
+    combination:
+    + Retrieve data using the annualdata service.
+    + If no records are returned, we do not have the data.
+    + If records are returned, use the observation count to determine the
+          temporal and geographic distribution of the data.
+* Monthly averages:
+    + AQS does not routinely calculate monthly aggregate statistics.
+    + If you need these, you must calculate them yourself.
+    + These can be calculated from the sample data or the daily data without
+        loss of fidelity.
+* Determine a single value for a site with collocated monitors:
+    + Many sites will have collocated monitors - monitors collecting the same
+        parameter at the same time.
+    + The API currently provides only monitor level values. (site-level values
+        will be added in the future.)
+    + For some criteria pollutants (PM2.5, ozone, lead, and NO2), the
+        regulations define procedures for defining a single site-level value.
+    + For other pollutants, determining a single site-level value is left to
+        the investigator.     
+        
+* __Please adhere to the following when using the AQS Data Mart API__:
+  + __Limit the size of queries__. The AQS Data Mart contains billions of values
+    and you may request more than you intend. If you are unsure of the
+    amount of data, start small and work your way up. Please limit
+    queries to 1,000,000 rows of data each. You can use the
+    "observation count" field on the annualdata service to determine how
+    much data exists for a time-parameter-geography combination.  
+  + __Limit the frequency of queries__. The AQS Data Mart can process a limited
+    load. Please wait for one request to complete before submitting another
+    and do not make more than 10 requests per minute.
+  + Be advised that RAQSAPI is capable of retrieving results for multiple
+    pollutants; This can result in the amount of data being returned being
+    multiplied by the number of pollutants being requested.
+  + Be advised that the AQS Data Mart API limits certain data requests to one
+    year of data at a time with the exception of the Monitor service. In order
+    to retrieve multiple years of data for these functions the RAQSAPI library
+    conveniently sends multiple API requests to the Data Mart API server, one
+    request for each year; this can result in the amount of data being returned
+    being multiplied by the number of years of data being requested.
+
+__The AQS Data Mart administrators may disable accounts without notice for
+failure to adhere to these terms (Though they will contact the offending
+user via the email address provided)__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # RAQSAPI functions
 The RAQSAPI library exports the following functions (in alphabetical order):
   
-```{r RAQSAPIfun_all, echo = FALSE, comment = NA}
-knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
-invisible(library(magrittr, warn.conflicts = FALSE, quietly = TRUE))
-invisible(library(stringr, warn.conflicts = FALSE, quietly = TRUE))
-invisible(library(tibble, warn.conflicts = FALSE, quietly = TRUE))
-invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
 
-RAQSAPI_functions <- c(
-  "aqs_annualsummary_by_box",
-  "aqs_annualsummary_by_cbsa",
-  "aqs_annualsummary_by_county",
-  "aqs_annualsummary_by_site",
-  "aqs_annualsummary_by_state",
-  "aqs_cbsas",
-  "aqs_classes",
-  "aqs_counties_by_state",
-  "aqs_credentials",
-  "aqs_dailysummary_by_box",
-  "aqs_dailysummary_by_cbsa",
-  "aqs_dailysummary_by_county",
-  "aqs_dailysummary_by_site",
-  "aqs_dailysummary_by_state",
-  "aqs_fields_by_service",
-  "aqs_isavailable",
-  "aqs_knownissues",
-  "aqs_mas",
-  "aqs_monitors_by_box",
-  "aqs_monitors_by_cbsa",
-  "aqs_monitors_by_county",
-  "aqs_monitors_by_site",
-  "aqs_monitors_by_state",
-  "aqs_parameters_by_class",
-  "aqs_pqaos",
-  "aqs_qa_annualperformanceeval_by_county",
-  "aqs_qa_annualperformanceeval_by_MA",
-  "aqs_qa_annualperformanceeval_by_pqao",
-  "aqs_qa_annualperformanceeval_by_site",
-  "aqs_qa_annualperformanceeval_by_state",
-  "aqs_qa_annualperformanceevaltransaction_by_county",
-  "aqs_qa_annualperformanceevaltransaction_by_MA",
-  "aqs_qa_annualperformanceevaltransaction_by_pqao",
-  "aqs_qa_annualperformanceevaltransaction_by_site",
-  "aqs_qa_annualperformanceevaltransaction_by_state",
-  "aqs_qa_blanks_by_county",
-  "aqs_qa_blanks_by_MA",
-  "aqs_qa_blanks_by_pqao",
-  "aqs_qa_blanks_by_site",
-  "aqs_qa_blanks_by_state",
-  "aqs_qa_collocated_assessments_by_county",
-  "aqs_qa_collocated_assessments_by_MA",
-  "aqs_qa_collocated_assessments_by_pqao",
-  "aqs_qa_collocated_assessments_by_site",
-  "aqs_qa_collocated_assessments_by_state",
-  "aqs_qa_flowrateaudit_by_county",
-  "aqs_qa_flowrateaudit_by_MA",
-  "aqs_qa_flowrateaudit_by_pqao",
-  "aqs_qa_flowrateaudit_by_site",
-  "aqs_qa_flowrateaudit_by_state",
-  "aqs_qa_flowrateverification_by_county",
-  "aqs_qa_flowrateverification_by_MA",
-  "aqs_qa_flowrateverification_by_pqao",
-  "aqs_qa_flowrateverification_by_site",
-  "aqs_qa_flowrateverification_by_state",
-  "aqs_qa_one_point_qc_by_county",
-  "aqs_qa_one_point_qc_by_MA",
-  "aqs_qa_one_point_qc_by_pqao",
-  "aqs_qa_one_point_qc_by_site",
-  "aqs_qa_one_point_qc_by_state",
-  "aqs_qa_pep_audit_by_county",
-  "aqs_qa_pep_audit_by_MA",
-  "aqs_qa_pep_audit_by_pqao",
-  "aqs_qa_pep_audit_by_site",
-  "aqs_qa_pep_audit_by_state",
-  "aqs_quarterlysummary_by_box",
-  "aqs_quarterlysummary_by_county",
-  "aqs_quarterlysummary_by_pqao",
-  "aqs_quarterlysummary_by_site",
-  "aqs_quarterlysummary_by_state",
-  "aqs_removeheader",
-  "aqs_revisionhistory",
-  "aqs_sampledata_by_box",
-  "aqs_sampledata_by_cbsa",
-  "aqs_sampledata_by_county",
-  "aqs_sampledata_by_site",
-  "aqs_sampledata_by_state",
-  "aqs_sampledurations",
-  "aqs_sign_up",
-  "aqs_sites_by_county",
-  "aqs_states",
-  "aqs_transactionsample_by_county",
-  "aqs_transactionsample_by_site",
-  "aqs_transactionsample_by_state",
-  "aqs_transactionsample_by_MA"
-)
-
-RAQSAPI_functions %>%
-  cat(sep = "  \n")
+```
+aqs_annualsummary_by_box  
+aqs_annualsummary_by_cbsa  
+aqs_annualsummary_by_county  
+aqs_annualsummary_by_site  
+aqs_annualsummary_by_state  
+aqs_cbsas  
+aqs_classes  
+aqs_counties_by_state  
+aqs_credentials  
+aqs_dailysummary_by_box  
+aqs_dailysummary_by_cbsa  
+aqs_dailysummary_by_county  
+aqs_dailysummary_by_site  
+aqs_dailysummary_by_state  
+aqs_fields_by_service  
+aqs_isavailable  
+aqs_knownissues  
+aqs_mas  
+aqs_monitors_by_box  
+aqs_monitors_by_cbsa  
+aqs_monitors_by_county  
+aqs_monitors_by_site  
+aqs_monitors_by_state  
+aqs_parameters_by_class  
+aqs_pqaos  
+aqs_qa_annualperformanceeval_by_county  
+aqs_qa_annualperformanceeval_by_MA  
+aqs_qa_annualperformanceeval_by_pqao  
+aqs_qa_annualperformanceeval_by_site  
+aqs_qa_annualperformanceeval_by_state  
+aqs_qa_annualperformanceevaltransaction_by_county  
+aqs_qa_annualperformanceevaltransaction_by_MA  
+aqs_qa_annualperformanceevaltransaction_by_pqao  
+aqs_qa_annualperformanceevaltransaction_by_site  
+aqs_qa_annualperformanceevaltransaction_by_state  
+aqs_qa_blanks_by_county  
+aqs_qa_blanks_by_MA  
+aqs_qa_blanks_by_pqao  
+aqs_qa_blanks_by_site  
+aqs_qa_blanks_by_state  
+aqs_qa_collocated_assessments_by_county  
+aqs_qa_collocated_assessments_by_MA  
+aqs_qa_collocated_assessments_by_pqao  
+aqs_qa_collocated_assessments_by_site  
+aqs_qa_collocated_assessments_by_state  
+aqs_qa_flowrateaudit_by_county  
+aqs_qa_flowrateaudit_by_MA  
+aqs_qa_flowrateaudit_by_pqao  
+aqs_qa_flowrateaudit_by_site  
+aqs_qa_flowrateaudit_by_state  
+aqs_qa_flowrateverification_by_county  
+aqs_qa_flowrateverification_by_MA  
+aqs_qa_flowrateverification_by_pqao  
+aqs_qa_flowrateverification_by_site  
+aqs_qa_flowrateverification_by_state  
+aqs_qa_one_point_qc_by_county  
+aqs_qa_one_point_qc_by_MA  
+aqs_qa_one_point_qc_by_pqao  
+aqs_qa_one_point_qc_by_site  
+aqs_qa_one_point_qc_by_state  
+aqs_qa_pep_audit_by_county  
+aqs_qa_pep_audit_by_MA  
+aqs_qa_pep_audit_by_pqao  
+aqs_qa_pep_audit_by_site  
+aqs_qa_pep_audit_by_state  
+aqs_quarterlysummary_by_box  
+aqs_quarterlysummary_by_county  
+aqs_quarterlysummary_by_pqao  
+aqs_quarterlysummary_by_site  
+aqs_quarterlysummary_by_state  
+aqs_removeheader  
+aqs_revisionhistory  
+aqs_sampledata_by_box  
+aqs_sampledata_by_cbsa  
+aqs_sampledata_by_county  
+aqs_sampledata_by_site  
+aqs_sampledata_by_state  
+aqs_sampledurations  
+aqs_sign_up  
+aqs_sites_by_county  
+aqs_states  
+aqs_transactionsample_by_county  
+aqs_transactionsample_by_site  
+aqs_transactionsample_by_state  
+aqs_transactionsample_by_MA
 ```
   
   RAQSAPI functions are named according to the service and filter variables that
@@ -231,11 +604,10 @@ RAQSAPI_functions %>%
   ## Sign up and credentials
   The functions included in this family of functions are:
   
-```{r SIGNUPANDCREDENTIALS, echo = FALSE, comment = NA}
-signupandcredentials <- paste(".sign_up", ".credentials", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = signupandcredentials) %>%
-  cat(sep = "  \n")
+```
+aqs_credentials  
+aqs_sign_up
 ```
 These functions are used to sign up with Data Mart and to store credential
 information to use with RAQSAPI. The RAQSAPI::aqs_signup function takes
@@ -249,13 +621,11 @@ The RAQSAPI::aqs_credentials function takes two parameters:
 * key:
 
 ## Data Mart API metadata functions
-```{r METADATAFUNCTIONS, echo = FALSE, comment = NA}
-metadatafunctions <- paste(".available",
-                           ".fields_by_service",
-                           ".knownissues", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = metadatafunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_fields_by_service  
+aqs_isavailable  
+aqs_knownissues
 ```
 These functions return the status of Data Mart API or metadata associated with
 it.
@@ -281,19 +651,15 @@ The RAQSAPI::aqs_revisionhistory function is used to query Data Mart for the
 change history to the API.
 
 ## Data Mart API list functions
-```{r LISTFUNCTIONS, echo = FALSE, comment = NA}
-listfunctions <- paste(".states",
-  ".counties_by_state",
-  ".sites_by_county",
-  ".cbsas",
-  ".classes",
-  ".pqaos",
-  ".mas",
-  sep = "|"
-)
 
-str_subset(string = RAQSAPI_functions, pattern = listfunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_cbsas  
+aqs_classes  
+aqs_counties_by_state  
+aqs_mas  
+aqs_pqaos  
+aqs_sites_by_county  
+aqs_states
 ```
 List functions return the API options or groupings that can be used in
 conjunction with other API calls. By default each function in this category
@@ -521,11 +887,22 @@ organization.
 
 
 ### Data Mart aggregate functions _by_site
-```{r _by_Sitefunctions, echo = FALSE, comment = NA}
-by_sitefunctions <- paste("_by_site", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_sitefunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_annualsummary_by_site  
+aqs_dailysummary_by_site  
+aqs_monitors_by_site  
+aqs_qa_annualperformanceeval_by_site  
+aqs_qa_annualperformanceevaltransaction_by_site  
+aqs_qa_blanks_by_site  
+aqs_qa_collocated_assessments_by_site  
+aqs_qa_flowrateaudit_by_site  
+aqs_qa_flowrateverification_by_site  
+aqs_qa_one_point_qc_by_site  
+aqs_qa_pep_audit_by_site  
+aqs_quarterlysummary_by_site  
+aqs_sampledata_by_site  
+aqs_transactionsample_by_site
 ```
 functions in this family of functions aggregate data at the site level. All
 \*_by_site functions accept the following variables:
@@ -549,11 +926,23 @@ functions in this family of functions aggregate data at the site level. All
 *\*sampledata_by_*\* functions).
 
 ### Data Mart aggregate functions _by_county
-```{r _by_countyfuncions, echo = FALSE, comment = NA}
-by_countyfunctions <- paste("._by_county", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_countyfunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_annualsummary_by_county  
+aqs_dailysummary_by_county  
+aqs_monitors_by_county  
+aqs_qa_annualperformanceeval_by_county  
+aqs_qa_annualperformanceevaltransaction_by_county  
+aqs_qa_blanks_by_county  
+aqs_qa_collocated_assessments_by_county  
+aqs_qa_flowrateaudit_by_county  
+aqs_qa_flowrateverification_by_county  
+aqs_qa_one_point_qc_by_county  
+aqs_qa_pep_audit_by_county  
+aqs_quarterlysummary_by_county  
+aqs_sampledata_by_county  
+aqs_sites_by_county  
+aqs_transactionsample_by_county
 ```
 functions in this family of functions aggregate data at the county level.
 All functions accept the following variables:
@@ -576,11 +965,23 @@ All functions accept the following variables:
 *\*sampledata_by_*\* functions).
 
 ### Data Mart aggregate functions _by_state
-```{r _by_STATEfunctions, echo = FALSE, comment = NA}
-by_STATEfunctions <- paste("._by_state", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_STATEfunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_annualsummary_by_state  
+aqs_counties_by_state  
+aqs_dailysummary_by_state  
+aqs_monitors_by_state  
+aqs_qa_annualperformanceeval_by_state  
+aqs_qa_annualperformanceevaltransaction_by_state  
+aqs_qa_blanks_by_state  
+aqs_qa_collocated_assessments_by_state  
+aqs_qa_flowrateaudit_by_state  
+aqs_qa_flowrateverification_by_state  
+aqs_qa_one_point_qc_by_state  
+aqs_qa_pep_audit_by_state  
+aqs_quarterlysummary_by_state  
+aqs_sampledata_by_state  
+aqs_transactionsample_by_state
 ```
 functions in this family of functions aggregate data at the state level.
 All functions accept the following variables:
@@ -602,11 +1003,17 @@ All functions accept the following variables:
 *\*sampledata_by_*\* functions).
 
 ### Data Mart aggregate functions by Monitoring agency (MA)
-```{r _by_MAfunctions, echo = FALSE, comment = NA}
-by_MAfunctions <- paste("._by_MA", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_MAfunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_qa_annualperformanceeval_by_MA  
+aqs_qa_annualperformanceevaltransaction_by_MA  
+aqs_qa_blanks_by_MA  
+aqs_qa_collocated_assessments_by_MA  
+aqs_qa_flowrateaudit_by_MA  
+aqs_qa_flowrateverification_by_MA  
+aqs_qa_one_point_qc_by_MA  
+aqs_qa_pep_audit_by_MA  
+aqs_transactionsample_by_MA
 ```
 functions in this family of functions aggregate data at the Monitoring Agency
 (MA) level. All functions accept the following variables:
@@ -628,11 +1035,12 @@ functions in this family of functions aggregate data at the Monitoring Agency
 *\*sampledata_by_*\* functions).
 
 ### Data Mart aggregate functions by Core Based Statistical Area (cbsa)
-```{r bycbsafunctions, echo = FALSE, comment = NA}
-by_cbsafunctions <- paste("._by_cbsa", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_cbsafunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_annualsummary_by_cbsa  
+aqs_dailysummary_by_cbsa  
+aqs_monitors_by_cbsa  
+aqs_sampledata_by_cbsa
 ```
 functions in this family of functions aggregate data at the Core Based
 Statistical Area (cbsa, as defined by the US Census Bureau) level.
@@ -656,11 +1064,17 @@ All functions accept the following variables:
 
 
 ### Data Mart aggregate functions by Primary Quality Assurance Organization (pqao)
-```{r _by_pqaofunctions, echo = FALSE, comment = NA}
-by_pqaofunctions <- paste("._by_pqao", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_pqaofunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_qa_annualperformanceeval_by_pqao  
+aqs_qa_annualperformanceevaltransaction_by_pqao  
+aqs_qa_blanks_by_pqao  
+aqs_qa_collocated_assessments_by_pqao  
+aqs_qa_flowrateaudit_by_pqao  
+aqs_qa_flowrateverification_by_pqao  
+aqs_qa_one_point_qc_by_pqao  
+aqs_qa_pep_audit_by_pqao  
+aqs_quarterlysummary_by_pqao
 ```
 functions in this family of functions aggregate data at the Primary Quality
 Assurance Organization (pqao) level. All functions accept the following
@@ -673,11 +1087,13 @@ variables:
 * return_header (optional): set to FALSE by default.
 
 ### Data Mart aggregate functions by latitude/longitude bounding box (_by_box)
-```{r _by_BOXfunctions, echo = FALSE, comment = NA}
-by_BOXfunctions <- paste("._by_box", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = by_BOXfunctions) %>%
-  cat(sep = "  \n")
+```
+aqs_annualsummary_by_box  
+aqs_dailysummary_by_box  
+aqs_monitors_by_box  
+aqs_quarterlysummary_by_box  
+aqs_sampledata_by_box
 ```
 Functions in this family of functions aggregate data by a
 latitude/longitude bounding box (_by_box) level. All functions accept the
@@ -703,11 +1119,9 @@ following variables:
 *\*sampledata_by_*\* functions).
 
 ### RAQSAPI Miscellaneous functions
-```{r misc, echo = FALSE, comment = NA}
-misc_functions <- paste("aqs_removeheader", sep = "|")
 
-str_subset(string = RAQSAPI_functions, pattern = misc_functions) %>%
-  cat(sep = "  \n")
+```
+aqs_removeheader
 ```
 These are miscellaneous functions exported by RAQSAPI.
 
@@ -718,3 +1132,132 @@ with return_header = TRUE set but later decides that they want just a
 simple tibble object. This function takes only one variable:
 
 * AQSobject:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Troubleshooting
+
+Parameters must be supplied exactly as they are specified. For example the
+stateFIPS for Alabama is "01", and entering a value of "1" for the stateFIPS
+may lead to unexpected results. Do not omit leading zeros in parameters that
+expect them.
+
+In functions that have the return_header=TRUE option set, the returned object is
+an AQSAPI_v2 object, this is a 2 item list where the first object is a tibble
+with the label \$Header, and the second is also a tibble with the label \$Data.
+sampledata functions are limited by the API to one calendar year of data per API
+call so if the user requests multiple years of data the sampledata call will return
+multiple AQSAPI_v2 objects, one for each call to the API. The returned result is
+a list of AQSAPI_v2 objects. In R to access the data in each item in the list
+the user will need to use the "double bracket operator ("[[", "]]") not the
+single bracket operator ("[", "]").
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
+
+For users that feel more comfortable working within a python 3 environment,
+[pyaqsapi](https://github.com/USEPA/pyaqsapi) [@py3package:pyaqsapi],
+a port of RAQSAPI to the python 3 language has been released. Both projects aim
+to maintain feature parity with the other and there are no inherent advantages
+to using either project over the other, except for the ability of working within
+the programming language environment of choice. The API of both packages are
+structured similarly, both packages export the same data and use the same
+credentials and data source to retrieve data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Acknowledgements
+RAQSAPI was included in the Rblogger's  March 2021: “Top 40” [New CRAN Packages](https://www.r-bloggers.com/2021/04/march-2021-top-40-new-cran-packages/).
+
+The RAQSAPI package borrows upon functions and code provided by sources not
+mentioned in the DESCRIPTION file. Here we attempt to acknowledge those sources
+without them RAQSAPI would not be possible.
+
+* README badges are provided by R package `badgecreator`[@package:badgecreatr].
+* The R package `usethis`[@package:usethis] was used to generate GitHub actions
+for Continuous integration (CI).
+* Code cleanup was assisted by the R package `lintr`[@package:lintr]
+* the function *install.packages* are provided by the R package `utils`[@RBase]
+* the function *pkg_install* are provided by the R package `pak`[
+@package:pak]
+* .gitignore file borrowed examples from
+https://github.com/github/gitignore/blob/master/R.gitignore
+* . CITATION.cff file was generated by the R package `cffr` [@package:cffr]
+* R package `urlchecker` [@package:urlchecker] was used to check urls in RAQSAPI
+documentation
+* R package `goodpractice` [@package:goodpractice] was used for static code checking
+* R package `formatR` [@package:formatR] was used to form code in this repository
+* R package `testthat` [@package:testthat] is used for unit testing
+* unit tests are mocked using R package `httptest2` [@package:httptest2]
+
+Additionally the project maintainers would like to thank the following people:
+Cynthia Sthal, Maria Morresi both at the US Environmental Protection Agency and
+Hayley Brittingham at Neptune and Company for their assistance with improving the
+package documentation. This is a huge undertaking, documentation is often overlooked
+and not given proper attention to. We thank you for your efforts.
+
+# References

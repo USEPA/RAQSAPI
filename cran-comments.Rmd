@@ -1,6 +1,8 @@
 ---
 title: "cran-comments"
-author: "Clinton Mccrowey"
+author:
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
 date: "01/04/2023"
 output: md_document
 ---
@@ -24,7 +26,7 @@ output: md_document
   - remove deprecated package:goodpractice from SUGGESTS
   - Added the ability to display server side messages for errors in API calls.
   - Added a new CITATION.cff for thanks to R package cffr.
-  - New hexstciker.
+  - New hexsticker.
   - aqs_isavailable no longer accepts the return_header parameter, this function
     just returns a tibble and not a AQS_Data Mart_APIv2 object.
   - fixed an issue where the duration parameter was being ignored in

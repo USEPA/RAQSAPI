@@ -1,16 +1,12 @@
 ---
 title: "RAQSAPI - Objectives of the RAQSAPI package"
 author:
-- affiliation: |-
-    "United States Environmental Protection Agency (US EPA),
-        Region III,
-        Air and Radiation Division,
-        Air Quality and Analysis Branch"
-  name: Clinton Mccrowey
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
 output:
-  rmarkdown::html_vignette: default
-  md_document:
-    variant: gfm
+  rmarkdown::github_document: null
+  rmarkdown::html_vignette: null
 lang: en-US
 subtitle: RAQSAPI Purpose
 abstract: RAQSAPI is an add-on package for the R programming language and
@@ -26,6 +22,7 @@ vignette: >
 bibliography: AQSAPI.bib
 csl: acs-nano.csl
 ---
+
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(

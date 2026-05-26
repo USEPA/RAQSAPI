@@ -1,28 +1,29 @@
 ---
 title: Introduction to the RAQSAPI package
 author:
-- affiliation: |-
-    United States Environmental Protection Agency (US EPA),  
-        Region III,  
-        Air and Radiation Division,  
-        Air Quality and Analysis Branch
-  name: Clinton Mccrowey
-abstract: RAQSAPI is a package for R that connects the R programming language
-  environment to the United States Environmental Protection Agency's (US EPA)
-  Air Quality System (AQS) Data Mart database API for retrieval of ambient
-  air pollution data.
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
+abstract: RAQSAPI is a package for R that connects the R programming language environment
+  to the United States Environmental Protection Agency's (US EPA) Air Quality System
+  (AQS) Data Mart database API for retrieval of ambient air pollution data.
 output:
-  rmarkdown::html_vignette: default
-  md_document:
-    variant: gfm
-lang: en-US
+  rmarkdown::html_vignette:
+    toc: true
+    df_print: paged
+    self_contained: false
+  rmarkdown::github_document:
+    toc: true
+  rmarkdown::pdf_document:
+    toc: true
+lang: "en-US"
 vignette: >
-  %\VignetteIndexEntry{Introduction to the RAQSAPI package}
+  %\VignetteIndexEntry{"Introduction to the RAQSAPI package"}
   %\VignetteEncoding{UTF-8}
   %\VignetteKeyword{R}
   %\VignetteKeyword{AQS}
   %\VignetteKeyword{EPA}
-  %\VignetteKeyword{Data Mart}
+  %\VignetteKeyword{DataMart}
   %\VignetteKeyword{API}
   %\VignetteDepends{magrittr}
   %\VignetteDepends{stringr}
@@ -33,12 +34,19 @@ vignette: >
   %\VignetteDepends{RAQSAPI}
   %\VignetteEngine{knitr::rmarkdown}
 bibliography: AQSAPI.bib
-csl: acs-nano.csl
+csl: "acs-nano.csl"
 ---
 
 ```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
-invisible(library(glue, warn.conflicts = FALSE, quietly = TRUE))
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  tidy.ops = list(width.cutoff = 80),
+  tidy = TRUE
+)
+options(rmarkdown.html_vignette.check_title = FALSE)
 ```
+
 <img src="./figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
 ```{r child = "EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}

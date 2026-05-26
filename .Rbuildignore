@@ -61,3 +61,7 @@ CODE_OF_CONDUCT.md
 ^\.claude$
 ^[.]?air[.]toml$
 ^\.vscode$
+^.\vignettes\acs-nano.csl
+^.\vignettes\american-chemical-society.csl
+^.\vignettes\RAQSAPI_exported_functions.R
+^.\vignettes\RAQSAPI_exported_functions_old.R

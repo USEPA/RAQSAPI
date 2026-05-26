@@ -1,6 +1,6 @@
 Introduction to the RAQSAPI package
 ================
-Clinton Mccrowey, physical scientist - US EPA
+true
 
 - [EPA Disclaimer](#epa-disclaimer)
 - [Introduction](#introduction)
@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--05--21-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--05--26-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -138,14 +138,15 @@ pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 
 ## Option 2: Installing the development version of RAQSAPI (unstable)
 
-> \[!CAUTION\] The development version of RAQSAPI contains code that has
-> not yet been thoroughly been tested and is more likely to contain
-> bugs. It is recommended that the stable CRAN version be installed for
-> production use.
+```
+> [!CAUTION]
+>
+> The development version of RAQSAPI contains code that has not yet been thoroughly been tested and is more
+> likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
 
-To install the development version of `RAQSAPI`, first if not already
-installed, install the `pak` package and its dependencies. Then run the
-following in a R environment.
+To install the development version of `RAQSAPI`, first if not already installed, install the `pak` package and its
+dependencies. Then run the following in a R environment.
+```
 
 ``` r
 pak::pkg_install("USEPA/RAQSAPI")
@@ -222,9 +223,8 @@ then set the keyring used to access AQS Data Mart (make sure to replace
 the text in the angled brackets with your specific user information):
 
 ``` r
-  library("keyring")
-  keyring::key_set(service = "AQSDatamart",
-                   username = "\<user email account\>")
+library("keyring")
+keyring::key_set(service = "AQSDatamart", username = "<user email account>")
 ```
 
 a popup window will appear for the user to input their keyring
@@ -236,10 +236,10 @@ To retrieve the keyring to use with `RAQSAPI` load the `keyring` package
 and use the function key_get to return the user credential to RAQSAPI:
 
 ``` r
-library(RAQSAPI)
-library(keyring)
-datamartAPI_user <- "<user email account>"
-server <- "AQSDatamart"
+  library(RAQSAPI)
+  library(keyring)
+  datamartAPI_user <- "<user email account>"
+  server <- "AQSDatamart"
 ```
 
 then pass these variables to the aqs_credentials function when using

@@ -1,10 +1,12 @@
 ---
-title: RAQSAPI - About the timeliness of AQS Data
-author: Clinton Mccrowey physical scientist - US EPA
+title: "RAQSAPI - About the timeliness of AQS Data"
+author:
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
 output:
-  rmarkdown::html_vignette: default
-  md_document:
-    variant: gfm
+  rmarkdown::github_document: null
+  rmarkdown::html_vignette: null
 lang: en-US
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - About the timeliness of AQS Data}

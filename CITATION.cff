@@ -73,12 +73,12 @@ references:
     given-names: Hadley
     email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
-  - family-names: François
+  - family-names: Francois
     given-names: Romain
     orcid: https://orcid.org/0000-0002-2444-4226
   - family-names: Henry
     given-names: Lionel
-  - family-names: Müller
+  - family-names: Muller
     given-names: Kirill
     orcid: https://orcid.org/0000-0002-1416-3412
   - family-names: Vaughan
@@ -250,7 +250,7 @@ references:
   url: https://tibble.tidyverse.org/
   repository: https://CRAN.R-project.org/package=tibble
   authors:
-  - family-names: Müller
+  - family-names: Muller
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
@@ -281,8 +281,8 @@ references:
   url: https://cli.r-lib.org
   repository: https://CRAN.R-project.org/package=cli
   authors:
-  - family-names: Csárdi
-    given-names: Gábor
+  - family-names: Csardi
+    given-names: Gabor
     email: gabor@posit.co
   year: '2026'
   doi: 10.32614/CRAN.package.cli
@@ -368,8 +368,8 @@ references:
   url: https://keyring.r-lib.org/
   repository: https://CRAN.R-project.org/package=keyring
   authors:
-  - family-names: Csárdi
-    given-names: Gábor
+  - family-names: Csardi
+    given-names: Gabor
     email: csardi.gabor@gmail.com
   year: '2026'
   doi: 10.32614/CRAN.package.keyring
@@ -393,8 +393,8 @@ references:
   url: https://pak.r-lib.org/
   repository: https://CRAN.R-project.org/package=pak
   authors:
-  - family-names: Csárdi
-    given-names: Gábor
+  - family-names: Csardi
+    given-names: Gabor
     email: csardi.gabor@gmail.com
   - family-names: Hester
     given-names: Jim
@@ -458,8 +458,8 @@ references:
   - family-names: Danenberg
     given-names: Peter
     email: pcd@roxygen.org
-  - family-names: Csárdi
-    given-names: Gábor
+  - family-names: Csardi
+    given-names: Gabor
     email: csardi.gabor@gmail.com
   - family-names: Eugster
     given-names: Manuel
