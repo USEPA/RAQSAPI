@@ -66,7 +66,10 @@ Other contributors:
   \item Neptune and Company (https://www.neptuneinc.org/) [contractor, reviewer]
   \item Edward Andrews \email{edwards.andrews@wv.gov} (employer: West Virginia Department of Environmental Protection) [reviewer, contributor]
   \item Maria Morresi \email{Morresi.Maria@epa.gov} (employer: ASRC Federal Analytical Service) [contractor, reviewer]
-  \item ASRC Federal Analytical Service (\href{https://ror.org/02fnwes63}{ROR}) (https://www.asrcfederal.com/) [contractor, reviewer]
+  \item ASRC Federal Analytical Service (\href{https://ror.org/02fnwes63}{ROR}) (https://www.asrcfederal.com/) [reviewer]
+  \item Milan Malfait \email{milan.malfait94@gmail.com} (\href{https://orcid.org/0000-0001-9144-3701}{ORCID}) [reviewer]
+  \item Rainer M Krug \email{Rainer@krugs.de} \email{Rainer.Krug@sib.swiss} [reviewer]
+  \item SIB Swiss Institute of Bioinformatics (\href{https://ror.org/002n09z45}{ROR}) (https://www.sib.swiss)
 }
 
 }

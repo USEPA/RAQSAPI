@@ -33,7 +33,7 @@ pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 
 > [!CAUTION]
 >
-> The development version of RAQSAPI contains code that has not yet been thoroughly been tested and is more
+> The development version of RAQSAPI contains code that has not yet been thoroughly tested and is more
 > likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
 
 To install the development version of `RAQSAPI`, first if not already installed, install the `pak` package and its

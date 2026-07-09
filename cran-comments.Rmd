@@ -77,7 +77,7 @@ output: md_document
     fix issues.
   - Minor updates to the README.
   - Minor improvements to code.
-  - This version was not published on CRAN but builds are availble on github.
+  - This version was not published on CRAN but builds are available on github.
 
 ## RAQSAPI 2.0.3
 * this is a minor release

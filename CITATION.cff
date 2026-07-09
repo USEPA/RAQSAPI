@@ -1,7 +1,7 @@
-# --------------------------------------------
-# CITATION file created with {cffr} R package
+# ------------------------------------------------
+# CITATION.cff file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# --------------------------------------------
+# ------------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "RAQSAPI" in publications use:'
@@ -15,7 +15,7 @@ identifiers:
   value: https://aqs.epa.gov/aqsweb/documents/data_api.html
 abstract: Retrieve air monitoring data and associated metadata from the US Environmental
   Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html>
-  for details about the US EPA Data Mart API <https://doi.org/ 10.32614/CRAN.package.RAQSAPI>.
+  for details about the US EPA Data Mart API <https://doi.org/10.32614/CRAN.package.RAQSAPI>.
 authors:
 - family-names: Mccrowey
   given-names: Clinton
@@ -73,12 +73,12 @@ references:
     given-names: Hadley
     email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
-  - family-names: Francois
+  - family-names: François
     given-names: Romain
     orcid: https://orcid.org/0000-0002-2444-4226
   - family-names: Henry
     given-names: Lionel
-  - family-names: Muller
+  - family-names: Müller
     given-names: Kirill
     orcid: https://orcid.org/0000-0002-1416-3412
   - family-names: Vaughan
@@ -103,31 +103,6 @@ references:
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2026'
   doi: 10.32614/CRAN.package.glue
-- type: software
-  title: gtools
-  abstract: 'gtools: Various R Programming Tools'
-  notes: Imports
-  url: https://github.com/r-gregmisc/gtools
-  repository: https://CRAN.R-project.org/package=gtools
-  authors:
-  - family-names: Warnes
-    given-names: Gregory R.
-  - family-names: Bolker
-    given-names: Ben
-    email: bolker@mcmaster.ca
-    orcid: https://orcid.org/0000-0002-2127-0443
-  - family-names: Lumley
-    given-names: Thomas
-  - family-names: Magnusson
-    given-names: Arni
-  - family-names: Venables
-    given-names: Bill
-  - family-names: Ryodan
-    given-names: Genei
-  - family-names: Moeller
-    given-names: Steffen
-  year: '2026'
-  doi: 10.32614/CRAN.package.gtools
 - type: software
   title: httr2
   abstract: 'httr2: Perform HTTP Requests and Process the Responses'
@@ -250,7 +225,7 @@ references:
   url: https://tibble.tidyverse.org/
   repository: https://CRAN.R-project.org/package=tibble
   authors:
-  - family-names: Muller
+  - family-names: Müller
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
@@ -281,8 +256,8 @@ references:
   url: https://cli.r-lib.org
   repository: https://CRAN.R-project.org/package=cli
   authors:
-  - family-names: Csardi
-    given-names: Gabor
+  - family-names: Csárdi
+    given-names: Gábor
     email: gabor@posit.co
   year: '2026'
   doi: 10.32614/CRAN.package.cli
@@ -322,7 +297,7 @@ references:
   abstract: 'goodpractice: Advice on R Package Building'
   notes: Suggests
   url: https://docs.ropensci.org/goodpractice/
-  repository: https://CRAN.R-project.org/package=goodpractice
+  repository: https://ropensci-review-tools.r-universe.dev
   authors:
   - family-names: Padgham
     given-names: Mark
@@ -346,33 +321,12 @@ references:
   - family-names: Alexander
     given-names: Hannah
     email: halexander@mango-solutions.com
+  - family-names: Mowinckel
+    given-names: Athanasia Mo
+    email: a.m.mowinckel@psykologi.uio.no
+    orcid: https://orcid.org/0000-0002-5756-0223
   year: '2026'
   doi: 10.32614/CRAN.package.goodpractice
-- type: software
-  title: httptest2
-  abstract: 'httptest2: Test Helpers for ''httr2'''
-  notes: Suggests
-  url: https://enpiar.com/httptest2/
-  repository: https://CRAN.R-project.org/package=httptest2
-  authors:
-  - family-names: Richardson
-    given-names: Neal
-    email: neal.p.richardson@gmail.com
-    orcid: https://orcid.org/0009-0002-7992-3520
-  year: '2026'
-  doi: 10.32614/CRAN.package.httptest2
-- type: software
-  title: keyring
-  abstract: 'keyring: Access the System Credential Store from R'
-  notes: Suggests
-  url: https://keyring.r-lib.org/
-  repository: https://CRAN.R-project.org/package=keyring
-  authors:
-  - family-names: Csardi
-    given-names: Gabor
-    email: csardi.gabor@gmail.com
-  year: '2026'
-  doi: 10.32614/CRAN.package.keyring
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -393,8 +347,8 @@ references:
   url: https://pak.r-lib.org/
   repository: https://CRAN.R-project.org/package=pak
   authors:
-  - family-names: Csardi
-    given-names: Gabor
+  - family-names: Csárdi
+    given-names: Gábor
     email: csardi.gabor@gmail.com
   - family-names: Hester
     given-names: Jim
@@ -458,8 +412,8 @@ references:
   - family-names: Danenberg
     given-names: Peter
     email: pcd@roxygen.org
-  - family-names: Csardi
-    given-names: Gabor
+  - family-names: Csárdi
+    given-names: Gábor
     email: csardi.gabor@gmail.com
   - family-names: Eugster
     given-names: Manuel

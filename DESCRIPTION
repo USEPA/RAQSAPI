@@ -5,7 +5,7 @@ Title: A Simple Interface to the US EPA Air Quality System Data Mart API
 Description: Retrieve air monitoring data and associated metadata from the US
   Environmental Protection Agency's Air Quality System service using functions.
   See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about
-  the US EPA Data Mart API <doi: 10.32614/CRAN.package.RAQSAPI>.
+  the US EPA Data Mart API <doi:10.32614/CRAN.package.RAQSAPI>.
 Encoding: UTF-8
 Authors@R: c(
     person(given = "Clinton",
@@ -73,7 +73,16 @@ Authors@R: c(
     person("ASRC Federal Analytical Service",
            comment = c("https://www.asrcfederal.com/",
                        ROR = "02fnwes63"),
-           role = c("ctr", "rev"))
+           role = c("rev")),
+    person(given = "Milan", family = "Malfait",
+       email = "milan.malfait94@gmail.com",
+       role = c("rev"),
+       comment = c(ORCID = "0000-0001-9144-3701")),
+    person(given = "Rainer M", family = "Krug",
+           email = c("Rainer@krugs.de", "Rainer.Krug@sib.swiss"),
+           role = c("rev")),
+    person("SIB Swiss Institute of Bioinformatics",
+           comment = c("https://www.sib.swiss", ROR="002n09z45"))
   )
 URL: https://github.com/USEPA/RAQSAPI/,
      https://aqs.epa.gov/aqsweb/documents/data_api.html
@@ -81,7 +90,6 @@ BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.0.0)
 Imports: dplyr,
     glue,
-    gtools,
     httr2,
     lifecycle,
     lubridate,
@@ -106,7 +114,7 @@ Suggests: cli,
     testthat (>= 3.0.0),
     usethis
 SystemRequirements: package manual and Vignettes require pandoc
-                    (>= 1.14) http://pandoc.org)
+                    (>= 1.14) (http://pandoc.org)
 VignetteBuilder: knitr
 BuildVignettes: true
 ByteCompile: true
@@ -143,4 +151,4 @@ Config/testthat/parallel: false
 Config/build/clean-inst-doc: true
 Config/roxygen2/version: 8.0.0
 Config/roxygen2/markdown: TRUE
-RoxygenNote: 8.0.0 #for package:lifecycle compatiblility remove whne lifecycle is updated to work with roxygen: 8.x.y
+RoxygenNote: 8.0.0

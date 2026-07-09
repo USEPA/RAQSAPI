@@ -1,4 +1,5 @@
 # nocov start
+.RAQSAPI_env <- new.env(parent = emptyenv())
 #' @noRd
 #' @keywords internal # do not include deprecated function in package reference manual
 
@@ -15,7 +16,7 @@
     names = c("env.RAQSAPI", "AQSObject", "datetime", "."),
     package = "RAQSAPI"
   )
-  env.RAQSAPI <- Sys.getenv() #nolint
+  .RAQSAPI_env$old_R_CHECK_LENGTH_1_CONDITION_ <- Sys.getenv("_R_CHECK_LENGTH_1_CONDITION_", unset = NA_character_)
   Sys.setenv(`_R_CHECK_LENGTH_1_CONDITION_` = "TRUE")
   return(invisible())
 }
@@ -29,7 +30,11 @@
 #' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
 .onUnLoad <- function(libname, pkgname) {
-  Sys.setenv(env.RAQSAPI)
+  if (is.na(.RAQSAPI_env$old_R_CHECK_LENGTH_1_CONDITION_)) {
+    Sys.unsetenv("_R_CHECK_LENGTH_1_CONDITION_")
+  } else {
+    Sys.setenv(`_R_CHECK_LENGTH_1_CONDITION_` = .RAQSAPI_env$old_R_CHECK_LENGTH_1_CONDITION_)
+  }
   return(invisible())
 }
 

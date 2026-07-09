@@ -2,6 +2,21 @@ user_agent <- "RAQSAPI library for R"
 server <- "AQSDatamartAPI"
 
 
+#' @title check it an object is empty, missing or invalid
+#' @description A helper function that checks if the input variable is either
+#'                empty (NULL), missing (NA) or otherwise invalid. Returns true
+#'                if any of the criteria are true
+#' @param x The variable to check
+#' @importFrom rlang is_empty
+#' @returns A boolean expression if the input value is empty (NULL),
+#'          missing (NA) or otherwise invalid.
+#' @keywords internal
+#' @noRd
+invalid <- function(x) {
+  rlang::is_empty(x) || all(is.na(x)) || inherits(x, "try-error")
+}
+
+
 #' @title checkaqsparams
 #' @description \lifecycle{experimental}
 #'              A helper function used to check the validity of parameters being
@@ -41,7 +56,7 @@ checkaqsparams <- function(...) {
     if (!is.character(ellipsis_args$service)) {
       error <- TRUE
       errmessage %<>%
-        c(x = "service mus be a string")
+        c(x = "service must be a string")
     }
     listofservices <- c(
       "annualData",
@@ -413,7 +428,6 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #' @importFrom glue glue
 #' @importFrom tibble tibble
 #' @importFrom rlang caller_call
-#' @importFrom gtools invalid
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json req_perform
 #' @importFrom httr2 req_error req_verbose req_options req_retry req_throttle
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -435,7 +449,7 @@ aqs <- function(service,
           please refer to '?aqs_credentials()' for useage infomation \n"
     )
   }
-  if (gtools::invalid(user) || gtools::invalid(user_key) || user == "redacted") {
+  if (invalid(user) || invalid(user_key) || user == "redacted") {
     stop(
       "please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"

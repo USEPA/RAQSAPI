@@ -24,4 +24,6 @@ PackageRoxygenize: rd,collate,namespace,vignette
 
 QuitChildProcessesOnExit: Yes
 
+MarkdownReferences: Document
+
 SpellingDictionary: en_US

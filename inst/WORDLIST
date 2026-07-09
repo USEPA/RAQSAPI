@@ -38,6 +38,7 @@ Chue
 CMD
 countycode
 cran
+crancomments
 Csardi
 Csárdi
 dailysummary
@@ -82,6 +83,7 @@ magrittr
 mathcal
 maxlat
 maxlon
+md
 metacran
 metaData
 minlat
@@ -115,6 +117,7 @@ removeheader
 Ren
 RESTful
 revisionhistory
+rOpenSci
 ROR
 Rosenstock
 sampledata
