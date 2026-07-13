@@ -7,13 +7,7 @@ author:
 date: "April 5, 2021"
 output:
   rmarkdown::github_document: null
-  rmarkdown::html_vignette: null
-vignette: >
-  %\VignetteIndexEntry{RAQSAPI - Using RAQSAPI}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteDepends{knitr}
-  %\VignetteDepends{rmarkdown}
-  %\VignetteEngine{knitr::rmarkdown}
+  rmarkdown::html_document: null
 ---
 
 # Using The RAQSAPI library

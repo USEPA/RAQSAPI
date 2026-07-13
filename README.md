@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--07--09-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--07--13-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -217,16 +217,15 @@ Ensure that your system is supported by the `keyring` package before
 proceeding.
 
 ``` r
-  keyring::has_keyring_support()
+keyring::has_keyring_support()
 ```
 
 then set the keyring used to access AQS Data Mart (make sure to replace
 the text in the angled brackets with your specific user information):
 
 ``` r
-  library("keyring")
-  keyring::key_set(service = "AQSDatamart",
-                   username = "<user email account>")
+library("keyring")
+keyring::key_set(service = "AQSDatamart", username = "<user email account>")
 ```
 
 a popup window will appear for the user to input their keyring
@@ -248,11 +247,7 @@ then pass these variables to the aqs_credentials function when using
 RAQSAPI:
 
 ``` r
-  aqs_credentials(username = datamartAPI_user,
-                  key = key_get(service = server,
-                                username = datamartAPI_user
-                                )
-                  )
+aqs_credentials(username = datamartAPI_user, key = key_get(service = server, username = datamartAPI_user))
 ```
 
 To change the keyring stored with the `keyring` package repeat the steps

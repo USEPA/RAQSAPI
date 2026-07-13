@@ -6,13 +6,7 @@ author:
     Division
 output:
   rmarkdown::github_document: null
-  rmarkdown::html_vignette: null
-vignette: >
-  %\VignetteIndexEntry{RAQSAPI - Troubleshooting RAQSAPI}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteDepends{knitr}
-  %\VignetteDepends{rmarkdown}
-  %\VignetteEngine{knitr::rmarkdown}
+  rmarkdown::html_document: null
 ---
 
 # Troubleshooting

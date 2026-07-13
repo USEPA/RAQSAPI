@@ -2,14 +2,8 @@
 title: "RAQSAPI - EPA Disclaimer"
 author: "United States Environmental Protection Agency"
 output:
-  rmarkdown::html_vignette: null
+  rmarkdown::html_document: null
   rmarkdown::github_document: null
-vignette: >
-  %\VignetteIndexEntry{RAQSAPI - EPA Disclaimer}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteDepends{knitr}
-  %\VignetteDepends{rmarkdown}
-  %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   markdown: 
     wrap: 125

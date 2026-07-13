@@ -328,6 +328,31 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.goodpractice
 - type: software
+  title: httptest2
+  abstract: 'httptest2: Test Helpers for ''httr2'''
+  notes: Suggests
+  url: https://enpiar.com/httptest2/
+  repository: https://CRAN.R-project.org/package=httptest2
+  authors:
+  - family-names: Richardson
+    given-names: Neal
+    email: neal.p.richardson@gmail.com
+    orcid: https://orcid.org/0009-0002-7992-3520
+  year: '2026'
+  doi: 10.32614/CRAN.package.httptest2
+- type: software
+  title: keyring
+  abstract: 'keyring: Access the System Credential Store from R'
+  notes: Suggests
+  url: https://keyring.r-lib.org/
+  repository: https://CRAN.R-project.org/package=keyring
+  authors:
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  year: '2026'
+  doi: 10.32614/CRAN.package.keyring
+- type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests

@@ -1,23 +1,13 @@
 ---
-title: RAQSAPI - Acknowledgements
+title: "RAQSAPI - Acknowledgements"
 author:
-- affiliation: |-
-    United States Environmental Protection Agency (US EPA),  
-        Region III,  
-        Air and Radiation Division,  
-        Air Quality and Analysis Branch
-  name: Clinton Mccrowey
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
 output:
-   rmarkdown::html_vignette: default
-   md_document:
-    variant: gfm
+  rmarkdown::html_document: null
+  rmarkdown::github_document: null
 lang: en-US
-vignette: >
-  %\VignetteIndexEntry{RAQSAPI - Acknowledgements}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteDepends{knitr}
-  %\VignetteDepends{rmarkdown}
-  %\VignetteEngine{knitr::rmarkdown}
 bibliography: AQSAPI.bib
 csl: acs-nano.csl
 ---

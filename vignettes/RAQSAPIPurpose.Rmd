@@ -5,8 +5,8 @@ author:
   affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
     Division
 output:
-  rmarkdown::github_document: null
   rmarkdown::html_vignette: null
+  rmarkdown::github_document: null
 lang: en-US
 subtitle: RAQSAPI Purpose
 abstract: RAQSAPI is an add-on package for the R programming language and
@@ -19,8 +19,8 @@ vignette: >
   %\VignetteDepends{knitr}
   %\VignetteDepends{rmarkdown}
   %\VignetteEngine{knitr::rmarkdown}
-bibliography: AQSAPI.bib
-csl: acs-nano.csl
+bibliography: ./includes/AQSAPI.bib
+csl: ./includes/acs-nano.csl
 ---
 
 

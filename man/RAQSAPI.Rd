@@ -69,7 +69,7 @@ Other contributors:
   \item ASRC Federal Analytical Service (\href{https://ror.org/02fnwes63}{ROR}) (https://www.asrcfederal.com/) [reviewer]
   \item Milan Malfait \email{milan.malfait94@gmail.com} (\href{https://orcid.org/0000-0001-9144-3701}{ORCID}) [reviewer]
   \item Rainer M Krug \email{Rainer@krugs.de} \email{Rainer.Krug@sib.swiss} [reviewer]
-  \item SIB Swiss Institute of Bioinformatics (\href{https://ror.org/002n09z45}{ROR}) (https://www.sib.swiss)
+  \item SIB Swiss Institute of Bioinformatics (\href{https://ror.org/002n09z45}{ROR}) (https://www.sib.swiss) [reviewer]
 }
 
 }

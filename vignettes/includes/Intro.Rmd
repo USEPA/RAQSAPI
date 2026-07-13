@@ -6,7 +6,7 @@ author:
     Division
 output:
   rmarkdown::github_document: null
-  rmarkdown::html_vignette: null
+  rmarkdown::html_document: null
 vignette: >
   %\VignetteIndexEntry{RAQSAPI - Introduction to RAQSAPI}
   %\VignetteEncoding{UTF-8}

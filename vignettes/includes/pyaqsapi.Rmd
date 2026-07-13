@@ -7,14 +7,8 @@ author:
     Division
 output:
   rmarkdown::github_document: null
-  rmarkdown::html_vignette: null
+  rmarkdown::html_document: null
 lang: en-US
-vignette: >
-  %\VignetteIndexEntry{pyaqsapi - a port of RAQSAPI to the python 3 programming environment}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteDepends{knitr}
-  %\VignetteDepends{rmarkdown}
-  %\VignetteEngine{knitr::rmarkdown}
 bibliography: ./AQSAPI.bib
 csl: ./acs-nano.csl
 ---

@@ -8,12 +8,12 @@ abstract: RAQSAPI is a package for R that connects the R programming language en
   to the United States Environmental Protection Agency's (US EPA) Air Quality System
   (AQS) Data Mart database API for retrieval of ambient air pollution data.
 output:
-  rmarkdown::github_document:
-    toc: true
   rmarkdown::html_vignette:
     toc: true
     df_print: paged
     self_contained: false
+  rmarkdown::github_document:
+    toc: true
   rmarkdown::pdf_document:
     toc: true
 lang: "en-US"
@@ -33,8 +33,8 @@ vignette: >
   %\VignetteDepends{rmarkdown}
   %\VignetteDepends{RAQSAPI}
   %\VignetteEngine{knitr::rmarkdown}
-bibliography: AQSAPI.bib
-csl: "acs-nano.csl"
+bibliography: ./includes/AQSAPI.bib
+csl: "./includes/acs-nano.csl"
 ---
 
 ```{r SETUP, echo = FALSE, message = FALSE, warning = FALSE}
@@ -49,34 +49,34 @@ options(rmarkdown.html_vignette.check_title = FALSE)
 
 <img src="./figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
-```{r child = "EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
+```{r child = "./includes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "Intro.Rmd", echo = FALSE, comment = NA}
+```{r child = "./includes/Intro.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "TimelinessofAQSData.Rmd"}
+```{r child = "./includes/TimelinessofAQSData.Rmd"}
 ```
 
-```{r child = "InstallandSetup.Rmd", echo = FALSE}
+```{r child = "./includes/InstallandSetup.Rmd", echo = FALSE}
 ```
 
-```{r child = "UsingRAQSAPI.Rmd", echo = FALSE}
+```{r child = "./includes/UsingRAQSAPI.Rmd", echo = FALSE}
 ```
 
-```{r child = "RAQSAPIusagetipsandprecautions.Rmd", echo = FALSE}
+```{r child = "./includes/RAQSAPIusagetipsandprecautions.Rmd", echo = FALSE}
 ```
 
-```{r child = "RAQSAPIFunctions-Long.Rmd", echo = FALSE}
+```{r child = "./includes/RAQSAPIFunctions-Long.Rmd", echo = FALSE}
 ```
 
-```{r child = "Troubleshooting.Rmd", echo = FALSE}
+```{r child = "./includes/Troubleshooting.Rmd", echo = FALSE}
 ```
 
-```{r child = "pyaqsapi.Rmd", echo = FALSE}
+```{r child = "./includes/pyaqsapi.Rmd", echo = FALSE}
 ```
 
-```{r child = "Acknowledgements.Rmd", echo = FALSE}
+```{r child = "./includes/Acknowledgements.Rmd", echo = FALSE}
 ```
 
 # References

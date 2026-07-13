@@ -82,7 +82,8 @@ Authors@R: c(
            email = c("Rainer@krugs.de", "Rainer.Krug@sib.swiss"),
            role = c("rev")),
     person("SIB Swiss Institute of Bioinformatics",
-           comment = c("https://www.sib.swiss", ROR="002n09z45"))
+           comment = c("https://www.sib.swiss", ROR="002n09z45"),
+           role = c("rev"))
   )
 URL: https://github.com/USEPA/RAQSAPI/,
      https://aqs.epa.gov/aqsweb/documents/data_api.html
