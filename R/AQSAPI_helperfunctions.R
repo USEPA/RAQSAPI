@@ -130,7 +130,7 @@ checkaqsparams <- function(...) {
   }
 
   if ("MA_code" %in% names(ellipsis_args)) {
-    if ((nchar(ellipsis_args$MA_code) != 4 || nchar(ellipsis_args$MA_code) != 3) || !is.character(ellipsis_args$MA_code)) {
+    if ((nchar(ellipsis_args$MA_code) != 4 && nchar(ellipsis_args$MA_code) != 3) || !is.character(ellipsis_args$MA_code)) {
       error <- TRUE
       errmessage %<>%
         c(
@@ -143,7 +143,7 @@ checkaqsparams <- function(...) {
 
   if ("pqao_code" %in% names(ellipsis_args)) {
     if (
-      (nchar(ellipsis_args$pqao_code) != 4 || nchar(ellipsis_args$pqao_code) != 3) ||
+      (nchar(ellipsis_args$pqao_code) != 4 && nchar(ellipsis_args$pqao_code) != 3) ||
         !is.character(ellipsis_args$pqao_code)
     ) {
       error <- TRUE
