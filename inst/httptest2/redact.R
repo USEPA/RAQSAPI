@@ -1,6 +1,6 @@
 function(resp) {
-  key <- getOption("aqs_key")
-  user <- getOption("aqs_username")
+  user <- .RAQSAPI_env$aqs_username
+  key <- .RAQSAPI_env$aqs_key
 
   if (!is.null(key) && nzchar(as.character(key))) {
     resp <- httptest2::gsub_response(resp, as.character(key),

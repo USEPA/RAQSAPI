@@ -12,8 +12,8 @@ aqs_isavailable <- function() {
   aqs(
     service = "metaData",
     filter = "isAvailable",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key")
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
   )$Header %>%
     return()
 }
@@ -75,8 +75,8 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE) {
   counties <- aqs(
     service = "list",
     filter = "countiesByState",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(state = stateFIPS)
   )
   counties %<>%
@@ -112,8 +112,8 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE) {
   sites <- aqs(
     service = "list",
     filter = "sitesByCounty",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(state = stateFIPS, county = countycode)
   )
   sites %<>%
@@ -147,8 +147,8 @@ aqs_classes <- function(return_header = FALSE) {
   classes <- aqs(
     service = "list",
     filter = "classes",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL
   )
 
@@ -185,8 +185,8 @@ aqs_parameters_by_class <- function(class, return_header = FALSE) {
   parameters <- aqs(
     service = "list",
     filter = "parametersByClass",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(pc = class)
   )
   if (!return_header) {
@@ -217,8 +217,8 @@ aqs_mas <- function(return_header = FALSE) {
   mas <- aqs(
     service = "list",
     filter = "mas",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL
   )
   mas %<>%
@@ -251,8 +251,8 @@ aqs_pqaos <- function(return_header = FALSE) {
   pqaos <- aqs(
     service = "list",
     filter = "pqaos",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL
   )
   pqaos %<>%
@@ -287,8 +287,8 @@ aqs_cbsas <- function(return_header = FALSE) {
   cbsas <- aqs(
     service = "list",
     filter = "cbsas",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL
   )
 
@@ -321,8 +321,8 @@ aqs_states <- function(return_header = FALSE) {
   states <- aqs(
     service = "list",
     filter = "states",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL
   )
   states %<>%
@@ -392,8 +392,8 @@ aqs_revisionhistory <- function(return_header = FALSE) {
   history <- aqs(
     service = "metaData",
     filter = "revisionHistory",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL
   )
   if (!return_header) {
@@ -463,8 +463,8 @@ aqs_sampledurations <- function(return_header = FALSE) {
   durations <- aqs(
     service = "list",
     filter = "duration",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = NULL,
     AQS_domain = AQS_domain
   )

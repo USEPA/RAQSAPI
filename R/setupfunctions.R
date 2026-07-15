@@ -27,8 +27,8 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_) {
   # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
   # and etc.
   if (rlang::is_character(username) && rlang::is_character(key) && !is.na(username) && !is.na(key)) {
-    options(aqs_username = username)
-    options(aqs_key = key)
+    .RAQSAPI_env$aqs_username = username
+    .RAQSAPI_env$aqs_key = key
   } else {
     warning("Please enter a valid username and key  \n")
   }

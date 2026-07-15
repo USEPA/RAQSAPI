@@ -632,8 +632,8 @@ aqs_services_by_site <- function(
   aqs(
     service = service,
     filter = "bySite",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -743,8 +743,8 @@ aqs_services_by_county <- function(
   aqs(
     service = service,
     filter = "byCounty",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -846,8 +846,8 @@ aqs_services_by_state <- function(
   aqs(
     service = service,
     filter = "byState",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -970,8 +970,8 @@ aqs_services_by_box <- function(
   aqs(
     service = service,
     filter = "byBox",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -1077,8 +1077,8 @@ aqs_services_by_cbsa <- function(
   aqs(
     service = service,
     filter = "byCBSA",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -1178,8 +1178,8 @@ aqs_services_by_pqao <- function(
   aqs(
     service = service,
     filter = "byPQAO",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -1274,8 +1274,8 @@ aqs_services_by_MA <- function(
   aqs(
     service = service,
     filter = "byMA",
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(
       param = format_multiple_params_for_api(parameter),
       bdate = format(bdate, format = "%Y%m%d"),
@@ -1316,8 +1316,8 @@ aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "
   aqs(
     service = "metaData",
     filter = filter,
-    user = getOption("aqs_username"),
-    user_key = getOption("aqs_key"),
+    user = .RAQSAPI_env$aqs_username,
+    user_key = .RAQSAPI_env$aqs_key,
     variables = list(service = service),
     AQS_domain = AQS_domain
   ) %>%
