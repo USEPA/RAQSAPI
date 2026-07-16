@@ -35,6 +35,16 @@ documentation
 * R package `formatR` [@package:formatR] was used to form code in this repository
 * R package `testthat` [@package:testthat] is used for unit testing
 * unit tests are mocked using R package `httptest2` [@package:httptest2]
+* Additional code formatting was accomplished using Air formatter[@airformatter] 
+
+The RAQSAPI project developers would like to thank the awesome work of the
+RopenSci non-profit community of practice for reviewing this project's code
+base, discover bugs, and suggest improvements. Especally the editors that showed
+interest in starting the review process
+[Laura DeCicco](https://github.com/ldecicco-USGS), and
+Jeffrey W. Hollister(https://github.com/jhollist) and also
+the reviewers Mark Padgham, [Milan Malfait](https://github.com/milanmlft)
+and [Rainer M. Krug](https://github.com/rkrug). 
 
 Additionally the project maintainers would like to thank the following people:
 Cynthia Sthal, Maria Morresi both at the US Environmental Protection Agency and

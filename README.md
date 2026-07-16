@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--07--15-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--07--16-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -373,6 +373,17 @@ those sources without them RAQSAPI would not be possible.
   repository
 - R package `testthat`<sup>14</sup> is used for unit testing
 - unit tests are mocked using R package `httptest2`<sup>15</sup>
+- Additional code formatting was accomplished using Air
+  formatter<sup>16</sup>
+
+The RAQSAPI project developers would like to thank the awesome work of
+the RopenSci non-profit community of practice for reviewing this
+project’s code base, discover bugs, and suggest improvements. Especally
+the editors that showed interest in starting the review process [Laura
+DeCicco](https://github.com/ldecicco-USGS), and Jeffrey W.
+Hollister(<https://github.com/jhollist>) and also the reviewers Mark
+Padgham, [Milan Malfait](https://github.com/milanmlft) and [Rainer M.
+Krug](https://github.com/rkrug).
 
 Additionally the project maintainers would like to thank the following
 people: Cynthia Sthal, Maria Morresi both at the US Environmental
@@ -479,7 +490,7 @@ for R Packages. *Journal of Open Source Software* **2021**, *6* (67),
 
 <span class="csl-left-margin">(11)
 </span><span class="csl-right-inline">R Core team; Hester, J.; Csárdi,
-G. *Urlchecker: Run CRAN URL Checks from Older r Versions*; 2021.
+G. *Urlchecker: Run CRAN URL Checks from Older R Versions*; 2021.
 <https://doi.org/10.32614/CRAN.package.urlchecker>.</span>
 
 </div>
@@ -489,7 +500,7 @@ G. *Urlchecker: Run CRAN URL Checks from Older r Versions*; 2021.
 <span class="csl-left-margin">(12)
 </span><span class="csl-right-inline"><span class="nocase">Padgham, M.;
 Marks, K.; de Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander,
-H.</span> *Goodpractice: Advice on r Package Building*; 2024.
+H.</span> *Goodpractice: Advice on R Package Building*; 2024.
 <https://doi.org/10.32614/CRAN.package.goodpractice>.</span>
 
 </div>
@@ -518,6 +529,15 @@ R Journal* **2011**, *3*, 5–10.</span>
 </span><span class="csl-right-inline">Richardson, N. *Httptest2: Test
 Helpers for Httr2*; 2025.
 <https://doi.org/10.32614/CRAN.package.httptest2>.</span>
+
+</div>
+
+<div id="ref-airformatter" class="csl-entry">
+
+<span class="csl-left-margin">(16)
+</span><span class="csl-right-inline">Posit development team. Air - and
+r Formatter and Language Server, Written in Rust, 2026.
+<https://github.com/posit-dev/air>.</span>
 
 </div>
 
