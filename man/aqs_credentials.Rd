@@ -23,7 +23,7 @@ Sets the user credentials for the AQS API. This function
 needs to be called once and only once every time this library
 is re-loaded. Users must have a valid username and key which
 can be obtained through the use of the aqs_sign_up function,
-@seealso \code{\link[=aqs_sign_up]{aqs_sign_up()}} to sign up for AQS data mart
+Use \code{\link[=aqs_sign_up]{aqs_sign_up()}} to sign up for AQS datamart
 credentials.
 }
 \examples{

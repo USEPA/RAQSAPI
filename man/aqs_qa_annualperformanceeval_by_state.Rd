@@ -25,7 +25,7 @@ selection. Only data on or before this date will be returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
 FIPS code (with leading zero) for the state being
-requested. @seealso \code{\link[=aqs_states]{aqs_states()}} for the list of
+requested. Use \code{\link[=aqs_states]{aqs_states()}} for the list of
 available FIPS codes.}
 
 \item{return_header}{If FALSE (default) only returns data requested.

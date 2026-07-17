@@ -550,16 +550,17 @@ isValidEmail <- function(email) {
 #'               selection. Only data on or before this date will be returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zero) for the state being
-#'                   requested. @seealso [RAQSAPI::aqs_states()] for the list of
+#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
 #'                   available FIPS codes.
 #' @param countycode a R character object which represents the 3 digit state
 #'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). @seealso [RAQSAPI::aqs_counties_by_state()] for the
-#'                       list of available county codes for each state.
+#'                       zero(s)). Use [RAQSAPI::aqs_counties_by_state()]
+#'                       for the list of available county codes in each state.
 #' @param sitenum a R character object which represents the 4 digit site number
 #'                 (with leading zeros) within the county and state being
-#'                 requested. @seealso [RAQSAPI::aqs_sites_by_county()] for the list of
-#'                 available site numbers for a given county and state.
+#'                 requested. Use [RAQSAPI::aqs_sites_by_county()]
+#'                for the list of available site numbers in  given county and
+#'                state.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of
@@ -567,12 +568,12 @@ isValidEmail <- function(email) {
 #'                           duration code.Valid durations include actual sample
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
+#'                           averages or Pb 3 month rolling averages. Use
+#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS
-#'                    API. For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
+#'                API. For a list of available services Refer to
+#'                \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
 #' @param cbdate a R date object which represents a 'beginning
 #'                   date of last change' that indicates when the data was last
 #'                   updated. cbdate is used to filter data based on the change
@@ -667,13 +668,13 @@ aqs_services_by_site <- function(
 #'                  selection. Only data on or before this date will be
 #'                  returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
-#'                      FIPS code (with leading zero) for the state being
-#'                      requested. @seealso [RAQSAPI::aqs_states()] for the list of
-#'                      available FIPS codes.
+#'                   FIPS code (with leading zero) for the state being
+#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
+#'                   available FIPS codes.
 #' @param countycode a R character object which represents the 3 digit state
 #'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). @seealso [RAQSAPI::aqs_counties_by_state()] for the
-#'                       list of available county codes for each state.
+#'                       zero(s)). Use [RAQSAPI::aqs_counties_by_state()]
+#'                       for the list of available county codes in each state.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of
@@ -681,8 +682,8 @@ aqs_services_by_site <- function(
 #'                           duration code.Valid durations include actual sample
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
+#'                           averages or Pb 3 month rolling averages. Use
+#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS API
 #'                    For a list of available services @seealso
@@ -777,9 +778,9 @@ aqs_services_by_county <- function(
 #' @param edate a R date object which represents the end date of the data
 #'               selection. Only data on or before this date will be returned.
 #' @param stateFIPS a R character object which represents the 2 digit state
-#'                      FIPS code (with leading zero) for the state being
-#'                      requested. @seealso [RAQSAPI::aqs_states()] for the list of
-#'                      available FIPS codes.
+#'                   FIPS code (with leading zero) for the state being
+#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
+#'                   available FIPS codes.
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of
@@ -787,8 +788,8 @@ aqs_services_by_county <- function(
 #'                           duration code.Valid durations include actual sample
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
+#'                           averages or Pb 3 month rolling averages. Use
+#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
@@ -901,8 +902,8 @@ aqs_services_by_state <- function(
 #'                           duration code.Valid durations include actual sample
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
+#'                           averages or Pb 3 month rolling averages. Use
+#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
@@ -1006,8 +1007,8 @@ aqs_services_by_box <- function(
 #'               selection. Only data on or before this date will be returned.
 #' @param cbsa_code a R character object which represents the 5 digit AQS Core
 #'                   Based Statistical Area code (the same as the census code,
-#'                   with leading zeros) @seealso [RAQSAPI::aqs_cbsas()] for a list of all
-#'                   CBSA codes and names available,
+#'                   with leading zeros). Use [RAQSAPI::aqs_cbsas()]
+#'                   for a list of all CBSA codes and names available,
 #' @param duration an optional R character string that represents the
 #'                           parameter duration code that limits returned data
 #'                           to a specific sample duration. The default value of
@@ -1015,8 +1016,8 @@ aqs_services_by_box <- function(
 #'                           duration code.Valid durations include actual sample
 #'                           durations and not calculated durations such as 8
 #'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages.
-#'                           @seealso [RAQSAPI::aqs_sampledurations()] for a list of all
+#'                           averages or Pb 3 month rolling averages. Use
+#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
 #'                           available duration codes.
 #' @param service a string which represents the services provided by the AQS
 #'                    API For a list of available services @seealso
@@ -1115,7 +1116,9 @@ aqs_services_by_cbsa <- function(
 #'
 #' @param pqao_code a R character object which represents the 4 digit AQS
 #'                   Primary Quality Assurance Organization code
-#'                   (with leading zeroes). @See
+#'                   (with leading zeroes). Use [RAQSAPI::aqs_pqaos()] for a
+#'                   list of all Primary Quality Assurance Organization (pqao)
+#'                   codes and names available,
 #'
 #' @param service a string which represents the services provided by the
 #'                    AQS API. For a list of available services @seealso
@@ -1210,7 +1213,9 @@ aqs_services_by_pqao <- function(
 #'                  selection. Only data on or before this date will be
 #'                  returned.
 #' @param MA_code a R character object which represents the 4 digit AQS
-#'                    Monitoring Agency code (with leading zeroes).
+#'                    Monitoring Agency code (with leading zeroes). Use
+#'                    [RAQSAPI::aqs_mas()] for a list of all
+#'                  Monitoring Agency (MA) codes and names available,
 #' @param service a string which represents the services provided by the AQS API
 #'                    For a list of available services @seealso
 #'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}

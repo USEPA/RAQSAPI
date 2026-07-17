@@ -30,9 +30,6 @@ be issued for that account and emailed to the listed address.
 Usage is the same in either case. Refer to the email
 message for further instructions before continuing.
 }
-\note{
-The '@' character needs to be escaped with the '/' character.
-}
 \examples{
 # to register a new user or generate a new key with the email
           #  address 'John.Doe/@myemail.com'

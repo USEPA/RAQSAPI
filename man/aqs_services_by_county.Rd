@@ -31,13 +31,13 @@ returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
 FIPS code (with leading zero) for the state being
-requested. @seealso \code{\link[=aqs_states]{aqs_states()}} for the list of
+requested. Use \code{\link[=aqs_states]{aqs_states()}} for the list of
 available FIPS codes.}
 
 \item{countycode}{a R character object which represents the 3 digit state
 FIPS code for the county being requested (with leading
-zero(s)). @seealso \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}} for the
-list of available county codes for each state.}
+zero(s)). Use \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}}
+for the list of available county codes in each state.}
 
 \item{service}{a string which represents the services provided by the AQS API
 For a list of available services @seealso
@@ -50,8 +50,8 @@ NA_character_ results in no filtering based on
 duration code.Valid durations include actual sample
 durations and not calculated durations such as 8
 hour CO or $O_3$ rolling averages, 3/6 day PM
-averages or Pb 3 month rolling averages.
-@seealso \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
+averages or Pb 3 month rolling averages. Use
+\code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
 available duration codes.}
 
 \item{cbdate}{a R date object which represents a 'beginning

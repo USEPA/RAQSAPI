@@ -8,9 +8,8 @@ aqs_fields_by_service(service, return_header = FALSE)
 }
 \arguments{
 \item{service}{a string which represents the services provided by the AQS
-API. For a list of available services
-@seealso \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-               }}
+API. For a list of available services, refer to
+\url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{return_header}{If FALSE (default) only returns data requested.
 If TRUE returns a AQSAPI_v2 object which is a two

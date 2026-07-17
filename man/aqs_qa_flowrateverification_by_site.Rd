@@ -29,18 +29,19 @@ selection. Only data on or before this date will be returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
 FIPS code (with leading zero) for the state being
-requested. @seealso \code{\link[=aqs_states]{aqs_states()}} for the list of
+requested. Use \code{\link[=aqs_states]{aqs_states()}} for the list of
 available FIPS codes.}
 
 \item{countycode}{a R character object which represents the 3 digit state
 FIPS code for the county being requested (with leading
-zero(s)). @seealso \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}} for the
-list of available county codes for each state.}
+zero(s)). Use \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}}
+for the list of available county codes in each state.}
 
 \item{sitenum}{a R character object which represents the 4 digit site number
 (with leading zeros) within the county and state being
-requested. @seealso \code{\link[=aqs_sites_by_county]{aqs_sites_by_county()}} for the list of
-available site numbers for a given county and state.}
+requested. Use \code{\link[=aqs_sites_by_county]{aqs_sites_by_county()}}
+for the list of available site numbers in  given county and
+state.}
 
 \item{cbdate}{a R date object which represents a 'beginning
 date of last change' that indicates when the data was last

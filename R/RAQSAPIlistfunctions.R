@@ -56,7 +56,7 @@ aqs_knownissues <- function(return_header = FALSE) {
 #' @importFrom magrittr `%<>%`
 #' @param stateFIPS a R character object which represents the 2 digit state
 #'                   FIPS code (with leading zeros) for the state being
-#'                   requested. @seealso [RAQSAPI::aqs_states()] for the list of
+#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
 #'                   available FIPS codes.
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
@@ -165,7 +165,7 @@ aqs_classes <- function(return_header = FALSE) {
 #'                 Returns parameters associated with the input class.
 #' @importFrom magrittr `%<>%`
 #' @param class a R character object that represents the class requested,
-#'                  @seealso [RAQSAPI::aqs_classes()] for retrieving
+#'                   Use [RAQSAPI::aqs_classes()] for retrieving
 #'                  available classes.  The class R character object must be a
 #'                  valid class as returned from aqs_classes(). The class must
 #'                  be an exact match to what is returned from aqs_classes()
@@ -410,9 +410,8 @@ aqs_revisionhistory <- function(return_header = FALSE) {
 #'                service requested.
 #' @importFrom magrittr `%<>%`
 #' @param service a string which represents the services provided by the AQS
-#'                    API. For a list of available services
-#'    @seealso \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services
-#'                   }
+#'                    API. For a list of available services, refer to
+#'             \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned

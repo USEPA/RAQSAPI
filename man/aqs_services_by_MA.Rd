@@ -28,7 +28,9 @@ selection. Only data on or before this date will be
 returned.}
 
 \item{MA_code}{a R character object which represents the 4 digit AQS
-Monitoring Agency code (with leading zeroes).}
+Monitoring Agency code (with leading zeroes). Use
+\code{\link[=aqs_mas]{aqs_mas()}} for a list of all
+Monitoring Agency (MA) codes and names available,}
 
 \item{service}{a string which represents the services provided by the AQS API
 For a list of available services @seealso

@@ -8,7 +8,7 @@ aqs_parameters_by_class(class, return_header = FALSE)
 }
 \arguments{
 \item{class}{a R character object that represents the class requested,
-@seealso \code{\link[=aqs_classes]{aqs_classes()}} for retrieving
+Use \code{\link[=aqs_classes]{aqs_classes()}} for retrieving
 available classes.  The class R character object must be a
 valid class as returned from aqs_classes(). The class must
 be an exact match to what is returned from aqs_classes()

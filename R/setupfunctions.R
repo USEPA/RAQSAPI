@@ -4,7 +4,7 @@
 #'                 needs to be called once and only once every time this library
 #'                 is re-loaded. Users must have a valid username and key which
 #'                 can be obtained through the use of the aqs_sign_up function,
-#'                 @seealso [RAQSAPI::aqs_sign_up()] to sign up for AQS data mart
+#'                 Use [RAQSAPI::aqs_sign_up()] to sign up for AQS datamart
 #'                 credentials.
 #' @importFrom rlang is_character
 #' @param username a R character object which represents the email account that
@@ -53,7 +53,6 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_) {
 #'                 functionality of the AQS API. Register your credential
 #'                 with [RAQSAPI::aqs_credentials()] before using the
 #'                 other functions in this library.
-#' @note The '@' character needs to be escaped with the '/' character.
 #' @importFrom glue glue
 #' @importFrom magrittr `%>%`
 #' @importFrom httr2 request req_perform

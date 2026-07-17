@@ -27,13 +27,13 @@ returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
 FIPS code (with leading zero) for the state being
-requested. @seealso \code{\link[=aqs_states]{aqs_states()}} for the list of
+requested. Use \code{\link[=aqs_states]{aqs_states()}} for the list of
 available FIPS codes.}
 
 \item{countycode}{a R character object which represents the 3 digit state
 FIPS code for the county being requested (with leading
-zero(s)). @seealso \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}} for the
-list of available county codes for each state.}
+zero(s)). Use \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}}
+for the list of available county codes in each state.}
 
 \item{return_header}{If FALSE (default) only returns data requested.
 If TRUE returns a AQSAPI_v2 object which is a two

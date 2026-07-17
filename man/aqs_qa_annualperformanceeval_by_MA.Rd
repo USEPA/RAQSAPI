@@ -25,7 +25,9 @@ selection. Only data on or before this date will be
 returned.}
 
 \item{MA_code}{a R character object which represents the 4 digit AQS
-Monitoring Agency code (with leading zeroes).}
+Monitoring Agency code (with leading zeroes). Use
+\code{\link[=aqs_mas]{aqs_mas()}} for a list of all
+Monitoring Agency (MA) codes and names available,}
 
 \item{return_header}{If FALSE (default) only returns data requested.
 If TRUE returns a AQSAPI_v2 object which is a two

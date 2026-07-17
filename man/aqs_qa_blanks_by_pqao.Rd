@@ -27,7 +27,9 @@ selection. Only data on or before this date will be returned.}
 
 \item{pqao_code}{a R character object which represents the 4 digit AQS
 Primary Quality Assurance Organization code
-(with leading zeroes). @See}
+(with leading zeroes). Use \code{\link[=aqs_pqaos]{aqs_pqaos()}} for a
+list of all Primary Quality Assurance Organization (pqao)
+codes and names available,}
 
 \item{cbdate}{a R date object which represents a 'beginning
 date of last change' that indicates when the data was last

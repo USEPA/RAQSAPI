@@ -66,3 +66,4 @@ CODE_OF_CONDUCT.md
 ^.\vignettes\RAQSAPI_exported_functions.R
 ^.\vignettes\RAQSAPI_exported_functions_old.R
 ^Ropensci Review of RAQSAPI - todo list\.md$
+^NEWS.Rmd

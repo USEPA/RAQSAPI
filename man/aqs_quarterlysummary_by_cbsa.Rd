@@ -27,8 +27,8 @@ selection. Only data on or before this date will be returned.}
 
 \item{cbsa_code}{a R character object which represents the 5 digit AQS Core
 Based Statistical Area code (the same as the census code,
-with leading zeros) @seealso \code{\link[=aqs_cbsas]{aqs_cbsas()}} for a list of all
-CBSA codes and names available,}
+with leading zeros). Use \code{\link[=aqs_cbsas]{aqs_cbsas()}}
+for a list of all CBSA codes and names available,}
 
 \item{cbdate}{a R date object which represents a 'beginning
 date of last change' that indicates when the data was last
