@@ -19,7 +19,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
   )
   stopifnot(
     is.data.frame(.Data[[2]]) |
-      tibble::is_tibble(.Data[[1]])
+      tibble::is_tibble(.Data[[2]])
   )
   stopifnot(
     names(.Data) == c("Header", "Data")
