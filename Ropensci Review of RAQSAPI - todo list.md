@@ -37,7 +37,7 @@ Ai generated summary of findings from ROpenSci review of RAQSAPI as a todo list 
 |[X]| Consider normalizing naming conventions | The package mixes styles such as `by_MA`, `by_pqao`, and various underscore patterns | Milan Malfait (@milanmlft); Rainer M Krug (@rkrug) |Can't fix/won't fix, this is a major change that would break API code compatibility. Would break code in existing projects that depend upon RAQSAPI.  |
 |  | Centralize repeated hardcoded URLs | Shared constants would reduce duplication and make future changes easier | Milan Malfait (@milanmlft) |  |
 |  | Add a test-coverage workflow and badge | This would make coverage visible and help maintenance | Milan Malfait (@milanmlft) |  |
-|  | Remove stale vignette or documentation artifacts such as obsolete files and commented-out blocks | These files add noise and confusion | Milan Malfait (@milanmlft); Rainer M Krug (@rkrug) |  |
+|&check;| Remove stale vignette or documentation artifacts such as obsolete files and commented-out blocks | These files add noise and confusion | Milan Malfait (@milanmlft); Rainer M Krug (@rkrug) |addressed in[commit 83f8e5a](https://github.com/USEPA/RAQSAPI/commit/83f8e5a7c5399da50a72f2b16edecdb98481e8b2)|
 |  | Fix the vignette/README grammatical and formatting nits | Small but visible polish issues remain | Milan Malfait (@milanmlft); Rainer M Krug (@rkrug) |  |
 |  | Add a basic pkgdown site | This would make vignettes and documentation easier to navigate | Rainer M Krug (@rkrug) |  |
 
