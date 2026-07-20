@@ -40,6 +40,11 @@ invalid <- function(x) {
 #' @importFrom stringr str_detect
 #' @return NULL, This functions is called for its side effect and
 #'         does not return meaningful data.
+#' @note This is a generic function used to validate parameters from all
+#'       exported RAQSAPI functions, because of this parameter positions is not
+#'       known to this function beforehand and thus all parameters must be
+#'       passed as a named argument. Positional arguments will not be
+#'       checked.
 #' @keywords internal
 #' @noRd
 checkaqsparams <- function(...) {
