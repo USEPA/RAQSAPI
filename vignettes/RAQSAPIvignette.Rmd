@@ -11,7 +11,7 @@ output:
   rmarkdown::html_vignette:
     toc: true
     df_print: paged
-    self_contained: false
+    self_contained: true
   rmarkdown::github_document:
     toc: true
   rmarkdown::pdf_document:

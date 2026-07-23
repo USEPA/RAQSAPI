@@ -402,7 +402,7 @@
     "SystemRequirements": "package manual and Vignettes require pandoc\n                    (>= 1.14) (http://pandoc.org)"
   },
   "keywords": ["UnitedStateEnvironmentalProtectionAgency", "Environmental-data-retrieval", "Air-Quality-System", "AQS-DataMart", "Air-monitoring", "Environmental-monitoring", "r03", "airmonitoring", "aqs", "datamart", "environmental-data-retrieval", "environmental-monitoring", "usepa", "rpackage", "rprogramming"],
-  "fileSize": "14518.513KB",
+  "fileSize": "14518.512KB",
   "citation": [
     {
       "@type": "CreativeWork",
