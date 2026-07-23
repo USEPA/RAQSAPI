@@ -21,7 +21,7 @@ $.Rd2pdf*
 #compiled Document files
 *.out
 *.aux
-*.html
+#*.html
 *.pdf
 *.log
 *.docx

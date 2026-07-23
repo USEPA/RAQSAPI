@@ -58,7 +58,7 @@ information from the AQS API and the second item ($Data) is a
 tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of monitors at all sites with the provided
 parameter, aggregated by Core Based Statistical Area (CBSA) for
 bdate - edate time frame.

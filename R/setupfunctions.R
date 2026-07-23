@@ -1,5 +1,5 @@
 #' @title aqs_credentials
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Sets the user credentials for the AQS API. This function
 #'                 needs to be called once and only once every time this library
 #'                 is re-loaded. Users must have a valid username and key which
@@ -27,8 +27,8 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_) {
   # 'password' we don't need to worry about securing the credentials with complicated code such as involving salt and hashes
   # and etc.
   if (rlang::is_character(username) && rlang::is_character(key) && !is.na(username) && !is.na(key)) {
-    .RAQSAPI_env$aqs_username = username
-    .RAQSAPI_env$aqs_key = key
+    .RAQSAPI_env$aqs_username <- username
+    .RAQSAPI_env$aqs_key <- key
   } else {
     warning("Please enter a valid username and key  \n")
   }
@@ -37,7 +37,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_) {
 
 
 #' @title aqs_sign_up
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'              Use this function to register as a new user or to reset an
 #'              existing user's key. A verification email will be sent to the
 #'              email account specified. To reset a password: If the request is

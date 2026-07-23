@@ -1,5 +1,5 @@
 #' @title aqs_monitors_by_box
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'  Returns a table of monitors and related metadata sites with the provided
 #'    parameter, aggregated by latitude/longitude bounding box (_by_box) for
 #'    bdate - edate time frame.
@@ -30,14 +30,7 @@
 #'                                        )
 #'                    }
 #' @export
-aqs_monitors_by_box <- function(parameter,
-                                bdate,
-                                edate,
-                                minlat,
-                                maxlat,
-                                minlon,
-                                maxlon,
-                                return_header = FALSE) {
+aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
@@ -64,7 +57,7 @@ aqs_monitors_by_box <- function(parameter,
 
 
 #' @title aqs_sampledata_by_box
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns sample data where the data is aggregated by
 #'                 latitude/longitude bounding box (_by_box).
 #'                 If return_header is FALSE (default) this function returns a
@@ -132,15 +125,7 @@ aqs_sampledata_by_box <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter,
-                 bdate,
-                 edate,
-                 minlat,
-                 maxlat,
-                 minlon,
-                 maxlon,
-                 duration,
-                 return_header)
+  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -165,7 +150,7 @@ aqs_sampledata_by_box <- function(
 
 
 #' @title aqs_annualsummary_by_box
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns multiple years of data where annual data is
 #'                 aggregated at the bounding box level. Returned is an annual
 #'                 summary within the input parameter, latitude/longitude
@@ -248,7 +233,7 @@ aqs_annualsummary_by_box <- function(
 
 
 #' @title aqs_dailysummary_by_box
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object containing daily summary data bounded within a
 #'                latitude/longitude bounding box
@@ -331,7 +316,7 @@ aqs_dailysummary_by_box <- function(
 
 
 #' @title aqs_quarterlysummary_by_box
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object of quarterly summary data aggregated by and area within
 #'                a latitude/longitude bounding box.

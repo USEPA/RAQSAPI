@@ -19,7 +19,7 @@ their associated duration codes
 (groups of parameters, i.e. 'criteria' or 'all').
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of sample durations and their
 associated duration codes. Returned values are not calculated
 durations such as 8 hour CO or $O_3$ rolling averages, 3/6

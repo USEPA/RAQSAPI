@@ -18,7 +18,7 @@ a tibble or an AQS_DataMart_APIv2 S3 object of Parameter classes
 (groups of parameters, i.e. 'criteria' or 'all').
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of Parameter classes (groups of parameters,
 i.e. 'criteria' or 'all'). The information from this function
 can be used as input to other API calls.

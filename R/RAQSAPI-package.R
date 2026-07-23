@@ -4,7 +4,8 @@
 #' @title RAQSAPI: A R Interface to The United States Environmental Protection
 #' Agency's Air Quality System Data Mart RESTful API server
 #'
-#' @description \lifecycle{maturing} RAQSAPI is a package for R that connects
+#' @description `r lifecycle::badge("maturing")`
+#' RAQSAPI is a package for R that connects
 #' the R programming environment to the United States Environmental protection
 #' agency's Air Quality System (AQS) Data Mart API for retrieval of air
 #' monitoring data.

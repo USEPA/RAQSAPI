@@ -18,7 +18,7 @@ a tibble or an AQS_DataMart_APIv2 S3 object of monitoring agencies
 and their associated agency code.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of monitoring agencies (MA).
 }
 \examples{

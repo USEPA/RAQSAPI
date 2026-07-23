@@ -68,7 +68,7 @@ a tibble or an AQS_DataMart_APIv2 S3 object of monitors from a
 selected stateFIPS, county, and sitenum combination.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of monitors and related metadata at sites with the
 provided parameter, stateFIPS, county_code, and sitenum for
 bdate - edate time frame.

@@ -59,7 +59,7 @@ AQS API and the second item ($Data) is a tibble of the data
 returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table containing flow rate audit
 data aggregated by parameter code and monitoring agency code
 (_by_MA) for bdate - edate time frame.

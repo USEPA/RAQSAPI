@@ -72,7 +72,7 @@ item ($Header) is a tibble of header information from the AQS API
 and the second item ($Data) is a tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns multiple years of data where annual data is
 aggregated at the site level. Returned is an annual summary
 matching the input parameter, stateFIPS, county_code, and

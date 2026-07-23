@@ -78,7 +78,7 @@ the AQS API and the second item /(/$Data/) is a tibble of the data
 returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a single tibble with the requested data. If
 return_header is TRUE returns a list
 of AQSAPI_v2 objects where each index of the list is an

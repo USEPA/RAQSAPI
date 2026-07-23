@@ -71,7 +71,7 @@ AQS API and the second item /(/$Data/) is a tibble of the data
 returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns sample data where the data is aggregated at the state
 level. If return_header is FALSE (default) this function
 returns a single dataframe with the requested data. If

@@ -70,7 +70,7 @@ AQS_DataMart_APIv2 is a 2 item named list in which the first item
 the second item /(/$Data/) is a tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns sample data where the data is aggregated at the Core
 Based Statistical Area (cbsa) level. If return_header is
 FALSE (default) this function returns a single dataframe with

@@ -1,5 +1,5 @@
 #' @title aqs_qa_annualpeferomanceeval_by_site
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance* functions, please use these
 #'              functions instead.
@@ -27,7 +27,7 @@ aqs_qa_annualpeferomanceeval_by_site <- function() {
 
 
 #' @title aqs_qa_annualpeferomanceeval_by_county
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance* functions, please use these
 #'              functions instead.
@@ -47,7 +47,7 @@ aqs_qa_annualpeferomanceeval_by_county <- function() {
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_state
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance* functions, please use these functions
 #'              instead.
@@ -67,7 +67,7 @@ aqs_qa_annualpeferomanceeval_by_state <- function() {
 }
 
 #' @title aqs_qa_annualpeferomanceeval_by_pqao
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance_by* functions, please use these
 #'              functions instead.
@@ -88,7 +88,7 @@ aqs_qa_annualpeferomanceeval_by_pqao <- function() {
 
 
 #' @title aqs_qa_annualpeferomanceeval_by_MA
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed
 #'              to
 #'              aqs_qa_annualperformance_by* functions, please use these
@@ -109,7 +109,7 @@ aqs_qa_annualpeferomanceeval_by_MA <- function() {
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_site
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance_by* functions, please use these
 #'              functions instead.
@@ -130,7 +130,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_site <- function() {
 
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_county
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance_by* functions, please use these
 #'              functions instead.
@@ -151,7 +151,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_county <- function() {
 
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_pqao
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance_by* functions, please use these
 #'              functions instead.
@@ -171,7 +171,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_pqao <- function() {
 }
 
 #' @title aqs_qa_annualpeferomanceevaltransaction_by_MA
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #'              aqs_qa_annualpeferomanceeval_by* functions have been renamed to
 #'              aqs_qa_annualperformance_by* functions, please use these
 #'              functions instead.
@@ -193,7 +193,7 @@ aqs_qa_annualpeferomanceevaltransaction_by_MA <- function() {
 
 
 #' @title aqs_ratelimit
-#' @description \lifecycle{deprecated}
+#' @description `r lifecycle::badge("deprecated")`
 #' @description a helper function that should not be called externally, used
 #'                 as a primitive rate limit function for aqs.
 #' @param waittime the number of seconds, encoded as a numeric, that the API

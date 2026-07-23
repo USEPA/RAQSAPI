@@ -58,7 +58,7 @@ AQS_DataMart_APIv2 is a 2 item named list in which the first item
 the second item ($Data) is a tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of blank quality assurance data.
 Blanks are unexposed sample collection devices (e.g.,
 filters) that are transported with the exposed sample devices

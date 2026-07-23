@@ -21,7 +21,7 @@ NULL, This functions is called for its side effect and
 does not return meaningful data.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Use this function to register as a new user or to reset an
 existing user's key. A verification email will be sent to the
 email account specified. To reset a password: If the request is

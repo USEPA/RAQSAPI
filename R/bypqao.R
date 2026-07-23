@@ -1,5 +1,5 @@
 #' @title aqs_qa_blanks_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns a table of blank quality assurance data.
 #'        Blanks are unexposed sample collection devices (e.g.,
 #'        filters) that are transported with the exposed sample devices
@@ -72,7 +72,7 @@ aqs_qa_blanks_by_pqao <- function(
 
 
 #' @title aqs_qa_collocated_assessments_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of collocated assessment data aggregated by
 #'                 matching input parameter, and Primary Quality Assurance
 #'                 Organisation (PQAO) code provided for bdate - edate
@@ -143,7 +143,7 @@ aqs_qa_collocated_assessments_by_pqao <- function(
 
 
 #' @title aqs_qa_flowrateverification_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table containing flow rate Verification data for a
 #'                parameter code aggregated by matching input parameter, and
 #'                Primary Quality Assurance Organization (PQAO) code provided
@@ -216,7 +216,7 @@ aqs_qa_flowrateverification_by_pqao <- function(
 
 
 #' @title aqs_qa_flowrateaudit_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table containing flow rate audit
 #'                data aggregated by parameter code and Primary Quality
 #'                Assurance Organization (PQAO) code for bdate - edate
@@ -288,7 +288,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(
 
 
 #' @title aqs_qa_one_point_qc_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'   Returns a tibble or an AQS_DataMart_APIv2 S3 object containing Quality
 #'     assurance data - collocated assessment raw data aggregated by Primary
 #'     Quality Assurance Organization (PQAO) code.
@@ -358,7 +358,7 @@ aqs_qa_one_point_qc_by_pqao <- function(
 
 
 #' @title aqs_qa_pep_audit_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of Performance Evaluation Program (PEP) audit
 #'                data aggregated by Primary Quality Assurance Organization
 #'                (PQAO) code for the time frame between bdate and edate.
@@ -430,7 +430,7 @@ aqs_qa_pep_audit_by_pqao <- function(
 
 
 #' @title aqs_qa_annualperformanceeval_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns quality assurance performance evaluation data - aggregated by
 #'          Primary Quality Assurance Organization (PQAO) for a parameter
 #'          code aggregated by matching input parameter and pqao_code for the
@@ -495,7 +495,7 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_c
 
 
 #' @title aqs_qa_annualperformanceevaltransaction_by_pqao
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'          Returns AQS submissions transaction format (RD) of the annual
 #'             performance evaluation data (raw). Includes data pairs for
 #'             QA - aggregated by Primary Quality Assurance Organization (PQAO)

@@ -36,7 +36,8 @@ documentation
 * R package `formatR` [@package:formatR] was used to form code in this repository
 * R package `testthat` [@package:testthat] is used for unit testing
 * unit tests are mocked using R package `httptest2` [@package:httptest2]
-* Additional code formatting was accomplished using Air formatter[@airformatter] 
+* Additional code formatting was accomplished using Air formatter[@airformatter]
+* codemeta.json file was generated using R package `codemetar` [@package:codemetar]
 
 The RAQSAPI project developers would like to thank the awesome work of the
 RopenSci non-profit community of practice for reviewing this project's code

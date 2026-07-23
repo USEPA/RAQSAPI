@@ -69,7 +69,7 @@ a tibble or an AQS_DataMart_APIv2 S3 object of transaction sample
 corresponding to the inputs provided.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns transactionsample data aggregated by site
 in the AQS Submission Transaction Format (RD) sample (raw) data for
 a parameter code aggregated by matching input parameter, sitenum,

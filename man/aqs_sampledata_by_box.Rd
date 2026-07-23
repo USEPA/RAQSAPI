@@ -89,7 +89,7 @@ information from the AQS API and the second item /(/$Data/) is a
 tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns sample data where the data is aggregated by
 latitude/longitude bounding box (_by_box).
 If return_header is FALSE (default) this function returns a

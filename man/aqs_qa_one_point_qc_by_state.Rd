@@ -58,7 +58,7 @@ of header information from the AQS API and the second item
 ($Data) is a tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a tibble or an AQS_DataMart_APIv2 S3
 object containing Quality assurance data - flow rate audit
 raw data aggregated by state FIPS.

@@ -28,7 +28,7 @@ a tibble or an AQS_DataMart_APIv2 S3 object of all air monitoring
 sites with the requested state and county FIPS codes.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns data containing a table of all air monitoring sites
 with the input state and county FIPS code combination.
 }

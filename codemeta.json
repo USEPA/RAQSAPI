@@ -2,18 +2,19 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "RAQSAPI",
-  "description": "Retrieve air monitoring data and associated metadata from the US Environmental Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about the US EPA Data Mart API.",
+  "description": "Retrieve air monitoring data and associated metadata from the US Environmental Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about the US EPA Data Mart API <doi:10.32614/CRAN.package.RAQSAPI>.",
   "name": "RAQSAPI: A Simple Interface to the US EPA Air Quality System Data Mart API",
+  "relatedLink": ["https://aqs.epa.gov/aqsweb/documents/data_api.html", "https://CRAN.R-project.org/package=RAQSAPI"],
+  "codeRepository": "https://github.com/USEPA/RAQSAPI/",
   "issueTracker": "https://github.com/USEPA/RAQSAPI/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "identifier": "https://doi.org/10.32614/CRAN.package.RAQSAPI",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.0 (2023-04-21 ucrt)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -25,7 +26,12 @@
       "@type": "Person",
       "givenName": "Clinton",
       "familyName": "Mccrowey",
-      "email": "mccrowey.clinton@epa.gov"
+      "email": "mccrowey.clinton@epa.gov",
+      "@id": "https://orcid.org/0009-0001-1802-1518"
+    },
+    {
+      "@type": "Organization",
+      "name": "United States Environmental Protection Agency"
     }
   ],
   "contributor": [
@@ -55,22 +61,30 @@
       "familyName": "Wells"
     },
     {
+      "@type": "Organization",
+      "name": "United States Environmental Protection Agency"
+    },
+    {
       "@type": "Person",
       "givenName": "Edward",
       "familyName": "Andrews",
-      "email": "edward.s.andrews@wv.gov"
+      "email": "edwards.andrews@wv.gov"
     },
     {
-      "@type": "Person",
-      "givenName": "Cynthia",
-      "familyName": "Sthal",
-      "email": "Sthal.Cynthia@epa.gov"
-    },
+      "@type": "Organization",
+      "name": "United States Environmental Protection Agency"
+    }
+  ],
+  "copyrightHolder": [
     {
-      "@type": "Person",
-      "givenName": "Morresi",
-      "familyName": "Maria",
-      "email": "Morresi.Maria@epa.gov"
+      "@type": "Organization",
+      "name": "United States Environmental Protection Agency"
+    }
+  ],
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "United States Environmental Protection Agency"
     }
   ],
   "maintainer": [
@@ -78,10 +92,23 @@
       "@type": "Person",
       "givenName": "Clinton",
       "familyName": "Mccrowey",
-      "email": "mccrowey.clinton@epa.gov"
+      "email": "mccrowey.clinton@epa.gov",
+      "@id": "https://orcid.org/0009-0001-1802-1518"
     }
   ],
   "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "cli",
+      "name": "cli",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=cli"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "covr",
@@ -96,18 +123,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "desc",
-      "name": "desc",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=desc"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "devtools",
       "name": "devtools",
       "provider": {
@@ -117,6 +132,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=devtools"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "goodpractice",
+      "name": "goodpractice",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=goodpractice"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "httptest2",
+      "name": "httptest2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httptest2"
     },
     {
       "@type": "SoftwareApplication",
@@ -144,15 +183,15 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "markdown",
-      "name": "markdown",
+      "identifier": "pak",
+      "name": "pak",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=markdown"
+      "sameAs": "https://CRAN.R-project.org/package=pak"
     },
     {
       "@type": "SoftwareApplication",
@@ -214,18 +253,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=usethis"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "withr",
-      "name": "withr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=withr"
     }
   ],
   "softwareRequirements": {
@@ -261,29 +288,17 @@
     },
     "4": {
       "@type": "SoftwareApplication",
-      "identifier": "httr",
-      "name": "httr",
+      "identifier": "httr2",
+      "name": "httr2",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=httr"
+      "sameAs": "https://CRAN.R-project.org/package=httr2"
     },
     "5": {
-      "@type": "SoftwareApplication",
-      "identifier": "jsonlite",
-      "name": "jsonlite",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
-    },
-    "6": {
       "@type": "SoftwareApplication",
       "identifier": "lifecycle",
       "name": "lifecycle",
@@ -295,7 +310,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
-    "7": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -306,6 +321,11 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
+    },
+    "7": {
+      "@type": "SoftwareApplication",
+      "identifier": "methods",
+      "name": "methods"
     },
     "8": {
       "@type": "SoftwareApplication",
@@ -367,30 +387,52 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "SystemRequirements": "package manual requires pandoc (>= 1.14) http://pandoc.org"
+    "13": {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyselect",
+      "name": "tidyselect",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyselect"
+    },
+    "SystemRequirements": "package manual and Vignettes require pandoc\n                    (>= 1.14) (http://pandoc.org)"
   },
   "keywords": ["UnitedStateEnvironmentalProtectionAgency", "Environmental-data-retrieval", "Air-Quality-System", "AQS-DataMart", "Air-monitoring", "Environmental-monitoring", "r03", "airmonitoring", "aqs", "datamart", "environmental-data-retrieval", "environmental-monitoring", "usepa", "rpackage", "rprogramming"],
-  "fileSize": "1599.568KB",
+  "fileSize": "14518.513KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
-      "datePublished": "2021",
+      "@type": "CreativeWork",
       "author": [
         {
           "@type": "Person",
           "givenName": "Clinton",
           "familyName": "Mccrowey",
-          "email": "mccrowey.clinton@epa.gov"
+          "email": "mccrowey.clinton@epa.gov",
+          "@id": "https://orcid.org/0009-0001-1802-1518"
+        },
+        {
+          "@type": "Organization",
+          "name": "United States Environmental Protection Agency"
         }
       ],
-      "name": "A R Interface to the US EPA Air Quality System\n                  Data Mart API",
-      "url": ["https://cran.r-project.org/package=RAQSAPI", "https://github.com/USEPA/RAQSAPI", "https://aqs.epa.gov/aqsweb/documents/data_api.html"]
+      "name": "RAQSAPI: A Simple Interface to the US EPA Air Quality System Data Mart API",
+      "identifier": "10.32614/CRAN.package.RAQSAPI",
+      "url": "https://github.com/USEPA/RAQSAPI/",
+      "@id": "https://doi.org/10.32614/CRAN.package.RAQSAPI",
+      "sameAs": "https://doi.org/10.32614/CRAN.package.RAQSAPI"
     }
   ],
-  "codeRepository": "https://github.com/USEPA/RAQSAPI",
-  "releaseNotes": "https://github.com/USEPA/RAQSAPI/blob/master/NEWS.md",
+  "releaseNotes": "https://github.com/USEPA/RAQSAPI/blob/main/NEWS.md",
   "readme": "https://github.com/USEPA/RAQSAPI/blob/main/README.md",
   "contIntegration": "https://github.com/USEPA/RAQSAPI/actions",
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#maturing"],
-  "relatedLink": "https://CRAN.R-project.org/package=RAQSAPI"
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html"],
+  "review": {
+    "@type": "Review",
+    "url": "https://github.com/ropensci/software-review/issues/744",
+    "provider": "https://ropensci.org"
+  }
 }

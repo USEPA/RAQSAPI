@@ -1,5 +1,5 @@
 #' @title aqs_isavailable
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                returns a tibble that details the status of the
 #'                AQS Data Mart API.
 #' @importFrom magrittr `%>%`
@@ -20,7 +20,7 @@ aqs_isavailable <- function() {
 
 
 #' @title aqs_knownissues
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of any known issues with system functionality
 #'                or the data. These are usually issues that have been
 #'                identified internally and will require some time to correct
@@ -50,7 +50,7 @@ aqs_knownissues <- function(return_header = FALSE) {
 
 
 #' @title aqs_counties_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of all counties in within the
 #'                 stateFIPS provided.
 #' @importFrom magrittr `%<>%`
@@ -90,7 +90,7 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE) {
 
 
 #' @title aqs_sites_by_county
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns data containing a table of all air monitoring sites
 #'                 with the input state and county FIPS code combination.
 #' @inheritParams aqs_services_by_county
@@ -127,7 +127,7 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE) {
 
 
 #' @title aqs_classes
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of Parameter classes (groups of parameters,
 #'                 i.e. 'criteria' or 'all'). The information from this function
 #'                 can be used as input to other API calls.
@@ -161,7 +161,7 @@ aqs_classes <- function(return_header = FALSE) {
 
 
 #' @title aqs_parameters_by_class
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns parameters associated with the input class.
 #' @importFrom magrittr `%<>%`
 #' @param class a R character object that represents the class requested,
@@ -198,7 +198,7 @@ aqs_parameters_by_class <- function(class, return_header = FALSE) {
 
 
 #' @title aqs_mas
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of monitoring agencies (MA).
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested.
@@ -232,7 +232,7 @@ aqs_mas <- function(return_header = FALSE) {
 
 
 #' @title aqs_pqaos
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of primary quality assurance
 #'                 organizations (pqaos).
 #' @importFrom magrittr `%<>%`
@@ -266,7 +266,7 @@ aqs_pqaos <- function(return_header = FALSE) {
 
 
 #' @title aqs_cbsas
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of all Core Based Statistical Areas (cbsa)
 #'                 and their associated cbsa_codes. for constructing other
 #'                 requests.
@@ -303,7 +303,7 @@ aqs_cbsas <- function(return_header = FALSE) {
 
 
 #' @title aqs_states
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of US states, US territories, and the
 #'                 district or Columbia with their respective FIPS codes.
 #' @importFrom magrittr `%<>%`
@@ -336,7 +336,7 @@ aqs_states <- function(return_header = FALSE) {
 
 
 #' @title aqs_removeheader
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Coerces a single AQS_Data_Mart_APIv2 S3 object or
 #'                a list of AQS_Data_Mart_APIv2 S3 objects into a single tibble
 #'                object. This function decouples the $Data from the AQSAPI_v2
@@ -372,7 +372,7 @@ aqs_removeheader <- function(AQSobject) {
 
 #' @title aqs_revisionhistory
 #'
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns the change history to the AQS Data Mart API.
 #' @importFrom magrittr `%<>%`
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
@@ -404,7 +404,7 @@ aqs_revisionhistory <- function(return_header = FALSE) {
 }
 
 #' @title aqs_fieldsbyservice
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object with the list and definitions of fields in the
 #'                service requested.
@@ -435,7 +435,7 @@ aqs_fields_by_service <- function(service, return_header = FALSE) {
 
 
 #' @title aqs_sampledurations
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of sample durations and their
 #'                 associated duration codes. Returned values are not calculated
 #'                 durations such as 8 hour CO or $O_3$ rolling averages, 3/6

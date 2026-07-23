@@ -71,7 +71,7 @@ AQS_DataMart_APIv2 is a 2 item named list in which the first item
 the second item ($Data) is a tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns multiple years of data where dailysummary data is
 aggregated at the site level. Returned is a daily summary
 matching the input parameter stateFIPS, countycode, and sitenum

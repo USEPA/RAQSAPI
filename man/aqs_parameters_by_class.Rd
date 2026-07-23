@@ -26,7 +26,7 @@ parameters associated with the class requested. NULL is returned
 for classes not found.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns parameters associated with the input class.
 }
 \examples{

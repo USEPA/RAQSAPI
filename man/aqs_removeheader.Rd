@@ -14,7 +14,7 @@ a tibble of the combined $data portions of the input
 AQS_Data_Mart_APIv2 S3 object with the $Header portion discarded.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Coerces a single AQS_Data_Mart_APIv2 S3 object or
 a list of AQS_Data_Mart_APIv2 S3 objects into a single tibble
 object. This function decouples the $Data from the AQSAPI_v2

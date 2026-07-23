@@ -7,7 +7,8 @@
 \title{RAQSAPI: A R Interface to The United States Environmental Protection
 Agency's Air Quality System Data Mart RESTful API server}
 \description{
-\lifecycle{maturing} RAQSAPI is a package for R that connects
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#maturing}{\figure{lifecycle-maturing.svg}{options: alt='[Maturing]'}}}{\strong{[Maturing]}}
+RAQSAPI is a package for R that connects
 the R programming environment to the United States Environmental protection
 agency's Air Quality System (AQS) Data Mart API for retrieval of air
 monitoring data.
@@ -70,6 +71,7 @@ Other contributors:
   \item Milan Malfait \email{milan.malfait94@gmail.com} (\href{https://orcid.org/0000-0001-9144-3701}{ORCID}) [reviewer]
   \item Rainer M Krug \email{Rainer@krugs.de} \email{Rainer.Krug@sib.swiss} [reviewer]
   \item SIB Swiss Institute of Bioinformatics (\href{https://ror.org/002n09z45}{ROR}) (https://www.sib.swiss) [reviewer]
+  \item Mark Padgham \email{mark.padgham@email.com} (\href{https://orcid.org/0000-0003-2172-5265}{ORCID}) [contractor]
 }
 
 }

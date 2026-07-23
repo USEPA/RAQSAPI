@@ -18,7 +18,7 @@ NULL (invisible) This functions is called for its side effect and
 does not return meaningful data.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Sets the user credentials for the AQS API. This function
 needs to be called once and only once every time this library
 is re-loaded. Users must have a valid username and key which

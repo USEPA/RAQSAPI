@@ -1,5 +1,5 @@
 #' @title aqs_monitors_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'  Returns a table of monitors and related metadata at sites with the
 #'    provided parameter, and stateFIPS for bdate - edate time frame.
 #' @note All monitors that operated between the bdate and edate will be returned
@@ -61,7 +61,7 @@ aqs_monitors_by_state <- function(
 
 
 #' @title aqs_sampledata_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns sample data where the data is aggregated at the state
 #'                 level. If return_header is FALSE (default) this function
 #'                 returns a single dataframe with the requested data. If
@@ -145,7 +145,7 @@ aqs_sampledata_by_state <- function(
 
 
 #' @title aqs_annualsummary_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns multiple years of data where annual data is
 #'                 aggregated at the state level. Returned is an annual summary
 #'                 matching the input parameter and stateFIPS
@@ -222,7 +222,7 @@ aqs_annualsummary_by_state <- function(
 
 
 #' @title aqs_qa_blanks_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns a table of blank quality assurance data .
 #'        Blanks are unexposed sample collection devices (e.g.,
 #'        filters) that are transported with the exposed sample devices
@@ -296,7 +296,7 @@ aqs_qa_blanks_by_state <- function(
 
 
 #' @title aqs_dailysummary_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns multiple years of data where daily data is
 #'        aggregated at the state level. Returned is a daily summary
 #'        matching the input parameter and stateFIPS provided for bdate - edate
@@ -370,7 +370,7 @@ aqs_dailysummary_by_state <- function(
 
 
 #' @title aqs_qa_collocated_assessments_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of collocated assessment data aggregated by
 #'                matching input parameter and stateFIPS provided for bdate -
 #'                edate time frame.
@@ -442,7 +442,7 @@ aqs_qa_collocated_assessments_by_state <- function(
 
 
 #' @title aqs_qa_flowrateverification_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table containing flow rate Verification data for a
 #'                parameter code aggregated matching input parameter, and
 #'                stateFIPS, provided for bdate - edate time frame.
@@ -514,7 +514,7 @@ aqs_qa_flowrateverification_by_state <- function(
 
 
 #' @title aqs_qa_flowrateaudit_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table containing flow rate audit
 #'                data aggregated by parameter code and stateFIPS for
 #'                bdate - edate time frame.
@@ -585,7 +585,7 @@ aqs_qa_flowrateaudit_by_state <- function(
 
 
 #' @title aqs_qa_one_point_qc_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object containing Quality assurance data - flow rate audit
 #'                raw data aggregated by state FIPS.
@@ -657,7 +657,7 @@ aqs_qa_one_point_qc_by_state <- function(
 
 
 #' @title aqs_qa_pep_audit_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of Performance Evaluation Program (PEP) audit
 #'                data aggregated by parameter code, and stateFIPS for the time
 #'                frame between bdate and edate.
@@ -726,7 +726,7 @@ aqs_qa_pep_audit_by_state <- function(
 
 
 #' @title aqs_transactionsample_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns transactionsample data - aggregated by state
 #'          in the AQS Submission Transaction Format (RD) sample (raw) data for
 #'          a parameter code aggregated by matching input parameter, and
@@ -786,7 +786,7 @@ aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS, r
 }
 
 #' @title aqs_qa_annualperformanceeval_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns quality assurance performance evaluation data - aggregated by
 #'          state for a parameter code aggregated by matching input
 #'          parameter, countycode and stateFIPS provided for
@@ -850,7 +850,7 @@ aqs_qa_annualperformanceeval_by_state <- function(parameter, bdate, edate, state
 
 
 #' @title aqs_qa_annualperformanceevaltransaction_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'          Returns AQS submissions transaction format (RD) of the annual
 #'             performance evaluation data (raw). Includes data pairs for
 #'             QA - aggregated by state for a parameter code aggregated by
@@ -916,7 +916,7 @@ aqs_qa_annualperformanceevaltransaction_by_state <- function(parameter, bdate, e
 
 
 #' @title aqs_quarterlysummary_by_state
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object of quarterly summary data aggregated by stateFIPS.
 #' @note The AQS API only allows for a single year of quarterly summary to be

@@ -30,7 +30,7 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
 
 #' @title AQS_DATAMART_APIv2-S3-class
 #' @name new_AQS_DATAMART_APIv2
-#' @description \lifecycle{stable} AQS_DATAMART_APIv2
+#' @description `r lifecycle::badge("stable")` AQS_DATAMART_APIv2
 #'    AQS_DATAMART_APIv2 is a relatively simple R S3 object composed of two
 #'    items, both of which are named lists. The first item, ($Header) in an
 #'    AQS_DATAMART_APIv2 object is a tibble which contains the header

@@ -44,7 +44,7 @@ information from the AQS API and the second item ($Data) is a
 tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns quality assurance performance evaluation data - aggregated by
 state for a parameter code aggregated by matching input
 parameter, countycode and stateFIPS provided for

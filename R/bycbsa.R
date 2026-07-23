@@ -1,5 +1,5 @@
 #' @title aqs_monitors_by_cbsa
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'  Returns a table of monitors at all sites with the provided
 #'    parameter, aggregated by Core Based Statistical Area (CBSA) for
 #'    bdate - edate time frame.
@@ -66,7 +66,7 @@ aqs_monitors_by_cbsa <- function(
 
 
 #' @title aqs_sampledata_by_cbsa
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns sample data where the data is aggregated at the Core
 #'                 Based Statistical Area (cbsa) level. If return_header is
 #'                 FALSE (default) this function returns a single dataframe with
@@ -150,7 +150,7 @@ aqs_sampledata_by_cbsa <- function(
 
 
 #' @title aqs_annualsummary_by_cbsa
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                 Returns multiple years of data where annual data is
 #'                 aggregated at the Core Based Statistical Area (CBSA) level.
 #'                 Returned is an annual summary
@@ -227,7 +227,7 @@ aqs_annualsummary_by_cbsa <- function(
 
 
 #' @title aqs_dailysummary_by_cbsa
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object containing daily summary data aggregated by cbsa
 #'                (Core Based Statistical Area) code.
@@ -299,7 +299,7 @@ aqs_dailysummary_by_cbsa <- function(
 
 
 #' @title aqs_quarterlysummary_by_cbsa
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3
 #'                object of quarterly summary data aggregated by stateFIPS.
 #' @note The AQS API only allows for a single year of quarterly summary to be

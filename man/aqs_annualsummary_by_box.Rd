@@ -75,7 +75,7 @@ tibble of header information from the AQS API and the second item
 ($Data) is a tibble of the data returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns multiple years of data where annual data is
 aggregated at the bounding box level. Returned is an annual
 summary within the input parameter, latitude/longitude

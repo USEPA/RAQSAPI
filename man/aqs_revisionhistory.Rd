@@ -20,7 +20,7 @@ and the second item ($Data) is a tibble of the data
 returned.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns the change history to the AQS Data Mart API.
 }
 \examples{

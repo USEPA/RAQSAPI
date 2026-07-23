@@ -1,0 +1,71 @@
+name: Test Coverage Badge
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::covr
+            any::remotes
+
+      - name: Calculate Coverage
+        run: |
+          # Calculate total coverage as a rounded integer
+          cov_percent=$(Rscript -e "cov <- covr::package_coverage(); cat(round(covr::percent_coverage(cov)))")
+          echo "COVERAGE_VALUE=$cov_percent" >> "$GITHUB_ENV"
+
+          # Pick badge color based on score thresholds
+          if [ "$cov_percent" -ge 90 ]; then
+            echo "COVERAGE_COLOR=brightgreen" >> "$GITHUB_ENV"
+          elif [ "$cov_percent" -ge 75 ]; then
+            echo "COVERAGE_COLOR=green" >> "$GITHUB_ENV"
+          elif [ "$cov_percent" -ge 50 ]; then
+            echo "COVERAGE_COLOR=yellow" >> "$GITHUB_ENV"
+          else
+            echo "COVERAGE_COLOR=red" >> "$GITHUB_ENV"
+          fi
+
+      - name: Update README Badge
+        run: |
+          # Generate the markdown badge syntax using Shields.io link parameters
+          BADGE_MARKDOWN="![Coverage](https://img.shields.io/badge/Coverage-${{ env.COVERAGE_VALUE }}%25-${{ env.COVERAGE_COLOR }})"
+
+          # Substitute the text block inside the target README file
+          TARGET_FILE="README.Rmd"
+
+          sed -i "/<!-- COVERAGE-BADGE:START -->/,/<!-- COVERAGE-BADGE:END -->/c\<!-- COVERAGE-BADGE:START -->\n${BADGE_MARKDOWN}\n<!-- COVERAGE-BADGE:END -->" "$TARGET_FILE"
+
+      - name: Rebuild README.Rmd
+        run: Rscript -e 'rmarkdown::render("README.Rmd")'
+
+      - name: Commit and Push Changes
+        if: github.event_name == 'push'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          # Only commit if the badge percentage changed to avoid empty commit loops
+          if ! git diff --exit-code README.*; then
+            git add README.*
+            git commit -m "chore: auto-update test coverage badge [skip ci]"
+            git push
+          fi

@@ -18,7 +18,7 @@ invalid <- function(x) {
 
 
 #' @title checkaqsparams
-#' @description \lifecycle{experimental}
+#' @description `r lifecycle::badge("experimental")`
 #'              A helper function used to check the validity of parameters being
 #'                sent to the API
 #' @param  ... variables to be checked. Must be one of the parameters
@@ -442,12 +442,7 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #'            returned.
 #' @keywords internal
 #' @noRd
-aqs <- function(service,
-                filter = NULL,
-                user = NA,
-                user_key = NA,
-                variables = NULL,
-                AQS_domain = "aqs.epa.gov") {
+aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov") {
   if (is.null(user) || is.null(user_key) || user_key == "redacted") {
     stop(
       "please enter user credentials before using RAQSAPI functions,\n
@@ -1336,7 +1331,7 @@ aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "
 
 
 #' @title renameaqsvariables
-#' @description \lifecycle{experimental}
+#' @description `r lifecycle::badge("experimental")`
 #'                This is a helper function not intended to be called directly
 #'                by the end user. Renames the two columns returned in the $Data
 #'                portion of a RAQSAPI_v2 object from 'value'and
@@ -1373,7 +1368,7 @@ renameaqsvariables <- function(aqsobject, name1, name2) {
 
 
 #' @title aqsmultiyearparams
-#' @description \lifecycle{experimental}
+#' @description `r lifecycle::badge("experimental")`
 #'                This is a helper function intended to build a tibble of
 #'                parameters used to generate the inputs to the purrr::map
 #'                functions used with functional calls to services_by_*

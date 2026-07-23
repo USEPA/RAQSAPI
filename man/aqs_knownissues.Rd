@@ -17,7 +17,7 @@ a tibble or an AQS_DataMart_APIv2 S3 object that contains
 information involving known issues with the Data Mart API.
 }
 \description{
-\lifecycle{stable}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 Returns a table of any known issues with system functionality
 or the data. These are usually issues that have been
 identified internally and will require some time to correct

@@ -1,5 +1,5 @@
 #' @title aqs_qa_blanks_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns a table of blank quality assurance data.
 #'        Blanks are unexposed sample collection devices (e.g.,
 #'        filters) that are transported with the exposed sample devices
@@ -73,7 +73,7 @@ aqs_qa_blanks_by_MA <- function(
 
 
 #' @title aqs_qa_collocated_assessments_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of collocated assessment data aggregated by
 #'                 matching input parameter, and monitoring agency (MA) code
 #'                 provided for bdate - edate time frame.
@@ -145,7 +145,7 @@ aqs_qa_collocated_assessments_by_MA <- function(
 
 
 #' @title aqs_qa_flowrateverification_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table containing flow rate Verification data for a
 #'                parameter code aggregated by matching input parameter, and
 #'                monitoring agency (MA) code provided for bdate - edate time
@@ -220,7 +220,7 @@ aqs_qa_flowrateverification_by_MA <- function(
 
 
 #' @title aqs_qa_flowrateaudit_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table containing flow rate audit
 #'                data aggregated by parameter code and monitoring agency code
 #'                (_by_MA) for bdate - edate time frame.
@@ -291,7 +291,7 @@ aqs_qa_flowrateaudit_by_MA <- function(
 
 
 #' @title aqs_qa_one_point_qc_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a tibble or an AQS_DataMart_APIv2 S3 object
 #'                containing one point QC check data aggregated by monitoring
 #'                agency code (_by_MA).
@@ -362,7 +362,7 @@ aqs_qa_one_point_qc_by_MA <- function(
 
 
 #' @title aqs_qa_pep_audit_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'                Returns a table of Performance Evaluation Program (PEP) audit
 #'                data aggregated by monitoring agency code (_by_MA) for the
 #'                time frame between bdate and edate.
@@ -433,7 +433,7 @@ aqs_qa_pep_audit_by_MA <- function(
 
 
 #' @title aqs_transactionsample_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns transactionsample data - aggregated by Monitoring agency (MA)
 #'          in the AQS Submission Transaction Format (RD) sample (raw) data for
 #'          a parameter code aggregated by matching input parameter, and
@@ -503,7 +503,7 @@ aqs_transactionsample_by_MA <- function(
 
 
 #' @title aqs_qa_annualperformanceeval_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'        Returns quality assurance performance evaluation data - aggregated by
 #'          by Monitoring agency (MA) for a parameter
 #'          code aggregated by matching input parameter and MA_code for the
@@ -547,11 +547,7 @@ aqs_transactionsample_by_MA <- function(
 #'           item ($Header) is a tibble of header information from the AQS API
 #'           and the second item ($Data) is a tibble of the data returned.
 #' @export
-aqs_qa_annualperformanceeval_by_MA <- function(parameter,
-                                               bdate,
-                                               edate,
-                                               MA_code,
-                                               return_header = FALSE) {
+aqs_qa_annualperformanceeval_by_MA <- function(parameter, bdate, edate, MA_code, return_header = FALSE) {
   checkaqsparams(parameter, bdate, edate, MA_code, return_header)
 
   params <- aqsmultiyearparams(
@@ -572,7 +568,7 @@ aqs_qa_annualperformanceeval_by_MA <- function(parameter,
 
 
 #' @title aqs_qa_annualperformanceevaltransaction_by_MA
-#' @description \lifecycle{stable}
+#' @description `r lifecycle::badge("stable")`
 #'          Returns AQS submissions transaction format (RD) of the annual
 #'             performance evaluation data (raw). Includes data pairs for
 #'             QA - aggregated by Monitoring agency (MA)
