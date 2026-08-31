@@ -1,0 +1,4 @@
+# The following urls may be valid but are included if they frequently cause urlchecker to fail
+ttps://www.gnu.org #connection timeout
+https://github.com/USEpa/%20/RAQSAPI/.github/workflows/pkgcheck.yaml #fSSL issues
+https://CRAN.R-project.org/src/contrib/PACKAGES.in #connection timeout

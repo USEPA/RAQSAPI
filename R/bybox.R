@@ -6,7 +6,7 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
-#' @importFrom magrittr `%<>%` `%>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
@@ -31,7 +31,16 @@
 #'                    }
 #' @export
 aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header = FALSE) {
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    return_header = return_header
+  )
 
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
   # on the server, purrr::map is used so that the output is consistent with other RAQSAPI functions.
@@ -84,7 +93,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'         $mathcal(n + 5 seconds).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
@@ -125,7 +134,17 @@ aqs_sampledata_by_box <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, duration, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    duration = duration,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -171,7 +190,7 @@ aqs_sampledata_by_box <- function(
 #'         $mathcal(n + 5 seconds).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'           returns a AQSAPI_v2 object which is a two item list that contains header
 #'           information returned from the API server mostly used for debugging
@@ -208,7 +227,16 @@ aqs_annualsummary_by_box <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -250,7 +278,7 @@ aqs_annualsummary_by_box <- function(
 #'         $mathcal(n + 5 seconds).
 #' @family Aggregate_by_box functions
 #' @inheritParams aqs_services_by_box
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -291,7 +319,16 @@ aqs_dailysummary_by_box <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -336,7 +373,7 @@ aqs_dailysummary_by_box <- function(
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_box
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -376,7 +413,18 @@ aqs_quarterlysummary_by_box <- function(
   return_header = FALSE
 ) {
   AQS_domain <- "aqs.epa.gov"
-  checkaqsparams(parameter, bdate, edate, minlat, maxlat, minlon, maxlon, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    minlat = minlat,
+    maxlat = maxlat,
+    minlon = minlon,
+    maxlon = maxlon,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,

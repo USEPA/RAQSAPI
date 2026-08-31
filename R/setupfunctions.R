@@ -54,7 +54,7 @@ aqs_credentials <- function(username = NA_character_, key = NA_character_) {
 #'                 with [RAQSAPI::aqs_credentials()] before using the
 #'                 other functions in this library.
 #' @importFrom glue glue
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom httr2 request req_perform
 #' @importFrom glue glue
 #' @examples # to register a new user or generate a new key with the email

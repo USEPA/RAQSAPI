@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2026-05-12T12:11:19-04:00",
+            "request_time": "2026-08-25T09:43:02-04:00",
             "url": "aqs/qaBlanks/byState?email=redacted&key=redacted&param=88101&bdate=20180101&edate=20180131&state=01",
             "rows": 30
         }
@@ -806,7 +806,7 @@
             "longitude": -87.880258,
             "datum": "NAD83",
             "local_site_name": "FAIRHOPE, Alabama",
-            "address": "FAIRHOPE HIGH SCHOOL, 1 PIRATE DRIVE, FAIRHOPE,  ALABAMA",
+            "address": "8340 MANLY RD",
             "state_name": "Alabama",
             "county_name": "Baldwin",
             "city_name": "Fairhope",

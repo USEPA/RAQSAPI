@@ -1,5 +1,6 @@
 #' @title AQS_DATAMART_APIv2_validator
-#' @description Helper function to Validate data structure of data before
+#' @description `r lifecycle::badge("stable")`
+#'              Helper function to Validate data structure of data before
 #'              converting it into an AQS_DATAMART_APIv2 S3 object.
 #' @param .Data A 2 item named list in which the first item ($Header) is a
 #'              tibble of header information from the AQS API and the second
@@ -53,8 +54,8 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
 #'        * The seconds item in the list ($Data), is a tibble which contains the
 #'          actual data being requested. This is stored as a tibble.
 #' @importFrom methods setOldClass
-#' @importFrom tibble tibble is_tibble
-#' @importFrom magrittr `%>%`
+#' @importFrom tibble tibble tibble is_tibble
+#' @importFrom magrittr %>%
 #' @note The .Data must be a two item list each containing a tibble with the
 #'       first item named 'Header' and the second 'Data'.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -63,10 +64,9 @@ AQS_DATAMART_APIv2_validator <- function(.Data) {
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 #' @seealso tibble::tibble#'
-#' @noRd
 #' @keywords internal
 new_AQS_DATAMART_APIv2 <- function(.AQSobject) {
   AQS_DATAMART_APIv2_validator(.AQSobject)
-  structure(.AQSobject, class = "AQS_DATAMART_APIv2") %>%
-    return()
+  class(.AQSobject) <- "AQS_DATAMART_APIv2"
+  return(.AQSobject)
 }

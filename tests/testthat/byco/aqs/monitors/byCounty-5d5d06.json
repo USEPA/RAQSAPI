@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2026-05-12T12:05:55-04:00",
+            "request_time": "2026-08-25T09:37:38-04:00",
             "url": "aqs/monitors/byCounty?email=redacted&key=redacted&param=42401&bdate=20150501&edate=20150502&state=15&county=001",
             "rows": 16
         }
@@ -328,7 +328,7 @@
             "last_method_begin_date": "2007-08-10",
             "naaqs_primary_monitor": null,
             "qa_primary_monitor": null,
-            "monitor_type": "SPM",
+            "monitor_type": "SLAMS",
             "networks": null,
             "monitoring_agency_code": "0481",
             "monitoring_agency": "Hawaii State Department Of Health",

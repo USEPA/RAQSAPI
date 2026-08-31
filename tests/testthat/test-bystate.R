@@ -8,16 +8,19 @@ if (file.exists("local.R")) {
   datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
 }
 
-# If credentials are not available (e.g., during check_built), set dummy values for mocked tests
-if (is.na(datamartAPI_user) || datamartAPI_user == "" || is.na(datamartAPI_key) || datamartAPI_key == "") {
-  datamartAPI_user <- "test@example.com"
-  datamartAPI_key <- "testkey"
-}
-
 RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
 with_mock_dir("bystate", {
   test_that("bystate functions", {
+    if (RAQSAPI:::invalid(datamartAPI_user) || RAQSAPI:::invalid(datamartAPI_key) ||
+        datamartAPI_key == "redacted" || datamartAPI_user == "redacted") {
+      stop("credentials not loaded in unit tests")
+    }
+    if(!exists(x="RAQSAPItestsetup_helper", mode="function"))
+    {
+      rlang::abort(message="RAQSAPItestsetup_helper function not loaded during unit test")
+    }
+
     aqs_monitors_by_state(
       parameter = "88101",
       bdate = as.Date("20170101", format = "%Y%m%d"),

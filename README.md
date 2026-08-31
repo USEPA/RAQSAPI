@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--07--23-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--08--31-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -369,18 +369,18 @@ those sources without them RAQSAPI would not be possible.
   documentation
 - R package `goodpractice`<sup>12</sup> was used for static code
   checking
-- R package `formatR`<sup>13</sup> was used to form code in this
-  repository
-- R package `testthat`<sup>14</sup> is used for unit testing
-- unit tests are mocked using R package `httptest2`<sup>15</sup>
+- R package `FormatR`<sup>**package:FormatR?**</sup> was used to form
+  code in this repository
+- R package `testthat`<sup>13</sup> is used for unit testing
+- unit tests are mocked using R package `httptest2`<sup>14</sup>
 - Additional code formatting was accomplished using Air
-  formatter<sup>16</sup>
+  formatter<sup>15</sup>
 - codemeta.json file was generated using R package
-  `codemetar`<sup>17</sup>
+  `codemetar`<sup>16</sup>
 
 The RAQSAPI project developers would like to thank the awesome work of
-the RopenSci non-profit community of practice for reviewing this
-project’s code base, discover bugs, and suggest improvements. Especally
+the rOpenSci non-profit community of practice for reviewing this
+project’s code base, discover bugs, and suggest improvements. Especially
 the editors that showed interest in starting the review process [Laura
 DeCicco](https://github.com/ldecicco-USGS), and Jeffrey W.
 Hollister(<https://github.com/jhollist>) and also the reviewers Mark
@@ -403,7 +403,7 @@ attention to. We thank you for your efforts.
 
 <span class="csl-left-margin">(1)
 </span><span class="csl-right-inline">AQS Data Mart Welcome, 2018.
-<https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html>.</span>
+<https://aqs.epa.gov/aqsweb/documents/data_mart_welcome.html></span>
 
 </div>
 
@@ -412,7 +412,7 @@ attention to. We thank you for your efforts.
 <span class="csl-left-margin">(2)
 </span><span class="csl-right-inline">Müller, K.; Wickham, H. *Tibble:
 Simple Data Frames*; 2025.
-<https://doi.org/10.32614/CRAN.package.tibble>.</span>
+<https://doi.org/10.32614/CRAN.package.tibble></span>
 
 </div>
 
@@ -420,7 +420,7 @@ Simple Data Frames*; 2025.
 
 <span class="csl-left-margin">(3)
 </span><span class="csl-right-inline">About AQS Data, 2019.
-<https://aqs.epa.gov/aqsweb/documents/about_aqs_data.html>.</span>
+<https://aqs.epa.gov/aqsweb/documents/about_aqs_data.html></span>
 
 </div>
 
@@ -430,7 +430,7 @@ Simple Data Frames*; 2025.
 </span><span class="csl-right-inline">Mccrowey, C. A Python 3 Package to
 Retrieve Ambient Air Monitoring Data from the United States
 Environmental Protection Agency’s (US EPA) Air Quality System (AQS) Data
-Mart API V2 Interface, 2022. <https://github.com/USEPA/pyaqsapi>.</span>
+Mart API V2 Interface, 2022. <https://github.com/USEPA/pyaqsapi></span>
 
 </div>
 
@@ -448,7 +448,7 @@ Readme](https://CRAN.R-project.org/package=badgecreatr)*; 2019.</span>
 <span class="csl-left-margin">(6)
 </span><span class="csl-right-inline">Wickham, H.; Bryan, J.; Barrett,
 M.; Teucher, A. *Usethis: Automate Package and Project Setup*; 2024.
-<https://doi.org/10.32614/CRAN.package.usethis>.</span>
+<https://doi.org/10.32614/CRAN.package.usethis></span>
 
 </div>
 
@@ -457,7 +457,7 @@ M.; Teucher, A. *Usethis: Automate Package and Project Setup*; 2024.
 <span class="csl-left-margin">(7)
 </span><span class="csl-right-inline">Hester, J.; Angly, F.; Hyde, R.;
 Chirico, M.; Ren, K.; Rosenstock, A.; Patil, I. *Lintr: A ’Linter’ for r
-Code*; 2025. <https://doi.org/10.32614/CRAN.package.lintr>.</span>
+Code*; 2025. <https://doi.org/10.32614/CRAN.package.lintr></span>
 
 </div>
 
@@ -475,7 +475,7 @@ Foundation for Statistical Computing: Vienna, Austria, 2019.</span>
 <span class="csl-left-margin">(9)
 </span><span class="csl-right-inline">Csardi, G.; Hester, J. *Pak:
 Another Approach to Package Installation*; 2026.
-<https://doi.org/10.32614/CRAN.package.pak>.</span>
+<https://doi.org/10.32614/CRAN.package.pak></span>
 
 </div>
 
@@ -485,7 +485,7 @@ Another Approach to Package Installation*; 2026.
 </span><span class="csl-right-inline">Hernangómez, D.
 <span class="nocase">cffr</span>: Generate Citation File Format Metadata
 for R Packages. *Journal of Open Source Software* **2021**, *6* (67),
-3900. <https://doi.org/10.21105/joss.03900>.</span>
+3900. <https://doi.org/10.21105/joss.03900></span>
 
 </div>
 
@@ -494,7 +494,7 @@ for R Packages. *Journal of Open Source Software* **2021**, *6* (67),
 <span class="csl-left-margin">(11)
 </span><span class="csl-right-inline">R Core team; Hester, J.; Csárdi,
 G. *Urlchecker: Run CRAN URL Checks from Older R Versions*; 2021.
-<https://doi.org/10.32614/CRAN.package.urlchecker>.</span>
+<https://doi.org/10.32614/CRAN.package.urlchecker></span>
 
 </div>
 
@@ -504,22 +504,13 @@ G. *Urlchecker: Run CRAN URL Checks from Older R Versions*; 2021.
 </span><span class="csl-right-inline"><span class="nocase">Padgham, M.;
 Marks, K.; de Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander,
 H.</span> *Goodpractice: Advice on R Package Building*; 2024.
-<https://doi.org/10.32614/CRAN.package.goodpractice>.</span>
-
-</div>
-
-<div id="ref-package:formatR" class="csl-entry">
-
-<span class="csl-left-margin">(13)
-</span><span class="csl-right-inline">Xie, Y. *formatR: Format r Code
-Automatically*; 2023.
-<https://doi.org/10.32614/CRAN.package.formatR>.</span>
+<https://doi.org/10.32614/CRAN.package.goodpractice></span>
 
 </div>
 
 <div id="ref-package:testthat" class="csl-entry">
 
-<span class="csl-left-margin">(14)
+<span class="csl-left-margin">(13)
 </span><span class="csl-right-inline">Wickham, H. [Testthat: Get Started
 with Testing](https://journal.r-project.org/articles/RJ-2011-002/). *The
 R Journal* **2011**, *3*, 5–10.</span>
@@ -528,28 +519,28 @@ R Journal* **2011**, *3*, 5–10.</span>
 
 <div id="ref-package:httptest2" class="csl-entry">
 
-<span class="csl-left-margin">(15)
+<span class="csl-left-margin">(14)
 </span><span class="csl-right-inline">Richardson, N. *Httptest2: Test
 Helpers for Httr2*; 2025.
-<https://doi.org/10.32614/CRAN.package.httptest2>.</span>
+<https://doi.org/10.32614/CRAN.package.httptest2></span>
 
 </div>
 
 <div id="ref-airformatter" class="csl-entry">
 
-<span class="csl-left-margin">(16)
+<span class="csl-left-margin">(15)
 </span><span class="csl-right-inline">Posit development team. Air - and
 r Formatter and Language Server, Written in Rust, 2026.
-<https://github.com/posit-dev/air>.</span>
+<https://github.com/posit-dev/air></span>
 
 </div>
 
 <div id="ref-package:codemetar" class="csl-entry">
 
-<span class="csl-left-margin">(17)
+<span class="csl-left-margin">(16)
 </span><span class="csl-right-inline">Boettiger, C.; Salmon, M.
 *Codemetar: Generate ’CodeMeta’ Metadata for r Packages*; 2026.
-<https://doi.org/10.32614/CRAN.package.codemetar>.</span>
+<https://doi.org/10.32614/CRAN.package.codemetar></span>
 
 </div>
 

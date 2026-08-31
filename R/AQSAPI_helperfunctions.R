@@ -13,7 +13,7 @@ server <- "AQSDatamartAPI"
 #' @keywords internal
 #' @noRd
 invalid <- function(x) {
-  rlang::is_empty(x) || all(is.na(x)) || inherits(x, "try-error")
+  rlang::is_empty(x) || all(is.na(x)) || is.null(x)
 }
 
 
@@ -36,7 +36,7 @@ invalid <- function(x) {
 #' @importFrom rlang abort format_error_bullets call_name
 #' @importFrom dplyr between
 #' @importFrom glue glue
-#' @importFrom magrittr `%<>%` `%>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom stringr str_detect
 #' @return NULL, This functions is called for its side effect and
 #'         does not return meaningful data.
@@ -55,6 +55,7 @@ checkaqsparams <- function(...) {
   errmessage <- vector()
   error <- FALSE
   ellipsis_args <- list(...)
+  #names(ellipsis_args) <- as.character(substitute(...()))
   names(ellipsis_args) <- names(match.call(expand.dots = FALSE)$...)
 
   if ("service" %in% names(ellipsis_args)) {
@@ -88,6 +89,12 @@ checkaqsparams <- function(...) {
     }
   }
 
+  if (any(is.null(names(ellipsis_args)))) {
+    error <- TRUE
+    errmessage %<>%
+      c("All arguments passed via ... must be named (no positional arguments allowed).")
+  }
+
   if ("parameter" %in% names(ellipsis_args)) {
     if (
       nchar(ellipsis_args$parameter) != 5 ||
@@ -96,7 +103,7 @@ checkaqsparams <- function(...) {
     ) {
       error <- TRUE
       errmessage %<>%
-        c(x = "parameter must be a 5 digit number (represented as a character string)")
+        c(x = "parameter must be a 5 digit number (represented as parama character string)")
     }
   }
 
@@ -244,20 +251,19 @@ checkaqsparams <- function(...) {
     }
   }
   if ("duration" %in% names(ellipsis_args)) {
-    if (
-      nchar(ellipsis_args$duration) != 1 ||
-        !is.character(ellipsis_args$duration) &&
-          ellipsis_args$duration %in% 1:9 ||
-        ellipsis_args$duration %in% LETTERS[1:26]
-    ) {
-      error <- TRUE
-      errmessage %<>%
-        c(
-          x = "duration must be a character from '1' to '9' or 'A' to 'Z'
-              (represented as a character string)"
-        )
-    }
-  }
+    if(!invalid(ellipsis_args$duration))
+       if (nchar(ellipsis_args$duration) != 1 ||
+           !is.character(ellipsis_args$duration) &&
+           ellipsis_args$duration %in% 1:9 ||
+           ellipsis_args$duration %in% LETTERS[1:26]
+          ) {
+              error <- TRUE
+              errmessage %<>%
+              c(x = "duration must be a character from '1' to '9' or 'A' to 'Z'
+                    (represented as a character string)"
+                )
+              }
+            }
   if ("return_header" %in% names(ellipsis_args)) {
     if (!is.logical(ellipsis_args$return_header)) {
       error <- TRUE
@@ -265,6 +271,7 @@ checkaqsparams <- function(...) {
         c(x = "return_header must be of type logical")
     }
   }
+
   if (error) {
     callingfunction <- rlang::call_name(sys.call(sys.parent(2)))
     if (is.null(callingfunction)) {
@@ -272,7 +279,7 @@ checkaqsparams <- function(...) {
     }
     callingfunction <- glue::glue(" in: {callingfunction}")
     c(i = callingfunction, errmessage) %>%
-      rlang::abort
+      rlang::abort(message = errmessage)
   }
   return(invisible())
   # nolint end
@@ -292,7 +299,7 @@ checkaqsparams <- function(...) {
 #'                   in the return value
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom purrr map_chr
 #' @importFrom stringr str_c
 #' @keywords internal
@@ -341,7 +348,7 @@ format_variables_for_api <- function(x, separator = "&") {
 #'                   in the return value.
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @keywords internal
 #' @noRd
 format_multiple_params_for_api <- function(x, separator = ",") {
@@ -364,7 +371,7 @@ format_multiple_params_for_api <- function(x, separator = ",") {
 #' @param AQSresponse a httr2 request object
 #' @importFrom glue glue
 #' @importFrom httr2 last_response resp_body_json
-#' @importFrom magrittr `%<>%` `%>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom stringr str_replace_all
 #' @description A helper function that is called by httr2::req_error when an
 #'              error is encountered performing a request. This function returns
@@ -427,7 +434,7 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #'                        addition to the data requested.
 #' @param AQS_domain a R string object containing the domain that should be
 #'                     used in constructing the API call.
-#' @importFrom magrittr `%<>%` `%>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr mutate arrange
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
@@ -443,13 +450,13 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #' @keywords internal
 #' @noRd
 aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NULL, AQS_domain = "aqs.epa.gov") {
-  if (is.null(user) || is.null(user_key) || user_key == "redacted") {
+  if (invalid(user) || user == "redacted") {
     stop(
       "please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
     )
   }
-  if (invalid(user) || invalid(user_key) || user == "redacted") {
+  if (invalid(user_key) || user_key == "redacted") {
     stop(
       "please enter user credentials before using RAQSAPI functions,\n
           please refer to '?aqs_credentials()' for useage infomation \n"
@@ -513,7 +520,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
 #'                \<character\>\<AT\>\<character\>.\<character\> with length
 #'                of at least 2 can be used to check if the input has the form
 #'                of a valid e-mail address.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @param email a string which represents the parameter code of the air
 #'                   pollutant related to the data being requested.
 #' @note since this code relies on using regex the implementation is not perfect
@@ -539,7 +546,7 @@ isValidEmail <- function(email) {
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
 #' @family Aggregate _by_site functions AQS_services
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
@@ -657,7 +664,7 @@ aqs_services_by_site <- function(
 #'                 aggregations by county then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
@@ -769,7 +776,7 @@ aqs_services_by_county <- function(
 #'                 aggregations by State then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -870,7 +877,7 @@ aqs_services_by_state <- function(
 #'                 latitude/longitude coordinates then calls the aqs
 #'                 and returns the result. This helper function is not meant
 #'                 to be called directly from external functions.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
@@ -996,7 +1003,7 @@ aqs_services_by_box <- function(
 #'                 aggregations by cbsa then calls the aqs and returns the
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
@@ -1102,7 +1109,7 @@ aqs_services_by_cbsa <- function(
 #'                 then calls the aqs and returns the result.
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
@@ -1203,7 +1210,7 @@ aqs_services_by_pqao <- function(
 #'                 then calls the aqs and returns the result.
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
-#' @importFrom magrittr `%>%`
+#' @importFrom magrittr %>%
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -1298,8 +1305,8 @@ aqs_services_by_MA <- function(
 #' @description A helper function for functions which use the metaData service
 #'                from the AQS API. This function is not intended to be called
 #'                directly by the end user
-#' @importFrom magrittr `%>%`
-#' @importFrom rlang `:=`
+#' @importFrom magrittr %>%
+#' @importFrom rlang :=
 #' @param filter a character string representing the filter being applied
 #' @param service a character string representing the service
 #' @param AQS_domain a R string object containing the domain that should be
@@ -1337,14 +1344,15 @@ aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "
 #'                portion of a RAQSAPI_v2 object from 'value'and
 #'                'value_represented' to name1 and name2 respectively.
 #' @importFrom dplyr rename rename_at vars
-#' @importFrom rlang `:=` `!!`
-#' @importFrom magrittr `%>%` `%<>%`
+#' @importFrom rlang := !!
+#' @importFrom magrittr %>% %<>%
 #' @param aqsobject A RAQSAPI_v2 object
 #' @param name1 a character string representing the new name of the first
 #'                column of the $Data portion of the RAQSAPI_v2 object.
 #' @param name2 a character string representing the new name of the second
 #'                column of the $Data portion of the RAQSAPI_v2 object.
 #' @noRd
+#' @keywords internal
 renameaqsvariables <- function(aqsobject, name1, name2) {
   if (is.null(aqsobject)) {
     return(aqsobject)
@@ -1390,7 +1398,7 @@ renameaqsvariables <- function(aqsobject, name1, name2) {
 #' @importFrom glue glue
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
-#' @importFrom magrittr `%>%` `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @keywords internal
 #' @noRd
 aqsmultiyearparams <- function(parameter, bdate, edate, service, ...) {

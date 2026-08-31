@@ -77,7 +77,7 @@ RAQSAPI_functions <- function() {
 
   functiontable <- tibble(
     functionnames <- list.files("./man/html") %>%
-      str_remove_all(pattern = ".html"),
+      str_remove_all(pattern = ".html")
   ) %>%
     mutate(functionfamily = functiontype(functionnames))
   functiontable$functionfamily[which(functiontable$functionnames %in% listfunctions)] <- "RAQSAPI list functions"

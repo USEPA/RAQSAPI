@@ -19,7 +19,7 @@
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -50,7 +50,15 @@ aqs_qa_blanks_by_pqao <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -90,7 +98,7 @@ aqs_qa_blanks_by_pqao <- function(
 #'         time of /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -121,7 +129,15 @@ aqs_qa_collocated_assessments_by_pqao <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -161,7 +177,7 @@ aqs_qa_collocated_assessments_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -194,7 +210,15 @@ aqs_qa_flowrateverification_by_pqao <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -234,7 +258,7 @@ aqs_qa_flowrateverification_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -266,7 +290,15 @@ aqs_qa_flowrateaudit_by_pqao <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -305,7 +337,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -336,7 +368,15 @@ aqs_qa_one_point_qc_by_pqao <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -375,7 +415,7 @@ aqs_qa_one_point_qc_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -408,7 +448,15 @@ aqs_qa_pep_audit_by_pqao <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -454,7 +502,7 @@ aqs_qa_pep_audit_by_pqao <- function(
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           # for ozone where the PQAO is the Alabamaba Department of
 #'           # Environmental Management (pqao_code 0013).
@@ -475,7 +523,13 @@ aqs_qa_pep_audit_by_pqao <- function(
 #'           tibble of the data returned.
 #' @export
 aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -520,7 +574,7 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_c
 #'                        item list that contains header information returned
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @examples #Returns a tibble containing annual performance evaluation data for
 #'           # ozone in where the PQAO is the Alabama Department of
 #'           # Environmental Management (pqao_code 0013) for 2017 in RD format.
@@ -542,7 +596,13 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_c
 #'           tibble of the data returned.
 #' @export
 aqs_qa_annualperformanceevaltransaction_by_pqao <- function(parameter, bdate, edate, pqao_code, return_header = FALSE) {
-  checkaqsparams(parameter, bdate, edate, pqao_code, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    pqao_code = pqao_code,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,

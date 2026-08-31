@@ -153,7 +153,7 @@ RAQSAPI_metadata_functions <- c("aqs_fields_by_service", "aqs_isavailable", "aqs
   rename(FUN = ".") %>%
   mutate(PATH = glue::glue("../man/{FUN}"))
 
-RAQSAPI_misc_functions <- c("aqs_removeheader") %>%
+RAQSAPI_misc_functions <- "aqs_removeheader" %>%
   sort() %>%
   tibble() %>%
   rename(FUN = ".") %>%

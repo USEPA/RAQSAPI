@@ -6,7 +6,7 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
-#' @importFrom magrittr `%<>%` `%>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
@@ -40,7 +40,15 @@ aqs_monitors_by_cbsa <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    cbsa_code = cbsa_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
   # aqs_monitors_by_* functions don't call aqsmultiyearparams()
   # since the monitors API call accepts multiple years of data
   # on the server, purrr::pmap is used so that the output is
@@ -93,7 +101,7 @@ aqs_monitors_by_cbsa <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/)
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
@@ -127,7 +135,16 @@ aqs_sampledata_by_cbsa <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, cbsa_code, duration, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    cbsa_code = cbsa_code,
+    duration = duration,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -172,7 +189,7 @@ aqs_sampledata_by_cbsa <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -205,7 +222,15 @@ aqs_annualsummary_by_cbsa <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    cbsa_code = cbsa_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -244,7 +269,7 @@ aqs_annualsummary_by_cbsa <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -277,7 +302,15 @@ aqs_dailysummary_by_cbsa <- function(
   cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    cbsa_code = cbsa_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,
@@ -318,7 +351,7 @@ aqs_dailysummary_by_cbsa <- function(
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_cbsa
-#' @importFrom magrittr `%<>%`
+#' @importFrom magrittr %>% %<>%
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -351,7 +384,15 @@ aqs_quarterlysummary_by_cbsa <- function(
   return_header = FALSE
 ) {
   AQS_domain <- "aqs.epa.gov"
-  checkaqsparams(parameter, bdate, edate, cbsa_code, cbdate, cedate, return_header)
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    cbsa_code = cbsa_code,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,

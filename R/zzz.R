@@ -6,7 +6,7 @@
 #' @title .onload
 #' @description setup and configuration of RAQSAPI package when loaded into an
 #' R environment. This function is not to be manually called by the end-user.
-#' @inheritParams base ns-hooks
+#' @inheritParams base::ns-hooks
 #' @return return NULL invisibly
 #' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
@@ -18,7 +18,6 @@
     package = "RAQSAPI"
   )
   .RAQSAPI_env$old_R_CHECK_LENGTH_1_CONDITION_ <- Sys.getenv("_R_CHECK_LENGTH_1_CONDITION_", unset = NA_character_)
-  #Sys.setenv(`_R_CHECK_LENGTH_1_CONDITION_` = "TRUE")
   return(invisible())
 }
 
@@ -26,7 +25,7 @@
 #' @title .onUnLoad
 #' @description restore configuration of R environment DURING UNLOADING OF RAQSAPI
 #'           to a state in which is was set before loading RASQSAPI.
-#' @inheritDotParams base ns-hooks
+#' @inheritDotParams base::ns-hooks
 #' @return return NULL invisibly
 #' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
