@@ -1,5 +1,6 @@
 .
 ’Codecov
+’CodeMeta’
 ’GitHub’
 ’Linter’
 ’Repostatus’
@@ -83,9 +84,9 @@ hexsticker
 Hogervorst
 https
 HTTPS
-Httptest
+httptest
 httptest2
-Httr
+httr
 img
 io
 io’
@@ -147,6 +148,7 @@ rOpenSci
 Ropensci
 ROR
 Rosenstock
+roxygen
 roxygen2
 sampledata
 sampledataby

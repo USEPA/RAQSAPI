@@ -439,7 +439,7 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #' @importFrom lubridate ymd_hm
 #' @importFrom glue glue
 #' @importFrom tibble tibble
-#' @importFrom rlang caller_call
+#' @importFrom rlang caller_call abort
 #' @importFrom httr2 request req_user_agent req_url_path_append resp_body_json req_perform
 #' @importFrom httr2 req_error req_verbose req_options req_retry req_throttle
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the

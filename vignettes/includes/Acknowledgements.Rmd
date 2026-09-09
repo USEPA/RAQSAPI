@@ -33,7 +33,7 @@ https://github.com/github/gitignore/blob/master/R.gitignore
 documentation
 * R package `goodpractice` [@package:goodpractice] was used for static code
   checking
-* R package `FormatR` [@package:FormatR] was used to form code in this repository
+* R package `formatR` [@package:formatR] was used to form code in this repository
 * R package `testthat` [@package:testthat] is used for unit testing
 * unit tests are mocked using R package `httptest2` [@package:httptest2]
 * Additional code formatting was accomplished using Air formatter[@airformatter]

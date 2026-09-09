@@ -128,6 +128,9 @@ License_is_FOSS: yes
 NeedsCompilation: no
 License_restricts_use: no
 Language: en-US
+Classification/ACM-2012: H.3.5 Information Systems—Web-based services,
+    J.2 Applied Computing—Earth and atmospheric sciences,
+    G.3 Mathematics of Computing—Probability and statistics
 Collate:
     'utils-pipe.R'
     'AQS_DATAMART_APIv2-S3-class.R'
@@ -143,7 +146,6 @@ Collate:
     'setupfunctions.R'
     'zzz.R'
     'RAQSAPI-package.R'
-    'deprecated.R'
 Copyright: United States Environmental Protection Agency
 RdMacros: lifecycle
 Roxygen: list(markdown = TRUE)

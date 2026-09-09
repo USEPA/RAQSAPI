@@ -297,7 +297,7 @@ references:
   abstract: 'goodpractice: Advice on R Package Building'
   notes: Suggests
   url: https://docs.ropensci.org/goodpractice/
-  repository: https://ropensci-review-tools.r-universe.dev
+  repository: https://CRAN.R-project.org/package=goodpractice
   authors:
   - family-names: Padgham
     given-names: Mark

@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2026-08-25T09:36:58-04:00",
+            "request_time": "2026-09-09T16:10:42-04:00",
             "url": "aqs/QD/byBox?email=redacted&key=redacted&param=44201&bdate=20160101&edate=20161231&minlon=-87.0&maxlon=-86.7&minlat=33.3&maxlat=33.6",
             "rows": 80
         }

@@ -3,7 +3,6 @@
 ^.gitignore
 ^.RData
 ^.git
-^inst/.lintr
 ^doc$
 ^Meta$
 ^.git$
@@ -20,7 +19,7 @@
 .aux$
 .covrignore$
 .gitignore
-.lintr$
+.lintr.R
 ^/.Rproj/.user$
 dev/install_RAQSAPI.R
 ^.*/.Rproj$

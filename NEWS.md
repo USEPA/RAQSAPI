@@ -16,7 +16,7 @@ output: md_document
    documentation is not included in the automatically generated reference
    documentation.
  - resume using package:goodpractice, goodpractice is now maintained by rOpenSci
- - code formatting now done using the package:FormatR package
+ - code formatting now done using the package:formatR package
  - Mocked unit tests using package:httptest2
  - Many improvements to project documentation thanks to Maria Morresi of
    ASRC Federal and Cynthia Sthal from the EPA.
@@ -45,7 +45,7 @@ output: md_document
     maximum of 10 requests per minute.
   - RAQSAPI will retry certain requests if they fail for a maximum of 5 times
     after a 10 second wait time.
-  - Moved to the httr2 backend, removed desc from suggests and
+  - Moved to the Httr2 backend, removed desc from suggests and
     httr, and jsonlite as from imports.
   - There is an issue with curl connecting to the AQS DataMart API, on
     windows platforms, as a temporary fix, RAQSAPI will default to using

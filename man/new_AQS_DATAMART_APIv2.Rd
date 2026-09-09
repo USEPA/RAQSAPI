@@ -4,7 +4,7 @@
 \alias{new_AQS_DATAMART_APIv2}
 \title{AQS_DATAMART_APIv2-S3-class}
 \usage{
-new_AQS_DATAMART_APIv2(.AQSobject)
+new_AQS_DATAMART_APIv2(x)
 }
 \value{
 a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -16,15 +16,14 @@ returned.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}} AQS_DATAMART_APIv2
 AQS_DATAMART_APIv2 is a relatively simple R S3 object composed of two
-items, both of which are named lists. The first item, ($Header) in an
-AQS_DATAMART_APIv2 object is a tibble which contains the header
+named lists. The first list, ($Header) in a tibble which contains the header
 information. The Header contains status information regarding the request
 (success/fail), any applicable error messages returned from the API, if
 any exist, the URL used in the request, a date and time stamp noting when
 request was received and other useful information. The second item of an
 AQS_DATAMART_APIv2 S3 object ($Data) is a tibble which contains the actual
 data being requested.
-@param .AQSobject A 2 item named list in which the first item ($Header) is a
+@param x A 2 item named list in which the first item ($Header) is a
 tibble of header information from the AQS API and the second
 item ($Data) is a tibble of the data returned.
 \itemize{
@@ -42,7 +41,7 @@ actual data being requested. This is stored as a tibble.
 }
 }
 \note{
-The .Data must be a two item list each containing a tibble with the
+The .x must be a two item list each containing a tibble with the
 first item named 'Header' and the second 'Data'.
 }
 \seealso{

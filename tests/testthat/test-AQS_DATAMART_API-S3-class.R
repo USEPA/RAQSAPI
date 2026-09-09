@@ -13,9 +13,9 @@ test_that("AQS_DATAMART_API S3 class", {
     content = "fake data"
   )
   AQSobject <- .Data
-  new_AQS_DATAMART_APIv2(AQSobject) %>%
+  RAQSAPI:::new_AQS_DATAMART_APIv2(AQSobject) %>%
     expect_error()
-  AQSobject <- list(Header = .Header, Data = .Data) %>%
+  AQSobject <- RAQSAPI:::new_AQS_DATAMART_APIv2(list(Header = .Header, Data = .Data)) %>%
     expect_no_error()
 })
 
@@ -28,11 +28,11 @@ test_that("AQS_DATAMART_API S3 class", {
 #' @importFrom lubridate now year mdy_hms
 test_that("test AQS_DATAMART_APIv2_validator", {
   year <- lubridate::now() %>%
-    year()
-  fakeData <- tibble(
+    lubridate::year()
+  fakeData <- tibble::tibble(
     datetime = seq.POSIXt(
-      from = lubridate::mdy_hms(glue("01-01-{lubridate::now() %>% year()} 00:00:00")),
-      to = lubridate::mdy_hms(glue("12-31-{lubridate::now() %>% year()} 23:59:59")),
+      from = lubridate::mdy_hms(glue::glue("01-01-{lubridate::now() %>% lubridate::year()} 00:00:00")),
+      to = lubridate::mdy_hms(glue::glue("12-31-{lubridate::now() %>% lubridate::year()} 23:59:59")),
       by = "hour"
     ),
     sample = rnorm(
@@ -50,11 +50,11 @@ test_that("test AQS_DATAMART_APIv2_validator", {
     long = -175
   )
 
-  fakeheader <- tibble(
+  fakeheader <- tibble::tibble(
     timestamp = paste0("07-01-", year, "12:00:00Z"),
     url = "https://aqs.epa.gov/data/api/"
   )
   list(Header = fakeheader, Data = fakeData) %>%
-    AQS_DATAMART_APIv2_validator() %>%
+    RAQSAPI:::AQS_DATAMART_APIv2_validator() %>%
     expect_no_error()
 })

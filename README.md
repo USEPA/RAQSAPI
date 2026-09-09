@@ -39,7 +39,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--08--31-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--09-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -369,14 +369,14 @@ those sources without them RAQSAPI would not be possible.
   documentation
 - R package `goodpractice`<sup>12</sup> was used for static code
   checking
-- R package `FormatR`<sup>**package:FormatR?**</sup> was used to form
-  code in this repository
-- R package `testthat`<sup>13</sup> is used for unit testing
-- unit tests are mocked using R package `httptest2`<sup>14</sup>
+- R package `formatR`<sup>13</sup> was used to form code in this
+  repository
+- R package `testthat`<sup>14</sup> is used for unit testing
+- unit tests are mocked using R package `httptest2`<sup>15</sup>
 - Additional code formatting was accomplished using Air
-  formatter<sup>15</sup>
+  formatter<sup>16</sup>
 - codemeta.json file was generated using R package
-  `codemetar`<sup>16</sup>
+  `codemetar`<sup>17</sup>
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
@@ -508,9 +508,18 @@ H.</span> *Goodpractice: Advice on R Package Building*; 2024.
 
 </div>
 
-<div id="ref-package:testthat" class="csl-entry">
+<div id="ref-package:formatR" class="csl-entry">
 
 <span class="csl-left-margin">(13)
+</span><span class="csl-right-inline">Xie, Y. *formatR: Format r Code
+Automatically*; 2023.
+<https://doi.org/10.32614/CRAN.package.formatR></span>
+
+</div>
+
+<div id="ref-package:testthat" class="csl-entry">
+
+<span class="csl-left-margin">(14)
 </span><span class="csl-right-inline">Wickham, H. [Testthat: Get Started
 with Testing](https://journal.r-project.org/articles/RJ-2011-002/). *The
 R Journal* **2011**, *3*, 5–10.</span>
@@ -519,7 +528,7 @@ R Journal* **2011**, *3*, 5–10.</span>
 
 <div id="ref-package:httptest2" class="csl-entry">
 
-<span class="csl-left-margin">(14)
+<span class="csl-left-margin">(15)
 </span><span class="csl-right-inline">Richardson, N. *Httptest2: Test
 Helpers for Httr2*; 2025.
 <https://doi.org/10.32614/CRAN.package.httptest2></span>
@@ -528,7 +537,7 @@ Helpers for Httr2*; 2025.
 
 <div id="ref-airformatter" class="csl-entry">
 
-<span class="csl-left-margin">(15)
+<span class="csl-left-margin">(16)
 </span><span class="csl-right-inline">Posit development team. Air - and
 r Formatter and Language Server, Written in Rust, 2026.
 <https://github.com/posit-dev/air></span>
@@ -537,7 +546,7 @@ r Formatter and Language Server, Written in Rust, 2026.
 
 <div id="ref-package:codemetar" class="csl-entry">
 
-<span class="csl-left-margin">(16)
+<span class="csl-left-margin">(17)
 </span><span class="csl-right-inline">Boettiger, C.; Salmon, M.
 *Codemetar: Generate ’CodeMeta’ Metadata for r Packages*; 2026.
 <https://doi.org/10.32614/CRAN.package.codemetar></span>
