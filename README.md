@@ -336,8 +336,8 @@ is either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
 
 # RAQSAPI demonstration
 
-Here is a short usage demonstration of RAQSAPI ![Gif demonstraing how to
-use RAQSAPI](./figures/RAQSAPI-demo.gif)
+Here is a short usage demonstration of RAQSAPI ![GIF demonstrating how
+to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
 
 ## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
 

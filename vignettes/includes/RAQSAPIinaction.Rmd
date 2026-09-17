@@ -10,4 +10,4 @@ output:
 ---
 # RAQSAPI demonstration
 Here is a short usage demonstration of RAQSAPI
-![Gif demonstraing how to use RAQSAPI](./figures/RAQSAPI-demo.gif)
+![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
