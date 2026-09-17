@@ -1,0 +1,13 @@
+---
+title: "RAQSAPI - RAQSAPI in action (usage demonstration)"
+author:
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
+output:
+  rmarkdown::github_document: null
+  rmarkdown::html_document: null
+---
+# RAQSAPI demonstration
+Here is a short usage demonstration of RAQSAPI
+![Gif demonstraing how to use RAQSAPI](./figures/RAQSAPI-demo.gif)

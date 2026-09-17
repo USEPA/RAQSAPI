@@ -19,6 +19,7 @@ true
   - [Data Mart aggregate functions](#data-mart-aggregate-functions)
     - [See the RAQSAPI vignette for more
       details](#see-the-raqsapi-vignette-for-more-details)
+- [RAQSAPI demonstration](#raqsapi-demonstration)
   - [pyaqsapi - a port of RAQSAPI to the python 3 programming
     environment](#pyaqsapi---a-port-of-raqsapi-to-the-python-3-programming-environment)
 - [Acknowledgements](#acknowledgements)
@@ -29,7 +30,7 @@ true
 <!-- badges: start -->
 
 [![Project Status: Active – The project has reached a stable, usable
-state  
+state\
 and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/USEPA/RAQSAPI/workflows/R-CMD-check/badge.svg)](https://github.com/USEPA/RAQSAPI/actions)
@@ -39,7 +40,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--09-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--17-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -279,7 +280,7 @@ groups data.
 - **\_by\_\<latitude/longitude bounding box\>** (\_by_box)
 - **\_by\_\<monitoring agency\>** (\_by_MA)
 - **\_by\_\<Primary Quality Assurance Organization\>** (\_by_pqao)
-- **\_by\_\<core based statistical area (as defined by the**  
+- **\_by\_\<core based statistical area (as defined by the**\
   **US census Bureau)\>** (\_by_cbsa).
 
 Within these families of aggregated data functions there are functions
@@ -305,9 +306,9 @@ service.**
 - **Quality Assurance - PEP Audits** (aqs_qa_pep_audit_by\_\*)
 - **Transaction Sample - AQS Submission data in transaction Format
   (RD)** (aqs_transactionsample_by\_\*)
-- **Quality Assurance - Annual Performance Evaluations**  
+- **Quality Assurance - Annual Performance Evaluations**\
   (aqs_qa_annualperformanceeval_by\_\*)
-- **Quality Assurance - Annual Performance Evaluations in the AQS**  
+- **Quality Assurance - Annual Performance Evaluations in the AQS**\
   **Submission transaction format (RD)**
   (aqs_qa_annualperformanceevaltransaction_by\_\*)
 
@@ -332,6 +333,11 @@ is either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
 ``` r
   RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
 ```
+
+# RAQSAPI demonstration
+
+Here is a short usage demonstration of RAQSAPI ![Gif demonstraing how to
+use RAQSAPI](./figures/RAQSAPI-demo.gif)
 
 ## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
 
@@ -397,7 +403,7 @@ attention to. We thank you for your efforts.
 
 # References
 
-<div id="refs" class="references csl-bib-body" entry-spacing="0">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0">
 
 <div id="ref-AQSDataMartWelcome" class="csl-entry">
 

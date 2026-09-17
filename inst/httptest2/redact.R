@@ -1,15 +1,15 @@
 function(resp) {
-  user <- .RAQSAPI_env$aqs_username
-  key <- .RAQSAPI_env$aqs_key
+  user <- paste0("?email=", .RAQSAPI_env$aqs_username)
+  key <- paste0("&key=", .RAQSAPI_env$aqs_key)
 
   if (!is.null(key) && nzchar(as.character(key))) {
     resp <- httptest2::gsub_response(resp, as.character(key),
-                                     "redacted",
+                                     "",
                                      fixed = TRUE)
   }
   if (!is.null(user) && nzchar(as.character(user))) {
     resp <- httptest2::gsub_response(resp, as.character(user),
-                                     "redacted",
+                                     "",
                                      fixed = TRUE)
   }
 

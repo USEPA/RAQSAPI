@@ -103,7 +103,7 @@ checkaqsparams <- function(...) {
     ) {
       error <- TRUE
       errmessage %<>%
-        c(x = "parameter must be a 5 digit number (represented as parama character string)")
+        c(x = "parameter must be a 5 digit number (represented as a character string)")
     }
   }
 
