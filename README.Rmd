@@ -67,9 +67,6 @@ https://github.com/ropensci/software-review/issues/744)
 ```{r child = "./vignettes/includes/RAQSAPIFunctions-Brief.Rmd"}
 ```
 
-```{r child = "./vignettes/includes/RAQSAPIinaction.Rmd"}
-```
-
 ```{r child = "./vignettes/includes/pyaqsapi.Rmd"}
 ```
 

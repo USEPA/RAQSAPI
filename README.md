@@ -16,10 +16,10 @@ true
     library](#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library)
   - [(suggested) Use the `keyring` package to manage
     credentials](#suggested-use-the-keyring-package-to-manage-credentials)
+  - [RAQSAPI usage demonstration](#raqsapi-usage-demonstration)
   - [Data Mart aggregate functions](#data-mart-aggregate-functions)
     - [See the RAQSAPI vignette for more
       details](#see-the-raqsapi-vignette-for-more-details)
-- [RAQSAPI demonstration](#raqsapi-demonstration)
   - [pyaqsapi - a port of RAQSAPI to the python 3 programming
     environment](#pyaqsapi---a-port-of-raqsapi-to-the-python-3-programming-environment)
 - [Acknowledgements](#acknowledgements)
@@ -40,7 +40,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--17-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--18-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -262,6 +262,11 @@ Refer to the[`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
+## RAQSAPI usage demonstration
+
+Here is a short usage demonstration of RAQSAPI ![GIF demonstrating how
+to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
+
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
 
@@ -334,11 +339,6 @@ is either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
   RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
 ```
 
-# RAQSAPI demonstration
-
-Here is a short usage demonstration of RAQSAPI ![GIF demonstrating how
-to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
-
 ## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
 
 For users that feel more comfortable working within a python 3
@@ -383,6 +383,7 @@ those sources without them RAQSAPI would not be possible.
   formatter<sup>16</sup>
 - codemeta.json file was generated using R package
   `codemetar`<sup>17</sup>
+- animated GIF of demo was created using asciinrma<sup>18</sup>
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
@@ -556,6 +557,15 @@ r Formatter and Language Server, Written in Rust, 2026.
 </span><span class="csl-right-inline">Boettiger, C.; Salmon, M.
 *Codemetar: Generate ’CodeMeta’ Metadata for r Packages*; 2026.
 <https://doi.org/10.32614/CRAN.package.codemetar></span>
+
+</div>
+
+<div id="ref-asciinema" class="csl-entry">
+
+<span class="csl-left-margin">(18)
+</span><span class="csl-right-inline">Kulik, M. Asciinema: Terminal
+Session Recorder, Streamer and Player, 2026.
+<https://github.com/asciinema/asciinema></span>
 
 </div>
 

@@ -1,30 +1,8 @@
 #' @importFrom magrittr `%>%`()
 #' @importFrom stringr str_detect
-if (file.exists("local.R")) {
-  source("helper.R")
-  AQScredentials <- RAQSAPItestsetup_helper()
-  datamartAPI_user <- AQScredentials$datamartAPI_user
-  datamartAPI_key <- AQScredentials$datamartAPI_key
-} else {
-  datamartAPI_user <- Sys.getenv("RAQSAPIUSERNAME", names = TRUE)
-  datamartAPI_key <- Sys.getenv("RAQSAPIKEY", names = TRUE)
-}
 
-RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
-
-
+#Tests in this file do not require AQS Datamart credentials
 test_that("helperfunctions (checkaqsparams()) functions", {
-  if (RAQSAPI:::invalid(datamartAPI_user) || RAQSAPI:::invalid(datamartAPI_key) ||
-      datamartAPI_key == "redacted" || datamartAPI_user == "redacted") {
-    stop("credentials not loaded in unit tests")
-  }
-  if(!exists(x="RAQSAPItestsetup_helper", mode="function"))
-  {
-    rlang::abort(message="RAQSAPItestsetup_helper function not loaded during unit test")
-  }
-
-  server <- "AQSDatamartAPI"
-
   RAQSAPI:::checkaqsparams("hi") %>% #checkaqsparams function does not accept unnamed/positional arguments
     expect_error()
   RAQSAPI:::checkaqsparams(service = 99999) %>%

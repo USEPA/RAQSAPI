@@ -121,3 +121,7 @@ the function:
 Refer to the[`keyring` package documentation](
 https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
+
+## RAQSAPI usage demonstration
+Here is a short usage demonstration of RAQSAPI
+![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)

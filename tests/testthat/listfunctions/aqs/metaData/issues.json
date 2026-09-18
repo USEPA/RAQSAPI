@@ -1,0 +1,17 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2026-09-18T11:09:46-04:00",
+            "url": "aqs/metaData/issues",
+            "rows": 1
+        }
+    ],
+    "Data": [
+        {
+            "title": "None",
+            "affected_services": "None",
+            "description": "There are no known issues at this time."
+        }
+    ]
+}

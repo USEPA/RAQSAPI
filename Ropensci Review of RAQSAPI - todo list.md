@@ -40,7 +40,6 @@ Ai generated summary of findings from ROpenSci review of RAQSAPI as a todo list 
 |&check;| Remove stale vignette or documentation artifacts such as obsolete files and commented-out blocks | These files add noise and confusion | Milan Malfait (@milanmlft); Rainer M Krug (@rkrug) |addressed in[commit 83f8e5a](https://github.com/USEPA/RAQSAPI/commit/83f8e5a7c5399da50a72f2b16edecdb98481e8b2)|
 |  | Fix the vignette/README grammatical and formatting nits | Small but visible polish issues remain | Milan Malfait (@milanmlft); Rainer M Krug (@rkrug) |  |
 |  | Add a basic pkgdown site | This would make vignettes and documentation easier to navigate | Rainer M Krug (@rkrug) |  |
-
 ## Nice to have
 
 | Status | Item | Why it matters | Source(s) | Additional comments |
@@ -54,6 +53,7 @@ Ai generated summary of findings from ROpenSci review of RAQSAPI as a todo list 
 |[X]| Consider improving package structure and file length by splitting very long source files | This may make future maintenance easier | Milan Malfait (@milanmlft) |can't fix/won't fix, See above comment|
 |:thinking:| Consider lighter use of tidyverse dependencies overall | This is mostly a style and maintenance preference, but could simplify the package | Rainer M Krug (@rkrug) | I may be able to remove some tidyverse dependencies, Until base R implements a replacement for the assignment pipe you will have a hard time convincing me to drop magrittr|
 |  | Consider additional API-drift checks outside CI | This could help detect upstream API changes over time | Rainer M Krug (@rkrug) |  |
+|[X]| Improve the README with a usage demo | gives people interested in what this project does a quick example of how this package works | Rainer M Krug (@rkrug) | addressed in [commit 161cadb](https://github.com/USEPA/RAQSAPI/commit/161cadb2b213b1d7672574b5e6193eec84fa7a1c)|
 
 ## Suggested order of attack
 
