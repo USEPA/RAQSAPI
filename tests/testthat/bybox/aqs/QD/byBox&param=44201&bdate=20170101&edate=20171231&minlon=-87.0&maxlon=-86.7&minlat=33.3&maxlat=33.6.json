@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2026-09-18T11:02:00-04:00",
+            "request_time": "2026-09-21T09:47:30-04:00",
             "url": "aqs/QD/byBox&param=44201&bdate=20170101&edate=20171231&minlon=-87.0&maxlon=-86.7&minlat=33.3&maxlat=33.6",
             "rows": 80
         }
