@@ -1,4 +1,4 @@
-#' @importFrom magrittr `%>%`()
+#' @importFrom magrittr `%>%`() `%T>%`()
 if (file.exists("local.R")) {
   source("helper.R")
   AQScredentials <- RAQSAPItestsetup_helper()
@@ -29,8 +29,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_collocated_assessments_by_pqao(
       parameter = "88101",
@@ -38,8 +39,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20130131", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_flowrateaudit_by_pqao(
       parameter = "88101",
@@ -47,8 +49,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       pqao_code = "0550",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_flowrateverification_by_pqao(
       parameter = "88101",
@@ -56,8 +59,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_one_point_qc_by_pqao(
       parameter = "44201",
@@ -65,8 +69,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       pqao_code = "0660",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_pep_audit_by_pqao(
       parameter = "88101",
@@ -74,8 +79,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20170630", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_collocated_assessments_by_pqao(
       parameter = "88101",
@@ -83,8 +89,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20130131", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_annualperformanceeval_by_pqao(
       parameter = "44201",
@@ -92,8 +99,9 @@ with_mock_dir("bypqao", {
       edate = as.Date("20171231", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_annualperformanceevaltransaction_by_pqao(
       parameter = "44201",
@@ -101,7 +109,8 @@ with_mock_dir("bypqao", {
       edate = as.Date("20171231", format = "%Y%m%d"),
       pqao_code = "0013",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
   })
 })

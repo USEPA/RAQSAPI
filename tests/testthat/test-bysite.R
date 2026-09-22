@@ -1,4 +1,4 @@
-#' @importFrom magrittr `%>%`()
+#' @importFrom magrittr `%>%`() `%T>%`()
 if (file.exists("local.R")) {
   AQScredentials <- RAQSAPItestsetup_helper()
   datamartAPI_user <- AQScredentials$datamartAPI_user
@@ -29,8 +29,9 @@ with_mock_dir("bysite", {
       countycode = "183",
       sitenum = "0014",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_annualsummary_by_site(
       parameter = "44201",
@@ -39,9 +40,10 @@ with_mock_dir("bysite", {
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_dailysummary_by_site(
       parameter = "44201",
@@ -50,9 +52,10 @@ with_mock_dir("bysite", {
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_blanks_by_site(
       parameter = "88101",
@@ -61,9 +64,10 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "033",
       sitenum = "1002",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_monitors_by_site(
       parameter = "42401",
@@ -72,9 +76,10 @@ with_mock_dir("bysite", {
       stateFIPS = "15",
       countycode = "001",
       sitenum = "0007",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_collocated_assessments_by_site(
       parameter = "88101",
@@ -83,9 +88,10 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "089",
       sitenum = "0014",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_flowrateaudit_by_site(
       parameter = "88101",
@@ -94,9 +100,10 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "073",
       sitenum = "2003",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_one_point_qc_by_site(
       parameter = "44201",
@@ -105,9 +112,10 @@ with_mock_dir("bysite", {
       stateFIPS = "25",
       countycode = "001",
       sitenum = "0002",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_flowrateverification_by_site(
       parameter = "88101",
@@ -116,9 +124,10 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "033",
       sitenum = "1002",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_transactionsample_by_site(
       parameter = "44201",
@@ -127,9 +136,10 @@ with_mock_dir("bysite", {
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_annualperformanceeval_by_site(
       parameter = "44201",
@@ -138,9 +148,10 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "003",
       sitenum = "0010",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_annualperformanceevaltransaction_by_site(
       parameter = "44201",
@@ -149,9 +160,10 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "003",
       sitenum = "0010",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_quarterlysummary_by_site(
       parameter = "88101",
@@ -160,9 +172,10 @@ with_mock_dir("bysite", {
       stateFIPS = "37",
       countycode = "183",
       sitenum = "0014",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_pep_audit_by_site(
       parameter = "88101",
@@ -171,8 +184,9 @@ with_mock_dir("bysite", {
       stateFIPS = "01",
       countycode = "089",
       sitenum = "0014",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
   })
 })

@@ -18,11 +18,8 @@ AQS_DATAMART_APIv2_validator <- function(.AQSobject) {
     length(.AQSobject) == 2 |
       all(names(.AQSobject) == list("Header", "Data")) |
     rlang::is_list(.AQSobject) |
-    tibble::is_tibble(.AQSobject[[1]]) |
-    tibble::is_tibble(.AQSobject[[1]]) |
-    tibble::is_tibble(.AQSobject[[2]]) |
-    tibble::is_tibble(.AQSobject[[2]])
-    #class(.AQSobject) != "AQS_DATAMART_APIv2" )
+    tibble::is_tibble(.AQSobject$Header) |
+    tibble::is_tibble(.AQSobject$Data)
   )
   return(invisible())
 }

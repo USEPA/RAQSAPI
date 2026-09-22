@@ -1,4 +1,4 @@
-#' @importFrom magrittr `%>%`()
+#' @importFrom magrittr `%>%`() `%T>%`()
 if (file.exists("local.R")) {
   AQScredentials <- RAQSAPItestsetup_helper()
   datamartAPI_user <- AQScredentials$datamartAPI_user
@@ -21,7 +21,7 @@ with_mock_dir("bybox", {
       rlang::abort(message="RAQSAPItestsetup_helper function not loaded during unit test")
     }
 
-    aqs_sampledata_by_box(
+   aqs_sampledata_by_box(
       parameter = "44201",
       bdate = as.Date("20150501", format = "%Y%m%d"),
       edate = as.Date("20150502", format = "%Y%m%d"),
@@ -30,8 +30,9 @@ with_mock_dir("bybox", {
       minlon = "-87.0",
       maxlon = "-86.7",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_monitors_by_box(
       parameter = "44201",
@@ -41,9 +42,10 @@ with_mock_dir("bybox", {
       maxlat = "33.6",
       minlon = "-87.0",
       maxlon = "-86.7",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_annualsummary_by_box(
       parameter = "44201",
@@ -53,9 +55,10 @@ with_mock_dir("bybox", {
       maxlat = "33.6",
       minlon = "-87.0",
       maxlon = "-86.7",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_dailysummary_by_box(
       parameter = "44201",
@@ -65,9 +68,10 @@ with_mock_dir("bybox", {
       maxlat = "33.6",
       minlon = "-87.0",
       maxlon = "-86.7",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_quarterlysummary_by_box(
       parameter = "44201",
@@ -77,8 +81,9 @@ with_mock_dir("bybox", {
       maxlat = "33.6",
       minlon = "-87.0",
       maxlon = "-86.7",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
   })
 })

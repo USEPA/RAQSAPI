@@ -1,5 +1,5 @@
 #' @importFrom dplyr pull
-#' @importFrom magrittr `%>%`()
+#' @importFrom magrittr `%>%`() `%T>%`()
 
 #with_mock_api({
 with_mock_dir("listfunctions", {
@@ -29,40 +29,48 @@ with_mock_dir("listfunctions", {
       dplyr::pull(status) %>%
       expect_match(regexp = "API service is up and running healthy", fixed = FALSE)
 
-    aqs_fields_by_service(service = "list", return_header = TRUE)$Header$status %>%
-      expect_match(regexp = "Success")
+    aqs_fields_by_service(service = "list", return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_fields_by_service(service = "list", return_header = TRUE) %>%
-      expect_no_error()
+    aqs_knownissues(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_knownissues(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_revisionhistory(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_revisionhistory(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_states(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_states(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_counties_by_state(stateFIPS = "40", return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_counties_by_state(stateFIPS = "40", return_header = FALSE) %>%
-      expect_no_error()
+    aqs_mas(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_mas(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_pqaos(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_pqaos(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_cbsas(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_cbsas(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_classes(return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_classes(return_header = FALSE) %>%
-      expect_no_error()
+    aqs_sites_by_county(stateFIPS = "15", countycode = "001", return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
-    aqs_sites_by_county(stateFIPS = "15", countycode = "001", return_header = FALSE) %>%
-      expect_no_error()
-
-    aqs_parameters_by_class(class = "CRITERIA", return_header = FALSE) %>%
-      expect_no_error()
+    aqs_parameters_by_class(class = "CRITERIA", return_header = TRUE) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
   })
 })

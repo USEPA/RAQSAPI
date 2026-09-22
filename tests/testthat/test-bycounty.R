@@ -1,4 +1,4 @@
-#' @importFrom magrittr `%>%`()
+#' @importFrom magrittr `%>%`() `%T>%`()
 if (file.exists("local.R")) {
   AQScredentials <- RAQSAPItestsetup_helper()
   datamartAPI_user <- AQScredentials$datamartAPI_user
@@ -29,8 +29,9 @@ with_mock_dir("byco", {
       stateFIPS = "37",
       countycode = "183",
       return_header = TRUE
-    ) %>%
-      expect_no_error()
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_dailysummary_by_county(
       parameter = "88101",
@@ -38,9 +39,10 @@ with_mock_dir("byco", {
       edate = as.Date("20160228", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_sampledata_by_county(
       parameter = "88101",
@@ -48,9 +50,10 @@ with_mock_dir("byco", {
       edate = as.Date("20160101", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_monitors_by_county(
       parameter = "42401",
@@ -58,9 +61,10 @@ with_mock_dir("byco", {
       edate = as.Date("20150502", format = "%Y%m%d"),
       stateFIPS = "15",
       countycode = "001",
-      return_header = FALSE
+      return_header = TRUE
     ) %>%
-      expect_no_error()
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_collocated_assessments_by_county(
       parameter = "88101",
@@ -68,9 +72,10 @@ with_mock_dir("byco", {
       edate = as.Date("20150131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "089",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_blanks_by_county(
       parameter = "88101",
@@ -78,9 +83,10 @@ with_mock_dir("byco", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "033",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_flowrateaudit_by_county(
       parameter = "88101",
@@ -88,9 +94,10 @@ with_mock_dir("byco", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "073",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_flowrateverification_by_county(
       parameter = "88101",
@@ -98,9 +105,10 @@ with_mock_dir("byco", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "033",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_one_point_qc_by_county(
       parameter = "44201",
@@ -108,9 +116,10 @@ with_mock_dir("byco", {
       edate = as.Date("20180131", format = "%Y%m%d"),
       stateFIPS = "25",
       countycode = "001",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_pep_audit_by_county(
       parameter = "88101",
@@ -118,9 +127,10 @@ with_mock_dir("byco", {
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "089",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_transactionsample_by_county(
       parameter = "88101",
@@ -128,9 +138,10 @@ with_mock_dir("byco", {
       edate = as.Date("20160228", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_annualperformanceeval_by_county(
       parameter = "44201",
@@ -138,9 +149,10 @@ with_mock_dir("byco", {
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "003",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_qa_annualperformanceevaltransaction_by_county(
       parameter = "44201",
@@ -148,9 +160,10 @@ with_mock_dir("byco", {
       edate = as.Date("20171231", format = "%Y%m%d"),
       stateFIPS = "01",
       countycode = "003",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
 
     aqs_quarterlysummary_by_county(
       parameter = "88101",
@@ -158,8 +171,9 @@ with_mock_dir("byco", {
       edate = as.Date("20170228", format = "%Y%m%d"),
       stateFIPS = "37",
       countycode = "183",
-      return_header = FALSE
-    ) %>%
-      expect_no_error()
+      return_header = TRUE
+    ) %T>%
+      expect_no_error() %>%
+      RAQSAPI:::AQS_DATAMART_APIv2_validator()
   })
 })
