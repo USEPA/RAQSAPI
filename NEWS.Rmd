@@ -6,7 +6,7 @@ author:
 date: "01/04/2023"
 output: md_document
 ---
-# cran-comments for RAQSAPI
+
 ## RAQSAPI 2.0.6
  - add Rd file for AQS_DATAMART_APIv2 S3-class
  - internal functions now use the @internal roxygen2 flag so that internal
@@ -27,7 +27,7 @@ output: md_document
  - New Contributing, code of conduct documentation, RAQSAPI is now open to taking
    code contributions.
  - Reduce the number of vignettes exported from RAQSAPI.
- - RAQSAPI no longer depends on gtools as a dependency.
+ - RAQSAPI no longer depends on the gtools package.
    
 ## RAQSAPI 2.0.5
   - remove deprecated package:goodpractice from SUGGESTS

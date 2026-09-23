@@ -50,9 +50,9 @@ test_that("helperfunctions (checkaqsparams()) functions", {
   RAQSAPI:::checkaqsparams(duration = "not a valid duration") %>%
     expect_error()
   RAQSAPI:::format_variables_for_api(x = list()) %>%
-    expect_equal("")
+    expect_identical("")
   RAQSAPI:::format_multiple_params_for_api(x = list()) %>%
-    expect_equal("")
+    expect_identical("")
   RAQSAPI:::aqsmultiyearparams(
     parameter = "99999",
     bdate = as.Date("2000-01-01", format = "%Y-%m-%d"),
@@ -61,5 +61,5 @@ test_that("helperfunctions (checkaqsparams()) functions", {
   ) %>%
     expect_error()
   RAQSAPI:::format_variables_for_api(x = list()) %>%
-    expect_equal("")
+    expect_identical("")
 })

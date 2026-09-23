@@ -1,0 +1,17 @@
+{
+    "Header": [
+        {
+            "status": "Success",
+            "request_time": "2026-09-22T16:46:49-04:00",
+            "url": "aqs/metaData/issues?email=redacted&key=redacted",
+            "rows": 1
+        }
+    ],
+    "Data": [
+        {
+            "title": "None",
+            "affected_services": "None",
+            "description": "There are no known issues at this time."
+        }
+    ]
+}

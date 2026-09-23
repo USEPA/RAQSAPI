@@ -7,6 +7,7 @@
 #'              item ($Data) is a tibble of the data returned.
 #' @importFrom tibble is_tibble
 #' @importFrom rlang is_list
+#' @importFrom purrr map_lgl
 #' @note The aqsobject must be a two item list each containing a tibble with the
 #'       first item named 'Header' and the second 'Data'.
 #' @seealso AQS_DATAMART_APIv2-S3-class
@@ -14,13 +15,24 @@
 #' @noRd
 #' @keywords internal
 AQS_DATAMART_APIv2_validator <- function(.AQSobject) {
-  stopifnot(
-    length(.AQSobject) == 2 |
-      all(names(.AQSobject) == list("Header", "Data")) |
-    rlang::is_list(.AQSobject) |
-    tibble::is_tibble(.AQSobject$Header) |
-    tibble::is_tibble(.AQSobject$Data)
-  )
+    if(length(.AQSobject[[1]]) == 1)
+      {
+        stopifnot(
+          ("AQS_DATAMART_APIv2_Data" %in% class(.AQSobject)) |
+          ("AQS_DATAMART_APIv2_Header" %in% class(.AQSobject))
+        )
+      } else {
+              stopifnot(
+                length(.AQSobject[[1]]) == 2 |
+                all(names(.AQSobject) == list("Header", "Data")) |
+                rlang::is_list(.AQSobject) |
+                tibble::is_tibble(.AQSobject$Header) |
+                tibble::is_tibble(.AQSobject$Data) |
+                "AQS_DATAMART_APIv2" %in% class(.AQSobject) |
+                #check each item in .AQSobject to check if they have a class of "AQS_DATAMART_APIv2_Header" or  "AQS_DATAMART_APIv2_Data"
+                .AQSobject %>% purrr::every(\(x) all(list("AQS_DATAMART_APIv2_Data", "AQS_DATAMART_APIv2_Header") %in% class(x)))
+              )
+            }
   return(invisible())
 }
 
@@ -61,6 +73,7 @@ AQS_DATAMART_APIv2_validator <- function(.AQSobject) {
 #'            returned.
 #' @seealso tibble::tibble#'
 #' @keywords internal
+#' @rdname AQS_DATAMART_APIv2-S3-class
 new_AQS_DATAMART_APIv2 <- function(x) {
   if(!(rlang::is_list(x) & length(x) == 2))
   {rlang::abort(message="x should be a two item list")}

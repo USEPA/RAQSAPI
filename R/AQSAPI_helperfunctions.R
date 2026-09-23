@@ -506,10 +506,12 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   AQSresult <- vector("list", length = 2)
   AQSresult[[1]] <- AQSresponse$Header %>%
     tibble::tibble()
+  class(AQSresult[[1]]) <- append(x=("AQS_DATAMART_APIv2_Header"), values=class(AQSresult[[1]]))
   AQSresult[[2]] <- AQSresponse$Data %>%
     tibble::tibble()
+  class(AQSresult[[2]]) <- append(x=("AQS_DATAMART_APIv2_Data"), values=class(AQSresult[[2]]))
 
-  names(AQSresult) <- c("Header", "Data")
+  #names(AQSresult) <- c("Header", "Data")
   AQSresult <- new_AQS_DATAMART_APIv2(AQSresult)
   return(AQSresult)
 }
@@ -624,6 +626,7 @@ isValidEmail <- function(email) {
 #'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
+#' @rdname aqs_services_by_site
 aqs_services_by_site <- function(
   parameter,
   bdate,
@@ -736,6 +739,7 @@ aqs_services_by_site <- function(
 #'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
+#' @rdname aqs_services_by_county
 aqs_services_by_county <- function(
   parameter,
   bdate,
@@ -840,6 +844,7 @@ aqs_services_by_county <- function(
 #'                                          service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
+#' @rdname aqs_services_by_state
 aqs_services_by_state <- function(
   parameter,
   bdate,
@@ -961,6 +966,7 @@ aqs_services_by_state <- function(
 #'                                        service = 'annualData')
 #'                   }
 #' @keywords internal
+#' @rdname aqs_services_by_box
 aqs_services_by_box <- function(
   parameter,
   bdate,

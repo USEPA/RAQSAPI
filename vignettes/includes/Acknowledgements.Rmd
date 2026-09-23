@@ -38,7 +38,7 @@ documentation
 * unit tests are mocked using R package `httptest2` [@package:httptest2]
 * Additional code formatting was accomplished using Air formatter[@airformatter]
 * codemeta.json file was generated using R package `codemetar` [@package:codemetar]
-* animated GIF of demo was created using asciinrma [@asciinema]
+* animated GIF of demo was created using asciinema [@asciinema]
 
 The RAQSAPI project developers would like to thank the awesome work of the
 rOpenSci non-profit community of practice for reviewing this project's code

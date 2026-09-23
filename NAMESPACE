@@ -133,6 +133,7 @@ importFrom(magrittr,
 importFrom(methods,setOldClass)
 importFrom(purrr,
   map_chr,
+  map_lgl,
   pmap
 )
 importFrom(rlang,
