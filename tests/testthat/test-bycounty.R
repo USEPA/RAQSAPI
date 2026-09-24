@@ -13,13 +13,16 @@ RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 with_mock_dir("byco", {
   #name shortened from "bycounty" to "byco" to avoid the long path name limit.
   test_that("bycounty functions", {
-    if (RAQSAPI:::invalid(datamartAPI_user) || RAQSAPI:::invalid(datamartAPI_key) ||
-        datamartAPI_key == "redacted" || datamartAPI_user == "redacted") {
+    if (
+      RAQSAPI:::invalid(datamartAPI_user) ||
+        RAQSAPI:::invalid(datamartAPI_key) ||
+        datamartAPI_key == "redacted" ||
+        datamartAPI_user == "redacted"
+    ) {
       stop("credentials not loaded in unit tests")
     }
-    if(!exists(x="RAQSAPItestsetup_helper", mode="function"))
-    {
-      rlang::abort(message="RAQSAPItestsetup_helper function not loaded during unit test")
+    if (!exists(x = "RAQSAPItestsetup_helper", mode = "function")) {
+      rlang::abort(message = "RAQSAPItestsetup_helper function not loaded during unit test")
     }
 
     aqs_annualsummary_by_county(

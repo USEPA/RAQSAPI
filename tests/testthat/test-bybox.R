@@ -12,16 +12,19 @@ RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
 with_mock_dir("bybox", {
   test_that("bybox functions", {
-    if (RAQSAPI:::invalid(datamartAPI_user) || RAQSAPI:::invalid(datamartAPI_key) ||
-        datamartAPI_key == "redacted" || datamartAPI_user == "redacted") {
+    if (
+      RAQSAPI:::invalid(datamartAPI_user) ||
+        RAQSAPI:::invalid(datamartAPI_key) ||
+        datamartAPI_key == "redacted" ||
+        datamartAPI_user == "redacted"
+    ) {
       stop("credentials not loaded in unit tests")
     }
-    if(!exists(x="RAQSAPItestsetup_helper", mode="function"))
-    {
-      rlang::abort(message="RAQSAPItestsetup_helper function not loaded during unit test")
+    if (!exists(x = "RAQSAPItestsetup_helper", mode = "function")) {
+      rlang::abort(message = "RAQSAPItestsetup_helper function not loaded during unit test")
     }
 
-   aqs_sampledata_by_box(
+    aqs_sampledata_by_box(
       parameter = "44201",
       bdate = as.Date("20150501", format = "%Y%m%d"),
       edate = as.Date("20150502", format = "%Y%m%d"),

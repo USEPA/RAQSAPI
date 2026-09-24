@@ -1,0 +1,14 @@
+{
+  "features": {
+    "ghcr.io/dhoeric/features/act:1": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/dhoeric/features/act@sha256:2e99eed677768dff36de20e856f2f6fd285a30ea868dae229e848a2871c4462d",
+      "integrity": "sha256:2e99eed677768dff36de20e856f2f6fd285a30ea868dae229e848a2871c4462d"
+    },
+    "ghcr.io/rocker-org/devcontainer-features/rstudio-server:0": {
+      "version": "0.3.1",
+      "resolved": "ghcr.io/rocker-org/devcontainer-features/rstudio-server@sha256:b4a0553087a089e1c59a57a75c357a2f4cb215eb4f180735c1b21cbd58c73028",
+      "integrity": "sha256:b4a0553087a089e1c59a57a75c357a2f4cb215eb4f180735c1b21cbd58c73028"
+    }
+  }
+}

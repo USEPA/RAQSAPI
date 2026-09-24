@@ -12,6 +12,7 @@ concurrency:
 
 jobs:
   build:
+    name: build_gh_pages
     runs-on: ubuntu-latest
     permissions:
       pages: write      # to deploy to Pages
@@ -59,6 +60,7 @@ jobs:
           path: doc/
 
   deploy:
+    name: deploy_github_pages
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     runs-on: ubuntu-latest

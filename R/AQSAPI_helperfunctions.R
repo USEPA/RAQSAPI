@@ -251,19 +251,22 @@ checkaqsparams <- function(...) {
     }
   }
   if ("duration" %in% names(ellipsis_args)) {
-    if(!invalid(ellipsis_args$duration))
-       if (nchar(ellipsis_args$duration) != 1 ||
-           !is.character(ellipsis_args$duration) &&
-           ellipsis_args$duration %in% 1:9 ||
-           ellipsis_args$duration %in% LETTERS[1:26]
-          ) {
-              error <- TRUE
-              errmessage %<>%
-              c(x = "duration must be a character from '1' to '9' or 'A' to 'Z'
+    if (!invalid(ellipsis_args$duration)) {
+      if (
+        nchar(ellipsis_args$duration) != 1 ||
+          !is.character(ellipsis_args$duration) &&
+            ellipsis_args$duration %in% 1:9 ||
+          ellipsis_args$duration %in% LETTERS[1:26]
+      ) {
+        error <- TRUE
+        errmessage %<>%
+          c(
+            x = "duration must be a character from '1' to '9' or 'A' to 'Z'
                     (represented as a character string)"
-                )
-              }
-            }
+          )
+      }
+    }
+  }
   if ("return_header" %in% names(ellipsis_args)) {
     if (!is.logical(ellipsis_args$return_header)) {
       error <- TRUE
@@ -289,13 +292,13 @@ checkaqsparams <- function(...) {
 #' @title format.terms.for.api
 #' @description A helper function that accepts a named list of
 #'                 parameters and returns a string vector of
-#'                 separator separated variables for use in
+#'                 delimiter separated variables for use in
 #'                 sending parameters to AQS RESTFUL API calls,
 #'                 All NA and NULL values will be removed. This
 #'                 function is not intended for use by end users.
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
-#' @param separator a string that should be used to separate variables
+#' @param delimiter a string that should be used to separate variables
 #'                   in the return value
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
@@ -304,7 +307,7 @@ checkaqsparams <- function(...) {
 #' @importFrom stringr str_c
 #' @keywords internal
 #' @noRd
-format_variables_for_api <- function(x, separator = "&") {
+format_variables_for_api <- function(x, delimiter = "&") {
   if (length(x) == 0) {
     return("")
   }
@@ -326,7 +329,7 @@ format_variables_for_api <- function(x, separator = "&") {
     names(x),
     "=",
     x,
-    collapse = separator
+    collapse = delimiter
   ) %>%
     return()
 }
@@ -335,7 +338,7 @@ format_variables_for_api <- function(x, separator = "&") {
 #' @title format_multiple_params_for_api
 #' @backref R/RAQSAPI/listfunctions.R
 #' @description A helper function that accepts a list of parameters
-#'                 and returns a string vector of separator separated variables
+#'                 and returns a string vector of delimiter separated variables
 #'                 for use in sending parameters to AQS RESTFUL API calls, All
 #'                 NA and NULL values will be removed. This function is not
 #'                 intended for use by end users and is specifically designed
@@ -344,14 +347,14 @@ format_variables_for_api <- function(x, separator = "&") {
 #'                 helper function @seealso format_variables_for_api.
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
-#' @param separator a string that should be used to separate variables
+#' @param delimiter a string that should be used to separate variables
 #'                   in the return value.
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr %>%
 #' @keywords internal
 #' @noRd
-format_multiple_params_for_api <- function(x, separator = ",") {
+format_multiple_params_for_api <- function(x, delimiter = ",") {
   if (length(x) == 0) {
     return("")
   }
@@ -361,7 +364,7 @@ format_multiple_params_for_api <- function(x, separator = ",") {
   # don't forget to remove NAs
   x[vapply(x, is.na, FUN.VALUE = NA)] <- NULL
   x <- purrr::map_chr(x, as.character)
-  paste0(x, collapse = separator) %>%
+  paste0(x, collapse = delimiter) %>%
     return()
 }
 
@@ -506,10 +509,10 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
   AQSresult <- vector("list", length = 2)
   AQSresult[[1]] <- AQSresponse$Header %>%
     tibble::tibble()
-  class(AQSresult[[1]]) <- append(x=("AQS_DATAMART_APIv2_Header"), values=class(AQSresult[[1]]))
+  class(AQSresult[[1]]) <- append(x = ("AQS_DATAMART_APIv2_Header"), values = class(AQSresult[[1]]))
   AQSresult[[2]] <- AQSresponse$Data %>%
     tibble::tibble()
-  class(AQSresult[[2]]) <- append(x=("AQS_DATAMART_APIv2_Data"), values=class(AQSresult[[2]]))
+  class(AQSresult[[2]]) <- append(x = ("AQS_DATAMART_APIv2_Data"), values = class(AQSresult[[2]]))
 
   #names(AQSresult) <- c("Header", "Data")
   AQSresult <- new_AQS_DATAMART_APIv2(AQSresult)

@@ -56,19 +56,19 @@ RAQSAPI_functions <- function() {
   #' @keywords internal
   functiontype <- function(functionname) {
     case_when(
-      str_detect(string = functionname, pattern = "by_site") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_site")) ~
         "RAQSAPI aggregation by site aggregate functions",
-      str_detect(string = functionname, pattern = "by_county") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_county")) ~
         "RAQSAPI aggregation by county aggregate functions",
-      str_detect(string = functionname, pattern = "by_state") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_state")) ~
         "RAQSAPI aggregation by state aggregate functions",
-      str_detect(string = functionname, pattern = "by_cbsa") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_cbsa")) ~
         "RAQSAPI aggregation by cbsa aggregate functions",
-      str_detect(string = functionname, pattern = "by_pqao") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_pqao")) ~
         "RAQSAPI aggregation by pqao aggregate functions",
-      str_detect(string = functionname, pattern = "by_box") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_box")) ~
         "RAQSAPI aggregation by lat/long bounding box aggregate functions",
-      str_detect(string = functionname, pattern = "by_MA") ~
+      str_detect(string = functionname, pattern = stringr::fixed("by_MA")) ~
         "RAQSAPI aggregation by Monitoring Agency aggregate functions",
       .default = "misc"
     ) %>%

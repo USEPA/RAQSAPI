@@ -143,6 +143,7 @@ importFrom(rlang,
   call_name,
   caller_call,
   format_error_bullets,
+  inherits_any,
   is_character,
   is_empty,
   is_list

@@ -6,7 +6,7 @@
 #'              tibble of header information from the AQS API and the second
 #'              item ($Data) is a tibble of the data returned.
 #' @importFrom tibble is_tibble
-#' @importFrom rlang is_list
+#' @importFrom rlang is_list inherits_any
 #' @importFrom purrr map_lgl
 #' @note The aqsobject must be a two item list each containing a tibble with the
 #'       first item named 'Header' and the second 'Data'.
@@ -15,24 +15,26 @@
 #' @noRd
 #' @keywords internal
 AQS_DATAMART_APIv2_validator <- function(.AQSobject) {
-    if(length(.AQSobject[[1]]) == 1)
-      {
-        stopifnot(
-          ("AQS_DATAMART_APIv2_Data" %in% class(.AQSobject)) |
-          ("AQS_DATAMART_APIv2_Header" %in% class(.AQSobject))
-        )
-      } else {
-              stopifnot(
-                length(.AQSobject[[1]]) == 2 |
-                all(names(.AQSobject) == list("Header", "Data")) |
-                rlang::is_list(.AQSobject) |
-                tibble::is_tibble(.AQSobject$Header) |
-                tibble::is_tibble(.AQSobject$Data) |
-                "AQS_DATAMART_APIv2" %in% class(.AQSobject) |
-                #check each item in .AQSobject to check if they have a class of "AQS_DATAMART_APIv2_Header" or  "AQS_DATAMART_APIv2_Data"
-                .AQSobject %>% purrr::every(\(x) all(list("AQS_DATAMART_APIv2_Data", "AQS_DATAMART_APIv2_Header") %in% class(x)))
-              )
-            }
+  if (length(.AQSobject[[1]]) == 1) {
+    stopifnot(
+      rlang::inherits_any(x = .AQSobject, class = c("AQS_DATAMART_APIv2_Data", "AQS_DATAMART_APIv2_Header"))
+    )
+  } else {
+    stopifnot(
+      length(.AQSobject[[1]]) == 2 |
+        all(names(.AQSobject) == list("Header", "Data")) |
+        rlang::is_list(.AQSobject) |
+        tibble::is_tibble(.AQSobject$Header) |
+        tibble::is_tibble(.AQSobject$Data) |
+        inherits(x = .AQSobject, what = "AQS_DATAMART_APIv2") |
+        #check each item in .AQSobject to check if they have a class of "AQS_DATAMART_APIv2_Header"
+        # or "AQS_DATAMART_APIv2_Data"
+        .AQSobject %>%
+          purrr::every(\(x) {
+            all(rlang::inherits_any(x = .AQSobject, class = c("AQS_DATAMART_APIv2_Data", "AQS_DATAMART_APIv2_Header")))
+          })
+    )
+  }
   return(invisible())
 }
 
@@ -75,8 +77,9 @@ AQS_DATAMART_APIv2_validator <- function(.AQSobject) {
 #' @keywords internal
 #' @rdname AQS_DATAMART_APIv2-S3-class
 new_AQS_DATAMART_APIv2 <- function(x) {
-  if(!(rlang::is_list(x) & length(x) == 2))
-  {rlang::abort(message="x should be a two item list")}
+  if (!(rlang::is_list(x) & length(x) == 2)) {
+    rlang::abort(message = "x should be a two item list")
+  }
   class(x) <- "AQS_DATAMART_APIv2"
   names(x) <- list("Header", "Data")
   AQS_DATAMART_APIv2_validator(x)

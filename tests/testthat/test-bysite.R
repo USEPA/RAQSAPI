@@ -12,13 +12,16 @@ RAQSAPI::aqs_credentials(username = datamartAPI_user, key = datamartAPI_key)
 
 with_mock_dir("bysite", {
   test_that("bysite functions", {
-    if (RAQSAPI:::invalid(datamartAPI_user) || RAQSAPI:::invalid(datamartAPI_key) ||
-        datamartAPI_key == "redacted" || datamartAPI_user == "redacted") {
+    if (
+      RAQSAPI:::invalid(datamartAPI_user) ||
+        RAQSAPI:::invalid(datamartAPI_key) ||
+        datamartAPI_key == "redacted" ||
+        datamartAPI_user == "redacted"
+    ) {
       stop("credentials not loaded in unit tests")
     }
-    if(!exists(x="RAQSAPItestsetup_helper", mode="function"))
-    {
-      rlang::abort(message="RAQSAPItestsetup_helper function not loaded during unit test")
+    if (!exists(x = "RAQSAPItestsetup_helper", mode = "function")) {
+      rlang::abort(message = "RAQSAPItestsetup_helper function not loaded during unit test")
     }
 
     RAQSAPI::aqs_sampledata_by_site(
