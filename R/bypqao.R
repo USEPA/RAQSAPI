@@ -46,8 +46,6 @@ aqs_qa_blanks_by_pqao <- function(
   bdate,
   edate,
   pqao_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -55,8 +53,6 @@ aqs_qa_blanks_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -65,9 +61,7 @@ aqs_qa_blanks_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    service = "qaBlanks",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaBlanks"
   )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
@@ -125,8 +119,6 @@ aqs_qa_collocated_assessments_by_pqao <- function(
   bdate,
   edate,
   pqao_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -134,8 +126,6 @@ aqs_qa_collocated_assessments_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -144,9 +134,7 @@ aqs_qa_collocated_assessments_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    service = "qaCollocatedAssessments",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaCollocatedAssessments"
   )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
@@ -206,8 +194,6 @@ aqs_qa_flowrateverification_by_pqao <- function(
   bdate,
   edate,
   pqao_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -215,8 +201,6 @@ aqs_qa_flowrateverification_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -225,9 +209,7 @@ aqs_qa_flowrateverification_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    service = "qaFlowRateVerifications",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaFlowRateVerifications"
   )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
@@ -286,8 +268,6 @@ aqs_qa_flowrateaudit_by_pqao <- function(
   bdate,
   edate,
   pqao_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -295,8 +275,6 @@ aqs_qa_flowrateaudit_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -305,9 +283,7 @@ aqs_qa_flowrateaudit_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    service = "qaFlowRateAudits",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaFlowRateAudits"
   )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
@@ -364,8 +340,6 @@ aqs_qa_one_point_qc_by_pqao <- function(
   bdate,
   edate,
   pqao_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -373,8 +347,6 @@ aqs_qa_one_point_qc_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -383,9 +355,7 @@ aqs_qa_one_point_qc_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    service = "qaOnePointQcRawData",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaOnePointQcRawData"
   )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)
@@ -444,8 +414,6 @@ aqs_qa_pep_audit_by_pqao <- function(
   bdate,
   edate,
   pqao_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -453,8 +421,6 @@ aqs_qa_pep_audit_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -463,9 +429,7 @@ aqs_qa_pep_audit_by_pqao <- function(
     bdate = bdate,
     edate = edate,
     pqao_code = pqao_code,
-    service = "qaPepAudits",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaPepAudits"
   )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_pqao)

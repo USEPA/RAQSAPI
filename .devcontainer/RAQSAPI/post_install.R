@@ -11,6 +11,7 @@ installed_pkgs <- rownames(installed.packages())
 if (!"pak" %in% installed_pkgs) install.packages("pak", dependencies = TRUE)
 if (!"desc" %in% installed_pkgs) pak::pkg_install("desc", dependencies = TRUE)
 if (!"languageserver" %in% installed_pkgs) pak::pkg_install("languageserver")
+if (!"magrittr" %in% installed_pkgs) pak::pkg_install("magrittr", dependencies = TRUE)
 require(desc)
 require(pak)
 pak::repo_add(
@@ -27,8 +28,8 @@ if (file.exists("./DESCRIPTION"))
 }
 
 RAQSAPI_deps <- desc::desc_get_deps(file = desc_path)[-1, "package"]
-RAQSAPI_suggests <- desc::desc_get_field(key="Suggests", file=desc_path) |> strsplit(split=", ")
-RAQSAPI_suggests <- RAQSAPI_suggests[[1]] |> as.list() |>
+RAQSAPI_suggests <- desc::desc_get_field(key="Suggests", file=desc_path) %>% strsplit(split=", ")
+RAQSAPI_suggests <- RAQSAPI_suggests[[1]] |> as.list() %>%
   gsub(pattern="\\s*\\([^)]*\\)", replacement="") #remove version infor which will not work with pak
 installpkgs <- setdiff(c(RAQSAPI_deps, unlist(RAQSAPI_suggests)), installed_pkgs)
 if (length(installpkgs) > 0) pak::pkg_install(pkg = installpkgs, dependencies = TRUE)

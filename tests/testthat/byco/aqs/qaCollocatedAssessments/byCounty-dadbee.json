@@ -2,7 +2,7 @@
     "Header": [
         {
             "status": "Success",
-            "request_time": "2026-09-22T16:39:54-04:00",
+            "request_time": "2026-09-28T15:27:40-04:00",
             "url": "aqs/qaCollocatedAssessments/byCounty?param=88101&bdate=20150101&edate=20150131&state=01&county=089",
             "rows": 5
         }

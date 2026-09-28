@@ -10,8 +10,6 @@ aqs_qa_collocated_assessments_by_county(
   edate,
   stateFIPS,
   countycode,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 )
 }
@@ -36,20 +34,6 @@ available FIPS codes.}
 FIPS code for the county being requested (with leading
 zero(s)). Use \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}}
 for the list of available county codes in each state.}
-
-\item{cbdate}{a R date object which represents a 'beginning
-date of last change' that indicates when the data was last
-updated. cbdate is used to filter data based on the change
-date. Only data that changed on or after this date will be
-returned. This is an optional variable which defaults
-to NA_Date_.}
-
-\item{cedate}{a R date object which represents an 'end
-date of last change' that indicates when the data was last
-updated. cedate is used to filter data based on the change
-date. Only data that changed on or before this date will be
-returned. This is an optional variable which defaults
-to NA_Date_.}
 
 \item{return_header}{If FALSE (default) only returns data requested. If TRUE
 returns a AQSAPI_v2 object which is a two item

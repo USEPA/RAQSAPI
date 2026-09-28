@@ -784,6 +784,7 @@ aqs_services_by_county <- function(
 #'                 result. This helper function is not meant to be called
 #'                 directly from external functions.
 #' @importFrom magrittr %>%
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.
@@ -1220,6 +1221,7 @@ aqs_services_by_pqao <- function(
 #'                 This helper function is not meant to be called directly from
 #'                 external functions.
 #' @importFrom magrittr %>%
+#' @importFrom lubridate NA_Date_
 #' @param parameter a character list or a single character string
 #'                    which represents the parameter code of the air
 #'                    pollutant related to the data being requested.

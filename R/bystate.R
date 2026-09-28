@@ -32,8 +32,6 @@ aqs_monitors_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -41,8 +39,6 @@ aqs_monitors_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -53,9 +49,7 @@ aqs_monitors_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "monitors",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "monitors"
   ) %>%
     dplyr::select(tidyselect::where(~ !all(is.na(.x))))
 
@@ -97,6 +91,7 @@ aqs_monitors_by_state <- function(
 #' @inheritParams aqs_services_by_state
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -185,6 +180,7 @@ aqs_sampledata_by_state <- function(
 #' @family Aggregate_by_state functions
 #' @inheritParams aqs_services_by_state
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -295,8 +291,6 @@ aqs_qa_blanks_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -304,8 +298,6 @@ aqs_qa_blanks_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -314,9 +306,7 @@ aqs_qa_blanks_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "qaBlanks",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaBlanks"
   )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -349,6 +339,7 @@ aqs_qa_blanks_by_state <- function(
 #' @family Aggregate_by_state functions
 #' @inheritParams aqs_services_by_state
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -457,8 +448,6 @@ aqs_qa_collocated_assessments_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -466,8 +455,6 @@ aqs_qa_collocated_assessments_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -476,9 +463,7 @@ aqs_qa_collocated_assessments_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "qaCollocatedAssessments",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaCollocatedAssessments"
   )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -537,8 +522,6 @@ aqs_qa_flowrateverification_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -546,8 +529,6 @@ aqs_qa_flowrateverification_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -556,9 +537,7 @@ aqs_qa_flowrateverification_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "qaFlowRateVerifications",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaFlowRateVerifications"
   )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -616,8 +595,6 @@ aqs_qa_flowrateaudit_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -625,8 +602,6 @@ aqs_qa_flowrateaudit_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -635,9 +610,7 @@ aqs_qa_flowrateaudit_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "qaFlowRateAudits",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaFlowRateAudits"
   )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -696,8 +669,6 @@ aqs_qa_one_point_qc_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -705,8 +676,6 @@ aqs_qa_one_point_qc_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -715,9 +684,7 @@ aqs_qa_one_point_qc_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "qaOnePointQcRawData",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaOnePointQcRawData"
   )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -773,8 +740,6 @@ aqs_qa_pep_audit_by_state <- function(
   bdate,
   edate,
   stateFIPS,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -782,8 +747,6 @@ aqs_qa_pep_audit_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -792,9 +755,7 @@ aqs_qa_pep_audit_by_state <- function(
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "qaPepAudits",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaPepAudits"
   )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -832,6 +793,7 @@ aqs_qa_pep_audit_by_state <- function(
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @examples #Returns a AQS_DataMart_APIv2 S3 object of
 #'          \dontrun{ # Returns a tibble containing benzene transaction sample
 #'                    # data for North Carolina on May 15, 1995
@@ -847,15 +809,30 @@ aqs_qa_pep_audit_by_state <- function(
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
-aqs_transactionsample_by_state <- function(parameter, bdate, edate, stateFIPS, return_header = FALSE) {
-  checkaqsparams(parameter = parameter, bdate = bdate, edate = edate, stateFIPS = stateFIPS, return_header = return_header)
+aqs_transactionsample_by_state <- function(parameter,
+                                           bdate,
+                                           edate,
+                                           stateFIPS,
+                                           cbdate = lubridate::NA_Date_,
+                                           cedate  = lubridate::NA_Date_,
+                                           return_header = FALSE
+                                           ) {
+  checkaqsparams(parameter = parameter,
+                 bdate = bdate,
+                 edate = edate,
+                 stateFIPS = stateFIPS,
+                 cbdate = cbdate,
+                 cedate = cedate,
+                 return_header = return_header)
 
   params <- aqsmultiyearparams(
     parameter = parameter,
     bdate = bdate,
     edate = edate,
     stateFIPS = stateFIPS,
-    service = "transactionsSample"
+    service = "transactionsSample",
+    cbdate = cbdate,
+    cedate = cedate
   )
 
   transactionsample <- purrr::pmap(.l = params, .f = aqs_services_by_state)
@@ -1017,6 +994,7 @@ aqs_qa_annualperformanceevaltransaction_by_state <- function(parameter, bdate, e
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_state
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned

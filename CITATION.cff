@@ -61,7 +61,7 @@ references:
     address: Vienna, Austria
   year: '2026'
   doi: 10.32614/R.manuals
-  version: '>= 4.0.0'
+  version: '>= 4.5.0'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'

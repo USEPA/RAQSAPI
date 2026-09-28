@@ -4,15 +4,7 @@
 \alias{aqs_monitors_by_cbsa}
 \title{aqs_monitors_by_cbsa}
 \usage{
-aqs_monitors_by_cbsa(
-  parameter,
-  bdate,
-  edate,
-  cbsa_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
-  return_header = FALSE
-)
+aqs_monitors_by_cbsa(parameter, bdate, edate, cbsa_code, return_header = FALSE)
 }
 \arguments{
 \item{parameter}{a character list or a single character string
@@ -29,20 +21,6 @@ selection. Only data on or before this date will be returned.}
 Based Statistical Area code (the same as the census code,
 with leading zeros). Use \code{\link[=aqs_cbsas]{aqs_cbsas()}}
 for a list of all CBSA codes and names available,}
-
-\item{cbdate}{a R date object which represents a 'beginning
-date of last change' that indicates when the data was last
-updated. cbdate is used to filter data based on the change
-date. Only data that changed on or after this date will be
-returned. This is an optional variable which defaults
-to NA_Date_.}
-
-\item{cedate}{a R date object which represents an 'end
-date of last change' that indicates when the data was last
-updated. cedate is used to filter data based on the change
-date. Only data that changed on or before this date will be
-returned. This is an optional variable which defaults
-to NA_Date_.}
 
 \item{return_header}{If FALSE (default) only returns data requested. If TRUE
 returns a AQSAPI_v2 object which is a two item list

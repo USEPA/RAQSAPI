@@ -43,8 +43,6 @@ aqs_monitors_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -54,8 +52,6 @@ aqs_monitors_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
   # aqs_monitors_by_* functions don't call aqsmultiyearparams() since the monitors API call accepts multiple years of data
@@ -67,9 +63,7 @@ aqs_monitors_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     service = "monitors",
-    sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate
+    sitenum = sitenum
   ) %>%
     dplyr::select(tidyselect::where(~ !all(is.na(.x))))
 
@@ -133,8 +127,6 @@ aqs_qa_flowrateaudit_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -144,8 +136,6 @@ aqs_qa_flowrateaudit_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -156,9 +146,7 @@ aqs_qa_flowrateaudit_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    service = "qaFlowRateAudits",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaFlowRateAudits"
   )
 
   fra <- purrr::pmap(.l = params, .f = aqs_services_by_site)
@@ -220,8 +208,6 @@ aqs_qa_one_point_qc_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -231,8 +217,6 @@ aqs_qa_one_point_qc_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -243,9 +227,7 @@ aqs_qa_one_point_qc_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    service = "qaOnePointQcRawData",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaOnePointQcRawData"
   )
 
   opqcc <- purrr::pmap(.l = params, .f = aqs_services_by_site)
@@ -307,8 +289,6 @@ aqs_qa_pep_audit_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -318,8 +298,6 @@ aqs_qa_pep_audit_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -330,9 +308,7 @@ aqs_qa_pep_audit_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    service = "qaPepAudits",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaPepAudits"
   )
 
   pepaudit <- purrr::pmap(.l = params, .f = aqs_services_by_site)
@@ -382,6 +358,7 @@ aqs_qa_pep_audit_by_site <- function(
 #'                        information from each api call.
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
+#' @importFrom lubridate NA_Date_
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
 #'           for a single site with the input parameter. An AQS_DataMart_APIv2
 #'           is a 2 item named list in which the first item /(/$Header/) is a
@@ -472,6 +449,7 @@ aqs_sampledata_by_site <- function(
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested as a
 #'                        single tibble. If TRUE returns a list of AQSAPI_v2
 #'                        objects which is a two item list that contains header
@@ -600,8 +578,6 @@ aqs_qa_blanks_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -611,8 +587,6 @@ aqs_qa_blanks_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -623,9 +597,7 @@ aqs_qa_blanks_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    service = "qaBlanks",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaBlanks"
   )
 
   blanks <- purrr::pmap(.l = params, .f = aqs_services_by_site)
@@ -659,6 +631,7 @@ aqs_qa_blanks_by_site <- function(
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
@@ -780,8 +753,6 @@ aqs_qa_collocated_assessments_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -791,8 +762,6 @@ aqs_qa_collocated_assessments_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -803,9 +772,7 @@ aqs_qa_collocated_assessments_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    service = "qaCollocatedAssessments",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaCollocatedAssessments"
   )
 
   colocatedsummary <- purrr::pmap(.l = params, .f = aqs_services_by_site)
@@ -868,8 +835,6 @@ aqs_qa_flowrateverification_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -879,8 +844,6 @@ aqs_qa_flowrateverification_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -891,9 +854,7 @@ aqs_qa_flowrateverification_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    service = "qaFlowRateVerifications",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "qaFlowRateVerifications"
   )
 
   frv <- purrr::pmap(.l = params, .f = aqs_services_by_site)
@@ -931,6 +892,7 @@ aqs_qa_flowrateverification_by_site <- function(
 #'                        from the API server mostly used for debugging
 #'                        purposes in addition to the data requested.
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @examples #Returns a AQS_DataMart_APIv2 S3 object of the returns
 #'          \dontrun{ #   returns all ozone transaction data for the
 #'                    #   Millbrook School site (#0014) in Wake County, NC for
@@ -1046,8 +1008,6 @@ aqs_qa_annualperformanceeval_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -1057,8 +1017,6 @@ aqs_qa_annualperformanceeval_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -1069,8 +1027,6 @@ aqs_qa_annualperformanceeval_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = lubridate::NA_Date_,
-    cedate = lubridate::NA_Date_,
     service = "qaAnnualPerformanceEvaluations"
   )
 
@@ -1138,8 +1094,6 @@ aqs_qa_annualperformanceevaltransaction_by_site <- function(
   stateFIPS,
   countycode,
   sitenum,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -1149,8 +1103,6 @@ aqs_qa_annualperformanceevaltransaction_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
 
@@ -1161,8 +1113,6 @@ aqs_qa_annualperformanceevaltransaction_by_site <- function(
     stateFIPS = stateFIPS,
     countycode = countycode,
     sitenum = sitenum,
-    cbdate = lubridate::NA_Date_,
-    cedate = lubridate::NA_Date_,
     service = "transactionsQaAnnualPerformanceEvaluations"
   )
 
@@ -1197,6 +1147,7 @@ aqs_qa_annualperformanceevaltransaction_by_site <- function(
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_site
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned

@@ -95,6 +95,7 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -191,6 +192,7 @@ aqs_sampledata_by_box <- function(
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'           returns a AQSAPI_v2 object which is a two item list that contains header
 #'           information returned from the API server mostly used for debugging
@@ -279,6 +281,7 @@ aqs_annualsummary_by_box <- function(
 #' @family Aggregate_by_box functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -374,6 +377,7 @@ aqs_dailysummary_by_box <- function(
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_box
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned

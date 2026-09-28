@@ -36,8 +36,6 @@ aqs_monitors_by_cbsa <- function(
   bdate,
   edate,
   cbsa_code,
-  cbdate = lubridate::NA_Date_,
-  cedate = lubridate::NA_Date_,
   return_header = FALSE
 ) {
   checkaqsparams(
@@ -45,8 +43,6 @@ aqs_monitors_by_cbsa <- function(
     bdate = bdate,
     edate = edate,
     cbsa_code = cbsa_code,
-    cbdate = cbdate,
-    cedate = cedate,
     return_header = return_header
   )
   # aqs_monitors_by_* functions don't call aqsmultiyearparams()
@@ -58,9 +54,7 @@ aqs_monitors_by_cbsa <- function(
     bdate = bdate,
     edate = edate,
     cbsa_code = cbsa_code,
-    service = "monitors",
-    cbdate = cbdate,
-    cedate = cedate
+    service = "monitors"
   ) %>%
     dplyr::select(tidyselect::where(~ !all(is.na(.x))))
 
@@ -103,6 +97,7 @@ aqs_monitors_by_cbsa <- function(
 #' @inheritParams aqs_services_by_cbsa
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two item
 #'                        list that contains header information returned from
@@ -190,6 +185,7 @@ aqs_sampledata_by_cbsa <- function(
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -270,6 +266,7 @@ aqs_annualsummary_by_cbsa <- function(
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested. If TRUE
 #'   returns a AQSAPI_v2 object which is a two item list that contains header
 #'   information returned from the API server mostly used for debugging
@@ -352,6 +349,7 @@ aqs_dailysummary_by_cbsa <- function(
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_cbsa
 #' @importFrom magrittr %>% %<>%
+#' @importFrom lubridate NA_Date_
 #' @param return_header If FALSE (default) only returns data requested.
 #'                        If TRUE returns a AQSAPI_v2 object which is a two
 #'                        item list that contains header information returned
