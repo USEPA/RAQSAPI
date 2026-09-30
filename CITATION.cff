@@ -13,6 +13,8 @@ doi: 10.32614/CRAN.package.RAQSAPI
 identifiers:
 - type: url
   value: https://aqs.epa.gov/aqsweb/documents/data_api.html
+- type: url
+  value: https://usepa.github.io/RAQSAPI/
 abstract: Retrieve air monitoring data and associated metadata from the US Environmental
   Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html>
   for details about the US EPA Data Mart API <https://doi.org/10.32614/CRAN.package.RAQSAPI>.

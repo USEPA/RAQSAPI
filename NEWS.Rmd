@@ -16,7 +16,7 @@ output: md_document
    documentation is not included in the automatically generated reference
    documentation.
  - resume using package:goodpractice, goodpractice is now maintained by rOpenSci
- - code formatting now done using the package:formatR package
+ - code formatting now done using the air formatter
  - Mocked unit tests using package:httptest2
  - Many improvements to project documentation thanks to Maria Morresi of
    ASRC Federal and Cynthia Sthal from the EPA.
@@ -28,6 +28,14 @@ output: md_document
    code contributions.
  - Reduce the number of vignettes exported from RAQSAPI.
  - RAQSAPI no longer depends on the gtools package.
+ - Only aggregate functions using the following services accept cbdate or cedate parameters.
+   Other functions do not expose these parameters, this is consistent with the AQS DataMart API.
+   * Sample Data
+   * dailyData
+   * quarterlyData
+   * annualData
+   * transactionsSample
+ - RAQSAPI now has a [pkgdown](https://pkgdown.r-lib.org/) site.
    
 ## RAQSAPI 2.0.5
   - remove deprecated package:goodpractice from SUGGESTS

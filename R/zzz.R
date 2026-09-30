@@ -1,5 +1,7 @@
 # nocov start
 
+.RAQSAPI_env <- new.env(parent = emptyenv())
+
 #' @noRd
 #' @keywords internal # do not include deprecated function in package reference manual
 
@@ -10,7 +12,6 @@
 #' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
 .onLoad <- function(libname, pkgname) {
-  .RAQSAPI_env <<- new.env(parent = emptyenv())
   setOldClass("AQS_DATAMART_APIv2")
   utils::globalVariables(
     names = c("env.RAQSAPI", "AQSObject", "datetime", "."),

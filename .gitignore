@@ -52,3 +52,4 @@ RAQSAPI.code-workspace
 tests/testthat/testthat-problems.rds
 .vscode/
 .positai
+docs

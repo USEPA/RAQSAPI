@@ -1,4 +1,5 @@
 function(resp) {
+  .RAQSAPI_env <- getNamespace("RAQSAPI")
   user <- .RAQSAPI_env$aqs_username
   key <- .RAQSAPI_env$aqs_key
 

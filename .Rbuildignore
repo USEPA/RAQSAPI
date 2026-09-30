@@ -67,3 +67,6 @@ CODE_OF_CONDUCT.md
 ^Ropensci Review of RAQSAPI - todo list\.md$
 ^NEWS.Rmd
 .urlignore
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

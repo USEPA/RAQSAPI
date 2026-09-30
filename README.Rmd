@@ -49,28 +49,28 @@ https://choosealicense.com/licenses/mit/)
 https://github.com/ropensci/software-review/issues/744)
 <!-- badges: end -->
 
-```{r child = "./vignettes/includes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
+```{r child = "./vignettes/includes/_EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "./vignettes/includes/Intro.Rmd"}
+```{r child = "./vignettes/includes/_Intro.Rmd"}
 ```
 
-```{r child = "./vignettes/includes/TimelinessofAQSData.Rmd"}
+```{r child = "./vignettes/includes/_TimelinessofAQSData.Rmd"}
 ```
 
-```{r child = "./vignettes/includes/InstallandSetup.Rmd", echo = FALSE, comment = NA}
+```{r child = "./vignettes/includes/_InstallandSetup.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "./vignettes/includes/UsingRAQSAPI.Rmd"}
+```{r child = "./vignettes/includes/_UsingRAQSAPI.Rmd"}
 ```
 
-```{r child = "./vignettes/includes/RAQSAPIFunctions-Brief.Rmd"}
+```{r child = "./vignettes/includes/_RAQSAPIFunctions-Brief.Rmd"}
 ```
 
-```{r child = "./vignettes/includes/pyaqsapi.Rmd"}
+```{r child = "./vignettes/includes/_pyaqsapi.Rmd"}
 ```
 
-```{r child = "./vignettes/includes/Acknowledgements.Rmd"}
+```{r child = "./vignettes/includes/_Acknowledgements.Rmd"}
 ```
 
 # References

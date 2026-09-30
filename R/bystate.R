@@ -809,21 +809,24 @@ aqs_qa_pep_audit_by_state <- function(
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
-aqs_transactionsample_by_state <- function(parameter,
-                                           bdate,
-                                           edate,
-                                           stateFIPS,
-                                           cbdate = lubridate::NA_Date_,
-                                           cedate  = lubridate::NA_Date_,
-                                           return_header = FALSE
-                                           ) {
-  checkaqsparams(parameter = parameter,
-                 bdate = bdate,
-                 edate = edate,
-                 stateFIPS = stateFIPS,
-                 cbdate = cbdate,
-                 cedate = cedate,
-                 return_header = return_header)
+aqs_transactionsample_by_state <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
+  checkaqsparams(
+    parameter = parameter,
+    bdate = bdate,
+    edate = edate,
+    stateFIPS = stateFIPS,
+    cbdate = cbdate,
+    cedate = cedate,
+    return_header = return_header
+  )
 
   params <- aqsmultiyearparams(
     parameter = parameter,

@@ -1,0 +1,59 @@
+url: https://usepa.github.io/RAQSAPI/
+template:
+  light-switch: true
+  logo: vignettes/figures/RAQSAPIhexsticker.png
+  bootstrap: 5
+  bslib:
+    bootswatch: yeti
+    pkgdown-nav-height: 100px
+
+reference:
+- title: Getting started with RAQSAPI
+  contents:
+  - aqs_credentials
+  - aqs_sign_up
+
+- title: aqs metadata funtcions
+  contents:
+  - aqs_fields_by_service
+  - aqs_isavailable
+  - aqs_knownissues
+  - aqs_parameters_by_class
+  - aqs_revisionhistory
+
+- title: aqs list functions
+  contents:
+  - aqs_cbsas
+  - aqs_classes
+  - aqs_counties_by_state
+  - aqs_mas
+  - aqs_pqaos
+  - aqs_sampledurations
+  - aqs_sites_by_county
+  - aqs_states
+
+- title: RAQSAPI aggregate functions
+- subtitle: Data Mart aggregate functions _by_site
+  contents:
+  - ends_with("by_site")
+- subtitle: Data Mart aggregate functions _by_county
+  contents:
+  - ends_with("by_county")
+- subtitle: Data Mart aggregate functions _by_state
+  contents:
+  - ends_with("by_state")
+- subtitle: Data Mart aggregate functions by Monitoring Agency (_by_MA)
+  contents:
+  - ends_with("_by_MA")
+- subtitle: Data Mart aggregate functions by Primary Quality Assurance Oranization (_by_pqao)
+  contents:
+  - ends_with("by_pqao")
+- subtitle: Data Mart aggregate functions latitude/longitude bounding box (_by_box)
+  contents:
+  - ends_with("by_box")
+- subtitle: Data Mart aggregate functions by Core Based Statistic Area, as defined by the Census Bureau) (_by_cbsa)
+  contents:
+  - ends_with("by_cbsa")
+- subtitle: RAQSAPI Miscellaneous functions
+  contents:
+  - aqs_removeheader

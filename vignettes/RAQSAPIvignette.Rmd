@@ -12,13 +12,16 @@ output:
     toc: true
     df_print: paged
     self_contained: true
-  rmarkdown::github_document:
-    toc: true
   rmarkdown::pdf_document:
     toc: true
+  rmarkdown::github_document:
+    toc: true
+  markdown: 
+editor_options: 
+    wrap: 125
 lang: "en-US"
 vignette: >
-  %\VignetteIndexEntry{"Introduction to the RAQSAPI package"}
+  %\VignetteIndexEntry{Introduction to the RAQSAPI package}
   %\VignetteEncoding{UTF-8}
   %\VignetteKeyword{R}
   %\VignetteKeyword{AQS}
@@ -45,38 +48,39 @@ knitr::opts_chunk$set(
   tidy = TRUE
 )
 options(rmarkdown.html_vignette.check_title = FALSE)
+options(tinytex.verbose = TRUE)
 ```
 
 <img src="./figures/RAQSAPIhexsticker.png" alt="RAQSAPI hexsticker" width="150" height="150">
 
-```{r child = "./includes/EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
+```{r child = "./includes/_EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "./includes/Intro.Rmd", echo = FALSE, comment = NA}
+```{r child = "./includes/_Intro.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "./includes/TimelinessofAQSData.Rmd"}
+```{r child = "./includes/_TimelinessofAQSData.Rmd"}
 ```
 
-```{r child = "./includes/InstallandSetup.Rmd", echo = FALSE}
+```{r child = "./includes/_InstallandSetup.Rmd", echo = FALSE}
 ```
 
-```{r child = "./includes/UsingRAQSAPI.Rmd", echo = FALSE}
+```{r child = "./includes/_UsingRAQSAPI.Rmd", echo = FALSE}
 ```
 
-```{r child = "./includes/RAQSAPIusagetipsandprecautions.Rmd", echo = FALSE}
+```{r child = "./includes/_RAQSAPIusagetipsandprecautions.Rmd", echo = FALSE}
 ```
 
-```{r child = "./includes/RAQSAPIFunctions-Long.Rmd", echo = FALSE}
+```{r child = "./includes/_RAQSAPIFunctions-Long.Rmd", echo = FALSE}
 ```
 
-```{r child = "./includes/Troubleshooting.Rmd", echo = FALSE}
+```{r child = "./includes/_Troubleshooting.Rmd", echo = FALSE}
 ```
 
-```{r child = "./includes/pyaqsapi.Rmd", echo = FALSE}
+```{r child = "./includes/_pyaqsapi.Rmd", echo = FALSE}
 ```
 
-```{r child = "./includes/Acknowledgements.Rmd", echo = FALSE}
+```{r child = "./includes/_Acknowledgements.Rmd", echo = FALSE}
 ```
 
 # References

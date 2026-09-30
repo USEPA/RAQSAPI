@@ -40,6 +40,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/USEPA/RAQSAPI/}
   \item \url{https://aqs.epa.gov/aqsweb/documents/data_api.html}
+  \item \url{https://usepa.github.io/RAQSAPI/}
   \item Report bugs at \url{https://github.com/USEPA/RAQSAPI/issues}
 }
 
@@ -71,7 +72,7 @@ Other contributors:
   \item Milan Malfait \email{milan.malfait94@gmail.com} (\href{https://orcid.org/0000-0001-9144-3701}{ORCID}) [reviewer]
   \item Rainer M Krug \email{Rainer@krugs.de} \email{Rainer.Krug@sib.swiss} [reviewer]
   \item SIB Swiss Institute of Bioinformatics (\href{https://ror.org/002n09z45}{ROR}) (https://www.sib.swiss) [reviewer]
-  \item Mark Padgham \email{mark.padgham@email.com} (\href{https://orcid.org/0000-0003-2172-5265}{ORCID}) [contractor]
+  \item Mark Padgham \email{mark.padgham@email.com} (\href{https://orcid.org/0000-0003-2172-5265}{ORCID}) [reviewer]
 }
 
 }

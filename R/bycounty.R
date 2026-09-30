@@ -845,15 +845,16 @@ aqs_qa_pep_audit_by_county <- function(
 #'           (raw) data in the AQS submission transaction format (RD)
 #'           corresponding to the inputs provided.
 #' @export
-aqs_transactionsample_by_county <- function(parameter,
-                                            bdate,
-                                            edate,
-                                            stateFIPS,
-                                            countycode,
-                                            cbdate = lubridate::NA_Date_,
-                                            cedate = lubridate::NA_Date_,
-                                            return_header = FALSE
-                                            ) {
+aqs_transactionsample_by_county <- function(
+  parameter,
+  bdate,
+  edate,
+  stateFIPS,
+  countycode,
+  cbdate = lubridate::NA_Date_,
+  cedate = lubridate::NA_Date_,
+  return_header = FALSE
+) {
   checkaqsparams(
     parameter = parameter,
     bdate = bdate,

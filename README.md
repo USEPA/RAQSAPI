@@ -20,8 +20,8 @@ true
   - [Data Mart aggregate functions](#data-mart-aggregate-functions)
     - [See the RAQSAPI vignette for more
       details](#see-the-raqsapi-vignette-for-more-details)
-  - [pyaqsapi - a port of RAQSAPI to the python 3 programming
-    environment](#pyaqsapi---a-port-of-raqsapi-to-the-python-3-programming-environment)
+  - [pyaqsapi; a port of RAQSAPI to the python 3 programming
+    environment](#pyaqsapi-a-port-of-raqsapi-to-the-python-3-programming-environment)
 - [Acknowledgements](#acknowledgements)
 - [References](#references)
 
@@ -40,7 +40,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--28-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--09--30-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -262,10 +262,19 @@ Refer to the[`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
+``` r
+# animated gifs do not work on static pdf output files created with LaTeX
+if (!knitr::is_latex_output()) {
+    cat("## RAQSAPI usage demonstration
+      Here is a short usage demonstration of RAQSAPI
+      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)")
+}
+```
+
 ## RAQSAPI usage demonstration
 
-Here is a short usage demonstration of RAQSAPI ![GIF demonstrating how
-to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
+      Here is a short usage demonstration of RAQSAPI
+      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
 
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
@@ -339,7 +348,7 @@ is either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
   RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
 ```
 
-## pyaqsapi - a port of RAQSAPI to the python 3 programming environment
+## pyaqsapi; a port of RAQSAPI to the python 3 programming environment
 
 For users that feel more comfortable working within a python 3
 environment, [pyaqsapi](https://github.com/USEPA/pyaqsapi)<sup>4</sup>,
