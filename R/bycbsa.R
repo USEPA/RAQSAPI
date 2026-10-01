@@ -6,14 +6,10 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'                        returns a AQSAPI_v2 object which is a two item list
-#'                        that contains header information returned from the
-#'                        API server mostly used for debugging purposes in
-#'                        addition to the data requested.
 #' @examples # returns a tibble of $NO_{2}$ monitors
 #'           #  for Charlotte-Concord-Gastonia, NC cbsa that were operating
 #'           #  on Janurary 01, 2017
@@ -95,14 +91,10 @@ aqs_monitors_by_cbsa <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/)
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two item
-#'                        list that contains header information returned from
-#'                        the API server mostly used for debugging purposes in
-#'                        addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
 #'           for all monitors matching cbsa_code for the given parameter. An
 #'           AQS_DataMart_APIv2 is a 2 item named list in which the first item
@@ -184,12 +176,9 @@ aqs_sampledata_by_cbsa <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return A tibble or an AQS_DataMart_APIv2 S3 object that containing annual
 #'           summary data for the cbsa_code requested. A AQS_DataMart_APIv2 is
 #'           a 2 item named list in which the first item ($Header) is a tibble
@@ -265,12 +254,9 @@ aqs_annualsummary_by_cbsa <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_cbsa functions
 #' @inheritParams aqs_services_by_cbsa
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single cbsa_code.
 #'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
@@ -348,13 +334,9 @@ aqs_dailysummary_by_cbsa <- function(
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_cbsa
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a stateFIPS.
 #'           An AQS_DataMart_APIv2 is a 2 item named list in which the first

@@ -298,8 +298,7 @@ checkaqsparams <- function(...) {
 #'                 function is not intended for use by end users.
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
-#' @param delimiter a string that should be used to separate variables
-#'                   in the return value
+#' @inheritParams RAQSAPI_parameters
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr %>%
@@ -347,8 +346,7 @@ format_variables_for_api <- function(x, delimiter = "&") {
 #'                 helper function @seealso format_variables_for_api.
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
-#' @param delimiter a string that should be used to separate variables
-#'                   in the return value.
+#' @inheritParams RAQSAPI_parameters
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr %>%
@@ -526,8 +524,7 @@ aqs <- function(service, filter = NULL, user = NA, user_key = NA, variables = NU
 #'                of at least 2 can be used to check if the input has the form
 #'                of a valid e-mail address.
 #' @importFrom magrittr %>%
-#' @param email a string which represents the parameter code of the air
-#'                   pollutant related to the data being requested.
+#' @inheritParams RAQSAPI_parameters
 #' @note since this code relies on using regex the implementation is not perfect
 #'         and may not work as expected all the time but overall generally works
 #'         as expected.
@@ -553,53 +550,7 @@ isValidEmail <- function(email) {
 #' @family Aggregate _by_site functions AQS_services
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents the begin date of the data
-#'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'               selection. Only data on or before this date will be returned.
-#' @param stateFIPS a R character object which represents the 2 digit state
-#'                   FIPS code (with leading zero) for the state being
-#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
-#'                   available FIPS codes.
-#' @param countycode a R character object which represents the 3 digit state
-#'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). Use [RAQSAPI::aqs_counties_by_state()]
-#'                       for the list of available county codes in each state.
-#' @param sitenum a R character object which represents the 4 digit site number
-#'                 (with leading zeros) within the county and state being
-#'                 requested. Use [RAQSAPI::aqs_sites_by_county()]
-#'                for the list of available site numbers in  given county and
-#'                state.
-#' @param duration an optional R character string that represents the
-#'                           parameter duration code that limits returned data
-#'                           to a specific sample duration. The default value of
-#'                           NA_character_ results in no filtering based on
-#'                           duration code.Valid durations include actual sample
-#'                           durations and not calculated durations such as 8
-#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages. Use
-#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
-#'                           available duration codes.
-#' @param service a string which represents the services provided by the AQS
-#'                API. For a list of available services Refer to
-#'                \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#' @param cbdate a R date object which represents a 'beginning
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
+#' @inheritParams RAQSAPI_parameters
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -672,49 +623,7 @@ aqs_services_by_site <- function(
 #'                 directly from external functions.
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents the begin date of the data
-#'                  selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'                  selection. Only data on or before this date will be
-#'                  returned.
-#' @param stateFIPS a R character object which represents the 2 digit state
-#'                   FIPS code (with leading zero) for the state being
-#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
-#'                   available FIPS codes.
-#' @param countycode a R character object which represents the 3 digit state
-#'                       FIPS code for the county being requested (with leading
-#'                       zero(s)). Use [RAQSAPI::aqs_counties_by_state()]
-#'                       for the list of available county codes in each state.
-#' @param duration an optional R character string that represents the
-#'                           parameter duration code that limits returned data
-#'                           to a specific sample duration. The default value of
-#'                           NA_character_ results in no filtering based on
-#'                           duration code.Valid durations include actual sample
-#'                           durations and not calculated durations such as 8
-#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages. Use
-#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
-#'                           available duration codes.
-#' @param service a string which represents the services provided by the AQS API
-#'                    For a list of available services @seealso
-#'             \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#' @param cbdate a R date object which represents a 'beginning
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
+#' @inheritParams RAQSAPI_parameters
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -785,44 +694,7 @@ aqs_services_by_county <- function(
 #'                 directly from external functions.
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents the begin date of the data
-#'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'               selection. Only data on or before this date will be returned.
-#' @param stateFIPS a R character object which represents the 2 digit state
-#'                   FIPS code (with leading zero) for the state being
-#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
-#'                   available FIPS codes.
-#' @param duration an optional R character string that represents the
-#'                           parameter duration code that limits returned data
-#'                           to a specific sample duration. The default value of
-#'                           NA_character_ results in no filtering based on
-#'                           duration code.Valid durations include actual sample
-#'                           durations and not calculated durations such as 8
-#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages. Use
-#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
-#'                           available duration codes.
-#' @param service a string which represents the services provided by the
-#'                    AQS API. For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#' @param cbdate a R date object which represents a 'beginning
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
+#' @inheritParams RAQSAPI_parameters
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -888,54 +760,7 @@ aqs_services_by_state <- function(
 #'                 to be called directly from external functions.
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents that begin date of the data
-#'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'               selection. Only data on or before this date will be returned.
-#' @param minlat a R character object that represents the minimum latitude of
-#'                   a geographic box.  Decimal latitude with north being
-#'                   positive. Only data north of this latitude will be
-#'                   returned.
-#' @param maxlat a R character object which represents the maximum latitude of
-#'                   a geographic box. Decimal latitude with north being
-#'                   positive. Only data south of this latitude will be
-#'                   returned.
-#' @param minlon a R character object which represents the minimum longitude
-#'                   of a geographic box. Decimal longitude with east begin
-#'                   positive. Only data east of this longitude will be
-#'                   returned.
-#' @param maxlon a R character object which represents the maximum longitude
-#'                   of a geographic box. Decimal longitude with east begin
-#'                   positive. Only data west of this longitude will be
-#'                   returned. Note that -80 is less than -70.
-#' @param duration an optional R character string that represents the
-#'                           parameter duration code that limits returned data
-#'                           to a specific sample duration. The default value of
-#'                           NA_character_ results in no filtering based on
-#'                           duration code.Valid durations include actual sample
-#'                           durations and not calculated durations such as 8
-#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages. Use
-#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
-#'                           available duration codes.
-#' @param service a string which represents the services provided by the
-#'                    AQS API. For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#' @param cbdate a R date object which represents a 'beginning date of last
-#'                   change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
+#' @inheritParams RAQSAPI_parameters
 #' @param AQS_domain a R string object containing the domain that should be
 #'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -1015,44 +840,7 @@ aqs_services_by_box <- function(
 #'                 directly from external functions.
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents the begin date of the data
-#'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'               selection. Only data on or before this date will be returned.
-#' @param cbsa_code a R character object which represents the 5 digit AQS Core
-#'                   Based Statistical Area code (the same as the census code,
-#'                   with leading zeros). Use [RAQSAPI::aqs_cbsas()]
-#'                   for a list of all CBSA codes and names available,
-#' @param duration an optional R character string that represents the
-#'                           parameter duration code that limits returned data
-#'                           to a specific sample duration. The default value of
-#'                           NA_character_ results in no filtering based on
-#'                           duration code.Valid durations include actual sample
-#'                           durations and not calculated durations such as 8
-#'                           hour CO or $O_3$ rolling averages, 3/6 day PM
-#'                           averages or Pb 3 month rolling averages. Use
-#'                           [RAQSAPI::aqs_sampledurations()] for a list of all
-#'                           available duration codes.
-#' @param service a string which represents the services provided by the AQS
-#'                    API For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#' @param cbdate a R date object which represents a 'beginning
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
+#' @inheritParams RAQSAPI_parameters
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -1121,43 +909,7 @@ aqs_services_by_cbsa <- function(
 #'                 external functions.
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#'
-#' @param bdate a R date object which represents the begin date of the data
-#'               selection. Only data on or after this date will be returned.
-#'
-#' @param edate a R date object which represents the end date of the data
-#'               selection. Only data on or before this date will be returned.
-#'
-#' @param pqao_code a R character object which represents the 4 digit AQS
-#'                   Primary Quality Assurance Organization code
-#'                   (with leading zeroes). Use [RAQSAPI::aqs_pqaos()] for a
-#'                   list of all Primary Quality Assurance Organization (pqao)
-#'                   codes and names available,
-#'
-#' @param service a string which represents the services provided by the
-#'                    AQS API. For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#'
-#' @param cbdate a R date object which represents a 'beginning
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#'
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#'
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
-#'
+#' @inheritParams RAQSAPI_parameters
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -1182,7 +934,7 @@ aqs_services_by_cbsa <- function(
 #'                                         edate = as.Date('20171231',
 #'                                                      format = '%Y%m%d'),
 #'                                         pqao_code = '0013',
-#'                                         service = 'qaAnnualPerformanceEvaluations'
+#'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
 aqs_services_by_pqao <- function(
@@ -1222,35 +974,7 @@ aqs_services_by_pqao <- function(
 #'                 external functions.
 #' @importFrom magrittr %>%
 #' @importFrom lubridate NA_Date_
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents the begin date of the data
-#'                  selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'                  selection. Only data on or before this date will be
-#'                  returned.
-#' @param MA_code a R character object which represents the 4 digit AQS
-#'                    Monitoring Agency code (with leading zeroes). Use
-#'                    [RAQSAPI::aqs_mas()] for a list of all
-#'                  Monitoring Agency (MA) codes and names available,
-#' @param service a string which represents the services provided by the AQS API
-#'                    For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
-#' @param cbdate a R date object which represents a 'beginning
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cbdate is used to filter data based on the change
-#'                   date. Only data that changed on or after this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param cedate a R date object which represents an 'end
-#'                   date of last change' that indicates when the data was last
-#'                   updated. cedate is used to filter data based on the change
-#'                   date. Only data that changed on or before this date will be
-#'                   returned. This is an optional variable which defaults
-#'                   to NA_Date_.
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
+#' @inheritParams RAQSAPI_parameters
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -1318,8 +1042,7 @@ aqs_services_by_MA <- function(
 #'                directly by the end user
 #' @importFrom magrittr %>%
 #' @importFrom rlang :=
-#' @param filter a character string representing the filter being applied
-#' @param service a character string representing the service
+#' @inheritParams RAQSAPI_parameters
 #' @param AQS_domain a R string object containing the domain that should be
 #'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
@@ -1393,13 +1116,7 @@ renameaqsvariables <- function(aqsobject, name1, name2) {
 #'                functions used with functional calls to services_by_*
 #'                functions. This function is not intended for end use by the
 #'                user.
-#' @param parameter a character list or a single character string
-#'                    which represents the parameter code of the air
-#'                    pollutant related to the data being requested.
-#' @param bdate a R date object which represents the begin date of the data
-#'               selection. Only data on or after this date will be returned.
-#' @param edate a R date object which represents the end date of the data
-#'               selection. Only data on or before this date will be returned.
+#' @inheritParams RAQSAPI_parameters
 #' @param ... Other parameters returned to the calling function.
 #' @importFrom rlang abort
 #' @importFrom utils tail

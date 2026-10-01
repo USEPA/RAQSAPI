@@ -111,7 +111,8 @@ importFrom(httr2,
 )
 importFrom(lifecycle,
   badge,
-  deprecate_soft
+  deprecate_soft,
+  deprecated
 )
 importFrom(lubridate,
   '%within%',

@@ -43,8 +43,8 @@ averages or Pb 3 month rolling averages. Use
 \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
 available duration codes.}
 
-\item{service}{a string which represents the services provided by the
-AQS API. For a list of available services @seealso
+\item{service}{a string which represents the services provided by the AQS
+API. For a list of available services Refer to
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{cbdate}{a R date object which represents a 'beginning

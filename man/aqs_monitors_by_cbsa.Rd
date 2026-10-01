@@ -23,10 +23,9 @@ with leading zeros). Use \code{\link[=aqs_cbsas]{aqs_cbsas()}}
 for a list of all CBSA codes and names available,}
 
 \item{return_header}{If FALSE (default) only returns data requested. If TRUE
-returns a AQSAPI_v2 object which is a two item list
-that contains header information returned from the
-API server mostly used for debugging purposes in
-addition to the data requested.}
+returns a AQSAPI_v2 object which is a two item list that contains header
+information returned from the API server mostly used for debugging
+purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_DataMart_APIv2 S3 object that is the return value

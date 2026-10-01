@@ -6,13 +6,10 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of monitors from a
 #'           latitude/longitude bounding box (_by_box).
 #' @examples #  Returns a tibble of all ozone
@@ -93,14 +90,10 @@ aqs_monitors_by_box <- function(parameter, bdate, edate, minlat, maxlat, minlon,
 #'         $mathcal(n + 5 seconds).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two item
-#'                        list that contains header information returned from
-#'                        the API server mostly used for debugging purposes in
-#'                        addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object containing sample data
 #'           for all monitors within the input latitude/longitude bounding box
 #'           for a single parameter. An AQS_DataMart_APIv2 is a 2 item named
@@ -191,12 +184,9 @@ aqs_sampledata_by_box <- function(
 #'         $mathcal(n + 5 seconds).
 #' @family Aggregate _by_box functions
 #' @inheritParams aqs_services_by_box
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'           returns a AQSAPI_v2 object which is a two item list that contains header
-#'           information returned from the API server mostly used for debugging
-#'           purposes in addition to the data requested.
 #' @return A tibble or an AQS_DataMart_APIv2 S3 object that containing annual
 #'           summary data for the box (area) requested. A AQS_DataMart_APIv2
 #'           is a 2 item named list in which the first item ($Header) is a
@@ -280,13 +270,9 @@ aqs_annualsummary_by_box <- function(
 #'         $mathcal(n + 5 seconds).
 #' @family Aggregate_by_box functions
 #' @inheritParams aqs_services_by_box
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two item
-#'                        list that contains header information returned from
-#'                        the API server mostly used for debugging purposes in
-#'                        addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for an area bounded
 #'           within a latitude/longitude bounding box. An AQS_DataMart_APIv2 is
@@ -376,13 +362,9 @@ aqs_dailysummary_by_box <- function(
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_box
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains quarterly
 #'           summary statistics for an area within a latitude/longitude
 #'           bounding box. An AQS_DataMart_APIv2 is a 2 item named list in

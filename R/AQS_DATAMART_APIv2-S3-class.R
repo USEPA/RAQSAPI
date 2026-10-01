@@ -2,9 +2,7 @@
 #' @description `r lifecycle::badge("stable")`
 #'              Helper function to Validate data structure of data before
 #'              converting it into an AQS_DATAMART_APIv2 S3 object.
-#' @param .AQSobject A 2 item named list in which the first item ($Header) is a
-#'              tibble of header information from the AQS API and the second
-#'              item ($Data) is a tibble of the data returned.
+#' @inheritParams RAQSAPI_parameters .AQSobject
 #' @importFrom tibble is_tibble
 #' @importFrom rlang is_list inherits_any
 #' @importFrom purrr map_lgl

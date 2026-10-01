@@ -26,8 +26,7 @@ pollutant related to the data being requested.}
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents the end date of the data
-selection. Only data on or before this date will be
-returned.}
+selection. Only data on or before this date will be returned.}
 
 \item{stateFIPS}{a R character object which represents the 2 digit state
 FIPS code (with leading zero) for the state being
@@ -39,8 +38,8 @@ FIPS code for the county being requested (with leading
 zero(s)). Use \code{\link[=aqs_counties_by_state]{aqs_counties_by_state()}}
 for the list of available county codes in each state.}
 
-\item{service}{a string which represents the services provided by the AQS API
-For a list of available services @seealso
+\item{service}{a string which represents the services provided by the AQS
+API. For a list of available services Refer to
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{duration}{an optional R character string that represents the

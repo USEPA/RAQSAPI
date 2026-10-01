@@ -13,7 +13,9 @@ aqs_metadata_service(
 \arguments{
 \item{filter}{a character string representing the filter being applied}
 
-\item{service}{a character string representing the service}
+\item{service}{a string which represents the services provided by the AQS
+API. For a list of available services Refer to
+\url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{AQS_domain}{a R string object containing the domain that should be
 used in constructing the API call.}

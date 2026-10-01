@@ -19,11 +19,8 @@
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance blank data for monitors within a pqao. An
 #'           AQS_DataMart_APIv2 is a 2 item named list in which the first item
@@ -92,11 +89,8 @@ aqs_qa_blanks_by_pqao <- function(
 #'         time of /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance collocated assessment data for monitors within a pqao.
 #'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
@@ -165,11 +159,8 @@ aqs_qa_collocated_assessments_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance flow rate verification data for monitors within a pqao.
 #'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
@@ -240,11 +231,8 @@ aqs_qa_flowrateverification_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate
 #'           audit data  for the requested pqao_code. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
@@ -313,11 +301,8 @@ aqs_qa_flowrateaudit_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 #'            qc data within a pqao. A AQS_Data_Mart_APIv2 object is a
 #'            2 item named list in which the first item ($Header) is a tibble
@@ -385,11 +370,8 @@ aqs_qa_one_point_qc_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance PEP audit data for a Primary Quality Assurance
 #'           Organization. A AQS_Data_Mart_APIv2 object is a 2 item named list
@@ -461,11 +443,7 @@ aqs_qa_pep_audit_by_pqao <- function(
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           # for ozone where the PQAO is the Alabamaba Department of
@@ -533,11 +511,7 @@ aqs_qa_annualperformanceeval_by_pqao <- function(parameter, bdate, edate, pqao_c
 #'         /(Big O notation: O/(n + 5 seconds/)/).
 #' @family Aggregate _by_pqao functions
 #' @inheritParams aqs_services_by_pqao
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @examples #Returns a tibble containing annual performance evaluation data for
 #'           # ozone in where the PQAO is the Alabama Department of

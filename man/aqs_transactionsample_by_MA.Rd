@@ -23,8 +23,7 @@ pollutant related to the data being requested.}
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents the end date of the data
-selection. Only data on or before this date will be
-returned.}
+selection. Only data on or before this date will be returned.}
 
 \item{MA_code}{a R character object which represents the 4 digit AQS
 Monitoring Agency code (with leading zeroes). Use
@@ -45,10 +44,9 @@ date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{return_header}{If FALSE (default) only returns data requested.
-If TRUE returns a AQSAPI_v2 object which is a two
-item list that contains header information returned
-from the API server mostly used for debugging
+\item{return_header}{If FALSE (default) only returns data requested. If TRUE
+returns a AQSAPI_v2 object which is a two item list that contains header
+information returned from the API server mostly used for debugging
 purposes in addition to the data requested.}
 }
 \value{

@@ -6,16 +6,12 @@
 #' @note All monitors that operated between the bdate and edate will be returned
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom tibble tibble
 #' @importFrom dplyr select
 #' @importFrom tidyselect where
 #' @importFrom purrr pmap
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of monitors from a
 #'           selected stateFIPS, county, and sitenum combination.
 #' @examples
@@ -82,6 +78,7 @@ aqs_monitors_by_site <- function(
 #'                data aggregated by parameter code, stateFIPS, countycode and
 #'                site number for bdate - edate time frame.
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @note The AQS API only allows for a single year of flow rate audit data to
 #'         be retrieved at a time. This function conveniently extracts date
@@ -95,11 +92,6 @@ aqs_monitors_by_site <- function(
 #'         API server. This operation has a linear run time of
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate
 #'           audit data for the requested sitenum, countycode and stateFIPS. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
@@ -176,12 +168,8 @@ aqs_qa_flowrateaudit_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 #'            qc data for the requested site. A AQS_Data_Mart_APIv2 object is a
 #'            2 item named list in which the first item ($Header) is a tibble
@@ -257,12 +245,8 @@ aqs_qa_one_point_qc_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance PEP audit data within a site. A AQS_Data_Mart_APIv2
 #'           object is a 2 item named list in which the first item ($Header) is
@@ -348,14 +332,7 @@ aqs_qa_pep_audit_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
-#' @param return_header If FALSE (default) returns a single data frame with the
-#'                        data requested. If TRUE returns a AQSAPI_v2 object
-#'                        which is a two item list that contains header
-#'                        information returned from the API server mostly used
-#'                        for debugging purposes in addition to the data
-#'                        requested. This is mostly useful for debugging
-#'                        purposes, in case the user wishes to see the header
-#'                        information from each api call.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom purrr pmap
 #' @importFrom lubridate NA_Date_
@@ -448,14 +425,9 @@ aqs_sampledata_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested as a
-#'                        single tibble. If TRUE returns a list of AQSAPI_v2
-#'                        objects which is a two item list that contains header
-#'                        information returned from the API server mostly used
-#'                        for debugging purposes in addition to the data
-#'                        requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing annual
 #'           summary data for the sitenum, countycode and stateFIPS requested.
 #'           A AQS_DataMart_APIv2 is a 2 item named list in which the first
@@ -543,12 +515,8 @@ aqs_annualsummary_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object that contains quality
 #'           assurance blank sample data for single monitoring site for the
 #'           sitenum, countycode and stateFIPS requested for the time frame
@@ -630,13 +598,9 @@ aqs_qa_blanks_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains daily
 #'           summary statistics for the given parameter for a single site. An
 #'           AQS_DataMart_APIv2 is a 2 item named list in which the first item
@@ -719,12 +683,8 @@ aqs_dailysummary_by_site <- function(
 #'         time of $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance collocated assessment data for monitors within a site.
 #'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
@@ -803,12 +763,8 @@ aqs_qa_collocated_assessments_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance flow rate verification data for monitors at a site.
 #'           An AQS_DataMart_APIv2 is a 2 item named list in which the first
@@ -886,11 +842,7 @@ aqs_qa_flowrateverification_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
 #' @examples #Returns a AQS_DataMart_APIv2 S3 object of the returns
@@ -975,11 +927,7 @@ aqs_transactionsample_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @examples #Returns a tibble containing annual performance evaluation data for
 #'           # ozone at the Fairhope site in Baldwin County, AL for 2017
@@ -1060,11 +1008,7 @@ aqs_qa_annualperformanceeval_by_site <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_site functions
 #' @inheritParams aqs_services_by_site
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @examples #Returns a tibble containing annual performance evaluation data
 #'           # (raw) for ozone at the Fairhope site in Baldwin County, AL for
@@ -1146,13 +1090,9 @@ aqs_qa_annualperformanceevaltransaction_by_site <- function(
 #'         and edate are used and all 4 quarters in the year are returned.
 #' @family Aggregate _by_county functions
 #' @inheritParams aqs_services_by_site
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains quarterly
 #'           summary statistics for the given parameter for a single countycode
 #'           and stateFIPS combination. An AQS_DataMart_APIv2 is a 2 item named

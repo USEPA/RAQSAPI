@@ -32,8 +32,8 @@ Primary Quality Assurance Organization code
 list of all Primary Quality Assurance Organization (pqao)
 codes and names available,}
 
-\item{service}{a string which represents the services provided by the
-AQS API. For a list of available services @seealso
+\item{service}{a string which represents the services provided by the AQS
+API. For a list of available services Refer to
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{cbdate}{a R date object which represents a 'beginning

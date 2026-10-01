@@ -20,7 +20,7 @@ aqs_monitors_by_box(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents the end date of the data

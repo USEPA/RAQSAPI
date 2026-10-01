@@ -22,7 +22,7 @@ aqs_dailysummary_by_box(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents the end date of the data
@@ -48,8 +48,8 @@ of a geographic box. Decimal longitude with east begin
 positive. Only data west of this longitude will be
 returned. Note that -80 is less than -70.}
 
-\item{cbdate}{a R date object which represents a 'beginning date of last
-change' that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults
@@ -62,11 +62,10 @@ date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{return_header}{If FALSE (default) only returns data requested.
-If TRUE returns a AQSAPI_v2 object which is a two item
-list that contains header information returned from
-the API server mostly used for debugging purposes in
-addition to the data requested.}
+\item{return_header}{If FALSE (default) only returns data requested. If TRUE
+returns a AQSAPI_v2 object which is a two item list that contains header
+information returned from the API server mostly used for debugging
+purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_Data_Mart_APIv2 S3 object that contains daily

@@ -28,11 +28,10 @@ FIPS code (with leading zero) for the state being
 requested. Use \code{\link[=aqs_states]{aqs_states()}} for the list of
 available FIPS codes.}
 
-\item{return_header}{If FALSE (default) only returns data requested.
-If TRUE returns a AQSAPI_v2 object which is a two item
-list that contains header information returned from
-the API server mostly used for debugging purposes in
-addition to the data requested.}
+\item{return_header}{If FALSE (default) only returns data requested. If TRUE
+returns a AQSAPI_v2 object which is a two item list that contains header
+information returned from the API server mostly used for debugging
+purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate

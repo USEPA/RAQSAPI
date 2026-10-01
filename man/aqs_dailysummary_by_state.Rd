@@ -44,11 +44,10 @@ date. Only data that changed on or before this date will be
 returned. This is an optional variable which defaults
 to NA_Date_.}
 
-\item{return_header}{If FALSE (default) only returns data requested.
-If TRUE returns a AQSAPI_v2 object which is a two item
-list that contains header information returned from
-the API server mostly used for debugging purposes in
-addition to the data requested.}
+\item{return_header}{If FALSE (default) only returns data requested. If TRUE
+returns a AQSAPI_v2 object which is a two item list that contains header
+information returned from the API server mostly used for debugging
+purposes in addition to the data requested.}
 }
 \value{
 a tibble or an AQS_DataMart_APIv2 S3 object that contains daily

@@ -19,11 +19,8 @@
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_Data_Mart_APIv2 S3 object that contains quality
 #'           assurance blank sample data for all monitors within the input
 #'           MA_code. An AQS_Data_Mart_APIv2 is a 2 item named
@@ -92,11 +89,8 @@ aqs_qa_blanks_by_MA <- function(
 #'         time of $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance collocated assessment data for monitors within a
 #'           monitoring agency. An AQS_DataMart_APIv2 is a 2 item named list
@@ -167,11 +161,8 @@ aqs_qa_collocated_assessments_by_MA <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance flow rate verification data for monitors within a
 #'           Monitoring agency. An AQS_DataMart_APIv2 is a 2 item named list in
@@ -243,11 +234,8 @@ aqs_qa_flowrateverification_by_MA <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing flow rate
 #'           audit data for the requested MA_code. An
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
@@ -316,11 +304,8 @@ aqs_qa_flowrateaudit_by_MA <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing one point
 #'            qc data for a single monitoring agency. A AQS_Data_Mart_APIv2
 #'            object is a 2 item named list in which the first item ($Header)
@@ -389,11 +374,8 @@ aqs_qa_one_point_qc_by_MA <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing quality
 #'           assurance PEP audit data for a monitoring agency. A
 #'           AQS_Data_Mart_APIv2 object is a 2 item named list in which the
@@ -465,11 +447,7 @@ aqs_qa_pep_audit_by_MA <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_state functions
 #' @inheritParams aqs_services_by_MA
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @importFrom lubridate NA_Date_
 #' @examples #Returns a tibble of ozone transaction sample data for all monitors
@@ -543,11 +521,7 @@ aqs_transactionsample_by_MA <- function(
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @examples
 #'           # Returns a tibble containing annual performance evaluation data
@@ -615,11 +589,7 @@ aqs_qa_annualperformanceeval_by_MA <- function(parameter, bdate, edate, MA_code,
 #'         $mathcal(n + 5 seconds)$.
 #' @family Aggregate _by_MA functions
 #' @inheritParams aqs_services_by_MA
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters return_header
 #' @importFrom magrittr %>% %<>%
 #' @examples # Returns a tibble containing annual performance evaluation data
 #'           #  for ozone in where the MA is the Alabama Department of

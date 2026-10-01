@@ -24,7 +24,7 @@ aqs_services_by_box(
 which represents the parameter code of the air
 pollutant related to the data being requested.}
 
-\item{bdate}{a R date object which represents that begin date of the data
+\item{bdate}{a R date object which represents the begin date of the data
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents the end date of the data
@@ -61,12 +61,12 @@ averages or Pb 3 month rolling averages. Use
 \code{\link[=aqs_sampledurations]{aqs_sampledurations()}} for a list of all
 available duration codes.}
 
-\item{service}{a string which represents the services provided by the
-AQS API. For a list of available services @seealso
+\item{service}{a string which represents the services provided by the AQS
+API. For a list of available services Refer to
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
-\item{cbdate}{a R date object which represents a 'beginning date of last
-change' that indicates when the data was last
+\item{cbdate}{a R date object which represents a 'beginning
+date of last change' that indicates when the data was last
 updated. cbdate is used to filter data based on the change
 date. Only data that changed on or after this date will be
 returned. This is an optional variable which defaults

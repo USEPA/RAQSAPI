@@ -24,16 +24,15 @@ pollutant related to the data being requested.}
 selection. Only data on or after this date will be returned.}
 
 \item{edate}{a R date object which represents the end date of the data
-selection. Only data on or before this date will be
-returned.}
+selection. Only data on or before this date will be returned.}
 
 \item{MA_code}{a R character object which represents the 4 digit AQS
 Monitoring Agency code (with leading zeroes). Use
 \code{\link[=aqs_mas]{aqs_mas()}} for a list of all
 Monitoring Agency (MA) codes and names available,}
 
-\item{service}{a string which represents the services provided by the AQS API
-For a list of available services @seealso
+\item{service}{a string which represents the services provided by the AQS
+API. For a list of available services Refer to
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{cbdate}{a R date object which represents a 'beginning

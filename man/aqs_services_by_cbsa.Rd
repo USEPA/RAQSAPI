@@ -44,7 +44,7 @@ averages or Pb 3 month rolling averages. Use
 available duration codes.}
 
 \item{service}{a string which represents the services provided by the AQS
-API For a list of available services @seealso
+API. For a list of available services Refer to
 \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}}
 
 \item{cbdate}{a R date object which represents a 'beginning
