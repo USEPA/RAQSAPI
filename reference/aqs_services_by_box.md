@@ -35,8 +35,8 @@ aqs_services_by_box(
 
 - bdate:
 
-  a R date object which represents that begin date of the data
-  selection. Only data on or after this date will be returned.
+  a R date object which represents the begin date of the data selection.
+  Only data on or after this date will be returned.
 
 - edate:
 
@@ -82,7 +82,7 @@ aqs_services_by_box(
 - service:
 
   a string which represents the services provided by the AQS API. For a
-  list of available services @seealso
+  list of available services Refer to
   <https://aqs.epa.gov/aqsweb/documents/data_api.html#services>
 
 - cbdate:

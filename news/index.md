@@ -31,10 +31,10 @@
   cedate parameters. Other functions do not expose these parameters,
   this is consistent with the AQS DataMart API.
   - Sample Data
-  - dailyData
-  - quarterlyData
-  - annualData
-  - transactionsSample
+  - dailydata
+  - quarterlydata
+  - annualdata
+  - transactionsample
 - RAQSAPI now has a [pkgdown](https://pkgdown.r-lib.org/) site.
 
 ## RAQSAPI 2.0.5

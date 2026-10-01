@@ -96,12 +96,10 @@ aqs_sampledata_by_site(
 
 - return_header:
 
-  If FALSE (default) returns a single data frame with the data
-  requested. If TRUE returns a AQSAPI_v2 object which is a two item list
-  that contains header information returned from the API server mostly
-  used for debugging purposes in addition to the data requested. This is
-  mostly useful for debugging purposes, in case the user wishes to see
-  the header information from each api call.
+  If FALSE (default) only returns data requested. If TRUE returns a
+  AQSAPI_v2 object which is a two item list that contains header
+  information returned from the API server mostly used for debugging
+  purposes in addition to the data requested.
 
 ## Value
 

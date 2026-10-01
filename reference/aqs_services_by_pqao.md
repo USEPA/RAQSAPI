@@ -50,7 +50,7 @@ aqs_services_by_pqao(
 - service:
 
   a string which represents the services provided by the AQS API. For a
-  list of available services @seealso
+  list of available services Refer to
   <https://aqs.epa.gov/aqsweb/documents/data_api.html#services>
 
 - cbdate:

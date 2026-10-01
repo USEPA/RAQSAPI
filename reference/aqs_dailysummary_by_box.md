@@ -31,8 +31,8 @@ aqs_dailysummary_by_box(
 
 - bdate:
 
-  a R date object which represents that begin date of the data
-  selection. Only data on or after this date will be returned.
+  a R date object which represents the begin date of the data selection.
+  Only data on or after this date will be returned.
 
 - edate:
 

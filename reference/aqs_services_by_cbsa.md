@@ -60,8 +60,8 @@ aqs_services_by_cbsa(
 
 - service:
 
-  a string which represents the services provided by the AQS API For a
-  list of available services @seealso
+  a string which represents the services provided by the AQS API. For a
+  list of available services Refer to
   <https://aqs.epa.gov/aqsweb/documents/data_api.html#services>
 
 - cbdate:
