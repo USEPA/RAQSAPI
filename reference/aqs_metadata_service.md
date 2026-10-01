@@ -1,0 +1,49 @@
+# aqs_metadata_service
+
+A helper function for functions which use the metaData service from the
+AQS API. This function is not intended to be called directly by the end
+user
+
+## Usage
+
+``` r
+aqs_metadata_service(
+  filter,
+  service = NA_character_,
+  AQS_domain = "aqs.epa.gov"
+)
+```
+
+## Arguments
+
+- filter:
+
+  a character string representing the filter being applied
+
+- service:
+
+  a character string representing the service
+
+- AQS_domain:
+
+  a R string object containing the domain that should be used in
+  constructing the API call.
+
+## Value
+
+a AQS_DATAMART_APIv2 S3 object that is the return value from the AQS
+API. A AQS_DATAMART_APIv2 is a 2 item named list in which the first item
+(\$Header) is a tibble of header information from the AQS API and the
+second item (\$Data) is a tibble of the data returned.
+
+## Examples
+
+``` r
+# if an user were to call aqs_knownissues() for a list of known
+          # issues with respect to the US EPA AQS DataMart API
+          # [aqs_knownissues()]
+          # then aqs_knownissues() would call this helper
+          # function with the following inputs.
+          if (FALSE) aqs_metadata_service(filter = 'issues', service = NULL)
+                   # \dontrun{}
+```
