@@ -1,5 +1,6 @@
 url: https://usepa.github.io/RAQSAPI/
 template:
+  trailing_slash_redirect: true
   light-switch: true
   logo: vignettes/figures/RAQSAPIhexsticker.png
   bootstrap: 5
