@@ -20,17 +20,46 @@ bibliography: AQSAPI.bib
 csl: acs-nano.csl
 ---
 
->[!WARNING]
->
-> US EPA's AQS Data Mart API V2 is currently
-> in beta phase of development, the API interface has not been finalized.
-> This means that certain functionality of the API may change or be removed
-> without notice. As a result, this package is also currently marked as beta and
-> may also change to reflect any changes made to the Data Mart API or in respect
-> to improvements in the design, functionality, quality and documentation of
-> this package. The authors assume no liability for any problems that may occur
-> as a result of using this package, the Data Mart service, any software,
-> service, hardware, or user accounts that may utilize this package.
+```{R, _Intro_warningbox, results='asis', echo=FALSE}
+alert_type <- "Warning"
+alert_text <- paste(
+  "US EPA's AQS Data Mart API V2 is currently in beta phase of development, the API interface has not been finalized.",
+  "This means that certain functionality of the API may change or be removed without notice. As a result, this package",
+  "is also currently marked as beta and may also change to reflect any changes made to the Data Mart API or in respect",
+  "to improvements in the design, functionality, quality and documentation of this package. The authors assume no",
+  "liability for any problems that may occur as a result of using this package, the Data Mart service, any software,",
+  "service, hardware, or user accounts that may utilize this package."
+)
+alert_color <- "#b45309"
+alert_background <- "#fff7ed"
+
+if (knitr::is_html_output(excludes = c("markdown", "gfm"))) {
+  cat(
+    '<div role="alert" style="border: 1px solid ', alert_color,
+    '; border-left: 4px solid ', alert_color, '; background-color: ',
+    alert_background, '; padding: 0.75em 1em; margin: 1em 0;">\n',
+    "<strong>", alert_type, ".</strong>\n<p>", alert_text, "</p>\n",
+    "</div>\n",
+    sep = ""
+  )
+} else if (knitr::is_latex_output()) {
+  cat(
+    "\\begin{center}\n",
+    "\\fbox{\\begin{minipage}{0.95\\linewidth}\n",
+    "\\textbf{", alert_type, ".} ", alert_text, "\n",
+    "\\end{minipage}}\n",
+    "\\end{center}\n",
+    sep = ""
+  )
+} else if (knitr::pandoc_to() == "gfm") {
+  cat(
+    "```{=gfm}\n> [!WARNING]\n>\n> ", alert_text, "\n```\n",
+    sep = ""
+  )
+} else {
+  cat("> [!WARNING]\n>\n> ", alert_text, "\n", sep = "")
+}
+```
 
 
 # Introduction

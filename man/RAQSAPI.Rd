@@ -38,9 +38,9 @@ activity by the USEPA or the United States Government.
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://usepa.github.io/RAQSAPI/}
   \item \url{https://github.com/USEPA/RAQSAPI/}
   \item \url{https://aqs.epa.gov/aqsweb/documents/data_api.html}
-  \item \url{https://usepa.github.io/RAQSAPI/}
   \item Report bugs at \url{https://github.com/USEPA/RAQSAPI/issues}
 }
 

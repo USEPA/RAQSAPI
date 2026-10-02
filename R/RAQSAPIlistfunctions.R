@@ -29,10 +29,7 @@ aqs_isavailable <- function() {
 #'                Issues returned via this function do not include any issues
 #'                from the RAQSAPI R package.
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that contains
 #'   information involving known issues with the Data Mart API.
 #' @examples
@@ -54,15 +51,7 @@ aqs_knownissues <- function(return_header = FALSE) {
 #'                 Returns a table of all counties in within the
 #'                 stateFIPS provided.
 #' @importFrom magrittr %>% %<>%
-#' @param stateFIPS a R character object which represents the 2 digit state
-#'                   FIPS code (with leading zeros) for the state being
-#'                   requested. Use [RAQSAPI::aqs_states()] for the list of
-#'                   available FIPS codes.
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of all counties in the
 #'            requested state.
 #' @examples
@@ -93,13 +82,8 @@ aqs_counties_by_state <- function(stateFIPS, return_header = FALSE) {
 #' @description `r lifecycle::badge("stable")`
 #'                 Returns data containing a table of all air monitoring sites
 #'                 with the input state and county FIPS code combination.
-#' @inheritParams aqs_services_by_county
+#' @inheritParams RAQSAPI_parameters
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of all air monitoring
 #'            sites with the requested state and county FIPS codes.
 #' @examples # Returns an AQS_DataMart_APIv2 S3 object witch returns all sites
@@ -132,11 +116,7 @@ aqs_sites_by_county <- function(stateFIPS, countycode, return_header = FALSE) {
 #'                 i.e. 'criteria' or 'all'). The information from this function
 #'                 can be used as input to other API calls.
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of Parameter classes
 #'                 (groups of parameters, i.e. 'criteria' or 'all').
 #' @examples # Returns a tibble of parameter classes (groups of parameters, i.e.
@@ -164,17 +144,13 @@ aqs_classes <- function(return_header = FALSE) {
 #' @description `r lifecycle::badge("stable")`
 #'                 Returns parameters associated with the input class.
 #' @importFrom magrittr %>% %<>%
+#' @inheritParams RAQSAPI_parameters
 #' @param class a R character object that represents the class requested,
 #'                   Use [RAQSAPI::aqs_classes()] for retrieving
 #'                  available classes.  The class R character object must be a
 #'                  valid class as returned from aqs_classes(). The class must
 #'                  be an exact match to what is returned from aqs_classes()
 #'                  (case sensitive).
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object containing the
 #'            parameters associated with the class requested. NULL is returned
 #'            for classes not found.
@@ -201,11 +177,7 @@ aqs_parameters_by_class <- function(class, return_header = FALSE) {
 #' @description `r lifecycle::badge("stable")`
 #'                 Returns a table of monitoring agencies (MA).
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of monitoring agencies
 #'              and their associated agency code.
 #' @examples # Returns a tibble or an AQS_DataMart_APIv2 S3 object
@@ -236,11 +208,7 @@ aqs_mas <- function(return_header = FALSE) {
 #'                 Returns a table of primary quality assurance
 #'                 organizations (pqaos).
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of pqaos and
 #'            their associated pqao code.
 #' @examples # Returns a tibble of primary quality assurance
@@ -271,11 +239,7 @@ aqs_pqaos <- function(return_header = FALSE) {
 #'                 and their associated cbsa_codes. for constructing other
 #'                 requests.
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2  S3 object of all Core Based
 #'         Statistical Areas (cbsa) and their cbsa_codes for constructing
 #'         other requests.
@@ -307,11 +271,7 @@ aqs_cbsas <- function(return_header = FALSE) {
 #'                 Returns a table of US states, US territories, and the
 #'                 district or Columbia with their respective FIPS codes.
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns an AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object of states and their
 #'            associated FIPS codes.
 #' @examples # Returns a tibble of states and their FIPS codes
@@ -348,25 +308,25 @@ aqs_states <- function(return_header = FALSE) {
 #' @note Since this function returns only the $Data portion of RAQSAPI_v2
 #'   objects this means that the $Header information will not be present in the
 #'   object being returned.
-#' @param AQSobject An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.
+#' @inheritParams RAQSAPI_parameters
 #' @importFrom dplyr bind_rows
 #' @return a tibble of the combined $data portions of the input
 #'           AQS_Data_Mart_APIv2 S3 object with the $Header portion discarded.
 #' @examples #coerce a AQS_Data_MART_APIv2 object to a single tibble.
 #'            \dontrun{ aqs_removeheader(AQSobject) }
 #' @export
-aqs_removeheader <- function(AQSobject) {
-  if (is.null(AQSobject)) {
-    return(AQSobject)
-  } else if (isa(x = AQSobject, what = "AQS_DATAMART_APIv2")) {
-    AQSobject <- AQSobject$Data
-  } else if (isa(x = AQSobject[[1]], what = "AQS_DATAMART_APIv2") && is.list(AQSobject)) {
-    AQSobject %<>%
+aqs_removeheader <- function(.AQSobject) {
+  if (is.null(.AQSobject)) {
+    return(.AQSobject)
+  } else if (isa(x = .AQSobject, what = "AQS_DATAMART_APIv2")) {
+    AQSobject <- .AQSobject$Data
+  } else if (isa(x = .AQSobject[[1]], what = "AQS_DATAMART_APIv2") && is.list(AQSobject)) {
+    .AQSobject %<>%
       lapply("[[", "Data") %>%
       dplyr::bind_rows()
   }
 
-  return(AQSobject)
+  return(.AQSobject)
 }
 
 
@@ -375,10 +335,7 @@ aqs_removeheader <- function(AQSobject) {
 #' @description `r lifecycle::badge("stable")`
 #'                 Returns the change history to the AQS Data Mart API.
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested. If TRUE
-#'   returns a AQSAPI_v2 object which is a two item list that contains header
-#'   information returned from the API server mostly used for debugging
-#'   purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @return a tibble or an AQS_DataMart_APIv2 S3 object that is the return value
 #'   from the AQS API. A AQS_DataMart_APIv2 is a 2 item named list in which the
 #'   first item ($Header) is a tibble of header information from the AQS API
@@ -441,11 +398,7 @@ aqs_fields_by_service <- function(service, return_header = FALSE) {
 #'                 durations such as 8 hour CO or $O_3$ rolling averages, 3/6
 #'                 day PM averages or Pb 3 month rolling averages.
 #' @importFrom magrittr %>% %<>%
-#' @param return_header If FALSE (default) only returns data requested.
-#'                        If TRUE returns a AQSAPI_v2 object which is a two
-#'                        item list that contains header information returned
-#'                        from the API server mostly used for debugging
-#'                        purposes in addition to the data requested.
+#' @inheritParams RAQSAPI_parameters
 #' @note Not all sample durations that are available through AQS are available
 #'       through the AQS Data Mart API, including certain calculated sample
 #'       durations. Only sample durations that are available through the

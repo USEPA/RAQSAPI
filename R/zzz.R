@@ -29,7 +29,9 @@
 #' @return return NULL invisibly
 #' @keywords internal # do not include deprecated function in package reference manual
 #' @noRd
+#' @rawNamespace exportPattern("^\\.onLoad$")
 .onUnLoad <- function(libpath) {
+  # nolint: object_usage_linter.
   if (is.na(.RAQSAPI_env$old_R_CHECK_LENGTH_1_CONDITION_)) {
     Sys.unsetenv("_R_CHECK_LENGTH_1_CONDITION_")
   } else {

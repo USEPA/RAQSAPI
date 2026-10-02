@@ -5,8 +5,8 @@ author:
   affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
     Division
 output:
-  rmarkdown::github_document: null
   rmarkdown::html_document: null
+  rmarkdown::github_document: null
 editor_options: 
   markdown: 
     wrap: 125
@@ -28,10 +28,42 @@ pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 
 ## Option 2: Installing the development version of RAQSAPI (unstable)
 
-> [!CAUTION]
->
-> The development version of RAQSAPI contains code that has not yet been thoroughly tested and is more
-> likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
+```{r, results='asis', echo=FALSE}
+alert_type <- "Caution"
+alert_text <- paste(
+  "The development version of RAQSAPI contains code that has not yet been thoroughly tested and is more likely to",
+  "contain bugs. It is recommended that the stable CRAN version be installed for production use."
+)
+alert_color <- "#b45309"
+alert_background <- "#fff7ed"
+
+if (knitr::is_html_output(excludes = c("markdown", "gfm"))) {
+  cat(
+    '<div role="alert" style="border: 1px solid ', alert_color,
+    '; border-left: 4px solid ', alert_color, '; background-color: ',
+    alert_background, '; padding: 0.75em 1em; margin: 1em 0;">\n',
+    "<strong>", alert_type, ".</strong>\n<p>", alert_text, "</p>\n",
+    "</div>\n",
+    sep = ""
+  )
+} else if (knitr::is_latex_output()) {
+  cat(
+    "\\begin{center}\n",
+    "\\fbox{\\begin{minipage}{0.95\\linewidth}\n",
+    "\\textbf{", alert_type, ".} ", alert_text, "\n",
+    "\\end{minipage}}\n",
+    "\\end{center}\n",
+    sep = ""
+  )
+} else if (knitr::pandoc_to() == "gfm") {
+  cat(
+    "```{=gfm}\n> [!CAUTION]\n>\n> ", alert_text, "\n```\n",
+    sep = ""
+  )
+} else {
+  cat("> [!CAUTION]\n>\n> ", alert_text, "\n", sep = "")
+}
+```
 
 To install the development version of `RAQSAPI`, first if not already installed, install the `pak` package and its
 dependencies. Then run the following in a R environment.

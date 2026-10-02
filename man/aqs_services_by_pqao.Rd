@@ -88,7 +88,7 @@ external functions.
                                         edate = as.Date('20171231',
                                                      format = '\%Y\%m\%d'),
                                         pqao_code = '0013',
-                                        service = 'qaAnnualPerformanceEvaluations'
+                                        service = 'qaAnnualPerformanceEvaluations')
                   }
 }
 \keyword{internal}

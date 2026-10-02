@@ -40,7 +40,7 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--10--01-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--10--02-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
@@ -48,33 +48,13 @@ Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci
 
 # EPA Disclaimer
 
-> \[!NOTE\]
+> [!NOTE]
 >
-> This software/application was developed by the U.S. Environmental
-> Protection Agency (USEPA). No warranty expressed or implied is made
-> regarding the accuracy or utility of the system, nor shall the act of
-> distribution constitute any such warranty. The USEPA has relinquished
-> control of the information and no longer has responsibility to protect
-> the integrity, confidentiality or availability of the information. Any
-> reference to specific commercial products, processes, or services by
-> service mark, trademark, manufacturer, or otherwise, does not
-> constitute or imply their endorsement, recommendation or favoring by
-> the USEPA. The USEPA seal and logo shall not be used in any manner to
-> imply endorsement of any commercial product or activity by the USEPA
-> or the United States Government.
+> This software/application was developed by the U.S. Environmental Protection Agency (USEPA). No warranty expressed or implied is made regarding the accuracy or utility of the system, nor shall the act of distribution constitute any such warranty. The USEPA has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality or availability of the information. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the USEPA. The USEPA seal and logo shall not be used in any manner to imply endorsement of any commercial product or activity by the USEPA or the United States Government.
 
-> \[!WARNING\]
+> [!WARNING]
 >
-> US EPA’s AQS Data Mart API V2 is currently in beta phase of
-> development, the API interface has not been finalized. This means that
-> certain functionality of the API may change or be removed without
-> notice. As a result, this package is also currently marked as beta and
-> may also change to reflect any changes made to the Data Mart API or in
-> respect to improvements in the design, functionality, quality and
-> documentation of this package. The authors assume no liability for any
-> problems that may occur as a result of using this package, the Data
-> Mart service, any software, service, hardware, or user accounts that
-> may utilize this package.
+> US EPA's AQS Data Mart API V2 is currently in beta phase of development, the API interface has not been finalized. This means that certain functionality of the API may change or be removed without notice. As a result, this package is also currently marked as beta and may also change to reflect any changes made to the Data Mart API or in respect to improvements in the design, functionality, quality and documentation of this package. The authors assume no liability for any problems that may occur as a result of using this package, the Data Mart service, any software, service, hardware, or user accounts that may utilize this package.
 
 # Introduction
 
@@ -139,12 +119,9 @@ pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 
 ## Option 2: Installing the development version of RAQSAPI (unstable)
 
-> \[!CAUTION\]
+> [!CAUTION]
 >
-> The development version of RAQSAPI contains code that has not yet been
-> thoroughly tested and is more likely to contain bugs. It is
-> recommended that the stable CRAN version be installed for production
-> use.
+> The development version of RAQSAPI contains code that has not yet been thoroughly tested and is more likely to contain bugs. It is recommended that the stable CRAN version be installed for production use.
 
 To install the development version of `RAQSAPI`, first if not already
 installed, install the `pak` package and its dependencies. Then run the
@@ -193,11 +170,9 @@ any of its functions use the aqs_credentials [^3] function to enter in
 the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
-> \[!NOTE\]
+> [!NOTE]
 >
-> The credentials used to access AQS Data Mart API is not the same as
-> the credentials used to access AQS. AQS users who do not have access
-> to the AQS Data Mart will need to create new credentials.
+> The credentials used to access AQS Data Mart API is not the same as the credentials used to access AQS. AQS users who do not have access to the AQS Data Mart will need to create new credentials.
 
 ## (suggested) Use the `keyring` package to manage credentials
 
@@ -262,19 +237,15 @@ Refer to the[`keyring` package
 documentation](https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
-``` r
-# animated gifs do not work on static pdf output files created with LaTeX
-if (!knitr::is_latex_output()) {
-    cat("## RAQSAPI usage demonstration
-      Here is a short usage demonstration of RAQSAPI
-      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)")
-}
-```
-
 ## RAQSAPI usage demonstration
 
-      Here is a short usage demonstration of RAQSAPI
-      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
+Here is a short usage demonstration of RAQSAPI
+
+    #> Warning in normalizePath(path.expand(path), winslash, mustWork):
+    #> path[1]="vignettes/figures/RAQSAPI-demo.gif": The system cannot find the path
+    #> specified
+
+../figures/RAQSAPI-demo.gif![](vignettes/figures/RAQSAPI-demo.gif)<!-- -->
 
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
@@ -326,14 +297,9 @@ service.**
   **Submission transaction format (RD)**
   (aqs_qa_annualperformanceevaltransaction_by\_\*)
 
-> \[!IMPORTANT\]
+> [!IMPORTANT]
 >
-> AQS Data Mart API restricts the maximum amount of monitoring data to
-> one full year of data per API call. These functions are able to return
-> multiple years of data by making repeated calls to the API. Each call
-> to the Data Mart API will take time to complete. The more years of
-> data being requested the longer RAQSAPI will take to return the
-> results.
+> AQS Data Mart API restricts the maximum amount of monitoring data to one full year of data per API call. These functions are able to return multiple years of data by making repeated calls to the API. Each call to the Data Mart API will take time to complete. The more years of data being requested the longer RAQSAPI will take to return the results.
 
 Aggregate functions are named AQS\_\<service\>\_\<aggregation\>() where
 \<service\> is one of the 13 services listed above and \<aggregation\>
@@ -342,11 +308,9 @@ is either “\_by_site”, “\_by_county”, “\_by_state”, “\_by_box”,
 
 ### See the RAQSAPI vignette for more details
 
-(RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)
-
-``` r
-  RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
-```
+Use the [RAQSAPI pkgdown](https://usepa.github.io/RAQSAPI/) site hosted
+by github pages to view alive render of [RAQSAPI
+vignette](https://usepa.github.io/RAQSAPI/articles/RAQSAPIPurpose.html)
 
 ## pyaqsapi; a port of RAQSAPI to the python 3 programming environment
 
@@ -373,33 +337,33 @@ those sources without them RAQSAPI would not be possible.
 - The R package `usethis`<sup>6</sup> was used to generate GitHub
   actions for Continuous integration (CI).
 - Code cleanup was assisted by the R package `lintr`<sup>7</sup>
-- the function *install.packages* are provided by the R package
-  `utils`<sup>8</sup>
 - the function *pkg_install* are provided by the R package
-  `pak`<sup>9</sup>
+  `pak`<sup>8</sup><sup>8</sup>\]
 - .gitignore file borrowed examples from
   <https://github.com/github/gitignore/blob/master/R.gitignore>
-- . CITATION.cff file was generated by the R package `cffr`<sup>10</sup>
-- R package `urlchecker`<sup>11</sup> was used to check urls in RAQSAPI
+- CITATION.cff file is generated by the R package `cffr`<sup>9</sup>
+- R package `urlchecker`<sup>10</sup> was used to check urls in RAQSAPI
   documentation
-- R package `goodpractice`<sup>12</sup> was used for static code
+- R package `goodpractice`<sup>11</sup> was used for static code
   checking
-- R package `formatR`<sup>13</sup> was used to form code in this
+- R package `formatR`<sup>12</sup> was used to form code in this
   repository
-- R package `testthat`<sup>14</sup> is used for unit testing
-- unit tests are mocked using R package `httptest2`<sup>15</sup>
+- R package `testthat`<sup>13</sup> is used for unit testing
+- unit tests are mocked using R package `httptest2`<sup>14</sup>
 - Additional code formatting was accomplished using Air
-  formatter<sup>16</sup>
+  formatter<sup>15</sup>
 - codemeta.json file was generated using R package
-  `codemetar`<sup>17</sup>
-- animated GIF of demo was created using Asciinema<sup>18</sup>
+  `codemetar`<sup>16</sup>
+- animated GIF of demo was created using `Asciinema`<sup>17</sup>
+- the github pages site is built using
+  `pkgdown`<sup>**package:pkgdown?**</sup>
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
 project’s code base, discover bugs, and suggest improvements. Especially
 the editors that showed interest in starting the review process [Laura
-DeCicco](https://github.com/ldecicco-USGS), and Jeffrey W.
-Hollister(<https://github.com/jhollist>) and also the reviewers Mark
+DeCicco](https://github.com/ldecicco-USGS), and [Jeffrey W.
+Hollister](https://github.com/jhollist) and also the reviewers Mark
 Padgham, [Milan Malfait](https://github.com/milanmlft), [Rainer M.
 Krug](https://github.com/rkrug) and [Mark
 Padgham](https://github.com/mpadge).
@@ -477,18 +441,9 @@ Code*; 2025. <https://doi.org/10.32614/CRAN.package.lintr></span>
 
 </div>
 
-<div id="ref-RBase" class="csl-entry">
-
-<span class="csl-left-margin">(8)
-</span><span class="csl-right-inline">Team, R. C. *[R: A Language and
-Environment for Statistical Computing](https://www.R-project.org/)*; R
-Foundation for Statistical Computing: Vienna, Austria, 2019.</span>
-
-</div>
-
 <div id="ref-package:pak" class="csl-entry">
 
-<span class="csl-left-margin">(9)
+<span class="csl-left-margin">(8)
 </span><span class="csl-right-inline">Csardi, G.; Hester, J. *Pak:
 Another Approach to Package Installation*; 2026.
 <https://doi.org/10.32614/CRAN.package.pak></span>
@@ -497,7 +452,7 @@ Another Approach to Package Installation*; 2026.
 
 <div id="ref-package:cffr" class="csl-entry">
 
-<span class="csl-left-margin">(10)
+<span class="csl-left-margin">(9)
 </span><span class="csl-right-inline">Hernangómez, D.
 <span class="nocase">cffr</span>: Generate Citation File Format Metadata
 for R Packages. *Journal of Open Source Software* **2021**, *6* (67),
@@ -507,7 +462,7 @@ for R Packages. *Journal of Open Source Software* **2021**, *6* (67),
 
 <div id="ref-package:urlchecker" class="csl-entry">
 
-<span class="csl-left-margin">(11)
+<span class="csl-left-margin">(10)
 </span><span class="csl-right-inline">R Core team; Hester, J.; Csárdi,
 G. *Urlchecker: Run CRAN URL Checks from Older R Versions*; 2021.
 <https://doi.org/10.32614/CRAN.package.urlchecker></span>
@@ -516,7 +471,7 @@ G. *Urlchecker: Run CRAN URL Checks from Older R Versions*; 2021.
 
 <div id="ref-package:goodpractice" class="csl-entry">
 
-<span class="csl-left-margin">(12)
+<span class="csl-left-margin">(11)
 </span><span class="csl-right-inline"><span class="nocase">Padgham, M.;
 Marks, K.; de Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander,
 H.</span> *Goodpractice: Advice on R Package Building*; 2024.
@@ -526,7 +481,7 @@ H.</span> *Goodpractice: Advice on R Package Building*; 2024.
 
 <div id="ref-package:formatR" class="csl-entry">
 
-<span class="csl-left-margin">(13)
+<span class="csl-left-margin">(12)
 </span><span class="csl-right-inline">Xie, Y. *formatR: Format r Code
 Automatically*; 2023.
 <https://doi.org/10.32614/CRAN.package.formatR></span>
@@ -535,7 +490,7 @@ Automatically*; 2023.
 
 <div id="ref-package:testthat" class="csl-entry">
 
-<span class="csl-left-margin">(14)
+<span class="csl-left-margin">(13)
 </span><span class="csl-right-inline">Wickham, H. [Testthat: Get Started
 with Testing](https://journal.r-project.org/articles/RJ-2011-002/). *The
 R Journal* **2011**, *3*, 5–10.</span>
@@ -544,7 +499,7 @@ R Journal* **2011**, *3*, 5–10.</span>
 
 <div id="ref-package:httptest2" class="csl-entry">
 
-<span class="csl-left-margin">(15)
+<span class="csl-left-margin">(14)
 </span><span class="csl-right-inline">Richardson, N. *Httptest2: Test
 Helpers for Httr2*; 2025.
 <https://doi.org/10.32614/CRAN.package.httptest2></span>
@@ -553,7 +508,7 @@ Helpers for Httr2*; 2025.
 
 <div id="ref-airformatter" class="csl-entry">
 
-<span class="csl-left-margin">(16)
+<span class="csl-left-margin">(15)
 </span><span class="csl-right-inline">Posit development team. Air - and
 r Formatter and Language Server, Written in Rust, 2026.
 <https://github.com/posit-dev/air></span>
@@ -562,7 +517,7 @@ r Formatter and Language Server, Written in Rust, 2026.
 
 <div id="ref-package:codemetar" class="csl-entry">
 
-<span class="csl-left-margin">(17)
+<span class="csl-left-margin">(16)
 </span><span class="csl-right-inline">Boettiger, C.; Salmon, M.
 *Codemetar: Generate ’CodeMeta’ Metadata for r Packages*; 2026.
 <https://doi.org/10.32614/CRAN.package.codemetar></span>
@@ -571,7 +526,7 @@ r Formatter and Language Server, Written in Rust, 2026.
 
 <div id="ref-asciinema" class="csl-entry">
 
-<span class="csl-left-margin">(18)
+<span class="csl-left-margin">(17)
 </span><span class="csl-right-inline">Kulik, M. Asciinema: Terminal
 Session Recorder, Streamer and Player, 2026.
 <https://github.com/asciinema/asciinema></span>

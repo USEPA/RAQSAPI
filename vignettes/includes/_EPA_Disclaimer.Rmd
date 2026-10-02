@@ -2,8 +2,10 @@
 title: "RAQSAPI - EPA Disclaimer"
 author: "United States Environmental Protection Agency"
 output:
-  rmarkdown::html_document: null
   rmarkdown::github_document: null
+  rmarkdown::html_document: null
+  rmarkdown::html_vignette: null
+  rmarkdown::pdf_document: null
 editor_options: 
   markdown: 
     wrap: 125
@@ -11,12 +13,42 @@ editor_options:
 
 # EPA Disclaimer
 
-> [!NOTE]
->
-> This software/application was developed by the U.S. Environmental Protection Agency (USEPA). No warranty expressed or
-> implied is made regarding the accuracy or utility of the system, nor shall the act of distribution constitute any such
-> warranty. The USEPA has relinquished control of the information and no longer has responsibility to protect the integrity,
-> confidentiality or availability of the information. Any reference to specific commercial products, processes, or services
-> by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or
-> favoring by the USEPA. The USEPA seal and logo shall not be used in any manner to imply endorsement of any commercial
-> product or activity by the USEPA or the United States Government.
+```{r, _EPA_Disclaimer, results='asis', echo=FALSE}
+disclaimer <- paste(
+  "This software/application was developed by the U.S. Environmental Protection Agency (USEPA).",
+  "No warranty expressed or implied is made regarding the accuracy or utility of the system, nor shall the act of",
+  "distribution constitute any such warranty. The USEPA has relinquished control of the information and no longer has",
+  "responsibility to protect the integrity, confidentiality or availability of the information. Any reference to specific",
+  "commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute",
+  "or imply their endorsement, recommendation or favoring by the USEPA. The USEPA seal and logo shall not be used in any",
+  "manner to imply endorsement of any commercial product or activity by the USEPA or the United States Government."
+)
+
+if (knitr::is_html_output(excludes = c("markdown", "gfm"))) {
+  cat(
+    '<div role="note" style="border: 1px solid #c8d7e6; border-left: 4px solid #0d6efd; ',
+    'background-color: #f8f9fa; padding: 0.75em 1em; margin: 1em 0;">\n',
+    "<strong>Note.</strong>\n<p>", disclaimer, "</p>\n",
+    "</div>\n",
+    sep = ""
+  )
+} else if (knitr::is_latex_output()) {
+  cat(
+    "\\begin{center}\n",
+    "\\fbox{\\begin{minipage}{0.95\\linewidth}\n",
+    "\\textbf{Note.} ", disclaimer, "\n",
+    "\\end{minipage}}\n",
+    "\\end{center}\n",
+    sep = ""
+  )
+} else if (knitr::pandoc_to() == "gfm") {
+  cat(
+    "```{=gfm}\n",
+    "> [!NOTE]\n>\n> ", disclaimer, "\n",
+    "```\n",
+    sep = ""
+  )
+} else {
+  cat("> [!NOTE]\n>\n> ", disclaimer, "\n", sep = "")
+}
+```

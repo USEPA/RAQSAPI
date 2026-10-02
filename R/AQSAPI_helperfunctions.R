@@ -298,7 +298,7 @@ checkaqsparams <- function(...) {
 #'                 function is not intended for use by end users.
 #' @param x a named list of variables, all values will be coerced to
 #'          strings.
-#' @inheritParams RAQSAPI_parameters
+#' @inheritParams RAQSAPI_parameters delimiter
 #' @return a string that is properly formatted for use in AQS RESTFUL API
 #'            calls.
 #' @importFrom magrittr %>%
@@ -412,9 +412,7 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #'                 function is used to abstract the call to AQS API away from
 #'                 functions that need it's result. This helper function is not
 #'                 meant to be called directly from external functions.
-#' @param service the service requested by the AQS API encoded as a string;
-#'                 For a list of available services @seealso
-#'            \url{https://aqs.epa.gov/aqsweb/documents/data_api.html#services}
+#' @inheritParams RAQSAPI_parameters
 #' @param filter a string which represents the filter used in conjunction with
 #'                   the service requested. For a list of available services
 #'                   and filters @seealso
@@ -428,13 +426,6 @@ RAQSAPI_error_msg <- function(AQSresponse) {
 #'          @seealso \url{https://aqs.epa.gov/aqsweb/documents/data_api.html}
 #'                      for the variables that are required for each
 #'                      service/filter combination.
-#' @param return_header If false (default) only reurns data requested.
-#'                        If true returns a AQSAPI_v2 object which is a two item
-#'                        list that contains header information returned from
-#'                        the API server mostly used for debugging purposes in
-#'                        addition to the data requested.
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr mutate arrange
 #' @importFrom lubridate ymd_hm
@@ -869,6 +860,7 @@ aqs_services_by_box <- function(
 #'                                         service = 'annualData')
 #'                   }
 #' @keywords internal
+#' @rdname aqs_services_by_cbsa
 aqs_services_by_cbsa <- function(
   parameter,
   bdate,
@@ -937,6 +929,7 @@ aqs_services_by_cbsa <- function(
 #'                                         service = 'qaAnnualPerformanceEvaluations')
 #'                   }
 #' @keywords internal
+#' @rdname aqs_services_by_pqao
 aqs_services_by_pqao <- function(
   parameter,
   bdate,
@@ -1008,6 +1001,7 @@ aqs_services_by_pqao <- function(
 #'            AQS API and the second item ($Data) is a tibble of the data
 #'            returned.
 #' @keywords internal
+#' @rdname aqs_services_by_MA
 aqs_services_by_MA <- function(
   parameter,
   bdate,
@@ -1043,8 +1037,6 @@ aqs_services_by_MA <- function(
 #' @importFrom magrittr %>%
 #' @importFrom rlang :=
 #' @inheritParams RAQSAPI_parameters
-#' @param AQS_domain a R string object containing the domain that should be
-#'                     used in constructing the API call.
 #' @return a AQS_DATAMART_APIv2 S3 object that is the return value from the
 #'            AQS API. A AQS_DATAMART_APIv2 is a 2 item named list in which the
 #'            first item ($Header) is a tibble of header information from the
@@ -1058,6 +1050,7 @@ aqs_services_by_MA <- function(
 #'           \dontrun{aqs_metadata_service(filter = 'issues', service = NULL)
 #'                   }
 #' @keywords internal
+#' @rdname aqs_metadata_service
 aqs_metadata_service <- function(filter, service = NA_character_, AQS_domain = "aqs.epa.gov") {
   aqs(
     service = "metaData",

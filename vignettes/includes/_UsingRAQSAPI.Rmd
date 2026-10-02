@@ -53,11 +53,42 @@ The credentials used to access the Data Mart API service are stored in a R
   to enter in the user credentials so that RAQSAPI can access the AQS Data Mart
   server.
 
-> [!NOTE]
->
-> The credentials used to access AQS Data Mart
-> API is not the same as the credentials used to access AQS. AQS users who do
-> not have access to the AQS Data Mart will need to create new credentials.
+```{r, results='asis', echo=FALSE}
+alert_type <- "Note"
+alert_text <- paste(
+  "The credentials used to access AQS Data Mart API is not the same as the credentials used to access AQS. AQS users",
+  "who do not have access to the AQS Data Mart will need to create new credentials."
+)
+alert_color <- "#0d6efd"
+alert_background <- "#f8f9fa"
+
+if (knitr::is_html_output(excludes = c("markdown", "gfm"))) {
+  cat(
+    '<div role="note" style="border: 1px solid ', alert_color,
+    '; border-left: 4px solid ', alert_color, '; background-color: ',
+    alert_background, '; padding: 0.75em 1em; margin: 1em 0;">\n',
+    "<strong>", alert_type, ".</strong>\n<p>", alert_text, "</p>\n",
+    "</div>\n",
+    sep = ""
+  )
+} else if (knitr::is_latex_output()) {
+  cat(
+    "\\begin{center}\n",
+    "\\fbox{\\begin{minipage}{0.95\\linewidth}\n",
+    "\\textbf{", alert_type, ".} ", alert_text, "\n",
+    "\\end{minipage}}\n",
+    "\\end{center}\n",
+    sep = ""
+  )
+} else if (knitr::pandoc_to() == "gfm") {
+  cat(
+    "```{=gfm}\n> [!NOTE]\n>\n> ", alert_text, "\n```\n",
+    sep = ""
+  )
+} else {
+  cat("> [!NOTE]\n>\n> ", alert_text, "\n", sep = "")
+}
+```
 
 
 ## (suggested) Use the `keyring` package to manage credentials
@@ -125,10 +156,22 @@ Refer to the[`keyring` package documentation](
 https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
-```{r, results='asis'}
-# animated gifs do not work on static pdf output files created with LaTeX
+```{r, results='asis', echo=FALSE}
 if (!knitr::is_latex_output()) {
-  cat("## RAQSAPI usage demonstration
-      Here is a short usage demonstration of RAQSAPI
-      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)")}
+  cat(
+    "## RAQSAPI usage demonstration\n\n",
+    "Here is a short usage demonstration of RAQSAPI\n\n",
+    sep = ""
+  )
+
+  gif <- if (file.exists(normalizePath("vignettes/figures/RAQSAPI-demo.gif"))) {
+    "vignettes/figures/RAQSAPI-demo.gif"
+  } else {
+    "../figures/RAQSAPI-demo.gif"
+  }
+  
+  cat(gif)
+
+  knitr::include_graphics(normalizePath(gif))
+}
 ```

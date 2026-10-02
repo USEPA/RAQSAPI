@@ -89,7 +89,7 @@ Authors@R: c(
            role = c("rev"),
            comment = c(ORCID = "0000-0003-2172-5265"))
   )
-URL: https://github.com/USEPA/RAQSAPI/, https://aqs.epa.gov/aqsweb/documents/data_api.html, https://usepa.github.io/RAQSAPI/
+URL: https://usepa.github.io/RAQSAPI/, https://github.com/USEPA/RAQSAPI/, https://aqs.epa.gov/aqsweb/documents/data_api.html
 BugReports: https://github.com/USEPA/RAQSAPI/issues
 Depends: R (>= 4.5.0)
 Imports: dplyr,

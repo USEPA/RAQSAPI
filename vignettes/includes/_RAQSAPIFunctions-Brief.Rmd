@@ -5,8 +5,8 @@ author:
   affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
     Division
 output:
-  rmarkdown::github_document: null
   rmarkdown::html_document: null
+  rmarkdown::github_document: null
 editor_options: 
   markdown: 
     wrap: 125
@@ -63,14 +63,44 @@ on the 13 different aggregate services that the Data Mart API provides.
      **Submission transaction format (RD)**
      (aqs_qa_annualperformanceevaltransaction_by_*)
      
-> [!IMPORTANT]
->
-> AQS Data Mart API restricts the
-> maximum amount of monitoring data to one full year of data per
-> API call. These functions are able to return multiple years of data by
-> making repeated calls to the API.  Each call to the Data Mart API will take
-> time to complete. The more years of data being requested the longer RAQSAPI
-> will take to return the results.
+```{r, results='asis', echo=FALSE}
+alert_type <- "Important"
+alert_text <- paste(
+  "AQS Data Mart API restricts the maximum amount of monitoring data to one full year of data per API call. These",
+  "functions are able to return multiple years of data by making repeated calls to the API. Each call to the Data Mart",
+  "API will take time to complete. The more years of data being requested the longer RAQSAPI will take to return the",
+  "results."
+)
+alert_color <- "#1d4ed8"
+alert_background <- "#eff6ff"
+
+if (knitr::is_html_output(excludes = c("markdown", "gfm"))) {
+  cat(
+    '<div role="note" style="border: 1px solid ', alert_color,
+    '; border-left: 4px solid ', alert_color, '; background-color: ',
+    alert_background, '; padding: 0.75em 1em; margin: 1em 0;">\n',
+    "<strong>", alert_type, ".</strong>\n<p>", alert_text, "</p>\n",
+    "</div>\n",
+    sep = ""
+  )
+} else if (knitr::is_latex_output()) {
+  cat(
+    "\\begin{center}\n",
+    "\\fbox{\\begin{minipage}{0.95\\linewidth}\n",
+    "\\textbf{", alert_type, ".} ", alert_text, "\n",
+    "\\end{minipage}}\n",
+    "\\end{center}\n",
+    sep = ""
+  )
+} else if (knitr::pandoc_to() == "gfm") {
+  cat(
+    "```{=gfm}\n> [!IMPORTANT]\n>\n> ", alert_text, "\n```\n",
+    sep = ""
+  )
+} else {
+  cat("> [!IMPORTANT]\n>\n> ", alert_text, "\n", sep = "")
+}
+```
 
 
 Aggregate functions are named AQS_\<service\>\_\<aggregation\>() where
@@ -79,7 +109,15 @@ either "\_by\_site", "\_by\_county", "\_by\_state", "\_by\_box", "\_by\_cbsa",
 "\_by\_ma", or "\_by\_pqao".
 
 ### See the RAQSAPI vignette for more details
-(RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)
-```R
-  RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")
+```{R read_the_vignettes, results='asis', echo=FALSE}
+if(!knitr::is_latex_output())
+  {
+    cat(paste0("Use the [RAQSAPI pkgdown](https://usepa.github.io/RAQSAPI/) site hosted by github pages to view a",
+        "live render of [RAQSAPI vignette](https://usepa.github.io/RAQSAPI/articles/RAQSAPIPurpose.html)"))
+} else
+  {
+    cat("(RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)")
+    cat('>  RShowDoc(what="RAQSAPIvignette", type="html", package="RAQSAPI")')
+  }
+
 ```

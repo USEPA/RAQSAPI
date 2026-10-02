@@ -334,12 +334,44 @@ object containing a table of monitoring agencies (MA).
 
 ## Data Mart aggregate functions
 
-> [!IMPORTANT]
-> AQS Data Mart API restricts the maximum amount of monitoring data to one full year
-> of data per API call. These functions are able to return multiple years of data by
-> making repeated calls to the API.  Each call to the Data Mart API will take
-> time to complete. The more years of data being requested the longer RAQSAPI
-> will take to return the results.
+```{r, results='asis', echo=FALSE}
+alert_type <- "Important"
+alert_text <- paste(
+  "AQS Data Mart API restricts the maximum amount of monitoring data to one full year of data per API call. These",
+  "functions are able to return multiple years of data by making repeated calls to the API. Each call to the Data Mart",
+  "API will take time to complete. The more years of data being requested the longer RAQSAPI will take to return the",
+  "results."
+)
+alert_color <- "#1d4ed8"
+alert_background <- "#eff6ff"
+
+if (knitr::is_html_output(excludes = c("markdown", "gfm"))) {
+  cat(
+    '<div role="note" style="border: 1px solid ', alert_color,
+    '; border-left: 4px solid ', alert_color, '; background-color: ',
+    alert_background, '; padding: 0.75em 1em; margin: 1em 0;">\n',
+    "<strong>", alert_type, ".</strong>\n<p>", alert_text, "</p>\n",
+    "</div>\n",
+    sep = ""
+  )
+} else if (knitr::is_latex_output()) {
+  cat(
+    "\\begin{center}\n",
+    "\\fbox{\\begin{minipage}{0.95\\linewidth}\n",
+    "\\textbf{", alert_type, ".} ", alert_text, "\n",
+    "\\end{minipage}}\n",
+    "\\end{center}\n",
+    sep = ""
+  )
+} else if (knitr::pandoc_to() == "gfm") {
+  cat(
+    "```{=gfm}\n> [!IMPORTANT]\n>\n> ", alert_text, "\n```\n",
+    sep = ""
+  )
+} else {
+  cat("> [!IMPORTANT]\n>\n> ", alert_text, "\n", sep = "")
+}
+```
 
 
 These functions retrieve aggregated data from the Data Mart API and are

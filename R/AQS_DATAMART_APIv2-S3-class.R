@@ -2,7 +2,7 @@
 #' @description `r lifecycle::badge("stable")`
 #'              Helper function to Validate data structure of data before
 #'              converting it into an AQS_DATAMART_APIv2 S3 object.
-#' @inheritParams RAQSAPI_parameters .AQSobject
+#' @inheritParams RAQSAPI_parameters
 #' @importFrom tibble is_tibble
 #' @importFrom rlang is_list inherits_any
 #' @importFrom purrr map_lgl

@@ -4,10 +4,12 @@
 \alias{aqs_removeheader}
 \title{aqs_removeheader}
 \usage{
-aqs_removeheader(AQSobject)
+aqs_removeheader(.AQSobject)
 }
 \arguments{
-\item{AQSobject}{An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.}
+\item{.AQSobject}{A 2 item named list in which the first item ($Header) is a
+tibble of header information from the AQS API and the second
+item ($Data) is a tibble of the data returned.}
 }
 \value{
 a tibble of the combined $data portions of the input
