@@ -82,3 +82,27 @@ API. A AQS_DATAMART_APIv2 is a 2 item named list in which the first item
 second item (\$Data) is a tibble of the data returned.
 
 ## Examples
+
+``` r
+# if an user were to call aqs_qa_annualperformanceeval_by_pqao())
+         # for annual performance evaluation data for ozone where the PQAO is
+         # the Alabamaba Department of Environmental Management
+         # (pqao_code 0013).
+         # [aqs_qa_annualperformanceeval_by_pqao(parameter = '44201',
+         #                                       bdate = as.Date('20170101',
+         #                                                format = '%Y%m%d'),
+         #                                       edate = as.Date('20171231',
+         #                                                format = '%Y%m%d'),
+         #                                       pqao_code = '0013'
+         #                                        )]
+         # then aqs_qa_annualperformanceeval_by_pqao() would call this helper
+         # function with the following inputs.
+          if (FALSE) aqs_services_by_cbsa(parameter = '44201',
+                                        bdate = as.Date('20170101',
+                                                     format = '%Y%m%d'),
+                                        edate = as.Date('20171231',
+                                                     format = '%Y%m%d'),
+                                        pqao_code = '0013',
+                                        service = 'qaAnnualPerformanceEvaluations')
+                   # \dontrun{}
+```

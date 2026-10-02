@@ -85,17 +85,18 @@
 <td align="center">Milan Malfait (@milanmlft)</td>
 <td align="center">addressed in <a href="https://github.com/USEPA/RAQSAPI/commit/782844762ca3e27dbc85fc9c0f8c557a22b2eee4" class="external-link">commit 7828447</a>
 </td>
-</tr><tr><td align="center"></td>
+</tr><tr><td align="center">✓</td>
 <td align="center">Replace the empty / ineffective <code>NEWS.md</code> with a real changelog</td>
 <td align="center">
 <code>R CMD check</code> reports no news entries and the file is effectively a stub</td>
 <td align="center">Milan Malfait (@milanmlft); Rainer M Krug (@rkrug)</td>
-<td align="center"></td>
-</tr><tr><td align="center"><span class="emoji" data-emoji="question">❓</span></td>
+<td align="center">address in [commit ac2ae90}(<a href="https://github.com/USEPA/RAQSAPI/commit/ac2ae9030faa9b916e170258499fc414956af1ca" class="external-link uri">https://github.com/USEPA/RAQSAPI/commit/ac2ae9030faa9b916e170258499fc414956af1ca</a>)]</td>
+</tr><tr><td align="center">✓</td>
 <td align="center">Strengthen tests beyond <code>expect_no_error()</code> smoke tests</td>
 <td align="center">The current suite can pass even if returned data are wrong</td>
 <td align="center">Milan Malfait (@milanmlft); Rainer M Krug (@rkrug)</td>
-<td align="center">When Unit tests are run on any function that hits the API (with the exception of the aqs_sign_up function: <br> * the checkaqsparams function is called to verify that input parameters to the function called are the correct type, length and have acceptable values<br> * The aqs function is called which uses the <code>httr2</code> to make API calls, httr2 uses the <code>jsonlite</code> package to verify that the returned json data is valid, <code>jsonlite</code> then converts the json data to a <code>tibble</code> which has it’s own internal data verification.<br> * The AQS function throws an error if the API itself returns an error.<br> * even though unit test pass the result of the call to functions that hit the API directly to testthat::expect_no_error,<br> it is important to understand that the returned object is a AQSAPIV2 object.<br> - creating a new AQSAPI_V2 object automatically invokes a call to the internal AQS_DATAMART_APIv2_validator function which verifies the structure of the returned object and throws an error if the object returned is not structured properly</td>
+<td align="center">When Unit tests are run on any function that hits the API (with the exception of the aqs_sign_up function: <br> * the checkaqsparams function is called to verify that input parameters to the function called are the correct type, length and have acceptable values<br> * The aqs function is called which uses the <code>httr2</code> to make API calls, httr2 uses the <code>jsonlite</code> package to verify that the returned json data is valid, <code>jsonlite</code> then converts the json data to a <code>tibble</code> which has it’s own internal data verification.<br> * The AQS function throws an error if the API itself returns an error.<br> * even though unit test pass the result of the call to functions that hit the API directly to testthat::expect_no_error,<br> it is important to understand that the returned object is a AQSAPIV2 object.<br> - creating a new AQSAPI_V2 object automatically invokes a call to the internal AQS_DATAMART_APIv2_validator function which verifies the structure of the returned object and throws an error if the object returned is not structured properly, also addressed in <a href="https://github.com/USEPA/RAQSAPI/commit/fbeac72eee074d2e6b04277d671ff9791add9e04" class="external-link">commit fbeac72</a>
+</td>
 </tr><tr><td align="center"><span class="emoji" data-emoji="question">❓</span></td>
 <td align="center">Add tests for validation failure paths, especially <code>checkaqsparams()</code>
 </td>
@@ -213,7 +214,7 @@
 <td align="center">Shared constants would reduce duplication and make future changes easier</td>
 <td align="center">Milan Malfait (@milanmlft)</td>
 <td align="center">requesting suggestion on how to implement this</td>
-</tr><tr><td align="center">[[X]</td>
+</tr><tr><td align="center">[X]</td>
 <td align="center">Add a test-coverage workflow and badge</td>
 <td align="center">This would make coverage visible and help maintenance</td>
 <td align="center">Milan Malfait (@milanmlft)</td>
@@ -229,11 +230,12 @@
 <td align="center">Small but visible polish issues remain</td>
 <td align="center">Milan Malfait (@milanmlft); Rainer M Krug (@rkrug)</td>
 <td align="center"></td>
-</tr><tr><td align="center"><span class="emoji" data-emoji="question">❓</span></td>
+</tr><tr><td align="center">✓</td>
 <td align="center">Add a basic pkgdown site</td>
 <td align="center">This would make vignettes and documentation easier to navigate</td>
 <td align="center">Rainer M Krug (@rkrug)</td>
-<td align="center">I request assistance with this</td>
+<td align="center">The pkgdown site is live, hosted on <a href="https://usepa.github.io/RAQSAPI/">github pages</a>
+</td>
 </tr></tbody></table></div>
 <div class="section level2">
 <h2 id="nice-to-have">Nice to have<a class="anchor" aria-label="anchor" href="#nice-to-have"></a></h2>
@@ -309,10 +311,10 @@
 <th align="center">Item</th>
 <th align="center">Why it matters</th>
 <th align="center">Additional comments</th>
-</tr></thead><tbody><tr><td align="center"></td>
+</tr></thead><tbody><tr><td align="center">[◪]</td>
 <td align="center">fix issues with/improve .devcontainer</td>
 <td align="center">devcontainers make it easier for outside contributors to recreate the development environment used to create the package</td>
-<td align="center">requesting assistance with maintaining devcontainers</td>
+<td align="center">requesting assistance with maintaining devcontainers, removed the .devcontainer folder with <a href="https://github.com/USEPA/RAQSAPI/commit/49f50c095d008b691399daa8ba6b19450d520882" class="external-link">commit 49f50c0</a> until it is working properly</td>
 </tr></tbody></table></div>
 </div>
 

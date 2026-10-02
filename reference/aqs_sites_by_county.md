@@ -29,7 +29,7 @@ aqs_sites_by_county(stateFIPS, countycode, return_header = FALSE)
 
   If FALSE (default) only returns data requested. If TRUE returns a
   AQSAPI_v2 object which is a two item list that contains header
-  information returned from the API server mostly used for debugging
+  information returned from the API server, mostly used for debugging
   purposes in addition to the data requested.
 
 ## Value

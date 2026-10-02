@@ -14,7 +14,7 @@ aqs_counties_by_state(stateFIPS, return_header = FALSE)
 - stateFIPS:
 
   a R character object which represents the 2 digit state FIPS code
-  (with leading zeros) for the state being requested. Use
+  (with leading zero) for the state being requested. Use
   [`aqs_states()`](https://usepa.github.io/RAQSAPI/reference/aqs_states.md)
   for the list of available FIPS codes.
 
@@ -22,7 +22,7 @@ aqs_counties_by_state(stateFIPS, return_header = FALSE)
 
   If FALSE (default) only returns data requested. If TRUE returns a
   AQSAPI_v2 object which is a two item list that contains header
-  information returned from the API server mostly used for debugging
+  information returned from the API server, mostly used for debugging
   purposes in addition to the data requested.
 
 ## Value

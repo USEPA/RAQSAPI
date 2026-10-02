@@ -46,7 +46,7 @@ aqs_qa_one_point_qc_by_pqao(
 
   If FALSE (default) only returns data requested. If TRUE returns a
   AQSAPI_v2 object which is a two item list that contains header
-  information returned from the API server mostly used for debugging
+  information returned from the API server, mostly used for debugging
   purposes in addition to the data requested.
 
 ## Value

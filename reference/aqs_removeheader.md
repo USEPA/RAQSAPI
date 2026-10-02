@@ -11,14 +11,16 @@ returns the input with no changes.
 ## Usage
 
 ``` r
-aqs_removeheader(AQSobject)
+aqs_removeheader(.AQSobject)
 ```
 
 ## Arguments
 
-- AQSobject:
+- .AQSobject:
 
-  An object of AQSAPI_v2 or a list of AQSAPI_v2 objects.
+  A 2 item named list in which the first item (\$Header) is a tibble of
+  header information from the AQS API and the second item (\$Data) is a
+  tibble of the data returned.
 
 ## Value
 

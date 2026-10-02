@@ -72,13 +72,13 @@ Mccrowey C, United States Environmental Protection Agency (????).
 “RAQSAPI: A Simple Interface to the US EPA Air Quality System Data Mart
 API.”
 [doi:10.32614/CRAN.package.RAQSAPI](https://doi.org/10.32614/CRAN.package.RAQSAPI).
-<https://github.com/USEPA/RAQSAPI/>.
+<https://usepa.github.io/RAQSAPI/>.
 
     @Misc{mccrowey_etall,
       title = {RAQSAPI: A Simple Interface to the US EPA Air Quality System Data Mart API},
       author = {Clinton Mccrowey and {United States Environmental Protection Agency}},
       doi = {10.32614/CRAN.package.RAQSAPI},
-      url = {https://github.com/USEPA/RAQSAPI/},
+      url = {https://usepa.github.io/RAQSAPI/},
       abstract = {Retrieve air monitoring data and associated metadata from the US Environmental Protection Agency's Air Quality System service using functions. See <https://aqs.epa.gov/aqsweb/documents/data_api.html> for details about the US EPA Data Mart API <https://doi.org/10.32614/CRAN.package.RAQSAPI>.},
       keywords = {United State Environmental Protection Agency,Environmental-data-retrieval,Air-Quality-System,AQS-DataMart,Air-monitoring,Environmental-monitoring,airmonitoring,aqs,datamart,environmental-data-retrieval,environmental-monitoring,r03,rpackage,rprogramming,usepa},
       version = {2.0.6},

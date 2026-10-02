@@ -31,11 +31,11 @@ or activity by the USEPA or the United States Government.
 
 Useful links:
 
+- <https://usepa.github.io/RAQSAPI/>
+
 - <https://github.com/USEPA/RAQSAPI/>
 
 - <https://aqs.epa.gov/aqsweb/documents/data_api.html>
-
-- <https://usepa.github.io/RAQSAPI/>
 
 - Report bugs at <https://github.com/USEPA/RAQSAPI/issues>
 

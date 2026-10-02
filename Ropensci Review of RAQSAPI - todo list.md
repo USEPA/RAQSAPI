@@ -40,4 +40,4 @@ todo list of issues that are to be addressed.
 
 | Status | Item | Why it matters | Additional comments |
 |:--:|:--:|:--:|:--:|
-|  | fix issues with/improve .devcontainer | devcontainers make it easier for outside contributors to recreate the development environment used to create the package | requesting assistance with maintaining devcontainers |
+| \[◪\] | fix issues with/improve .devcontainer | devcontainers make it easier for outside contributors to recreate the development environment used to create the package | requesting assistance with maintaining devcontainers, removed the .devcontainer folder with [commit 49f50c0](https://github.com/USEPA/RAQSAPI/commit/49f50c095d008b691399daa8ba6b19450d520882) until it is working properly |

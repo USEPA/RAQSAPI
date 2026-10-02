@@ -165,7 +165,7 @@
 </h2>
 <p>after successfully installing the <code>RAQSAPI</code> package, load the <code>RAQSAPI</code> library:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/USEPA/RAQSAPI/" class="external-link">RAQSAPI</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://usepa.github.io/RAQSAPI/">RAQSAPI</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="sign-up-and-setting-up-user-credentials-with-the-raqsapi-library">Sign up and setting up user credentials with the RAQSAPI library<a class="anchor" aria-label="anchor" href="#sign-up-and-setting-up-user-credentials-with-the-raqsapi-library"></a>
@@ -194,7 +194,7 @@
 <p>a popup window will appear for the user to input their keyring information. Enter the AQS Data mart credential key associated with the AQS user name provided, then hit enter. Now the AQS Data Mart user credential is set using <code>keyring</code>.</p>
 <p>To retrieve the keyring to use with <code>RAQSAPI</code> load the <code>keyring</code> package and use the function key_get to return the user credential to RAQSAPI:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/USEPA/RAQSAPI/" class="external-link">RAQSAPI</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://usepa.github.io/RAQSAPI/">RAQSAPI</a></span><span class="op">)</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://keyring.r-lib.org/" class="external-link">keyring</a></span><span class="op">)</span></span>
 <span>  <span class="va">datamartAPI_user</span> <span class="op">&lt;-</span> <span class="st">"&lt;user email account&gt;"</span></span>
 <span>  <span class="va">server</span> <span class="op">&lt;-</span> <span class="st">"AQSDatamart"</span></span></code></pre></div>
@@ -204,19 +204,15 @@
 <p>To change the keyring stored with the <code>keyring</code> package repeat the steps above to call the keyring::key_set function again with the new credential information.</p>
 <p>To retrieve a list of all keyrings managed with the <code>keyring</code> package use the function: &gt; keyring::key_list()</p>
 <p>Refer to the<a href="https://cran.r-project.org/package=keyring/readme/README.html" class="external-link"><code>keyring</code> package documentation</a> for an in depth explanation on using the <code>keyring</code> package.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># animated gifs do not work on static pdf output files created with LaTeX</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/output_type.html" class="external-link">is_latex_output</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"## RAQSAPI usage demonstration</span></span>
-<span><span class="st">      Here is a short usage demonstration of RAQSAPI</span></span>
-<span><span class="st">      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="raqsapi-usage-demonstration">RAQSAPI usage demonstration<a class="anchor" aria-label="anchor" href="#raqsapi-usage-demonstration"></a>
 </h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>  Here is a short usage demonstration of RAQSAPI</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="sc">!</span>[GIF demonstrating how to use RAQSAPI](.<span class="sc">/</span>vignettes<span class="sc">/</span>figures<span class="sc">/</span>RAQSAPI<span class="sc">-</span>demo.gif)</span></code></pre></div>
+<p>Here is a short usage demonstration of RAQSAPI</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co">#&gt; Warning in normalizePath(path.expand(path), winslash, mustWork):</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt; path[1]="vignettes/figures/RAQSAPI-demo.gif": The system cannot find the path</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; specified</span></span></code></pre></div>
+<p>../figures/RAQSAPI-demo.gif<img src="articles/figures/RAQSAPI-demo.gif"><!-- --></p>
 <p>RAQSAPI functions are named according to the service and filter variables that are available from the Data Mart API.<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;See (&lt;a href="https://aqs.epa.gov/aqsweb/documents/data_api.html" class="external-link uri"&gt;https://aqs.epa.gov/aqsweb/documents/data_api.html&lt;/a&gt;) for the full details of the Data Mart API&lt;/p&gt;'><sup>5</sup></a></p>
 </div>
 <div class="section level2">
@@ -278,9 +274,7 @@
 <div class="section level3">
 <h3 id="see-the-raqsapi-vignette-for-more-details">See the RAQSAPI vignette for more details<a class="anchor" aria-label="anchor" href="#see-the-raqsapi-vignette-for-more-details"></a>
 </h3>
-<p>(RAQSAPI must be installed and built with BUILD_MANUAL = TRUE enabled)</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/RShowDoc.html" class="external-link">RShowDoc</a></span><span class="op">(</span>what<span class="op">=</span><span class="st">"RAQSAPIvignette"</span>, type<span class="op">=</span><span class="st">"html"</span>, package<span class="op">=</span><span class="st">"RAQSAPI"</span><span class="op">)</span></span></code></pre></div>
+<p>Use the <a href="https://usepa.github.io/RAQSAPI/">RAQSAPI pkgdown</a> site hosted by github pages to view alive render of <a href="https://usepa.github.io/RAQSAPI/articles/RAQSAPIPurpose.html">RAQSAPI vignette</a></p>
 </div>
 </div>
 <div class="section level2">
@@ -299,28 +293,27 @@
 <li>The R package <code>usethis</code><sup>6</sup> was used to generate GitHub actions for Continuous integration (CI).</li>
 <li>Code cleanup was assisted by the R package <code>lintr</code><sup>7</sup>
 </li>
-<li>the function <em>install.packages</em> are provided by the R package <code>utils</code><sup>8</sup>
-</li>
-<li>the function <em>pkg_install</em> are provided by the R package <code>pak</code><sup>9</sup>
-</li>
+<li>the function <em>pkg_install</em> are provided by the R package <code>pak</code><sup>8</sup><sup>8</sup>]</li>
 <li>.gitignore file borrowed examples from <a href="https://github.com/github/gitignore/blob/master/R.gitignore" class="external-link uri">https://github.com/github/gitignore/blob/master/R.gitignore</a>
 </li>
-<li>. CITATION.cff file was generated by the R package <code>cffr</code><sup>10</sup>
+<li>CITATION.cff file is generated by the R package <code>cffr</code><sup>9</sup>
 </li>
-<li>R package <code>urlchecker</code><sup>11</sup> was used to check urls in RAQSAPI documentation</li>
-<li>R package <code>goodpractice</code><sup>12</sup> was used for static code checking</li>
-<li>R package <code>formatR</code><sup>13</sup> was used to form code in this repository</li>
-<li>R package <code>testthat</code><sup>14</sup> is used for unit testing</li>
-<li>unit tests are mocked using R package <code>httptest2</code><sup>15</sup>
+<li>R package <code>urlchecker</code><sup>10</sup> was used to check urls in RAQSAPI documentation</li>
+<li>R package <code>goodpractice</code><sup>11</sup> was used for static code checking</li>
+<li>R package <code>formatR</code><sup>12</sup> was used to form code in this repository</li>
+<li>R package <code>testthat</code><sup>13</sup> is used for unit testing</li>
+<li>unit tests are mocked using R package <code>httptest2</code><sup>14</sup>
 </li>
-<li>Additional code formatting was accomplished using Air formatter<sup>16</sup>
+<li>Additional code formatting was accomplished using Air formatter<sup>15</sup>
 </li>
-<li>codemeta.json file was generated using R package <code>codemetar</code><sup>17</sup>
+<li>codemeta.json file was generated using R package <code>codemetar</code><sup>16</sup>
 </li>
-<li>animated GIF of demo was created using Asciinema<sup>18</sup>
+<li>animated GIF of demo was created using <code>Asciinema</code><sup>17</sup>
+</li>
+<li>the github pages site is built using <code>pkgdown</code><sup><strong>package:pkgdown?</strong></sup>
 </li>
 </ul>
-<p>The RAQSAPI project developers would like to thank the awesome work of the rOpenSci non-profit community of practice for reviewing this project’s code base, discover bugs, and suggest improvements. Especially the editors that showed interest in starting the review process <a href="https://github.com/ldecicco-USGS" class="external-link">Laura DeCicco</a>, and Jeffrey W. Hollister(<a href="https://github.com/jhollist" class="external-link uri">https://github.com/jhollist</a>) and also the reviewers Mark Padgham, <a href="https://github.com/milanmlft" class="external-link">Milan Malfait</a>, <a href="https://github.com/rkrug" class="external-link">Rainer M. Krug</a> and <a href="https://github.com/mpadge" class="external-link">Mark Padgham</a>.</p>
+<p>The RAQSAPI project developers would like to thank the awesome work of the rOpenSci non-profit community of practice for reviewing this project’s code base, discover bugs, and suggest improvements. Especially the editors that showed interest in starting the review process <a href="https://github.com/ldecicco-USGS" class="external-link">Laura DeCicco</a>, and <a href="https://github.com/jhollist" class="external-link">Jeffrey W. Hollister</a> and also the reviewers Mark Padgham, <a href="https://github.com/milanmlft" class="external-link">Milan Malfait</a>, <a href="https://github.com/rkrug" class="external-link">Rainer M. Krug</a> and <a href="https://github.com/mpadge" class="external-link">Mark Padgham</a>.</p>
 <p>Additionally the project maintainers would like to thank the following people: Cynthia Sthal, Maria Morresi both at the US Environmental Protection Agency and Hayley Brittingham at Neptune and Company for their assistance with improving the package documentation. This is a huge undertaking, documentation is often overlooked and not given proper attention to. We thank you for your efforts.</p>
 </div>
 <div class="section level1">
@@ -361,57 +354,53 @@
 <div class="csl-right-inline">Hester, J.; Angly, F.; Hyde, R.; Chirico, M.; Ren, K.; Rosenstock, A.; Patil, I. <em>Lintr: A ’Linter’ for r Code</em>; 2025. <a href="https://doi.org/10.32614/CRAN.package.lintr" class="external-link uri">https://doi.org/10.32614/CRAN.package.lintr</a>
 </div>
 </div>
-<div id="ref-RBase" class="csl-entry">
-<div class="csl-left-margin">(8) </div>
-<div class="csl-right-inline">Team, R. C. <em><a href="https://www.R-project.org/" class="external-link">R: A Language and Environment for Statistical Computing</a></em>; R Foundation for Statistical Computing: Vienna, Austria, 2019.</div>
-</div>
 <div id="ref-package:pak" class="csl-entry">
-<div class="csl-left-margin">(9) </div>
+<div class="csl-left-margin">(8) </div>
 <div class="csl-right-inline">Csardi, G.; Hester, J. <em>Pak: Another Approach to Package Installation</em>; 2026. <a href="https://doi.org/10.32614/CRAN.package.pak" class="external-link uri">https://doi.org/10.32614/CRAN.package.pak</a>
 </div>
 </div>
 <div id="ref-package:cffr" class="csl-entry">
-<div class="csl-left-margin">(10) </div>
+<div class="csl-left-margin">(9) </div>
 <div class="csl-right-inline">Hernangómez, D. <span class="nocase">cffr</span>: Generate Citation File Format Metadata for R Packages. <em>Journal of Open Source Software</em> <strong>2021</strong>, <em>6</em> (67), 3900. <a href="https://doi.org/10.21105/joss.03900" class="external-link uri">https://doi.org/10.21105/joss.03900</a>
 </div>
 </div>
 <div id="ref-package:urlchecker" class="csl-entry">
-<div class="csl-left-margin">(11) </div>
+<div class="csl-left-margin">(10) </div>
 <div class="csl-right-inline">R Core team; Hester, J.; Csárdi, G. <em>Urlchecker: Run CRAN URL Checks from Older R Versions</em>; 2021. <a href="https://doi.org/10.32614/CRAN.package.urlchecker" class="external-link uri">https://doi.org/10.32614/CRAN.package.urlchecker</a>
 </div>
 </div>
 <div id="ref-package:goodpractice" class="csl-entry">
-<div class="csl-left-margin">(12) </div>
+<div class="csl-left-margin">(11) </div>
 <div class="csl-right-inline">
 <span class="nocase">Padgham, M.; Marks, K.; de Bortoli, D.; Csardi, G.; Frick, H.; Jones, O.; Alexander, H.</span> <em>Goodpractice: Advice on R Package Building</em>; 2024. <a href="https://doi.org/10.32614/CRAN.package.goodpractice" class="external-link uri">https://doi.org/10.32614/CRAN.package.goodpractice</a>
 </div>
 </div>
 <div id="ref-package:formatR" class="csl-entry">
-<div class="csl-left-margin">(13) </div>
+<div class="csl-left-margin">(12) </div>
 <div class="csl-right-inline">Xie, Y. <em>formatR: Format r Code Automatically</em>; 2023. <a href="https://doi.org/10.32614/CRAN.package.formatR" class="external-link uri">https://doi.org/10.32614/CRAN.package.formatR</a>
 </div>
 </div>
 <div id="ref-package:testthat" class="csl-entry">
-<div class="csl-left-margin">(14) </div>
+<div class="csl-left-margin">(13) </div>
 <div class="csl-right-inline">Wickham, H. <a href="https://journal.r-project.org/articles/RJ-2011-002/" class="external-link">Testthat: Get Started with Testing</a>. <em>The R Journal</em> <strong>2011</strong>, <em>3</em>, 5–10.</div>
 </div>
 <div id="ref-package:httptest2" class="csl-entry">
-<div class="csl-left-margin">(15) </div>
+<div class="csl-left-margin">(14) </div>
 <div class="csl-right-inline">Richardson, N. <em>Httptest2: Test Helpers for Httr2</em>; 2025. <a href="https://doi.org/10.32614/CRAN.package.httptest2" class="external-link uri">https://doi.org/10.32614/CRAN.package.httptest2</a>
 </div>
 </div>
 <div id="ref-airformatter" class="csl-entry">
-<div class="csl-left-margin">(16) </div>
+<div class="csl-left-margin">(15) </div>
 <div class="csl-right-inline">Posit development team. Air - and r Formatter and Language Server, Written in Rust, 2026. <a href="https://github.com/posit-dev/air" class="external-link uri">https://github.com/posit-dev/air</a>
 </div>
 </div>
 <div id="ref-package:codemetar" class="csl-entry">
-<div class="csl-left-margin">(17) </div>
+<div class="csl-left-margin">(16) </div>
 <div class="csl-right-inline">Boettiger, C.; Salmon, M. <em>Codemetar: Generate ’CodeMeta’ Metadata for r Packages</em>; 2026. <a href="https://doi.org/10.32614/CRAN.package.codemetar" class="external-link uri">https://doi.org/10.32614/CRAN.package.codemetar</a>
 </div>
 </div>
 <div id="ref-asciinema" class="csl-entry">
-<div class="csl-left-margin">(18) </div>
+<div class="csl-left-margin">(17) </div>
 <div class="csl-right-inline">Kulik, M. Asciinema: Terminal Session Recorder, Streamer and Player, 2026. <a href="https://github.com/asciinema/asciinema" class="external-link uri">https://github.com/asciinema/asciinema</a>
 </div>
 </div>
@@ -468,7 +457,7 @@
 <li><a href="https://cran.r-project.org/package=RAQSAPI" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/RAQSAPI" alt="metacran downloads"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
 <li><a href="https://choosealicense.com/licenses/mit/" class="external-link"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a></li>
-<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-%202026--10--01-yellowgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="/commits/master"><img src="https://img.shields.io/badge/last%20change-%202026--10--02-yellowgreen.svg" alt="Last-changedate"></a></li>
 <li><a href="https://github.com/USEpa/%20/RAQSAPI/.github/workflows/pkgcheck.yaml" class="external-link"><img src="https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg" alt="pkgcheck"></a></li>
 <li><a href="https://github.com/ropensci/software-review/issues/744" class="external-link"><img src="https://badges.ropensci.org/744_status.svg" alt="Status at rOpenSci Software Peer Review"></a></li>
 </ul>

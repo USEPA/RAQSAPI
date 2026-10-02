@@ -11,33 +11,33 @@ ambient air pollution data.
 
 ## EPA Disclaimer
 
-> \[!NOTE\]
->
-> This software/application was developed by the U.S. Environmental
-> Protection Agency (USEPA). No warranty expressed or implied is made
-> regarding the accuracy or utility of the system, nor shall the act of
-> distribution constitute any such warranty. The USEPA has relinquished
-> control of the information and no longer has responsibility to protect
-> the integrity, confidentiality or availability of the information. Any
-> reference to specific commercial products, processes, or services by
-> service mark, trademark, manufacturer, or otherwise, does not
-> constitute or imply their endorsement, recommendation or favoring by
-> the USEPA. The USEPA seal and logo shall not be used in any manner to
-> imply endorsement of any commercial product or activity by the USEPA
-> or the United States Government.
+**Note.**
 
-> \[!WARNING\]
->
-> US EPA’s AQS Data Mart API V2 is currently in beta phase of
-> development, the API interface has not been finalized. This means that
-> certain functionality of the API may change or be removed without
-> notice. As a result, this package is also currently marked as beta and
-> may also change to reflect any changes made to the Data Mart API or in
-> respect to improvements in the design, functionality, quality and
-> documentation of this package. The authors assume no liability for any
-> problems that may occur as a result of using this package, the Data
-> Mart service, any software, service, hardware, or user accounts that
-> may utilize this package.
+This software/application was developed by the U.S. Environmental
+Protection Agency (USEPA). No warranty expressed or implied is made
+regarding the accuracy or utility of the system, nor shall the act of
+distribution constitute any such warranty. The USEPA has relinquished
+control of the information and no longer has responsibility to protect
+the integrity, confidentiality or availability of the information. Any
+reference to specific commercial products, processes, or services by
+service mark, trademark, manufacturer, or otherwise, does not constitute
+or imply their endorsement, recommendation or favoring by the USEPA. The
+USEPA seal and logo shall not be used in any manner to imply endorsement
+of any commercial product or activity by the USEPA or the United States
+Government.
+
+**Warning.**
+
+US EPA’s AQS Data Mart API V2 is currently in beta phase of development,
+the API interface has not been finalized. This means that certain
+functionality of the API may change or be removed without notice. As a
+result, this package is also currently marked as beta and may also
+change to reflect any changes made to the Data Mart API or in respect to
+improvements in the design, functionality, quality and documentation of
+this package. The authors assume no liability for any problems that may
+occur as a result of using this package, the Data Mart service, any
+software, service, hardware, or user accounts that may utilize this
+package.
 
 ## Introduction
 
@@ -104,12 +104,11 @@ pak::pkg_install(pkgs="RAQSAPI", dependencies = TRUE)
 
 ### Option 2: Installing the development version of RAQSAPI (unstable)
 
-> \[!CAUTION\]
->
-> The development version of RAQSAPI contains code that has not yet been
-> thoroughly tested and is more likely to contain bugs. It is
-> recommended that the stable CRAN version be installed for production
-> use.
+**Caution.**
+
+The development version of RAQSAPI contains code that has not yet been
+thoroughly tested and is more likely to contain bugs. It is recommended
+that the stable CRAN version be installed for production use.
 
 To install the development version of `RAQSAPI`, first if not already
 installed, install the `pak` package and its dependencies. Then run the
@@ -160,11 +159,11 @@ any of its functions use the aqs_credentials [^3] function to enter in
 the user credentials so that RAQSAPI can access the AQS Data Mart
 server.
 
-> \[!NOTE\]
->
-> The credentials used to access AQS Data Mart API is not the same as
-> the credentials used to access AQS. AQS users who do not have access
-> to the AQS Data Mart will need to create new credentials.
+**Note.**
+
+The credentials used to access AQS Data Mart API is not the same as the
+credentials used to access AQS. AQS users who do not have access to the
+AQS Data Mart will need to create new credentials.
 
 ### (suggested) Use the `keyring` package to manage credentials
 
@@ -207,8 +206,12 @@ for an in depth explanation on using the `keyring` package.
 
 ### RAQSAPI usage demonstration
 
-      Here is a short usage demonstration of RAQSAPI
-      ![GIF demonstrating how to use RAQSAPI](./vignettes/figures/RAQSAPI-demo.gif)
+Here is a short usage demonstration of RAQSAPI
+
+    #> Warning in normalizePath("vignettes/figures/RAQSAPI-demo.gif"):
+    #> path[1]="vignettes/figures/RAQSAPI-demo.gif": No such file or directory
+
+../figures/RAQSAPI-demo.gif![](figures/RAQSAPI-demo.gif)
 
 ### Usage tips and precautions
 
@@ -549,12 +552,13 @@ S3 object containing a table of monitoring agencies (MA).
 
 ### Data Mart aggregate functions
 
-> \[!IMPORTANT\] AQS Data Mart API restricts the maximum amount of
-> monitoring data to one full year of data per API call. These functions
-> are able to return multiple years of data by making repeated calls to
-> the API. Each call to the Data Mart API will take time to complete.
-> The more years of data being requested the longer RAQSAPI will take to
-> return the results.
+**Important.**
+
+AQS Data Mart API restricts the maximum amount of monitoring data to one
+full year of data per API call. These functions are able to return
+multiple years of data by making repeated calls to the API. Each call to
+the Data Mart API will take time to complete. The more years of data
+being requested the longer RAQSAPI will take to return the results.
 
 These functions retrieve aggregated data from the Data Mart API and are
 grouped by how each function aggregates the data. There are 5 different
@@ -992,27 +996,27 @@ those sources without them RAQSAPI would not be possible.
 - The R package `usethis`⁶ was used to generate GitHub actions for
   Continuous integration (CI).
 - Code cleanup was assisted by the R package `lintr`⁷
-- the function *install.packages* are provided by the R package `utils`⁸
-- the function *pkg_install* are provided by the R package `pak`⁹
+- the function *pkg_install* are provided by the R package `pak`⁸⁸\]
 - .gitignore file borrowed examples from
   <https://github.com/github/gitignore/blob/master/R.gitignore>
-- . CITATION.cff file was generated by the R package `cffr`¹⁰
-- R package `urlchecker`¹¹ was used to check urls in RAQSAPI
+- CITATION.cff file is generated by the R package `cffr`⁹
+- R package `urlchecker`¹⁰ was used to check urls in RAQSAPI
   documentation
-- R package `goodpractice`¹² was used for static code checking
-- R package `formatR`¹³ was used to form code in this repository
-- R package `testthat`¹⁴ is used for unit testing
-- unit tests are mocked using R package `httptest2`¹⁵
-- Additional code formatting was accomplished using Air formatter¹⁶
-- codemeta.json file was generated using R package `codemetar`¹⁷
-- animated GIF of demo was created using Asciinema¹⁸
+- R package `goodpractice`¹¹ was used for static code checking
+- R package `formatR`¹² was used to form code in this repository
+- R package `testthat`¹³ is used for unit testing
+- unit tests are mocked using R package `httptest2`¹⁴
+- Additional code formatting was accomplished using Air formatter¹⁵
+- codemeta.json file was generated using R package `codemetar`¹⁶
+- animated GIF of demo was created using `Asciinema`¹⁷
+- the github pages site is built using `pkgdown`^(**package:pkgdown?**)
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
 project’s code base, discover bugs, and suggest improvements. Especially
 the editors that showed interest in starting the review process [Laura
-DeCicco](https://github.com/ldecicco-USGS), and Jeffrey W.
-Hollister(<https://github.com/jhollist>) and also the reviewers Mark
+DeCicco](https://github.com/ldecicco-USGS), and [Jeffrey W.
+Hollister](https://github.com/jhollist) and also the reviewers Mark
 Padgham, [Milan Malfait](https://github.com/milanmlft), [Rainer M.
 Krug](https://github.com/rkrug) and [Mark
 Padgham](https://github.com/mpadge).
@@ -1068,60 +1072,54 @@ Patil, I. *Lintr: A ’Linter’ for r Code*; 2025.
 
 \(8\)
 
-Team, R. C. *[R: A Language and Environment for Statistical
-Computing](https://www.R-project.org/)*; R Foundation for Statistical
-Computing: Vienna, Austria, 2019.
-
-\(9\)
-
 Csardi, G.; Hester, J. *Pak: Another Approach to Package Installation*;
 2026. <https://doi.org/10.32614/CRAN.package.pak>
 
-\(10\)
+\(9\)
 
 Hernangómez, D. cffr: Generate Citation File Format Metadata for R
 Packages. *Journal of Open Source Software* **2021**, *6* (67), 3900.
 <https://doi.org/10.21105/joss.03900>
 
-\(11\)
+\(10\)
 
 R Core team; Hester, J.; Csárdi, G. *Urlchecker: Run CRAN URL Checks
 from Older R Versions*; 2021.
 <https://doi.org/10.32614/CRAN.package.urlchecker>
 
-\(12\)
+\(11\)
 
 Padgham, M.; Marks, K.; de Bortoli, D.; Csardi, G.; Frick, H.; Jones,
 O.; Alexander, H. *Goodpractice: Advice on R Package Building*; 2024.
 <https://doi.org/10.32614/CRAN.package.goodpractice>
 
-\(13\)
+\(12\)
 
 Xie, Y. *formatR: Format r Code Automatically*; 2023.
 <https://doi.org/10.32614/CRAN.package.formatR>
 
-\(14\)
+\(13\)
 
 Wickham, H. [Testthat: Get Started with
 Testing](https://journal.r-project.org/articles/RJ-2011-002/). *The R
 Journal* **2011**, *3*, 5–10.
 
-\(15\)
+\(14\)
 
 Richardson, N. *Httptest2: Test Helpers for Httr2*; 2025.
 <https://doi.org/10.32614/CRAN.package.httptest2>
 
-\(16\)
+\(15\)
 
 Posit development team. Air - and r Formatter and Language Server,
 Written in Rust, 2026. <https://github.com/posit-dev/air>
 
-\(17\)
+\(16\)
 
 Boettiger, C.; Salmon, M. *Codemetar: Generate ’CodeMeta’ Metadata for r
 Packages*; 2026. <https://doi.org/10.32614/CRAN.package.codemetar>
 
-\(18\)
+\(17\)
 
 Kulik, M. Asciinema: Terminal Session Recorder, Streamer and Player,
 2026. <https://github.com/asciinema/asciinema>
