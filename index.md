@@ -4,6 +4,7 @@ true
 
 - [EPA Disclaimer](#epa-disclaimer)
 - [Introduction](#introduction)
+  - [How to Pronounce RAQSAPI](#how-to-pronounce-raqsapi)
 - [About the timeliness of AQS Data](#about-the-timeliness-of-aqs-data)
 - [Installing RAQSAPI](#installing-raqsapi)
   - [Option 1: Installing the stable version from CRAN (preferred
@@ -88,6 +89,20 @@ tibble is returned with just the \$Data portion of the request. After
 each call to the API a five second stall is invoked to help prevent
 overloading the Data Mart API server and to serve as a simple rate
 limit. [^1]
+
+## How to Pronounce RAQSAPI
+
+Initially, the name `RAQSAPI` started as an acronym. So Technically
+RAQSAPI should be pronounced by spelling out the name of the project,
+R-A-Q-S-A-P-I. As time went on I noticed that a lot of people not
+familiar with AQS, R or air monitoring had trouble remembering the
+entire acronym. Often times people not familar with the project would
+pronounce it as “rækˈsæpi” ([IPA phonetic
+pronunciation](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)
+pronounced as “rack” + “sappy”). Instead of correcting people on how the
+authors thought it should be pronounced, RAQSAPI has adopted both as
+acceptable ways to pronounce the project’s name. “R-A-Q-S-A-P-I” or
+\[rækˈsæpi (“rack” + “sappy”)\] as acceptable.
 
 # About the timeliness of AQS Data
 
@@ -254,15 +269,10 @@ for an in depth explanation on using the `keyring` package.
 
 ## RAQSAPI usage demonstration
 
-Here is a short usage demonstration of RAQSAPI
-
-``` R
-#> Warning in normalizePath(path.expand(path), winslash, mustWork):
-#> path[1]="vignettes/figures/RAQSAPI-demo.gif": The system cannot find the path
-#> specified
-```
-
-../figures/RAQSAPI-demo.gif![](articles/figures/RAQSAPI-demo.gif)
+Here is a short usage demonstration of RAQSAPI: \[1\] FALSE \[1\]
+“/workspaces/RAQSAPI/vignettes/includes” ![A short animated gif that
+demonstrates how to use
+RAQSAPI](../../reference/figures/RAQSAPI-demo.gif)
 
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
@@ -372,7 +382,7 @@ those sources without them RAQSAPI would not be possible.
 - Additional code formatting was accomplished using Air formatter¹⁵
 - codemeta.json file was generated using R package `codemetar`¹⁶
 - animated GIF of demo was created using `Asciinema`¹⁷
-- the github pages site is built using `pkgdown`^(**package:pkgdown?**)
+- the github pages site is built using `pkgdown`¹⁸
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
@@ -486,6 +496,12 @@ Packages*; 2026. <https://doi.org/10.32614/CRAN.package.codemetar>
 
 Kulik, M. Asciinema: Terminal Session Recorder, Streamer and Player,
 2026. <https://github.com/asciinema/asciinema>
+
+\(18\)
+
+Wickham, H.; Hesselberth, J.; Salmon, M.; Roy, O.; Brüggemann, S.
+*Pkgdown: Make Static HTML Documentation for a Package*; 2026.
+<https://doi.org/10.32614/CRAN.package.pkgdown>
 
 [^1]: RAQSAPI’s rate limit does not guarantee that the user will not go
     over the rate limit and does not guarantee that API calls do not

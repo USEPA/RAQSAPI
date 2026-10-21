@@ -23,7 +23,9 @@ you’ve found a bug, please file an issue that illustrates the bug with a
 minimal [reprex](https://www.tidyverse.org/help/#reprex) (this will also
 help you write a unit test, if needed). See our guide on [how to create
 a great issue](https://code-review.tidyverse.org/issues/) for more
-advice.
+advice. Consider using the [RAQSAPI
+devcontainer](https://github.com/USEPA/RAQSAPI/tree/main/.devcontainer/)
+to ensure that your build is reproducible.
 
 ### Pull request process
 

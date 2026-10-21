@@ -206,12 +206,10 @@ for an in depth explanation on using the `keyring` package.
 
 ### RAQSAPI usage demonstration
 
-Here is a short usage demonstration of RAQSAPI
-
-    #> Warning in normalizePath("vignettes/figures/RAQSAPI-demo.gif"):
-    #> path[1]="vignettes/figures/RAQSAPI-demo.gif": No such file or directory
-
-../figures/RAQSAPI-demo.gif![](figures/RAQSAPI-demo.gif)
+Here is a short usage demonstration of RAQSAPI: \[1\] FALSE \[1\]
+“/home/runner/work/RAQSAPI/RAQSAPI/vignettes/includes” ![A short
+animated gif that demonstrates how to use
+RAQSAPI](../../reference/figures/RAQSAPI-demo.gif)
 
 ### Usage tips and precautions
 
@@ -397,7 +395,7 @@ section to see which parameters are used with each function.
   duration. The default value of NA_character\_ will result in no
   filtering based on duration code. Valid durations include actual
   sample durations and not calculated durations such as 8 hour CO or
-  O$`{_3}`$ rolling averages, 3/6 day PM averages or Pb 3 month rolling
+  O\\{\_3}\\ rolling averages, 3/6 day PM averages or Pb 3 month rolling
   averages. Refer to \[aqs_sampledurations()\] for a table of all
   available duration codes.
 
@@ -600,7 +598,7 @@ set to TRUE an AQS_DATAMART_APIv2 S3 object is returned instead.
   duration code that limits returned data to a specific sample duration.
   The default value of NA_character\_ results in no filtering based on
   duration code. Valid durations include actual sample durations and not
-  calculated durations such as 8 hour CO or $`O_3`$ rolling averages,
+  calculated durations such as 8 hour CO or \\O_3\\ rolling averages,
   3/6 day PM averages or Pb 3 month rolling averages. Refer to
   \[aqs_sampledurations()\] for a list of all available duration codes.
 
@@ -1009,7 +1007,7 @@ those sources without them RAQSAPI would not be possible.
 - Additional code formatting was accomplished using Air formatter¹⁵
 - codemeta.json file was generated using R package `codemetar`¹⁶
 - animated GIF of demo was created using `Asciinema`¹⁷
-- the github pages site is built using `pkgdown`^(**package:pkgdown?**)
+- the github pages site is built using `pkgdown`¹⁸
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
@@ -1123,6 +1121,12 @@ Packages*; 2026. <https://doi.org/10.32614/CRAN.package.codemetar>
 
 Kulik, M. Asciinema: Terminal Session Recorder, Streamer and Player,
 2026. <https://github.com/asciinema/asciinema>
+
+\(18\)
+
+Wickham, H.; Hesselberth, J.; Salmon, M.; Roy, O.; Brüggemann, S.
+*Pkgdown: Make Static HTML Documentation for a Package*; 2026.
+<https://doi.org/10.32614/CRAN.package.pkgdown>
 
 [^1]: RAQSAPI’s rate limit does not guarantee that the user will not go
     over the rate limit and does not guarantee that API calls do not

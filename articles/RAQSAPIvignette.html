@@ -5,13 +5,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Introduction to the RAQSAPI package • RAQSAPI</title>
+<title>Introduction to the RAQSAPI package • RAQSAPI - A R extension to retrieve EPA Air Quality System Data via the AQS Data Mart API</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -23,9 +29,9 @@
 
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">RAQSAPI</a>
+    <a class="navbar-brand me-2" href="../index.html">RAQSAPI - A R extension to retrieve EPA Air Quality System Data via the AQS Data Mart API</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">2.0.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -300,10 +306,9 @@ package documentation</a> for an in depth explanation on using the
 <div class="section level3">
 <h3 id="raqsapi-usage-demonstration">RAQSAPI usage demonstration<a class="anchor" aria-label="anchor" href="#raqsapi-usage-demonstration"></a>
 </h3>
-<p>Here is a short usage demonstration of RAQSAPI</p>
-<pre><code><span><span class="co">#&gt; Warning in normalizePath("vignettes/figures/RAQSAPI-demo.gif"):</span></span>
-<span><span class="co">#&gt; path[1]="vignettes/figures/RAQSAPI-demo.gif": No such file or directory</span></span></code></pre>
-<p>../figures/RAQSAPI-demo.gif<img src="figures/RAQSAPI-demo.gif"><!-- --></p>
+<p>Here is a short usage demonstration of RAQSAPI: [1] FALSE [1]
+“/home/runner/work/RAQSAPI/RAQSAPI/vignettes/includes”
+<img src="../../reference/figures/RAQSAPI-demo.gif" class="r-plt" alt="A short animated gif that demonstrates how to use RAQSAPI"></p>
 </div>
 <div class="section level3">
 <h3 id="usage-tips-and-precautions">Usage tips and precautions<a class="anchor" aria-label="anchor" href="#usage-tips-and-precautions"></a>
@@ -504,10 +509,9 @@ for each state.</p></li>
 parameter duration code that limits returned data to a specific sample
 duration. The default value of NA_character_ will result in no filtering
 based on duration code. Valid durations include actual sample durations
-and not calculated durations such as 8 hour CO or
-O<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi></mi><mn>3</mn></msub><annotation encoding="application/x-tex">{_3}</annotation></semantics></math>
-rolling averages, 3/6 day PM averages or Pb 3 month rolling averages.
-Refer to [aqs_sampledurations()] for a table of all available duration
+and not calculated durations such as 8 hour CO or O<span class="math inline">\({_3}\)</span> rolling averages, 3/6 day PM
+averages or Pb 3 month rolling averages. Refer to
+[aqs_sampledurations()] for a table of all available duration
 codes.</p></li>
 <li><p>edate: a R date object which represents the end date of the data
 selection. Only data on or before this date will be returned.</p></li>
@@ -696,11 +700,9 @@ defaults to NA_Date_.</li>
 parameter duration code that limits returned data to a specific sample
 duration. The default value of NA_character_ results in no filtering
 based on duration code. Valid durations include actual sample durations
-and not calculated durations such as 8 hour CO or
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>O</mi><mn>3</mn></msub><annotation encoding="application/x-tex">O_3</annotation></semantics></math>
-rolling averages, 3/6 day PM averages or Pb 3 month rolling averages.
-Refer to [aqs_sampledurations()] for a list of all available duration
-codes.</li>
+and not calculated durations such as 8 hour CO or <span class="math inline">\(O_3\)</span> rolling averages, 3/6 day PM averages
+or Pb 3 month rolling averages. Refer to [aqs_sampledurations()] for a
+list of all available duration codes.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li>
@@ -1150,7 +1152,7 @@ repository</li>
 </li>
 <li>animated GIF of demo was created using <code>Asciinema</code><span class="citation"><sup>17</sup></span>
 </li>
-<li>the github pages site is built using <code>pkgdown</code><span class="citation"><sup><strong>package:pkgdown?</strong></sup></span>
+<li>the github pages site is built using <code>pkgdown</code><span class="citation"><sup>18</sup></span>
 </li>
 </ul>
 <p>The RAQSAPI project developers would like to thank the awesome work
@@ -1278,6 +1280,13 @@ Generate ’CodeMeta’ Metadata for r Packages</em>; 2026. <a href="https://doi
 <div class="csl-left-margin">(17) </div>
 <div class="csl-right-inline">Kulik, M. Asciinema: Terminal Session Recorder,
 Streamer and Player, 2026. <a href="https://github.com/asciinema/asciinema" class="external-link">https://github.com/asciinema/asciinema</a>
+</div>
+</div>
+<div id="ref-package:pkgdown" class="csl-entry">
+<div class="csl-left-margin">(18) </div>
+<div class="csl-right-inline">Wickham, H.; Hesselberth, J.; Salmon, M.; Roy,
+O.; Brüggemann, S. <em>Pkgdown: Make Static HTML Documentation for a
+Package</em>; 2026. <a href="https://doi.org/10.32614/CRAN.package.pkgdown" class="external-link">https://doi.org/10.32614/CRAN.package.pkgdown</a>
 </div>
 </div>
 </div>
