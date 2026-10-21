@@ -65,8 +65,7 @@ references:
   doi: 10.32614/R.manuals
   version: '>= 4.5.0'
 - type: software
-  title: dplyr
-  abstract: 'dplyr: A Grammar of Data Manipulation'
+  title: 'dplyr: A Grammar of Data Manipulation'
   notes: Imports
   url: https://dplyr.tidyverse.org
   repository: https://CRAN.R-project.org/package=dplyr
@@ -90,8 +89,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.dplyr
 - type: software
-  title: glue
-  abstract: 'glue: Interpreted String Literals'
+  title: 'glue: Interpreted String Literals'
   notes: Imports
   url: https://glue.tidyverse.org/
   repository: https://CRAN.R-project.org/package=glue
@@ -106,8 +104,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.glue
 - type: software
-  title: httr2
-  abstract: 'httr2: Perform HTTP Requests and Process the Responses'
+  title: 'httr2: Perform HTTP Requests and Process the Responses'
   notes: Imports
   url: https://httr2.r-lib.org
   repository: https://CRAN.R-project.org/package=httr2
@@ -118,8 +115,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.httr2
 - type: software
-  title: lifecycle
-  abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
+  title: 'lifecycle: Manage the Life Cycle of your Package Functions'
   notes: Imports
   url: https://lifecycle.r-lib.org/
   repository: https://CRAN.R-project.org/package=lifecycle
@@ -134,8 +130,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.lifecycle
 - type: software
-  title: lubridate
-  abstract: 'lubridate: Make Dealing with Dates a Little Easier'
+  title: 'lubridate: Make Dealing with Dates a Little Easier'
   notes: Imports
   url: https://lubridate.tidyverse.org
   repository: https://CRAN.R-project.org/package=lubridate
@@ -150,8 +145,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.lubridate
 - type: software
-  title: methods
-  abstract: 'R: A Language and Environment for Statistical Computing'
+  title: 'R: A Language and Environment for Statistical Computing'
   notes: Imports
   authors:
   - name: R Core Team
@@ -163,8 +157,7 @@ references:
   year: '2026'
   doi: 10.32614/R.manuals
 - type: software
-  title: magrittr
-  abstract: 'magrittr: A Forward-Pipe Operator for R'
+  title: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
   url: https://magrittr.tidyverse.org
   repository: https://CRAN.R-project.org/package=magrittr
@@ -178,8 +171,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.magrittr
 - type: software
-  title: purrr
-  abstract: 'purrr: Functional Programming Tools'
+  title: 'purrr: Functional Programming Tools'
   notes: Imports
   url: https://purrr.tidyverse.org/
   repository: https://CRAN.R-project.org/package=purrr
@@ -194,8 +186,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.purrr
 - type: software
-  title: rlang
-  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  title: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
   notes: Imports
   url: https://rlang.r-lib.org
   repository: https://CRAN.R-project.org/package=rlang
@@ -209,8 +200,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rlang
 - type: software
-  title: stringr
-  abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
+  title: 'stringr: Simple, Consistent Wrappers for Common String Operations'
   notes: Imports
   url: https://stringr.tidyverse.org
   repository: https://CRAN.R-project.org/package=stringr
@@ -218,11 +208,10 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.stringr
 - type: software
-  title: tibble
-  abstract: 'tibble: Simple Data Frames'
+  title: 'tibble: Simple Data Frames'
   notes: Imports
   url: https://tibble.tidyverse.org/
   repository: https://CRAN.R-project.org/package=tibble
@@ -237,8 +226,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.tibble
 - type: software
-  title: tidyselect
-  abstract: 'tidyselect: Select from a Set of Strings'
+  title: 'tidyselect: Select from a Set of Strings'
   notes: Imports
   url: https://tidyselect.r-lib.org
   repository: https://CRAN.R-project.org/package=tidyselect
@@ -249,11 +237,10 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2026'
+  year: '2024'
   doi: 10.32614/CRAN.package.tidyselect
 - type: software
-  title: cli
-  abstract: 'cli: Helpers for Developing Command Line Interfaces'
+  title: 'cli: Helpers for Developing Command Line Interfaces'
   notes: Suggests
   url: https://cli.r-lib.org
   repository: https://CRAN.R-project.org/package=cli
@@ -264,8 +251,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.cli
 - type: software
-  title: covr
-  abstract: 'covr: Test Coverage for Packages'
+  title: 'covr: Test Coverage for Packages'
   notes: Suggests
   url: https://covr.r-lib.org
   repository: https://CRAN.R-project.org/package=covr
@@ -273,11 +259,10 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.f.hester@gmail.com
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.covr
 - type: software
-  title: devtools
-  abstract: 'devtools: Tools to Make Developing R Packages Easier'
+  title: 'devtools: Tools to Make Developing R Packages Easier'
   notes: Suggests
   url: https://devtools.r-lib.org/
   repository: https://CRAN.R-project.org/package=devtools
@@ -295,8 +280,19 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.devtools
 - type: software
-  title: goodpractice
-  abstract: 'goodpractice: Advice on R Package Building'
+  title: 'formatR: Format R Code Automatically'
+  notes: Suggests
+  url: https://github.com/yihui/formatR
+  repository: https://CRAN.R-project.org/package=formatR
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2023'
+  doi: 10.32614/CRAN.package.formatR
+- type: software
+  title: 'goodpractice: Advice on R Package Building'
   notes: Suggests
   url: https://docs.ropensci.org/goodpractice/
   repository: https://ropensci-review-tools.r-universe.dev
@@ -330,8 +326,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.goodpractice
 - type: software
-  title: httptest2
-  abstract: 'httptest2: Test Helpers for ''httr2'''
+  title: 'httptest2: Test Helpers for ''httr2'''
   notes: Suggests
   url: https://enpiar.com/httptest2/
   repository: https://CRAN.R-project.org/package=httptest2
@@ -340,11 +335,10 @@ references:
     given-names: Neal
     email: neal.p.richardson@gmail.com
     orcid: https://orcid.org/0009-0002-7992-3520
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.httptest2
 - type: software
-  title: keyring
-  abstract: 'keyring: Access the System Credential Store from R'
+  title: 'keyring: Access the System Credential Store from R'
   notes: Suggests
   url: https://keyring.r-lib.org/
   repository: https://CRAN.R-project.org/package=keyring
@@ -352,11 +346,10 @@ references:
   - family-names: Csárdi
     given-names: Gábor
     email: csardi.gabor@gmail.com
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.keyring
 - type: software
-  title: knitr
-  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  title: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
   url: https://yihui.org/knitr/
   repository: https://CRAN.R-project.org/package=knitr
@@ -368,8 +361,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
-  title: pak
-  abstract: 'pak: Another Approach to Package Installation'
+  title: 'pak: Another Approach to Package Installation'
   notes: Suggests
   url: https://pak.r-lib.org/
   repository: https://CRAN.R-project.org/package=pak
@@ -382,8 +374,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.pak
 - type: software
-  title: rmarkdown
-  abstract: 'rmarkdown: Dynamic Documents for R'
+  title: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests
   url: https://pkgs.rstudio.com/rmarkdown/
   repository: https://CRAN.R-project.org/package=rmarkdown
@@ -426,8 +417,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
-  title: roxygen2
-  abstract: 'roxygen2: In-Line Documentation for R'
+  title: 'roxygen2: In-Line Documentation for R'
   notes: Suggests
   url: https://roxygen2.r-lib.org/
   repository: https://CRAN.R-project.org/package=roxygen2
@@ -447,8 +437,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.roxygen2
 - type: software
-  title: spelling
-  abstract: 'spelling: Tools for Spell Checking in R'
+  title: 'spelling: Tools for Spell Checking in R'
   notes: Suggests
   url: https://ropensci.r-universe.dev/spelling
   repository: https://CRAN.R-project.org/package=spelling
@@ -460,11 +449,10 @@ references:
   - family-names: Hester
     given-names: Jim
     email: james.hester@rstudio.com
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.spelling
 - type: software
-  title: testthat
-  abstract: 'testthat: Unit Testing for R'
+  title: 'testthat: Unit Testing for R'
   notes: Suggests
   url: https://testthat.r-lib.org
   repository: https://CRAN.R-project.org/package=testthat
@@ -476,8 +464,7 @@ references:
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
-  title: usethis
-  abstract: 'usethis: Automate Package and Project Setup'
+  title: 'usethis: Automate Package and Project Setup'
   notes: Suggests
   url: https://usethis.r-lib.org
   repository: https://CRAN.R-project.org/package=usethis

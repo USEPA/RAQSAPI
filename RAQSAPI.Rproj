@@ -1,7 +1,7 @@
 Version: 1.0
 
-RestoreWorkspace: Yes
-SaveWorkspace: Yes
+RestoreWorkspace: No
+SaveWorkspace: No
 AlwaysSaveHistory: No
 
 EnableCodeIndexing: Yes
@@ -23,6 +23,7 @@ PackageCheckArgs: --manual  = TRUE --as-cran
 PackageRoxygenize: rd,collate,namespace,vignette
 
 QuitChildProcessesOnExit: Yes
+DisableExecuteRprofile: Yes
 
 MarkdownReferences: Document
 

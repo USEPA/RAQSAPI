@@ -116,7 +116,7 @@ importFrom(lifecycle,
   deprecated
 )
 importFrom(lubridate,
-  '%within%',
+  "%within%",
   NA_Date_,
   day,
   is.Date,

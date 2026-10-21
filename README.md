@@ -4,6 +4,7 @@ true
 
 - [EPA Disclaimer](#epa-disclaimer)
 - [Introduction](#introduction)
+  - [How to Pronounce RAQSAPI](#how-to-pronounce-raqsapi)
 - [About the timeliness of AQS Data](#about-the-timeliness-of-aqs-data)
 - [Installing RAQSAPI](#installing-raqsapi)
   - [Option 1: Installing the stable version from CRAN (preferred
@@ -40,10 +41,12 @@ status](https://www.r-pkg.org/badges/version/RAQSAPI)](https://CRAN.R-project.or
 downloads](https://cranlogs.r-pkg.org/badges/RAQSAPI)](https://cran.r-project.org/package=RAQSAPI)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-MIT-green)](https://choosealicense.com/licenses/mit/)
-[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--10--02-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-%202026--10--21-yellowgreen.svg)](/commits/master)
 [![pkgcheck](https://github.com/USEpa/RAQSAPI/workflows/pkgcheck/badge.svg)](https://github.com/USEpa/\%20/RAQSAPI/.github/workflows/pkgcheck.yaml)
 [![Status at rOpenSci Software Peer
 Review](https://badges.ropensci.org/744_status.svg)](https://github.com/ropensci/software-review/issues/744)
+![OSS
+Lifecycle](https://img.shields.io/osslifecycle?file_url=https%3A%2F%2Fgithub.com%2FUSEPA%2FRAQSAPI%2Fblob%2Fmain%2FOSSMETADATA&style=plastic)
 <!-- badges: end -->
 
 # EPA Disclaimer
@@ -87,6 +90,20 @@ FALSE (default) a simple tibble is returned with just the \$Data portion
 of the request. After each call to the API a five second stall is
 invoked to help prevent overloading the Data Mart API server and to
 serve as a simple rate limit. [^1]
+
+## How to Pronounce RAQSAPI
+
+Initially, the name `RAQSAPI` started as an acronym. So Technically
+RAQSAPI should be pronounced by spelling out the name of the project,
+R-A-Q-S-A-P-I. As time went on I noticed that a lot of people not
+familiar with AQS, R or air monitoring had trouble remembering the
+entire acronym. Often times people not familar with the project would
+pronounce it as “rækˈsæpi” ([IPA phonetic
+pronunciation](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet)
+pronounced as “rack” + “sappy”). Instead of correcting people on how the
+authors thought it should be pronounced, RAQSAPI has adopted both as
+acceptable ways to pronounce the project’s name. “R-A-Q-S-A-P-I” or
+\[rækˈsæpi (“rack” + “sappy”)\] as acceptable.
 
 # About the timeliness of AQS Data
 
@@ -239,13 +256,9 @@ for an in depth explanation on using the `keyring` package.
 
 ## RAQSAPI usage demonstration
 
-Here is a short usage demonstration of RAQSAPI
-
-    #> Warning in normalizePath(path.expand(path), winslash, mustWork):
-    #> path[1]="vignettes/figures/RAQSAPI-demo.gif": The system cannot find the path
-    #> specified
-
-../figures/RAQSAPI-demo.gif![](vignettes/figures/RAQSAPI-demo.gif)<!-- -->
+Here is a short usage demonstration of RAQSAPI: \[1\] FALSE \[1\]
+“/workspaces/RAQSAPI/vignettes/includes”
+<img src="../../man/figures/RAQSAPI-demo.gif" alt="A short animated gif that demonstrates how to use RAQSAPI"  />
 
 RAQSAPI functions are named according to the service and filter
 variables that are available from the Data Mart API.[^5]
@@ -355,8 +368,7 @@ those sources without them RAQSAPI would not be possible.
 - codemeta.json file was generated using R package
   `codemetar`<sup>16</sup>
 - animated GIF of demo was created using `Asciinema`<sup>17</sup>
-- the github pages site is built using
-  `pkgdown`<sup>**package:pkgdown?**</sup>
+- the github pages site is built using `pkgdown`<sup>18</sup>
 
 The RAQSAPI project developers would like to thank the awesome work of
 the rOpenSci non-profit community of practice for reviewing this
@@ -530,6 +542,16 @@ r Formatter and Language Server, Written in Rust, 2026.
 </span><span class="csl-right-inline">Kulik, M. Asciinema: Terminal
 Session Recorder, Streamer and Player, 2026.
 <https://github.com/asciinema/asciinema></span>
+
+</div>
+
+<div id="ref-package:pkgdown" class="csl-entry">
+
+<span class="csl-left-margin">(18)
+</span><span class="csl-right-inline">Wickham, H.; Hesselberth, J.;
+Salmon, M.; Roy, O.; Brüggemann, S. *Pkgdown: Make Static HTML
+Documentation for a Package*; 2026.
+<https://doi.org/10.32614/CRAN.package.pkgdown></span>
 
 </div>
 

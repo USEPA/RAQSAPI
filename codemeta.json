@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.6.1 (2026-06-24 ucrt)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -132,6 +132,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=devtools"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "formatR",
+      "name": "formatR",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=formatR"
     },
     {
       "@type": "SoftwareApplication",
@@ -402,7 +414,7 @@
     "SystemRequirements": "package manual and Vignettes require pandoc\n                    (>= 1.14) (http://pandoc.org)"
   },
   "keywords": ["UnitedStateEnvironmentalProtectionAgency", "Environmental-data-retrieval", "Air-Quality-System", "AQS-DataMart", "Air-monitoring", "Environmental-monitoring", "r03", "airmonitoring", "aqs", "datamart", "environmental-data-retrieval", "environmental-monitoring", "usepa", "rpackage", "rprogramming"],
-  "fileSize": "14978.698KB",
+  "fileSize": "1337.505KB",
   "citation": [
     {
       "@type": "CreativeWork",

@@ -56,7 +56,7 @@ options(tinytex.verbose = TRUE)
 ```{r child = "./includes/_EPA_Disclaimer.Rmd", echo = FALSE, comment = NA}
 ```
 
-```{r child = "./includes/_Intro.Rmd", echo = FALSE, comment = NA}
+```{r child = "./includes/_Intro.Rmd"}
 ```
 
 ```{r child = "./includes/_TimelinessofAQSData.Rmd"}

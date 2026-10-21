@@ -107,6 +107,7 @@ Imports: dplyr,
 Suggests: cli,
     covr,
     devtools,
+    formatR,
     goodpractice,
     httptest2,
     keyring,
@@ -152,8 +153,8 @@ X-schema.org-keywords: United State Environmental Protection Agency,
                        Environmental-data-retrieval, Air-Quality-System,
                        AQS-DataMart, Air-monitoring, Environmental-monitoring
 Config/testthat/edition: 3
-Config/testthat/load-all: list(export_all = FALSE, helpers = FALSE)
+Config/testthat/load-all: list(export_all = TRUE, helpers = TRUE)
 Config/testthat/parallel: false
 Config/build/clean-inst-doc: true
-Config/roxygen2/version: 8.1.0
+Config/roxygen2/version: 8.1.1
 Config/roxygen2/markdown: TRUE

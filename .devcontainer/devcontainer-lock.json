@@ -1,0 +1,14 @@
+{
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/r-dependent-packages:latest": {
+      "version": "0.2.0",
+      "resolved": "ghcr.io/rocker-org/devcontainer-features/r-dependent-packages@sha256:1a4e8dc80e6454de3219cd78a64b74bd36ebff2d3ac038766ff6d976c104843e",
+      "integrity": "sha256:1a4e8dc80e6454de3219cd78a64b74bd36ebff2d3ac038766ff6d976c104843e"
+    },
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/rocker-org/devcontainer-features/r-packages@sha256:1a4ec64c4d2060e78e9c812bd3b3622c7e008465d566a2781c0e2b17a82592e5",
+      "integrity": "sha256:1a4ec64c4d2060e78e9c812bd3b3622c7e008465d566a2781c0e2b17a82592e5"
+    }
+  }
+}

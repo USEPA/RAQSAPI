@@ -156,22 +156,18 @@ Refer to the[`keyring` package documentation](
 https://cran.r-project.org/package=keyring/readme/README.html)
 for an in depth explanation on using the `keyring` package.
 
-```{r, results='asis', echo=FALSE}
+```{r, results='asis', echo=FALSE, fig.alt="A short animated gif that demonstrates how to use RAQSAPI"}
 if (!knitr::is_latex_output()) {
-  cat(
-    "## RAQSAPI usage demonstration\n\n",
-    "Here is a short usage demonstration of RAQSAPI\n\n",
-    sep = ""
+  cat("## RAQSAPI usage demonstration",
+      "Here is a short usage demonstration of RAQSAPI:",
+      sep = "\n"
   )
 
-  gif <- if (file.exists(normalizePath("vignettes/figures/RAQSAPI-demo.gif"))) {
-    "vignettes/figures/RAQSAPI-demo.gif"
-  } else {
-    "../figures/RAQSAPI-demo.gif"
-  }
+  gif <- "../../man/figures/RAQSAPI-demo.gif"
+  print(file.exists(gif))
+  print(getwd())
+ 
   
-  cat(gif)
-
-  knitr::include_graphics(normalizePath(gif))
+  knitr::include_graphics(gif)
 }
 ```

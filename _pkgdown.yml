@@ -1,12 +1,22 @@
 url: https://usepa.github.io/RAQSAPI/
+title: RAQSAPI - A R extension to retrieve EPA Air Quality System Data via the AQS Data Mart API
+
+home:
+  sidebar:
+    structure: [links, license, community, citation, authors, dev]
+
 template:
-  trailing_slash_redirect: true
-  light-switch: true
-  logo: vignettes/figures/RAQSAPIhexsticker.png
   bootstrap: 5
+  light-switch: true
+  trailing_slash_redirect: true
+  math-rendering: mathjax
+  logo: vignettes/figures/RAQSAPIhexsticker.png
   bslib:
     bootswatch: yeti
     pkgdown-nav-height: 100px
+
+development:
+  mode: auto
 
 reference:
 - title: Getting started with RAQSAPI

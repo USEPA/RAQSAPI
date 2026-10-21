@@ -1,0 +1,37 @@
+{
+  "name": "RAQSAPI (Rocker RStudio Server)",
+  "updateRemoteUserUID": true,
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "runArgs": [
+  ],
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "cffr,goodpractice,spelling,pkgcheck,languageserver,formatR,rio,waldo,nanonext,codemetar,pkgdown",
+      "additionalRepositories": "rOpenScireviewtools = 'https://ropensci-review-tools.r-universe.dev', rOpenSci = 'https://ropensci.r-universe.dev'",
+      "installSystemRequirements": true
+    },
+    "ghcr.io/rocker-org/devcontainer-features/r-dependent-packages:latest": {
+      "when": "postCreate",
+      "manifestRoot": "${containerWorkspaceFolder}",
+      "additionalRepositories": "rOpenScireviewtools = 'https://ropensci-review-tools.r-universe.dev', rOpenSci = 'https://ropensci.r-universe.dev'",
+      "dependencyTypes": "all"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["posit.air-vscode", "ms-azuretools.vscode-docker"]
+    }
+  },
+  "forwardPorts": [8787],
+  "overrideCommand": false,
+  "remoteUser": "RAQSAPI",
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio Server",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}

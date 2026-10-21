@@ -1,0 +1,24 @@
+---
+title: "RAQSAPI - How to pronounce"
+author:
+- name: Clinton Mccrowey
+  affiliation: United States Environmental Protection Agency Region 3, Air and Radiation
+    Division
+output:
+  rmarkdown::github_document: null
+  rmarkdown::html_document: null
+editor_options: 
+  markdown: 
+    wrap: 125
+bibliography: AQSAPI.bib
+csl: acs-nano.csl
+---
+
+## How to Pronounce RAQSAPI
+
+Initially, the name `RAQSAPI` started as an acronym. So Technically RAQSAPI should be pronounced by spelling out the name of
+the project, R-A-Q-S-A-P-I. As time went on I noticed that a lot of people not familiar with AQS, R or air monitoring had
+trouble remembering the entire acronym. Often times people not familar with the project would pronounce it as "rækˈsæpi"
+([IPA phonetic pronunciation](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet) pronounced as "rack" + "sappy").
+Instead of correcting people on how the authors thought it should be pronounced, RAQSAPI has adopted both as acceptable ways
+to pronounce the project's name. "R-A-Q-S-A-P-I" or [rækˈsæpi ("rack" + "sappy")] as acceptable.
