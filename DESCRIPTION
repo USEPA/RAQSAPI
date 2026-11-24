@@ -104,7 +104,8 @@ Imports: dplyr,
     stringr,
     tibble,
     tidyselect
-Suggests: cli,
+Suggests: 
+    cli,
     covr,
     devtools,
     formatR,
@@ -117,7 +118,8 @@ Suggests: cli,
     roxygen2,
     spelling,
     testthat (>= 3.0.0),
-    usethis
+    usethis,
+    vcr
 SystemRequirements: package manual and Vignettes require pandoc
                     (>= 1.14) (http://pandoc.org)
 VignetteBuilder: knitr
